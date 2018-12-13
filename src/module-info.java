@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author passwd
+ *
+ */
+module fatturazione {
+}
