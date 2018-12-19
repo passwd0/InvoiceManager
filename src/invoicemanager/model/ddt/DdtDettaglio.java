@@ -1,4 +1,4 @@
-package fatturazione.model.ddt;
+package invoicemanager.model.ddt;
 
 import java.time.LocalDateTime;
 

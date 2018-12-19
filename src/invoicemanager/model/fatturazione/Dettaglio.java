@@ -1,4 +1,4 @@
-package fatturazione.model;
+package invoicemanager.model.fatturazione;
 
 import java.math.RoundingMode;
 import java.text.NumberFormat;

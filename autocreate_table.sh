@@ -13,15 +13,15 @@ for l in $(cat $NAMEFILE); do
 		if [[ $i -ge 1 ]]; then
 			echo } >> $javaname
 		fi
-		javaname=`echo $l | sed -rn 's/CREATE TABLE \[dbo\]\.\[(.*)\]\(/\1/p'`.java
+		javaname=`echo -n $l | sed -rn 's/CREATE TABLE \[dbo\]\.\[(.*)\]\(.*/\1/p'`.java
 		listfiles+=($javaname)
-		echo "package fatturazione.model;\nimport java.time.LocalDateTime" > $javaname
+		echo -e "package invoicemanager.model.fatturazione;\nimport java.time.LocalDateTime;\nimport java.util.List;\n" > $javaname
 		echo $l | sed -rn 's/CREATE TABLE \[dbo\]\.\[(.*)\]\(/public class \1{/p' >> $javaname
 	else
 		if [[ $l =~ "varchar" ]]; then
 			echo $l | sed -rn 's/\[(.*)\] \[(.*)\](.*) COLLATE Latin1_General_CI_AS (.*),/\tprivate \2 \1; \/\/\3 \4/p' >> $javaname
 		else
-			echo $l | sed -rn 's/\[(.*)\] \[(.*)\] (.*),/\tprivate \2 \1; \/\/ \3/p' >> $javaname
+			echo $l | sed -rn 's/\[(.*)\] \[(.*)\](.*),/\tprivate \2 \1; \/\/ \3/p' >> $javaname
 		fi
 	fi
 
@@ -37,4 +37,5 @@ for f in ${listfiles[@]}; do
 	sed -r -i 's/private money/private float/' $f
 	sed -r -i 's/datetime/LocalDateTime/' $f
 	sed -r -i 's/smallint/short/' $f
+	sed -r -i 's/decimal/float/' $f
 done
