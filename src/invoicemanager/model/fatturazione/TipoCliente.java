@@ -7,8 +7,8 @@ public class TipoCliente{
 		private String Descrizione; //(50) NULL
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
-}
 
-public TipoCliente(String CodiceTipoCliente){
-	this.CodiceTipoCliente = CodiceTipoCliente;
+	public TipoCliente(String CodiceTipoCliente){
+		this.CodiceTipoCliente = CodiceTipoCliente;
+	}
 }

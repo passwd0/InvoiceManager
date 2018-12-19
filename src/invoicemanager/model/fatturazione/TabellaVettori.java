@@ -15,8 +15,8 @@ public class Tabella_Vettori{
 		private String PartitaIva; //(11) NULL
 		private String Iscrizione; //(50) NULL
 		private String Telefono; //(50) NULL
-}
 
-public Tabella_Vettori(String CodiceVettore){
-	this.CodiceVettore = CodiceVettore;
+	public Tabella_Vettori(String CodiceVettore){
+		this.CodiceVettore = CodiceVettore;
+	}
 }

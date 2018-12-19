@@ -7,8 +7,8 @@ public class StatiTabelle{
 		private String Descrizione; //(50) NULL
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
-}
 
-public StatiTabelle(boolean CodiceStato){
-	this.CodiceStato = CodiceStato;
+	public StatiTabelle(boolean CodiceStato){
+		this.CodiceStato = CodiceStato;
+	}
 }

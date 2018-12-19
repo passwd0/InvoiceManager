@@ -35,7 +35,7 @@ public class Utenti{
 		private String Cap; //(50) NULL
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
-}
 
-public Utenti(){
+	public Utenti(){
+	}
 }

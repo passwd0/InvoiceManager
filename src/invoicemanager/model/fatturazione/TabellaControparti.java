@@ -11,8 +11,8 @@ public class TabellaControparti{
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
 		private String LoginInserimento; //(30) NULL
-}
 
-public TabellaControparti(String CodiceControparte){
-	this.CodiceControparte = CodiceControparte;
+	public TabellaControparti(String CodiceControparte){
+		this.CodiceControparte = CodiceControparte;
+	}
 }

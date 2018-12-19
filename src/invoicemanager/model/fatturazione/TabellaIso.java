@@ -9,8 +9,8 @@ public class TabellaIso{
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
 		private String LoginInserimento; //(30) NULL
-}
 
-public TabellaIso(String CodiceISO){
-	this.CodiceISO = CodiceISO;
+	public TabellaIso(String CodiceISO){
+		this.CodiceISO = CodiceISO;
+	}
 }

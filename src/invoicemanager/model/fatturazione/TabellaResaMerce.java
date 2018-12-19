@@ -12,8 +12,8 @@ public class TabellaResaMerce{
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
 		private String LoginInserimento; //(30) NULL
-}
 
-public TabellaResaMerce(String CodiceResa){
-	this.CodiceResa = CodiceResa;
+	public TabellaResaMerce(String CodiceResa){
+		this.CodiceResa = CodiceResa;
+	}
 }

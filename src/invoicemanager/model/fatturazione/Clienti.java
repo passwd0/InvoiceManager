@@ -65,8 +65,8 @@ public class Clienti{
 		private String TipoIntestatarioFatturaEdi; //(3) NULL
 		private String IdentificativoPuntoConsegnaEdi; //(17) NULL
 		private String TipoPuntoConsegnaEdi; //(3) NULL
-}
 
-public Clienti(String CodiceCliente){
-	this.CodiceCliente = CodiceCliente;
+	public Clienti(String CodiceCliente){
+		this.CodiceCliente = CodiceCliente;
+	}
 }

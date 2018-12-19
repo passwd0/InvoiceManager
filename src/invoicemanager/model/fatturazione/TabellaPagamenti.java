@@ -16,8 +16,8 @@ public class TabellaPagamenti{
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
 		private String LoginInserimento; //(30) NULL
-}
 
-public TabellaPagamenti(String CodicePagamento){
-	this.CodicePagamento = CodicePagamento;
+	public TabellaPagamenti(String CodicePagamento){
+		this.CodicePagamento = CodicePagamento;
+	}
 }

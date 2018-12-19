@@ -22,8 +22,8 @@ public class TabellaBanche{
 		private String Swift; //(50) NULL
 		private String CodiceConto; //(30) NULL
 		private String Indirizzo; //(2000) NULL
-}
 
-public TabellaBanche(String CodiceBanca){
-	this.CodiceBanca = CodiceBanca;
+	public TabellaBanche(String CodiceBanca){
+		this.CodiceBanca = CodiceBanca;
+	}
 }

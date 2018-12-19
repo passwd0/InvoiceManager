@@ -12,11 +12,11 @@ public class TabellaContropartiCogeCoaCdc{
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
 		private String LoginInserimento; //(30) NULL
-}
 
-public TabellaContropartiCogeCoaCdc(List<TabellaControparti> CodiceControparte, String CodiceContoCOGE, String TipoDocumento, List<Utenti> TipoUtente){
-	this.CodiceControparte = CodiceControparte;
-	this.CodiceContoCOGE = CodiceContoCOGE;
-	this.TipoDocumento = TipoDocumento;
-	this.TipoUtente = TipoUtente;
+	public TabellaContropartiCogeCoaCdc(List<TabellaControparti> CodiceControparte, String CodiceContoCOGE, String TipoDocumento, List<Utenti> TipoUtente){
+		this.CodiceControparte = CodiceControparte;
+		this.CodiceContoCOGE = CodiceContoCOGE;
+		this.TipoDocumento = TipoDocumento;
+		this.TipoUtente = TipoUtente;
+	}
 }

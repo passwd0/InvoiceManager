@@ -14,8 +14,8 @@ public class TabellaAgenti{
 		private LocalDateTime DataUltimaModifica; //  NULL
 		private String LoginInserimento; //(30) NULL
 		private String LoginModifica; //(30) NULL
-}
 
-public TabellaAgenti(String CodiceAgente){
-	this.CodiceAgente = CodiceAgente;
+	public TabellaAgenti(String CodiceAgente){
+		this.CodiceAgente = CodiceAgente;
+	}
 }

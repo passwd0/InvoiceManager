@@ -34,8 +34,8 @@ public class TabellaIva{
 		private boolean ElencoClientiFornitori; // NULL
 		private String ColonnaClientiFornitori; //(50) NULL
 		private String ColonnaNoteClientiFornitori; //(50) NULL
-}
 
-public TabellaIva(String CodiceIva){
-	this.CodiceIva = CodiceIva;
+	public TabellaIva(String CodiceIva){
+		this.CodiceIva = CodiceIva;
+	}
 }

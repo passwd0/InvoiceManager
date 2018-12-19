@@ -7,8 +7,8 @@ public class TipoPagamento{
 		private String Descrizione; //(100) NULL
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
-}
 
-public TipoPagamento(String CodiceTipoPagamento){
-	this.CodiceTipoPagamento = CodiceTipoPagamento;
+	public TipoPagamento(String CodiceTipoPagamento){
+		this.CodiceTipoPagamento = CodiceTipoPagamento;
+	}
 }
