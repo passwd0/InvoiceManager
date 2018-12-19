@@ -10,9 +10,6 @@ i=0
 IFS=$'\n'
 for l in $(cat $NAMEFILE); do
 	if [[ $l =~ "CREATE TABLE" ]]; then
-		if [[ $i -ge 1 ]]; then
-			echo } >> $javaname
-		fi
 		javaname=`echo -n $l | sed -rn 's/CREATE TABLE \[dbo\]\.\[(.*)\]\(.*/\1/p'`.java
 		listfiles+=($javaname)
 		echo -e "package invoicemanager.model.fatturazione;\nimport java.time.LocalDateTime;\nimport java.util.List;\n" > $javaname
@@ -27,7 +24,7 @@ for l in $(cat $NAMEFILE); do
 
 	i=$(($i+1))
 done
-echo } >> $javaname
+
 for f in ${listfiles[@]}; do
 	sed -r -i 's/varchar(.*)\(1\)(.*)/boolean\1\2/g' $f
 	sed -r -i 's/ \/\/ NULL$//' $f
@@ -50,7 +47,7 @@ for f in ${listfiles[@]}; do
 			list_element+=(${element:0:-1})
 		fi
 	done
-	echo -ne "\npublic ${f:0:-5}(" >> $f
+	echo -ne "\n\tpublic ${f:0:-5}(" >> $f
 	for e in ${list_element[@]}; do
 		echo -ne "$e" >> $f
 		if [[ $e != ${list_element[-1]} ]]; then
@@ -60,7 +57,8 @@ for f in ${listfiles[@]}; do
 	echo -ne "){\n" >> $f
 	for e in ${list_element[@]}; do
 		IFS=', ' read -r -a tmp <<< "$e"
-		echo -ne "\tthis.${tmp[1]} = ${tmp[1]};\n" >> $f
+		echo -ne "\t\tthis.${tmp[1]} = ${tmp[1]};\n" >> $f
 	done
-	echo "}" >> $f
+	echo -e "\t}\n}" >> $f
 done
+
