@@ -2,7 +2,7 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Tabella_Vettori{
+public class TabellaVettori{
 		private String CodiceVettore; //(4) NOT NULL
 		private String Descrizione; //(100) NULL
 		private List<StatiTabelle> CodiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
@@ -16,7 +16,7 @@ public class Tabella_Vettori{
 		private String Iscrizione; //(50) NULL
 		private String Telefono; //(50) NULL
 
-	public Tabella_Vettori(String CodiceVettore){
+	public TabellaVettori(String CodiceVettore){
 		this.CodiceVettore = CodiceVettore;
 	}
 }
