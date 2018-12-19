@@ -10,3 +10,7 @@ public class TabellaIso{
 		private LocalDateTime DataUltimaModifica; //  NULL
 		private String LoginInserimento; //(30) NULL
 }
+
+public TabellaIso(String CodiceISO){
+	this.CodiceISO = CodiceISO;
+}

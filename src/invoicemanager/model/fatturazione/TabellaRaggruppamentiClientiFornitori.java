@@ -10,3 +10,7 @@ public class TabellaRaggruppamentiClientiFornitori{
 		private LocalDateTime DataUltimaModifica; //  NULL
 		private String LoginInserimento; //(30) NULL
 }
+
+public TabellaRaggruppamentiClientiFornitori(String CodiceRaggruppamento){
+	this.CodiceRaggruppamento = CodiceRaggruppamento;
+}

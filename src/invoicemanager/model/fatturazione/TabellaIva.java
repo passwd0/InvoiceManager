@@ -35,3 +35,7 @@ public class TabellaIva{
 		private String ColonnaClientiFornitori; //(50) NULL
 		private String ColonnaNoteClientiFornitori; //(50) NULL
 }
+
+public TabellaIva(String CodiceIva){
+	this.CodiceIva = CodiceIva;
+}

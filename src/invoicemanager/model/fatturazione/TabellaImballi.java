@@ -10,3 +10,7 @@ public class TabellaImballi{
 		private LocalDateTime DataUltimaModifica; //  NULL
 		private String LoginInserimento; //(30) NULL
 }
+
+public TabellaImballi(String CodiceImballo){
+	this.CodiceImballo = CodiceImballo;
+}

@@ -66,3 +66,7 @@ public class Clienti{
 		private String IdentificativoPuntoConsegnaEdi; //(17) NULL
 		private String TipoPuntoConsegnaEdi; //(3) NULL
 }
+
+public Clienti(String CodiceCliente){
+	this.CodiceCliente = CodiceCliente;
+}

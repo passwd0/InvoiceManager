@@ -15,3 +15,7 @@ public class TabellaAgenti{
 		private String LoginInserimento; //(30) NULL
 		private String LoginModifica; //(30) NULL
 }
+
+public TabellaAgenti(String CodiceAgente){
+	this.CodiceAgente = CodiceAgente;
+}

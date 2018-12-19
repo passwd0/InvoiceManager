@@ -23,3 +23,7 @@ public class TabellaBanche{
 		private String CodiceConto; //(30) NULL
 		private String Indirizzo; //(2000) NULL
 }
+
+public TabellaBanche(String CodiceBanca){
+	this.CodiceBanca = CodiceBanca;
+}

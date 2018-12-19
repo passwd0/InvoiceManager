@@ -36,3 +36,6 @@ public class Utenti{
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
 }
+
+public Utenti(){
+}

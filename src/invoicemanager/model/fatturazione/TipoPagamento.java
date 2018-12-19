@@ -8,3 +8,7 @@ public class TipoPagamento{
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
 }
+
+public TipoPagamento(String CodiceTipoPagamento){
+	this.CodiceTipoPagamento = CodiceTipoPagamento;
+}

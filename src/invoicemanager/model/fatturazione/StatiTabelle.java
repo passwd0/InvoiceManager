@@ -8,3 +8,7 @@ public class StatiTabelle{
 		private LocalDateTime DataInserimento; //  NULL
 		private LocalDateTime DataUltimaModifica; //  NULL
 }
+
+public StatiTabelle(boolean CodiceStato){
+	this.CodiceStato = CodiceStato;
+}
