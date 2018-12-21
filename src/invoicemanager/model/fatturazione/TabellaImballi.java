@@ -3,14 +3,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class TabellaImballi{
-		private String CodiceImballo; //(4) NOT NULL
-		private String Descrizione; //(100) NULL
-		private List<StatiTabelle> CodiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
-		private LocalDateTime DataInserimento; //  NULL
-		private LocalDateTime DataUltimaModifica; //  NULL
-		private String LoginInserimento; //(30) NULL
+		private String codiceImballo; //(4) NOT NULL
+		private String descrizione; //(100) NULL
+		private List<StatiTabelle> codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+		private LocalDateTime dataInserimento; //  NULL
+		private LocalDateTime dataUltimaModifica; //  NULL
+		private String loginInserimento; //(30) NULL
 
-	public TabellaImballi(String CodiceImballo){
-		this.CodiceImballo = CodiceImballo;
+	public TabellaImballi(String codiceImballo){
+		this.codiceImballo = codiceImballo;
 	}
 }

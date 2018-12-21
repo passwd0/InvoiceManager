@@ -3,12 +3,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class TipoCliente{
-		private String CodiceTipoCliente; //(4) NOT NULL
-		private String Descrizione; //(50) NULL
-		private LocalDateTime DataInserimento; //  NULL
-		private LocalDateTime DataUltimaModifica; //  NULL
+		private String codiceTipoCliente; //(4) NOT NULL
+		private String descrizione; //(50) NULL
+		private LocalDateTime dataInserimento; //  NULL
+		private LocalDateTime dataUltimaModifica; //  NULL
 
-	public TipoCliente(String CodiceTipoCliente){
-		this.CodiceTipoCliente = CodiceTipoCliente;
+	public TipoCliente(String codiceTipoCliente){
+		this.codiceTipoCliente = codiceTipoCliente;
 	}
 }

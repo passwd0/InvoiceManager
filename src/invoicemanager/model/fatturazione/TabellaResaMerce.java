@@ -3,17 +3,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class TabellaResaMerce{
-		private String CodiceResa; //(4) NOT NULL
-		private String Descrizione; //(100) NULL
-		private List<StatiTabelle> CodiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
-		private float PercentualeAddebito; //  NULL
-		private float ImportoMinimo; // (19, 5) NULL
-		private boolean IndicatoreProvvigione; // NULL
-		private LocalDateTime DataInserimento; //  NULL
-		private LocalDateTime DataUltimaModifica; //  NULL
-		private String LoginInserimento; //(30) NULL
+		private String codiceResa; //(4) NOT NULL
+		private String descrizione; //(100) NULL
+		private List<StatiTabelle> codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+		private float percentualeAddebito; //  NULL
+		private float importoMinimo; // (19, 5) NULL
+		private boolean indicatoreProvvigione; // NULL
+		private LocalDateTime dataInserimento; //  NULL
+		private LocalDateTime dataUltimaModifica; //  NULL
+		private String loginInserimento; //(30) NULL
 
 	public TabellaResaMerce(String CodiceResa){
-		this.CodiceResa = CodiceResa;
+		this.codiceResa = CodiceResa;
 	}
 }

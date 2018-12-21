@@ -3,568 +3,568 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Clienti{
-		private String CodiceCliente; //(30) NOT NULL
-		private String Descrizione; //(100) NULL
-		private LocalDateTime DataInserimento; //  NULL
-		private LocalDateTime DataUltimoAggiornamento; //  NULL
-		private List<TipoCliente> CodiceTipoCliente; // (4) COLLATE Latin1_General_CI_AS NULL
-		private String CodiceUfficioCommerciale; //(20) NULL
-		private List<TabellaResaMerce> CodiceResaMerce; // (4) COLLATE Latin1_General_CI_AS NULL
-		private List<TabellaImballi> CodiceImballo; // (4) COLLATE Latin1_General_CI_AS NULL
-		private List<TabellaRaggruppamentiClientiFornitori> CodiceRaggruppamento; // (4) COLLATE Latin1_General_CI_AS NULL
-		private float Fatturato; //  NULL
-		private float Fido; //  NULL
-		private String PartitaIVA; //(15) NULL
-		private String CodiceFiscale; //(16) NULL
-		private List<TabellaPagamenti> CodicePagamento; // (4) COLLATE Latin1_General_CI_AS NULL
-		private String Sinonimo; //(50) NULL
-		private List<TabellaBanche> CodiceBanca; // (4) COLLATE Latin1_General_CI_AS NULL
-		private short NumeroFattureEmesse; //  NULL
-		private List<TabellaIva> CodiceEsenzioneIVA; // (4) COLLATE Latin1_General_CI_AS NULL
-		private float ImponibileNonEsente; //  NULL
-		private float ImponibileEsente; //  NULL
-		private float ImportoIVA; //  NULL
-		private String CodiceClassificazione; //(10) NULL
-		private float CostoVenduto; //  NULL
-		private List<TabellaAgenti> CodiceAgente; // (10) COLLATE Latin1_General_CI_AS NULL
-		private float PercentualeProvvigioneAgente; //  NULL
-		private float ScontoLegatoProvvigioniAgente; //  NULL
-		private short NumeroCopieFattura; //  NULL
-		private boolean IndicatoreAddebitoSpeseIncasso; // NULL
-		private boolean IndicatoreAddebitoSpeseBolli; // NULL
-		private int CodiceListino; //  NULL
-		private String CodiceVettore; //(3) NULL
-		private String CodiceAffidabilita; //(4) NULL
-		private List<TabellaIso> CodiceISO; // (4) COLLATE Latin1_General_CI_AS NULL
-		private String PartitaIVAEstero; //(12) NULL
-		private String CodiceDivisa; //(4) NULL
-		private int DataScadenzaSpostataAgosto; //  NULL
-		private int DataScadenzaSpostataDicembre; //  NULL
-		private String CodiceRetrocessione; //(5) NULL
-		private String CodiceCommissione; //(5) NULL
-		private String CodiceLingua; //(5) NULL
-		private String Note; //(6000) NULL
-		private List<StatiTabelle> CodiceStato; // (2) COLLATE Latin1_General_CI_AS NULL
-		private boolean IndicatoreInviataInformativaPrivacy; // NULL
-		private boolean IndicatoreRicevutaInformativaPrivacy; // NULL
-		private String CodiceClienteRiferimento; //(15) NULL
-		private LocalDateTime DataUltimaModifica; //  NULL
-		private boolean IndicatoreInibizione; // NULL
-		private String LoginInserimento; //(30) NULL
-		private String LoginModifica; //(30) NULL
-		private boolean IndicatoreScorporoIVA; // NULL
-		private boolean IndicatoreIVADifferita; // NULL
-		private boolean IndicatoreEmail; // NULL
-		private boolean InputInibito; // NULL
-		private boolean IndicatoreEdi; // NULL
-		private String PartitaIvaEdi; //(35) NULL
-		private String QualificatoreEdi; //(4) NULL
-		private String IdentificativoFornitoreEdi; //(17) NULL
-		private String TipoFornitoreEdi; //(3) NULL
-		private String IdentificativoIntestatarioFatturaEdi; //(17) NULL
-		private String TipoIntestatarioFatturaEdi; //(3) NULL
-		private String IdentificativoPuntoConsegnaEdi; //(17) NULL
-		private String TipoPuntoConsegnaEdi; //(3) NULL
+		private String codiceCliente; //(30) NOT NULL
+		private String descrizione; //(100) NULL
+		private LocalDateTime dataInserimento; //  NULL
+		private LocalDateTime dataUltimoAggiornamento; //  NULL
+		private List<TipoCliente> codiceTipoCliente; // (4) COLLATE Latin1_General_CI_AS NULL
+		private String codiceUfficioCommerciale; //(20) NULL
+		private List<TabellaResaMerce> codiceResaMerce; // (4) COLLATE Latin1_General_CI_AS NULL
+		private List<TabellaImballi> codiceImballo; // (4) COLLATE Latin1_General_CI_AS NULL
+		private List<TabellaRaggruppamentiClientiFornitori> codiceRaggruppamento; // (4) COLLATE Latin1_General_CI_AS NULL
+		private float fatturato; //  NULL
+		private float fido; //  NULL
+		private String partitaIVA; //(15) NULL
+		private String codiceFiscale; //(16) NULL
+		private List<TabellaPagamenti> codicePagamento; // (4) COLLATE Latin1_General_CI_AS NULL
+		private String sinonimo; //(50) NULL
+		private List<TabellaBanche> codiceBanca; // (4) COLLATE Latin1_General_CI_AS NULL
+		private short numeroFattureEmesse; //  NULL
+		private List<TabellaIva> codiceEsenzioneIVA; // (4) COLLATE Latin1_General_CI_AS NULL
+		private float imponibileNonEsente; //  NULL
+		private float imponibileEsente; //  NULL
+		private float importoIVA; //  NULL
+		private String codiceClassificazione; //(10) NULL
+		private float costoVenduto; //  NULL
+		private List<TabellaAgenti> codiceAgente; // (10) COLLATE Latin1_General_CI_AS NULL
+		private float percentualeProvvigioneAgente; //  NULL
+		private float scontoLegatoProvvigioniAgente; //  NULL
+		private short numeroCopieFattura; //  NULL
+		private boolean indicatoreAddebitoSpeseIncasso; // NULL
+		private boolean indicatoreAddebitoSpeseBolli; // NULL
+		private int codiceListino; //  NULL
+		private String codiceVettore; //(3) NULL
+		private String codiceAffidabilita; //(4) NULL
+		private List<TabellaIso> codiceISO; // (4) COLLATE Latin1_General_CI_AS NULL
+		private String partitaIVAEstero; //(12) NULL
+		private String codiceDivisa; //(4) NULL
+		private int dataScadenzaSpostataAgosto; //  NULL
+		private int dataScadenzaSpostataDicembre; //  NULL
+		private String codiceRetrocessione; //(5) NULL
+		private String codiceCommissione; //(5) NULL
+		private String codiceLingua; //(5) NULL
+		private String note; //(6000) NULL
+		private List<StatiTabelle> codiceStato; // (2) COLLATE Latin1_General_CI_AS NULL
+		private boolean indicatoreInviataInformativaPrivacy; // NULL
+		private boolean indicatoreRicevutaInformativaPrivacy; // NULL
+		private String codiceClienteRiferimento; //(15) NULL
+		private LocalDateTime dataUltimaModifica; //  NULL
+		private boolean indicatoreInibizione; // NULL
+		private String loginInserimento; //(30) NULL
+		private String loginModifica; //(30) NULL
+		private boolean indicatoreScorporoIVA; // NULL
+		private boolean indicatoreIVADifferita; // NULL
+		private boolean indicatoreEmail; // NULL
+		private boolean inputInibito; // NULL
+		private boolean indicatoreEdi; // NULL
+		private String partitaIvaEdi; //(35) NULL
+		private String qualificatoreEdi; //(4) NULL
+		private String identificativoFornitoreEdi; //(17) NULL
+		private String tipoFornitoreEdi; //(3) NULL
+		private String identificativoIntestatarioFatturaEdi; //(17) NULL
+		private String tipoIntestatarioFatturaEdi; //(3) NULL
+		private String identificativoPuntoConsegnaEdi; //(17) NULL
+		private String tipoPuntoConsegnaEdi; //(3) NULL
 
-	public Clienti(String CodiceCliente){
-		this.CodiceCliente = CodiceCliente;
+	public Clienti(String codiceCliente){
+		this.codiceCliente = codiceCliente;
 	}
 
 	public String getCodiceCliente() {
-		return CodiceCliente;
-	}
-
-	public String getDescrizione() {
-		return Descrizione;
-	}
-
-	public LocalDateTime getDataInserimento() {
-		return DataInserimento;
-	}
-
-	public LocalDateTime getDataUltimoAggiornamento() {
-		return DataUltimoAggiornamento;
-	}
-
-	public List<TipoCliente> getCodiceTipoCliente() {
-		return CodiceTipoCliente;
-	}
-
-	public String getCodiceUfficioCommerciale() {
-		return CodiceUfficioCommerciale;
-	}
-
-	public List<TabellaResaMerce> getCodiceResaMerce() {
-		return CodiceResaMerce;
-	}
-
-	public List<TabellaImballi> getCodiceImballo() {
-		return CodiceImballo;
-	}
-
-	public List<TabellaRaggruppamentiClientiFornitori> getCodiceRaggruppamento() {
-		return CodiceRaggruppamento;
-	}
-
-	public float getFatturato() {
-		return Fatturato;
-	}
-
-	public float getFido() {
-		return Fido;
-	}
-
-	public String getPartitaIVA() {
-		return PartitaIVA;
-	}
-
-	public String getCodiceFiscale() {
-		return CodiceFiscale;
-	}
-
-	public List<TabellaPagamenti> getCodicePagamento() {
-		return CodicePagamento;
-	}
-
-	public String getSinonimo() {
-		return Sinonimo;
-	}
-
-	public List<TabellaBanche> getCodiceBanca() {
-		return CodiceBanca;
-	}
-
-	public short getNumeroFattureEmesse() {
-		return NumeroFattureEmesse;
-	}
-
-	public List<TabellaIva> getCodiceEsenzioneIVA() {
-		return CodiceEsenzioneIVA;
-	}
-
-	public float getImponibileNonEsente() {
-		return ImponibileNonEsente;
-	}
-
-	public float getImponibileEsente() {
-		return ImponibileEsente;
-	}
-
-	public float getImportoIVA() {
-		return ImportoIVA;
-	}
-
-	public String getCodiceClassificazione() {
-		return CodiceClassificazione;
-	}
-
-	public float getCostoVenduto() {
-		return CostoVenduto;
-	}
-
-	public List<TabellaAgenti> getCodiceAgente() {
-		return CodiceAgente;
-	}
-
-	public float getPercentualeProvvigioneAgente() {
-		return PercentualeProvvigioneAgente;
-	}
-
-	public float getScontoLegatoProvvigioniAgente() {
-		return ScontoLegatoProvvigioniAgente;
-	}
-
-	public short getNumeroCopieFattura() {
-		return NumeroCopieFattura;
-	}
-
-	public boolean isIndicatoreAddebitoSpeseIncasso() {
-		return IndicatoreAddebitoSpeseIncasso;
-	}
-
-	public boolean isIndicatoreAddebitoSpeseBolli() {
-		return IndicatoreAddebitoSpeseBolli;
-	}
-
-	public int getCodiceListino() {
-		return CodiceListino;
-	}
-
-	public String getCodiceVettore() {
-		return CodiceVettore;
-	}
-
-	public String getCodiceAffidabilita() {
-		return CodiceAffidabilita;
-	}
-
-	public List<TabellaIso> getCodiceISO() {
-		return CodiceISO;
-	}
-
-	public String getPartitaIVAEstero() {
-		return PartitaIVAEstero;
-	}
-
-	public String getCodiceDivisa() {
-		return CodiceDivisa;
-	}
-
-	public int getDataScadenzaSpostataAgosto() {
-		return DataScadenzaSpostataAgosto;
-	}
-
-	public int getDataScadenzaSpostataDicembre() {
-		return DataScadenzaSpostataDicembre;
-	}
-
-	public String getCodiceRetrocessione() {
-		return CodiceRetrocessione;
-	}
-
-	public String getCodiceCommissione() {
-		return CodiceCommissione;
-	}
-
-	public String getCodiceLingua() {
-		return CodiceLingua;
-	}
-
-	public String getNote() {
-		return Note;
-	}
-
-	public List<StatiTabelle> getCodiceStato() {
-		return CodiceStato;
-	}
-
-	public boolean isIndicatoreInviataInformativaPrivacy() {
-		return IndicatoreInviataInformativaPrivacy;
-	}
-
-	public boolean isIndicatoreRicevutaInformativaPrivacy() {
-		return IndicatoreRicevutaInformativaPrivacy;
-	}
-
-	public String getCodiceClienteRiferimento() {
-		return CodiceClienteRiferimento;
-	}
-
-	public LocalDateTime getDataUltimaModifica() {
-		return DataUltimaModifica;
-	}
-
-	public boolean isIndicatoreInibizione() {
-		return IndicatoreInibizione;
-	}
-
-	public String getLoginInserimento() {
-		return LoginInserimento;
-	}
-
-	public String getLoginModifica() {
-		return LoginModifica;
-	}
-
-	public boolean isIndicatoreScorporoIVA() {
-		return IndicatoreScorporoIVA;
-	}
-
-	public boolean isIndicatoreIVADifferita() {
-		return IndicatoreIVADifferita;
-	}
-
-	public boolean isIndicatoreEmail() {
-		return IndicatoreEmail;
-	}
-
-	public boolean isInputInibito() {
-		return InputInibito;
-	}
-
-	public boolean isIndicatoreEdi() {
-		return IndicatoreEdi;
-	}
-
-	public String getPartitaIvaEdi() {
-		return PartitaIvaEdi;
-	}
-
-	public String getQualificatoreEdi() {
-		return QualificatoreEdi;
-	}
-
-	public String getIdentificativoFornitoreEdi() {
-		return IdentificativoFornitoreEdi;
-	}
-
-	public String getTipoFornitoreEdi() {
-		return TipoFornitoreEdi;
-	}
-
-	public String getIdentificativoIntestatarioFatturaEdi() {
-		return IdentificativoIntestatarioFatturaEdi;
-	}
-
-	public String getTipoIntestatarioFatturaEdi() {
-		return TipoIntestatarioFatturaEdi;
-	}
-
-	public String getIdentificativoPuntoConsegnaEdi() {
-		return IdentificativoPuntoConsegnaEdi;
-	}
-
-	public String getTipoPuntoConsegnaEdi() {
-		return TipoPuntoConsegnaEdi;
+		return codiceCliente;
 	}
 
 	public void setCodiceCliente(String codiceCliente) {
-		CodiceCliente = codiceCliente;
+		this.codiceCliente = codiceCliente;
+	}
+
+	public String getDescrizione() {
+		return descrizione;
 	}
 
 	public void setDescrizione(String descrizione) {
-		Descrizione = descrizione;
+		this.descrizione = descrizione;
+	}
+
+	public LocalDateTime getDataInserimento() {
+		return dataInserimento;
 	}
 
 	public void setDataInserimento(LocalDateTime dataInserimento) {
-		DataInserimento = dataInserimento;
+		this.dataInserimento = dataInserimento;
+	}
+
+	public LocalDateTime getDataUltimoAggiornamento() {
+		return dataUltimoAggiornamento;
 	}
 
 	public void setDataUltimoAggiornamento(LocalDateTime dataUltimoAggiornamento) {
-		DataUltimoAggiornamento = dataUltimoAggiornamento;
+		this.dataUltimoAggiornamento = dataUltimoAggiornamento;
+	}
+
+	public List<TipoCliente> getCodiceTipoCliente() {
+		return codiceTipoCliente;
 	}
 
 	public void setCodiceTipoCliente(List<TipoCliente> codiceTipoCliente) {
-		CodiceTipoCliente = codiceTipoCliente;
+		this.codiceTipoCliente = codiceTipoCliente;
+	}
+
+	public String getCodiceUfficioCommerciale() {
+		return codiceUfficioCommerciale;
 	}
 
 	public void setCodiceUfficioCommerciale(String codiceUfficioCommerciale) {
-		CodiceUfficioCommerciale = codiceUfficioCommerciale;
+		this.codiceUfficioCommerciale = codiceUfficioCommerciale;
+	}
+
+	public List<TabellaResaMerce> getCodiceResaMerce() {
+		return codiceResaMerce;
 	}
 
 	public void setCodiceResaMerce(List<TabellaResaMerce> codiceResaMerce) {
-		CodiceResaMerce = codiceResaMerce;
+		this.codiceResaMerce = codiceResaMerce;
+	}
+
+	public List<TabellaImballi> getCodiceImballo() {
+		return codiceImballo;
 	}
 
 	public void setCodiceImballo(List<TabellaImballi> codiceImballo) {
-		CodiceImballo = codiceImballo;
+		this.codiceImballo = codiceImballo;
+	}
+
+	public List<TabellaRaggruppamentiClientiFornitori> getCodiceRaggruppamento() {
+		return codiceRaggruppamento;
 	}
 
 	public void setCodiceRaggruppamento(List<TabellaRaggruppamentiClientiFornitori> codiceRaggruppamento) {
-		CodiceRaggruppamento = codiceRaggruppamento;
+		this.codiceRaggruppamento = codiceRaggruppamento;
+	}
+
+	public float getFatturato() {
+		return fatturato;
 	}
 
 	public void setFatturato(float fatturato) {
-		Fatturato = fatturato;
+		this.fatturato = fatturato;
+	}
+
+	public float getFido() {
+		return fido;
 	}
 
 	public void setFido(float fido) {
-		Fido = fido;
+		this.fido = fido;
+	}
+
+	public String getPartitaIVA() {
+		return partitaIVA;
 	}
 
 	public void setPartitaIVA(String partitaIVA) {
-		PartitaIVA = partitaIVA;
+		this.partitaIVA = partitaIVA;
+	}
+
+	public String getCodiceFiscale() {
+		return codiceFiscale;
 	}
 
 	public void setCodiceFiscale(String codiceFiscale) {
-		CodiceFiscale = codiceFiscale;
+		this.codiceFiscale = codiceFiscale;
+	}
+
+	public List<TabellaPagamenti> getCodicePagamento() {
+		return codicePagamento;
 	}
 
 	public void setCodicePagamento(List<TabellaPagamenti> codicePagamento) {
-		CodicePagamento = codicePagamento;
+		this.codicePagamento = codicePagamento;
+	}
+
+	public String getSinonimo() {
+		return sinonimo;
 	}
 
 	public void setSinonimo(String sinonimo) {
-		Sinonimo = sinonimo;
+		this.sinonimo = sinonimo;
+	}
+
+	public List<TabellaBanche> getCodiceBanca() {
+		return codiceBanca;
 	}
 
 	public void setCodiceBanca(List<TabellaBanche> codiceBanca) {
-		CodiceBanca = codiceBanca;
+		this.codiceBanca = codiceBanca;
+	}
+
+	public short getNumeroFattureEmesse() {
+		return numeroFattureEmesse;
 	}
 
 	public void setNumeroFattureEmesse(short numeroFattureEmesse) {
-		NumeroFattureEmesse = numeroFattureEmesse;
+		this.numeroFattureEmesse = numeroFattureEmesse;
+	}
+
+	public List<TabellaIva> getCodiceEsenzioneIVA() {
+		return codiceEsenzioneIVA;
 	}
 
 	public void setCodiceEsenzioneIVA(List<TabellaIva> codiceEsenzioneIVA) {
-		CodiceEsenzioneIVA = codiceEsenzioneIVA;
+		this.codiceEsenzioneIVA = codiceEsenzioneIVA;
+	}
+
+	public float getImponibileNonEsente() {
+		return imponibileNonEsente;
 	}
 
 	public void setImponibileNonEsente(float imponibileNonEsente) {
-		ImponibileNonEsente = imponibileNonEsente;
+		this.imponibileNonEsente = imponibileNonEsente;
+	}
+
+	public float getImponibileEsente() {
+		return imponibileEsente;
 	}
 
 	public void setImponibileEsente(float imponibileEsente) {
-		ImponibileEsente = imponibileEsente;
+		this.imponibileEsente = imponibileEsente;
+	}
+
+	public float getImportoIVA() {
+		return importoIVA;
 	}
 
 	public void setImportoIVA(float importoIVA) {
-		ImportoIVA = importoIVA;
+		this.importoIVA = importoIVA;
+	}
+
+	public String getCodiceClassificazione() {
+		return codiceClassificazione;
 	}
 
 	public void setCodiceClassificazione(String codiceClassificazione) {
-		CodiceClassificazione = codiceClassificazione;
+		this.codiceClassificazione = codiceClassificazione;
+	}
+
+	public float getCostoVenduto() {
+		return costoVenduto;
 	}
 
 	public void setCostoVenduto(float costoVenduto) {
-		CostoVenduto = costoVenduto;
+		this.costoVenduto = costoVenduto;
+	}
+
+	public List<TabellaAgenti> getCodiceAgente() {
+		return codiceAgente;
 	}
 
 	public void setCodiceAgente(List<TabellaAgenti> codiceAgente) {
-		CodiceAgente = codiceAgente;
+		this.codiceAgente = codiceAgente;
+	}
+
+	public float getPercentualeProvvigioneAgente() {
+		return percentualeProvvigioneAgente;
 	}
 
 	public void setPercentualeProvvigioneAgente(float percentualeProvvigioneAgente) {
-		PercentualeProvvigioneAgente = percentualeProvvigioneAgente;
+		this.percentualeProvvigioneAgente = percentualeProvvigioneAgente;
+	}
+
+	public float getScontoLegatoProvvigioniAgente() {
+		return scontoLegatoProvvigioniAgente;
 	}
 
 	public void setScontoLegatoProvvigioniAgente(float scontoLegatoProvvigioniAgente) {
-		ScontoLegatoProvvigioniAgente = scontoLegatoProvvigioniAgente;
+		this.scontoLegatoProvvigioniAgente = scontoLegatoProvvigioniAgente;
+	}
+
+	public short getNumeroCopieFattura() {
+		return numeroCopieFattura;
 	}
 
 	public void setNumeroCopieFattura(short numeroCopieFattura) {
-		NumeroCopieFattura = numeroCopieFattura;
+		this.numeroCopieFattura = numeroCopieFattura;
+	}
+
+	public boolean isIndicatoreAddebitoSpeseIncasso() {
+		return indicatoreAddebitoSpeseIncasso;
 	}
 
 	public void setIndicatoreAddebitoSpeseIncasso(boolean indicatoreAddebitoSpeseIncasso) {
-		IndicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
+		this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
+	}
+
+	public boolean isIndicatoreAddebitoSpeseBolli() {
+		return indicatoreAddebitoSpeseBolli;
 	}
 
 	public void setIndicatoreAddebitoSpeseBolli(boolean indicatoreAddebitoSpeseBolli) {
-		IndicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
+		this.indicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
+	}
+
+	public int getCodiceListino() {
+		return codiceListino;
 	}
 
 	public void setCodiceListino(int codiceListino) {
-		CodiceListino = codiceListino;
+		this.codiceListino = codiceListino;
+	}
+
+	public String getCodiceVettore() {
+		return codiceVettore;
 	}
 
 	public void setCodiceVettore(String codiceVettore) {
-		CodiceVettore = codiceVettore;
+		this.codiceVettore = codiceVettore;
+	}
+
+	public String getCodiceAffidabilita() {
+		return codiceAffidabilita;
 	}
 
 	public void setCodiceAffidabilita(String codiceAffidabilita) {
-		CodiceAffidabilita = codiceAffidabilita;
+		this.codiceAffidabilita = codiceAffidabilita;
+	}
+
+	public List<TabellaIso> getCodiceISO() {
+		return codiceISO;
 	}
 
 	public void setCodiceISO(List<TabellaIso> codiceISO) {
-		CodiceISO = codiceISO;
+		this.codiceISO = codiceISO;
+	}
+
+	public String getPartitaIVAEstero() {
+		return partitaIVAEstero;
 	}
 
 	public void setPartitaIVAEstero(String partitaIVAEstero) {
-		PartitaIVAEstero = partitaIVAEstero;
+		this.partitaIVAEstero = partitaIVAEstero;
+	}
+
+	public String getCodiceDivisa() {
+		return codiceDivisa;
 	}
 
 	public void setCodiceDivisa(String codiceDivisa) {
-		CodiceDivisa = codiceDivisa;
+		this.codiceDivisa = codiceDivisa;
+	}
+
+	public int getDataScadenzaSpostataAgosto() {
+		return dataScadenzaSpostataAgosto;
 	}
 
 	public void setDataScadenzaSpostataAgosto(int dataScadenzaSpostataAgosto) {
-		DataScadenzaSpostataAgosto = dataScadenzaSpostataAgosto;
+		this.dataScadenzaSpostataAgosto = dataScadenzaSpostataAgosto;
+	}
+
+	public int getDataScadenzaSpostataDicembre() {
+		return dataScadenzaSpostataDicembre;
 	}
 
 	public void setDataScadenzaSpostataDicembre(int dataScadenzaSpostataDicembre) {
-		DataScadenzaSpostataDicembre = dataScadenzaSpostataDicembre;
+		this.dataScadenzaSpostataDicembre = dataScadenzaSpostataDicembre;
+	}
+
+	public String getCodiceRetrocessione() {
+		return codiceRetrocessione;
 	}
 
 	public void setCodiceRetrocessione(String codiceRetrocessione) {
-		CodiceRetrocessione = codiceRetrocessione;
+		this.codiceRetrocessione = codiceRetrocessione;
+	}
+
+	public String getCodiceCommissione() {
+		return codiceCommissione;
 	}
 
 	public void setCodiceCommissione(String codiceCommissione) {
-		CodiceCommissione = codiceCommissione;
+		this.codiceCommissione = codiceCommissione;
+	}
+
+	public String getCodiceLingua() {
+		return codiceLingua;
 	}
 
 	public void setCodiceLingua(String codiceLingua) {
-		CodiceLingua = codiceLingua;
+		this.codiceLingua = codiceLingua;
+	}
+
+	public String getNote() {
+		return note;
 	}
 
 	public void setNote(String note) {
-		Note = note;
+		this.note = note;
+	}
+
+	public List<StatiTabelle> getCodiceStato() {
+		return codiceStato;
 	}
 
 	public void setCodiceStato(List<StatiTabelle> codiceStato) {
-		CodiceStato = codiceStato;
+		this.codiceStato = codiceStato;
+	}
+
+	public boolean isIndicatoreInviataInformativaPrivacy() {
+		return indicatoreInviataInformativaPrivacy;
 	}
 
 	public void setIndicatoreInviataInformativaPrivacy(boolean indicatoreInviataInformativaPrivacy) {
-		IndicatoreInviataInformativaPrivacy = indicatoreInviataInformativaPrivacy;
+		this.indicatoreInviataInformativaPrivacy = indicatoreInviataInformativaPrivacy;
+	}
+
+	public boolean isIndicatoreRicevutaInformativaPrivacy() {
+		return indicatoreRicevutaInformativaPrivacy;
 	}
 
 	public void setIndicatoreRicevutaInformativaPrivacy(boolean indicatoreRicevutaInformativaPrivacy) {
-		IndicatoreRicevutaInformativaPrivacy = indicatoreRicevutaInformativaPrivacy;
+		this.indicatoreRicevutaInformativaPrivacy = indicatoreRicevutaInformativaPrivacy;
+	}
+
+	public String getCodiceClienteRiferimento() {
+		return codiceClienteRiferimento;
 	}
 
 	public void setCodiceClienteRiferimento(String codiceClienteRiferimento) {
-		CodiceClienteRiferimento = codiceClienteRiferimento;
+		this.codiceClienteRiferimento = codiceClienteRiferimento;
+	}
+
+	public LocalDateTime getDataUltimaModifica() {
+		return dataUltimaModifica;
 	}
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
-		DataUltimaModifica = dataUltimaModifica;
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
+	public boolean isIndicatoreInibizione() {
+		return indicatoreInibizione;
 	}
 
 	public void setIndicatoreInibizione(boolean indicatoreInibizione) {
-		IndicatoreInibizione = indicatoreInibizione;
+		this.indicatoreInibizione = indicatoreInibizione;
+	}
+
+	public String getLoginInserimento() {
+		return loginInserimento;
 	}
 
 	public void setLoginInserimento(String loginInserimento) {
-		LoginInserimento = loginInserimento;
+		this.loginInserimento = loginInserimento;
+	}
+
+	public String getLoginModifica() {
+		return loginModifica;
 	}
 
 	public void setLoginModifica(String loginModifica) {
-		LoginModifica = loginModifica;
+		this.loginModifica = loginModifica;
+	}
+
+	public boolean isIndicatoreScorporoIVA() {
+		return indicatoreScorporoIVA;
 	}
 
 	public void setIndicatoreScorporoIVA(boolean indicatoreScorporoIVA) {
-		IndicatoreScorporoIVA = indicatoreScorporoIVA;
+		this.indicatoreScorporoIVA = indicatoreScorporoIVA;
+	}
+
+	public boolean isIndicatoreIVADifferita() {
+		return indicatoreIVADifferita;
 	}
 
 	public void setIndicatoreIVADifferita(boolean indicatoreIVADifferita) {
-		IndicatoreIVADifferita = indicatoreIVADifferita;
+		this.indicatoreIVADifferita = indicatoreIVADifferita;
+	}
+
+	public boolean isIndicatoreEmail() {
+		return indicatoreEmail;
 	}
 
 	public void setIndicatoreEmail(boolean indicatoreEmail) {
-		IndicatoreEmail = indicatoreEmail;
+		this.indicatoreEmail = indicatoreEmail;
+	}
+
+	public boolean isInputInibito() {
+		return inputInibito;
 	}
 
 	public void setInputInibito(boolean inputInibito) {
-		InputInibito = inputInibito;
+		this.inputInibito = inputInibito;
+	}
+
+	public boolean isIndicatoreEdi() {
+		return indicatoreEdi;
 	}
 
 	public void setIndicatoreEdi(boolean indicatoreEdi) {
-		IndicatoreEdi = indicatoreEdi;
+		this.indicatoreEdi = indicatoreEdi;
+	}
+
+	public String getPartitaIvaEdi() {
+		return partitaIvaEdi;
 	}
 
 	public void setPartitaIvaEdi(String partitaIvaEdi) {
-		PartitaIvaEdi = partitaIvaEdi;
+		this.partitaIvaEdi = partitaIvaEdi;
+	}
+
+	public String getQualificatoreEdi() {
+		return qualificatoreEdi;
 	}
 
 	public void setQualificatoreEdi(String qualificatoreEdi) {
-		QualificatoreEdi = qualificatoreEdi;
+		this.qualificatoreEdi = qualificatoreEdi;
+	}
+
+	public String getIdentificativoFornitoreEdi() {
+		return identificativoFornitoreEdi;
 	}
 
 	public void setIdentificativoFornitoreEdi(String identificativoFornitoreEdi) {
-		IdentificativoFornitoreEdi = identificativoFornitoreEdi;
+		this.identificativoFornitoreEdi = identificativoFornitoreEdi;
+	}
+
+	public String getTipoFornitoreEdi() {
+		return tipoFornitoreEdi;
 	}
 
 	public void setTipoFornitoreEdi(String tipoFornitoreEdi) {
-		TipoFornitoreEdi = tipoFornitoreEdi;
+		this.tipoFornitoreEdi = tipoFornitoreEdi;
+	}
+
+	public String getIdentificativoIntestatarioFatturaEdi() {
+		return identificativoIntestatarioFatturaEdi;
 	}
 
 	public void setIdentificativoIntestatarioFatturaEdi(String identificativoIntestatarioFatturaEdi) {
-		IdentificativoIntestatarioFatturaEdi = identificativoIntestatarioFatturaEdi;
+		this.identificativoIntestatarioFatturaEdi = identificativoIntestatarioFatturaEdi;
+	}
+
+	public String getTipoIntestatarioFatturaEdi() {
+		return tipoIntestatarioFatturaEdi;
 	}
 
 	public void setTipoIntestatarioFatturaEdi(String tipoIntestatarioFatturaEdi) {
-		TipoIntestatarioFatturaEdi = tipoIntestatarioFatturaEdi;
+		this.tipoIntestatarioFatturaEdi = tipoIntestatarioFatturaEdi;
+	}
+
+	public String getIdentificativoPuntoConsegnaEdi() {
+		return identificativoPuntoConsegnaEdi;
 	}
 
 	public void setIdentificativoPuntoConsegnaEdi(String identificativoPuntoConsegnaEdi) {
-		IdentificativoPuntoConsegnaEdi = identificativoPuntoConsegnaEdi;
+		this.identificativoPuntoConsegnaEdi = identificativoPuntoConsegnaEdi;
+	}
+
+	public String getTipoPuntoConsegnaEdi() {
+		return tipoPuntoConsegnaEdi;
 	}
 
 	public void setTipoPuntoConsegnaEdi(String tipoPuntoConsegnaEdi) {
-		TipoPuntoConsegnaEdi = tipoPuntoConsegnaEdi;
+		this.tipoPuntoConsegnaEdi = tipoPuntoConsegnaEdi;
 	}
-	
+
 	
 }
