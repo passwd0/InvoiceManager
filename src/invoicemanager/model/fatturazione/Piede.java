@@ -17,8 +17,8 @@ public class Piede {
 	private float totalePagato;
 	private LocalDateTime dataInserimento; 
 	private LocalDateTime dataUltimaModifica;
-	private List<LocalDateTime> listaDataScadenza;
-	private List<Float> listaImportoScadenza;
+	private LocalDateTime listaDataScadenza;
+	private Float listaImportoScadenza;
 	
 	public Piede(int numeroFattura, LocalDateTime dataFattura) {
 		this.numeroFattura = numeroFattura;
@@ -102,16 +102,16 @@ public class Piede {
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
-	public List<LocalDateTime> getListaDataScadenza() {
+	public LocalDateTime getListaDataScadenza() {
 		return listaDataScadenza;
 	}
-	public void setListaDataScadenza(List<LocalDateTime> listaDataScadenza) {
+	public void setListaDataScadenza(LocalDateTime listaDataScadenza) {
 		this.listaDataScadenza = listaDataScadenza;
 	}
-	public List<Float> getListaImportoScadenza() {
+	public Float getListaImportoScadenza() {
 		return listaImportoScadenza;
 	}
-	public void setListaImportoScadenza(List<Float> listaImportoScadenza) {
+	public void setListaImportoScadenza(Float listaImportoScadenza) {
 		this.listaImportoScadenza = listaImportoScadenza;
 	}
 	

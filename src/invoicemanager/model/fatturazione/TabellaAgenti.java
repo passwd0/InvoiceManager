@@ -9,7 +9,7 @@ public class TabellaAgenti{
 		private boolean tipoProvvigione; // NULL
 		private boolean tipoMandato; // NULL
 		private String codiceContabile; //(30) NULL
-		private List<TabellaControparti> codiceControparte; // (10) COLLATE Latin1_General_CI_AS NULL
+		private TabellaControparti codiceControparte; // (10) COLLATE Latin1_General_CI_AS NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
 		private String loginInserimento; //(30) NULL

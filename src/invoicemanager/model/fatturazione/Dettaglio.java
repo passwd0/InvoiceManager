@@ -18,7 +18,7 @@ public class Dettaglio {
 	private LocalDateTime dataOrdine;
 	private float quantitaDaConsegnare;
 	private boolean indicatoreEvasione;
-	private List<String> descrizione;
+	private String descrizione;
 	private float quantita;
 	private float prezzo;			//Math decimal(19,5)
 	private String codiceIva;
@@ -137,11 +137,11 @@ public class Dettaglio {
 		this.indicatoreEvasione = indicatoreEvasione;
 	}
 
-	public List<String> getDescrizione() {
+	public String getDescrizione() {
 		return descrizione;
 	}
 
-	public void setDescrizione(List<String> descrizione) {
+	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
 

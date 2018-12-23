@@ -5,7 +5,7 @@ import java.util.List;
 public class TabellaIva{
 		private String codiceIva; //(4) NOT NULL
 		private String descrizione; //(100) NULL
-		private List<StatiTabelle> codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+		private StatiTabelle codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
 		private int rigaIVAAcquisti; //  NULL
 		private float addizionaleIVA; //  NULL
 		private float aliquotaIVA; //  NULL
