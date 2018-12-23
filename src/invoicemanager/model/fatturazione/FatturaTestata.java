@@ -2,7 +2,7 @@ package invoicemanager.model.fatturazione;
 
 import java.time.LocalDateTime;
 
-public class Testata {
+public class FatturaTestata {
 	private int numeroFatturazione;
 	private LocalDateTime dataFattura;
 	private char indicatoreStatoAvanzamento;
@@ -44,7 +44,7 @@ public class Testata {
 	private boolean indicatoreEmail;
 	private boolean indicatorePa;
 	
-	public Testata(int numeroFatturazione, LocalDateTime dataFattura) {
+	public FatturaTestata(int numeroFatturazione, LocalDateTime dataFattura) {
 		this.numeroFatturazione = numeroFatturazione;
 		this.dataFattura = dataFattura;
 	}
