@@ -9,12 +9,12 @@ import java.util.Locale;
 public class Dettaglio {
 	private int numeroFattura;
 	private LocalDateTime dataFattura;
-	private short numeroRigaFattura;
+	private int numeroRigaFattura;
 	private String codiceTipoRigaDocumento;
 	private String codiceArticolo;
 	private float costo;
 	private int numeroOrdine;
-	private short numeroRigaOrdine;
+	private int numeroRigaOrdine;
 	private LocalDateTime dataOrdine;
 	private float quantitaDaConsegnare;
 	private boolean indicatoreEvasione;
@@ -34,7 +34,7 @@ public class Dettaglio {
 	private String codiceMagazzino;
 	private int numeroDdt;
 	private LocalDateTime dataDdt;
-	private short numeroRigaDdt;
+	private int numeroRigaDdt;
 	private String codicePercipiente;
 	private String codiceCassaPrevidenziale;
 	private String codiceCdc;
@@ -43,7 +43,7 @@ public class Dettaglio {
 	private LocalDateTime dataInserimento;
 	private LocalDateTime dataUltimaModifica;
 	
-	public Dettaglio(int numeroFattura, LocalDateTime dataFattura, short numeroRigaFattura) {
+	public Dettaglio(int numeroFattura, LocalDateTime dataFattura, int numeroRigaFattura) {
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
@@ -65,11 +65,11 @@ public class Dettaglio {
 		this.dataFattura = dataFattura;
 	}
 
-	public short getNumeroRigaFattura() {
+	public int getNumeroRigaFattura() {
 		return numeroRigaFattura;
 	}
 
-	public void setNumeroRigaFattura(short numeroRigaFattura) {
+	public void setNumeroRigaFattura(int numeroRigaFattura) {
 		this.numeroRigaFattura = numeroRigaFattura;
 	}
 
@@ -105,11 +105,11 @@ public class Dettaglio {
 		this.numeroOrdine = numeroOrdine;
 	}
 
-	public short getNumeroRigaOrdine() {
+	public int getNumeroRigaOrdine() {
 		return numeroRigaOrdine;
 	}
 
-	public void setNumeroRigaOrdine(short numeroRigaOrdine) {
+	public void setNumeroRigaOrdine(int numeroRigaOrdine) {
 		this.numeroRigaOrdine = numeroRigaOrdine;
 	}
 
@@ -261,11 +261,11 @@ public class Dettaglio {
 		this.dataDdt = dataDdt;
 	}
 
-	public short getNumeroRigaDdt() {
+	public int getNumeroRigaDdt() {
 		return numeroRigaDdt;
 	}
 
-	public void setNumeroRigaDdt(short numeroRigaDdt) {
+	public void setNumeroRigaDdt(int numeroRigaDdt) {
 		this.numeroRigaDdt = numeroRigaDdt;
 	}
 
@@ -324,4 +324,38 @@ public class Dettaglio {
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dataFattura == null) ? 0 : dataFattura.hashCode());
+		result = prime * result + numeroFattura;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Dettaglio other = (Dettaglio) obj;
+		if (dataFattura == null) {
+			if (other.dataFattura != null)
+				return false;
+		} else {
+		    int y1 = dataFattura.getYear();
+		    int y2 = other.dataFattura.getYear();
+			if (y1 != y2)
+				return false;
+		}
+		if (numeroFattura != other.numeroFattura)
+			return false;
+		return true;
+	}
+	
+	
 }

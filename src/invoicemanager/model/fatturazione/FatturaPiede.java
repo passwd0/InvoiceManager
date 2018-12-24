@@ -17,7 +17,7 @@ public class FatturaPiede {
 	private LocalDateTime dataUltimaModifica;
 	private LocalDateTime listaDataScadenza;
 	private Float listaImportoScadenza;
-	private List<TabellaIva> listaIva;
+	private List<Iva> listaIva;
 	private List<Float> listaImportoImponibileIva;
 	private List<Float> listaImportoIva;
 	private float totaleFattura;
@@ -129,11 +129,11 @@ public class FatturaPiede {
 		this.speseImballo = speseImballo;
 	}
 
-	public List<TabellaIva> getListaIva() {
+	public List<Iva> getListaIva() {
 		return listaIva;
 	}
 
-	public void setListaIva(List<TabellaIva> listaIva) {
+	public void setListaIva(List<Iva> listaIva) {
 		this.listaIva = listaIva;
 	}
 
@@ -169,4 +169,37 @@ public class FatturaPiede {
 		this.totaleSconti = totaleSconti;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dataFattura == null) ? 0 : dataFattura.hashCode());
+		result = prime * result + numeroFattura;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FatturaPiede other = (FatturaPiede) obj;
+		if (dataFattura == null) {
+			if (other.dataFattura != null)
+				return false;
+		} else {
+		    int y1 = dataFattura.getYear();
+		    int y2 = other.dataFattura.getYear();
+			if (y1 != y2)
+				return false;
+		}
+		if (numeroFattura != other.numeroFattura)
+			return false;
+		return true;
+	}
+
+	
 }

@@ -2,17 +2,19 @@ package test.model.fatturazione;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import invoicemanager.model.fatturazione.Clienti;
-class TestClienti {
+import invoicemanager.model.fatturazione.Cliente;
+class TestCliente {
 
-	Clienti c;
+	Cliente c1, c2;
 	@BeforeEach
 	void setUp() {
-		c = new Clienti("prova");
+		c1 = new Cliente("prova");
+		c1.setCodiceAffidabilita("asd");
+		c2 = new Cliente("prova");
 	}
 	@Test
 	void test() {
-		assertEquals("prova", c.getCodiceCliente());
+		assertEquals(c1, c2);
 	}
 
 }

@@ -2,22 +2,24 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class TipoPagamento{
-		private String codiceTipoPagamento; //(10) NOT NULL
+public class Iso{
+		private String codiceISO; //(4) NOT NULL
 		private String descrizione; //(100) NULL
+		private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
+		private String loginInserimento; //(30) NULL
 
-	public TipoPagamento(String codiceTipoPagamento){
-		this.codiceTipoPagamento = codiceTipoPagamento;
+	public Iso(String codiceISO){
+		this.codiceISO = codiceISO;
 	}
 
-	public String getCodiceTipoPagamento() {
-		return codiceTipoPagamento;
+	public String getCodiceISO() {
+		return codiceISO;
 	}
 
-	public void setCodiceTipoPagamento(String codiceTipoPagamento) {
-		this.codiceTipoPagamento = codiceTipoPagamento;
+	public void setCodiceISO(String codiceISO) {
+		this.codiceISO = codiceISO;
 	}
 
 	public String getDescrizione() {
@@ -26,6 +28,14 @@ public class TipoPagamento{
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+
+	public Stato getCodiceStato() {
+		return codiceStato;
+	}
+
+	public void setCodiceStato(Stato codiceStato) {
+		this.codiceStato = codiceStato;
 	}
 
 	public LocalDateTime getDataInserimento() {
@@ -44,11 +54,19 @@ public class TipoPagamento{
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
+	public String getLoginInserimento() {
+		return loginInserimento;
+	}
+
+	public void setLoginInserimento(String loginInserimento) {
+		this.loginInserimento = loginInserimento;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codiceTipoPagamento == null) ? 0 : codiceTipoPagamento.hashCode());
+		result = prime * result + ((codiceISO == null) ? 0 : codiceISO.hashCode());
 		return result;
 	}
 
@@ -60,11 +78,11 @@ public class TipoPagamento{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TipoPagamento other = (TipoPagamento) obj;
-		if (codiceTipoPagamento == null) {
-			if (other.codiceTipoPagamento != null)
+		Iso other = (Iso) obj;
+		if (codiceISO == null) {
+			if (other.codiceISO != null)
 				return false;
-		} else if (!codiceTipoPagamento.equals(other.codiceTipoPagamento))
+		} else if (!codiceISO.equals(other.codiceISO))
 			return false;
 		return true;
 	}

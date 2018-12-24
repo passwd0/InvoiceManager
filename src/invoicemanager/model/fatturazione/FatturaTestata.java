@@ -18,7 +18,7 @@ public class FatturaTestata {
 	private boolean indicatoreAddebitoBolli;
 	private boolean indicatoreAddebitoSpeseIncasso;
 	private boolean indicatoreScaricoMagazzino;
-	private short codiceListino;
+	private int codiceListino;
 	private String codiceResa;
 	private String codiceVettore;
 	private boolean indicatoreFatturaAccompagnatoria;
@@ -169,11 +169,11 @@ public class FatturaTestata {
 		this.indicatoreScaricoMagazzino = indicatoreScaricoMagazzino;
 	}
 
-	public short getCodiceListino() {
+	public int getCodiceListino() {
 		return codiceListino;
 	}
 
-	public void setCodiceListino(short codiceListino) {
+	public void setCodiceListino(int codiceListino) {
 		this.codiceListino = codiceListino;
 	}
 
@@ -367,6 +367,38 @@ public class FatturaTestata {
 
 	public void setIndicatorePa(boolean indicatorePa) {
 		this.indicatorePa = indicatorePa;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dataFattura == null) ? 0 : dataFattura.hashCode());
+		result = prime * result + numeroFatturazione;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FatturaTestata other = (FatturaTestata) obj;
+		if (dataFattura == null) {
+			if (other.dataFattura != null)
+				return false;
+		} else {
+		    int y1 = dataFattura.getYear();
+		    int y2 = other.dataFattura.getYear();
+			if (y1 != y2)
+				return false;
+		}
+		if (numeroFatturazione != other.numeroFatturazione)
+			return false;
+		return true;
 	}
 	
 	

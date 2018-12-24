@@ -2,22 +2,22 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class TipoPagamento{
-		private String codiceTipoPagamento; //(10) NOT NULL
-		private String descrizione; //(100) NULL
+public class Stato{
+		private boolean codiceStato; // NOT NULL
+		private String descrizione; //(50) NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
 
-	public TipoPagamento(String codiceTipoPagamento){
-		this.codiceTipoPagamento = codiceTipoPagamento;
+	public Stato(boolean codiceStato){
+		this.codiceStato = codiceStato;
 	}
 
-	public String getCodiceTipoPagamento() {
-		return codiceTipoPagamento;
+	public boolean isCodiceStato() {
+		return codiceStato;
 	}
 
-	public void setCodiceTipoPagamento(String codiceTipoPagamento) {
-		this.codiceTipoPagamento = codiceTipoPagamento;
+	public void setCodiceStato(boolean codiceStato) {
+		this.codiceStato = codiceStato;
 	}
 
 	public String getDescrizione() {
@@ -48,7 +48,7 @@ public class TipoPagamento{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codiceTipoPagamento == null) ? 0 : codiceTipoPagamento.hashCode());
+		result = prime * result + (codiceStato ? 1231 : 1237);
 		return result;
 	}
 
@@ -60,11 +60,8 @@ public class TipoPagamento{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TipoPagamento other = (TipoPagamento) obj;
-		if (codiceTipoPagamento == null) {
-			if (other.codiceTipoPagamento != null)
-				return false;
-		} else if (!codiceTipoPagamento.equals(other.codiceTipoPagamento))
+		Stato other = (Stato) obj;
+		if (codiceStato != other.codiceStato)
 			return false;
 		return true;
 	}

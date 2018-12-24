@@ -2,40 +2,40 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Clienti{
+public class Cliente{
 		private String codiceCliente; //(30) NOT NULL
 		private String descrizione; //(100) NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimoAggiornamento; //  NULL
 		private TipoCliente codiceTipoCliente; // (4) COLLATE Latin1_General_CI_AS NULL
 		private String codiceUfficioCommerciale; //(20) NULL
-		private TabellaResaMerce codiceResaMerce; // (4) COLLATE Latin1_General_CI_AS NULL
-		private TabellaImballi codiceImballo; // (4) COLLATE Latin1_General_CI_AS NULL
-		private TabellaRaggruppamentiClientiFornitori codiceRaggruppamento; // (4) COLLATE Latin1_General_CI_AS NULL
+		private ResaMerce codiceResaMerce; // (4) COLLATE Latin1_General_CI_AS NULL
+		private Imballo codiceImballo; // (4) COLLATE Latin1_General_CI_AS NULL
+		private RaggruppamentoClienteFornitore codiceRaggruppamento; // (4) COLLATE Latin1_General_CI_AS NULL
 		private float fatturato; //  NULL
 		private float fido; //  NULL
 		private String partitaIVA; //(15) NULL
 		private String codiceFiscale; //(16) NULL
-		private TabellaPagamenti codicePagamento; // (4) COLLATE Latin1_General_CI_AS NULL
+		private Pagamento codicePagamento; // (4) COLLATE Latin1_General_CI_AS NULL
 		private String sinonimo; //(50) NULL
-		private TabellaBanche codiceBanca; // (4) COLLATE Latin1_General_CI_AS NULL
-		private short numeroFattureEmesse; //  NULL
-		private TabellaIva codiceEsenzioneIVA; // (4) COLLATE Latin1_General_CI_AS NULL
+		private Banca codiceBanca; // (4) COLLATE Latin1_General_CI_AS NULL
+		private int numeroFattureEmesse; //  NULL
+		private Iva codiceEsenzioneIVA; // (4) COLLATE Latin1_General_CI_AS NULL
 		private float imponibileNonEsente; //  NULL
 		private float imponibileEsente; //  NULL
 		private float importoIVA; //  NULL
 		private String codiceClassificazione; //(10) NULL
 		private float costoVenduto; //  NULL
-		private TabellaAgenti codiceAgente; // (10) COLLATE Latin1_General_CI_AS NULL
+		private Agente codiceAgente; // (10) COLLATE Latin1_General_CI_AS NULL
 		private float percentualeProvvigioneAgente; //  NULL
 		private float scontoLegatoProvvigioniAgente; //  NULL
-		private short numeroCopieFattura; //  NULL
+		private int numeroCopieFattura; //  NULL
 		private boolean indicatoreAddebitoSpeseIncasso; // NULL
 		private boolean indicatoreAddebitoSpeseBolli; // NULL
 		private int codiceListino; //  NULL
 		private String codiceVettore; //(3) NULL
 		private String codiceAffidabilita; //(4) NULL
-		private TabellaIso codiceISO; // (4) COLLATE Latin1_General_CI_AS NULL
+		private Iso codiceISO; // (4) COLLATE Latin1_General_CI_AS NULL
 		private String partitaIVAEstero; //(12) NULL
 		private String codiceDivisa; //(4) NULL
 		private int dataScadenzaSpostataAgosto; //  NULL
@@ -44,7 +44,7 @@ public class Clienti{
 		private String codiceCommissione; //(5) NULL
 		private String codiceLingua; //(5) NULL
 		private String note; //(6000) NULL
-		private StatiTabelle codiceStato; // (2) COLLATE Latin1_General_CI_AS NULL
+		private Stato codiceStato; // (2) COLLATE Latin1_General_CI_AS NULL
 		private boolean indicatoreInviataInformativaPrivacy; // NULL
 		private boolean indicatoreRicevutaInformativaPrivacy; // NULL
 		private String codiceClienteRiferimento; //(15) NULL
@@ -66,7 +66,7 @@ public class Clienti{
 		private String identificativoPuntoConsegnaEdi; //(17) NULL
 		private String tipoPuntoConsegnaEdi; //(3) NULL
 
-	public Clienti(String codiceCliente){
+	public Cliente(String codiceCliente){
 		this.codiceCliente = codiceCliente;
 	}
 
@@ -118,27 +118,27 @@ public class Clienti{
 		this.codiceUfficioCommerciale = codiceUfficioCommerciale;
 	}
 
-	public TabellaResaMerce getCodiceResaMerce() {
+	public ResaMerce getCodiceResaMerce() {
 		return codiceResaMerce;
 	}
 
-	public void setCodiceResaMerce(TabellaResaMerce codiceResaMerce) {
+	public void setCodiceResaMerce(ResaMerce codiceResaMerce) {
 		this.codiceResaMerce = codiceResaMerce;
 	}
 
-	public TabellaImballi getCodiceImballo() {
+	public Imballo getCodiceImballo() {
 		return codiceImballo;
 	}
 
-	public void setCodiceImballo(TabellaImballi codiceImballo) {
+	public void setCodiceImballo(Imballo codiceImballo) {
 		this.codiceImballo = codiceImballo;
 	}
 
-	public TabellaRaggruppamentiClientiFornitori getCodiceRaggruppamento() {
+	public RaggruppamentoClienteFornitore getCodiceRaggruppamento() {
 		return codiceRaggruppamento;
 	}
 
-	public void setCodiceRaggruppamento(TabellaRaggruppamentiClientiFornitori codiceRaggruppamento) {
+	public void setCodiceRaggruppamento(RaggruppamentoClienteFornitore codiceRaggruppamento) {
 		this.codiceRaggruppamento = codiceRaggruppamento;
 	}
 
@@ -174,11 +174,11 @@ public class Clienti{
 		this.codiceFiscale = codiceFiscale;
 	}
 
-	public TabellaPagamenti getCodicePagamento() {
+	public Pagamento getCodicePagamento() {
 		return codicePagamento;
 	}
 
-	public void setCodicePagamento(TabellaPagamenti codicePagamento) {
+	public void setCodicePagamento(Pagamento codicePagamento) {
 		this.codicePagamento = codicePagamento;
 	}
 
@@ -190,27 +190,27 @@ public class Clienti{
 		this.sinonimo = sinonimo;
 	}
 
-	public TabellaBanche getCodiceBanca() {
+	public Banca getCodiceBanca() {
 		return codiceBanca;
 	}
 
-	public void setCodiceBanca(TabellaBanche codiceBanca) {
+	public void setCodiceBanca(Banca codiceBanca) {
 		this.codiceBanca = codiceBanca;
 	}
 
-	public short getNumeroFattureEmesse() {
+	public int getNumeroFattureEmesse() {
 		return numeroFattureEmesse;
 	}
 
-	public void setNumeroFattureEmesse(short numeroFattureEmesse) {
+	public void setNumeroFattureEmesse(int numeroFattureEmesse) {
 		this.numeroFattureEmesse = numeroFattureEmesse;
 	}
 
-	public TabellaIva getCodiceEsenzioneIVA() {
+	public Iva getCodiceEsenzioneIVA() {
 		return codiceEsenzioneIVA;
 	}
 
-	public void setCodiceEsenzioneIVA(TabellaIva codiceEsenzioneIVA) {
+	public void setCodiceEsenzioneIVA(Iva codiceEsenzioneIVA) {
 		this.codiceEsenzioneIVA = codiceEsenzioneIVA;
 	}
 
@@ -254,11 +254,11 @@ public class Clienti{
 		this.costoVenduto = costoVenduto;
 	}
 
-	public TabellaAgenti getCodiceAgente() {
+	public Agente getCodiceAgente() {
 		return codiceAgente;
 	}
 
-	public void setCodiceAgente(TabellaAgenti codiceAgente) {
+	public void setCodiceAgente(Agente codiceAgente) {
 		this.codiceAgente = codiceAgente;
 	}
 
@@ -278,11 +278,11 @@ public class Clienti{
 		this.scontoLegatoProvvigioniAgente = scontoLegatoProvvigioniAgente;
 	}
 
-	public short getNumeroCopieFattura() {
+	public int getNumeroCopieFattura() {
 		return numeroCopieFattura;
 	}
 
-	public void setNumeroCopieFattura(short numeroCopieFattura) {
+	public void setNumeroCopieFattura(int numeroCopieFattura) {
 		this.numeroCopieFattura = numeroCopieFattura;
 	}
 
@@ -326,11 +326,11 @@ public class Clienti{
 		this.codiceAffidabilita = codiceAffidabilita;
 	}
 
-	public TabellaIso getCodiceISO() {
+	public Iso getCodiceISO() {
 		return codiceISO;
 	}
 
-	public void setCodiceISO(TabellaIso codiceISO) {
+	public void setCodiceISO(Iso codiceISO) {
 		this.codiceISO = codiceISO;
 	}
 
@@ -398,11 +398,11 @@ public class Clienti{
 		this.note = note;
 	}
 
-	public StatiTabelle getCodiceStato() {
+	public Stato getCodiceStato() {
 		return codiceStato;
 	}
 
-	public void setCodiceStato(StatiTabelle codiceStato) {
+	public void setCodiceStato(Stato codiceStato) {
 		this.codiceStato = codiceStato;
 	}
 
@@ -564,6 +564,31 @@ public class Clienti{
 
 	public void setTipoPuntoConsegnaEdi(String tipoPuntoConsegnaEdi) {
 		this.tipoPuntoConsegnaEdi = tipoPuntoConsegnaEdi;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codiceCliente == null) ? 0 : codiceCliente.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		if (codiceCliente == null) {
+			if (other.codiceCliente != null)
+				return false;
+		} else if (!codiceCliente.equals(other.codiceCliente))
+			return false;
+		return true;
 	}
 
 	
