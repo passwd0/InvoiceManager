@@ -3,9 +3,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class OrdineDettaglio{
-		private int numeroOrdine; //  NOT NULL
+		//private int numeroOrdine; //  NOT NULL		sottoclasse di ordineTestata
 		private int numeroRigaOrdine; //  NOT NULL
-		private LocalDateTime dataOrdine; //  NOT NULL
+		//private LocalDateTime dataOrdine; //  NOT NULL
 		private String codiceTipoRigaDocumento; //(4) NULL
 		private String codiceMagazzino; //(4) NULL
 		private String codiceArticolo; //(30) NULL
@@ -45,17 +45,7 @@ public class OrdineDettaglio{
 		private String codiceArticoloBis; //(30) NULL
 		
 		public OrdineDettaglio(int numeroOrdine, int numeroRigaOrdine, LocalDateTime dataOrdine) {
-			this.numeroOrdine = numeroOrdine;
 			this.numeroRigaOrdine = numeroRigaOrdine;
-			this.dataOrdine = dataOrdine;
-		}
-
-		public int getNumeroOrdine() {
-			return numeroOrdine;
-		}
-
-		public void setNumeroOrdine(int numeroOrdine) {
-			this.numeroOrdine = numeroOrdine;
 		}
 
 		public int getNumeroRigaOrdine() {
@@ -64,14 +54,6 @@ public class OrdineDettaglio{
 
 		public void setNumeroRigaOrdine(int numeroRigaOrdine) {
 			this.numeroRigaOrdine = numeroRigaOrdine;
-		}
-
-		public LocalDateTime getDataOrdine() {
-			return dataOrdine;
-		}
-
-		public void setDataOrdine(LocalDateTime dataOrdine) {
-			this.dataOrdine = dataOrdine;
 		}
 
 		public String getCodiceTipoRigaDocumento() {
@@ -369,40 +351,4 @@ public class OrdineDettaglio{
 		public void setCodiceArticoloBis(String codiceArticoloBis) {
 			this.codiceArticoloBis = codiceArticoloBis;
 		}
-
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + ((dataOrdine == null) ? 0 : dataOrdine.hashCode());
-			result = prime * result + numeroOrdine;
-			return result;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			OrdineDettaglio other = (OrdineDettaglio) obj;
-			if (dataOrdine == null) {
-				if (other.dataOrdine != null)
-					return false;
-			} else {
-			    int y1 = dataOrdine.getYear();
-			    int y2 = other.dataOrdine.getYear();
-				if (y1 != y2)
-					return false;
-			}
-			if (numeroOrdine != other.numeroOrdine)
-				return false;
-			return true;
-		}
-
-	
-	
-	
 }

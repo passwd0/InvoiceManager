@@ -11,6 +11,19 @@ public class Controparte{
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
 		private String loginInserimento; //(30) NULL
+		
+	public Controparte(String codiceControparte, String descrizione, Stato codiceStato, String codiceContoCOGE,
+				int progressivoRelazioniCOGECOA, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
+				String loginInserimento) {
+			this.codiceControparte = codiceControparte;
+			this.descrizione = descrizione;
+			this.codiceStato = codiceStato;
+			this.codiceContoCOGE = codiceContoCOGE;
+			this.progressivoRelazioniCOGECOA = progressivoRelazioniCOGECOA;
+			this.dataInserimento = dataInserimento;
+			this.dataUltimaModifica = dataUltimaModifica;
+			this.loginInserimento = loginInserimento;
+		}
 
 	public Controparte(String codiceControparte){
 		this.codiceControparte = codiceControparte;

@@ -6,9 +6,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 
-public class Dettaglio {
-	private int numeroFattura;
-	private LocalDateTime dataFattura;
+public class FatturaDettaglio {
+	//private int numeroFattura;
+	//private LocalDateTime dataFattura			sottoclasse di fatturaTestata
 	private int numeroRigaFattura;
 	private String codiceTipoRigaDocumento;
 	private String codiceArticolo;
@@ -43,26 +43,53 @@ public class Dettaglio {
 	private LocalDateTime dataInserimento;
 	private LocalDateTime dataUltimaModifica;
 	
-	public Dettaglio(int numeroFattura, LocalDateTime dataFattura, int numeroRigaFattura) {
-		this.numeroFattura = numeroFattura;
-		this.dataFattura = dataFattura;
+	
+	
+	public FatturaDettaglio(int numeroRigaFattura, String codiceTipoRigaDocumento, String codiceArticolo, float costo,
+			int numeroOrdine, int numeroRigaOrdine, LocalDateTime dataOrdine, float quantitaDaConsegnare,
+			boolean indicatoreEvasione, String descrizione, float quantita, float prezzo, String codiceIva,
+			String codiceContropartitaContabile, float percentualeProvvigione, float percentualeScontoCliente,
+			float percentualeScontoArticolo, float percentualeScontoPagamento, String codiceUnitaMisura,
+			String serialNumber, boolean indicatoreNoConferma, String codiceMagazzino, int numeroDdt,
+			LocalDateTime dataDdt, int numeroRigaDdt, String codicePercipiente, String codiceCassaPrevidenziale,
+			String codiceCdc, String contoRicavoUsato, String ricavoUsato, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
 		this.numeroRigaFattura = numeroRigaFattura;
+		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
+		this.codiceArticolo = codiceArticolo;
+		this.costo = costo;
+		this.numeroOrdine = numeroOrdine;
+		this.numeroRigaOrdine = numeroRigaOrdine;
+		this.dataOrdine = dataOrdine;
+		this.quantitaDaConsegnare = quantitaDaConsegnare;
+		this.indicatoreEvasione = indicatoreEvasione;
+		this.descrizione = descrizione;
+		this.quantita = quantita;
+		this.prezzo = prezzo;
+		this.codiceIva = codiceIva;
+		this.codiceContropartitaContabile = codiceContropartitaContabile;
+		this.percentualeProvvigione = percentualeProvvigione;
+		this.percentualeScontoCliente = percentualeScontoCliente;
+		this.percentualeScontoArticolo = percentualeScontoArticolo;
+		this.percentualeScontoPagamento = percentualeScontoPagamento;
+		this.codiceUnitaMisura = codiceUnitaMisura;
+		this.serialNumber = serialNumber;
+		this.indicatoreNoConferma = indicatoreNoConferma;
+		this.codiceMagazzino = codiceMagazzino;
+		this.numeroDdt = numeroDdt;
+		this.dataDdt = dataDdt;
+		this.numeroRigaDdt = numeroRigaDdt;
+		this.codicePercipiente = codicePercipiente;
+		this.codiceCassaPrevidenziale = codiceCassaPrevidenziale;
+		this.codiceCdc = codiceCdc;
+		this.contoRicavoUsato = contoRicavoUsato;
+		this.ricavoUsato = ricavoUsato;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
-	public int getNumeroFattura() {
-		return numeroFattura;
-	}
-
-	public void setNumeroFattura(int numeroFattura) {
-		this.numeroFattura = numeroFattura;
-	}
-
-	public LocalDateTime getDataFattura() {
-		return dataFattura;
-	}
-
-	public void setDataFattura(LocalDateTime dataFattura) {
-		this.dataFattura = dataFattura;
+	public FatturaDettaglio(int numeroRigaFattura) {
+		this.numeroRigaFattura = numeroRigaFattura;
 	}
 
 	public int getNumeroRigaFattura() {
@@ -324,38 +351,4 @@ public class Dettaglio {
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((dataFattura == null) ? 0 : dataFattura.hashCode());
-		result = prime * result + numeroFattura;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Dettaglio other = (Dettaglio) obj;
-		if (dataFattura == null) {
-			if (other.dataFattura != null)
-				return false;
-		} else {
-		    int y1 = dataFattura.getYear();
-		    int y2 = other.dataFattura.getYear();
-			if (y1 != y2)
-				return false;
-		}
-		if (numeroFattura != other.numeroFattura)
-			return false;
-		return true;
-	}
-	
-	
 }

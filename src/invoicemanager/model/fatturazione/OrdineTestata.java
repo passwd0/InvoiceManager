@@ -44,10 +44,19 @@ public class OrdineTestata{
 		private String revisione; //(10) NULL
 		private String attenzione; //(50) NULL
 		private boolean indicatoreOrdineTrading; // NULL
+		private List<OrdineDettaglio> ordineDettagli;
 		
 		public OrdineTestata(int numeroOrdine, LocalDateTime dataOrdine) {
 			this.numeroOrdine = numeroOrdine;
 			this.dataOrdine = dataOrdine;
+		}
+
+		public List<OrdineDettaglio> getOrdineDettagli() {
+			return ordineDettagli;
+		}
+
+		public void setOrdineDettagli(List<OrdineDettaglio> ordineDettagli) {
+			this.ordineDettagli = ordineDettagli;
 		}
 
 		public int getNumeroOrdine() {

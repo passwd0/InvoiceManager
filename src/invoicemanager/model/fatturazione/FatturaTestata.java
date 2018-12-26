@@ -1,6 +1,8 @@
 package invoicemanager.model.fatturazione;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class FatturaTestata {
 	private int numeroFatturazione;
@@ -43,10 +45,155 @@ public class FatturaTestata {
 	private boolean indicatoreFatturazioneDifferita;
 	private boolean indicatoreEmail;
 	private boolean indicatorePa;
-	
+	private List<FatturaDettaglio> fatturadettaglio;
+	private float speseTrasporto;
+	private float speseImballo;
+	private float speseIncasso;
+	private float speseBolli;
+	private float omaggi;
+	private float totalePagato;
+	private LocalDate dataScadenza;
+	private float importoScadenza;
+
+	public FatturaTestata(int numeroFatturazione, LocalDateTime dataFattura, char indicatoreStatoAvanzamento,
+			String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
+			String codiceCausalePrelievi, float percentualeSconto, float percentualeScontoPagamento,
+			float percentualeProvvigione, String descrizione, boolean indicatoreAddebitoBolli,
+			boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreScaricoMagazzino, int codiceListino,
+			String codiceResa, String codiceVettore, boolean indicatoreFatturaAccompagnatoria, String codicePagamento,
+			String codiceBanca, String codiceImballo, float pesoColli, float numeroColli, float acconto,
+			String codiceDivisa, float cambio, String codiceClienteSpedizione, String nomeSpedizione,
+			String indirizzoSpedizione, String capSpedizione, String cittaSpedizione, String provinciaSpedizione,
+			String codiceNazioneSpedizione, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
+			String note, boolean indicatoreFatturazioneDifferita, boolean indicatoreEmail, boolean indicatorePa,
+			List<FatturaDettaglio> fatturadettaglio, float speseTrasporto, float speseImballo, float speseIncasso,
+			float speseBolli, float omaggi, float totalePagato, LocalDate dataScadenza, float importoScadenza) {
+		this.numeroFatturazione = numeroFatturazione;
+		this.dataFattura = dataFattura;
+		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
+		this.codiceClienteFatturazione = codiceClienteFatturazione;
+		this.codiceEsenzioneIva = codiceEsenzioneIva;
+		this.codiceAgente = codiceAgente;
+		this.codiceCausale = codiceCausale;
+		this.codiceCausalePrelievi = codiceCausalePrelievi;
+		this.percentualeSconto = percentualeSconto;
+		this.percentualeScontoPagamento = percentualeScontoPagamento;
+		this.percentualeProvvigione = percentualeProvvigione;
+		this.descrizione = descrizione;
+		this.indicatoreAddebitoBolli = indicatoreAddebitoBolli;
+		this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
+		this.indicatoreScaricoMagazzino = indicatoreScaricoMagazzino;
+		this.codiceListino = codiceListino;
+		this.codiceResa = codiceResa;
+		this.codiceVettore = codiceVettore;
+		this.indicatoreFatturaAccompagnatoria = indicatoreFatturaAccompagnatoria;
+		this.codicePagamento = codicePagamento;
+		this.codiceBanca = codiceBanca;
+		this.codiceImballo = codiceImballo;
+		this.pesoColli = pesoColli;
+		this.numeroColli = numeroColli;
+		this.acconto = acconto;
+		this.codiceDivisa = codiceDivisa;
+		this.cambio = cambio;
+		this.codiceClienteSpedizione = codiceClienteSpedizione;
+		this.nomeSpedizione = nomeSpedizione;
+		this.indirizzoSpedizione = indirizzoSpedizione;
+		this.capSpedizione = capSpedizione;
+		this.cittaSpedizione = cittaSpedizione;
+		this.provinciaSpedizione = provinciaSpedizione;
+		this.codiceNazioneSpedizione = codiceNazioneSpedizione;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+		this.note = note;
+		this.indicatoreFatturazioneDifferita = indicatoreFatturazioneDifferita;
+		this.indicatoreEmail = indicatoreEmail;
+		this.indicatorePa = indicatorePa;
+		this.fatturadettaglio = fatturadettaglio;
+		this.speseTrasporto = speseTrasporto;
+		this.speseImballo = speseImballo;
+		this.speseIncasso = speseIncasso;
+		this.speseBolli = speseBolli;
+		this.omaggi = omaggi;
+		this.totalePagato = totalePagato;
+		this.dataScadenza = dataScadenza;
+		this.importoScadenza = importoScadenza;
+	}
+
 	public FatturaTestata(int numeroFatturazione, LocalDateTime dataFattura) {
 		this.numeroFatturazione = numeroFatturazione;
 		this.dataFattura = dataFattura;
+	}
+	
+	public LocalDate getDataScadenza() {
+		return dataScadenza;
+	}
+
+	public void setDataScadenza(LocalDate dataScadenza) {
+		this.dataScadenza = dataScadenza;
+	}
+
+	public float getImportoScadenza() {
+		return importoScadenza;
+	}
+
+	public void setImportoScadenza(float importoScadenza) {
+		this.importoScadenza = importoScadenza;
+	}
+
+	public float getSpeseTrasporto() {
+		return speseTrasporto;
+	}
+
+	public void setSpeseTrasporto(float speseTrasporto) {
+		this.speseTrasporto = speseTrasporto;
+	}
+
+	public float getSpeseImballo() {
+		return speseImballo;
+	}
+
+	public void setSpeseImballo(float speseImballo) {
+		this.speseImballo = speseImballo;
+	}
+
+	public float getSpeseIncasso() {
+		return speseIncasso;
+	}
+
+	public void setSpeseIncasso(float speseIncasso) {
+		this.speseIncasso = speseIncasso;
+	}
+
+	public float getSpeseBolli() {
+		return speseBolli;
+	}
+
+	public void setSpeseBolli(float speseBolli) {
+		this.speseBolli = speseBolli;
+	}
+
+	public float getOmaggi() {
+		return omaggi;
+	}
+
+	public void setOmaggi(float omaggi) {
+		this.omaggi = omaggi;
+	}
+
+	public float getTotalePagato() {
+		return totalePagato;
+	}
+
+	public void setTotalePagato(float totalePagato) {
+		this.totalePagato = totalePagato;
+	}
+
+	public List<FatturaDettaglio> getFatturadettaglio() {
+		return fatturadettaglio;
+	}
+
+	public void setFatturadettaglio(List<FatturaDettaglio> fatturadettaglio) {
+		this.fatturadettaglio = fatturadettaglio;
 	}
 
 	public int getNumeroFatturazione() {

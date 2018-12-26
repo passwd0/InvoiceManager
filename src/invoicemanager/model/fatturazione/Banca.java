@@ -22,6 +22,31 @@ public class Banca{
 		private String swift; //(50) NULL
 		private String codiceConto; //(30) NULL
 		private String indirizzo; //(2000) NULL
+		
+	public Banca(String codiceBanca, String descrizione, Stato codiceStato, String codiceABI, String codiceCAB,
+				String localita, String provincia, String numeroContoCorrente, String codiceCIN, String codiceCINEur,
+				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
+				String loginModifica, String iban, String swift, String codiceConto, String indirizzo) {
+			this.codiceBanca = codiceBanca;
+			this.descrizione = descrizione;
+			this.codiceStato = codiceStato;
+			this.codiceABI = codiceABI;
+			this.codiceCAB = codiceCAB;
+			this.localita = localita;
+			this.provincia = provincia;
+			this.numeroContoCorrente = numeroContoCorrente;
+			this.codiceCIN = codiceCIN;
+			this.codiceCINEur = codiceCINEur;
+			this.paese = paese;
+			this.dataInserimento = dataInserimento;
+			this.dataUltimaModifica = dataUltimaModifica;
+			this.loginInserimento = loginInserimento;
+			this.loginModifica = loginModifica;
+			this.iban = iban;
+			this.swift = swift;
+			this.codiceConto = codiceConto;
+			this.indirizzo = indirizzo;
+		}
 
 	public Banca(String CodiceBanca){
 		this.codiceBanca = codiceBanca;

@@ -1,11 +1,14 @@
 package test.model.fatturazione;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import invoicemanager.model.fatturazione.DdtDettaglio;
+
 class TestDdtDettaglio {
 
 	DdtDettaglio c1, c2;

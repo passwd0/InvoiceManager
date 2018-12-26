@@ -5,9 +5,9 @@ import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDateTime;
 
 public class DdtDettaglio {
-	private int numeroDDT; //NOT NULL
+	//private int numeroDDT; //NOT NULL			sottoclasse Ddt
 	private int numeroRigaDDT; //NOT NULL
-	private LocalDateTime dataDDT; //NOT NULL
+	//private LocalDateTime dataDDT; //NOT NULL
 	private String codiceTipoRigaDocumento;
 	private String codiceArticolo;
 	private String codiceMagazzino;
@@ -36,28 +36,55 @@ public class DdtDettaglio {
 	private boolean indicatorePrelevatoVendita; //] [varchar](1) COLLATE Latin1_General_CI_AS NULL,
 	private String pesoLordo; //[PesoLordo] [varchar](50) COLLATE Latin1_General_CI_AS NULL
 	
-	public DdtDettaglio(int numeroDDT, int numeroRigaDDT, LocalDateTime dataDDT) {
-		this.numeroDDT = numeroDDT;
+	
+	
+	public DdtDettaglio(int numeroRigaDDT, String codiceTipoRigaDocumento, String codiceArticolo,
+			String codiceMagazzino, float costo, int numeroOrdine, int numeroRigaOrdine, LocalDateTime dataOrdine,
+			float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione, float quantita, float prezzo,
+			String codiceIva, String codiceContropartitaContabile, float percentualeProvvigione,
+			float percentualeScontoCliente, float percentualeScontoArticolo, float percentualeScontoPagamento,
+			String descrizioneAggiuntiva, String codiceUnitaMisura, String serialNumber, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica, String loginInserimento, String loginModifica,
+			boolean indicatorePrelevatoVendita, String pesoLordo) {
 		this.numeroRigaDDT = numeroRigaDDT;
-		this.dataDDT = dataDDT;
+		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
+		this.codiceArticolo = codiceArticolo;
+		this.codiceMagazzino = codiceMagazzino;
+		this.costo = costo;
+		this.numeroOrdine = numeroOrdine;
+		this.numeroRigaOrdine = numeroRigaOrdine;
+		this.dataOrdine = dataOrdine;
+		this.quantitaDaConsegnare = quantitaDaConsegnare;
+		this.indicatoreEvasione = indicatoreEvasione;
+		this.descrizione = descrizione;
+		this.quantita = quantita;
+		this.prezzo = prezzo;
+		this.codiceIva = codiceIva;
+		this.codiceContropartitaContabile = codiceContropartitaContabile;
+		this.percentualeProvvigione = percentualeProvvigione;
+		this.percentualeScontoCliente = percentualeScontoCliente;
+		this.percentualeScontoArticolo = percentualeScontoArticolo;
+		this.percentualeScontoPagamento = percentualeScontoPagamento;
+		this.descrizioneAggiuntiva = descrizioneAggiuntiva;
+		this.codiceUnitaMisura = codiceUnitaMisura;
+		this.serialNumber = serialNumber;
+		DataInserimento = dataInserimento;
+		DataUltimaModifica = dataUltimaModifica;
+		this.loginInserimento = loginInserimento;
+		this.loginModifica = loginModifica;
+		this.indicatorePrelevatoVendita = indicatorePrelevatoVendita;
+		this.pesoLordo = pesoLordo;
 	}
-	public int getNumeroDDT() {
-		return numeroDDT;
+
+	public DdtDettaglio(int numeroDDT, int numeroRigaDDT, LocalDateTime dataDDT) {
+		this.numeroRigaDDT = numeroRigaDDT;
 	}
-	public void setNumeroDDT(int numeroDDT) {
-		this.numeroDDT = numeroDDT;
-	}
+	
 	public int getNumeroRigaDDT() {
 		return numeroRigaDDT;
 	}
 	public void setNumeroRigaDDT(int numeroRigaDDT) {
 		this.numeroRigaDDT = numeroRigaDDT;
-	}
-	public LocalDateTime getDataDDT() {
-		return dataDDT;
-	}
-	public void setDataDDT(LocalDateTime dataDDT) {
-		this.dataDDT = dataDDT;
 	}
 	public String getCodiceTipoRigaDocumento() {
 		return codiceTipoRigaDocumento;
@@ -220,35 +247,5 @@ public class DdtDettaglio {
 	}
 	public void setPesoLordo(String pesoLordo) {
 		this.pesoLordo = pesoLordo;
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((dataDDT == null) ? 0 : dataDDT.hashCode());
-		result = prime * result + numeroDDT;
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		DdtDettaglio other = (DdtDettaglio) obj;
-		if (dataDDT == null) {
-			if (other.dataDDT != null)
-				return false;
-		} else {
-		    int y1 = dataDDT.getYear();
-		    int y2 = other.dataDDT.getYear();
-			if (y1 != y2)
-				return false;
-		}
-		if (numeroDDT != other.numeroDDT)
-			return false;
-		return true;
 	}
 }

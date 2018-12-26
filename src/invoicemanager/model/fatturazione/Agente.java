@@ -2,18 +2,35 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Agente{
-		private String codiceAgente; //(10) NOT NULL
-		private String nome; //(50) NULL
-		private float percentualeProvvigione; //  NULL
-		private boolean tipoProvvigione; // NULL
-		private boolean tipoMandato; // NULL
-		private String codiceContabile; //(30) NULL
-		private Controparte codiceControparte; // (10) COLLATE Latin1_General_CI_AS NULL
-		private LocalDateTime dataInserimento; //  NULL
-		private LocalDateTime dataUltimaModifica; //  NULL
-		private String loginInserimento; //(30) NULL
-		private String loginModifica; //(30) NULL
+public class Agente {
+	private String codiceAgente; //(10) NOT NULL
+	private String nome; //(50) NULL
+	private float percentualeProvvigione; //  NULL
+	private boolean tipoProvvigione; // NULL
+	private boolean tipoMandato; // NULL
+	private String codiceContabile; //(30) NULL
+	private Controparte codiceControparte; // (10) COLLATE Latin1_General_CI_AS NULL
+	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataUltimaModifica; //  NULL
+	private String loginInserimento; //(30) NULL
+	private String loginModifica; //(30) NULL
+		
+	public Agente(String codiceAgente, String nome, float percentualeProvvigione, boolean tipoProvvigione,
+				boolean tipoMandato, String codiceContabile, Controparte codiceControparte,
+				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
+				String loginModifica) {
+		this.codiceAgente = codiceAgente;
+		this.nome = nome;
+		this.percentualeProvvigione = percentualeProvvigione;
+		this.tipoProvvigione = tipoProvvigione;
+		this.tipoMandato = tipoMandato;
+		this.codiceContabile = codiceContabile;
+		this.codiceControparte = codiceControparte;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+		this.loginInserimento = loginInserimento;
+		this.loginModifica = loginModifica;
+	}
 
 	public Agente(String codiceAgente){
 		this.codiceAgente = codiceAgente;

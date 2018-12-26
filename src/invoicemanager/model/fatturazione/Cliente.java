@@ -1,8 +1,7 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
-public class Cliente{
+public class Cliente implements Comparable<Cliente>{
 		private String codiceCliente; //(30) NOT NULL
 		private String descrizione; //(100) NULL
 		private LocalDateTime dataInserimento; //  NULL
@@ -65,6 +64,90 @@ public class Cliente{
 		private String tipoIntestatarioFatturaEdi; //(3) NULL
 		private String identificativoPuntoConsegnaEdi; //(17) NULL
 		private String tipoPuntoConsegnaEdi; //(3) NULL
+
+		
+	public Cliente(String codiceCliente, String descrizione, LocalDateTime dataInserimento,
+				LocalDateTime dataUltimoAggiornamento, TipoCliente codiceTipoCliente, String codiceUfficioCommerciale,
+				ResaMerce codiceResaMerce, Imballo codiceImballo, RaggruppamentoClienteFornitore codiceRaggruppamento,
+				float fatturato, float fido, String partitaIVA, String codiceFiscale, Pagamento codicePagamento,
+				String sinonimo, Banca codiceBanca, int numeroFattureEmesse, Iva codiceEsenzioneIVA,
+				float imponibileNonEsente, float imponibileEsente, float importoIVA, String codiceClassificazione,
+				float costoVenduto, Agente codiceAgente, float percentualeProvvigioneAgente,
+				float scontoLegatoProvvigioniAgente, int numeroCopieFattura, boolean indicatoreAddebitoSpeseIncasso,
+				boolean indicatoreAddebitoSpeseBolli, int codiceListino, String codiceVettore,
+				String codiceAffidabilita, Iso codiceISO, String partitaIVAEstero, String codiceDivisa,
+				int dataScadenzaSpostataAgosto, int dataScadenzaSpostataDicembre, String codiceRetrocessione,
+				String codiceCommissione, String codiceLingua, String note, Stato codiceStato,
+				boolean indicatoreInviataInformativaPrivacy, boolean indicatoreRicevutaInformativaPrivacy,
+				String codiceClienteRiferimento, LocalDateTime dataUltimaModifica, boolean indicatoreInibizione,
+				String loginInserimento, String loginModifica, boolean indicatoreScorporoIVA,
+				boolean indicatoreIVADifferita, boolean indicatoreEmail, boolean inputInibito, boolean indicatoreEdi,
+				String partitaIvaEdi, String qualificatoreEdi, String identificativoFornitoreEdi,
+				String tipoFornitoreEdi, String identificativoIntestatarioFatturaEdi, String tipoIntestatarioFatturaEdi,
+				String identificativoPuntoConsegnaEdi, String tipoPuntoConsegnaEdi) {
+			this.codiceCliente = codiceCliente;
+			this.descrizione = descrizione;
+			this.dataInserimento = dataInserimento;
+			this.dataUltimoAggiornamento = dataUltimoAggiornamento;
+			this.codiceTipoCliente = codiceTipoCliente;
+			this.codiceUfficioCommerciale = codiceUfficioCommerciale;
+			this.codiceResaMerce = codiceResaMerce;
+			this.codiceImballo = codiceImballo;
+			this.codiceRaggruppamento = codiceRaggruppamento;
+			this.fatturato = fatturato;
+			this.fido = fido;
+			this.partitaIVA = partitaIVA;
+			this.codiceFiscale = codiceFiscale;
+			this.codicePagamento = codicePagamento;
+			this.sinonimo = sinonimo;
+			this.codiceBanca = codiceBanca;
+			this.numeroFattureEmesse = numeroFattureEmesse;
+			this.codiceEsenzioneIVA = codiceEsenzioneIVA;
+			this.imponibileNonEsente = imponibileNonEsente;
+			this.imponibileEsente = imponibileEsente;
+			this.importoIVA = importoIVA;
+			this.codiceClassificazione = codiceClassificazione;
+			this.costoVenduto = costoVenduto;
+			this.codiceAgente = codiceAgente;
+			this.percentualeProvvigioneAgente = percentualeProvvigioneAgente;
+			this.scontoLegatoProvvigioniAgente = scontoLegatoProvvigioniAgente;
+			this.numeroCopieFattura = numeroCopieFattura;
+			this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
+			this.indicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
+			this.codiceListino = codiceListino;
+			this.codiceVettore = codiceVettore;
+			this.codiceAffidabilita = codiceAffidabilita;
+			this.codiceISO = codiceISO;
+			this.partitaIVAEstero = partitaIVAEstero;
+			this.codiceDivisa = codiceDivisa;
+			this.dataScadenzaSpostataAgosto = dataScadenzaSpostataAgosto;
+			this.dataScadenzaSpostataDicembre = dataScadenzaSpostataDicembre;
+			this.codiceRetrocessione = codiceRetrocessione;
+			this.codiceCommissione = codiceCommissione;
+			this.codiceLingua = codiceLingua;
+			this.note = note;
+			this.codiceStato = codiceStato;
+			this.indicatoreInviataInformativaPrivacy = indicatoreInviataInformativaPrivacy;
+			this.indicatoreRicevutaInformativaPrivacy = indicatoreRicevutaInformativaPrivacy;
+			this.codiceClienteRiferimento = codiceClienteRiferimento;
+			this.dataUltimaModifica = dataUltimaModifica;
+			this.indicatoreInibizione = indicatoreInibizione;
+			this.loginInserimento = loginInserimento;
+			this.loginModifica = loginModifica;
+			this.indicatoreScorporoIVA = indicatoreScorporoIVA;
+			this.indicatoreIVADifferita = indicatoreIVADifferita;
+			this.indicatoreEmail = indicatoreEmail;
+			this.inputInibito = inputInibito;
+			this.indicatoreEdi = indicatoreEdi;
+			this.partitaIvaEdi = partitaIvaEdi;
+			this.qualificatoreEdi = qualificatoreEdi;
+			this.identificativoFornitoreEdi = identificativoFornitoreEdi;
+			this.tipoFornitoreEdi = tipoFornitoreEdi;
+			this.identificativoIntestatarioFatturaEdi = identificativoIntestatarioFatturaEdi;
+			this.tipoIntestatarioFatturaEdi = tipoIntestatarioFatturaEdi;
+			this.identificativoPuntoConsegnaEdi = identificativoPuntoConsegnaEdi;
+			this.tipoPuntoConsegnaEdi = tipoPuntoConsegnaEdi;
+		}
 
 	public Cliente(String codiceCliente){
 		this.codiceCliente = codiceCliente;
@@ -591,5 +674,8 @@ public class Cliente{
 		return true;
 	}
 
-	
+	@Override
+	public int compareTo(Cliente cliente) {
+		return this.codiceCliente.compareTo(cliente.codiceCliente);
+	}
 }
