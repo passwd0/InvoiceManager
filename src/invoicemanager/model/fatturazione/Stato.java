@@ -3,20 +3,20 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Stato{
-		private boolean codiceStato; // NOT NULL
+		private String codiceStato; // NOT NULL
 		private String descrizione; //(50) NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
 
-	public Stato(boolean codiceStato){
+	public Stato(String codiceStato){
 		this.codiceStato = codiceStato;
 	}
 
-	public boolean isCodiceStato() {
+	public String getCodiceStato() {
 		return codiceStato;
 	}
 
-	public void setCodiceStato(boolean codiceStato) {
+	public void setCodiceStato(String codiceStato) {
 		this.codiceStato = codiceStato;
 	}
 
@@ -48,7 +48,7 @@ public class Stato{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (codiceStato ? 1231 : 1237);
+		result = prime * result + ((codiceStato == null) ? 0 : codiceStato.hashCode());
 		return result;
 	}
 
@@ -61,7 +61,10 @@ public class Stato{
 		if (getClass() != obj.getClass())
 			return false;
 		Stato other = (Stato) obj;
-		if (codiceStato != other.codiceStato)
+		if (codiceStato == null) {
+			if (other.codiceStato != null)
+				return false;
+		} else if (!codiceStato.equals(other.codiceStato))
 			return false;
 		return true;
 	}

@@ -22,16 +22,15 @@ import java.time.LocalDateTime;
 import invoicemanager.model.fatturazione.$classname;
 
 
-public class Read$classname implements ReadSql<$classname> {
+public class Read$classname {
 	private Connection c;
 
 	public Read$classname() throws ClassNotFoundException, SQLException {
 		c = DBConnect.connect();
 	}
 
-	@Override
 	public List<$classname> read() {
-		List<$classname> $var = new ArrayList<>();
+		List<$classname> list${var} = new ArrayList<>();
 		Statement stmt;
 
 		try {
@@ -44,6 +43,8 @@ public class Read$classname implements ReadSql<$classname> {
 #COLUMNS
 IFS=$'\n'
 for l in `cat $filename`; do
+	l=`echo $l | sed -r 's/\/\/.*//g'`
+	l=`echo $l | sed -r 's/;.*//g'`
 	if [[ $l =~ "private" ]]; then
 		find_private=1
 	else
@@ -60,13 +61,14 @@ for l in `cat $filename`; do
 
 		if [[ "$jtype2" == 'String' || "$jtype2" == 'Int' || "$jtype2" == 'Boolean' || "$jtype2" == 'Float' ]]; then
 			echo $jtype $jname = rs.get$jtype2\(\""$jname"\"\)\; >> $newfile
-		elif [[ "$type2" == 'LocalDateTime' ]]; then
+		elif [[ "$jtype2" == 'LocalDateTime' ]]; then
 			echo ts = rs.getTimestamp\(\""$jname"\"\)\; >> $newfile
-			echo "LocalDateTime $jname;" >> $newfile
+			echo "LocalDateTime $jname = null;" >> $newfile
 			echo "if (ts != null)" >> $newfile
 			echo "$jname = ts.toLocalDateTime();" >> $newfile
 		else
-			echo String $jname = rs.getString\(\""$jname"\"\)\; >> $newfile
+			echo String codice = rs.getString\(\""$jname"\"\)\; >> $newfile
+			echo "$jtype2 $jname = list.stream().filter(x->x.get$jtype2().equals(codice)).findFirst().get();" >> $newfile
 		fi
 	fi
 done
@@ -78,6 +80,7 @@ echo $classname $var = new $classname\($elements\)\; >> $newfile
 
 #TEMPLATE2
 echo "
+		list${var}.add($var);
 	         }
 		     rs.close();
 		     stmt.close();
@@ -87,7 +90,7 @@ echo "
 		}
 
 
-		return $var;
+		return list${var};
 	}
 
 }" >> $newfile

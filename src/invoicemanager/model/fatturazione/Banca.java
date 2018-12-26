@@ -5,7 +5,7 @@ import java.util.List;
 public class Banca{
 		private String codiceBanca; //(4) NOT NULL
 		private String descrizione; //(100) NULL
-		private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+		private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
 		private String codiceABI; //(5) NULL
 		private String codiceCAB; //(5) NULL
 		private String localita; //(50) NULL
@@ -23,13 +23,13 @@ public class Banca{
 		private String codiceConto; //(30) NULL
 		private String indirizzo; //(2000) NULL
 		
-	public Banca(String codiceBanca, String descrizione, Stato codiceStato, String codiceABI, String codiceCAB,
+	public Banca(String codiceBanca, String descrizione, Stato stato, String codiceABI, String codiceCAB,
 				String localita, String provincia, String numeroContoCorrente, String codiceCIN, String codiceCINEur,
 				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
 				String loginModifica, String iban, String swift, String codiceConto, String indirizzo) {
 			this.codiceBanca = codiceBanca;
 			this.descrizione = descrizione;
-			this.codiceStato = codiceStato;
+			this.stato = stato;
 			this.codiceABI = codiceABI;
 			this.codiceCAB = codiceCAB;
 			this.localita = localita;
@@ -68,12 +68,12 @@ public class Banca{
 		this.descrizione = descrizione;
 	}
 
-	public Stato getCodiceStato() {
-		return codiceStato;
+	public Stato getstato() {
+		return stato;
 	}
 
-	public void setCodiceStato(Stato codiceStato) {
-		this.codiceStato = codiceStato;
+	public void setstato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public String getCodiceABI() {

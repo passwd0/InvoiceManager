@@ -9,6 +9,16 @@ public class Iso{
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
 		private String loginInserimento; //(30) NULL
+		
+	public Iso(String codiceISO, String descrizione, Stato codiceStato, LocalDateTime dataInserimento,
+				LocalDateTime dataUltimaModifica, String loginInserimento) {
+			this.codiceISO = codiceISO;
+			this.descrizione = descrizione;
+			this.codiceStato = codiceStato;
+			this.dataInserimento = dataInserimento;
+			this.dataUltimaModifica = dataUltimaModifica;
+			this.loginInserimento = loginInserimento;
+		}
 
 	public Iso(String codiceISO){
 		this.codiceISO = codiceISO;

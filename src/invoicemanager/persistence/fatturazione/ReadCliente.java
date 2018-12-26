@@ -28,8 +28,7 @@ public class ReadCliente implements ReadSql<Cliente> {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery( "SELECT * FROM Clienti;" );
 	         while ( rs.next() ) {
-
-	        	 
+	        	 clienti.add(new Cliente(rs.getString("")));
 	         }
 		     rs.close();
 		     stmt.close();
