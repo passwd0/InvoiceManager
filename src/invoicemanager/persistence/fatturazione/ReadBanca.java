@@ -17,7 +17,7 @@ public class ReadBanca {
 	private Connection c;
 
 	public ReadBanca() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Banca> read(List<Stato> list) {

@@ -17,7 +17,7 @@ public class ReadIso {
 	private Connection c;
 
 	public ReadIso() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Iso> read(List<Stato> list) {

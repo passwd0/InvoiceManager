@@ -16,7 +16,7 @@ public class ReadResaMerce {
 	private Connection c;
 
 	public ReadResaMerce() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<ResaMerce> read() {

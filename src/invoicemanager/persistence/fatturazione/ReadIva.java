@@ -16,7 +16,7 @@ public class ReadIva {
 	private Connection c;
 
 	public ReadIva() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Iva> read() {

@@ -7,7 +7,11 @@ import java.sql.Statement;
 import invoicemanager.model.fatturazione.Cliente;
 
 public class WriteCliente {
-public WriteCliente() throws ClassNotFoundException, SQLException {}
+	private Connection c;
+	
+	public WriteCliente() throws ClassNotFoundException, SQLException {
+		c = DBConnect.getConnection();
+	}
 	
 	public void add(Cliente a, boolean exist) throws ClassNotFoundException, SQLException {
 		Connection c = DBConnect.connect();
@@ -29,11 +33,27 @@ public WriteCliente() throws ClassNotFoundException, SQLException {}
 	      }
 	}
 	
+	public void set(Cliente a) throws ClassNotFoundException, SQLException {
+		try {
+			Statement stmt = c.createStatement();
+			String sql;
+			
+			sql = "UPDATE Cliente SET "
+					+ "campo=value";
+			stmt.executeUpdate(sql);
+			
+			stmt.close();
+			c.commit();
+			c.close();
+	      } catch (Exception e) {
+	    	  //Utils.createAlertFailWriteDB();
+	      }
+	}
+	
 	public void delete(Cliente a) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 		try {
 	        Statement stmt = c.createStatement();
-	    	String sql = "UPDATE auto SET stato = 'Eliminato' WHERE id = " + a.getId() + ";";
+	    	String sql = "UPDATE auto SET stato = 'Eliminato' WHERE id = " + a.getCodiceCliente() + ";";
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();

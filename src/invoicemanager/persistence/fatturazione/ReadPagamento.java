@@ -16,7 +16,7 @@ public class ReadPagamento {
 	private Connection c;
 
 	public ReadPagamento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Pagamento> read() {

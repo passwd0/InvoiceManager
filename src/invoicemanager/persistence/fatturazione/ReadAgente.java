@@ -18,7 +18,7 @@ public class ReadAgente {
 	private Connection c;
 
 	public ReadAgente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Agente> read(List<Controparte> list) {

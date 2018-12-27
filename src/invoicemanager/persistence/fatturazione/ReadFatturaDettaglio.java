@@ -16,7 +16,7 @@ public class ReadFatturaDettaglio {
 	private Connection c;
 
 	public ReadFatturaDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<FatturaDettaglio> read() {

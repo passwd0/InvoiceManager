@@ -16,7 +16,7 @@ public class ReadTipoPagamento {
 	private Connection c;
 
 	public ReadTipoPagamento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<TipoPagamento> read() {

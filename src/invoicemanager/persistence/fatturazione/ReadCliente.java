@@ -16,7 +16,7 @@ public class ReadCliente {
 	private Connection c;
 
 	public ReadCliente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Cliente> read() {
