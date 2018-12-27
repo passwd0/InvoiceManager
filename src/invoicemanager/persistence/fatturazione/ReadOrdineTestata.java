@@ -16,7 +16,7 @@ public class ReadOrdineTestata {
 	private Connection c;
 
 	public ReadOrdineTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<OrdineTestata> read() {
@@ -29,62 +29,62 @@ public class ReadOrdineTestata {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroOrdin = rs.getInt("numeroOrdin");
-ts = rs.getTimestamp("dataOrdin");
-LocalDateTime dataOrdin = null;
+int numeroOrdine = rs.getInt("numeroOrdine");
+ts = rs.getTimestamp("dataOrdine");
+LocalDateTime dataOrdine = null;
 if (ts != null)
-dataOrdin = ts.toLocalDateTime();
-boolean indicatoreStatoAvanzament = rs.getBoolean("indicatoreStatoAvanzament");
-String codiceClienteFatturazion = rs.getString("codiceClienteFatturazion");
-String descrizion = rs.getString("descrizion");
-String codiceEsenzioneIv = rs.getString("codiceEsenzioneIv");
-String codiceAgent = rs.getString("codiceAgent");
-float percentualeProvvigion = rs.getFloat("percentualeProvvigion");
-float percentualeScont = rs.getFloat("percentualeScont");
-float percentualeScontoPagament = rs.getFloat("percentualeScontoPagament");
-int numeroCopieFattur = rs.getInt("numeroCopieFattur");
-boolean indicatoreAddebitoBoll = rs.getBoolean("indicatoreAddebitoBoll");
-boolean indicatoreAddebitoSpeseIncass = rs.getBoolean("indicatoreAddebitoSpeseIncass");
-int codiceListin = rs.getInt("codiceListin");
-String codiceRes = rs.getString("codiceRes");
-String codiceVettor = rs.getString("codiceVettor");
-String codiceCausal = rs.getString("codiceCausal");
-String codicePagament = rs.getString("codicePagament");
-String codiceBanc = rs.getString("codiceBanc");
-ts = rs.getTimestamp("dataConsegn");
-LocalDateTime dataConsegn = null;
+dataOrdine = ts.toLocalDateTime();
+boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
+String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
+String descrizione = rs.getString("descrizione");
+String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");
+String codiceAgente = rs.getString("codiceAgente");
+float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
+float percentualeSconto = rs.getFloat("percentualeSconto");
+float percentualeScontoPagamento = rs.getFloat("percentualeScontoPagamento");
+int numeroCopieFattura = rs.getInt("numeroCopieFattura");
+boolean indicatoreAddebitoBolli = rs.getBoolean("indicatoreAddebitoBolli");
+boolean indicatoreAddebitoSpeseIncasso = rs.getBoolean("indicatoreAddebitoSpeseIncasso");
+int codiceListino = rs.getInt("codiceListino");
+String codiceResa = rs.getString("codiceResa");
+String codiceVettore = rs.getString("codiceVettore");
+String codiceCausale = rs.getString("codiceCausale");
+String codicePagamento = rs.getString("codicePagamento");
+String codiceBanca = rs.getString("codiceBanca");
+ts = rs.getTimestamp("dataConsegna");
+LocalDateTime dataConsegna = null;
 if (ts != null)
-dataConsegn = ts.toLocalDateTime();
-String causaleTrasport = rs.getString("causaleTrasport");
-String codiceDivis = rs.getString("codiceDivis");
-boolean indicatoreConsegnaParzial = rs.getBoolean("indicatoreConsegnaParzial");
-boolean indicatoreRaggruppamentoConsegn = rs.getBoolean("indicatoreRaggruppamentoConsegn");
-String codiceAgenteVecchi = rs.getString("codiceAgenteVecchi");
-String codiceClienteSpedizion = rs.getString("codiceClienteSpedizion");
-String nomeSpedizion = rs.getString("nomeSpedizion");
-String indirizzoSpedizion = rs.getString("indirizzoSpedizion");
-String capSpedizion = rs.getString("capSpedizion");
-String cittaSpedizion = rs.getString("cittaSpedizion");
-String provinciaSpedizion = rs.getString("provinciaSpedizion");
-String codiceNazioneSpedizion = rs.getString("codiceNazioneSpedizion");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+dataConsegna = ts.toLocalDateTime();
+String causaleTrasporto = rs.getString("causaleTrasporto");
+String codiceDivisa = rs.getString("codiceDivisa");
+boolean indicatoreConsegnaParziale = rs.getBoolean("indicatoreConsegnaParziale");
+boolean indicatoreRaggruppamentoConsegne = rs.getBoolean("indicatoreRaggruppamentoConsegne");
+String codiceAgenteVecchio = rs.getString("codiceAgenteVecchio");
+String codiceClienteSpedizione = rs.getString("codiceClienteSpedizione");
+String nomeSpedizione = rs.getString("nomeSpedizione");
+String indirizzoSpedizione = rs.getString("indirizzoSpedizione");
+String capSpedizione = rs.getString("capSpedizione");
+String cittaSpedizione = rs.getString("cittaSpedizione");
+String provinciaSpedizione = rs.getString("provinciaSpedizione");
+String codiceNazioneSpedizione = rs.getString("codiceNazioneSpedizione");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String not = rs.getString("not");
-String loginInseriment = rs.getString("loginInseriment");
-String loginModific = rs.getString("loginModific");
-String codiceLingu = rs.getString("codiceLingu");
-String revision = rs.getString("revision");
-String attenzion = rs.getString("attenzion");
-boolean indicatoreOrdineTradin = rs.getBoolean("indicatoreOrdineTradin");
-String codice = rs.getString("ordineDettagl");
-List<OrdineDettaglio> ordineDettagl = list.stream().filter(x->x.getList<OrdineDettaglio>().equals(codice)).findFirst().get();
-OrdineTestata ordineTestata = new OrdineTestata(numeroOrdin, dataOrdin, indicatoreStatoAvanzament, codiceClienteFatturazion, descrizion, codiceEsenzioneIv, codiceAgent, percentualeProvvigion, percentualeScont, percentualeScontoPagament, numeroCopieFattur, indicatoreAddebitoBoll, indicatoreAddebitoSpeseIncass, codiceListin, codiceRes, codiceVettor, codiceCausal, codicePagament, codiceBanc, dataConsegn, causaleTrasport, codiceDivis, indicatoreConsegnaParzial, indicatoreRaggruppamentoConsegn, codiceAgenteVecchi, codiceClienteSpedizion, nomeSpedizion, indirizzoSpedizion, capSpedizion, cittaSpedizion, provinciaSpedizion, codiceNazioneSpedizion, dataInseriment, dataUltimaModific, not, loginInseriment, loginModific, codiceLingu, revision, attenzion, indicatoreOrdineTradin, ordineDettagl);
+dataUltimaModifica = ts.toLocalDateTime();
+String note = rs.getString("note");
+String loginInserimento = rs.getString("loginInserimento");
+String loginModifica = rs.getString("loginModifica");
+String codiceLingua = rs.getString("codiceLingua");
+String revisione = rs.getString("revisione");
+String attenzione = rs.getString("attenzione");
+boolean indicatoreOrdineTrading = rs.getBoolean("indicatoreOrdineTrading");
+String codice = rs.getString("ordineDettagli");
+List<OrdineDettaglio> ordineDettagli = list.stream().filter(x->x.getList<OrdineDettaglio>().equals(codice)).findFirst().get();
+OrdineTestata ordineTestata = new OrdineTestata(numeroOrdine, dataOrdine, indicatoreStatoAvanzamento, codiceClienteFatturazione, descrizione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, percentualeScontoPagamento, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceCausale, codicePagamento, codiceBanca, dataConsegna, causaleTrasporto, codiceDivisa, indicatoreConsegnaParziale, indicatoreRaggruppamentoConsegne, codiceAgenteVecchio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, loginInserimento, loginModifica, codiceLingua, revisione, attenzione, indicatoreOrdineTrading, ordineDettagli);
 
 		listordineTestata.add(ordineTestata);
 	         }

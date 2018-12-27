@@ -16,7 +16,7 @@ public class ReadUtente {
 	private Connection c;
 
 	public ReadUtente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<Utente> read() {
@@ -29,48 +29,48 @@ public class ReadUtente {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceUtent = rs.getString("codiceUtent");
-String pat = rs.getString("pat");
-String pathSalvatagg = rs.getString("pathSalvatagg");
-String subUtent = rs.getString("subUtent");
-boolean tipoUtent = rs.getBoolean("tipoUtent");
-String cognom = rs.getString("cognom");
-String nom = rs.getString("nom");
-ts = rs.getTimestamp("dataNascit");
-LocalDateTime dataNascit = null;
+String codiceUtente = rs.getString("codiceUtente");
+String path = rs.getString("path");
+String pathSalvataggi = rs.getString("pathSalvataggi");
+String subUtente = rs.getString("subUtente");
+boolean tipoUtente = rs.getBoolean("tipoUtente");
+String cognome = rs.getString("cognome");
+String nome = rs.getString("nome");
+ts = rs.getTimestamp("dataNascita");
+LocalDateTime dataNascita = null;
 if (ts != null)
-dataNascit = ts.toLocalDateTime();
-boolean sess = rs.getBoolean("sess");
-String comuneNascit = rs.getString("comuneNascit");
-String provinciaNascit = rs.getString("provinciaNascit");
-String domicilioFiscal = rs.getString("domicilioFiscal");
-String comun = rs.getString("comun");
-String provinci = rs.getString("provinci");
-String partitaIV = rs.getString("partitaIV");
-String attivit = rs.getString("attivit");
-String codicePersonaFisic = rs.getString("codicePersonaFisic");
-String codiceFiscal = rs.getString("codiceFiscal");
-String ragioneSocial = rs.getString("ragioneSocial");
-String naturaGiuridic = rs.getString("naturaGiuridic");
-String domicilioAziend = rs.getString("domicilioAziend");
-String comuneAziend = rs.getString("comuneAziend");
-String provinciaAziend = rs.getString("provinciaAziend");
-String partitaIVAAziend = rs.getString("partitaIVAAziend");
-String attivitaAziend = rs.getString("attivitaAziend");
-String codiceAziend = rs.getString("codiceAziend");
-String codiceFiscaleAziend = rs.getString("codiceFiscaleAziend");
-boolean indicatoreConversion = rs.getBoolean("indicatoreConversion");
-String passwor = rs.getString("passwor");
-String ca = rs.getString("ca");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+dataNascita = ts.toLocalDateTime();
+boolean sesso = rs.getBoolean("sesso");
+String comuneNascita = rs.getString("comuneNascita");
+String provinciaNascita = rs.getString("provinciaNascita");
+String domicilioFiscale = rs.getString("domicilioFiscale");
+String comune = rs.getString("comune");
+String provincia = rs.getString("provincia");
+String partitaIVA = rs.getString("partitaIVA");
+String attivita = rs.getString("attivita");
+String codicePersonaFisica = rs.getString("codicePersonaFisica");
+String codiceFiscale = rs.getString("codiceFiscale");
+String ragioneSociale = rs.getString("ragioneSociale");
+String naturaGiuridica = rs.getString("naturaGiuridica");
+String domicilioAzienda = rs.getString("domicilioAzienda");
+String comuneAzienda = rs.getString("comuneAzienda");
+String provinciaAzienda = rs.getString("provinciaAzienda");
+String partitaIVAAzienda = rs.getString("partitaIVAAzienda");
+String attivitaAzienda = rs.getString("attivitaAzienda");
+String codiceAzienda = rs.getString("codiceAzienda");
+String codiceFiscaleAzienda = rs.getString("codiceFiscaleAzienda");
+boolean indicatoreConversione = rs.getBoolean("indicatoreConversione");
+String password = rs.getString("password");
+String cap = rs.getString("cap");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-Utente utente = new Utente(codiceUtent, pat, pathSalvatagg, subUtent, tipoUtent, cognom, nom, dataNascit, sess, comuneNascit, provinciaNascit, domicilioFiscal, comun, provinci, partitaIV, attivit, codicePersonaFisic, codiceFiscal, ragioneSocial, naturaGiuridic, domicilioAziend, comuneAziend, provinciaAziend, partitaIVAAziend, attivitaAziend, codiceAziend, codiceFiscaleAziend, indicatoreConversion, passwor, ca, dataInseriment, dataUltimaModific);
+dataUltimaModifica = ts.toLocalDateTime();
+Utente utente = new Utente(codiceUtente, path, pathSalvataggi, subUtente, tipoUtente, cognome, nome, dataNascita, sesso, comuneNascita, provinciaNascita, domicilioFiscale, comune, provincia, partitaIVA, attivita, codicePersonaFisica, codiceFiscale, ragioneSociale, naturaGiuridica, domicilioAzienda, comuneAzienda, provinciaAzienda, partitaIVAAzienda, attivitaAzienda, codiceAzienda, codiceFiscaleAzienda, indicatoreConversione, password, cap, dataInserimento, dataUltimaModifica);
 
 		listutente.add(utente);
 	         }

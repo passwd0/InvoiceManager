@@ -16,7 +16,7 @@ public class ReadPagamento {
 	private Connection c;
 
 	public ReadPagamento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<Pagamento> read() {
@@ -29,28 +29,28 @@ public class ReadPagamento {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codicePagament = rs.getString("codicePagament");
-String descrizion = rs.getString("descrizion");
-String codice = rs.getString("codiceStat");
-Stato codiceStat = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
-String codice = rs.getString("codiceTipoPagament");
-TipoPagamento codiceTipoPagament = list.stream().filter(x->x.getTipoPagamento().equals(codice)).findFirst().get();
-boolean indicatoreScadenzaAVist = rs.getBoolean("indicatoreScadenzaAVist");
-String giornoMes = rs.getString("giornoMes");
-int numeroGiorn = rs.getInt("numeroGiorn");
-int numeroScadenz = rs.getInt("numeroScadenz");
-float scont = rs.getFloat("scont");
-boolean scadenzaIVAPrimaRat = rs.getBoolean("scadenzaIVAPrimaRat");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codicePagamento = rs.getString("codicePagamento");
+String descrizione = rs.getString("descrizione");
+String codice = rs.getString("codiceStato");
+Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+String codice = rs.getString("codiceTipoPagamento");
+TipoPagamento codiceTipoPagamento = list.stream().filter(x->x.getTipoPagamento().equals(codice)).findFirst().get();
+boolean indicatoreScadenzaAVista = rs.getBoolean("indicatoreScadenzaAVista");
+String giornoMese = rs.getString("giornoMese");
+int numeroGiorni = rs.getInt("numeroGiorni");
+int numeroScadenze = rs.getInt("numeroScadenze");
+float sconto = rs.getFloat("sconto");
+boolean scadenzaIVAPrimaRata = rs.getBoolean("scadenzaIVAPrimaRata");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String loginInseriment = rs.getString("loginInseriment");
-Pagamento pagamento = new Pagamento(codicePagament, descrizion, codiceStat, codiceTipoPagament, indicatoreScadenzaAVist, giornoMes, numeroGiorn, numeroScadenz, scont, scadenzaIVAPrimaRat, dataInseriment, dataUltimaModific, loginInseriment);
+dataUltimaModifica = ts.toLocalDateTime();
+String loginInserimento = rs.getString("loginInserimento");
+Pagamento pagamento = new Pagamento(codicePagamento, descrizione, codiceStato, codiceTipoPagamento, indicatoreScadenzaAVista, giornoMese, numeroGiorni, numeroScadenze, sconto, scadenzaIVAPrimaRata, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listpagamento.add(pagamento);
 	         }

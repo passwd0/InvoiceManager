@@ -16,7 +16,7 @@ public class ReadControparte {
 	private Connection c;
 
 	public ReadControparte() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<Controparte> read() {
@@ -29,22 +29,22 @@ public class ReadControparte {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceContropart = rs.getString("codiceContropart");
-String descrizion = rs.getString("descrizion");
-String codice = rs.getString("codiceStat");
-Stato codiceStat = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
-String codiceContoCOG = rs.getString("codiceContoCOG");
-int progressivoRelazioniCOGECO = rs.getInt("progressivoRelazioniCOGECO");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codiceControparte = rs.getString("codiceControparte");
+String descrizione = rs.getString("descrizione");
+String codice = rs.getString("codiceStato");
+Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+String codiceContoCOGE = rs.getString("codiceContoCOGE");
+int progressivoRelazioniCOGECOA = rs.getInt("progressivoRelazioniCOGECOA");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String loginInseriment = rs.getString("loginInseriment");
-Controparte controparte = new Controparte(codiceContropart, descrizion, codiceStat, codiceContoCOG, progressivoRelazioniCOGECO, dataInseriment, dataUltimaModific, loginInseriment);
+dataUltimaModifica = ts.toLocalDateTime();
+String loginInserimento = rs.getString("loginInserimento");
+Controparte controparte = new Controparte(codiceControparte, descrizione, codiceStato, codiceContoCOGE, progressivoRelazioniCOGECOA, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listcontroparte.add(controparte);
 	         }

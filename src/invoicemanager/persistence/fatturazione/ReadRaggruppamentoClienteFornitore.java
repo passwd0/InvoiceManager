@@ -16,7 +16,7 @@ public class ReadRaggruppamentoClienteFornitore {
 	private Connection c;
 
 	public ReadRaggruppamentoClienteFornitore() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<RaggruppamentoClienteFornitore> read() {
@@ -29,20 +29,20 @@ public class ReadRaggruppamentoClienteFornitore {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceRaggruppament = rs.getString("codiceRaggruppament");
-String descrizion = rs.getString("descrizion");
-String codice = rs.getString("codiceStat");
-Stato codiceStat = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codiceRaggruppamento = rs.getString("codiceRaggruppamento");
+String descrizione = rs.getString("descrizione");
+String codice = rs.getString("codiceStato");
+Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String loginInseriment = rs.getString("loginInseriment");
-RaggruppamentoClienteFornitore raggruppamentoClienteFornitore = new RaggruppamentoClienteFornitore(codiceRaggruppament, descrizion, codiceStat, dataInseriment, dataUltimaModific, loginInseriment);
+dataUltimaModifica = ts.toLocalDateTime();
+String loginInserimento = rs.getString("loginInserimento");
+RaggruppamentoClienteFornitore raggruppamentoClienteFornitore = new RaggruppamentoClienteFornitore(codiceRaggruppamento, descrizione, codiceStato, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listraggruppamentoClienteFornitore.add(raggruppamentoClienteFornitore);
 	         }

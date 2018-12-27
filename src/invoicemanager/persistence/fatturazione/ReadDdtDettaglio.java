@@ -16,7 +16,7 @@ public class ReadDdtDettaglio {
 	private Connection c;
 
 	public ReadDdtDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<DdtDettaglio> read() {
@@ -29,8 +29,8 @@ public class ReadDdtDettaglio {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroRigaDD = rs.getInt("numeroRigaDD");
-DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroRigaDD);
+int numeroRigaDDT = rs.getInt("numeroRigaDDT");
+DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroRigaDDT);
 
 		listddtDettaglio.add(ddtDettaglio);
 	         }

@@ -16,7 +16,7 @@ public class ReadFatturaTestata {
 	private Connection c;
 
 	public ReadFatturaTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<FatturaTestata> read() {
@@ -29,68 +29,68 @@ public class ReadFatturaTestata {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroFatturazion = rs.getInt("numeroFatturazion");
-ts = rs.getTimestamp("dataFattur");
-LocalDateTime dataFattur = null;
+int numeroFatturazione = rs.getInt("numeroFatturazione");
+ts = rs.getTimestamp("dataFattura");
+LocalDateTime dataFattura = null;
 if (ts != null)
-dataFattur = ts.toLocalDateTime();
-String codice = rs.getString("indicatoreStatoAvanzament");
-Char indicatoreStatoAvanzament = list.stream().filter(x->x.getChar().equals(codice)).findFirst().get();
-String codiceClienteFatturazion = rs.getString("codiceClienteFatturazion");
-String codiceEsenzioneIv = rs.getString("codiceEsenzioneIv");
-String codiceAgent = rs.getString("codiceAgent");
-String codiceCausal = rs.getString("codiceCausal");
-String codiceCausalePreliev = rs.getString("codiceCausalePreliev");
-float percentualeScont = rs.getFloat("percentualeScont");
-float percentualeScontoPagament = rs.getFloat("percentualeScontoPagament");
-float percentualeProvvigion = rs.getFloat("percentualeProvvigion");
-String descrizion = rs.getString("descrizion");
-boolean indicatoreAddebitoBoll = rs.getBoolean("indicatoreAddebitoBoll");
-boolean indicatoreAddebitoSpeseIncass = rs.getBoolean("indicatoreAddebitoSpeseIncass");
-boolean indicatoreScaricoMagazzin = rs.getBoolean("indicatoreScaricoMagazzin");
-int codiceListin = rs.getInt("codiceListin");
-String codiceRes = rs.getString("codiceRes");
-String codiceVettor = rs.getString("codiceVettor");
-boolean indicatoreFatturaAccompagnatori = rs.getBoolean("indicatoreFatturaAccompagnatori");
-String codicePagament = rs.getString("codicePagament");
-String codiceBanc = rs.getString("codiceBanc");
-String codiceImball = rs.getString("codiceImball");
-float pesoColl = rs.getFloat("pesoColl");
-float numeroColl = rs.getFloat("numeroColl");
-float accont = rs.getFloat("accont");
-String codiceDivis = rs.getString("codiceDivis");
-float cambi = rs.getFloat("cambi");
-String codiceClienteSpedizion = rs.getString("codiceClienteSpedizion");
-String nomeSpedizion = rs.getString("nomeSpedizion");
-String indirizzoSpedizion = rs.getString("indirizzoSpedizion");
-String capSpedizion = rs.getString("capSpedizion");
-String cittaSpedizion = rs.getString("cittaSpedizion");
-String provinciaSpedizion = rs.getString("provinciaSpedizion");
-String codiceNazioneSpedizion = rs.getString("codiceNazioneSpedizion");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+dataFattura = ts.toLocalDateTime();
+String codice = rs.getString("indicatoreStatoAvanzamento");
+Char indicatoreStatoAvanzamento = list.stream().filter(x->x.getChar().equals(codice)).findFirst().get();
+String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
+String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");
+String codiceAgente = rs.getString("codiceAgente");
+String codiceCausale = rs.getString("codiceCausale");
+String codiceCausalePrelievi = rs.getString("codiceCausalePrelievi");
+float percentualeSconto = rs.getFloat("percentualeSconto");
+float percentualeScontoPagamento = rs.getFloat("percentualeScontoPagamento");
+float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
+String descrizione = rs.getString("descrizione");
+boolean indicatoreAddebitoBolli = rs.getBoolean("indicatoreAddebitoBolli");
+boolean indicatoreAddebitoSpeseIncasso = rs.getBoolean("indicatoreAddebitoSpeseIncasso");
+boolean indicatoreScaricoMagazzino = rs.getBoolean("indicatoreScaricoMagazzino");
+int codiceListino = rs.getInt("codiceListino");
+String codiceResa = rs.getString("codiceResa");
+String codiceVettore = rs.getString("codiceVettore");
+boolean indicatoreFatturaAccompagnatoria = rs.getBoolean("indicatoreFatturaAccompagnatoria");
+String codicePagamento = rs.getString("codicePagamento");
+String codiceBanca = rs.getString("codiceBanca");
+String codiceImballo = rs.getString("codiceImballo");
+float pesoColli = rs.getFloat("pesoColli");
+float numeroColli = rs.getFloat("numeroColli");
+float acconto = rs.getFloat("acconto");
+String codiceDivisa = rs.getString("codiceDivisa");
+float cambio = rs.getFloat("cambio");
+String codiceClienteSpedizione = rs.getString("codiceClienteSpedizione");
+String nomeSpedizione = rs.getString("nomeSpedizione");
+String indirizzoSpedizione = rs.getString("indirizzoSpedizione");
+String capSpedizione = rs.getString("capSpedizione");
+String cittaSpedizione = rs.getString("cittaSpedizione");
+String provinciaSpedizione = rs.getString("provinciaSpedizione");
+String codiceNazioneSpedizione = rs.getString("codiceNazioneSpedizione");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String not = rs.getString("not");
-boolean indicatoreFatturazioneDifferit = rs.getBoolean("indicatoreFatturazioneDifferit");
-boolean indicatoreEmai = rs.getBoolean("indicatoreEmai");
-boolean indicatoreP = rs.getBoolean("indicatoreP");
-String codice = rs.getString("fatturadettagli");
-List<FatturaDettaglio> fatturadettagli = list.stream().filter(x->x.getList<FatturaDettaglio>().equals(codice)).findFirst().get();
-float speseTrasport = rs.getFloat("speseTrasport");
-float speseImball = rs.getFloat("speseImball");
-float speseIncass = rs.getFloat("speseIncass");
-float speseBoll = rs.getFloat("speseBoll");
-float omagg = rs.getFloat("omagg");
-float totalePagat = rs.getFloat("totalePagat");
-String codice = rs.getString("dataScadenz");
-LocalDate dataScadenz = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
-float importoScadenz = rs.getFloat("importoScadenz");
-FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazion, dataFattur, indicatoreStatoAvanzament, codiceClienteFatturazion, codiceEsenzioneIv, codiceAgent, codiceCausal, codiceCausalePreliev, percentualeScont, percentualeScontoPagament, percentualeProvvigion, descrizion, indicatoreAddebitoBoll, indicatoreAddebitoSpeseIncass, indicatoreScaricoMagazzin, codiceListin, codiceRes, codiceVettor, indicatoreFatturaAccompagnatori, codicePagament, codiceBanc, codiceImball, pesoColl, numeroColl, accont, codiceDivis, cambi, codiceClienteSpedizion, nomeSpedizion, indirizzoSpedizion, capSpedizion, cittaSpedizion, provinciaSpedizion, codiceNazioneSpedizion, dataInseriment, dataUltimaModific, not, indicatoreFatturazioneDifferit, indicatoreEmai, indicatoreP, fatturadettagli, speseTrasport, speseImball, speseIncass, speseBoll, omagg, totalePagat, dataScadenz, importoScadenz);
+dataUltimaModifica = ts.toLocalDateTime();
+String note = rs.getString("note");
+boolean indicatoreFatturazioneDifferita = rs.getBoolean("indicatoreFatturazioneDifferita");
+boolean indicatoreEmail = rs.getBoolean("indicatoreEmail");
+boolean indicatorePa = rs.getBoolean("indicatorePa");
+String codice = rs.getString("fatturadettaglio");
+List<FatturaDettaglio> fatturadettaglio = list.stream().filter(x->x.getList<FatturaDettaglio>().equals(codice)).findFirst().get();
+float speseTrasporto = rs.getFloat("speseTrasporto");
+float speseImballo = rs.getFloat("speseImballo");
+float speseIncasso = rs.getFloat("speseIncasso");
+float speseBolli = rs.getFloat("speseBolli");
+float omaggi = rs.getFloat("omaggi");
+float totalePagato = rs.getFloat("totalePagato");
+String codice = rs.getString("dataScadenza");
+LocalDate dataScadenza = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+float importoScadenza = rs.getFloat("importoScadenza");
+FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, indicatoreStatoAvanzamento, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, fatturadettaglio, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza);
 
 		listfatturaTestata.add(fatturaTestata);
 	         }

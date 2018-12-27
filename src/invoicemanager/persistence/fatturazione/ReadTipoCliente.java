@@ -16,7 +16,7 @@ public class ReadTipoCliente {
 	private Connection c;
 
 	public ReadTipoCliente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<TipoCliente> read() {
@@ -29,17 +29,17 @@ public class ReadTipoCliente {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceTipoClient = rs.getString("codiceTipoClient");
-String descrizion = rs.getString("descrizion");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codiceTipoCliente = rs.getString("codiceTipoCliente");
+String descrizione = rs.getString("descrizione");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-TipoCliente tipoCliente = new TipoCliente(codiceTipoClient, descrizion, dataInseriment, dataUltimaModific);
+dataUltimaModifica = ts.toLocalDateTime();
+TipoCliente tipoCliente = new TipoCliente(codiceTipoCliente, descrizione, dataInserimento, dataUltimaModifica);
 
 		listtipoCliente.add(tipoCliente);
 	         }

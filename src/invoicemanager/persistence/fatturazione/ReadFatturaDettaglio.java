@@ -16,7 +16,7 @@ public class ReadFatturaDettaglio {
 	private Connection c;
 
 	public ReadFatturaDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<FatturaDettaglio> read() {
@@ -29,28 +29,28 @@ public class ReadFatturaDettaglio {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroRigaFattur = rs.getInt("numeroRigaFattur");
-String codiceTipoRigaDocument = rs.getString("codiceTipoRigaDocument");
-String codiceArticol = rs.getString("codiceArticol");
-float cost = rs.getFloat("cost");
-int numeroOrdin = rs.getInt("numeroOrdin");
-int numeroRigaOrdin = rs.getInt("numeroRigaOrdin");
-ts = rs.getTimestamp("dataOrdin");
-LocalDateTime dataOrdin = null;
+int numeroRigaFattura = rs.getInt("numeroRigaFattura");
+String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
+String codiceArticolo = rs.getString("codiceArticolo");
+float costo = rs.getFloat("costo");
+int numeroOrdine = rs.getInt("numeroOrdine");
+int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
+ts = rs.getTimestamp("dataOrdine");
+LocalDateTime dataOrdine = null;
 if (ts != null)
-dataOrdin = ts.toLocalDateTime();
-float quantitaDaConsegnar = rs.getFloat("quantitaDaConsegnar");
-boolean indicatoreEvasion = rs.getBoolean("indicatoreEvasion");
-String descrizion = rs.getString("descrizion");
-float quantit = rs.getFloat("quantit");
-float prezz = rs.getFloat("prezz");
-String codiceIv = rs.getString("codiceIv");
-String codiceContropartitaContabil = rs.getString("codiceContropartitaContabil");
-float percentualeProvvigion = rs.getFloat("percentualeProvvigion");
-float percentualeScontoClient = rs.getFloat("percentualeScontoClient");
-float percentualeScontoArticol = rs.getFloat("percentualeScontoArticol");
-float percentualeScontoPagament = rs.getFloat("percentualeScontoPagament");
-FatturaDettaglio fatturaDettaglio = new FatturaDettaglio(numeroRigaFattur, codiceTipoRigaDocument, codiceArticol, cost, numeroOrdin, numeroRigaOrdin, dataOrdin, quantitaDaConsegnar, indicatoreEvasion, descrizion, quantit, prezz, codiceIv, codiceContropartitaContabil, percentualeProvvigion, percentualeScontoClient, percentualeScontoArticol, percentualeScontoPagament);
+dataOrdine = ts.toLocalDateTime();
+float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
+boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
+String descrizione = rs.getString("descrizione");
+float quantita = rs.getFloat("quantita");
+float prezzo = rs.getFloat("prezzo");
+String codiceIva = rs.getString("codiceIva");
+String codiceContropartitaContabile = rs.getString("codiceContropartitaContabile");
+float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
+float percentualeScontoCliente = rs.getFloat("percentualeScontoCliente");
+float percentualeScontoArticolo = rs.getFloat("percentualeScontoArticolo");
+float percentualeScontoPagamento = rs.getFloat("percentualeScontoPagamento");
+FatturaDettaglio fatturaDettaglio = new FatturaDettaglio(numeroRigaFattura, codiceTipoRigaDocumento, codiceArticolo, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento);
 
 		listfatturaDettaglio.add(fatturaDettaglio);
 	         }

@@ -16,7 +16,7 @@ public class ReadTipoPagamento {
 	private Connection c;
 
 	public ReadTipoPagamento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<TipoPagamento> read() {
@@ -29,17 +29,17 @@ public class ReadTipoPagamento {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceTipoPagament = rs.getString("codiceTipoPagament");
-String descrizion = rs.getString("descrizion");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codiceTipoPagamento = rs.getString("codiceTipoPagamento");
+String descrizione = rs.getString("descrizione");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-TipoPagamento tipoPagamento = new TipoPagamento(codiceTipoPagament, descrizion, dataInseriment, dataUltimaModific);
+dataUltimaModifica = ts.toLocalDateTime();
+TipoPagamento tipoPagamento = new TipoPagamento(codiceTipoPagamento, descrizione, dataInserimento, dataUltimaModifica);
 
 		listtipoPagamento.add(tipoPagamento);
 	         }

@@ -56,7 +56,6 @@ for l in `cat $filename`; do
 		jtype=`echo $l | cut -d' ' -f2`
 		jtype2=`echo ${jtype:0:1} | tr '[:lower:]' '[:upper:]'`${jtype:1}
 		jname=`echo $l | cut -d' ' -f3`
-		jname=${jname:0:-1}
 		element+=($jname,)
 
 		if [[ "$jtype2" == 'String' || "$jtype2" == 'Int' || "$jtype2" == 'Boolean' || "$jtype2" == 'Float' ]]; then

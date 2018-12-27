@@ -16,7 +16,7 @@ public class ReadImballo {
 	private Connection c;
 
 	public ReadImballo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<Imballo> read() {
@@ -29,20 +29,20 @@ public class ReadImballo {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceImball = rs.getString("codiceImball");
-String descrizion = rs.getString("descrizion");
-String codice = rs.getString("codiceStat");
-Stato codiceStat = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codiceImballo = rs.getString("codiceImballo");
+String descrizione = rs.getString("descrizione");
+String codice = rs.getString("codiceStato");
+Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String loginInseriment = rs.getString("loginInseriment");
-Imballo imballo = new Imballo(codiceImball, descrizion, codiceStat, dataInseriment, dataUltimaModific, loginInseriment);
+dataUltimaModifica = ts.toLocalDateTime();
+String loginInserimento = rs.getString("loginInserimento");
+Imballo imballo = new Imballo(codiceImballo, descrizione, codiceStato, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listimballo.add(imballo);
 	         }

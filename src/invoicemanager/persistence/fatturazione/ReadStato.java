@@ -16,7 +16,7 @@ public class ReadStato {
 	private Connection c;
 
 	public ReadStato() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<Stato> read() {
@@ -29,17 +29,17 @@ public class ReadStato {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceStat = rs.getString("codiceStat");
-String descrizion = rs.getString("descrizion");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codiceStato = rs.getString("codiceStato");
+String descrizione = rs.getString("descrizione");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-Stato stato = new Stato(codiceStat, descrizion, dataInseriment, dataUltimaModific);
+dataUltimaModifica = ts.toLocalDateTime();
+Stato stato = new Stato(codiceStato, descrizione, dataInserimento, dataUltimaModifica);
 
 		liststato.add(stato);
 	         }

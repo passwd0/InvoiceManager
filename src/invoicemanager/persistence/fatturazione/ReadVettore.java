@@ -16,7 +16,7 @@ public class ReadVettore {
 	private Connection c;
 
 	public ReadVettore() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<Vettore> read() {
@@ -29,26 +29,26 @@ public class ReadVettore {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceVettor = rs.getString("codiceVettor");
-String descrizion = rs.getString("descrizion");
-String codice = rs.getString("codiceStat");
-Stato codiceStat = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
-String vi = rs.getString("vi");
-String citt = rs.getString("citt");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codiceVettore = rs.getString("codiceVettore");
+String descrizione = rs.getString("descrizione");
+String codice = rs.getString("codiceStato");
+Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+String via = rs.getString("via");
+String citta = rs.getString("citta");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String loginInseriment = rs.getString("loginInseriment");
-String loginModific = rs.getString("loginModific");
-String partitaIv = rs.getString("partitaIv");
-String iscrizion = rs.getString("iscrizion");
-String telefon = rs.getString("telefon");
-Vettore vettore = new Vettore(codiceVettor, descrizion, codiceStat, vi, citt, dataInseriment, dataUltimaModific, loginInseriment, loginModific, partitaIv, iscrizion, telefon);
+dataUltimaModifica = ts.toLocalDateTime();
+String loginInserimento = rs.getString("loginInserimento");
+String loginModifica = rs.getString("loginModifica");
+String partitaIva = rs.getString("partitaIva");
+String iscrizione = rs.getString("iscrizione");
+String telefono = rs.getString("telefono");
+Vettore vettore = new Vettore(codiceVettore, descrizione, codiceStato, via, citta, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, partitaIva, iscrizione, telefono);
 
 		listvettore.add(vettore);
 	         }

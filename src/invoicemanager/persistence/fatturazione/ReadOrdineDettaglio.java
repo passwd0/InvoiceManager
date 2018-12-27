@@ -16,7 +16,7 @@ public class ReadOrdineDettaglio {
 	private Connection c;
 
 	public ReadOrdineDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<OrdineDettaglio> read() {
@@ -29,8 +29,8 @@ public class ReadOrdineDettaglio {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroRigaOrdin = rs.getInt("numeroRigaOrdin");
-OrdineDettaglio ordineDettaglio = new OrdineDettaglio(numeroRigaOrdin);
+int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
+OrdineDettaglio ordineDettaglio = new OrdineDettaglio(numeroRigaOrdine);
 
 		listordineDettaglio.add(ordineDettaglio);
 	         }

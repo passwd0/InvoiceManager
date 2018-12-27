@@ -16,7 +16,7 @@ public class ReadResaMerce {
 	private Connection c;
 
 	public ReadResaMerce() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<ResaMerce> read() {
@@ -29,23 +29,23 @@ public class ReadResaMerce {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceRes = rs.getString("codiceRes");
-String descrizion = rs.getString("descrizion");
-String codice = rs.getString("codiceStat");
-Stato codiceStat = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
-float percentualeAddebit = rs.getFloat("percentualeAddebit");
-float importoMinim = rs.getFloat("importoMinim");
-boolean indicatoreProvvigion = rs.getBoolean("indicatoreProvvigion");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codiceResa = rs.getString("codiceResa");
+String descrizione = rs.getString("descrizione");
+String codice = rs.getString("codiceStato");
+Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+float percentualeAddebito = rs.getFloat("percentualeAddebito");
+float importoMinimo = rs.getFloat("importoMinimo");
+boolean indicatoreProvvigione = rs.getBoolean("indicatoreProvvigione");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String loginInseriment = rs.getString("loginInseriment");
-ResaMerce resaMerce = new ResaMerce(codiceRes, descrizion, codiceStat, percentualeAddebit, importoMinim, indicatoreProvvigion, dataInseriment, dataUltimaModific, loginInseriment);
+dataUltimaModifica = ts.toLocalDateTime();
+String loginInserimento = rs.getString("loginInserimento");
+ResaMerce resaMerce = new ResaMerce(codiceResa, descrizione, codiceStato, percentualeAddebito, importoMinimo, indicatoreProvvigione, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listresaMerce.add(resaMerce);
 	         }

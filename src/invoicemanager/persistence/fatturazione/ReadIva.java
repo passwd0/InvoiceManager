@@ -16,7 +16,7 @@ public class ReadIva {
 	private Connection c;
 
 	public ReadIva() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<Iva> read() {
@@ -29,45 +29,45 @@ public class ReadIva {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceIv = rs.getString("codiceIv");
-String descrizion = rs.getString("descrizion");
-String codice = rs.getString("codiceStat");
-Stato codiceStat = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
-int rigaIVAAcquist = rs.getInt("rigaIVAAcquist");
-float addizionaleIV = rs.getFloat("addizionaleIV");
-float aliquotaIV = rs.getFloat("aliquotaIV");
-float imponibileAcquist = rs.getFloat("imponibileAcquist");
-float imponibileAcquistiNonDetraibil = rs.getFloat("imponibileAcquistiNonDetraibil");
-float impostaAcquist = rs.getFloat("impostaAcquist");
-float imponibileVendit = rs.getFloat("imponibileVendit");
-float imponibileVenditeNonDetraibil = rs.getFloat("imponibileVenditeNonDetraibil");
-float impostaVendit = rs.getFloat("impostaVendit");
-int rigaIVAVendit = rs.getInt("rigaIVAVendit");
-float coefficienteIV = rs.getFloat("coefficienteIV");
-String percentualeIndetraibilit = rs.getString("percentualeIndetraibilit");
-float valoreArrotondament = rs.getFloat("valoreArrotondament");
-boolean indicatoreTroncaAcquist = rs.getBoolean("indicatoreTroncaAcquist");
-boolean indicatoreSommaAcquist = rs.getBoolean("indicatoreSommaAcquist");
-boolean indicatoreArrotondaAcquist = rs.getBoolean("indicatoreArrotondaAcquist");
-boolean indicatoreSottraeAcquist = rs.getBoolean("indicatoreSottraeAcquist");
-boolean indicatoreTroncaVendit = rs.getBoolean("indicatoreTroncaVendit");
-boolean indicatoreSommaVendit = rs.getBoolean("indicatoreSommaVendit");
-boolean indicatoreArrotondaVendit = rs.getBoolean("indicatoreArrotondaVendit");
-boolean indicatoreSottraeVendit = rs.getBoolean("indicatoreSottraeVendit");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+String codiceIva = rs.getString("codiceIva");
+String descrizione = rs.getString("descrizione");
+String codice = rs.getString("codiceStato");
+Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+int rigaIVAAcquisti = rs.getInt("rigaIVAAcquisti");
+float addizionaleIVA = rs.getFloat("addizionaleIVA");
+float aliquotaIVA = rs.getFloat("aliquotaIVA");
+float imponibileAcquisti = rs.getFloat("imponibileAcquisti");
+float imponibileAcquistiNonDetraibile = rs.getFloat("imponibileAcquistiNonDetraibile");
+float impostaAcquisti = rs.getFloat("impostaAcquisti");
+float imponibileVendite = rs.getFloat("imponibileVendite");
+float imponibileVenditeNonDetraibile = rs.getFloat("imponibileVenditeNonDetraibile");
+float impostaVendite = rs.getFloat("impostaVendite");
+int rigaIVAVendite = rs.getInt("rigaIVAVendite");
+float coefficienteIVA = rs.getFloat("coefficienteIVA");
+String percentualeIndetraibilita = rs.getString("percentualeIndetraibilita");
+float valoreArrotondamento = rs.getFloat("valoreArrotondamento");
+boolean indicatoreTroncaAcquisti = rs.getBoolean("indicatoreTroncaAcquisti");
+boolean indicatoreSommaAcquisti = rs.getBoolean("indicatoreSommaAcquisti");
+boolean indicatoreArrotondaAcquisti = rs.getBoolean("indicatoreArrotondaAcquisti");
+boolean indicatoreSottraeAcquisti = rs.getBoolean("indicatoreSottraeAcquisti");
+boolean indicatoreTroncaVendite = rs.getBoolean("indicatoreTroncaVendite");
+boolean indicatoreSommaVendite = rs.getBoolean("indicatoreSommaVendite");
+boolean indicatoreArrotondaVendite = rs.getBoolean("indicatoreArrotondaVendite");
+boolean indicatoreSottraeVendite = rs.getBoolean("indicatoreSottraeVendite");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String loginInseriment = rs.getString("loginInseriment");
-String loginModific = rs.getString("loginModific");
-boolean elencoClientiFornitor = rs.getBoolean("elencoClientiFornitor");
-String colonnaClientiFornitor = rs.getString("colonnaClientiFornitor");
-String colonnaNoteClientiFornitor = rs.getString("colonnaNoteClientiFornitor");
-Iva iva = new Iva(codiceIv, descrizion, codiceStat, rigaIVAAcquist, addizionaleIV, aliquotaIV, imponibileAcquist, imponibileAcquistiNonDetraibil, impostaAcquist, imponibileVendit, imponibileVenditeNonDetraibil, impostaVendit, rigaIVAVendit, coefficienteIV, percentualeIndetraibilit, valoreArrotondament, indicatoreTroncaAcquist, indicatoreSommaAcquist, indicatoreArrotondaAcquist, indicatoreSottraeAcquist, indicatoreTroncaVendit, indicatoreSommaVendit, indicatoreArrotondaVendit, indicatoreSottraeVendit, dataInseriment, dataUltimaModific, loginInseriment, loginModific, elencoClientiFornitor, colonnaClientiFornitor, colonnaNoteClientiFornitor);
+dataUltimaModifica = ts.toLocalDateTime();
+String loginInserimento = rs.getString("loginInserimento");
+String loginModifica = rs.getString("loginModifica");
+boolean elencoClientiFornitori = rs.getBoolean("elencoClientiFornitori");
+String colonnaClientiFornitori = rs.getString("colonnaClientiFornitori");
+String colonnaNoteClientiFornitori = rs.getString("colonnaNoteClientiFornitori");
+Iva iva = new Iva(codiceIva, descrizione, codiceStato, rigaIVAAcquisti, addizionaleIVA, aliquotaIVA, imponibileAcquisti, imponibileAcquistiNonDetraibile, impostaAcquisti, imponibileVendite, imponibileVenditeNonDetraibile, impostaVendite, rigaIVAVendite, coefficienteIVA, percentualeIndetraibilita, valoreArrotondamento, indicatoreTroncaAcquisti, indicatoreSommaAcquisti, indicatoreArrotondaAcquisti, indicatoreSottraeAcquisti, indicatoreTroncaVendite, indicatoreSommaVendite, indicatoreArrotondaVendite, indicatoreSottraeVendite, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, elencoClientiFornitori, colonnaClientiFornitori, colonnaNoteClientiFornitori);
 
 		listiva.add(iva);
 	         }

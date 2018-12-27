@@ -16,7 +16,7 @@ public class ReadDdtTestata {
 	private Connection c;
 
 	public ReadDdtTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = DBConnect.connect();
 	}
 
 	public List<DdtTestata> read() {
@@ -29,71 +29,71 @@ public class ReadDdtTestata {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroDD = rs.getInt("numeroDD");
-ts = rs.getTimestamp("dataDD");
-LocalDateTime dataDD = null;
+int numeroDDT = rs.getInt("numeroDDT");
+ts = rs.getTimestamp("dataDDT");
+LocalDateTime dataDDT = null;
 if (ts != null)
-dataDD = ts.toLocalDateTime();
-boolean indicatoreStatoAvanzament = rs.getBoolean("indicatoreStatoAvanzament");
-String codiceCausal = rs.getString("codiceCausal");
-String codiceCausalePreliev = rs.getString("codiceCausalePreliev");
-String codiceClienteFatturazion = rs.getString("codiceClienteFatturazion");
-String codiceEsenzioneIv = rs.getString("codiceEsenzioneIv");
-String codiceAgent = rs.getString("codiceAgent");
-float percentualeProvvigion = rs.getFloat("percentualeProvvigion");
-float percentualeScont = rs.getFloat("percentualeScont");
-int numeroCopieFattur = rs.getInt("numeroCopieFattur");
-boolean indicatoreAddebitoBoll = rs.getBoolean("indicatoreAddebitoBoll");
-boolean indicatoreAddebitoSpeseIncass = rs.getBoolean("indicatoreAddebitoSpeseIncass");
-int codiceListin = rs.getInt("codiceListin");
-String codiceRes = rs.getString("codiceRes");
-String codiceVettor = rs.getString("codiceVettor");
-String codiceImball = rs.getString("codiceImball");
-String codicePagament = rs.getString("codicePagament");
-String codiceBanc = rs.getString("codiceBanc");
-int numeroFattur = rs.getInt("numeroFattur");
-ts = rs.getTimestamp("dataFattur");
-LocalDateTime dataFattur = null;
+dataDDT = ts.toLocalDateTime();
+boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
+String codiceCausale = rs.getString("codiceCausale");
+String codiceCausalePrelievi = rs.getString("codiceCausalePrelievi");
+String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
+String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");
+String codiceAgente = rs.getString("codiceAgente");
+float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
+float percentualeSconto = rs.getFloat("percentualeSconto");
+int numeroCopieFattura = rs.getInt("numeroCopieFattura");
+boolean indicatoreAddebitoBolli = rs.getBoolean("indicatoreAddebitoBolli");
+boolean indicatoreAddebitoSpeseIncasso = rs.getBoolean("indicatoreAddebitoSpeseIncasso");
+int codiceListino = rs.getInt("codiceListino");
+String codiceResa = rs.getString("codiceResa");
+String codiceVettore = rs.getString("codiceVettore");
+String codiceImballo = rs.getString("codiceImballo");
+String codicePagamento = rs.getString("codicePagamento");
+String codiceBanca = rs.getString("codiceBanca");
+int numeroFattura = rs.getInt("numeroFattura");
+ts = rs.getTimestamp("dataFattura");
+LocalDateTime dataFattura = null;
 if (ts != null)
-dataFattur = ts.toLocalDateTime();
-String codiceDivis = rs.getString("codiceDivis");
-String causaleTrasport = rs.getString("causaleTrasport");
-float pesoColl = rs.getFloat("pesoColl");
-String descrizion = rs.getString("descrizion");
-int numeroColl = rs.getInt("numeroColl");
-boolean indicatorePreventivoDaConferm = rs.getBoolean("indicatorePreventivoDaConferm");
-boolean indicatoreBollaVision = rs.getBoolean("indicatoreBollaVision");
-String codiceClienteSpedizion = rs.getString("codiceClienteSpedizion");
-String nomeSpedizion = rs.getString("nomeSpedizion");
-String indirizzoSpedizion = rs.getString("indirizzoSpedizion");
-String capSpedizion = rs.getString("capSpedizion");
-String cittaSpedizion = rs.getString("cittaSpedizion");
-String provinciaSpedizion = rs.getString("provinciaSpedizion");
-String codiceNazioneSpedizion = rs.getString("codiceNazioneSpedizion");
-ts = rs.getTimestamp("dataInseriment");
-LocalDateTime dataInseriment = null;
+dataFattura = ts.toLocalDateTime();
+String codiceDivisa = rs.getString("codiceDivisa");
+String causaleTrasporto = rs.getString("causaleTrasporto");
+float pesoColli = rs.getFloat("pesoColli");
+String descrizione = rs.getString("descrizione");
+int numeroColli = rs.getInt("numeroColli");
+boolean indicatorePreventivoDaConferma = rs.getBoolean("indicatorePreventivoDaConferma");
+boolean indicatoreBollaVisione = rs.getBoolean("indicatoreBollaVisione");
+String codiceClienteSpedizione = rs.getString("codiceClienteSpedizione");
+String nomeSpedizione = rs.getString("nomeSpedizione");
+String indirizzoSpedizione = rs.getString("indirizzoSpedizione");
+String capSpedizione = rs.getString("capSpedizione");
+String cittaSpedizione = rs.getString("cittaSpedizione");
+String provinciaSpedizione = rs.getString("provinciaSpedizione");
+String codiceNazioneSpedizione = rs.getString("codiceNazioneSpedizione");
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
 if (ts != null)
-dataInseriment = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModific");
-LocalDateTime dataUltimaModific = null;
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
 if (ts != null)
-dataUltimaModific = ts.toLocalDateTime();
-String not = rs.getString("not");
-String loginInseriment = rs.getString("loginInseriment");
-String oginModific = rs.getString("oginModific");
-String codiceLingu = rs.getString("codiceLingu");
-int numeroDdtDeposit = rs.getInt("numeroDdtDeposit");
-String codiceDeposit = rs.getString("codiceDeposit");
-String noteCaricament = rs.getString("noteCaricament");
-String codiceFilialeEd = rs.getString("codiceFilialeEd");
-ts = rs.getTimestamp("dataCaricament");
-LocalDateTime dataCaricament = null;
+dataUltimaModifica = ts.toLocalDateTime();
+String note = rs.getString("note");
+String loginInserimento = rs.getString("loginInserimento");
+String oginModifica = rs.getString("oginModifica");
+String codiceLingua = rs.getString("codiceLingua");
+int numeroDdtDeposito = rs.getInt("numeroDdtDeposito");
+String codiceDeposito = rs.getString("codiceDeposito");
+String noteCaricamento = rs.getString("noteCaricamento");
+String codiceFilialeEdi = rs.getString("codiceFilialeEdi");
+ts = rs.getTimestamp("dataCaricamento");
+LocalDateTime dataCaricamento = null;
 if (ts != null)
-dataCaricament = ts.toLocalDateTime();
-String unitaMisuraPesoColl = rs.getString("unitaMisuraPesoColl");
-String codice = rs.getString("ddtDettagl");
-List<DdtDettaglio> ddtDettagl = list.stream().filter(x->x.getList<DdtDettaglio>().equals(codice)).findFirst().get();
-DdtTestata ddtTestata = new DdtTestata(numeroDD, dataDD, indicatoreStatoAvanzament, codiceCausal, codiceCausalePreliev, codiceClienteFatturazion, codiceEsenzioneIv, codiceAgent, percentualeProvvigion, percentualeScont, numeroCopieFattur, indicatoreAddebitoBoll, indicatoreAddebitoSpeseIncass, codiceListin, codiceRes, codiceVettor, codiceImball, codicePagament, codiceBanc, numeroFattur, dataFattur, codiceDivis, causaleTrasport, pesoColl, descrizion, numeroColl, indicatorePreventivoDaConferm, indicatoreBollaVision, codiceClienteSpedizion, nomeSpedizion, indirizzoSpedizion, capSpedizion, cittaSpedizion, provinciaSpedizion, codiceNazioneSpedizion, dataInseriment, dataUltimaModific, not, loginInseriment, oginModific, codiceLingu, numeroDdtDeposit, codiceDeposit, noteCaricament, codiceFilialeEd, dataCaricament, unitaMisuraPesoColl, ddtDettagl);
+dataCaricamento = ts.toLocalDateTime();
+String unitaMisuraPesoColli = rs.getString("unitaMisuraPesoColli");
+String codice = rs.getString("ddtDettagli");
+List<DdtDettaglio> ddtDettagli = list.stream().filter(x->x.getList<DdtDettaglio>().equals(codice)).findFirst().get();
+DdtTestata ddtTestata = new DdtTestata(numeroDDT, dataDDT, indicatoreStatoAvanzamento, codiceCausale, codiceCausalePrelievi, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceImballo, codicePagamento, codiceBanca, numeroFattura, dataFattura, codiceDivisa, causaleTrasporto, pesoColli, descrizione, numeroColli, indicatorePreventivoDaConferma, indicatoreBollaVisione, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, loginInserimento, oginModifica, codiceLingua, numeroDdtDeposito, codiceDeposito, noteCaricamento, codiceFilialeEdi, dataCaricamento, unitaMisuraPesoColli, ddtDettagli);
 
 		listddtTestata.add(ddtTestata);
 	         }
