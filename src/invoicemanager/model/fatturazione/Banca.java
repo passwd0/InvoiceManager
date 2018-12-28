@@ -1,13 +1,11 @@
 package invoicemanager.model.fatturazione;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-
-import invoicemanager.utils.Utils;
+import java.util.List;
 
 public class Banca{
 		private String codiceBanca; //(4) NOT NULL
 		private String descrizione; //(100) NULL
-		private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
+		private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
 		private String codiceABI; //(5) NULL
 		private String codiceCAB; //(5) NULL
 		private String localita; //(50) NULL
@@ -18,8 +16,8 @@ public class Banca{
 		private String paese; //(6) NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
-		private String loginInserimento; //(30) NULL
-		private String loginModifica; //(30) NULL
+//		private String loginInserimento; //(30) NULL
+//		private String loginModifica; //(30) NULL
 		private String iban; //(50) NULL
 		private String swift; //(50) NULL
 		private String codiceConto; //(30) NULL
@@ -27,8 +25,8 @@ public class Banca{
 		
 	public Banca(String codiceBanca, String descrizione, Stato stato, String codiceABI, String codiceCAB,
 				String localita, String provincia, String numeroContoCorrente, String codiceCIN, String codiceCINEur,
-				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
-				String loginModifica, String iban, String swift, String codiceConto, String indirizzo) {
+				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String iban, String swift, 
+				String codiceConto, String indirizzo) {
 			this.codiceBanca = codiceBanca;
 			this.descrizione = descrizione;
 			this.stato = stato;
@@ -42,8 +40,6 @@ public class Banca{
 			this.paese = paese;
 			this.dataInserimento = dataInserimento;
 			this.dataUltimaModifica = dataUltimaModifica;
-			this.loginInserimento = loginInserimento;
-			this.loginModifica = loginModifica;
 			this.iban = iban;
 			this.swift = swift;
 			this.codiceConto = codiceConto;
@@ -70,11 +66,11 @@ public class Banca{
 		this.descrizione = descrizione;
 	}
 
-	public Stato getStato() {
+	public Stato getstato() {
 		return stato;
 	}
 
-	public void setStato(Stato stato) {
+	public void setstato(Stato stato) {
 		this.stato = stato;
 	}
 
@@ -145,18 +141,6 @@ public class Banca{
 	public LocalDateTime getDataInserimento() {
 		return dataInserimento;
 	}
-	
-	public String getDataInserimentoToString() {
-		if (dataInserimento == null)
-			return null;
-		return Utils.formatterCompleteDB.format(dataInserimento);
-	}
-	
-	public Timestamp getDataInserimentoToTimestamp() {
-		if (dataInserimento == null)
-			return null;
-		return Timestamp.valueOf(dataInserimento);
-	}
 
 	public void setDataInserimento(LocalDateTime dataInserimento) {
 		this.dataInserimento = dataInserimento;
@@ -165,37 +149,9 @@ public class Banca{
 	public LocalDateTime getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
-	
-	public String getDataUltimaModificaToString() {
-		if (dataUltimaModifica == null)
-			return null;
-		return Utils.formatterCompleteDB.format(dataUltimaModifica);
-	}
-	
-	public Timestamp getDataUltimaModificaToTimestamp() {
-		if (dataUltimaModifica == null)
-			return null;
-		return Timestamp.valueOf(dataUltimaModifica);
-	}
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
-	}
-
-	public String getLoginModifica() {
-		return loginModifica;
-	}
-
-	public void setLoginModifica(String loginModifica) {
-		this.loginModifica = loginModifica;
 	}
 	
 	public String getIban() {

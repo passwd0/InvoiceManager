@@ -3,16 +3,27 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class RaggruppamentoClienteFornitore{
-		private String codiceRaggruppamento; //(4) NOT NULL
-		private String descrizione; //(100) NULL
-		private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
-		private LocalDateTime dataInserimento; //  NULL
-		private LocalDateTime dataUltimaModifica; //  NULL
-		private String loginInserimento; //(30) NULL
+	private String codiceRaggruppamento; //(4) NOT NULL
+	private String descrizione; //(100) NULL
+	private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataUltimaModifica; //  NULL
+//		private String loginInserimento; //(30) NULL
 
+	
+	
 	public RaggruppamentoClienteFornitore(String codiceRaggruppamento){
 		this.codiceRaggruppamento = codiceRaggruppamento;
 	}
+
+	public RaggruppamentoClienteFornitore(String codiceRaggruppamento, String descrizione, Stato codiceStato,
+		LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+	this.codiceRaggruppamento = codiceRaggruppamento;
+	this.descrizione = descrizione;
+	this.codiceStato = codiceStato;
+	this.dataInserimento = dataInserimento;
+	this.dataUltimaModifica = dataUltimaModifica;
+}
 
 	public String getCodiceRaggruppamento() {
 		return codiceRaggruppamento;
@@ -53,14 +64,4 @@ public class RaggruppamentoClienteFornitore{
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
-	}
-	
-	
 }
