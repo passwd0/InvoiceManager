@@ -1,10 +1,12 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Controparte;
+import invoicemanager.utils.Utils;
 
 public class WriteControparte {
 	private Connection c;
@@ -14,27 +16,18 @@ public class WriteControparte {
 	}
 
 	public void add(Controparte a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
-			Statement stmt = c.createStatement();
-			String sql;
-			if (!exist)
-				sql = "INSERT INTO Controparte "
-+ "VALUES ("
-+"','"+a.getCodiceControparte()
-+"','"+a.getDescrizione()
-+"','"+a.getCodiceStato()
-+"','"+a.getCodiceContoCOGE()
-+"','"+a.getProgressivoRelazioniCOGECOA()
-+"','"+a.getDataInserimento()
-+"','"+a.getDataUltimaModifica()
-+"','"+a.getLoginInserimento()
-+"\');";
-			else
-				sql = "UPDATE auto SET stato = \'Disponibile\' WHERE codiceControparte=\'" + a.getCodiceControparte() + "\';";
-			stmt.executeUpdate(sql);
+			PreparedStatement ps = c.prepareStatement("INSERT INTO Controparti VALUES (?, ?, ?, ?, ?, ?,)");
 
-			stmt.close();
+			ps.setString(1, a.getCodiceControparte());
+			ps.setString(2, a.getDescrizione());
+			ps.setString(3, a.getCodiceStato().name());
+			ps.setString(4, a.getCodiceContoCOGE());
+			ps.setTimestamp(5, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(6, Utils.toTimestamp(a.getDataUltimaModifica()));
+
+			ps.executeUpdate();
+			ps.close();
 			c.commit();
 			c.close();
 	      } catch (Exception e) {

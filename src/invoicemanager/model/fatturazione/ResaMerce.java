@@ -11,9 +11,6 @@ public class ResaMerce{
 	private boolean indicatoreProvvigione; // NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-//		private String loginInserimento; //(30) NULL
-
-		
 		
 	public ResaMerce(String CodiceResa){
 		this.codiceResa = CodiceResa;
@@ -120,6 +117,4 @@ public class ResaMerce{
 			return false;
 		return true;
 	}
-	
-	
 }

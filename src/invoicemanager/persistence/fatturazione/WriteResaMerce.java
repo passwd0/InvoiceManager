@@ -1,10 +1,12 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.ResaMerce;
+import invoicemanager.utils.Utils;
 
 public class WriteResaMerce {
 	private Connection c;
@@ -14,28 +16,19 @@ public class WriteResaMerce {
 	}
 
 	public void add(ResaMerce a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
-			Statement stmt = c.createStatement();
-			String sql;
-			if (!exist)
-				sql = "INSERT INTO ResaMerce "
-+ "VALUES ("
-+"','"+a.getCodiceResa()
-+"','"+a.getDescrizione()
-+"','"+a.getCodiceStato()
-+"','"+a.getPercentualeAddebito()
-+"','"+a.getImportoMinimo()
-+"','"+a.getIndicatoreProvvigione()
-+"','"+a.getDataInserimento()
-+"','"+a.getDataUltimaModifica()
-+"','"+a.getLoginInserimento()
-+"\');";
-			else
-				sql = "UPDATE auto SET stato = \'Disponibile\' WHERE codiceResaMerce=\'" + a.getCodiceResaMerce() + "\';";
-			stmt.executeUpdate(sql);
-
-			stmt.close();
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO ResaMerci VALUES (?, ?, ?, ?, ?, ?, ?, ?,)");
+	    	ps.setString(1, a.getCodiceResa());
+	    	ps.setString(2, a.getDescrizione());
+	    	ps.setString(3, a.getCodiceStato().name());
+	    	ps.setFloat(4, a.getPercentualeAddebito());
+	    	ps.setFloat(5, a.getImportoMinimo());
+	    	ps.setBoolean(6, a.isIndicatoreProvvigione());
+	    	ps.setTimestamp(7, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(8, Utils.toTimestamp(a.getDataUltimaModifica()));
+	
+			ps.executeUpdate();
+			ps.close();
 			c.commit();
 			c.close();
 	      } catch (Exception e) {
@@ -50,7 +43,7 @@ public class WriteResaMerce {
 
 			sql = "UPDATE ResaMerce SET "
 					+ "campo=value "
-					+ "WHERE codiceResaMerce="+a.getCodiceResaMerce();
+					+ "WHERE codiceResaMerce="+a.getCodiceResa();
 			stmt.executeUpdate(sql);
 
 			stmt.close();
@@ -64,7 +57,7 @@ public class WriteResaMerce {
 	public void delete(ResaMerce a) throws ClassNotFoundException, SQLException {
 		try {
 	        Statement stmt = c.createStatement();
-	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceResaMerce() + ";";
+	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceResa() + ";";
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();

@@ -1,10 +1,12 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Pagamento;
+import invoicemanager.utils.Utils;
 
 public class WritePagamento {
 	private Connection c;
@@ -16,30 +18,22 @@ public class WritePagamento {
 	public void add(Pagamento a, boolean exist) throws ClassNotFoundException, SQLException {
 		Connection c = DBConnect.connect();
 	    try {
-			Statement stmt = c.createStatement();
-			String sql;
-			if (!exist)
-				sql = "INSERT INTO Pagamento "
-+ "VALUES ("
-+"','"+a.getCodicePagamento()
-+"','"+a.getDescrizione()
-+"','"+a.getCodiceStato()
-+"','"+a.getCodiceTipoPagamento()
-+"','"+a.getIndicatoreScadenzaAVista()
-+"','"+a.getGiornoMese()
-+"','"+a.getNumeroGiorni()
-+"','"+a.getNumeroScadenze()
-+"','"+a.getSconto()
-+"','"+a.getScadenzaIVAPrimaRata()
-+"','"+a.getDataInserimento()
-+"','"+a.getDataUltimaModifica()
-+"','"+a.getLoginInserimento()
-+"\');";
-			else
-				sql = "UPDATE auto SET stato = \'Disponibile\' WHERE codicePagamento=\'" + a.getCodicePagamento() + "\';";
-			stmt.executeUpdate(sql);
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Pagamenti VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+	    	ps.setString(1, a.getCodicePagamento());
+	    	ps.setString(2, a.getDescrizione());
+	    	ps.setString(3, a.getCodiceStato().name());
+	    	ps.setString(4, a.getCodiceTipoPagamento());
+	    	ps.setBoolean(5, a.isIndicatoreScadenzaAVista());
+	    	ps.setString(6, a.getGiornoMese());
+	    	ps.setInt(7, a.getNumeroGiorni());
+	    	ps.setInt(8, a.getNumeroScadenze());
+	    	ps.setFloat(9, a.getSconto());
+	    	ps.setBoolean(10, a.isScadenzaIVAPrimaRata());
+	    	ps.setTimestamp(11, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(12, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-			stmt.close();
+			ps.executeUpdate();
+			ps.close();
 			c.commit();
 			c.close();
 	      } catch (Exception e) {

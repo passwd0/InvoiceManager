@@ -8,27 +8,25 @@ public class Iso{
 		private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
-		private String loginInserimento; //(30) NULL
 		
 	public Iso(String codiceISO, String descrizione, Stato codiceStato, LocalDateTime dataInserimento,
 				LocalDateTime dataUltimaModifica, String loginInserimento) {
-			this.codiceISO = codiceISO;
-			this.descrizione = descrizione;
-			this.codiceStato = codiceStato;
-			this.dataInserimento = dataInserimento;
-			this.dataUltimaModifica = dataUltimaModifica;
-			this.loginInserimento = loginInserimento;
-		}
+		this.codiceISO = codiceISO;
+		this.descrizione = descrizione;
+		this.codiceStato = codiceStato;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
 
 	public Iso(String codiceISO){
 		this.codiceISO = codiceISO;
 	}
 
-	public String getCodiceISO() {
+	public String getCodiceIso() {
 		return codiceISO;
 	}
 
-	public void setCodiceISO(String codiceISO) {
+	public void setCodiceIso(String codiceISO) {
 		this.codiceISO = codiceISO;
 	}
 
@@ -62,14 +60,6 @@ public class Iso{
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
 	}
 
 	@Override

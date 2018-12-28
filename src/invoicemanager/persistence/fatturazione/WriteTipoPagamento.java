@@ -1,10 +1,12 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.TipoPagamento;
+import invoicemanager.utils.Utils;
 
 public class WriteTipoPagamento {
 	private Connection c;
@@ -14,23 +16,15 @@ public class WriteTipoPagamento {
 	}
 
 	public void add(TipoPagamento a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
-			Statement stmt = c.createStatement();
-			String sql;
-			if (!exist)
-				sql = "INSERT INTO TipoPagamento "
-+ "VALUES ("
-+"','"+a.getCodiceTipoPagamento()
-+"','"+a.getDescrizione()
-+"','"+a.getDataInserimento()
-+"','"+a.getDataUltimaModifica()
-+"\');";
-			else
-				sql = "UPDATE auto SET stato = \'Disponibile\' WHERE codiceTipoPagamento=\'" + a.getCodiceTipoPagamento() + "\';";
-			stmt.executeUpdate(sql);
+			PreparedStatement ps = c.prepareStatement("INSERT INTO TipiPagamento VALUES (?, ?, ?, ?,)");
+	    	ps.setString(1, a.getCodiceTipoPagamento());
+	    	ps.setString(2, a.getDescrizione());
+	    	ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(4, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-			stmt.close();
+			ps.executeUpdate();
+			ps.close();
 			c.commit();
 			c.close();
 	      } catch (Exception e) {

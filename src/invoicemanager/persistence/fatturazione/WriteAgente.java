@@ -15,7 +15,6 @@ public class WriteAgente {
 	}
 
 	public void add(Agente a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Agenti VALUES (?,?,?,?,?,?,?)");
 	    	ps.setString(1, a.getCodiceAgente());

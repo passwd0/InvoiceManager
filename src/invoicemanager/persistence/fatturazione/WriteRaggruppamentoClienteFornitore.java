@@ -1,10 +1,12 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.RaggruppamentoClienteFornitore;
+import invoicemanager.utils.Utils;
 
 public class WriteRaggruppamentoClienteFornitore {
 	private Connection c;
@@ -14,30 +16,21 @@ public class WriteRaggruppamentoClienteFornitore {
 	}
 
 	public void add(RaggruppamentoClienteFornitore a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
-			Statement stmt = c.createStatement();
-			String sql;
-			if (!exist)
-				sql = "INSERT INTO RaggruppamentoClienteFornitore "
-+ "VALUES ("
-+"','"+a.getCodiceRaggruppamento()
-+"','"+a.getDescrizione()
-+"','"+a.getCodiceStato()
-+"','"+a.getDataInserimento()
-+"','"+a.getDataUltimaModifica()
-+"','"+a.getLoginInserimento()
-+"\');";
-			else
-				sql = "UPDATE auto SET stato = \'Disponibile\' WHERE codiceRaggruppamentoClienteFornitore=\'" + a.getCodiceRaggruppamentoClienteFornitore() + "\';";
-			stmt.executeUpdate(sql);
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO RaggruppamentiClienteFornitore VALUES (?, ?, ?, ?, ?,)");
+	    	ps.setString(1, a.getCodiceRaggruppamento());
+	    	ps.setString(2, a.getDescrizione());
+	    	ps.setString(3, a.getCodiceStato().name());
+			ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-			stmt.close();
+			ps.executeUpdate();
+			ps.close();
 			c.commit();
 			c.close();
-	      } catch (Exception e) {
+	    } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
-	      }
+	    }
 	}
 
 	public void set(RaggruppamentoClienteFornitore a) throws ClassNotFoundException, SQLException {
@@ -47,7 +40,7 @@ public class WriteRaggruppamentoClienteFornitore {
 
 			sql = "UPDATE RaggruppamentoClienteFornitore SET "
 					+ "campo=value "
-					+ "WHERE codiceRaggruppamentoClienteFornitore="+a.getCodiceRaggruppamentoClienteFornitore();
+					+ "WHERE codiceRaggruppamentoClienteFornitore="+a.getCodiceRaggruppamento();
 			stmt.executeUpdate(sql);
 
 			stmt.close();
@@ -61,7 +54,7 @@ public class WriteRaggruppamentoClienteFornitore {
 	public void delete(RaggruppamentoClienteFornitore a) throws ClassNotFoundException, SQLException {
 		try {
 	        Statement stmt = c.createStatement();
-	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceRaggruppamentoClienteFornitore() + ";";
+	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceRaggruppamento() + ";";
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();
