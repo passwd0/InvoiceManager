@@ -1,19 +1,22 @@
 package invoicemanager.model.fatturazione;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.List;
+
+import invoicemanager.utils.Utils;
 
 public class Agente {
 	private String codiceAgente; //(10) NOT NULL
-	private String nome; //(50) NULL
-	private float percentualeProvvigione; //  NULL
-	private boolean tipoProvvigione; // NULL
-	private boolean tipoMandato; // NULL
-	private String codiceContabile; //(30) NULL
-	private Controparte codiceControparte; // (10) COLLATE Latin1_General_CI_AS NULL
-	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
-	private String loginModifica; //(30) NULL
+	private String nome; //(50)
+	private float percentualeProvvigione;
+	private boolean tipoProvvigione;
+	private boolean tipoMandato;
+	private String codiceContabile; //(30)
+	private Controparte controparte; // (10)
+	private LocalDateTime dataInserimento;
+	private LocalDateTime dataUltimaModifica;
+	private String loginInserimento; // (30)
+	private String loginModifica; // (30)
+	//private Stato stato = Stato.DISPONIBILE;						//AGGIUNTO!
 		
 	public Agente(String codiceAgente, String nome, float percentualeProvvigione, boolean tipoProvvigione,
 				boolean tipoMandato, String codiceContabile, Controparte codiceControparte,
@@ -25,7 +28,7 @@ public class Agente {
 		this.tipoProvvigione = tipoProvvigione;
 		this.tipoMandato = tipoMandato;
 		this.codiceContabile = codiceContabile;
-		this.codiceControparte = codiceControparte;
+		this.controparte = codiceControparte;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 		this.loginInserimento = loginInserimento;
@@ -34,6 +37,12 @@ public class Agente {
 
 	public Agente(String codiceAgente){
 		this.codiceAgente = codiceAgente;
+	}
+	
+	public String getCodiceControparte() {
+		if (controparte != null)
+			return controparte.getCodiceControparte();
+		return null;
 	}
 
 	public String getCodiceAgente() {
@@ -84,16 +93,28 @@ public class Agente {
 		this.codiceContabile = codiceContabile;
 	}
 
-	public Controparte getCodiceControparte() {
-		return codiceControparte;
+	public Controparte getControparte() {
+		return controparte;
 	}
 
-	public void setCodiceControparte(Controparte codiceControparte) {
-		this.codiceControparte = codiceControparte;
+	public void setControparte(Controparte controparte) {
+		this.controparte = controparte;
 	}
 
 	public LocalDateTime getDataInserimento() {
 		return dataInserimento;
+	}
+	
+	public String getDataInserimentoToString() {
+		if (dataInserimento == null)
+			return null;
+		return Utils.formatterCompleteDB.format(dataInserimento);
+	}
+	
+	public Timestamp getDataInserimentoToTimestamp() {
+		if (dataInserimento == null)
+			return null;
+		return Timestamp.valueOf(dataInserimento);
 	}
 
 	public void setDataInserimento(LocalDateTime dataInserimento) {
@@ -102,6 +123,18 @@ public class Agente {
 
 	public LocalDateTime getDataUltimaModifica() {
 		return dataUltimaModifica;
+	}
+	
+	public String getDataUltimaModificaToString() {
+		if (dataUltimaModifica == null)
+			return null;
+		return Utils.formatterCompleteDB.format(dataUltimaModifica);
+	}
+	
+	public Timestamp getDataUltimaModificaToTimestamp() {
+		if (dataUltimaModifica == null)
+			return null;
+		return Timestamp.valueOf(dataUltimaModifica);
 	}
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
@@ -148,6 +181,4 @@ public class Agente {
 			return false;
 		return true;
 	}
-	
-	
 }

@@ -2,7 +2,7 @@ filename=$1
 basename=`echo "$filename" | sed "s/.*\///g"`
 classname=${basename:0:-5}
 var=`echo ${classname:0:1} | tr '[:upper:]' '[:lower:]'`${classname:1}
-newfile=/home/passwd/Documents/java/InvoiceManager/src/invoicemanager/persistence/fatturazione/Read$basename
+newfile=/home/passwd/Documents/java/InvoiceManager/src/invoicemanager/persistence/fatturazione/Write$basename
 
 find_private=0
 element=()
@@ -29,8 +29,8 @@ public class Write${classname} {
 			Statement stmt = c.createStatement();
 			String sql;
 			if (!exist)
-				sql = \"INSERT INTO ${classname} VALUES (\""
-
+				sql = \"INSERT INTO ${classname} \""
+echo "+ \"VALUES (\""
 #COLUMNS
 IFS=$'\n'
 for l in `cat $filename`; do
@@ -47,20 +47,20 @@ for l in `cat $filename`; do
 		jtype=`echo $l | cut -d' ' -f2`
 		jtype2=`echo ${jtype:0:1} | tr '[:lower:]' '[:upper:]'`${jtype:1}
 		jname=`echo $l | cut -d' ' -f3`
-		jname=${jname:0:-1}
+		jname2=`echo ${jname:0:1} | tr '[:lower:]' '[:upper:]'`${jname:1}
 		element+=($jname,)
 
-		echo "+\"\',\'\"+a.get$jname()"
+		echo "+\"','\"+a.get$jname2()"
 	fi
 done
-echo "')';"
+echo "+\"\');\";"
 
 a=`echo "${element[@]}"`
 elements=${a:0:-1}
 
 #TEMPLATE2
 echo "			else
-				sql = \"UPDATE auto SET stato = \'Disponibile\' WHERE codiceCliente=\'\" + a.getCodiceCliente() + \"\';\";
+				sql = \"UPDATE auto SET stato = \'Disponibile\' WHERE codice${classname}=\'\" + a.getCodice${classname}() + \"\';\";
 			stmt.executeUpdate(sql);
 
 			stmt.close();
@@ -71,14 +71,14 @@ echo "			else
 	      }
 	}
 
-	public void set(Cliente a) throws ClassNotFoundException, SQLException {
+	public void set(${classname} a) throws ClassNotFoundException, SQLException {
 		try {
 			Statement stmt = c.createStatement();
 			String sql;
 
-			sql = \"UPDATE Cliente SET \"
+			sql = \"UPDATE ${classname} SET \"
 					+ \"campo=value \"
-					+ \"WHERE codiceCliente=\"+a.getCodiceCliente();
+					+ \"WHERE codice${classname}=\"+a.getCodice${classname}();
 			stmt.executeUpdate(sql);
 
 			stmt.close();
@@ -89,10 +89,10 @@ echo "			else
 	      }
 	}
 
-	public void delete(Cliente a) throws ClassNotFoundException, SQLException {
+	public void delete(${classname} a) throws ClassNotFoundException, SQLException {
 		try {
 	        Statement stmt = c.createStatement();
-	    	String sql = \"UPDATE auto SET stato = \'Eliminato\' WHERE id = \" + a.getCodiceCliente() + \";\";
+	    	String sql = \"UPDATE auto SET stato = \'Eliminato\' WHERE id = \" + a.getCodice${classname}() + \";\";
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();
@@ -102,3 +102,4 @@ echo "			else
 		}
 	}
 } "
+

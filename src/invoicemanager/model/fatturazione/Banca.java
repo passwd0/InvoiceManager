@@ -1,11 +1,13 @@
 package invoicemanager.model.fatturazione;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.List;
+
+import invoicemanager.utils.Utils;
 
 public class Banca{
 		private String codiceBanca; //(4) NOT NULL
 		private String descrizione; //(100) NULL
-		private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
+		private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
 		private String codiceABI; //(5) NULL
 		private String codiceCAB; //(5) NULL
 		private String localita; //(50) NULL
@@ -48,7 +50,7 @@ public class Banca{
 			this.indirizzo = indirizzo;
 		}
 
-	public Banca(String CodiceBanca){
+	public Banca(String codiceBanca){
 		this.codiceBanca = codiceBanca;
 	}
 
@@ -68,11 +70,11 @@ public class Banca{
 		this.descrizione = descrizione;
 	}
 
-	public Stato getstato() {
+	public Stato getStato() {
 		return stato;
 	}
 
-	public void setstato(Stato stato) {
+	public void setStato(Stato stato) {
 		this.stato = stato;
 	}
 
@@ -143,6 +145,18 @@ public class Banca{
 	public LocalDateTime getDataInserimento() {
 		return dataInserimento;
 	}
+	
+	public String getDataInserimentoToString() {
+		if (dataInserimento == null)
+			return null;
+		return Utils.formatterCompleteDB.format(dataInserimento);
+	}
+	
+	public Timestamp getDataInserimentoToTimestamp() {
+		if (dataInserimento == null)
+			return null;
+		return Timestamp.valueOf(dataInserimento);
+	}
 
 	public void setDataInserimento(LocalDateTime dataInserimento) {
 		this.dataInserimento = dataInserimento;
@@ -150,6 +164,18 @@ public class Banca{
 
 	public LocalDateTime getDataUltimaModifica() {
 		return dataUltimaModifica;
+	}
+	
+	public String getDataUltimaModificaToString() {
+		if (dataUltimaModifica == null)
+			return null;
+		return Utils.formatterCompleteDB.format(dataUltimaModifica);
+	}
+	
+	public Timestamp getDataUltimaModificaToTimestamp() {
+		if (dataUltimaModifica == null)
+			return null;
+		return Timestamp.valueOf(dataUltimaModifica);
 	}
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
@@ -171,7 +197,7 @@ public class Banca{
 	public void setLoginModifica(String loginModifica) {
 		this.loginModifica = loginModifica;
 	}
-
+	
 	public String getIban() {
 		return iban;
 	}

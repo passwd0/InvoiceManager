@@ -1,4 +1,4 @@
-package test.model.fatturazione;
+package test.persistence.fatturazione;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
