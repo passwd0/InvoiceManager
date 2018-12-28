@@ -3,19 +3,34 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class ResaMerce{
-		private String codiceResa; //(4) NOT NULL
-		private String descrizione; //(100) NULL
-		private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
-		private float percentualeAddebito; //  NULL
-		private float importoMinimo; // (19, 5) NULL
-		private boolean indicatoreProvvigione; // NULL
-		private LocalDateTime dataInserimento; //  NULL
-		private LocalDateTime dataUltimaModifica; //  NULL
-		private String loginInserimento; //(30) NULL
+	private String codiceResa; //(4) NOT NULL
+	private String descrizione; //(100) NULL
+	private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private float percentualeAddebito; //  NULL
+	private float importoMinimo; // (19, 5) NULL
+	private boolean indicatoreProvvigione; // NULL
+	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataUltimaModifica; //  NULL
+//		private String loginInserimento; //(30) NULL
 
+		
+		
 	public ResaMerce(String CodiceResa){
 		this.codiceResa = CodiceResa;
 	}
+
+	public ResaMerce(String codiceResa, String descrizione, Stato codiceStato, float percentualeAddebito,
+		float importoMinimo, boolean indicatoreProvvigione, LocalDateTime dataInserimento,
+		LocalDateTime dataUltimaModifica) {
+	this.codiceResa = codiceResa;
+	this.descrizione = descrizione;
+	this.codiceStato = codiceStato;
+	this.percentualeAddebito = percentualeAddebito;
+	this.importoMinimo = importoMinimo;
+	this.indicatoreProvvigione = indicatoreProvvigione;
+	this.dataInserimento = dataInserimento;
+	this.dataUltimaModifica = dataUltimaModifica;
+}
 
 	public String getCodiceResa() {
 		return codiceResa;
@@ -79,14 +94,6 @@ public class ResaMerce{
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
 	}
 
 	@Override

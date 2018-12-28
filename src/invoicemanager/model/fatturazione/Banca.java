@@ -16,8 +16,8 @@ public class Banca{
 		private String paese; //(6) NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
-		private String loginInserimento; //(30) NULL
-		private String loginModifica; //(30) NULL
+//		private String loginInserimento; //(30) NULL
+//		private String loginModifica; //(30) NULL
 		private String iban; //(50) NULL
 		private String swift; //(50) NULL
 		private String codiceConto; //(30) NULL
@@ -25,8 +25,8 @@ public class Banca{
 		
 	public Banca(String codiceBanca, String descrizione, Stato stato, String codiceABI, String codiceCAB,
 				String localita, String provincia, String numeroContoCorrente, String codiceCIN, String codiceCINEur,
-				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
-				String loginModifica, String iban, String swift, String codiceConto, String indirizzo) {
+				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String iban, String swift, 
+				String codiceConto, String indirizzo) {
 			this.codiceBanca = codiceBanca;
 			this.descrizione = descrizione;
 			this.stato = stato;
@@ -40,15 +40,13 @@ public class Banca{
 			this.paese = paese;
 			this.dataInserimento = dataInserimento;
 			this.dataUltimaModifica = dataUltimaModifica;
-			this.loginInserimento = loginInserimento;
-			this.loginModifica = loginModifica;
 			this.iban = iban;
 			this.swift = swift;
 			this.codiceConto = codiceConto;
 			this.indirizzo = indirizzo;
 		}
 
-	public Banca(String CodiceBanca){
+	public Banca(String codiceBanca){
 		this.codiceBanca = codiceBanca;
 	}
 
@@ -155,23 +153,7 @@ public class Banca{
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
-	}
-
-	public String getLoginModifica() {
-		return loginModifica;
-	}
-
-	public void setLoginModifica(String loginModifica) {
-		this.loginModifica = loginModifica;
-	}
-
+	
 	public String getIban() {
 		return iban;
 	}
