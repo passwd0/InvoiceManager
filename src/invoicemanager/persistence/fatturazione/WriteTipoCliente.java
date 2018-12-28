@@ -26,7 +26,6 @@ public class WriteTipoCliente {
 			ps.executeUpdate();
 			ps.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -44,7 +43,6 @@ public class WriteTipoCliente {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -57,7 +55,6 @@ public class WriteTipoCliente {
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();
-	        c.close();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}

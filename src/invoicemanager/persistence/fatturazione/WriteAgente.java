@@ -49,7 +49,6 @@ public class WriteAgente {
 			ps.executeUpdate();
 			ps.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -76,7 +75,7 @@ public class WriteAgente {
 //				tipoProvvigione boolean,
 //				tipoMandato boolean,
 //				dataInserimento timestamp,
-//				dataUltimaModifica timestamp,
+//				dataUltimaModifica timestamp
 //		);
 
 	}

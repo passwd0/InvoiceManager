@@ -5,9 +5,7 @@ import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDateTime;
 
 public class DdtDettaglio {
-	//private int numeroDDT; //NOT NULL			sottoclasse Ddt
 	private int numeroRigaDDT; //NOT NULL
-	//private LocalDateTime dataDDT; //NOT NULL
 	private String codiceTipoRigaDocumento;
 	private String codiceArticolo;
 	private String codiceMagazzino;
@@ -35,8 +33,6 @@ public class DdtDettaglio {
 	private String loginModifica; //[LoginModifica] [varchar](30) COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatorePrelevatoVendita; //] [varchar](1) COLLATE Latin1_General_CI_AS NULL,
 	private String pesoLordo; //[PesoLordo] [varchar](50) COLLATE Latin1_General_CI_AS NULL
-	
-	
 	
 	public DdtDettaglio(int numeroRigaDDT, String codiceTipoRigaDocumento, String codiceArticolo,
 			String codiceMagazzino, float costo, int numeroOrdine, int numeroRigaOrdine, LocalDateTime dataOrdine,

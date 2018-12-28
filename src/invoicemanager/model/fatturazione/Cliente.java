@@ -6,23 +6,23 @@ public class Cliente implements Comparable<Cliente>{
 	private String descrizione; //(100) NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimoAggiornamento; //  NULL
-	private TipoCliente codiceTipoCliente; // (4) COLLATE Latin1_General_CI_AS NULL
-	private ResaMerce codiceResaMerce; // (4) COLLATE Latin1_General_CI_AS NULL
-	private Imballo codiceImballo; // (4) COLLATE Latin1_General_CI_AS NULL
-	private RaggruppamentoClienteFornitore codiceRaggruppamento; // (4) COLLATE Latin1_General_CI_AS NULL
+	private TipoCliente tipoCliente; // (4) COLLATE Latin1_General_CI_AS NULL
+	private ResaMerce resaMerce; // (4) COLLATE Latin1_General_CI_AS NULL
+	private Imballo imballo; // (4) COLLATE Latin1_General_CI_AS NULL
+	private RaggruppamentoClienteFornitore raggruppamento; // (4) COLLATE Latin1_General_CI_AS NULL
 	private float fatturato; //  NULL
 	private float fido; //  NULL
 	private String partitaIVA; //(15) NULL
 	private String codiceFiscale; //(16) NULL
-	private Pagamento codicePagamento; // (4) COLLATE Latin1_General_CI_AS NULL
-	private Banca codiceBanca; // (4) COLLATE Latin1_General_CI_AS NULL
+	private Pagamento pagamento; // (4) COLLATE Latin1_General_CI_AS NULL
+	private Banca banca; // (4) COLLATE Latin1_General_CI_AS NULL
 	private int numeroFattureEmesse; //  NULL
-	private Iva codiceEsenzioneIVA; // (4) COLLATE Latin1_General_CI_AS NULL
+	private Iva iva; // (4) COLLATE Latin1_General_CI_AS NULL
 	private float imponibileNonEsente; //  NULL
 	private float imponibileEsente; //  NULL
 	private float importoIVA; //  NULL
 	private String codiceClassificazione; //(10) NULL
-	private Agente codiceAgente; // (10) COLLATE Latin1_General_CI_AS NULL
+	private Agente agente; // (10) COLLATE Latin1_General_CI_AS NULL
 	private float percentualeProvvigioneAgente; //  NULL
 	private float scontoLegatoProvvigioniAgente; //  NULL
 	private int numeroCopieFattura; //  NULL
@@ -31,14 +31,14 @@ public class Cliente implements Comparable<Cliente>{
 	private int codiceListino; //  NULL
 	private String codiceVettore; //(3) NULL
 	private String codiceAffidabilita; //(4) NULL
-	private Iso codiceISO; // (4) COLLATE Latin1_General_CI_AS NULL
+	private Iso iso; // (4) COLLATE Latin1_General_CI_AS NULL
 	private String partitaIVAEstero; //(12) NULL
 	private String codiceDivisa; //(4) NULL
 	private int dataScadenzaSpostataAgosto; //  NULL
 	private int dataScadenzaSpostataDicembre; //  NULL
 	private String codiceLingua; //(5) NULL
 	private String note; //(6000) NULL
-	private Stato codiceStato; // (2) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato; // (2) COLLATE Latin1_General_CI_AS NULL
 	private boolean indicatoreInviataInformativaPrivacy; // NULL
 	private boolean indicatoreRicevutaInformativaPrivacy; // NULL
 	private boolean indicatoreScorporoIVA; // NULL
@@ -55,11 +55,11 @@ public class Cliente implements Comparable<Cliente>{
 			Imballo codiceImballo, RaggruppamentoClienteFornitore codiceRaggruppamento, float fatturato, float fido,
 			String partitaIVA, String codiceFiscale, Pagamento codicePagamento, Banca codiceBanca,
 			int numeroFattureEmesse, Iva codiceEsenzioneIVA, float imponibileNonEsente, float imponibileEsente,
-			float importoIVA, String codiceClassificazione, Agente codiceAgente, float percentualeProvvigioneAgente,
+			float importoIVA, String codiceClassificazione, Agente agente, float percentualeProvvigioneAgente,
 			float scontoLegatoProvvigioniAgente, int numeroCopieFattura, boolean indicatoreAddebitoSpeseIncasso,
 			boolean indicatoreAddebitoSpeseBolli, int codiceListino, String codiceVettore, String codiceAffidabilita,
 			Iso codiceISO, String partitaIVAEstero, String codiceDivisa, int dataScadenzaSpostataAgosto,
-			int dataScadenzaSpostataDicembre, String codiceLingua, String note, Stato codiceStato,
+			int dataScadenzaSpostataDicembre, String codiceLingua, String note, Stato stato,
 			boolean indicatoreInviataInformativaPrivacy, boolean indicatoreRicevutaInformativaPrivacy,
 			boolean indicatoreScorporoIVA, boolean indicatoreIVADifferita, boolean indicatoreEmail,
 			boolean inputInibito) {
@@ -67,23 +67,23 @@ public class Cliente implements Comparable<Cliente>{
 		this.descrizione = descrizione;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimoAggiornamento = dataUltimoAggiornamento;
-		this.codiceTipoCliente = codiceTipoCliente;
-		this.codiceResaMerce = codiceResaMerce;
-		this.codiceImballo = codiceImballo;
-		this.codiceRaggruppamento = codiceRaggruppamento;
+		this.tipoCliente = codiceTipoCliente;
+		this.resaMerce = codiceResaMerce;
+		this.imballo = codiceImballo;
+		this.raggruppamento = codiceRaggruppamento;
 		this.fatturato = fatturato;
 		this.fido = fido;
 		this.partitaIVA = partitaIVA;
 		this.codiceFiscale = codiceFiscale;
-		this.codicePagamento = codicePagamento;
-		this.codiceBanca = codiceBanca;
+		this.pagamento = codicePagamento;
+		this.banca = codiceBanca;
 		this.numeroFattureEmesse = numeroFattureEmesse;
-		this.codiceEsenzioneIVA = codiceEsenzioneIVA;
+		this.iva = codiceEsenzioneIVA;
 		this.imponibileNonEsente = imponibileNonEsente;
 		this.imponibileEsente = imponibileEsente;
 		this.importoIVA = importoIVA;
 		this.codiceClassificazione = codiceClassificazione;
-		this.codiceAgente = codiceAgente;
+		this.agente = agente;
 		this.percentualeProvvigioneAgente = percentualeProvvigioneAgente;
 		this.scontoLegatoProvvigioniAgente = scontoLegatoProvvigioniAgente;
 		this.numeroCopieFattura = numeroCopieFattura;
@@ -92,14 +92,14 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceListino = codiceListino;
 		this.codiceVettore = codiceVettore;
 		this.codiceAffidabilita = codiceAffidabilita;
-		this.codiceISO = codiceISO;
+		this.iso = codiceISO;
 		this.partitaIVAEstero = partitaIVAEstero;
 		this.codiceDivisa = codiceDivisa;
 		this.dataScadenzaSpostataAgosto = dataScadenzaSpostataAgosto;
 		this.dataScadenzaSpostataDicembre = dataScadenzaSpostataDicembre;
 		this.codiceLingua = codiceLingua;
 		this.note = note;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.indicatoreInviataInformativaPrivacy = indicatoreInviataInformativaPrivacy;
 		this.indicatoreRicevutaInformativaPrivacy = indicatoreRicevutaInformativaPrivacy;
 		this.indicatoreScorporoIVA = indicatoreScorporoIVA;
@@ -108,6 +108,51 @@ public class Cliente implements Comparable<Cliente>{
 		this.inputInibito = inputInibito;
 	}
 
+	public String getCodiceTipoCliente() {
+		if (tipoCliente == null) return null;
+		return tipoCliente.getCodiceTipoCliente();
+	}
+	
+	public String getCodiceResaMerce() {
+		if (resaMerce == null) return null;
+		return resaMerce.getCodiceResa();
+	}
+	
+	public String getCodiceImballo() {
+		if (imballo == null) return null;
+		return imballo.getCodiceImballo();
+	}
+	
+	public String getCodiceRaggruppamento() {
+		if (raggruppamento == null) return null;
+		return raggruppamento.getCodiceRaggruppamento();
+	}
+	
+	public String getCodiceAgente() {
+		if (agente == null) return null;
+		return agente.getCodiceAgente();
+	}
+	
+	public String getCodiceIva() {
+		if (iva == null) return null;
+		return iva.getCodiceIva();
+	}
+	
+	public String getCodiceIso() {
+		if (iso == null) return null;
+		return iso.getCodiceIso();
+	}
+	
+	public String getCodiceBanca() {
+		if (banca == null) return null;
+		return banca.getCodiceBanca();
+	}
+	
+	public String getCodicePagamento() {
+		if (pagamento == null) return null;
+		return pagamento.getCodicePagamento();
+	}
+	
 	public String getCodiceCliente() {
 		return codiceCliente;
 	}
@@ -140,36 +185,36 @@ public class Cliente implements Comparable<Cliente>{
 		this.dataUltimoAggiornamento = dataUltimoAggiornamento;
 	}
 
-	public TipoCliente getCodiceTipoCliente() {
-		return codiceTipoCliente;
+	public TipoCliente getTipoCliente() {
+		return tipoCliente;
 	}
 
-	public void setCodiceTipoCliente(TipoCliente codiceTipoCliente) {
-		this.codiceTipoCliente = codiceTipoCliente;
+	public void setTipoCliente(TipoCliente tipoCliente) {
+		this.tipoCliente = tipoCliente;
 	}
 
-	public ResaMerce getCodiceResaMerce() {
-		return codiceResaMerce;
+	public ResaMerce getResaMerce() {
+		return resaMerce;
 	}
 
-	public void setCodiceResaMerce(ResaMerce codiceResaMerce) {
-		this.codiceResaMerce = codiceResaMerce;
+	public void setResaMerce(ResaMerce resaMerce) {
+		this.resaMerce = resaMerce;
 	}
 
-	public Imballo getCodiceImballo() {
-		return codiceImballo;
+	public Imballo getImballo() {
+		return imballo;
 	}
 
-	public void setCodiceImballo(Imballo codiceImballo) {
-		this.codiceImballo = codiceImballo;
+	public void setImballo(Imballo imballo) {
+		this.imballo = imballo;
 	}
 
-	public RaggruppamentoClienteFornitore getCodiceRaggruppamento() {
-		return codiceRaggruppamento;
+	public RaggruppamentoClienteFornitore getRaggruppamento() {
+		return raggruppamento;
 	}
 
-	public void setCodiceRaggruppamento(RaggruppamentoClienteFornitore codiceRaggruppamento) {
-		this.codiceRaggruppamento = codiceRaggruppamento;
+	public void setRaggruppamento(RaggruppamentoClienteFornitore raggruppamento) {
+		this.raggruppamento = raggruppamento;
 	}
 
 	public float getFatturato() {
@@ -204,20 +249,20 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceFiscale = codiceFiscale;
 	}
 
-	public Pagamento getCodicePagamento() {
-		return codicePagamento;
+	public Pagamento getPagamento() {
+		return pagamento;
 	}
 
-	public void setCodicePagamento(Pagamento codicePagamento) {
-		this.codicePagamento = codicePagamento;
+	public void setPagamento(Pagamento pagamento) {
+		this.pagamento = pagamento;
 	}
 
-	public Banca getCodiceBanca() {
-		return codiceBanca;
+	public Banca getBanca() {
+		return banca;
 	}
 
-	public void setCodiceBanca(Banca codiceBanca) {
-		this.codiceBanca = codiceBanca;
+	public void setBanca(Banca banca) {
+		this.banca = banca;
 	}
 
 	public int getNumeroFattureEmesse() {
@@ -229,11 +274,11 @@ public class Cliente implements Comparable<Cliente>{
 	}
 
 	public Iva getCodiceEsenzioneIVA() {
-		return codiceEsenzioneIVA;
+		return iva;
 	}
 
 	public void setCodiceEsenzioneIVA(Iva codiceEsenzioneIVA) {
-		this.codiceEsenzioneIVA = codiceEsenzioneIVA;
+		this.iva = codiceEsenzioneIVA;
 	}
 
 	public float getImponibileNonEsente() {
@@ -268,12 +313,12 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceClassificazione = codiceClassificazione;
 	}
 
-	public Agente getCodiceAgente() {
-		return codiceAgente;
+	public Agente getAgente() {
+		return agente;
 	}
 
-	public void setCodiceAgente(Agente codiceAgente) {
-		this.codiceAgente = codiceAgente;
+	public void setAgente(Agente agente) {
+		this.agente = agente;
 	}
 
 	public float getPercentualeProvvigioneAgente() {
@@ -340,12 +385,12 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceAffidabilita = codiceAffidabilita;
 	}
 
-	public Iso getCodiceISO() {
-		return codiceISO;
+	public Iso getIso() {
+		return iso;
 	}
 
-	public void setCodiceISO(Iso codiceISO) {
-		this.codiceISO = codiceISO;
+	public void setCodiceIso(Iso codiceISO) {
+		this.iso = codiceISO;
 	}
 
 	public String getPartitaIVAEstero() {
@@ -396,12 +441,12 @@ public class Cliente implements Comparable<Cliente>{
 		this.note = note;
 	}
 
-	public Stato getCodiceStato() {
-		return codiceStato;
+	public Stato getStato() {
+		return stato;
 	}
 
-	public void setCodiceStato(Stato codiceStato) {
-		this.codiceStato = codiceStato;
+	public void setCodiceStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public boolean isIndicatoreInviataInformativaPrivacy() {

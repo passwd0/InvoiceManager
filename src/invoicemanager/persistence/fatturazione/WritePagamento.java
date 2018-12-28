@@ -16,7 +16,6 @@ public class WritePagamento {
 	}
 
 	public void add(Pagamento a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Pagamenti VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
 	    	ps.setString(1, a.getCodicePagamento());
@@ -35,7 +34,6 @@ public class WritePagamento {
 			ps.executeUpdate();
 			ps.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -53,7 +51,6 @@ public class WritePagamento {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -66,7 +63,6 @@ public class WritePagamento {
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();
-	        c.close();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}

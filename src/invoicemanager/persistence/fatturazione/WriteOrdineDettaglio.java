@@ -14,7 +14,6 @@ public class WriteOrdineDettaglio {
 	}
 
 	public void add(OrdineDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
 			Statement stmt = c.createStatement();
 			String sql;
@@ -29,7 +28,6 @@ public class WriteOrdineDettaglio {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -47,7 +45,6 @@ public class WriteOrdineDettaglio {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -60,7 +57,6 @@ public class WriteOrdineDettaglio {
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();
-	        c.close();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}

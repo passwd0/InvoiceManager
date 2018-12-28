@@ -54,7 +54,6 @@ public class WriteUtente {
 			ps.executeUpdate();
 			ps.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -72,7 +71,6 @@ public class WriteUtente {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -85,7 +83,6 @@ public class WriteUtente {
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();
-	        c.close();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}

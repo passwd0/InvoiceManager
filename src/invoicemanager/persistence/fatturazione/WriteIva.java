@@ -14,7 +14,6 @@ public class WriteIva {
 	}
 
 	public void add(Iva a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
 			Statement stmt = c.createStatement();
 			String sql;
@@ -59,7 +58,6 @@ public class WriteIva {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -77,7 +75,6 @@ public class WriteIva {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -90,7 +87,6 @@ public class WriteIva {
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();
-	        c.close();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}

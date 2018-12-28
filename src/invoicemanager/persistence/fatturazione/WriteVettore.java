@@ -14,7 +14,6 @@ public class WriteVettore {
 	}
 
 	public void add(Vettore a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
 			Statement stmt = c.createStatement();
 			String sql;
@@ -40,7 +39,6 @@ public class WriteVettore {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -58,7 +56,6 @@ public class WriteVettore {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -71,7 +68,6 @@ public class WriteVettore {
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();
-	        c.close();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}

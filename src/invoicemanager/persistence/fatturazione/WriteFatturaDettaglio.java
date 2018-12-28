@@ -14,7 +14,6 @@ public class WriteFatturaDettaglio {
 	}
 
 	public void add(FatturaDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
 			Statement stmt = c.createStatement();
 			String sql;
@@ -46,7 +45,6 @@ public class WriteFatturaDettaglio {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -64,7 +62,6 @@ public class WriteFatturaDettaglio {
 
 			stmt.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -77,7 +74,6 @@ public class WriteFatturaDettaglio {
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();
-	        c.close();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}

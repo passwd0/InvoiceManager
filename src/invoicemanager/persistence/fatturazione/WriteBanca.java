@@ -15,11 +15,7 @@ public class WriteBanca {
 	}
 
 	public void add(Banca a, boolean exist) throws ClassNotFoundException, SQLException {
-		Connection c = DBConnect.connect();
 	    try {
-			//Statement stmt = c.createStatement();
-			//String sql;
-			//if (!exist)
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Banche VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 	    	ps.setString(1, a.getCodiceBanca());
 	    	ps.setString(2, a.getDescrizione());
@@ -38,12 +34,9 @@ public class WriteBanca {
 	    	ps.setString(15, a.getCodiceConto());
 	    	ps.setString(16, a.getIndirizzo());
 
-			//	sql = "UPDATE auto SET stato=\'Disponibile\' WHERE codiceBanca=\'" + a.getCodiceBanca() + "\';";
 	    	ps.executeUpdate();
 			ps.close();
-			
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -73,7 +66,6 @@ public class WriteBanca {
 			ps.executeUpdate();
 			ps.close();
 			c.commit();
-			c.close();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -86,7 +78,6 @@ public class WriteBanca {
 //	    	stmt.executeUpdate(sql);
 //	    	stmt.close();
 //	        c.commit();
-//	        c.close();
 //		} catch (Exception e) {
 //			//Utils.createAlertFailWriteDB();
 //		}
