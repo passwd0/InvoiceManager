@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class Agente {
 	private String codiceAgente; //(10) NOT NULL
@@ -12,13 +11,12 @@ public class Agente {
 	private Controparte codiceControparte; // (10) COLLATE Latin1_General_CI_AS NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
-	private String loginModifica; //(30) NULL
+//	private String loginInserimento; //(30) NULL
+//	private String loginModifica; //(30) NULL
 		
 	public Agente(String codiceAgente, String nome, float percentualeProvvigione, boolean tipoProvvigione,
 				boolean tipoMandato, String codiceContabile, Controparte codiceControparte,
-				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
-				String loginModifica) {
+				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceAgente = codiceAgente;
 		this.nome = nome;
 		this.percentualeProvvigione = percentualeProvvigione;
@@ -28,8 +26,6 @@ public class Agente {
 		this.codiceControparte = codiceControparte;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
-		this.loginModifica = loginModifica;
 	}
 
 	public Agente(String codiceAgente){
@@ -106,22 +102,6 @@ public class Agente {
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
-	}
-
-	public String getLoginModifica() {
-		return loginModifica;
-	}
-
-	public void setLoginModifica(String loginModifica) {
-		this.loginModifica = loginModifica;
 	}
 
 	@Override
