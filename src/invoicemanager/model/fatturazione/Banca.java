@@ -16,8 +16,6 @@ public class Banca{
 		private String paese; //(6) NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
-//		private String loginInserimento; //(30) NULL
-//		private String loginModifica; //(30) NULL
 		private String iban; //(50) NULL
 		private String swift; //(50) NULL
 		private String codiceConto; //(30) NULL
@@ -66,11 +64,11 @@ public class Banca{
 		this.descrizione = descrizione;
 	}
 
-	public Stato getstato() {
+	public Stato getStato() {
 		return stato;
 	}
 
-	public void setstato(Stato stato) {
+	public void setStato(Stato stato) {
 		this.stato = stato;
 	}
 

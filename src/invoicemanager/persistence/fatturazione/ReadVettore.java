@@ -26,6 +26,7 @@ public class ReadVettore {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Vettore");
+			rs.mo
 			Timestamp ts;
 	         while ( rs.next() ) {
 

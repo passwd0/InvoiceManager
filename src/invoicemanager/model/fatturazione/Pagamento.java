@@ -2,11 +2,11 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Pagamento{
+public class Pagamento {
 		private String codicePagamento; //(4) NOT NULL
 		private String descrizione; //(100) NULL
 		private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
-		private TipoPagamento codiceTipoPagamento; // (10) COLLATE Latin1_General_CI_AS NULL
+		private TipoPagamento tipoPagamento; // (10) COLLATE Latin1_General_CI_AS NULL
 		private boolean indicatoreScadenzaAVista; // NULL
 		private String giornoMese; //(10) NULL
 		private int numeroGiorni; //  NULL
@@ -15,7 +15,6 @@ public class Pagamento{
 		private boolean scadenzaIVAPrimaRata; // NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
-		private String loginInserimento; //(30) NULL
 
 	public Pagamento(String codicePagamento){
 		this.codicePagamento = codicePagamento;
@@ -45,12 +44,18 @@ public class Pagamento{
 		this.codiceStato = codiceStato;
 	}
 
-	public TipoPagamento getCodiceTipoPagamento() {
-		return codiceTipoPagamento;
+	public TipoPagamento getTipoPagamento() {
+		return tipoPagamento;
+	}
+	
+	public String getCodiceTipoPagamento() {
+		if (tipoPagamento == null)
+			return null;
+		return tipoPagamento.getCodiceTipoPagamento();
 	}
 
-	public void setCodiceTipoPagamento(TipoPagamento codiceTipoPagamento) {
-		this.codiceTipoPagamento = codiceTipoPagamento;
+	public void setCodiceTipoPagamento(TipoPagamento tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
 	}
 
 	public boolean isIndicatoreScadenzaAVista() {
@@ -115,14 +120,6 @@ public class Pagamento{
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
 	}
 
 	@Override

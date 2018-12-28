@@ -7,11 +7,9 @@ public class Controparte{
 		private String descrizione; //(100) NULL
 		private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
 		private String codiceContoCOGE; //(30) NULL
-//		private int progressivoRelazioniCOGECOA; //  NULL
 		private LocalDateTime dataInserimento; //  NULL
 		private LocalDateTime dataUltimaModifica; //  NULL
-//		private String loginInserimento; //(30) NULL
-		
+
 	public Controparte(String codiceControparte, String descrizione, Stato codiceStato, String codiceContoCOGE,
 				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 			this.codiceControparte = codiceControparte;
@@ -57,7 +55,7 @@ public class Controparte{
 	public void setCodiceContoCOGE(String codiceContoCOGE) {
 		this.codiceContoCOGE = codiceContoCOGE;
 	}
-	
+
 	public LocalDateTime getDataInserimento() {
 		return dataInserimento;
 	}

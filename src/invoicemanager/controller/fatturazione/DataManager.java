@@ -1,6 +1,7 @@
 package invoicemanager.controller.fatturazione;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Agente;
@@ -19,7 +20,11 @@ import invoicemanager.model.fatturazione.ResaMerce;
 import invoicemanager.model.fatturazione.Stato;
 import invoicemanager.model.fatturazione.Utente;
 import invoicemanager.model.fatturazione.Vettore;
+import invoicemanager.persistence.fatturazione.ReadAgente;
+import invoicemanager.persistence.fatturazione.ReadBanca;
 import invoicemanager.persistence.fatturazione.ReadCliente;
+import invoicemanager.persistence.fatturazione.WriteAgente;
+import invoicemanager.persistence.fatturazione.WriteBanca;
 
 public class DataManager {
 	private List<Cliente> clienti;
@@ -51,8 +56,41 @@ public class DataManager {
 	}
 	
 	private void loadAll() throws ClassNotFoundException, SQLException {
-		clienti = new ReadCliente().read();
+		//clienti = new ReadCliente().read();
+		controparti = new ArrayList<>();
+		agenti = new ReadAgente().read(controparti);
+		banche = new ArrayList<>();		//new ReadBanca().read();
 		//try to load from sql
+	}
+	
+	public void add(Agente agente) {
+		if (!agenti.contains(agente)) {
+			agenti.add(agente);
+			try {
+				new WriteAgente().add(agente, false);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else {
+			//Alert gia' presente
+		}
+	}
+	
+	public void add(Banca banca) {
+		if (!banche.contains(banca)) {
+			banche.add(banca);
+			try {
+				new WriteBanca().add(banca, false);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else {
+			//Alert gia' presente
+		}
 	}
 
 	public List<Cliente> getClienti() {

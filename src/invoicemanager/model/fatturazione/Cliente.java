@@ -7,7 +7,6 @@ public class Cliente implements Comparable<Cliente>{
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimoAggiornamento; //  NULL
 	private TipoCliente codiceTipoCliente; // (4) COLLATE Latin1_General_CI_AS NULL
-	//private String codiceUfficioCommerciale; //(20) NULL
 	private ResaMerce codiceResaMerce; // (4) COLLATE Latin1_General_CI_AS NULL
 	private Imballo codiceImballo; // (4) COLLATE Latin1_General_CI_AS NULL
 	private RaggruppamentoClienteFornitore codiceRaggruppamento; // (4) COLLATE Latin1_General_CI_AS NULL
@@ -16,7 +15,6 @@ public class Cliente implements Comparable<Cliente>{
 	private String partitaIVA; //(15) NULL
 	private String codiceFiscale; //(16) NULL
 	private Pagamento codicePagamento; // (4) COLLATE Latin1_General_CI_AS NULL
-	//private String sinonimo; //(50) NULL
 	private Banca codiceBanca; // (4) COLLATE Latin1_General_CI_AS NULL
 	private int numeroFattureEmesse; //  NULL
 	private Iva codiceEsenzioneIVA; // (4) COLLATE Latin1_General_CI_AS NULL
@@ -24,7 +22,6 @@ public class Cliente implements Comparable<Cliente>{
 	private float imponibileEsente; //  NULL
 	private float importoIVA; //  NULL
 	private String codiceClassificazione; //(10) NULL
-	//private float costoVenduto; //  NULL
 	private Agente codiceAgente; // (10) COLLATE Latin1_General_CI_AS NULL
 	private float percentualeProvvigioneAgente; //  NULL
 	private float scontoLegatoProvvigioniAgente; //  NULL
@@ -39,35 +36,16 @@ public class Cliente implements Comparable<Cliente>{
 	private String codiceDivisa; //(4) NULL
 	private int dataScadenzaSpostataAgosto; //  NULL
 	private int dataScadenzaSpostataDicembre; //  NULL
-	//private String codiceRetrocessione; //(5) NULL
-	//private String codiceCommissione; //(5) NULL
 	private String codiceLingua; //(5) NULL
 	private String note; //(6000) NULL
 	private Stato codiceStato; // (2) COLLATE Latin1_General_CI_AS NULL
 	private boolean indicatoreInviataInformativaPrivacy; // NULL
 	private boolean indicatoreRicevutaInformativaPrivacy; // NULL
-	//private String codiceClienteRiferimento; //(15) NULL
-	//private LocalDateTime dataUltimaModifica; //  NULL
-	//private boolean indicatoreInibizione; // NULL
-	//private String loginInserimento; //(30) NULL
-	//private String loginModifica; //(30) NULL
 	private boolean indicatoreScorporoIVA; // NULL
 	private boolean indicatoreIVADifferita; // NULL
 	private boolean indicatoreEmail; // NULL
 	private boolean inputInibito; // NULL
-	//private boolean indicatoreEdi; // NULL
-	//private String partitaIvaEdi; //(35) NULL
-	//private String qualificatoreEdi; //(4) NULL
-	//private String identificativoFornitoreEdi; //(17) NULL
-	//private String tipoFornitoreEdi; //(3) NULL
-	//private String identificativoIntestatarioFatturaEdi; //(17) NULL
-	//private String tipoIntestatarioFatturaEdi; //(3) NULL
-	//private String identificativoPuntoConsegnaEdi; //(17) NULL
-	//private String tipoPuntoConsegnaEdi; //(3) NULL
 
-
-		
-	
 	public Cliente(String codiceCliente){
 		this.codiceCliente = codiceCliente;
 	}

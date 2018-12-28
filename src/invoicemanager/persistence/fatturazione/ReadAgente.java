@@ -27,7 +27,7 @@ public class ReadAgente {
 
 		try {
 			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM Agente");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Agenti");
 			Timestamp ts;
 	         while ( rs.next() ) {
 
@@ -39,8 +39,13 @@ public class ReadAgente {
 				String codiceContabile = rs.getString("codiceContabile");
 				String codice = rs.getString("codiceControparte");
 				
-				Controparte codiceControparte = list.stream().filter(x->x.getCodiceControparte().equals(codice)).findFirst().get();
-
+				Controparte controparte = null;
+				for (int i=0; i<list.size(); i++) {
+					String tmp = list.get(i).getCodiceControparte();
+					if (tmp != null && tmp == codice) {
+						controparte = list.get(i);
+					}
+				}
 				
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
@@ -52,7 +57,7 @@ public class ReadAgente {
 					dataUltimaModifica = ts.toLocalDateTime();
 				String loginInserimento = rs.getString("loginInserimento");
 				String loginModifica = rs.getString("loginModifica");
-				Agente agente = new Agente(codiceAgente, nome, percentualeProvvigione, tipoProvvigione, tipoMandato, codiceContabile, codiceControparte, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica);
+				Agente agente = new Agente(codiceAgente, nome, percentualeProvvigione, tipoProvvigione, tipoMandato, codiceContabile, controparte, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica);
 				listAgente.add(agente);
 	         }
 		     rs.close();

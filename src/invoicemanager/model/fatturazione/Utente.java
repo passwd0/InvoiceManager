@@ -3,40 +3,79 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Utente{
-		private String codiceUtente; //(15) NULL
-		private String path; //(50) NULL
-		private String pathSalvataggi; //(50) NULL
-		private String subUtente; //(15) NULL
-		private boolean tipoUtente; // NULL
-		private String cognome; //(50) NULL
-		private String nome; //(50) NULL
-		private LocalDateTime dataNascita; //  NULL
-		private boolean sesso; // NULL
-		private String comuneNascita; //(50) NULL
-		private String provinciaNascita; //(2) NULL
-		private String domicilioFiscale; //(50) NULL
-		private String comune; //(50) NULL
-		private String provincia; //(2) NULL
-		private String partitaIVA; //(15) NULL
-		private String attivita; //(50) NULL
-		private String codicePersonaFisica; //(5) NULL
-		private String codiceFiscale; //(16) NULL
-		private String ragioneSociale; //(60) NULL
-		private String naturaGiuridica; //(5) NULL
-		private String domicilioAzienda; //(50) NULL
-		private String comuneAzienda; //(50) NULL
-		private String provinciaAzienda; //(2) NULL
-		private String partitaIVAAzienda; //(15) NULL
-		private String attivitaAzienda; //(50) NULL
-		private String codiceAzienda; //(5) NULL
-		private String codiceFiscaleAzienda; //(16) NULL
-		private boolean indicatoreConversione; // NULL
-		private String password; //(20) NULL
-		private String cap; //(50) NULL
-		private LocalDateTime dataInserimento; //  NULL
-		private LocalDateTime dataUltimaModifica; //  NULL
+	private String codiceUtente; //(15) NULL
+	private String path; //(50) NULL
+	private String pathSalvataggi; //(50) NULL
+	private String subUtente; //(15) NULL
+	private boolean tipoUtente; // NULL
+	private String cognome; //(50) NULL
+	private String nome; //(50) NULL
+	private LocalDateTime dataNascita; //  NULL
+	private boolean sesso; // NULL
+	private String comuneNascita; //(50) NULL
+	private String provinciaNascita; //(2) NULL
+	private String domicilioFiscale; //(50) NULL
+	private String comune; //(50) NULL
+	private String provincia; //(2) NULL
+	private String partitaIVA; //(15) NULL
+	private String attivita; //(50) NULL
+	private String codicePersonaFisica; //(5) NULL
+	private String codiceFiscale; //(16) NULL
+	private String ragioneSociale; //(60) NULL
+	private String naturaGiuridica; //(5) NULL
+	private String domicilioAzienda; //(50) NULL
+	private String comuneAzienda; //(50) NULL
+	private String provinciaAzienda; //(2) NULL
+	private String partitaIVAAzienda; //(15) NULL
+	private String attivitaAzienda; //(50) NULL
+	private String codiceAzienda; //(5) NULL
+	private String codiceFiscaleAzienda; //(16) NULL
+	private boolean indicatoreConversione; // NULL
+	private String password; //(20) NULL
+	private String cap; //(50) NULL
+	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataUltimaModifica; //  NULL
 
-	public Utente(){
+	public Utente(String codiceUtente, String path, String pathSalvataggi, String subUtente, boolean tipoUtente,
+			String cognome, String nome, LocalDateTime dataNascita, boolean sesso, String comuneNascita,
+			String provinciaNascita, String domicilioFiscale, String comune, String provincia, String partitaIVA,
+			String attivita, String codicePersonaFisica, String codiceFiscale, String ragioneSociale,
+			String naturaGiuridica, String domicilioAzienda, String comuneAzienda, String provinciaAzienda,
+			String partitaIVAAzienda, String attivitaAzienda, String codiceAzienda, String codiceFiscaleAzienda,
+			boolean indicatoreConversione, String password, String cap, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
+		this.codiceUtente = codiceUtente;
+		this.path = path;
+		this.pathSalvataggi = pathSalvataggi;
+		this.subUtente = subUtente;
+		this.tipoUtente = tipoUtente;
+		this.cognome = cognome;
+		this.nome = nome;
+		this.dataNascita = dataNascita;
+		this.sesso = sesso;
+		this.comuneNascita = comuneNascita;
+		this.provinciaNascita = provinciaNascita;
+		this.domicilioFiscale = domicilioFiscale;
+		this.comune = comune;
+		this.provincia = provincia;
+		this.partitaIVA = partitaIVA;
+		this.attivita = attivita;
+		this.codicePersonaFisica = codicePersonaFisica;
+		this.codiceFiscale = codiceFiscale;
+		this.ragioneSociale = ragioneSociale;
+		this.naturaGiuridica = naturaGiuridica;
+		this.domicilioAzienda = domicilioAzienda;
+		this.comuneAzienda = comuneAzienda;
+		this.provinciaAzienda = provinciaAzienda;
+		this.partitaIVAAzienda = partitaIVAAzienda;
+		this.attivitaAzienda = attivitaAzienda;
+		this.codiceAzienda = codiceAzienda;
+		this.codiceFiscaleAzienda = codiceFiscaleAzienda;
+		this.indicatoreConversione = indicatoreConversione;
+		this.password = password;
+		this.cap = cap;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
 	public String getCodiceUtente() {
