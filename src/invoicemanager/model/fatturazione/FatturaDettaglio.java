@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class FatturaDettaglio {
-	//private int numeroFattura;
-	//private LocalDateTime dataFattura			sottoclasse di fatturaTestata
+	private int numeroFattura;
+	private LocalDateTime dataFattura;
 	private int numeroRigaFattura;
 	private String codiceTipoRigaDocumento;
 	private String codiceArticolo;
@@ -27,7 +27,6 @@ public class FatturaDettaglio {
 	private float percentualeScontoCliente;
 	private float percentualeScontoArticolo;
 	private float percentualeScontoPagamento;
-	//private String descrizioneAggiuntiva;
 	private String codiceUnitaMisura;
 	private String serialNumber;
 	private boolean indicatoreNoConferma;
@@ -42,18 +41,23 @@ public class FatturaDettaglio {
 	private String ricavoUsato;
 	private LocalDateTime dataInserimento;
 	private LocalDateTime dataUltimaModifica;
-	
-	
-	
-	public FatturaDettaglio(int numeroRigaFattura, String codiceTipoRigaDocumento, String codiceArticolo, float costo,
-			int numeroOrdine, int numeroRigaOrdine, LocalDateTime dataOrdine, float quantitaDaConsegnare,
-			boolean indicatoreEvasione, String descrizione, float quantita, float prezzo, String codiceIva,
-			String codiceContropartitaContabile, float percentualeProvvigione, float percentualeScontoCliente,
-			float percentualeScontoArticolo, float percentualeScontoPagamento, String codiceUnitaMisura,
-			String serialNumber, boolean indicatoreNoConferma, String codiceMagazzino, int numeroDdt,
-			LocalDateTime dataDdt, int numeroRigaDdt, String codicePercipiente, String codiceCassaPrevidenziale,
-			String codiceCdc, String contoRicavoUsato, String ricavoUsato, LocalDateTime dataInserimento,
+
+	public FatturaDettaglio(int numeroRigaFattura) {
+		this.numeroRigaFattura = numeroRigaFattura;
+	}
+
+	public FatturaDettaglio(int numeroFattura, LocalDateTime dataFattura, int numeroRigaFattura,
+			String codiceTipoRigaDocumento, String codiceArticolo, float costo, int numeroOrdine, int numeroRigaOrdine,
+			LocalDateTime dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
+			float quantita, float prezzo, String codiceIva, String codiceContropartitaContabile,
+			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
+			float percentualeScontoPagamento, String codiceUnitaMisura, String serialNumber,
+			boolean indicatoreNoConferma, String codiceMagazzino, int numeroDdt, LocalDateTime dataDdt,
+			int numeroRigaDdt, String codicePercipiente, String codiceCassaPrevidenziale, String codiceCdc,
+			String contoRicavoUsato, String ricavoUsato, LocalDateTime dataInserimento,
 			LocalDateTime dataUltimaModifica) {
+		this.numeroFattura = numeroFattura;
+		this.dataFattura = dataFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
 		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
 		this.codiceArticolo = codiceArticolo;
@@ -88,8 +92,20 @@ public class FatturaDettaglio {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
-	public FatturaDettaglio(int numeroRigaFattura) {
-		this.numeroRigaFattura = numeroRigaFattura;
+	public int getNumeroFattura() {
+		return numeroFattura;
+	}
+
+	public void setNumeroFattura(int numeroFattura) {
+		this.numeroFattura = numeroFattura;
+	}
+
+	public LocalDateTime getDataFattura() {
+		return dataFattura;
+	}
+
+	public void setDataFattura(LocalDateTime dataFattura) {
+		this.dataFattura = dataFattura;
 	}
 
 	public int getNumeroRigaFattura() {

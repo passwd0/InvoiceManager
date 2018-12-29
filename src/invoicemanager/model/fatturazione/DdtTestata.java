@@ -53,8 +53,6 @@ public class DdtTestata {
 	private String unitaMisuraPesoColli; //[UnitaMisuraPesoColli] [varchar](3) 
 	private List<DdtDettaglio> ddtDettagli;
 	
-	
-	
 	public DdtTestata(int numeroDDT, LocalDateTime dataDDT, boolean indicatoreStatoAvanzamento, String codiceCausale,
 			String codiceCausalePrelievi, String codiceClienteFatturazione, String codiceEsenzioneIva,
 			String codiceAgente, float percentualeProvvigione, float percentualeSconto, int numeroCopieFattura,

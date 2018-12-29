@@ -7,7 +7,7 @@ import java.util.List;
 public class FatturaTestata {
 	private int numeroFatturazione;
 	private LocalDateTime dataFattura;
-	private char indicatoreStatoAvanzamento;
+	private StatoAvanzamento statoAvanzamento;
 	private String codiceClienteFatturazione;
 	private String codiceEsenzioneIva;
 	private String codiceAgente;
@@ -55,7 +55,7 @@ public class FatturaTestata {
 	private LocalDate dataScadenza;
 	private float importoScadenza;
 
-	public FatturaTestata(int numeroFatturazione, LocalDateTime dataFattura, char indicatoreStatoAvanzamento,
+	public FatturaTestata(int numeroFatturazione, LocalDateTime dataFattura, StatoAvanzamento statoAvanzamento,
 			String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
 			String codiceCausalePrelievi, float percentualeSconto, float percentualeScontoPagamento,
 			float percentualeProvvigione, String descrizione, boolean indicatoreAddebitoBolli,
@@ -70,7 +70,7 @@ public class FatturaTestata {
 			float speseBolli, float omaggi, float totalePagato, LocalDate dataScadenza, float importoScadenza) {
 		this.numeroFatturazione = numeroFatturazione;
 		this.dataFattura = dataFattura;
-		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
+		this.statoAvanzamento = statoAvanzamento;
 		this.codiceClienteFatturazione = codiceClienteFatturazione;
 		this.codiceEsenzioneIva = codiceEsenzioneIva;
 		this.codiceAgente = codiceAgente;
@@ -212,12 +212,12 @@ public class FatturaTestata {
 		this.dataFattura = dataFattura;
 	}
 
-	public char getIndicatoreStatoAvanzamento() {
-		return indicatoreStatoAvanzamento;
+	public StatoAvanzamento getStatoAvanzamento() {
+		return statoAvanzamento;
 	}
 
-	public void setIndicatoreStatoAvanzamento(char indicatoreStatoAvanzamento) {
-		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
+	public void setIndicatoreStatoAvanzamento(StatoAvanzamento statoAvanzamento) {
+		this.statoAvanzamento = statoAvanzamento;
 	}
 
 	public String getCodiceClienteFatturazione() {

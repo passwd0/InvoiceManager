@@ -5,7 +5,7 @@ import java.util.List;
 public class OrdineTestata{
 		private int numeroOrdine; //  NOT NULL
 		private LocalDateTime dataOrdine; //  NOT NULL
-		private boolean indicatoreStatoAvanzamento; // NULL
+		private StatoAvanzamento statoAvanzamento; // NULL
 		private String codiceClienteFatturazione; //(30) NULL
 		private String descrizione; //(200) NULL
 		private String codiceEsenzioneIva; //(4) NULL
@@ -51,6 +51,62 @@ public class OrdineTestata{
 			this.dataOrdine = dataOrdine;
 		}
 
+		public OrdineTestata(int numeroOrdine, LocalDateTime dataOrdine, StatoAvanzamento statoAvanzamento,
+				String codiceClienteFatturazione, String descrizione, String codiceEsenzioneIva, String codiceAgente,
+				float percentualeProvvigione, float percentualeSconto, float percentualeScontoPagamento,
+				int numeroCopieFattura, boolean indicatoreAddebitoBolli, boolean indicatoreAddebitoSpeseIncasso,
+				int codiceListino, String codiceResa, String codiceVettore, String codiceCausale,
+				String codicePagamento, String codiceBanca, LocalDateTime dataConsegna, String causaleTrasporto,
+				String codiceDivisa, boolean indicatoreConsegnaParziale, boolean indicatoreRaggruppamentoConsegne,
+				String codiceAgenteVecchio, String codiceClienteSpedizione, String nomeSpedizione,
+				String indirizzoSpedizione, String capSpedizione, String cittaSpedizione, String provinciaSpedizione,
+				String codiceNazioneSpedizione, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
+				String note, String loginInserimento, String loginModifica, String codiceLingua, String revisione,
+				String attenzione, boolean indicatoreOrdineTrading, List<OrdineDettaglio> ordineDettagli) {
+			this.numeroOrdine = numeroOrdine;
+			this.dataOrdine = dataOrdine;
+			this.statoAvanzamento = statoAvanzamento;
+			this.codiceClienteFatturazione = codiceClienteFatturazione;
+			this.descrizione = descrizione;
+			this.codiceEsenzioneIva = codiceEsenzioneIva;
+			this.codiceAgente = codiceAgente;
+			this.percentualeProvvigione = percentualeProvvigione;
+			this.percentualeSconto = percentualeSconto;
+			this.percentualeScontoPagamento = percentualeScontoPagamento;
+			this.numeroCopieFattura = numeroCopieFattura;
+			this.indicatoreAddebitoBolli = indicatoreAddebitoBolli;
+			this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
+			this.codiceListino = codiceListino;
+			this.codiceResa = codiceResa;
+			this.codiceVettore = codiceVettore;
+			this.codiceCausale = codiceCausale;
+			this.codicePagamento = codicePagamento;
+			this.codiceBanca = codiceBanca;
+			this.dataConsegna = dataConsegna;
+			this.causaleTrasporto = causaleTrasporto;
+			this.codiceDivisa = codiceDivisa;
+			this.indicatoreConsegnaParziale = indicatoreConsegnaParziale;
+			this.indicatoreRaggruppamentoConsegne = indicatoreRaggruppamentoConsegne;
+			this.codiceAgenteVecchio = codiceAgenteVecchio;
+			this.codiceClienteSpedizione = codiceClienteSpedizione;
+			this.nomeSpedizione = nomeSpedizione;
+			this.indirizzoSpedizione = indirizzoSpedizione;
+			this.capSpedizione = capSpedizione;
+			this.cittaSpedizione = cittaSpedizione;
+			this.provinciaSpedizione = provinciaSpedizione;
+			this.codiceNazioneSpedizione = codiceNazioneSpedizione;
+			this.dataInserimento = dataInserimento;
+			this.dataUltimaModifica = dataUltimaModifica;
+			this.note = note;
+			this.loginInserimento = loginInserimento;
+			this.loginModifica = loginModifica;
+			this.codiceLingua = codiceLingua;
+			this.revisione = revisione;
+			this.attenzione = attenzione;
+			this.indicatoreOrdineTrading = indicatoreOrdineTrading;
+			this.ordineDettagli = ordineDettagli;
+		}
+
 		public List<OrdineDettaglio> getOrdineDettagli() {
 			return ordineDettagli;
 		}
@@ -75,12 +131,12 @@ public class OrdineTestata{
 			this.dataOrdine = dataOrdine;
 		}
 
-		public boolean isIndicatoreStatoAvanzamento() {
-			return indicatoreStatoAvanzamento;
+		public StatoAvanzamento getStatoAvanzamento() {
+			return statoAvanzamento;
 		}
 
-		public void setIndicatoreStatoAvanzamento(boolean indicatoreStatoAvanzamento) {
-			this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
+		public void setStatoAvanzamento(StatoAvanzamento statoAvanzamento) {
+			this.statoAvanzamento = statoAvanzamento;
 		}
 
 		public String getCodiceClienteFatturazione() {

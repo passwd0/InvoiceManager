@@ -1,10 +1,10 @@
 package invoicemanager.model.fatturazione;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.chrono.ChronoLocalDateTime;
 
 public class DdtDettaglio {
+	private int numeroDDT;
+	private LocalDateTime dataDDT;
 	private int numeroRigaDDT; //NOT NULL
 	private String codiceTipoRigaDocumento;
 	private String codiceArticolo;
@@ -34,14 +34,16 @@ public class DdtDettaglio {
 	private boolean indicatorePrelevatoVendita; //] [varchar](1) COLLATE Latin1_General_CI_AS NULL,
 	private String pesoLordo; //[PesoLordo] [varchar](50) COLLATE Latin1_General_CI_AS NULL
 	
-	public DdtDettaglio(int numeroRigaDDT, String codiceTipoRigaDocumento, String codiceArticolo,
-			String codiceMagazzino, float costo, int numeroOrdine, int numeroRigaOrdine, LocalDateTime dataOrdine,
-			float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione, float quantita, float prezzo,
-			String codiceIva, String codiceContropartitaContabile, float percentualeProvvigione,
-			float percentualeScontoCliente, float percentualeScontoArticolo, float percentualeScontoPagamento,
-			String descrizioneAggiuntiva, String codiceUnitaMisura, String serialNumber, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica, String loginInserimento, String loginModifica,
-			boolean indicatorePrelevatoVendita, String pesoLordo) {
+	public DdtDettaglio(int numeroDDT, LocalDateTime dataDDT, int numeroRigaDDT, String codiceTipoRigaDocumento,
+			String codiceArticolo, String codiceMagazzino, float costo, int numeroOrdine, int numeroRigaOrdine,
+			LocalDateTime dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
+			float quantita, float prezzo, String codiceIva, String codiceContropartitaContabile,
+			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
+			float percentualeScontoPagamento, String descrizioneAggiuntiva, String codiceUnitaMisura,
+			String serialNumber, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
+			String loginInserimento, String loginModifica, boolean indicatorePrelevatoVendita, String pesoLordo) {
+		this.numeroDDT = numeroDDT;
+		this.dataDDT = dataDDT;
 		this.numeroRigaDDT = numeroRigaDDT;
 		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
 		this.codiceArticolo = codiceArticolo;
@@ -70,6 +72,22 @@ public class DdtDettaglio {
 		this.loginModifica = loginModifica;
 		this.indicatorePrelevatoVendita = indicatorePrelevatoVendita;
 		this.pesoLordo = pesoLordo;
+	}
+
+	public LocalDateTime getDataDDT() {
+		return dataDDT;
+	}
+
+	public void setDataDDT(LocalDateTime dataDDT) {
+		this.dataDDT = dataDDT;
+	}
+
+	public int getNumeroDDT() {
+		return numeroDDT;
+	}
+
+	public void setNumeroDDT(int numeroDDT) {
+		this.numeroDDT = numeroDDT;
 	}
 
 	public DdtDettaglio(int numeroDDT, int numeroRigaDDT, LocalDateTime dataDDT) {

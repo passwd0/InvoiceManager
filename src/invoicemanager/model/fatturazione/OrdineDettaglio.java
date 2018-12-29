@@ -3,9 +3,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class OrdineDettaglio{
-		//private int numeroOrdine; //  NOT NULL		sottoclasse di ordineTestata
+		private int numeroOrdine; //  NOT NULL		sottoclasse di ordineTestata
+		private LocalDateTime dataOrdine; //  NOT NULL
 		private int numeroRigaOrdine; //  NOT NULL
-		//private LocalDateTime dataOrdine; //  NOT NULL
 		private String codiceTipoRigaDocumento; //(4) NULL
 		private String codiceMagazzino; //(4) NULL
 		private String codiceArticolo; //(30) NULL
@@ -44,8 +44,81 @@ public class OrdineDettaglio{
 		private LocalDateTime dataInizioSchedulatore; //  NULL
 		private String codiceArticoloBis; //(30) NULL
 		
-		public OrdineDettaglio(int numeroOrdine, int numeroRigaOrdine, LocalDateTime dataOrdine) {
+		public OrdineDettaglio(int numeroOrdine, LocalDateTime dataOrdine, int numeroRigaOrdine) {
+			this.numeroOrdine = numeroOrdine;
+			this.dataOrdine = dataOrdine;
 			this.numeroRigaOrdine = numeroRigaOrdine;
+		}
+
+		public OrdineDettaglio(int numeroOrdine, LocalDateTime dataOrdine, int numeroRigaOrdine,
+				String codiceTipoRigaDocumento, String codiceMagazzino, String codiceArticolo, float quantitaConsegnata,
+				boolean indicatoreEvasione, String descrizione, LocalDateTime dataConsegna, float quantita,
+				String codiceUnitaMisura, float prezzo, String codiceIva, String codiceContropartitaContabile,
+				float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
+				float percentualeScontoPagamento, String descrizioneAggiuntiva, boolean indicatoreCoordinamento,
+				boolean indicatoreOrdineDaFatturare, float quantitaVariata, int numeroPreventivo,
+				int numeroRigaPreventivo, LocalDateTime dataPreventivo, float quantitaEvasa,
+				boolean indicatoreEvasionePreventivi, boolean indicatoreEvasioneRigheNote, boolean indicatoreNoConferma,
+				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
+				String loginModifica, LocalDateTime dataConsegnaSchedulatore, LocalDateTime dataConsegnaProposta,
+				boolean indicatoreBloccato, boolean indicatoreOrdineTrading, LocalDateTime dataInizioSchedulatore,
+				String codiceArticoloBis) {
+			this.numeroOrdine = numeroOrdine;
+			this.dataOrdine = dataOrdine;
+			this.numeroRigaOrdine = numeroRigaOrdine;
+			this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
+			this.codiceMagazzino = codiceMagazzino;
+			this.codiceArticolo = codiceArticolo;
+			this.quantitaConsegnata = quantitaConsegnata;
+			this.indicatoreEvasione = indicatoreEvasione;
+			this.descrizione = descrizione;
+			this.dataConsegna = dataConsegna;
+			this.quantita = quantita;
+			this.codiceUnitaMisura = codiceUnitaMisura;
+			this.prezzo = prezzo;
+			this.codiceIva = codiceIva;
+			this.codiceContropartitaContabile = codiceContropartitaContabile;
+			this.percentualeProvvigione = percentualeProvvigione;
+			this.percentualeScontoCliente = percentualeScontoCliente;
+			this.percentualeScontoArticolo = percentualeScontoArticolo;
+			this.percentualeScontoPagamento = percentualeScontoPagamento;
+			this.descrizioneAggiuntiva = descrizioneAggiuntiva;
+			this.indicatoreCoordinamento = indicatoreCoordinamento;
+			this.indicatoreOrdineDaFatturare = indicatoreOrdineDaFatturare;
+			this.quantitaVariata = quantitaVariata;
+			this.numeroPreventivo = numeroPreventivo;
+			this.numeroRigaPreventivo = numeroRigaPreventivo;
+			this.dataPreventivo = dataPreventivo;
+			this.quantitaEvasa = quantitaEvasa;
+			this.indicatoreEvasionePreventivi = indicatoreEvasionePreventivi;
+			this.indicatoreEvasioneRigheNote = indicatoreEvasioneRigheNote;
+			this.indicatoreNoConferma = indicatoreNoConferma;
+			this.dataInserimento = dataInserimento;
+			this.dataUltimaModifica = dataUltimaModifica;
+			this.loginInserimento = loginInserimento;
+			this.loginModifica = loginModifica;
+			this.dataConsegnaSchedulatore = dataConsegnaSchedulatore;
+			this.dataConsegnaProposta = dataConsegnaProposta;
+			this.indicatoreBloccato = indicatoreBloccato;
+			this.indicatoreOrdineTrading = indicatoreOrdineTrading;
+			this.dataInizioSchedulatore = dataInizioSchedulatore;
+			this.codiceArticoloBis = codiceArticoloBis;
+		}
+
+		public int getNumeroOrdine() {
+			return numeroOrdine;
+		}
+
+		public void setNumeroOrdine(int numeroOrdine) {
+			this.numeroOrdine = numeroOrdine;
+		}
+
+		public LocalDateTime getDataOrdine() {
+			return dataOrdine;
+		}
+
+		public void setDataOrdine(LocalDateTime dataOrdine) {
+			this.dataOrdine = dataOrdine;
 		}
 
 		public int getNumeroRigaOrdine() {

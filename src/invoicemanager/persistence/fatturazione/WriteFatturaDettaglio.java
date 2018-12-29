@@ -1,10 +1,11 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.FatturaDettaglio;
+import invoicemanager.utils.Utils;
 
 public class WriteFatturaDettaglio {
 	private Connection c;
@@ -15,35 +16,44 @@ public class WriteFatturaDettaglio {
 
 	public void add(FatturaDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-			Statement stmt = c.createStatement();
-			String sql;
-			if (!exist)
-				sql = "INSERT INTO FatturaDettaglio "
-+ "VALUES ("
-+"','"+a.getNumeroRigaFattura()
-+"','"+a.getCodiceTipoRigaDocumento()
-+"','"+a.getCodiceArticolo()
-+"','"+a.getCosto()
-+"','"+a.getNumeroOrdine()
-+"','"+a.getNumeroRigaOrdine()
-+"','"+a.getDataOrdine()
-+"','"+a.getQuantitaDaConsegnare()
-+"','"+a.getIndicatoreEvasione()
-+"','"+a.getDescrizione()
-+"','"+a.getQuantita()
-+"','"+a.getPrezzo()
-+"','"+a.getCodiceIva()
-+"','"+a.getCodiceContropartitaContabile()
-+"','"+a.getPercentualeProvvigione()
-+"','"+a.getPercentualeScontoCliente()
-+"','"+a.getPercentualeScontoArticolo()
-+"','"+a.getPercentualeScontoPagamento()
-+"\');";
-			else
-				sql = "UPDATE auto SET stato = \'Disponibile\' WHERE codiceFatturaDettaglio=\'" + a.getCodiceFatturaDettaglio() + "\';";
-			stmt.executeUpdate(sql);
+			PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+	    	ps.setInt(1, a.getNumeroFattura());
+	    	ps.setTimestamp(2, Utils.toTimestamp(a.getDataFattura()));
+	    	ps.setInt(3, a.getNumeroRigaFattura());
+	    	ps.setString(4, a.getCodiceTipoRigaDocumento());
+	    	ps.setString(5, a.getCodiceArticolo());
+	    	ps.setFloat(6, a.getCosto());
+	    	ps.setInt(7, a.getNumeroOrdine());
+	    	ps.setInt(8, a.getNumeroRigaOrdine());
+	    	ps.setTimestamp(9, Utils.toTimestamp(a.getDataOrdine()));
+	    	ps.setFloat(10, a.getQuantitaDaConsegnare());
+	    	ps.setBoolean(11, a.isIndicatoreEvasione());
+	    	ps.setString(12, a.getDescrizione());
+	    	ps.setFloat(13, a.getQuantita());
+	    	ps.setFloat(14, a.getPrezzo());
+	    	ps.setString(15, a.getCodiceIva());
+	    	ps.setString(16, a.getCodiceContropartitaContabile());
+	    	ps.setFloat(17, a.getPercentualeProvvigione());
+	    	ps.setFloat(18, a.getPercentualeScontoCliente());
+	    	ps.setFloat(19, a.getPercentualeScontoArticolo());
+	    	ps.setFloat(20, a.getPercentualeScontoPagamento());
+	    	ps.setString(21, a.getCodiceUnitaMisura());
+	    	ps.setString(22, a.getSerialNumber());
+	    	ps.setBoolean(23, a.isIndicatoreNoConferma());
+	    	ps.setString(24, a.getCodiceMagazzino());
+	    	ps.setInt(25, a.getNumeroDdt());
+	    	ps.setTimestamp(26, Utils.toTimestamp(a.getDataDdt()));
+	    	ps.setInt(27, a.getNumeroRigaDdt());
+	    	ps.setString(28, a.getCodicePercipiente());
+	    	ps.setString(29, a.getCodiceCassaPrevidenziale());
+	    	ps.setString(30, a.getCodiceCdc());
+	    	ps.setString(31, a.getContoRicavoUsato());
+	    	ps.setString(32, a.getRicavoUsato());
+	    	ps.setTimestamp(33, Utils.toTimestamp(a.getDataInserimento()));
+	    	ps.setTimestamp(34, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-			stmt.close();
+			ps.executeUpdate();
+			ps.close();
 			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
@@ -52,16 +62,16 @@ public class WriteFatturaDettaglio {
 
 	public void set(FatturaDettaglio a) throws ClassNotFoundException, SQLException {
 		try {
-			Statement stmt = c.createStatement();
-			String sql;
-
-			sql = "UPDATE FatturaDettaglio SET "
-					+ "campo=value "
-					+ "WHERE codiceFatturaDettaglio="+a.getCodiceFatturaDettaglio();
-			stmt.executeUpdate(sql);
-
-			stmt.close();
-			c.commit();
+//			Statement stmt = c.createStatement();
+//			String sql;
+//
+//			sql = "UPDATE FatturaDettaglio SET "
+//					+ "campo=value "
+//					+ "WHERE codiceFatturaDettaglio="+a.getCodiceFatturaDettaglio();
+//			stmt.executeUpdate(sql);
+//
+//			stmt.close();
+//			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -69,11 +79,11 @@ public class WriteFatturaDettaglio {
 
 	public void delete(FatturaDettaglio a) throws ClassNotFoundException, SQLException {
 		try {
-	        Statement stmt = c.createStatement();
-	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceFatturaDettaglio() + ";";
-	    	stmt.executeUpdate(sql);
-	    	stmt.close();
-	        c.commit();
+//	        Statement stmt = c.createStatement();
+//	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceFatturaDettaglio() + ";";
+//	    	stmt.executeUpdate(sql);
+//	    	stmt.close();
+//	        c.commit();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}
