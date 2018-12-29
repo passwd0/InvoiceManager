@@ -39,6 +39,7 @@ public class FatturaDettaglio {
 	private String codiceCdc;
 	private String contoRicavoUsato;
 	private String ricavoUsato;
+	private AltriDatiGesionali altriDatiGestioni;
 	private LocalDateTime dataInserimento;
 	private LocalDateTime dataUltimaModifica;
 
