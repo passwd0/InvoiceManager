@@ -1,111 +1,66 @@
 package invoicemanager.model.fatturazione;
+
 import java.time.LocalDateTime;
 
 public class Cliente implements Comparable<Cliente>{
 	private String codiceCliente; //(30) NOT NULL
-	private String descrizione; //(100) NULL
-	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimoAggiornamento; //  NULL
-	private TipoCliente tipoCliente; // (4) COLLATE Latin1_General_CI_AS NULL
-	private ResaMerce resaMerce; // (4) COLLATE Latin1_General_CI_AS NULL
-	private Imballo imballo; // (4) COLLATE Latin1_General_CI_AS NULL
-	private RaggruppamentoClienteFornitore raggruppamento; // (4) COLLATE Latin1_General_CI_AS NULL
-	private float fatturato; //  NULL
-	private float fido; //  NULL
-	private String partitaIVA; //(15) NULL
-	private String codiceFiscale; //(16) NULL
-	private Pagamento pagamento; // (4) COLLATE Latin1_General_CI_AS NULL
-	private Banca banca; // (4) COLLATE Latin1_General_CI_AS NULL
-	private int numeroFattureEmesse; //  NULL
-	private Iva iva; // (4) COLLATE Latin1_General_CI_AS NULL
-	private float imponibileNonEsente; //  NULL
-	private float imponibileEsente; //  NULL
-	private float importoIVA; //  NULL
-	private String codiceClassificazione; //(10) NULL
-	private Agente agente; // (10) COLLATE Latin1_General_CI_AS NULL
-	private float percentualeProvvigioneAgente; //  NULL
-	private float scontoLegatoProvvigioniAgente; //  NULL
-	private int numeroCopieFattura; //  NULL
-	private boolean indicatoreAddebitoSpeseIncasso; // NULL
-	private boolean indicatoreAddebitoSpeseBolli; // NULL
-	private int codiceListino; //  NULL
-	private String codiceVettore; //(3) NULL
-	private String codiceAffidabilita; //(4) NULL
-	private Iso iso; // (4) COLLATE Latin1_General_CI_AS NULL
-	private String partitaIVAEstero; //(12) NULL
-	private String codiceDivisa; //(4) NULL
-	private int dataScadenzaSpostataAgosto; //  NULL
-	private int dataScadenzaSpostataDicembre; //  NULL
-	private String codiceLingua; //(5) NULL
-	private String note; //(6000) NULL
-	private Stato stato; // (2) COLLATE Latin1_General_CI_AS NULL
-	private boolean indicatoreInviataInformativaPrivacy; // NULL
-	private boolean indicatoreRicevutaInformativaPrivacy; // NULL
-	private boolean indicatoreScorporoIVA; // NULL
-	private boolean indicatoreIVADifferita; // NULL
-	private boolean indicatoreEmail; // NULL
-	private boolean inputInibito; // NULL
+	private String descrizione; //(100) 
+	private LocalDateTime dataInserimento;
+	private LocalDateTime dataUltimoAggiornamento;
+	private TipoCliente tipoCliente; // (4)
+	private ResaMerce resaMerce; // (4)
+	private Imballo imballo; // (4)
+	private RaggruppamentoClienteFornitore raggruppamento; // (4)
+	private float fatturato;
+	private float fido;
+	private String partitaIVA; //(15)
+	private String codiceFiscale; //(16)
+	private Pagamento pagamento; // (4)
+	private Banca banca; // (4)
+	private int numeroFattureEmesse;
+	private Iva iva; // (4)
+	private float imponibileNonEsente;
+	private float imponibileEsente;
+	private float importoIVA;
+	private String codiceClassificazione; //(10)
+	private Agente agente; // (10)
+	private float percentualeProvvigioneAgente;
+	private float scontoLegatoProvvigioniAgente;
+	private int numeroCopieFattura;
+	private boolean indicatoreAddebitoSpeseIncasso;
+	private boolean indicatoreAddebitoSpeseBolli;
+	private Listino listino;
+	private Vettore vettore; //(3)
+	private String codiceAffidabilita; //(4)
+	private Iso iso; // (4)
+	private String partitaIVAEstero; //(12)
+	private String codiceDivisa; //(4)
+	private int dataScadenzaSpostataAgosto;
+	private int dataScadenzaSpostataDicembre;
+	private String codiceLingua; //(5)
+	private String note; //(6000)
+	private Stato stato; // (2)
+	private boolean indicatoreInviataInformativaPrivacy;
+	private boolean indicatoreRicevutaInformativaPrivacy;
+	private boolean indicatoreScorporoIVA;
+	private boolean indicatoreIVADifferita;
+	private boolean indicatoreEmail;
+	private boolean inputInibito;
+	private boolean indicatoreFatturePA; // NULL
+	private LocalDateTime dataUltimaFattura; //  NULL
+	private LocalDateTime importoUltimaFattura; //  NULL
+	private LocalDateTime importoPlafond; //  NULL
+	private String numeroUltimaFattura; //(50) NULL
+	private LocalDateTime dataInizioPlafond; //  NULL
+	private boolean indicatoreFattureXML; // NULL
+	private boolean indicatoreDdtEmail; // NULL
+	private boolean indicatorePlafond; // NULL
+	private String codiceEORI;	// (17)
+	private StabileOrganizzazione stabileOrganizzazione;
+	
 
 	public Cliente(String codiceCliente){
 		this.codiceCliente = codiceCliente;
-	}
-
-	public Cliente(String codiceCliente, String descrizione, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimoAggiornamento, TipoCliente codiceTipoCliente, ResaMerce codiceResaMerce,
-			Imballo codiceImballo, RaggruppamentoClienteFornitore codiceRaggruppamento, float fatturato, float fido,
-			String partitaIVA, String codiceFiscale, Pagamento codicePagamento, Banca codiceBanca,
-			int numeroFattureEmesse, Iva codiceEsenzioneIVA, float imponibileNonEsente, float imponibileEsente,
-			float importoIVA, String codiceClassificazione, Agente agente, float percentualeProvvigioneAgente,
-			float scontoLegatoProvvigioniAgente, int numeroCopieFattura, boolean indicatoreAddebitoSpeseIncasso,
-			boolean indicatoreAddebitoSpeseBolli, int codiceListino, String codiceVettore, String codiceAffidabilita,
-			Iso codiceISO, String partitaIVAEstero, String codiceDivisa, int dataScadenzaSpostataAgosto,
-			int dataScadenzaSpostataDicembre, String codiceLingua, String note, Stato stato,
-			boolean indicatoreInviataInformativaPrivacy, boolean indicatoreRicevutaInformativaPrivacy,
-			boolean indicatoreScorporoIVA, boolean indicatoreIVADifferita, boolean indicatoreEmail,
-			boolean inputInibito) {
-		this.codiceCliente = codiceCliente;
-		this.descrizione = descrizione;
-		this.dataInserimento = dataInserimento;
-		this.dataUltimoAggiornamento = dataUltimoAggiornamento;
-		this.tipoCliente = codiceTipoCliente;
-		this.resaMerce = codiceResaMerce;
-		this.imballo = codiceImballo;
-		this.raggruppamento = codiceRaggruppamento;
-		this.fatturato = fatturato;
-		this.fido = fido;
-		this.partitaIVA = partitaIVA;
-		this.codiceFiscale = codiceFiscale;
-		this.pagamento = codicePagamento;
-		this.banca = codiceBanca;
-		this.numeroFattureEmesse = numeroFattureEmesse;
-		this.iva = codiceEsenzioneIVA;
-		this.imponibileNonEsente = imponibileNonEsente;
-		this.imponibileEsente = imponibileEsente;
-		this.importoIVA = importoIVA;
-		this.codiceClassificazione = codiceClassificazione;
-		this.agente = agente;
-		this.percentualeProvvigioneAgente = percentualeProvvigioneAgente;
-		this.scontoLegatoProvvigioniAgente = scontoLegatoProvvigioniAgente;
-		this.numeroCopieFattura = numeroCopieFattura;
-		this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
-		this.indicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
-		this.codiceListino = codiceListino;
-		this.codiceVettore = codiceVettore;
-		this.codiceAffidabilita = codiceAffidabilita;
-		this.iso = codiceISO;
-		this.partitaIVAEstero = partitaIVAEstero;
-		this.codiceDivisa = codiceDivisa;
-		this.dataScadenzaSpostataAgosto = dataScadenzaSpostataAgosto;
-		this.dataScadenzaSpostataDicembre = dataScadenzaSpostataDicembre;
-		this.codiceLingua = codiceLingua;
-		this.note = note;
-		this.stato = stato;
-		this.indicatoreInviataInformativaPrivacy = indicatoreInviataInformativaPrivacy;
-		this.indicatoreRicevutaInformativaPrivacy = indicatoreRicevutaInformativaPrivacy;
-		this.indicatoreScorporoIVA = indicatoreScorporoIVA;
-		this.indicatoreIVADifferita = indicatoreIVADifferita;
-		this.indicatoreEmail = indicatoreEmail;
-		this.inputInibito = inputInibito;
 	}
 
 	public String getCodiceTipoCliente() {
@@ -369,12 +324,12 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceListino = codiceListino;
 	}
 
-	public String getCodiceVettore() {
-		return codiceVettore;
+	public Vettore getVettore() {
+		return vettore;
 	}
 
-	public void setCodiceVettore(String codiceVettore) {
-		this.codiceVettore = codiceVettore;
+	public void setVettore(Vettore vettore) {
+		this.vettore = vettore;
 	}
 
 	public String getCodiceAffidabilita() {
@@ -495,6 +450,94 @@ public class Cliente implements Comparable<Cliente>{
 
 	public void setInputInibito(boolean inputInibito) {
 		this.inputInibito = inputInibito;
+	}
+
+	public Iva getIva() {
+		return iva;
+	}
+
+	public void setIva(Iva iva) {
+		this.iva = iva;
+	}
+
+	public boolean isIndicatoreFatturePA() {
+		return indicatoreFatturePA;
+	}
+
+	public void setIndicatoreFatturePA(boolean indicatoreFatturePA) {
+		this.indicatoreFatturePA = indicatoreFatturePA;
+	}
+
+	public LocalDateTime getDataUltimaFattura() {
+		return dataUltimaFattura;
+	}
+
+	public void setDataUltimaFattura(LocalDateTime dataUltimaFattura) {
+		this.dataUltimaFattura = dataUltimaFattura;
+	}
+
+	public LocalDateTime getImportoUltimaFattura() {
+		return importoUltimaFattura;
+	}
+
+	public void setImportoUltimaFattura(LocalDateTime importoUltimaFattura) {
+		this.importoUltimaFattura = importoUltimaFattura;
+	}
+
+	public LocalDateTime getImportoPlafond() {
+		return importoPlafond;
+	}
+
+	public void setImportoPlafond(LocalDateTime importoPlafond) {
+		this.importoPlafond = importoPlafond;
+	}
+
+	public String getNumeroUltimaFattura() {
+		return numeroUltimaFattura;
+	}
+
+	public void setNumeroUltimaFattura(String numeroUltimaFattura) {
+		this.numeroUltimaFattura = numeroUltimaFattura;
+	}
+
+	public LocalDateTime getDataInizioPlafond() {
+		return dataInizioPlafond;
+	}
+
+	public void setDataInizioPlafond(LocalDateTime dataInizioPlafond) {
+		this.dataInizioPlafond = dataInizioPlafond;
+	}
+
+	public boolean isIndicatoreFattureXML() {
+		return indicatoreFattureXML;
+	}
+
+	public void setIndicatoreFattureXML(boolean indicatoreFattureXML) {
+		this.indicatoreFattureXML = indicatoreFattureXML;
+	}
+
+	public boolean isIndicatoreDdtEmail() {
+		return indicatoreDdtEmail;
+	}
+
+	public void setIndicatoreDdtEmail(boolean indicatoreDdtEmail) {
+		this.indicatoreDdtEmail = indicatoreDdtEmail;
+	}
+
+	public boolean isIndicatorePlafond() {
+		return indicatorePlafond;
+	}
+
+	public void setIndicatorePlafond(boolean indicatorePlafond) {
+		this.indicatorePlafond = indicatorePlafond;
+	}
+
+	public void setIso(Iso iso) {
+		this.iso = iso;
+	}
+
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	@Override

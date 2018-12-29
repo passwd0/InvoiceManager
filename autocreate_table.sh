@@ -10,15 +10,25 @@ i=0
 IFS=$'\n'
 for l in $(cat $NAMEFILE); do
 	if [[ $l =~ "CREATE TABLE" ]]; then
-		javaname=`echo -n $l | sed -rn 's/CREATE TABLE \[dbo\]\.\[(.*)\]\(.*/\1/p'`.java
+		javaname=`echo -n $l | sed -r 's/CREATE TABLE \[dbo\]\.\[(.*)\]\(.*/\1/; s/_//; s/[Tt]abella//'`.java
 		listfiles+=($javaname)
 		echo -e "package invoicemanager.model.fatturazione;\nimport java.time.LocalDateTime;\nimport java.util.List;\n" > $javaname
 		echo $l | sed -rn 's/CREATE TABLE \[dbo\]\.\[(.*)\]\(/public class \1{/p' >> $javaname
 	else
 		if [[ $l =~ "varchar" ]]; then
-			echo $l | sed -rn 's/\[(.*)\] \[(.*)\](.*) COLLATE Latin1_General_CI_AS (.*),/\tprivate \2 \1; \/\/\3 \4/p' >> $javaname
+			line=`echo $l | sed -rn 's/\[(.*)\] \[(.*)\](.*) COLLATE Latin1_General_CI_AS (.*),/\tprivate \2 \1; \/\/\3 \4/p'`
+			mytype=`echo $line | cut -d' ' -f2`
+			var=`echo $line | cut -d' ' -f3`
+			other=`echo $line | cut -d' ' -f4-`
+			var_min=`echo ${var:0:1} | tr '[:upper:]' '[:lower:]'`${var:1}
+			echo private $mytype $var_min $other >> $javaname
 		else
-			echo $l | sed -rn 's/\[(.*)\] \[(.*)\](.*),/\tprivate \2 \1; \/\/ \3/p' >> $javaname
+			line=`echo $l | sed -rn 's/\[(.*)\] \[(.*)\](.*),/\tprivate \2 \1; \/\/ \3/p'`
+			mytype=`echo $line | cut -d' ' -f2`
+			var=`echo $line | cut -d' ' -f3`
+			var_min=`echo ${var:0:1} | tr '[:upper:]' '[:lower:]'`${var:1}
+			other=`echo $line | cut -d' ' -f4-`
+			echo private $mytype $var_min $other >> $javaname
 		fi
 	fi
 
@@ -37,7 +47,6 @@ for f in ${listfiles[@]}; do
 done
 
 #create costructor
-
 IFS=$'\n'
 for f in ${listfiles[@]}; do
 	list_element=()
