@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class CodiceABarre{
 	private String codiceArticolo; //(30) NOT NULL
@@ -13,5 +12,63 @@ public class CodiceABarre{
 	public CodiceABarre(String codiceArticolo, String codiceABarre){
 		this.codiceArticolo = codiceArticolo;
 		this.codiceABarre = codiceABarre;
+	}
+
+	public CodiceABarre(String codiceArticolo, String codiceABarre, String tipo, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica, String loginInserimento) {
+		this.codiceArticolo = codiceArticolo;
+		this.codiceABarre = codiceABarre;
+		this.tipo = tipo;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+		this.loginInserimento = loginInserimento;
+	}
+
+	public String getCodiceArticolo() {
+		return codiceArticolo;
+	}
+
+	public void setCodiceArticolo(String codiceArticolo) {
+		this.codiceArticolo = codiceArticolo;
+	}
+
+	public String getCodiceABarre() {
+		return codiceABarre;
+	}
+
+	public void setCodiceABarre(String codiceABarre) {
+		this.codiceABarre = codiceABarre;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public LocalDateTime getDataInserimento() {
+		return dataInserimento;
+	}
+
+	public void setDataInserimento(LocalDateTime dataInserimento) {
+		this.dataInserimento = dataInserimento;
+	}
+
+	public LocalDateTime getDataUltimaModifica() {
+		return dataUltimaModifica;
+	}
+
+	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
+	public String getLoginInserimento() {
+		return loginInserimento;
+	}
+
+	public void setLoginInserimento(String loginInserimento) {
+		this.loginInserimento = loginInserimento;
 	}
 }

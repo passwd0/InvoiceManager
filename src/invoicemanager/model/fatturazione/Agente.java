@@ -11,8 +11,6 @@ public class Agente {
 	private Controparte codiceControparte; // (10) COLLATE Latin1_General_CI_AS NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-//	private String loginInserimento; //(30) NULL
-//	private String loginModifica; //(30) NULL
 		
 	public Agente(String codiceAgente, String nome, float percentualeProvvigione, boolean tipoProvvigione,
 				boolean tipoMandato, String codiceContabile, Controparte codiceControparte,

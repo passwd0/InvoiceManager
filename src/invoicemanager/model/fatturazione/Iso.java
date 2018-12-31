@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class Iso{
 		private String codiceISO; //(4) NOT NULL

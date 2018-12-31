@@ -1,40 +1,35 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
-public class Vettore{
+public class Vettore {
 	private String codiceVettore; //(4) NOT NULL
 	private String descrizione; //(100) NULL
 	private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
 	private String via; //(50) NULL
 	private String citta; //(100) NULL
-	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
-	private String loginModifica; //(30) NULL
 	private String partitaIva; //(11) NULL
 	private String iscrizione; //(50) NULL
 	private String telefono; //(50) NULL
-
+	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataUltimaModifica; //  NULL
+	
 	public Vettore(String codiceVettore){
 		this.codiceVettore = codiceVettore;
 	}
 
 	public Vettore(String codiceVettore, String descrizione, Stato codiceStato, String via, String citta,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
-			String loginModifica, String partitaIva, String iscrizione, String telefono) {
+			String partitaIva, String iscrizione, String telefono, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
 		this.codiceVettore = codiceVettore;
 		this.descrizione = descrizione;
 		this.codiceStato = codiceStato;
 		this.via = via;
 		this.citta = citta;
-		this.dataInserimento = dataInserimento;
-		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
-		this.loginModifica = loginModifica;
 		this.partitaIva = partitaIva;
 		this.iscrizione = iscrizione;
 		this.telefono = telefono;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
 	public String getCodiceVettore() {
@@ -93,22 +88,6 @@ public class Vettore{
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
-	}
-
-	public String getLoginModifica() {
-		return loginModifica;
-	}
-
-	public void setLoginModifica(String loginModifica) {
-		this.loginModifica = loginModifica;
-	}
-
 	public String getPartitaIva() {
 		return partitaIva;
 	}
@@ -157,6 +136,4 @@ public class Vettore{
 			return false;
 		return true;
 	}
-	
-	
 }

@@ -42,8 +42,6 @@ public class DdtTestata {
 	private LocalDateTime dataInserimento; //NULL
 	private LocalDateTime dataUltimaModifica; //NULL
 	private String note; //[Note] [varchar](500) ,
-	private String loginInserimento; //] [varchar](30) ,
-	private String oginModifica; //] [varchar](30) ,
 	private String codiceLingua; //] [varchar](4) ,
 	private int numeroDdtDeposito; //NULL
 	private String codiceDeposito; //] [varchar](4) ,
@@ -53,6 +51,8 @@ public class DdtTestata {
 	private String unitaMisuraPesoColli; //[UnitaMisuraPesoColli] [varchar](3) 
 	private List<DdtDettaglio> ddtDettagli;
 	
+	
+
 	public DdtTestata(int numeroDDT, LocalDateTime dataDDT, boolean indicatoreStatoAvanzamento, String codiceCausale,
 			String codiceCausalePrelievi, String codiceClienteFatturazione, String codiceEsenzioneIva,
 			String codiceAgente, float percentualeProvvigione, float percentualeSconto, int numeroCopieFattura,
@@ -62,10 +62,9 @@ public class DdtTestata {
 			String descrizione, int numeroColli, boolean indicatorePreventivoDaConferma, boolean indicatoreBollaVisione,
 			String codiceClienteSpedizione, String nomeSpedizione, String indirizzoSpedizione, String capSpedizione,
 			String cittaSpedizione, String provinciaSpedizione, String codiceNazioneSpedizione,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String note, String loginInserimento,
-			String oginModifica, String codiceLingua, int numeroDdtDeposito, String codiceDeposito,
-			String noteCaricamento, String codiceFilialeEdi, LocalDateTime dataCaricamento, String unitaMisuraPesoColli,
-			List<DdtDettaglio> ddtDettagli) {
+			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String note, String codiceLingua,
+			int numeroDdtDeposito, String codiceDeposito, String noteCaricamento, String codiceFilialeEdi,
+			LocalDateTime dataCaricamento, String unitaMisuraPesoColli, List<DdtDettaglio> ddtDettagli) {
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;
 		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
@@ -104,8 +103,6 @@ public class DdtTestata {
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 		this.note = note;
-		this.loginInserimento = loginInserimento;
-		this.oginModifica = oginModifica;
 		this.codiceLingua = codiceLingua;
 		this.numeroDdtDeposito = numeroDdtDeposito;
 		this.codiceDeposito = codiceDeposito;
@@ -357,18 +354,7 @@ public class DdtTestata {
 	public void setNote(String note) {
 		this.note = note;
 	}
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
-	}
-	public String getOginModifica() {
-		return oginModifica;
-	}
-	public void setOginModifica(String oginModifica) {
-		this.oginModifica = oginModifica;
-	}
+	
 	public String getCodiceLingua() {
 		return codiceLingua;
 	}

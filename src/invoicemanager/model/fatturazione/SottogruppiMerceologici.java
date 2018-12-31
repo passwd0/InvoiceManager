@@ -1,23 +1,22 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
-public class SottogruppoMerceologico{
-	private String codiceSottogruppoMerceologico; //(4) NOT NULL
-	private String descrizione; //(100) NULL
-	private boolean codiceStato; // NULL
-	private float sconto; //  NULL
-	private float percentualeProvvigione; //  NULL
-	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
+public class SottogruppiMerceologici{
+	private String codiceSottogruppoMerceologico; //(4) COLLATE Latin1_General_CI_AS NOT NULL,
+	private String descrizione; //(100) COLLATE Latin1_General_CI_AS NULL,
+	private boolean codiceStato; // COLLATE Latin1_General_CI_AS NULL,
+	private float sconto; //  NULL,
+	private float percentualeProvvigione; //  NULL,
+	private LocalDateTime dataInserimento; //  NULL,
+	private LocalDateTime dataUltimaModifica; //  NULL,
 
-	public SottogruppoMerceologico(String codiceSottogruppoMerceologico){
+	public SottogruppiMerceologici(String codiceSottogruppoMerceologico){
 		this.codiceSottogruppoMerceologico = codiceSottogruppoMerceologico;
 	}
 
-	public SottogruppoMerceologico(String codiceSottogruppoMerceologico, String descrizione, boolean codiceStato,
-			float sconto, float percentualeProvvigione, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
-			String loginInserimento) {
+	public SottogruppiMerceologici(String codiceSottogruppoMerceologico, String descrizione, boolean codiceStato,
+			float sconto, float percentualeProvvigione, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
 		this.codiceSottogruppoMerceologico = codiceSottogruppoMerceologico;
 		this.descrizione = descrizione;
 		this.codiceStato = codiceStato;
@@ -25,7 +24,6 @@ public class SottogruppoMerceologico{
 		this.percentualeProvvigione = percentualeProvvigione;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
 	}
 
 	public String getCodiceSottogruppoMerceologico() {
@@ -82,13 +80,5 @@ public class SottogruppoMerceologico{
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
 	}
 }

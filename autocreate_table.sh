@@ -16,14 +16,14 @@ for l in $(cat $NAMEFILE); do
 		echo $l | sed -rn 's/CREATE TABLE \[dbo\]\.\[(.*)\]\(/public class \1{/p' >> $javaname
 	else
 		if [[ $l =~ "varchar" ]]; then
-			line=`echo $l | sed -rn 's/\[(.*)\] \[(.*)\](.*) COLLATE Latin1_General_CI_AS (.*),/\tprivate \2 \1; \/\/\3 \4/p'`
+			line=`echo $l | sed -rn 's/\[(.*)\].*\[(.*)\](.*)/\tprivate \2 \1; \/\/\3/p'`
 			mytype=`echo $line | cut -d' ' -f2`
 			var=`echo $line | cut -d' ' -f3`
 			other=`echo $line | cut -d' ' -f4-`
 			var_min=`echo ${var:0:1} | tr '[:upper:]' '[:lower:]'`${var:1}
 			echo private $mytype $var_min $other >> $javaname
 		else
-			line=`echo $l | sed -rn 's/\[(.*)\] \[(.*)\](.*),/\tprivate \2 \1; \/\/ \3/p'`
+			line=`echo $l | sed -rn 's/\[(.*)\] \[(.*)\](.*)/\tprivate \2 \1; \/\/ \3/p'`
 			mytype=`echo $line | cut -d' ' -f2`
 			var=`echo $line | cut -d' ' -f3`
 			var_min=`echo ${var:0:1} | tr '[:upper:]' '[:lower:]'`${var:1}
@@ -44,6 +44,7 @@ for f in ${listfiles[@]}; do
 	sed -r -i 's/datetime/LocalDateTime/' $f
 	sed -r -i 's/smallint/short/' $f
 	sed -r -i 's/decimal/float/' $f
+	sed -r -i 's/private date/private LocalDate/' $f
 done
 
 #create costructor

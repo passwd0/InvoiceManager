@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class Confezione{
 	private String codiceConfezione; //(4) NOT NULL
@@ -14,9 +13,112 @@ public class Confezione{
 	private float pesoTara; //  NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
 
 	public Confezione(String codiceConfezione){
 		this.codiceConfezione = codiceConfezione;
+	}
+
+	public Confezione(String codiceConfezione, String descrizione, boolean codiceStato, float larghezza,
+			float lunghezza, float altezza, float volume, float pesoLordo, float pesoTara,
+			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+		this.codiceConfezione = codiceConfezione;
+		this.descrizione = descrizione;
+		this.codiceStato = codiceStato;
+		this.larghezza = larghezza;
+		this.lunghezza = lunghezza;
+		this.altezza = altezza;
+		this.volume = volume;
+		this.pesoLordo = pesoLordo;
+		this.pesoTara = pesoTara;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
+	public String getCodiceConfezione() {
+		return codiceConfezione;
+	}
+
+	public void setCodiceConfezione(String codiceConfezione) {
+		this.codiceConfezione = codiceConfezione;
+	}
+
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
+	public boolean isCodiceStato() {
+		return codiceStato;
+	}
+
+	public void setCodiceStato(boolean codiceStato) {
+		this.codiceStato = codiceStato;
+	}
+
+	public float getLarghezza() {
+		return larghezza;
+	}
+
+	public void setLarghezza(float larghezza) {
+		this.larghezza = larghezza;
+	}
+
+	public float getLunghezza() {
+		return lunghezza;
+	}
+
+	public void setLunghezza(float lunghezza) {
+		this.lunghezza = lunghezza;
+	}
+
+	public float getAltezza() {
+		return altezza;
+	}
+
+	public void setAltezza(float altezza) {
+		this.altezza = altezza;
+	}
+
+	public float getVolume() {
+		return volume;
+	}
+
+	public void setVolume(float volume) {
+		this.volume = volume;
+	}
+
+	public float getPesoLordo() {
+		return pesoLordo;
+	}
+
+	public void setPesoLordo(float pesoLordo) {
+		this.pesoLordo = pesoLordo;
+	}
+
+	public float getPesoTara() {
+		return pesoTara;
+	}
+
+	public void setPesoTara(float pesoTara) {
+		this.pesoTara = pesoTara;
+	}
+
+	public LocalDateTime getDataInserimento() {
+		return dataInserimento;
+	}
+
+	public void setDataInserimento(LocalDateTime dataInserimento) {
+		this.dataInserimento = dataInserimento;
+	}
+
+	public LocalDateTime getDataUltimaModifica() {
+		return dataUltimaModifica;
+	}
+
+	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
 }

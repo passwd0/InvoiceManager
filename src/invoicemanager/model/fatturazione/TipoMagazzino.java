@@ -1,30 +1,30 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
-public class TipoIndirizzo{
-	private String codiceTipoIndirizzo; //(2) NOT NULL
-	private String descrizione; //(50) NULL
-	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+public class TipoMagazzino{
+	private boolean codiceTipoMagazzino; // COLLATE Latin1_General_CI_AS NOT NULL,
+	private String descrizione; //(50) COLLATE Latin1_General_CI_AS NULL,
+	private LocalDateTime dataInserimento; //  NULL,
+	private LocalDateTime dataUltimaModifica; //  NULL,
 
-	public TipoIndirizzo(String codiceTipoIndirizzo){
-		this.codiceTipoIndirizzo = codiceTipoIndirizzo;
+	public TipoMagazzino(boolean codiceTipoMagazzino){
+		this.codiceTipoMagazzino = codiceTipoMagazzino;
 	}
 
-	public TipoIndirizzo(String codiceTipoIndirizzo, String descrizione, LocalDateTime dataInserimento,
+	public TipoMagazzino(boolean codiceTipoMagazzino, String descrizione, LocalDateTime dataInserimento,
 			LocalDateTime dataUltimaModifica) {
-		this.codiceTipoIndirizzo = codiceTipoIndirizzo;
+		this.codiceTipoMagazzino = codiceTipoMagazzino;
 		this.descrizione = descrizione;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
-	public String getCodiceTipoIndirizzo() {
-		return codiceTipoIndirizzo;
+	public boolean isCodiceTipoMagazzino() {
+		return codiceTipoMagazzino;
 	}
 
-	public void setCodiceTipoIndirizzo(String codiceTipoIndirizzo) {
-		this.codiceTipoIndirizzo = codiceTipoIndirizzo;
+	public void setCodiceTipoMagazzino(boolean codiceTipoMagazzino) {
+		this.codiceTipoMagazzino = codiceTipoMagazzino;
 	}
 
 	public String getDescrizione() {
@@ -50,5 +50,4 @@ public class TipoIndirizzo{
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
-	
 }

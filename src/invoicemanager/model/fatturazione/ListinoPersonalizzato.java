@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class ListinoPersonalizzato implements Listino {
 	private int codiceListinoPersonalizzato;
@@ -36,9 +35,255 @@ public class ListinoPersonalizzato implements Listino {
 		this.codiceDivisa = codiceDivisa;
 	}
 	
+	public ListinoPersonalizzato(int codiceListinoPersonalizzato, String codiceCliente, String codiceArticolo,
+			String variante, float prezzo, float provvigione, String noteEsterne, String noteInterne,
+			int numeroDecimali, float scontoCliente, LocalDateTime dataAggiornamento, float scontoArticolo,
+			float scontoPagamento, String codiceDivisa, GruppoMerceologico gruppoMerceologico,
+			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, LocalDateTime dataInizioValidita,
+			LocalDateTime dataFineValidita, boolean opzioneGruppi, boolean opzioneScontoClienti,
+			boolean opzioneScontoArticolo, boolean opzioneScontoPagamento, boolean opzionePercentualeProvvigione,
+			boolean opzioneNoteEsterne, boolean opzioneNoteInterne) {
+		this.codiceListinoPersonalizzato = codiceListinoPersonalizzato;
+		this.codiceCliente = codiceCliente;
+		this.codiceArticolo = codiceArticolo;
+		this.variante = variante;
+		this.prezzo = prezzo;
+		this.provvigione = provvigione;
+		this.noteEsterne = noteEsterne;
+		this.noteInterne = noteInterne;
+		this.numeroDecimali = numeroDecimali;
+		this.scontoCliente = scontoCliente;
+		this.dataAggiornamento = dataAggiornamento;
+		this.scontoArticolo = scontoArticolo;
+		this.scontoPagamento = scontoPagamento;
+		this.codiceDivisa = codiceDivisa;
+		this.gruppoMerceologico = gruppoMerceologico;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+		this.dataInizioValidita = dataInizioValidita;
+		this.dataFineValidita = dataFineValidita;
+		this.opzioneGruppi = opzioneGruppi;
+		this.opzioneScontoClienti = opzioneScontoClienti;
+		this.opzioneScontoArticolo = opzioneScontoArticolo;
+		this.opzioneScontoPagamento = opzioneScontoPagamento;
+		this.opzionePercentualeProvvigione = opzionePercentualeProvvigione;
+		this.opzioneNoteEsterne = opzioneNoteEsterne;
+		this.opzioneNoteInterne = opzioneNoteInterne;
+	}
+
 	public String getCodiceGruppoMerceologico() {
 		if (gruppoMerceologico == null)
 			return null;
 		return gruppoMerceologico.getCodiceGruppoMerceologico();
 	}
+
+	public int getCodiceListinoPersonalizzato() {
+		return codiceListinoPersonalizzato;
+	}
+
+	public void setCodiceListinoPersonalizzato(int codiceListinoPersonalizzato) {
+		this.codiceListinoPersonalizzato = codiceListinoPersonalizzato;
+	}
+
+	public String getCodiceCliente() {
+		return codiceCliente;
+	}
+
+	public void setCodiceCliente(String codiceCliente) {
+		this.codiceCliente = codiceCliente;
+	}
+
+	public String getCodiceArticolo() {
+		return codiceArticolo;
+	}
+
+	public void setCodiceArticolo(String codiceArticolo) {
+		this.codiceArticolo = codiceArticolo;
+	}
+
+	public String getVariante() {
+		return variante;
+	}
+
+	public void setVariante(String variante) {
+		this.variante = variante;
+	}
+
+	public float getPrezzo() {
+		return prezzo;
+	}
+
+	public void setPrezzo(float prezzo) {
+		this.prezzo = prezzo;
+	}
+
+	public float getProvvigione() {
+		return provvigione;
+	}
+
+	public void setProvvigione(float provvigione) {
+		this.provvigione = provvigione;
+	}
+
+	public String getNoteEsterne() {
+		return noteEsterne;
+	}
+
+	public void setNoteEsterne(String noteEsterne) {
+		this.noteEsterne = noteEsterne;
+	}
+
+	public String getNoteInterne() {
+		return noteInterne;
+	}
+
+	public void setNoteInterne(String noteInterne) {
+		this.noteInterne = noteInterne;
+	}
+
+	public int getNumeroDecimali() {
+		return numeroDecimali;
+	}
+
+	public void setNumeroDecimali(int numeroDecimali) {
+		this.numeroDecimali = numeroDecimali;
+	}
+
+	public float getScontoCliente() {
+		return scontoCliente;
+	}
+
+	public void setScontoCliente(float scontoCliente) {
+		this.scontoCliente = scontoCliente;
+	}
+
+	public LocalDateTime getDataAggiornamento() {
+		return dataAggiornamento;
+	}
+
+	public void setDataAggiornamento(LocalDateTime dataAggiornamento) {
+		this.dataAggiornamento = dataAggiornamento;
+	}
+
+	public float getScontoArticolo() {
+		return scontoArticolo;
+	}
+
+	public void setScontoArticolo(float scontoArticolo) {
+		this.scontoArticolo = scontoArticolo;
+	}
+
+	public float getScontoPagamento() {
+		return scontoPagamento;
+	}
+
+	public void setScontoPagamento(float scontoPagamento) {
+		this.scontoPagamento = scontoPagamento;
+	}
+
+	public String getCodiceDivisa() {
+		return codiceDivisa;
+	}
+
+	public void setCodiceDivisa(String codiceDivisa) {
+		this.codiceDivisa = codiceDivisa;
+	}
+
+	public GruppoMerceologico getGruppoMerceologico() {
+		return gruppoMerceologico;
+	}
+
+	public void setGruppoMerceologico(GruppoMerceologico gruppoMerceologico) {
+		this.gruppoMerceologico = gruppoMerceologico;
+	}
+
+	public LocalDateTime getDataInserimento() {
+		return dataInserimento;
+	}
+
+	public void setDataInserimento(LocalDateTime dataInserimento) {
+		this.dataInserimento = dataInserimento;
+	}
+
+	public LocalDateTime getDataUltimaModifica() {
+		return dataUltimaModifica;
+	}
+
+	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
+	public LocalDateTime getDataInizioValidita() {
+		return dataInizioValidita;
+	}
+
+	public void setDataInizioValidita(LocalDateTime dataInizioValidita) {
+		this.dataInizioValidita = dataInizioValidita;
+	}
+
+	public LocalDateTime getDataFineValidita() {
+		return dataFineValidita;
+	}
+
+	public void setDataFineValidita(LocalDateTime dataFineValidita) {
+		this.dataFineValidita = dataFineValidita;
+	}
+
+	public boolean isOpzioneGruppi() {
+		return opzioneGruppi;
+	}
+
+	public void setOpzioneGruppi(boolean opzioneGruppi) {
+		this.opzioneGruppi = opzioneGruppi;
+	}
+
+	public boolean isOpzioneScontoClienti() {
+		return opzioneScontoClienti;
+	}
+
+	public void setOpzioneScontoClienti(boolean opzioneScontoClienti) {
+		this.opzioneScontoClienti = opzioneScontoClienti;
+	}
+
+	public boolean isOpzioneScontoArticolo() {
+		return opzioneScontoArticolo;
+	}
+
+	public void setOpzioneScontoArticolo(boolean opzioneScontoArticolo) {
+		this.opzioneScontoArticolo = opzioneScontoArticolo;
+	}
+
+	public boolean isOpzioneScontoPagamento() {
+		return opzioneScontoPagamento;
+	}
+
+	public void setOpzioneScontoPagamento(boolean opzioneScontoPagamento) {
+		this.opzioneScontoPagamento = opzioneScontoPagamento;
+	}
+
+	public boolean isOpzionePercentualeProvvigione() {
+		return opzionePercentualeProvvigione;
+	}
+
+	public void setOpzionePercentualeProvvigione(boolean opzionePercentualeProvvigione) {
+		this.opzionePercentualeProvvigione = opzionePercentualeProvvigione;
+	}
+
+	public boolean isOpzioneNoteEsterne() {
+		return opzioneNoteEsterne;
+	}
+
+	public void setOpzioneNoteEsterne(boolean opzioneNoteEsterne) {
+		this.opzioneNoteEsterne = opzioneNoteEsterne;
+	}
+
+	public boolean isOpzioneNoteInterne() {
+		return opzioneNoteInterne;
+	}
+
+	public void setOpzioneNoteInterne(boolean opzioneNoteInterne) {
+		this.opzioneNoteInterne = opzioneNoteInterne;
+	}
+	
+	
 }

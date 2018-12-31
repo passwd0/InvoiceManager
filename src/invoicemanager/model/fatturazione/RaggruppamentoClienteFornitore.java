@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class RaggruppamentoClienteFornitore{
 	private String codiceRaggruppamento; //(4) NOT NULL

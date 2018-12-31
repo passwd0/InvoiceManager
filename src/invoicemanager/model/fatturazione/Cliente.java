@@ -5,8 +5,6 @@ import java.time.LocalDateTime;
 public class Cliente implements Comparable<Cliente>{
 	private String codiceCliente; //(30) NOT NULL
 	private String descrizione; //(100) 
-	private LocalDateTime dataInserimento;
-	private LocalDateTime dataUltimoAggiornamento;
 	private TipoCliente tipoCliente; // (4)
 	private ResaMerce resaMerce; // (4)
 	private Imballo imballo; // (4)
@@ -55,12 +53,85 @@ public class Cliente implements Comparable<Cliente>{
 	private boolean indicatoreFattureXML; // NULL
 	private boolean indicatoreDdtEmail; // NULL
 	private boolean indicatorePlafond; // NULL
+	private String codiceDestinatarioXml; //(7) COLLATE Latin1_General_CI_AS
 	private String codiceEORI;	// (17)
 	private StabileOrganizzazione stabileOrganizzazione;
+	private LocalDateTime dataInserimento; // NULL
 	
 
 	public Cliente(String codiceCliente){
 		this.codiceCliente = codiceCliente;
+	}
+
+	public Cliente(String codiceCliente, String descrizione, TipoCliente tipoCliente, ResaMerce resaMerce,
+			Imballo imballo, RaggruppamentoClienteFornitore raggruppamento, float fatturato, float fido,
+			String partitaIVA, String codiceFiscale, Pagamento pagamento, Banca banca, int numeroFattureEmesse, Iva iva,
+			float imponibileNonEsente, float imponibileEsente, float importoIVA, String codiceClassificazione,
+			Agente agente, float percentualeProvvigioneAgente, float scontoLegatoProvvigioniAgente,
+			int numeroCopieFattura, boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreAddebitoSpeseBolli,
+			Listino listino, Vettore vettore, String codiceAffidabilita, Iso iso, String partitaIVAEstero,
+			String codiceDivisa, int dataScadenzaSpostataAgosto, int dataScadenzaSpostataDicembre, String codiceLingua,
+			String note, Stato stato, boolean indicatoreInviataInformativaPrivacy,
+			boolean indicatoreRicevutaInformativaPrivacy, boolean indicatoreScorporoIVA, boolean indicatoreIVADifferita,
+			boolean indicatoreEmail, boolean inputInibito, boolean indicatoreFatturePA, LocalDateTime dataUltimaFattura,
+			LocalDateTime importoUltimaFattura, LocalDateTime importoPlafond, String numeroUltimaFattura,
+			LocalDateTime dataInizioPlafond, boolean indicatoreFattureXML, boolean indicatoreDdtEmail,
+			boolean indicatorePlafond, String codiceDestinatarioXml, String codiceEORI,
+			StabileOrganizzazione stabileOrganizzazione, LocalDateTime dataInserimento) {
+		this.codiceCliente = codiceCliente;
+		this.descrizione = descrizione;
+		this.tipoCliente = tipoCliente;
+		this.resaMerce = resaMerce;
+		this.imballo = imballo;
+		this.raggruppamento = raggruppamento;
+		this.fatturato = fatturato;
+		this.fido = fido;
+		this.partitaIVA = partitaIVA;
+		this.codiceFiscale = codiceFiscale;
+		this.pagamento = pagamento;
+		this.banca = banca;
+		this.numeroFattureEmesse = numeroFattureEmesse;
+		this.iva = iva;
+		this.imponibileNonEsente = imponibileNonEsente;
+		this.imponibileEsente = imponibileEsente;
+		this.importoIVA = importoIVA;
+		this.codiceClassificazione = codiceClassificazione;
+		this.agente = agente;
+		this.percentualeProvvigioneAgente = percentualeProvvigioneAgente;
+		this.scontoLegatoProvvigioniAgente = scontoLegatoProvvigioniAgente;
+		this.numeroCopieFattura = numeroCopieFattura;
+		this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
+		this.indicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
+		this.listino = listino;
+		this.vettore = vettore;
+		this.codiceAffidabilita = codiceAffidabilita;
+		this.iso = iso;
+		this.partitaIVAEstero = partitaIVAEstero;
+		this.codiceDivisa = codiceDivisa;
+		this.dataScadenzaSpostataAgosto = dataScadenzaSpostataAgosto;
+		this.dataScadenzaSpostataDicembre = dataScadenzaSpostataDicembre;
+		this.codiceLingua = codiceLingua;
+		this.note = note;
+		this.stato = stato;
+		this.indicatoreInviataInformativaPrivacy = indicatoreInviataInformativaPrivacy;
+		this.indicatoreRicevutaInformativaPrivacy = indicatoreRicevutaInformativaPrivacy;
+		this.indicatoreScorporoIVA = indicatoreScorporoIVA;
+		this.indicatoreIVADifferita = indicatoreIVADifferita;
+		this.indicatoreEmail = indicatoreEmail;
+		this.inputInibito = inputInibito;
+		this.indicatoreFatturePA = indicatoreFatturePA;
+		this.dataUltimaFattura = dataUltimaFattura;
+		this.importoUltimaFattura = importoUltimaFattura;
+		this.importoPlafond = importoPlafond;
+		this.numeroUltimaFattura = numeroUltimaFattura;
+		this.dataInizioPlafond = dataInizioPlafond;
+		this.indicatoreFattureXML = indicatoreFattureXML;
+		this.indicatoreDdtEmail = indicatoreDdtEmail;
+		this.indicatorePlafond = indicatorePlafond;
+		this.codiceDestinatarioXml = codiceDestinatarioXml;
+		this.codiceEORI = codiceEORI;
+		this.stabileOrganizzazione = stabileOrganizzazione;
+		this.dataInserimento = dataInserimento;
 	}
 
 	public String getCodiceTipoCliente() {
@@ -116,6 +187,30 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceCliente = codiceCliente;
 	}
 
+	public Listino getListino() {
+		return listino;
+	}
+
+	public void setListino(Listino listino) {
+		this.listino = listino;
+	}
+
+	public String getCodiceEORI() {
+		return codiceEORI;
+	}
+
+	public void setCodiceEORI(String codiceEORI) {
+		this.codiceEORI = codiceEORI;
+	}
+
+	public StabileOrganizzazione getStabileOrganizzazione() {
+		return stabileOrganizzazione;
+	}
+
+	public void setStabileOrganizzazione(StabileOrganizzazione stabileOrganizzazione) {
+		this.stabileOrganizzazione = stabileOrganizzazione;
+	}
+
 	public String getDescrizione() {
 		return descrizione;
 	}
@@ -132,12 +227,12 @@ public class Cliente implements Comparable<Cliente>{
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimoAggiornamento() {
-		return dataUltimoAggiornamento;
+	public String getCodiceDestinatarioXml() {
+		return codiceDestinatarioXml;
 	}
 
-	public void setDataUltimoAggiornamento(LocalDateTime dataUltimoAggiornamento) {
-		this.dataUltimoAggiornamento = dataUltimoAggiornamento;
+	public void setCodiceDestinatarioXml(String codiceDestinatarioXml) {
+		this.codiceDestinatarioXml = codiceDestinatarioXml;
 	}
 
 	public TipoCliente getTipoCliente() {
@@ -314,14 +409,6 @@ public class Cliente implements Comparable<Cliente>{
 
 	public void setIndicatoreAddebitoSpeseBolli(boolean indicatoreAddebitoSpeseBolli) {
 		this.indicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
-	}
-
-	public int getCodiceListino() {
-		return codiceListino;
-	}
-
-	public void setCodiceListino(int codiceListino) {
-		this.codiceListino = codiceListino;
 	}
 
 	public Vettore getVettore() {

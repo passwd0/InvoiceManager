@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class PianoConto{
 	private String codiceConto; //(30) NOT NULL
@@ -16,10 +15,141 @@ public class PianoConto{
 	private String codiceBancaBonifico; //(4) NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
-	private String loginModifica; //(30) NULL
-
+	private boolean contoBanca; 
+	
 	public PianoConto(String codiceConto){
 		this.codiceConto = codiceConto;
+	}
+
+	public PianoConto(String codiceConto, String descrizione, LocalDateTime dataUltimoAggiornamento, boolean tipo,
+			String codiceClassificazione, float darePeriodo, float averePeriodo, float dareProgressivo,
+			float avereProgressivo, String codiceDivisa, String codiceBancaBonifico, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica, boolean contoBanca) {
+		this.codiceConto = codiceConto;
+		this.descrizione = descrizione;
+		this.dataUltimoAggiornamento = dataUltimoAggiornamento;
+		this.tipo = tipo;
+		this.codiceClassificazione = codiceClassificazione;
+		this.darePeriodo = darePeriodo;
+		this.averePeriodo = averePeriodo;
+		this.dareProgressivo = dareProgressivo;
+		this.avereProgressivo = avereProgressivo;
+		this.codiceDivisa = codiceDivisa;
+		this.codiceBancaBonifico = codiceBancaBonifico;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+		this.contoBanca = contoBanca;
+	}
+
+	public String getCodiceConto() {
+		return codiceConto;
+	}
+
+	public void setCodiceConto(String codiceConto) {
+		this.codiceConto = codiceConto;
+	}
+
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
+	public LocalDateTime getDataUltimoAggiornamento() {
+		return dataUltimoAggiornamento;
+	}
+
+	public void setDataUltimoAggiornamento(LocalDateTime dataUltimoAggiornamento) {
+		this.dataUltimoAggiornamento = dataUltimoAggiornamento;
+	}
+
+	public boolean isTipo() {
+		return tipo;
+	}
+
+	public void setTipo(boolean tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getCodiceClassificazione() {
+		return codiceClassificazione;
+	}
+
+	public void setCodiceClassificazione(String codiceClassificazione) {
+		this.codiceClassificazione = codiceClassificazione;
+	}
+
+	public float getDarePeriodo() {
+		return darePeriodo;
+	}
+
+	public void setDarePeriodo(float darePeriodo) {
+		this.darePeriodo = darePeriodo;
+	}
+
+	public float getAverePeriodo() {
+		return averePeriodo;
+	}
+
+	public void setAverePeriodo(float averePeriodo) {
+		this.averePeriodo = averePeriodo;
+	}
+
+	public float getDareProgressivo() {
+		return dareProgressivo;
+	}
+
+	public void setDareProgressivo(float dareProgressivo) {
+		this.dareProgressivo = dareProgressivo;
+	}
+
+	public float getAvereProgressivo() {
+		return avereProgressivo;
+	}
+
+	public void setAvereProgressivo(float avereProgressivo) {
+		this.avereProgressivo = avereProgressivo;
+	}
+
+	public String getCodiceDivisa() {
+		return codiceDivisa;
+	}
+
+	public void setCodiceDivisa(String codiceDivisa) {
+		this.codiceDivisa = codiceDivisa;
+	}
+
+	public String getCodiceBancaBonifico() {
+		return codiceBancaBonifico;
+	}
+
+	public void setCodiceBancaBonifico(String codiceBancaBonifico) {
+		this.codiceBancaBonifico = codiceBancaBonifico;
+	}
+
+	public LocalDateTime getDataInserimento() {
+		return dataInserimento;
+	}
+
+	public void setDataInserimento(LocalDateTime dataInserimento) {
+		this.dataInserimento = dataInserimento;
+	}
+
+	public LocalDateTime getDataUltimaModifica() {
+		return dataUltimaModifica;
+	}
+
+	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
+	public boolean isContoBanca() {
+		return contoBanca;
+	}
+
+	public void setContoBanca(boolean contoBanca) {
+		this.contoBanca = contoBanca;
 	}
 }

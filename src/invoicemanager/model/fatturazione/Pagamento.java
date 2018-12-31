@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class Pagamento {
 		private String codicePagamento; //(4) NOT NULL

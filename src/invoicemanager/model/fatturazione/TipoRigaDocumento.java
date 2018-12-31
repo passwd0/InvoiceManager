@@ -1,30 +1,30 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
-public class TipoIndirizzo{
-	private String codiceTipoIndirizzo; //(2) NOT NULL
-	private String descrizione; //(50) NULL
-	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+public class TipoRigaDocumento{
+	private String codiceTipoRigaDocumento; //(4) COLLATE Latin1_General_CI_AS NOT NULL,
+	private String descrizione; //(50) COLLATE Latin1_General_CI_AS NULL,
+	private LocalDateTime dataInserimento; //  NULL,
+	private LocalDateTime dataUltimaModifica; //  NULL,
 
-	public TipoIndirizzo(String codiceTipoIndirizzo){
-		this.codiceTipoIndirizzo = codiceTipoIndirizzo;
+	public TipoRigaDocumento(String codiceTipoRigaDocumento){
+		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
 	}
 
-	public TipoIndirizzo(String codiceTipoIndirizzo, String descrizione, LocalDateTime dataInserimento,
+	public TipoRigaDocumento(String codiceTipoRigaDocumento, String descrizione, LocalDateTime dataInserimento,
 			LocalDateTime dataUltimaModifica) {
-		this.codiceTipoIndirizzo = codiceTipoIndirizzo;
+		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
 		this.descrizione = descrizione;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
-	public String getCodiceTipoIndirizzo() {
-		return codiceTipoIndirizzo;
+	public String getCodiceTipoRigaDocumento() {
+		return codiceTipoRigaDocumento;
 	}
 
-	public void setCodiceTipoIndirizzo(String codiceTipoIndirizzo) {
-		this.codiceTipoIndirizzo = codiceTipoIndirizzo;
+	public void setCodiceTipoRigaDocumento(String codiceTipoRigaDocumento) {
+		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
 	}
 
 	public String getDescrizione() {
@@ -50,5 +50,4 @@ public class TipoIndirizzo{
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
-	
 }

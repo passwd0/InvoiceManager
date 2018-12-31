@@ -29,8 +29,6 @@ public class DdtDettaglio {
 	private String serialNumber; //[SerialNumber] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
 	private LocalDateTime DataInserimento; //NULL
 	private LocalDateTime DataUltimaModifica; //NULL
-	private String loginInserimento; //[LoginInserimento] [varchar](30) COLLATE Latin1_General_CI_AS NULL,
-	private String loginModifica; //[LoginModifica] [varchar](30) COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatorePrelevatoVendita; //] [varchar](1) COLLATE Latin1_General_CI_AS NULL,
 	private String pesoLordo; //[PesoLordo] [varchar](50) COLLATE Latin1_General_CI_AS NULL
 	
@@ -41,7 +39,7 @@ public class DdtDettaglio {
 			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
 			float percentualeScontoPagamento, String descrizioneAggiuntiva, String codiceUnitaMisura,
 			String serialNumber, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
-			String loginInserimento, String loginModifica, boolean indicatorePrelevatoVendita, String pesoLordo) {
+			boolean indicatorePrelevatoVendita, String pesoLordo) {
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;
 		this.numeroRigaDDT = numeroRigaDDT;
@@ -68,8 +66,6 @@ public class DdtDettaglio {
 		this.serialNumber = serialNumber;
 		DataInserimento = dataInserimento;
 		DataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
-		this.loginModifica = loginModifica;
 		this.indicatorePrelevatoVendita = indicatorePrelevatoVendita;
 		this.pesoLordo = pesoLordo;
 	}
@@ -238,18 +234,7 @@ public class DdtDettaglio {
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		DataUltimaModifica = dataUltimaModifica;
 	}
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
-	}
-	public String getLoginModifica() {
-		return loginModifica;
-	}
-	public void setLoginModifica(String loginModifica) {
-		this.loginModifica = loginModifica;
-	}
+	
 	public boolean isIndicatorePrelevatoVendita() {
 		return indicatorePrelevatoVendita;
 	}

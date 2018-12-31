@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class Gruppo{
 	private String codiceGruppo; //(10) NOT NULL
@@ -11,5 +10,45 @@ public class Gruppo{
 	public Gruppo(String codiceGruppo, String descrizione){
 		this.codiceGruppo = codiceGruppo;
 		this.descrizione = descrizione;
+	}
+
+	public Gruppo(String codiceGruppo, String descrizione, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
+		this.codiceGruppo = codiceGruppo;
+		this.descrizione = descrizione;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
+	public String getCodiceGruppo() {
+		return codiceGruppo;
+	}
+
+	public void setCodiceGruppo(String codiceGruppo) {
+		this.codiceGruppo = codiceGruppo;
+	}
+
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
+	public LocalDateTime getDataInserimento() {
+		return dataInserimento;
+	}
+
+	public void setDataInserimento(LocalDateTime dataInserimento) {
+		this.dataInserimento = dataInserimento;
+	}
+
+	public LocalDateTime getDataUltimaModifica() {
+		return dataUltimaModifica;
+	}
+
+	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
 }

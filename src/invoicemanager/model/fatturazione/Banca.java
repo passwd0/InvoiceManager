@@ -1,8 +1,7 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
-public class Banca{
+public class Banca {
 		private String codiceBanca; //(4) NOT NULL
 		private String descrizione; //(100) NULL
 		private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
@@ -20,11 +19,12 @@ public class Banca{
 		private String swift; //(50) NULL
 		private String codiceConto; //(30) NULL
 		private String indirizzo; //(2000) NULL
-		
+		private String cap;
+
 	public Banca(String codiceBanca, String descrizione, Stato stato, String codiceABI, String codiceCAB,
 				String localita, String provincia, String numeroContoCorrente, String codiceCIN, String codiceCINEur,
-				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String iban, String swift, 
-				String codiceConto, String indirizzo) {
+				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String iban,
+				String swift, String codiceConto, String indirizzo, String cap) {
 			this.codiceBanca = codiceBanca;
 			this.descrizione = descrizione;
 			this.stato = stato;
@@ -42,6 +42,7 @@ public class Banca{
 			this.swift = swift;
 			this.codiceConto = codiceConto;
 			this.indirizzo = indirizzo;
+			this.cap = cap;
 		}
 
 	public Banca(String codiceBanca){
@@ -182,6 +183,14 @@ public class Banca{
 
 	public void setIndirizzo(String indirizzo) {
 		this.indirizzo = indirizzo;
+	}
+
+	public String getCap() {
+		return cap;
+	}
+
+	public void setCap(String cap) {
+		this.cap = cap;
 	}
 
 	@Override

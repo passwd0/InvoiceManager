@@ -1,6 +1,5 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class ResaMerce{
 	private String codiceResa; //(4) NOT NULL
