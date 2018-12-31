@@ -1,10 +1,9 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
-public class PianoConto{
+public class PianoConto {
 	private String codiceConto; //(30) NOT NULL
 	private String descrizione; //(100) NULL
-	private LocalDateTime dataUltimoAggiornamento; //  NULL
 	private boolean tipo; // NULL
 	private String codiceClassificazione; //(50) NULL
 	private float darePeriodo; //  NULL
@@ -13,21 +12,20 @@ public class PianoConto{
 	private float avereProgressivo; //  NULL
 	private String codiceDivisa; //(4) NULL
 	private String codiceBancaBonifico; //(4) NULL
+	private boolean contoBanca; 
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-	private boolean contoBanca; 
 	
 	public PianoConto(String codiceConto){
 		this.codiceConto = codiceConto;
 	}
 
-	public PianoConto(String codiceConto, String descrizione, LocalDateTime dataUltimoAggiornamento, boolean tipo,
-			String codiceClassificazione, float darePeriodo, float averePeriodo, float dareProgressivo,
-			float avereProgressivo, String codiceDivisa, String codiceBancaBonifico, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica, boolean contoBanca) {
+	public PianoConto(String codiceConto, String descrizione, boolean tipo, String codiceClassificazione,
+			float darePeriodo, float averePeriodo, float dareProgressivo, float avereProgressivo, String codiceDivisa,
+			String codiceBancaBonifico, boolean contoBanca, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
 		this.codiceConto = codiceConto;
 		this.descrizione = descrizione;
-		this.dataUltimoAggiornamento = dataUltimoAggiornamento;
 		this.tipo = tipo;
 		this.codiceClassificazione = codiceClassificazione;
 		this.darePeriodo = darePeriodo;
@@ -36,9 +34,9 @@ public class PianoConto{
 		this.avereProgressivo = avereProgressivo;
 		this.codiceDivisa = codiceDivisa;
 		this.codiceBancaBonifico = codiceBancaBonifico;
+		this.contoBanca = contoBanca;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
-		this.contoBanca = contoBanca;
 	}
 
 	public String getCodiceConto() {
@@ -55,14 +53,6 @@ public class PianoConto{
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-	}
-
-	public LocalDateTime getDataUltimoAggiornamento() {
-		return dataUltimoAggiornamento;
-	}
-
-	public void setDataUltimoAggiornamento(LocalDateTime dataUltimoAggiornamento) {
-		this.dataUltimoAggiornamento = dataUltimoAggiornamento;
 	}
 
 	public boolean isTipo() {

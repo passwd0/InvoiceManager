@@ -2,47 +2,47 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
 public class Banca {
-		private String codiceBanca; //(4) NOT NULL
-		private String descrizione; //(100) NULL
-		private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
-		private String codiceABI; //(5) NULL
-		private String codiceCAB; //(5) NULL
-		private String localita; //(50) NULL
-		private String provincia; //(20) NULL
-		private String numeroContoCorrente; //(40) NULL
-		private String codiceCIN; //(6) NULL
-		private String codiceCINEur; //(6) NULL
-		private String paese; //(6) NULL
-		private LocalDateTime dataInserimento; //  NULL
-		private LocalDateTime dataUltimaModifica; //  NULL
-		private String iban; //(50) NULL
-		private String swift; //(50) NULL
-		private String codiceConto; //(30) NULL
-		private String indirizzo; //(2000) NULL
-		private String cap;
+	private String codiceBanca; //(4) NOT NULL
+	private String descrizione; //(100) NULL
+	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private String codiceABI; //(5) NULL
+	private String codiceCAB; //(5) NULL
+	private String localita; //(50) NULL
+	private String provincia; //(20) NULL
+	private String numeroContoCorrente; //(40) NULL
+	private String codiceCIN; //(6) NULL
+	private String codiceCINEur; //(6) NULL
+	private String paese; //(6) NULL
+	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataUltimaModifica; //  NULL
+	private String iban; //(50) NULL
+	private String swift; //(50) NULL
+	private String codiceConto; //(30) NULL
+	private String indirizzo; //(2000) NULL
+	private String cap;
 
 	public Banca(String codiceBanca, String descrizione, Stato stato, String codiceABI, String codiceCAB,
 				String localita, String provincia, String numeroContoCorrente, String codiceCIN, String codiceCINEur,
 				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String iban,
 				String swift, String codiceConto, String indirizzo, String cap) {
-			this.codiceBanca = codiceBanca;
-			this.descrizione = descrizione;
-			this.stato = stato;
-			this.codiceABI = codiceABI;
-			this.codiceCAB = codiceCAB;
-			this.localita = localita;
-			this.provincia = provincia;
-			this.numeroContoCorrente = numeroContoCorrente;
-			this.codiceCIN = codiceCIN;
-			this.codiceCINEur = codiceCINEur;
-			this.paese = paese;
-			this.dataInserimento = dataInserimento;
-			this.dataUltimaModifica = dataUltimaModifica;
-			this.iban = iban;
-			this.swift = swift;
-			this.codiceConto = codiceConto;
-			this.indirizzo = indirizzo;
-			this.cap = cap;
+		this.codiceBanca = codiceBanca;
+		this.descrizione = descrizione;
+		this.stato = stato;
+		this.codiceABI = codiceABI;
+		this.codiceCAB = codiceCAB;
+		this.localita = localita;
+		this.provincia = provincia;
+		this.numeroContoCorrente = numeroContoCorrente;
+		this.codiceCIN = codiceCIN;
+		this.codiceCINEur = codiceCINEur;
+		this.paese = paese;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+		this.iban = iban;
+		this.swift = swift;
+		this.codiceConto = codiceConto;
+		this.indirizzo = indirizzo;
+		this.cap = cap;
 		}
 
 	public Banca(String codiceBanca){

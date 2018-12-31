@@ -1,12 +1,13 @@
 package invoicemanager.model.fatturazione;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class PreventivoTestata{
+public class PreventivoTestata {
 	private int numeroPreventivo; //  NOT NULL
-	private LocalDateTime dataPreventivo; //  NOT NULL
+	private LocalDate dataPreventivo; //  NOT NULL
 	private boolean indicatoreStatoAvanzamento; // NULL
-	private LocalDateTime dataConsegna; //  NULL
-	private LocalDateTime dataValidita; //  NULL
+	private LocalDate dataConsegna; //  NULL
+	private LocalDate dataValidita; //  NULL
 	private String periodoValidita; //(100) NULL
 	private boolean indicatoreUtilizzoDataValidita; // NULL
 	private String codiceCliente; //(30) NULL
@@ -30,8 +31,6 @@ public class PreventivoTestata{
 	private String venditore; //(50) NULL
 	private boolean indicatoreAddebitoBolli; // NULL
 	private boolean indicatoreAddebitoSpeseIncasso; // NULL
-	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
 	private String note; //(200) NULL
 	private String codiceClienteSpedizione; //(30) NULL
 	private String nomeSpedizione; //(50) NULL
@@ -41,23 +40,25 @@ public class PreventivoTestata{
 	private String provinciaSpedizione; //(30) NULL
 	private String codiceNazioneSpedizione; //(10) NULL
 	private String loginInserimento; //(30) NULL
+	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataUltimaModifica; //  NULL
 
-	public PreventivoTestata(int numeroPreventivo, LocalDateTime dataPreventivo){
+	public PreventivoTestata(int numeroPreventivo, LocalDate dataPreventivo){
 		this.numeroPreventivo = numeroPreventivo;
 		this.dataPreventivo = dataPreventivo;
 	}
 
-	public PreventivoTestata(int numeroPreventivo, LocalDateTime dataPreventivo, boolean indicatoreStatoAvanzamento,
-			LocalDateTime dataConsegna, LocalDateTime dataValidita, String periodoValidita,
+	public PreventivoTestata(int numeroPreventivo, LocalDate dataPreventivo, boolean indicatoreStatoAvanzamento,
+			LocalDate dataConsegna, LocalDate dataValidita, String periodoValidita,
 			boolean indicatoreUtilizzoDataValidita, String codiceCliente, String attenzione, String oggetto,
 			String riferimentoInterno, String numeroInterno, String codiceIVA, String codiceAgente, String codiceResa,
 			String codiceVettore, String codicePagamento, String codiceBanca, String codiceCausale,
 			String codiceCausalePrelievo, boolean codiceListino, String descrizioneOrdine, String codiceDivisa,
 			float cambio, String numeroFax, String venditore, boolean indicatoreAddebitoBolli,
-			boolean indicatoreAddebitoSpeseIncasso, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
-			String note, String codiceClienteSpedizione, String nomeSpedizione, String indirizzoSpedizione,
-			String capSpedizione, String cittaSpedizione, String provinciaSpedizione, String codiceNazioneSpedizione,
-			String loginInserimento) {
+			boolean indicatoreAddebitoSpeseIncasso, String note, String codiceClienteSpedizione, String nomeSpedizione,
+			String indirizzoSpedizione, String capSpedizione, String cittaSpedizione, String provinciaSpedizione,
+			String codiceNazioneSpedizione, String loginInserimento, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
 		this.numeroPreventivo = numeroPreventivo;
 		this.dataPreventivo = dataPreventivo;
 		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
@@ -86,8 +87,6 @@ public class PreventivoTestata{
 		this.venditore = venditore;
 		this.indicatoreAddebitoBolli = indicatoreAddebitoBolli;
 		this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
-		this.dataInserimento = dataInserimento;
-		this.dataUltimaModifica = dataUltimaModifica;
 		this.note = note;
 		this.codiceClienteSpedizione = codiceClienteSpedizione;
 		this.nomeSpedizione = nomeSpedizione;
@@ -97,6 +96,8 @@ public class PreventivoTestata{
 		this.provinciaSpedizione = provinciaSpedizione;
 		this.codiceNazioneSpedizione = codiceNazioneSpedizione;
 		this.loginInserimento = loginInserimento;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
 	public int getNumeroPreventivo() {
@@ -107,11 +108,11 @@ public class PreventivoTestata{
 		this.numeroPreventivo = numeroPreventivo;
 	}
 
-	public LocalDateTime getDataPreventivo() {
+	public LocalDate getDataPreventivo() {
 		return dataPreventivo;
 	}
 
-	public void setDataPreventivo(LocalDateTime dataPreventivo) {
+	public void setDataPreventivo(LocalDate dataPreventivo) {
 		this.dataPreventivo = dataPreventivo;
 	}
 
@@ -123,19 +124,19 @@ public class PreventivoTestata{
 		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
 	}
 
-	public LocalDateTime getDataConsegna() {
+	public LocalDate getDataConsegna() {
 		return dataConsegna;
 	}
 
-	public void setDataConsegna(LocalDateTime dataConsegna) {
+	public void setDataConsegna(LocalDate dataConsegna) {
 		this.dataConsegna = dataConsegna;
 	}
 
-	public LocalDateTime getDataValidita() {
+	public LocalDate getDataValidita() {
 		return dataValidita;
 	}
 
-	public void setDataValidita(LocalDateTime dataValidita) {
+	public void setDataValidita(LocalDate dataValidita) {
 		this.dataValidita = dataValidita;
 	}
 

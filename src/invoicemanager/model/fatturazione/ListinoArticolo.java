@@ -1,4 +1,5 @@
 package invoicemanager.model.fatturazione;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ListinoArticolo implements Listino{
@@ -7,8 +8,8 @@ public class ListinoArticolo implements Listino{
 	private String codiceDivisa; //(4) NOT NULL
 	private float prezzo; // (19, 5) NULL
 	private int numeroDecimali; //  NULL
-	private LocalDateTime dataDecorrenza; //  NULL
-	private LocalDateTime dataValidita; //  NULL
+	private LocalDate dataDecorrenza; //  NULL
+	private LocalDate dataValidita; //  NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
 
@@ -19,7 +20,7 @@ public class ListinoArticolo implements Listino{
 	}
 
 	public ListinoArticolo(String codiceArticolo, int progressivo, String codiceDivisa, float prezzo,
-			int numeroDecimali, LocalDateTime dataDecorrenza, LocalDateTime dataValidita, LocalDateTime dataInserimento,
+			int numeroDecimali, LocalDate dataDecorrenza, LocalDate dataValidita, LocalDateTime dataInserimento,
 			LocalDateTime dataUltimaModifica) {
 		this.codiceArticolo = codiceArticolo;
 		this.progressivo = progressivo;
@@ -72,19 +73,19 @@ public class ListinoArticolo implements Listino{
 		this.numeroDecimali = numeroDecimali;
 	}
 
-	public LocalDateTime getDataDecorrenza() {
+	public LocalDate getDataDecorrenza() {
 		return dataDecorrenza;
 	}
 
-	public void setDataDecorrenza(LocalDateTime dataDecorrenza) {
+	public void setDataDecorrenza(LocalDate dataDecorrenza) {
 		this.dataDecorrenza = dataDecorrenza;
 	}
 
-	public LocalDateTime getDataValidita() {
+	public LocalDate getDataValidita() {
 		return dataValidita;
 	}
 
-	public void setDataValidita(LocalDateTime dataValidita) {
+	public void setDataValidita(LocalDate dataValidita) {
 		this.dataValidita = dataValidita;
 	}
 

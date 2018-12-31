@@ -2,38 +2,38 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
 public class Iva{
-		private String codiceIva; //(4) NOT NULL
-		private String descrizione; //(100) NULL
-		private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
-		private int rigaIVAAcquisti; //  NULL
-		private float addizionaleIVA; //  NULL
-		private float aliquotaIVA; //  NULL
-		private float imponibileAcquisti; //  NULL
-		private float imponibileAcquistiNonDetraibile; //  NULL
-		private float impostaAcquisti; //  NULL
-		private float imponibileVendite; //  NULL
-		private float imponibileVenditeNonDetraibile; //  NULL
-		private float impostaVendite; //  NULL
-		private int rigaIVAVendite; //  NULL
-		private float coefficienteIVA; //  NULL
-		private String percentualeIndetraibilita; //(5) NULL
-		private float valoreArrotondamento; //  NULL
-		private boolean indicatoreTroncaAcquisti; // NULL
-		private boolean indicatoreSommaAcquisti; // NULL
-		private boolean indicatoreArrotondaAcquisti; // NULL
-		private boolean indicatoreSottraeAcquisti; // NULL
-		private boolean indicatoreTroncaVendite; // NULL
-		private boolean indicatoreSommaVendite; // NULL
-		private boolean indicatoreArrotondaVendite; // NULL
-		private boolean indicatoreSottraeVendite; // NULL
-		private LocalDateTime dataInserimento; //  NULL
-		private LocalDateTime dataUltimaModifica; //  NULL
-		private String loginInserimento; //(30) NULL
-		private String loginModifica; //(30) NULL
-		private boolean elencoClientiFornitori; // NULL
-		private String colonnaClientiFornitori; //(50) NULL
-		private String colonnaNoteClientiFornitori; //(50) NULL
-		private String splitPayment;
+	private String codiceIva; //(4) NOT NULL
+	private String descrizione; //(100) NULL
+	private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private int rigaIVAAcquisti; //  NULL
+	private float addizionaleIVA; //  NULL
+	private float aliquotaIVA; //  NULL
+	private float imponibileAcquisti; //  NULL
+	private float imponibileAcquistiNonDetraibile; //  NULL
+	private float impostaAcquisti; //  NULL
+	private float imponibileVendite; //  NULL
+	private float imponibileVenditeNonDetraibile; //  NULL
+	private float impostaVendite; //  NULL
+	private int rigaIVAVendite; //  NULL
+	private float coefficienteIVA; //  NULL
+	private String percentualeIndetraibilita; //(5) NULL
+	private float valoreArrotondamento; //  NULL
+	private boolean indicatoreTroncaAcquisti; // NULL
+	private boolean indicatoreSommaAcquisti; // NULL
+	private boolean indicatoreArrotondaAcquisti; // NULL
+	private boolean indicatoreSottraeAcquisti; // NULL
+	private boolean indicatoreTroncaVendite; // NULL
+	private boolean indicatoreSommaVendite; // NULL
+	private boolean indicatoreArrotondaVendite; // NULL
+	private boolean indicatoreSottraeVendite; // NULL
+	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataUltimaModifica; //  NULL
+	private String loginInserimento; //(30) NULL
+	private String loginModifica; //(30) NULL
+	private boolean elencoClientiFornitori; // NULL
+	private String colonnaClientiFornitori; //(50) NULL
+	private String colonnaNoteClientiFornitori; //(50) NULL
+	private String splitPayment;
 		
 	public Iva(String codiceIva, String descrizione, Stato codiceStato, int rigaIVAAcquisti, float addizionaleIVA,
 				float aliquotaIVA, float imponibileAcquisti, float imponibileAcquistiNonDetraibile,
@@ -45,39 +45,39 @@ public class Iva{
 				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
 				String loginModifica, boolean elencoClientiFornitori, String colonnaClientiFornitori,
 				String colonnaNoteClientiFornitori, String splitPayment) {
-			this.codiceIva = codiceIva;
-			this.descrizione = descrizione;
-			this.codiceStato = codiceStato;
-			this.rigaIVAAcquisti = rigaIVAAcquisti;
-			this.addizionaleIVA = addizionaleIVA;
-			this.aliquotaIVA = aliquotaIVA;
-			this.imponibileAcquisti = imponibileAcquisti;
-			this.imponibileAcquistiNonDetraibile = imponibileAcquistiNonDetraibile;
-			this.impostaAcquisti = impostaAcquisti;
-			this.imponibileVendite = imponibileVendite;
-			this.imponibileVenditeNonDetraibile = imponibileVenditeNonDetraibile;
-			this.impostaVendite = impostaVendite;
-			this.rigaIVAVendite = rigaIVAVendite;
-			this.coefficienteIVA = coefficienteIVA;
-			this.percentualeIndetraibilita = percentualeIndetraibilita;
-			this.valoreArrotondamento = valoreArrotondamento;
-			this.indicatoreTroncaAcquisti = indicatoreTroncaAcquisti;
-			this.indicatoreSommaAcquisti = indicatoreSommaAcquisti;
-			this.indicatoreArrotondaAcquisti = indicatoreArrotondaAcquisti;
-			this.indicatoreSottraeAcquisti = indicatoreSottraeAcquisti;
-			this.indicatoreTroncaVendite = indicatoreTroncaVendite;
-			this.indicatoreSommaVendite = indicatoreSommaVendite;
-			this.indicatoreArrotondaVendite = indicatoreArrotondaVendite;
-			this.indicatoreSottraeVendite = indicatoreSottraeVendite;
-			this.dataInserimento = dataInserimento;
-			this.dataUltimaModifica = dataUltimaModifica;
-			this.loginInserimento = loginInserimento;
-			this.loginModifica = loginModifica;
-			this.elencoClientiFornitori = elencoClientiFornitori;
-			this.colonnaClientiFornitori = colonnaClientiFornitori;
-			this.colonnaNoteClientiFornitori = colonnaNoteClientiFornitori;
-			this.splitPayment = splitPayment;
-		}
+		this.codiceIva = codiceIva;
+		this.descrizione = descrizione;
+		this.codiceStato = codiceStato;
+		this.rigaIVAAcquisti = rigaIVAAcquisti;
+		this.addizionaleIVA = addizionaleIVA;
+		this.aliquotaIVA = aliquotaIVA;
+		this.imponibileAcquisti = imponibileAcquisti;
+		this.imponibileAcquistiNonDetraibile = imponibileAcquistiNonDetraibile;
+		this.impostaAcquisti = impostaAcquisti;
+		this.imponibileVendite = imponibileVendite;
+		this.imponibileVenditeNonDetraibile = imponibileVenditeNonDetraibile;
+		this.impostaVendite = impostaVendite;
+		this.rigaIVAVendite = rigaIVAVendite;
+		this.coefficienteIVA = coefficienteIVA;
+		this.percentualeIndetraibilita = percentualeIndetraibilita;
+		this.valoreArrotondamento = valoreArrotondamento;
+		this.indicatoreTroncaAcquisti = indicatoreTroncaAcquisti;
+		this.indicatoreSommaAcquisti = indicatoreSommaAcquisti;
+		this.indicatoreArrotondaAcquisti = indicatoreArrotondaAcquisti;
+		this.indicatoreSottraeAcquisti = indicatoreSottraeAcquisti;
+		this.indicatoreTroncaVendite = indicatoreTroncaVendite;
+		this.indicatoreSommaVendite = indicatoreSommaVendite;
+		this.indicatoreArrotondaVendite = indicatoreArrotondaVendite;
+		this.indicatoreSottraeVendite = indicatoreSottraeVendite;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+		this.loginInserimento = loginInserimento;
+		this.loginModifica = loginModifica;
+		this.elencoClientiFornitori = elencoClientiFornitori;
+		this.colonnaClientiFornitori = colonnaClientiFornitori;
+		this.colonnaNoteClientiFornitori = colonnaNoteClientiFornitori;
+		this.splitPayment = splitPayment;
+	}
 
 	public Iva(String codiceIva){
 		this.codiceIva = codiceIva;

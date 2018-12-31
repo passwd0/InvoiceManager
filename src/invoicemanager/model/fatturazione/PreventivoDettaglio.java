@@ -1,10 +1,11 @@
 package invoicemanager.model.fatturazione;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class PreventivoDettaglio{
 	private int numeroPreventivo; //  NOT NULL
 	private short numeroRigaPreventivo; //  NOT NULL
-	private LocalDateTime dataPreventivo; //  NOT NULL
+	private LocalDate dataPreventivo; //  NOT NULL
 	private String codiceTipoRigaDocumento; //(4) NULL
 	private String codiceArticolo; //(30) NULL
 	private float quantitaArticolo; //  NULL
@@ -12,7 +13,7 @@ public class PreventivoDettaglio{
 	private float quantitaDaConsegnare; //  NULL
 	private String descrizione; //(200) NULL
 	private String descrizioneAggiuntiva; //(8000) NULL
-	private LocalDateTime dataConsegna; //  NULL
+	private LocalDate dataConsegna; //  NULL
 	private String codiceUnitaMisura; //(4) NULL
 	private float prezzo; // (19, 5) NULL
 	private String codiceIVA; //(4) NULL
@@ -24,21 +25,20 @@ public class PreventivoDettaglio{
 	private String codiceMagazzino; //(4) NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
 
-	public PreventivoDettaglio(int numeroPreventivo, short numeroRigaPreventivo, LocalDateTime dataPreventivo){
+	public PreventivoDettaglio(int numeroPreventivo, short numeroRigaPreventivo, LocalDate dataPreventivo){
 		this.numeroPreventivo = numeroPreventivo;
 		this.numeroRigaPreventivo = numeroRigaPreventivo;
 		this.dataPreventivo = dataPreventivo;
 	}
 
-	public PreventivoDettaglio(int numeroPreventivo, short numeroRigaPreventivo, LocalDateTime dataPreventivo,
+	public PreventivoDettaglio(int numeroPreventivo, short numeroRigaPreventivo, LocalDate dataPreventivo,
 			String codiceTipoRigaDocumento, String codiceArticolo, float quantitaArticolo, float quantitaConsegnata,
-			float quantitaDaConsegnare, String descrizione, String descrizioneAggiuntiva, LocalDateTime dataConsegna,
+			float quantitaDaConsegnare, String descrizione, String descrizioneAggiuntiva, LocalDate dataConsegna,
 			String codiceUnitaMisura, float prezzo, String codiceIVA, String codiceControparte,
 			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
 			float percentualeScontoPagamento, String codiceMagazzino, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica, String loginInserimento) {
+			LocalDateTime dataUltimaModifica) {
 		this.numeroPreventivo = numeroPreventivo;
 		this.numeroRigaPreventivo = numeroRigaPreventivo;
 		this.dataPreventivo = dataPreventivo;
@@ -61,7 +61,6 @@ public class PreventivoDettaglio{
 		this.codiceMagazzino = codiceMagazzino;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
 	}
 
 	public int getNumeroPreventivo() {
@@ -80,11 +79,11 @@ public class PreventivoDettaglio{
 		this.numeroRigaPreventivo = numeroRigaPreventivo;
 	}
 
-	public LocalDateTime getDataPreventivo() {
+	public LocalDate getDataPreventivo() {
 		return dataPreventivo;
 	}
 
-	public void setDataPreventivo(LocalDateTime dataPreventivo) {
+	public void setDataPreventivo(LocalDate dataPreventivo) {
 		this.dataPreventivo = dataPreventivo;
 	}
 
@@ -144,11 +143,11 @@ public class PreventivoDettaglio{
 		this.descrizioneAggiuntiva = descrizioneAggiuntiva;
 	}
 
-	public LocalDateTime getDataConsegna() {
+	public LocalDate getDataConsegna() {
 		return dataConsegna;
 	}
 
-	public void setDataConsegna(LocalDateTime dataConsegna) {
+	public void setDataConsegna(LocalDate dataConsegna) {
 		this.dataConsegna = dataConsegna;
 	}
 
@@ -238,13 +237,5 @@ public class PreventivoDettaglio{
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
 	}
 }

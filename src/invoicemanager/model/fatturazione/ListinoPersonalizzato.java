@@ -1,4 +1,5 @@
 package invoicemanager.model.fatturazione;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ListinoPersonalizzato implements Listino {
@@ -17,10 +18,8 @@ public class ListinoPersonalizzato implements Listino {
 	private float scontoPagamento; //  NULL
 	private String codiceDivisa; //(4) NOT NULL
 	private GruppoMerceologico gruppoMerceologico; //(4) NULL
-	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
-	private LocalDateTime dataInizioValidita; //  NULL
-	private LocalDateTime dataFineValidita; //  NULL
+	private LocalDate dataInizioValidita; //  NULL
+	private LocalDate dataFineValidita; //  NULL
 	private boolean opzioneGruppi; //  NULL
 	private boolean opzioneScontoClienti; //  NULL
 	private boolean opzioneScontoArticolo; //  NULL
@@ -28,6 +27,8 @@ public class ListinoPersonalizzato implements Listino {
 	private boolean opzionePercentualeProvvigione; //  NULL
 	private boolean opzioneNoteEsterne; //  NULL
 	private boolean opzioneNoteInterne; //  NULL
+	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataUltimaModifica; //  NULL
 
 	public ListinoPersonalizzato(String codiceCliente, String codiceArticolo, String codiceDivisa){
 		this.codiceCliente = codiceCliente;
@@ -39,10 +40,10 @@ public class ListinoPersonalizzato implements Listino {
 			String variante, float prezzo, float provvigione, String noteEsterne, String noteInterne,
 			int numeroDecimali, float scontoCliente, LocalDateTime dataAggiornamento, float scontoArticolo,
 			float scontoPagamento, String codiceDivisa, GruppoMerceologico gruppoMerceologico,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, LocalDateTime dataInizioValidita,
-			LocalDateTime dataFineValidita, boolean opzioneGruppi, boolean opzioneScontoClienti,
-			boolean opzioneScontoArticolo, boolean opzioneScontoPagamento, boolean opzionePercentualeProvvigione,
-			boolean opzioneNoteEsterne, boolean opzioneNoteInterne) {
+			LocalDate dataInizioValidita, LocalDate dataFineValidita, boolean opzioneGruppi,
+			boolean opzioneScontoClienti, boolean opzioneScontoArticolo, boolean opzioneScontoPagamento,
+			boolean opzionePercentualeProvvigione, boolean opzioneNoteEsterne, boolean opzioneNoteInterne,
+			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceListinoPersonalizzato = codiceListinoPersonalizzato;
 		this.codiceCliente = codiceCliente;
 		this.codiceArticolo = codiceArticolo;
@@ -58,8 +59,6 @@ public class ListinoPersonalizzato implements Listino {
 		this.scontoPagamento = scontoPagamento;
 		this.codiceDivisa = codiceDivisa;
 		this.gruppoMerceologico = gruppoMerceologico;
-		this.dataInserimento = dataInserimento;
-		this.dataUltimaModifica = dataUltimaModifica;
 		this.dataInizioValidita = dataInizioValidita;
 		this.dataFineValidita = dataFineValidita;
 		this.opzioneGruppi = opzioneGruppi;
@@ -69,6 +68,8 @@ public class ListinoPersonalizzato implements Listino {
 		this.opzionePercentualeProvvigione = opzionePercentualeProvvigione;
 		this.opzioneNoteEsterne = opzioneNoteEsterne;
 		this.opzioneNoteInterne = opzioneNoteInterne;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
 	public String getCodiceGruppoMerceologico() {
@@ -213,19 +214,19 @@ public class ListinoPersonalizzato implements Listino {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
-	public LocalDateTime getDataInizioValidita() {
+	public LocalDate getDataInizioValidita() {
 		return dataInizioValidita;
 	}
 
-	public void setDataInizioValidita(LocalDateTime dataInizioValidita) {
+	public void setDataInizioValidita(LocalDate dataInizioValidita) {
 		this.dataInizioValidita = dataInizioValidita;
 	}
 
-	public LocalDateTime getDataFineValidita() {
+	public LocalDate getDataFineValidita() {
 		return dataFineValidita;
 	}
 
-	public void setDataFineValidita(LocalDateTime dataFineValidita) {
+	public void setDataFineValidita(LocalDate dataFineValidita) {
 		this.dataFineValidita = dataFineValidita;
 	}
 

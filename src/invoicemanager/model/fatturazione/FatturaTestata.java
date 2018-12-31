@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FatturaTestata {
 	private int numeroFatturazione;
-	private LocalDateTime dataFattura;
+	private LocalDate dataFattura;
 	private StatoAvanzamento statoAvanzamento;
 	private String codiceClienteFatturazione;
 	private String codiceEsenzioneIva;
@@ -56,7 +56,7 @@ public class FatturaTestata {
 	private LocalDateTime dataInserimento;
 	private LocalDateTime dataUltimaModifica;
 
-	public FatturaTestata(int numeroFatturazione, LocalDateTime dataFattura, StatoAvanzamento statoAvanzamento,
+	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura, StatoAvanzamento statoAvanzamento,
 			String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
 			String codiceCausalePrelievi, float percentualeSconto, float percentualeScontoPagamento,
 			float percentualeProvvigione, String descrizione, boolean indicatoreAddebitoBolli,
@@ -122,7 +122,7 @@ public class FatturaTestata {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
-	public FatturaTestata(int numeroFatturazione, LocalDateTime dataFattura) {
+	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura) {
 		this.numeroFatturazione = numeroFatturazione;
 		this.dataFattura = dataFattura;
 	}
@@ -207,11 +207,11 @@ public class FatturaTestata {
 		this.numeroFatturazione = numeroFatturazione;
 	}
 
-	public LocalDateTime getDataFattura() {
+	public LocalDate getDataFattura() {
 		return dataFattura;
 	}
 
-	public void setDataFattura(LocalDateTime dataFattura) {
+	public void setDataFattura(LocalDate dataFattura) {
 		this.dataFattura = dataFattura;
 	}
 

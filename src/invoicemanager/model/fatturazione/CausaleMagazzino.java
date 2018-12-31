@@ -23,7 +23,6 @@ public class CausaleMagazzino{
 	private String valorePerValorizzazioneMovimenti; //(10) NULL
 	private boolean indicatoreConcatenamento; // NULL
 	private String codiceCausaleConcatenata; //(4) NULL
-	private LocalDateTime dataUltimoAggiornamentoCausale; //  NULL
 	private String nomeFileMemo; //(50) NULL
 	private boolean indicatoreModifica; // NULL
 	private boolean indicatoreBollaEntrata; // NULL
@@ -51,11 +50,11 @@ public class CausaleMagazzino{
 			boolean indicatoreAggiornamentoDataUltimoCarico, boolean indicatoreAggiornamentoDataUltimoScarico,
 			boolean indicatoreAggiornamentoCostoUltimo, String valoreDaProporre,
 			String valorePerValorizzazioneMovimenti, boolean indicatoreConcatenamento, String codiceCausaleConcatenata,
-			LocalDateTime dataUltimoAggiornamentoCausale, String nomeFileMemo, boolean indicatoreModifica,
-			boolean indicatoreBollaEntrata, boolean indicatoreDocumentoDiTrasporto,
-			boolean indicatoreFatturaAccompagnatoria, boolean indicatoreOrdineCliente,
-			boolean indicatoreOrdineFornitore, boolean indicatoreDistinta, String note, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica, String loginInserimento, String loginModifica, boolean indicatoreLotti) {
+			String nomeFileMemo, boolean indicatoreModifica, boolean indicatoreBollaEntrata,
+			boolean indicatoreDocumentoDiTrasporto, boolean indicatoreFatturaAccompagnatoria,
+			boolean indicatoreOrdineCliente, boolean indicatoreOrdineFornitore, boolean indicatoreDistinta, String note,
+			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
+			String loginModifica, boolean indicatoreLotti) {
 		this.codiceCausale = codiceCausale;
 		this.descrizione = descrizione;
 		this.codiceStato = codiceStato;
@@ -77,7 +76,6 @@ public class CausaleMagazzino{
 		this.valorePerValorizzazioneMovimenti = valorePerValorizzazioneMovimenti;
 		this.indicatoreConcatenamento = indicatoreConcatenamento;
 		this.codiceCausaleConcatenata = codiceCausaleConcatenata;
-		this.dataUltimoAggiornamentoCausale = dataUltimoAggiornamentoCausale;
 		this.nomeFileMemo = nomeFileMemo;
 		this.indicatoreModifica = indicatoreModifica;
 		this.indicatoreBollaEntrata = indicatoreBollaEntrata;
@@ -260,14 +258,6 @@ public class CausaleMagazzino{
 
 	public void setCodiceCausaleConcatenata(String codiceCausaleConcatenata) {
 		this.codiceCausaleConcatenata = codiceCausaleConcatenata;
-	}
-
-	public LocalDateTime getDataUltimoAggiornamentoCausale() {
-		return dataUltimoAggiornamentoCausale;
-	}
-
-	public void setDataUltimoAggiornamentoCausale(LocalDateTime dataUltimoAggiornamentoCausale) {
-		this.dataUltimoAggiornamentoCausale = dataUltimoAggiornamentoCausale;
 	}
 
 	public String getNomeFileMemo() {

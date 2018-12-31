@@ -2,20 +2,21 @@ package invoicemanager.model.fatturazione;
 
 import java.math.RoundingMode;
 import java.text.NumberFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 
 public class FatturaDettaglio {
 	private int numeroFattura;
-	private LocalDateTime dataFattura;
+	private LocalDate dataFattura;
 	private int numeroRigaFattura;
 	private String codiceTipoRigaDocumento;
 	private String codiceArticolo;
 	private float costo;
 	private int numeroOrdine;
 	private int numeroRigaOrdine;
-	private LocalDateTime dataOrdine;
+	private LocalDate dataOrdine;
 	private float quantitaDaConsegnare;
 	private boolean indicatoreEvasione;
 	private String descrizione;
@@ -52,9 +53,9 @@ public class FatturaDettaglio {
 		this.numeroRigaFattura = numeroRigaFattura;
 	}
 
-	public FatturaDettaglio(int numeroFattura, LocalDateTime dataFattura, int numeroRigaFattura,
+	public FatturaDettaglio(int numeroFattura, LocalDate dataFattura, int numeroRigaFattura,
 			String codiceTipoRigaDocumento, String codiceArticolo, float costo, int numeroOrdine, int numeroRigaOrdine,
-			LocalDateTime dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
+			LocalDate dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
 			float quantita, float prezzo, String codiceIva, String codiceContropartitaContabile,
 			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
 			float percentualeScontoPagamento, String codiceUnitaMisura, String serialNumber,
@@ -113,11 +114,11 @@ public class FatturaDettaglio {
 		this.numeroFattura = numeroFattura;
 	}
 
-	public LocalDateTime getDataFattura() {
+	public LocalDate getDataFattura() {
 		return dataFattura;
 	}
 
-	public void setDataFattura(LocalDateTime dataFattura) {
+	public void setDataFattura(LocalDate dataFattura) {
 		this.dataFattura = dataFattura;
 	}
 
@@ -169,11 +170,11 @@ public class FatturaDettaglio {
 		this.numeroRigaOrdine = numeroRigaOrdine;
 	}
 
-	public LocalDateTime getDataOrdine() {
+	public LocalDate getDataOrdine() {
 		return dataOrdine;
 	}
 
-	public void setDataOrdine(LocalDateTime dataOrdine) {
+	public void setDataOrdine(LocalDate dataOrdine) {
 		this.dataOrdine = dataOrdine;
 	}
 

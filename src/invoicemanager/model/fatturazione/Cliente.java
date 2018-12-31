@@ -1,5 +1,6 @@
 package invoicemanager.model.fatturazione;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Cliente implements Comparable<Cliente>{
@@ -45,11 +46,11 @@ public class Cliente implements Comparable<Cliente>{
 	private boolean indicatoreEmail;
 	private boolean inputInibito;
 	private boolean indicatoreFatturePA; // NULL
-	private LocalDateTime dataUltimaFattura; //  NULL
-	private LocalDateTime importoUltimaFattura; //  NULL
-	private LocalDateTime importoPlafond; //  NULL
+	private LocalDate dataUltimaFattura; //  NULL
+	private float importoUltimaFattura; //  NULL
+	private float importoPlafond; //  NULL
 	private String numeroUltimaFattura; //(50) NULL
-	private LocalDateTime dataInizioPlafond; //  NULL
+	private LocalDate dataInizioPlafond; //  NULL
 	private boolean indicatoreFattureXML; // NULL
 	private boolean indicatoreDdtEmail; // NULL
 	private boolean indicatorePlafond; // NULL
@@ -75,9 +76,9 @@ public class Cliente implements Comparable<Cliente>{
 			String codiceDivisa, int dataScadenzaSpostataAgosto, int dataScadenzaSpostataDicembre, String codiceLingua,
 			String note, Stato stato, boolean indicatoreInviataInformativaPrivacy,
 			boolean indicatoreRicevutaInformativaPrivacy, boolean indicatoreScorporoIVA, boolean indicatoreIVADifferita,
-			boolean indicatoreEmail, boolean inputInibito, boolean indicatoreFatturePA, LocalDateTime dataUltimaFattura,
-			LocalDateTime importoUltimaFattura, LocalDateTime importoPlafond, String numeroUltimaFattura,
-			LocalDateTime dataInizioPlafond, boolean indicatoreFattureXML, boolean indicatoreDdtEmail,
+			boolean indicatoreEmail, boolean inputInibito, boolean indicatoreFatturePA, LocalDate dataUltimaFattura,
+			float importoUltimaFattura, float importoPlafond, String numeroUltimaFattura,
+			LocalDate dataInizioPlafond, boolean indicatoreFattureXML, boolean indicatoreDdtEmail,
 			boolean indicatorePlafond, String codiceDestinatarioXml, String codiceEORI,
 			StabileOrganizzazione stabileOrganizzazione, RappresentanteFiscale rappresentanteFiscale,
 			TerzoIntermediario terzoIntermediario, LocalDateTime dataInserimento, LocalDateTime dataUltimaModificaa) {
@@ -585,27 +586,27 @@ public class Cliente implements Comparable<Cliente>{
 		this.indicatoreFatturePA = indicatoreFatturePA;
 	}
 
-	public LocalDateTime getDataUltimaFattura() {
+	public LocalDate getDataUltimaFattura() {
 		return dataUltimaFattura;
 	}
 
-	public void setDataUltimaFattura(LocalDateTime dataUltimaFattura) {
+	public void setDataUltimaFattura(LocalDate dataUltimaFattura) {
 		this.dataUltimaFattura = dataUltimaFattura;
 	}
 
-	public LocalDateTime getImportoUltimaFattura() {
+	public float getImportoUltimaFattura() {
 		return importoUltimaFattura;
 	}
 
-	public void setImportoUltimaFattura(LocalDateTime importoUltimaFattura) {
+	public void setImportoUltimaFattura(float importoUltimaFattura) {
 		this.importoUltimaFattura = importoUltimaFattura;
 	}
 
-	public LocalDateTime getImportoPlafond() {
+	public float getImportoPlafond() {
 		return importoPlafond;
 	}
 
-	public void setImportoPlafond(LocalDateTime importoPlafond) {
+	public void setImportoPlafond(float importoPlafond) {
 		this.importoPlafond = importoPlafond;
 	}
 
@@ -617,11 +618,11 @@ public class Cliente implements Comparable<Cliente>{
 		this.numeroUltimaFattura = numeroUltimaFattura;
 	}
 
-	public LocalDateTime getDataInizioPlafond() {
+	public LocalDate getDataInizioPlafond() {
 		return dataInizioPlafond;
 	}
 
-	public void setDataInizioPlafond(LocalDateTime dataInizioPlafond) {
+	public void setDataInizioPlafond(LocalDate dataInizioPlafond) {
 		this.dataInizioPlafond = dataInizioPlafond;
 	}
 

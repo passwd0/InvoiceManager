@@ -1,5 +1,6 @@
 package invoicemanager.model.fatturazione;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class DdtTestata {
 	private String codicePagamento; //] [varchar](4) ,
 	private String codiceBanca; //] [varchar](4) ,
 	private int numeroFattura; //NULL
-	private LocalDateTime dataFattura; //NULL
+	private LocalDate dataFattura; //NULL
 	private String codiceDivisa; // [varchar](4) ,
 	private String causaleTrasporto; //] [varchar](50) ,
 	private float pesoColli; //NULL
@@ -58,7 +59,7 @@ public class DdtTestata {
 			String codiceAgente, float percentualeProvvigione, float percentualeSconto, int numeroCopieFattura,
 			boolean indicatoreAddebitoBolli, boolean indicatoreAddebitoSpeseIncasso, int codiceListino,
 			String codiceResa, String codiceVettore, String codiceImballo, String codicePagamento, String codiceBanca,
-			int numeroFattura, LocalDateTime dataFattura, String codiceDivisa, String causaleTrasporto, float pesoColli,
+			int numeroFattura, LocalDate dataFattura, String codiceDivisa, String causaleTrasporto, float pesoColli,
 			String descrizione, int numeroColli, boolean indicatorePreventivoDaConferma, boolean indicatoreBollaVisione,
 			String codiceClienteSpedizione, String nomeSpedizione, String indirizzoSpedizione, String capSpedizione,
 			String cittaSpedizione, String provinciaSpedizione, String codiceNazioneSpedizione,
@@ -246,10 +247,10 @@ public class DdtTestata {
 	public void setNumeroFattura(int numeroFattura) {
 		this.numeroFattura = numeroFattura;
 	}
-	public LocalDateTime getDataFattura() {
+	public LocalDate getDataFattura() {
 		return dataFattura;
 	}
-	public void setDataFattura(LocalDateTime dataFattura) {
+	public void setDataFattura(LocalDate dataFattura) {
 		this.dataFattura = dataFattura;
 	}
 	public String getCodiceDivisa() {
