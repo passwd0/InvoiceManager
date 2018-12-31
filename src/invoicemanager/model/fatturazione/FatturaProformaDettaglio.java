@@ -1,5 +1,6 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDate;
+import java.util.List;
 
 public class FatturaProformaDettaglio{
 	private int numeroFattura; //  NOT NULL,
@@ -24,6 +25,12 @@ public class FatturaProformaDettaglio{
 	private String serialNumber; //(20) COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatoreNoConferma; // COLLATE Latin1_General_CI_AS NULL,
 	private String codiceMagazzino; //(4) COLLATE Latin1_General_CI_AS NULL,
+	private List<Ordine> ordini;
+	private List<Contratto> contratti;
+	private List<Convenzione> convenzioni;
+	private List<Ricezione> ricezioni;
+	private List<FatturaCollegata> fattureCollegate;
+	private List<AltroDatoGestionale> altriDatiGestionali;
 
 	public FatturaProformaDettaglio(int numeroFattura, short numeroRigaFattura, LocalDate dataFattura){
 		this.numeroFattura = numeroFattura;
@@ -36,7 +43,9 @@ public class FatturaProformaDettaglio{
 			boolean indicatoreEvasione, String descrizione, float quantita, float prezzo, String codiceIva,
 			String codiceContropartitaContabile, float percentualeProvvigione, float percentualeScontoCliente,
 			float percentualeScontoArticolo, float percentualeScontoPagamento, String descrizioneAggiuntiva,
-			String codiceUnitaMisura, String serialNumber, boolean indicatoreNoConferma, String codiceMagazzino) {
+			String codiceUnitaMisura, String serialNumber, boolean indicatoreNoConferma, String codiceMagazzino,
+			List<Ordine> ordini, List<Contratto> contratti, List<Convenzione> convenzioni, List<Ricezione> ricezioni,
+			List<FatturaCollegata> fattureCollegate, List<AltroDatoGestionale> altriDatiGestionali) {
 		this.numeroFattura = numeroFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
 		this.dataFattura = dataFattura;
@@ -59,6 +68,12 @@ public class FatturaProformaDettaglio{
 		this.serialNumber = serialNumber;
 		this.indicatoreNoConferma = indicatoreNoConferma;
 		this.codiceMagazzino = codiceMagazzino;
+		this.ordini = ordini;
+		this.contratti = contratti;
+		this.convenzioni = convenzioni;
+		this.ricezioni = ricezioni;
+		this.fattureCollegate = fattureCollegate;
+		this.altriDatiGestionali = altriDatiGestionali;
 	}
 
 	public int getNumeroFattura() {
@@ -235,5 +250,53 @@ public class FatturaProformaDettaglio{
 
 	public void setCodiceMagazzino(String codiceMagazzino) {
 		this.codiceMagazzino = codiceMagazzino;
+	}
+
+	public List<Ordine> getOrdini() {
+		return ordini;
+	}
+
+	public void setOrdini(List<Ordine> ordini) {
+		this.ordini = ordini;
+	}
+
+	public List<Contratto> getContratti() {
+		return contratti;
+	}
+
+	public void setContratti(List<Contratto> contratti) {
+		this.contratti = contratti;
+	}
+
+	public List<Convenzione> getConvenzioni() {
+		return convenzioni;
+	}
+
+	public void setConvenzioni(List<Convenzione> convenzioni) {
+		this.convenzioni = convenzioni;
+	}
+
+	public List<Ricezione> getRicezioni() {
+		return ricezioni;
+	}
+
+	public void setRicezioni(List<Ricezione> ricezioni) {
+		this.ricezioni = ricezioni;
+	}
+
+	public List<FatturaCollegata> getFattureCollegate() {
+		return fattureCollegate;
+	}
+
+	public void setFattureCollegate(List<FatturaCollegata> fattureCollegate) {
+		this.fattureCollegate = fattureCollegate;
+	}
+
+	public List<AltroDatoGestionale> getAltriDatiGestionali() {
+		return altriDatiGestionali;
+	}
+
+	public void setAltriDatiGestionali(List<AltroDatoGestionale> altriDatiGestionali) {
+		this.altriDatiGestionali = altriDatiGestionali;
 	}
 }

@@ -2,13 +2,13 @@ package invoicemanager.model.fatturazione;
 
 import java.time.LocalDate;
 
-public class AltriDatiGestionali {
+public class AltroDatoGestionale {
 	private String tipoDato; //(10)
 	private String riferimentoTesto; //(60)
 	private float riferimentoNumero;
 	private LocalDate riferimentoData;
 	
-	public AltriDatiGestionali(String tipoDato, String riferimentoTesto, float riferimentoNumero,
+	public AltroDatoGestionale(String tipoDato, String riferimentoTesto, float riferimentoNumero,
 			LocalDate riferimentoData) {
 		this.tipoDato = tipoDato;
 		this.riferimentoTesto = riferimentoTesto;

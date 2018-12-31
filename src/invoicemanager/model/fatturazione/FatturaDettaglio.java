@@ -3,6 +3,7 @@ package invoicemanager.model.fatturazione;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Locale;
 
 public class FatturaDettaglio {
@@ -38,7 +39,12 @@ public class FatturaDettaglio {
 	private String codiceCdc;
 	private String contoRicavoUsato;
 	private String ricavoUsato;
-	private AltriDatiGestionali altriDatiGestioni;
+	private List<Ordine> ordini;
+	private List<Contratto> contratti;
+	private List<Convenzione> convenzioni;
+	private List<Ricezione> ricezioni;
+	private List<FatturaCollegata> fattureCollegate;
+	private List<AltroDatoGestionale> altriDatiGestioni;
 	private LocalDateTime dataInserimento;
 	private LocalDateTime dataUltimaModifica;
 
@@ -54,8 +60,9 @@ public class FatturaDettaglio {
 			float percentualeScontoPagamento, String codiceUnitaMisura, String serialNumber,
 			boolean indicatoreNoConferma, String codiceMagazzino, int numeroDdt, LocalDateTime dataDdt,
 			int numeroRigaDdt, String codicePercipiente, String codiceCassaPrevidenziale, String codiceCdc,
-			String contoRicavoUsato, String ricavoUsato, AltriDatiGestionali altriDatiGestioni,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			String contoRicavoUsato, String ricavoUsato, List<Ordine> ordini, List<Contratto> contratti,
+			List<Convenzione> convenzioni, List<Ricezione> ricezioni, List<FatturaCollegata> fattureCollegate,
+			List<AltroDatoGestionale> altriDatiGestioni, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
@@ -88,11 +95,15 @@ public class FatturaDettaglio {
 		this.codiceCdc = codiceCdc;
 		this.contoRicavoUsato = contoRicavoUsato;
 		this.ricavoUsato = ricavoUsato;
+		this.ordini = ordini;
+		this.contratti = contratti;
+		this.convenzioni = convenzioni;
+		this.ricezioni = ricezioni;
+		this.fattureCollegate = fattureCollegate;
 		this.altriDatiGestioni = altriDatiGestioni;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
-
 
 	public int getNumeroFattura() {
 		return numeroFattura;
@@ -210,11 +221,11 @@ public class FatturaDettaglio {
 		this.prezzo = prezzo;
 	}
 
-	public AltriDatiGestionali getAltriDatiGestioni() {
+	public List<AltroDatoGestionale> getAltriDatiGestioni() {
 		return altriDatiGestioni;
 	}
 
-	public void setAltriDatiGestioni(AltriDatiGestionali altriDatiGestioni) {
+	public void setAltriDatiGestioni(List<AltroDatoGestionale> altriDatiGestioni) {
 		this.altriDatiGestioni = altriDatiGestioni;
 	}
 
@@ -376,5 +387,45 @@ public class FatturaDettaglio {
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
+	public List<Ordine> getOrdini() {
+		return ordini;
+	}
+
+	public void setOrdini(List<Ordine> ordini) {
+		this.ordini = ordini;
+	}
+
+	public List<Contratto> getContratti() {
+		return contratti;
+	}
+
+	public void setContratti(List<Contratto> contratti) {
+		this.contratti = contratti;
+	}
+
+	public List<Convenzione> getConvenzioni() {
+		return convenzioni;
+	}
+
+	public void setConvenzioni(List<Convenzione> convenzioni) {
+		this.convenzioni = convenzioni;
+	}
+
+	public List<Ricezione> getRicezioni() {
+		return ricezioni;
+	}
+
+	public void setRicezioni(List<Ricezione> ricezioni) {
+		this.ricezioni = ricezioni;
+	}
+
+	public List<FatturaCollegata> getFattureCollegate() {
+		return fattureCollegate;
+	}
+
+	public void setFattureCollegate(List<FatturaCollegata> fattureCollegate) {
+		this.fattureCollegate = fattureCollegate;
 	}
 }

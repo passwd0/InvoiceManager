@@ -56,9 +56,11 @@ public class Cliente implements Comparable<Cliente>{
 	private String codiceDestinatarioXml; //(7) COLLATE Latin1_General_CI_AS
 	private String codiceEORI;	// (17)
 	private StabileOrganizzazione stabileOrganizzazione;
+	private RappresentanteFiscale rappresentanteFiscale;
+	private TerzoIntermediario terzoIntermediario;
 	private LocalDateTime dataInserimento; // NULL
+	private LocalDateTime dataUltimaModificaa; // NULL
 	
-
 	public Cliente(String codiceCliente){
 		this.codiceCliente = codiceCliente;
 	}
@@ -77,7 +79,8 @@ public class Cliente implements Comparable<Cliente>{
 			LocalDateTime importoUltimaFattura, LocalDateTime importoPlafond, String numeroUltimaFattura,
 			LocalDateTime dataInizioPlafond, boolean indicatoreFattureXML, boolean indicatoreDdtEmail,
 			boolean indicatorePlafond, String codiceDestinatarioXml, String codiceEORI,
-			StabileOrganizzazione stabileOrganizzazione, LocalDateTime dataInserimento) {
+			StabileOrganizzazione stabileOrganizzazione, RappresentanteFiscale rappresentanteFiscale,
+			TerzoIntermediario terzoIntermediario, LocalDateTime dataInserimento, LocalDateTime dataUltimaModificaa) {
 		this.codiceCliente = codiceCliente;
 		this.descrizione = descrizione;
 		this.tipoCliente = tipoCliente;
@@ -131,7 +134,34 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceDestinatarioXml = codiceDestinatarioXml;
 		this.codiceEORI = codiceEORI;
 		this.stabileOrganizzazione = stabileOrganizzazione;
+		this.rappresentanteFiscale = rappresentanteFiscale;
+		this.terzoIntermediario = terzoIntermediario;
 		this.dataInserimento = dataInserimento;
+		this.dataUltimaModificaa = dataUltimaModificaa;
+	}
+
+	public RappresentanteFiscale getRappresentanteFiscale() {
+		return rappresentanteFiscale;
+	}
+
+	public void setRappresentanteFiscale(RappresentanteFiscale rappresentanteFiscale) {
+		this.rappresentanteFiscale = rappresentanteFiscale;
+	}
+
+	public TerzoIntermediario getTerzoIntermediario() {
+		return terzoIntermediario;
+	}
+
+	public void setTerzoIntermediario(TerzoIntermediario terzoIntermediario) {
+		this.terzoIntermediario = terzoIntermediario;
+	}
+
+	public LocalDateTime getDataUltimaModificaa() {
+		return dataUltimaModificaa;
+	}
+
+	public void setDataUltimaModificaa(LocalDateTime dataUltimaModificaa) {
+		this.dataUltimaModificaa = dataUltimaModificaa;
 	}
 
 	public String getCodiceTipoCliente() {
