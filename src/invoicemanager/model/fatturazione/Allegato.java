@@ -24,6 +24,37 @@ public class Allegato { //List
 	public void setPathAllegato(String pathAllegato) {
 		this.pathAllegato = pathAllegato;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nomeAllegato == null) ? 0 : nomeAllegato.hashCode());
+		result = prime * result + ((pathAllegato == null) ? 0 : pathAllegato.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Allegato other = (Allegato) obj;
+		if (nomeAllegato == null) {
+			if (other.nomeAllegato != null)
+				return false;
+		} else if (!nomeAllegato.equals(other.nomeAllegato))
+			return false;
+		if (pathAllegato == null) {
+			if (other.pathAllegato != null)
+				return false;
+		} else if (!pathAllegato.equals(other.pathAllegato))
+			return false;
+		return true;
+	}
 	
 	
 }

@@ -41,8 +41,10 @@ public class ArticoloMagazzino{
 	private String codiceStampo; //(10) NULL
 	private String noteProduzione; //(1500) NULL
 
-	public ArticoloMagazzino(String codiceArticolo){
+	public ArticoloMagazzino(String codiceArticolo, String descrizione){
 		this.codiceArticolo = codiceArticolo;
+		this.descrizione = descrizione;
+		
 	}
 
 	public ArticoloMagazzino(String codiceArticolo, String descrizione, String codiceUnitaMisura,
@@ -389,5 +391,30 @@ public class ArticoloMagazzino{
 
 	public void setNoteProduzione(String noteProduzione) {
 		this.noteProduzione = noteProduzione;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codiceArticolo == null) ? 0 : codiceArticolo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ArticoloMagazzino other = (ArticoloMagazzino) obj;
+		if (codiceArticolo == null) {
+			if (other.codiceArticolo != null)
+				return false;
+		} else if (!codiceArticolo.equals(other.codiceArticolo))
+			return false;
+		return true;
 	}
 }

@@ -81,6 +81,52 @@ public class AreaGeografica{
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((area == null) ? 0 : area.hashCode());
+		result = prime * result + codiceArea;
+		result = prime * result + ((nazione == null) ? 0 : nazione.hashCode());
+		result = prime * result + ((provincia == null) ? 0 : provincia.hashCode());
+		result = prime * result + ((regione == null) ? 0 : regione.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AreaGeografica other = (AreaGeografica) obj;
+		if (area == null) {
+			if (other.area != null)
+				return false;
+		} else if (!area.equals(other.area))
+			return false;
+		if (codiceArea != other.codiceArea)
+			return false;
+		if (nazione == null) {
+			if (other.nazione != null)
+				return false;
+		} else if (!nazione.equals(other.nazione))
+			return false;
+		if (provincia == null) {
+			if (other.provincia != null)
+				return false;
+		} else if (!provincia.equals(other.provincia))
+			return false;
+		if (regione == null) {
+			if (other.regione != null)
+				return false;
+		} else if (!regione.equals(other.regione))
+			return false;
+		return true;
+	}
 	
 	
 }
