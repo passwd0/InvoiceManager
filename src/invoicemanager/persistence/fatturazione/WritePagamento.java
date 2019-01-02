@@ -17,18 +17,18 @@ public class WritePagamento {
 
 	public void add(Pagamento a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Pagamenti VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
-	    	ps.setString(1, a.getCodicePagamento());
-	    	ps.setString(2, a.getDescrizione());
-	    	ps.setString(3, a.getCodiceStato().name());
-	    	ps.setString(4, a.getCodiceTipoPagamento());
-	    	ps.setBoolean(5, a.isIndicatoreScadenzaAVista());
-	    	ps.setString(6, a.getGiornoMese());
-	    	ps.setInt(7, a.getNumeroGiorni());
-	    	ps.setInt(8, a.getNumeroScadenze());
-	    	ps.setFloat(9, a.getSconto());
-	    	ps.setBoolean(10, a.isScadenzaIVAPrimaRata());
-	    	ps.setTimestamp(11, Utils.toTimestamp(a.getDataInserimento()));
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Pagamento VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+			ps.setString(1, a.getCodicePagamento());
+			ps.setString(2, a.getDescrizione());
+			ps.setString(3, a.getCodiceStato());
+			ps.setString(4, a.getCodiceTipoPagamento());
+			ps.setBoolean(5, a.isIndicatoreScadenzaAVista());
+			ps.setString(6, a.getGiornoMese());
+			ps.setInt(7, a.getNumeroGiorni());
+			ps.setInt(8, a.getNumeroScadenze());
+			ps.setFloat(9, a.getSconto());
+			ps.setBoolean(10, a.isScadenzaIVAPrimaRata());
+			ps.setTimestamp(11, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(12, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 			ps.executeUpdate();

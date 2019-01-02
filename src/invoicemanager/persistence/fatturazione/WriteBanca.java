@@ -16,23 +16,25 @@ public class WriteBanca {
 
 	public void add(Banca a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Banche VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Banche VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	    	ps.setString(1, a.getCodiceBanca());
 	    	ps.setString(2, a.getDescrizione());
 	    	ps.setString(3, a.getStato().name());
 	    	ps.setString(4, a.getCodiceABI());
 	    	ps.setString(5, a.getCodiceCAB());
-	    	ps.setString(6, a.getProvincia());
-	    	ps.setString(7, a.getNumeroContoCorrente());
-	    	ps.setString(8, a.getCodiceCIN());
-	    	ps.setString(9, a.getCodiceCINEur());
-	    	ps.setString(10, a.getPaese());
-	    	ps.setTimestamp(11, Utils.toTimestamp(a.getDataInserimento()));
-	    	ps.setTimestamp(12, Utils.toTimestamp(a.getDataUltimaModifica()));
-	    	ps.setString(13, a.getIban());
-	    	ps.setString(14, a.getSwift());
-	    	ps.setString(15, a.getCodiceConto());
-	    	ps.setString(16, a.getIndirizzo());
+			ps.setString(6, a.getLocalita());
+	    	ps.setString(7, a.getProvincia());
+	    	ps.setString(8, a.getNumeroContoCorrente());
+	    	ps.setString(9, a.getCodiceCIN());
+	    	ps.setString(10, a.getCodiceCINEur());
+	    	ps.setString(11, a.getPaese());
+	    	ps.setString(12, a.getIban());
+	    	ps.setString(13, a.getSwift());
+	    	ps.setString(14, a.getCodiceConto());
+	    	ps.setString(15, a.getIndirizzo());
+	    	ps.setString(16, a.getCap());
+	    	ps.setTimestamp(17, Utils.toTimestamp(a.getDataInserimento()));
+	    	ps.setTimestamp(18, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 	    	ps.executeUpdate();
 			ps.close();

@@ -16,22 +16,25 @@ public class WriteAgente {
 
 	public void add(Agente a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Agenti VALUES (?,?,?,?,?,?,?)");
-	    	ps.setString(1, a.getCodiceAgente());
-			ps.setString(2, a.getNome());
-			ps.setFloat(3, a.getPercentualeProvvigione());
-			ps.setBoolean(4, a.isTipoProvvigione());
-			ps.setBoolean(5, a.isTipoMandato());
-			ps.setTimestamp(6, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(7, Utils.toTimestamp(a.getDataUltimaModifica()));
-	
-			ps.executeUpdate();
-			ps.close();
-			c.commit();
-			c.close();
-	      } catch (Exception e) {
-	    	  //Utils.createAlertFailWriteDB();
-	      }
+
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Agente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+		ps.setString(1, a.getCodiceAgente());
+		ps.setString(2, a.getNome());
+		ps.setFloat(3, a.getPercentualeProvvigione());
+		ps.setBoolean(4, a.isTipoProvvigione());
+		ps.setBoolean(5, a.isTipoMandato());
+		ps.setString(6, a.getCodiceContabile());
+		ps.setString(7, a.getCodiceControparte());
+		ps.setTimestamp(8, Utils.toTimestamp(a.getDataInserimento()));
+		ps.setTimestamp(9, Utils.toTimestamp(a.getDataUltimaModifica()));
+
+		ps.executeUpdate();
+		ps.close();
+		c.commit();
+		c.close();
+		} catch (Exception e) {
+		  //Utils.createAlertFailWriteDB();
+		}
 	}
 
 	public void set(Agente a) throws ClassNotFoundException, SQLException {

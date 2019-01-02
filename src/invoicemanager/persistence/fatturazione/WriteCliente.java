@@ -19,62 +19,64 @@ public class WriteCliente {
 	
 	public void add(Cliente a, boolean exist, List<TipoCliente> tipiCliente) throws ClassNotFoundException, SQLException {
 	    try {
-			PreparedStatement ps = c.prepareStatement("INSERT INTO Clienti "
-					+ "(codiceCliente, descrizione, dataInserimento, dataUltimoAggiornamento, codiceTipoCliente, codiceUfficioCommerciale, codiceResaMerce, "
-					+ "codiceImballo, codiceRaggruppamento, fatturato, fido, partitaIVA, codiceFiscale, codicePagamento, sinonimo, codiceBanca, numeroFattureEmesse, "
-					+ "codiceEsenzioneIVA, imponibileNonEsente, imponibileEsente, importoIVA, codiceClassificazione, costoVenduto, codiceAgente, "
-					+ "percentualeProvvigioneAgente, scontoLegatoProvvigioniAgente, numeroCopieFattura, indicatoreAddebitoSpeseIncasso, "
-					+ "indicatoreAddebitoSpeseBolli, codiceListino, codiceVettore, codiceAffidabilita, codiceISO, partitaIVAEstero, codiceDivisa, "
-					+ "dataScadenzaSpostataAgosto, dataScadenzaSpostataDicembre, codiceRetrocessione, codiceCommissione, codiceLingua, note, codiceStato, "
-					+ "indicatoreInviataInformativaPrivacy, indicatoreRicevutaInformativaPrivacy, codiceClienteRiferimento, dataUltimaModifica, "
-					+ "indicatoreInibizione, loginInserimento, loginModifica, indicatoreScorporoIVA, indicatoreIVADifferita, indicatoreEmail, inputInibito, "
-					+ "indicatoreEdi, partitaIvaEdi, qualificatoreEdi, identificativoFornitoreEdi, tipoFornitoreEdi, identificativoIntestatarioFatturaEdi, "
-					+ "tipoIntestatarioFatturaEdi, identificativoPuntoConsegnaEdi, tipoPuntoConsegnaEdi) "
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
-			
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Cliente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
 			ps.setString(1, a.getCodiceCliente());
 			ps.setString(2, a.getDescrizione());
-			ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(4, Utils.toTimestamp(a.getDataUltimoAggiornamento()));
-			ps.setString(5, a.getCodiceTipoCliente());
-			ps.setString(6, a.getCodiceResaMerce());
-			ps.setString(7, a.getCodiceImballo());
-			ps.setString(8, a.getCodiceRaggruppamento());
-			ps.setFloat(9, a.getFatturato());
-			ps.setFloat(10, a.getFido());
-			ps.setString(11, a.getPartitaIVA());
-			ps.setString(12, a.getCodiceFiscale());
-			ps.setString(13, a.getCodicePagamento());
-			ps.setString(14, a.getCodiceBanca());
-			ps.setInt(15, a.getNumeroFattureEmesse());
-			ps.setString(16, a.getCodiceIva());
-			ps.setFloat(17, a.getImponibileNonEsente());
-			ps.setFloat(18, a.getImponibileEsente());
-			ps.setFloat(19, a.getImportoIVA());
-			ps.setString(20, a.getCodiceClassificazione());
-			ps.setString(21, a.getCodiceAgente());
-			ps.setFloat(22, a.getPercentualeProvvigioneAgente());
-			ps.setFloat(23, a.getScontoLegatoProvvigioniAgente());
-			ps.setInt(24, a.getNumeroCopieFattura());
-			ps.setBoolean(25, a.isIndicatoreAddebitoSpeseIncasso());
-			ps.setBoolean(26, a.isIndicatoreAddebitoSpeseBolli());
-			ps.setInt(27, a.getCodiceListino());
-			ps.setString(28, a.getCodiceVettore());
-			ps.setString(29, a.getCodiceAffidabilita());
-			ps.setString(30, a.getCodiceIso());
-			ps.setString(31, a.getPartitaIVAEstero());
-			ps.setString(32, a.getCodiceDivisa());
-			ps.setInt(33, a.getDataScadenzaSpostataAgosto());
-			ps.setInt(34, a.getDataScadenzaSpostataDicembre());
-			ps.setString(35, a.getCodiceLingua());
-			ps.setString(36, a.getNote());
-			ps.setString(37, a.getStato().name());
-			ps.setBoolean(38, a.isIndicatoreInviataInformativaPrivacy());
-			ps.setBoolean(39, a.isIndicatoreRicevutaInformativaPrivacy());
-			ps.setBoolean(40, a.isIndicatoreScorporoIVA());
-			ps.setBoolean(41, a.isIndicatoreIVADifferita());
-			ps.setBoolean(42, a.isIndicatoreEmail());
-			ps.setBoolean(43, a.isInputInibito());
+			ps.setString(3, a.getCodiceTipoCliente());
+			ps.setString(4, a.getCodiceResaMerce());
+			ps.setString(5, a.getCodiceImballo());
+			ps.setString(6, a.getCodiceRaggruppamento());
+			ps.setFloat(7, a.getFatturato());
+			ps.setFloat(8, a.getFido());
+			ps.setString(9, a.getPartitaIVA());
+			ps.setString(10, a.getCodiceFiscale());
+			ps.setString(11, a.getCodicePagamento());
+			ps.setString(12, a.getCodiceBanca());
+			ps.setInt(13, a.getNumeroFattureEmesse());
+			ps.setString(14, a.getCodiceIva());
+			ps.setFloat(15, a.getImponibileNonEsente());
+			ps.setFloat(16, a.getImponibileEsente());
+			ps.setFloat(17, a.getImportoIVA());
+			ps.setString(18, a.getCodiceClassificazione());
+			ps.setString(19, a.getCodiceAgente());
+			ps.setFloat(20, a.getPercentualeProvvigioneAgente());
+			ps.setFloat(21, a.getScontoLegatoProvvigioniAgente());
+			ps.setInt(22, a.getNumeroCopieFattura());
+			ps.setBoolean(23, a.isIndicatoreAddebitoSpeseIncasso());
+			ps.setBoolean(24, a.isIndicatoreAddebitoSpeseBolli());
+			ps.setString(25, a.getCodiceListino());
+			ps.setString(26, a.getCodiceVettore());
+			ps.setString(27, a.getCodiceAffidabilita());
+			ps.setString(28, a.getCodiceIso());
+			ps.setString(29, a.getPartitaIVAEstero());
+			ps.setString(30, a.getCodiceDivisa());
+			ps.setInt(31, a.getDataScadenzaSpostataAgosto());
+			ps.setInt(32, a.getDataScadenzaSpostataDicembre());
+			ps.setString(33, a.getCodiceLingua());
+			ps.setString(34, a.getNote());
+			ps.setString(35, a.getCodiceStato());
+			ps.setBoolean(36, a.isIndicatoreInviataInformativaPrivacy());
+			ps.setBoolean(37, a.isIndicatoreRicevutaInformativaPrivacy());
+			ps.setBoolean(38, a.isIndicatoreScorporoIVA());
+			ps.setBoolean(39, a.isIndicatoreIVADifferita());
+			ps.setBoolean(40, a.isIndicatoreEmail());
+			ps.setBoolean(41, a.isInputInibito());
+			ps.setBoolean(42, a.isIndicatoreFatturePA());
+			ps.setString(43, a.getCodiceDataUltimaFattura());
+			ps.setFloat(44, a.getImportoUltimaFattura());
+			ps.setFloat(45, a.getImportoPlafond());
+			ps.setString(46, a.getNumeroUltimaFattura());
+			ps.setString(47, a.getCodiceDataInizioPlafond());
+			ps.setBoolean(48, a.isIndicatoreFattureXML());
+			ps.setBoolean(49, a.isIndicatoreDdtEmail());
+			ps.setBoolean(50, a.isIndicatorePlafond());
+			ps.setString(51, a.getCodiceDestinatarioXml());
+			ps.setString(52, a.getCodiceEORI());
+			ps.setString(53, a.getCodiceStabileOrganizzazione());
+			ps.setString(54, a.getCodiceRappresentanteFiscale());
+			ps.setString(55, a.getCodiceTerzoIntermediario());
+			ps.setTimestamp(56, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(57, Utils.toTimestamp(a.getDataUltimaModificaa()));
 
 			ps.executeUpdate();
 			ps.close();

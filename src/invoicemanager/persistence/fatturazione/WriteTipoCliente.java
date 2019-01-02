@@ -32,31 +32,31 @@ public class WriteTipoCliente {
 	}
 
 	public void set(TipoCliente a) throws ClassNotFoundException, SQLException {
-		try {
-			Statement stmt = c.createStatement();
-			String sql;
-
-			sql = "UPDATE TipoCliente SET "
-					+ "campo=value "
-					+ "WHERE codiceTipoCliente="+a.getCodiceTipoCliente();
-			stmt.executeUpdate(sql);
-
-			stmt.close();
-			c.commit();
-	      } catch (Exception e) {
-	    	  //Utils.createAlertFailWriteDB();
-	      }
+//		try {
+//			Statement stmt = c.createStatement();
+//			String sql;
+//
+//			sql = "UPDATE TipoCliente SET "
+//					+ "campo=value "
+//					+ "WHERE codiceTipoCliente="+a.getCodiceTipoCliente();
+//			stmt.executeUpdate(sql);
+//
+//			stmt.close();
+//			c.commit();
+//	      } catch (Exception e) {
+//	    	  //Utils.createAlertFailWriteDB();
+//	      }
 	}
 
 	public void delete(TipoCliente a) throws ClassNotFoundException, SQLException {
-		try {
-	        Statement stmt = c.createStatement();
-	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceTipoCliente() + ";";
-	    	stmt.executeUpdate(sql);
-	    	stmt.close();
-	        c.commit();
-		} catch (Exception e) {
-			//Utils.createAlertFailWriteDB();
-		}
+//		try {
+//	        Statement stmt = c.createStatement();
+//	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceTipoCliente() + ";";
+//	    	stmt.executeUpdate(sql);
+//	    	stmt.close();
+//	        c.commit();
+//		} catch (Exception e) {
+//			//Utils.createAlertFailWriteDB();
+//		}
 	}
 } 

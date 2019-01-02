@@ -60,31 +60,31 @@ public class WriteUtente {
 	}
 
 	public void set(Utente a) throws ClassNotFoundException, SQLException {
-		try {
-			Statement stmt = c.createStatement();
-			String sql;
-
-			sql = "UPDATE Utente SET "
-					+ "campo=value "
-					+ "WHERE codiceUtente="+a.getCodiceUtente();
-			stmt.executeUpdate(sql);
-
-			stmt.close();
-			c.commit();
-	      } catch (Exception e) {
-	    	  //Utils.createAlertFailWriteDB();
-	      }
+//		try {
+//			Statement stmt = c.createStatement();
+//			String sql;
+//
+//			sql = "UPDATE Utente SET "
+//					+ "campo=value "
+//					+ "WHERE codiceUtente="+a.getCodiceUtente();
+//			stmt.executeUpdate(sql);
+//
+//			stmt.close();
+//			c.commit();
+//	      } catch (Exception e) {
+//	    	  //Utils.createAlertFailWriteDB();
+//	      }
 	}
 
 	public void delete(Utente a) throws ClassNotFoundException, SQLException {
-		try {
-	        Statement stmt = c.createStatement();
-	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceUtente() + ";";
-	    	stmt.executeUpdate(sql);
-	    	stmt.close();
-	        c.commit();
-		} catch (Exception e) {
-			//Utils.createAlertFailWriteDB();
-		}
+//		try {
+//	        Statement stmt = c.createStatement();
+//	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceUtente() + ";";
+//	    	stmt.executeUpdate(sql);
+//	    	stmt.close();
+//	        c.commit();
+//		} catch (Exception e) {
+//			//Utils.createAlertFailWriteDB();
+//		}
 	}
 } 

@@ -17,15 +17,16 @@ public class WriteResaMerce {
 
 	public void add(ResaMerce a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO ResaMerci VALUES (?, ?, ?, ?, ?, ?, ?, ?,)");
-	    	ps.setString(1, a.getCodiceResa());
-	    	ps.setString(2, a.getDescrizione());
-	    	ps.setString(3, a.getCodiceStato().name());
-	    	ps.setFloat(4, a.getPercentualeAddebito());
-	    	ps.setFloat(5, a.getImportoMinimo());
-	    	ps.setBoolean(6, a.isIndicatoreProvvigione());
-	    	ps.setTimestamp(7, Utils.toTimestamp(a.getDataInserimento()));
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO ResaMerce VALUES (?, ?, ?, ?, ?, ?, ?, ?,)");
+			ps.setString(1, a.getCodiceResa());
+			ps.setString(2, a.getDescrizione());
+			ps.setString(3, a.getCodiceStato());
+			ps.setFloat(4, a.getPercentualeAddebito());
+			ps.setFloat(5, a.getImportoMinimo());
+			ps.setBoolean(6, a.isIndicatoreProvvigione());
+			ps.setTimestamp(7, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(8, Utils.toTimestamp(a.getDataUltimaModifica()));
+
 	
 			ps.executeUpdate();
 			ps.close();

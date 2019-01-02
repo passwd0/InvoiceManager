@@ -7,7 +7,6 @@ public class ArticoloMagazzinoDescrizioneMultilingua {
 	private String descrizione; //(500) NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
 
 	public ArticoloMagazzinoDescrizioneMultilingua(String codiceArticolo, String codiceLingua){
 		this.codiceArticolo = codiceArticolo;
@@ -15,13 +14,12 @@ public class ArticoloMagazzinoDescrizioneMultilingua {
 	}
 
 	public ArticoloMagazzinoDescrizioneMultilingua(String codiceArticolo, String codiceLingua, String descrizione,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento) {
+			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceArticolo = codiceArticolo;
 		this.codiceLingua = codiceLingua;
 		this.descrizione = descrizione;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
 	}
 
 	public String getCodiceArticolo() {
@@ -62,13 +60,5 @@ public class ArticoloMagazzinoDescrizioneMultilingua {
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
 	}
 }

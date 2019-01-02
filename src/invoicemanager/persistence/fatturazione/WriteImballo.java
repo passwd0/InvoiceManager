@@ -17,12 +17,12 @@ public class WriteImballo {
 
 	public void add(Imballo a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Imballi VALUES (?, ?, ?, ?, ?, ?,)");
-	    	ps.setString(1, a.getCodiceImballo());
-	    	ps.setString(2, a.getDescrizione());
-	    	ps.setString(3, a.getCodiceStato().name());
-	    	ps.setTimestamp(6, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(7, Utils.toTimestamp(a.getDataUltimaModifica()));	    	
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Imballo VALUES (?, ?, ?, ?, ?,)");
+			ps.setString(1, a.getCodiceImballo());
+			ps.setString(2, a.getDescrizione());
+			ps.setString(3, a.getCodiceCodiceStato());
+			ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
 	    	
 	    	ps.executeUpdate();
 			ps.close();
