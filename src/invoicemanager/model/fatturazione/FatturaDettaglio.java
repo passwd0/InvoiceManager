@@ -466,7 +466,8 @@ public class FatturaDettaglio {
 	public int getCodiceAltriDatiGestionali() {
 		if (altriDatiGestionali == null || altriDatiGestionali.isEmpty())
 			return -1;
-		return altriDatiGestionali.get(0).getNumeroAltroDatoGestionale();
+		return altriDatiGestionali.get(0).getCodiceAltroDatoGestionale();
+	}
 
 	@Override
 	public int hashCode() {
