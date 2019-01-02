@@ -1,6 +1,7 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -26,7 +27,7 @@ public class WriteDdtDettaglio {
 			ps.setFloat(7, a.getCosto());
 			ps.setInt(8, a.getNumeroOrdine());
 			ps.setInt(9, a.getNumeroRigaOrdine());
-			ps.setString(10, a.getCodiceDataOrdine());
+			ps.setDate(10, Date.valueOf(a.getDataOrdine()));
 			ps.setFloat(11, a.getQuantitaDaConsegnare());
 			ps.setBoolean(12, a.isIndicatoreEvasione());
 			ps.setString(13, a.getDescrizione());

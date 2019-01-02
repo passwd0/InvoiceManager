@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FatturaProformaDettaglio{
 	private int numeroFattura; //  NOT NULL,
-	private short numeroRigaFattura; //  NOT NULL,
+	private int numeroRigaFattura; //  NOT NULL,
 	private LocalDate dataFattura; //  NOT NULL,
 	private String codiceTipoRigaDocumento; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceArticolo; //(30) COLLATE Latin1_General_CI_AS NULL,
@@ -32,13 +32,13 @@ public class FatturaProformaDettaglio{
 	private List<FatturaCollegata> fattureCollegate;
 	private List<AltroDatoGestionale> altriDatiGestionali;
 
-	public FatturaProformaDettaglio(int numeroFattura, short numeroRigaFattura, LocalDate dataFattura){
+	public FatturaProformaDettaglio(int numeroFattura, int numeroRigaFattura, LocalDate dataFattura){
 		this.numeroFattura = numeroFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
 		this.dataFattura = dataFattura;
 	}
 
-	public FatturaProformaDettaglio(int numeroFattura, short numeroRigaFattura, LocalDate dataFattura,
+	public FatturaProformaDettaglio(int numeroFattura, int numeroRigaFattura, LocalDate dataFattura,
 			String codiceTipoRigaDocumento, String codiceArticolo, float costo, float quantitaDaConsegnare,
 			boolean indicatoreEvasione, String descrizione, float quantita, float prezzo, String codiceIva,
 			String codiceContropartitaContabile, float percentualeProvvigione, float percentualeScontoCliente,
@@ -84,11 +84,11 @@ public class FatturaProformaDettaglio{
 		this.numeroFattura = numeroFattura;
 	}
 
-	public short getNumeroRigaFattura() {
+	public int getNumeroRigaFattura() {
 		return numeroRigaFattura;
 	}
 
-	public void setNumeroRigaFattura(short numeroRigaFattura) {
+	public void setNumeroRigaFattura(int numeroRigaFattura) {
 		this.numeroRigaFattura = numeroRigaFattura;
 	}
 
@@ -254,6 +254,12 @@ public class FatturaProformaDettaglio{
 
 	public List<Ordine> getOrdini() {
 		return ordini;
+	}
+	
+	public int getNumeroOrdine() {
+		if (ordini == null || ordini.isEmpty())
+			return -1;
+		return ordini.get(0).getNumeroOrdine();
 	}
 
 	public void setOrdini(List<Ordine> ordini) {

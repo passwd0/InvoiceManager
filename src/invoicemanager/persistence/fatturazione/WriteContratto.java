@@ -19,7 +19,7 @@ public class WriteContratto {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Contratto VALUES (?, ?, ?, ?, ?, ?,)");
 		ps.setInt(1, a.getNumeroContratto());
-		ps.setString(2, a.getCodiceNumeroRigaContratto());
+		ps.setInt(2, a.getNumeroRigaContratto());
 		ps.setDate(3, Date.valueOf(a.getDataContratto()));
 		ps.setString(4, a.getCntCodiceCommessaConvenzione());
 		ps.setString(5, a.getCntCodiceCUP());

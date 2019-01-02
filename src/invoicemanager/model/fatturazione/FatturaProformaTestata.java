@@ -14,11 +14,11 @@ public class FatturaProformaTestata{
 	private float percentualeScontoPagamento; //  NULL,
 	private float percentualeProvvigione; //  NULL,
 	private String descrizione; //(200) COLLATE Latin1_General_CI_AS NULL,
-	private short numeroCopieFattura; //  NULL,
+	private int numeroCopieFattura; //  NULL,
 	private boolean indicatoreAddebitoBolli; // COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatoreAddebitoSpeseIncasso; // COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatoreScaricoMagazzino; // COLLATE Latin1_General_CI_AS NULL,
-	private short codiceListino; //  NULL,
+	private int codiceListino; //  NULL,
 	private String codiceResa; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceVettore; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatoreFatturaAccompagnatoria; // COLLATE Latin1_General_CI_AS NULL,
@@ -59,8 +59,8 @@ public class FatturaProformaTestata{
 	public FatturaProformaTestata(int numeroFattura, LocalDate dataFattura, boolean indicatoreStatoAvanzamento,
 			String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
 			String codiceCausalePrelievi, float percentualeSconto, float percentualeScontoPagamento,
-			float percentualeProvvigione, String descrizione, short numeroCopieFattura, boolean indicatoreAddebitoBolli,
-			boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreScaricoMagazzino, short codiceListino,
+			float percentualeProvvigione, String descrizione, int numeroCopieFattura, boolean indicatoreAddebitoBolli,
+			boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreScaricoMagazzino, int codiceListino,
 			String codiceResa, String codiceVettore, boolean indicatoreFatturaAccompagnatoria, String codicePagamento,
 			String codiceBanca, int numeroDDT, LocalDate dataDDT, String codiceImballo, float pesoColli,
 			float numeroColli, float acconto, String codiceDivisa, float cambio, String codiceClienteSpedizione,
@@ -215,11 +215,11 @@ public class FatturaProformaTestata{
 		this.descrizione = descrizione;
 	}
 
-	public short getNumeroCopieFattura() {
+	public int getNumeroCopieFattura() {
 		return numeroCopieFattura;
 	}
 
-	public void setNumeroCopieFattura(short numeroCopieFattura) {
+	public void setNumeroCopieFattura(int numeroCopieFattura) {
 		this.numeroCopieFattura = numeroCopieFattura;
 	}
 
@@ -247,11 +247,11 @@ public class FatturaProformaTestata{
 		this.indicatoreScaricoMagazzino = indicatoreScaricoMagazzino;
 	}
 
-	public short getCodiceListino() {
+	public int getCodiceListino() {
 		return codiceListino;
 	}
 
-	public void setCodiceListino(short codiceListino) {
+	public void setCodiceListino(int codiceListino) {
 		this.codiceListino = codiceListino;
 	}
 

@@ -18,7 +18,7 @@ public class WriteCausaleMagazzino {
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO CausaleMagazzino VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
-		ps.setString(1, a.getCodiceCausale());
+		ps.setString(1, a.getCodiceCausaleMagazzino());
 		ps.setString(2, a.getDescrizione());
 		ps.setBoolean(3, a.isCodiceStato());
 		ps.setBoolean(4, a.isSegnoEsistenza());
@@ -38,7 +38,7 @@ public class WriteCausaleMagazzino {
 		ps.setString(18, a.getValoreDaProporre());
 		ps.setString(19, a.getValorePerValorizzazioneMovimenti());
 		ps.setBoolean(20, a.isIndicatoreConcatenamento());
-		ps.setString(21, a.getCodiceCausaleConcatenata());
+		ps.setString(21, a.getCodiceCausaleMagazzinoConcatenata());
 		ps.setString(22, a.getNomeFileMemo());
 		ps.setBoolean(23, a.isIndicatoreModifica());
 		ps.setBoolean(24, a.isIndicatoreBollaEntrata());

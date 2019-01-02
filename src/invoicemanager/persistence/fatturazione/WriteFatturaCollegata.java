@@ -19,7 +19,7 @@ public class WriteFatturaCollegata {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaCollegata VALUES (?, ?, ?, ?, ?, ?,)");
 		ps.setInt(1, a.getNumeroFtCollegate());
-		ps.setString(2, a.getCodiceNumeroRigaFtCollegate());
+		ps.setInt(2, a.getNumeroRigaFtCollegate());
 		ps.setDate(3, Date.valueOf(a.getDataFtCollegate()));
 		ps.setString(4, a.getFtcCodiceCommessaFtCollegate());
 		ps.setString(5, a.getFtcCodiceCUP());

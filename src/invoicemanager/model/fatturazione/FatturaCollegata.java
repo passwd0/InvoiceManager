@@ -3,13 +3,13 @@ import java.time.LocalDate;
 
 public class FatturaCollegata{ //List
 	private int numeroFtCollegate; //  NULL,
-	private short numeroRigaFtCollegate; //  NULL,
+	private int numeroRigaFtCollegate; //  NULL,
 	private LocalDate dataFtCollegate; //  NULL,
 	private String ftcCodiceCommessaFtCollegate; // (100),
 	private String ftcCodiceCUP; // (15),
 	private String ftcCodiceCIG; // (15),
 	
-	public FatturaCollegata(int numeroFtCollegate, short numeroRigaFtCollegate, LocalDate dataFtCollegate,
+	public FatturaCollegata(int numeroFtCollegate, int numeroRigaFtCollegate, LocalDate dataFtCollegate,
 			String ftcCodiceCommessaFtCollegate, String ftcCodiceCUP, String ftcCodiceCIG) {
 		this.numeroFtCollegate = numeroFtCollegate;
 		this.numeroRigaFtCollegate = numeroRigaFtCollegate;
@@ -25,10 +25,10 @@ public class FatturaCollegata{ //List
 	public void setNumeroFtCollegate(int numeroFtCollegate) {
 		this.numeroFtCollegate = numeroFtCollegate;
 	}
-	public short getNumeroRigaFtCollegate() {
+	public int getNumeroRigaFtCollegate() {
 		return numeroRigaFtCollegate;
 	}
-	public void setNumeroRigaFtCollegate(short numeroRigaFtCollegate) {
+	public void setNumeroRigaFtCollegate(int numeroRigaFtCollegate) {
 		this.numeroRigaFtCollegate = numeroRigaFtCollegate;
 	}
 	public LocalDate getDataFtCollegate() {

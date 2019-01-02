@@ -30,11 +30,11 @@ public class WriteFatturaProformaTestata {
 		ps.setFloat(10, a.getPercentualeScontoPagamento());
 		ps.setFloat(11, a.getPercentualeProvvigione());
 		ps.setString(12, a.getDescrizione());
-		ps.setString(13, a.getCodiceNumeroCopieFattura());
+		ps.setInt(13, a.getNumeroCopieFattura());
 		ps.setBoolean(14, a.isIndicatoreAddebitoBolli());
 		ps.setBoolean(15, a.isIndicatoreAddebitoSpeseIncasso());
 		ps.setBoolean(16, a.isIndicatoreScaricoMagazzino());
-		ps.setString(17, a.getCodiceCodiceListino());
+		ps.setInt(17, a.getCodiceListino());
 		ps.setString(18, a.getCodiceResa());
 		ps.setString(19, a.getCodiceVettore());
 		ps.setBoolean(20, a.isIndicatoreFatturaAccompagnatoria());

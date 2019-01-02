@@ -3,13 +3,13 @@ import java.time.LocalDate;
 
 public class Contratto{ //List
 	private int numeroContratto; //  NULL,
-	private short numeroRigaContratto; //  NULL,
+	private int numeroRigaContratto; //  NULL,
 	private LocalDate dataContratto; //  NULL,
 	private String cntCodiceCommessaConvenzione; // (100),
 	private String cntCodiceCUP; // (15),
 	private String cntCodiceCIG; // (15),
 	
-	public Contratto(int numeroContratto, short numeroRigaContratto, LocalDate dataContratto,
+	public Contratto(int numeroContratto, int numeroRigaContratto, LocalDate dataContratto,
 			String cntCodiceCommessaConvenzione, String cntCodiceCUP, String cntCodiceCIG) {
 		this.numeroContratto = numeroContratto;
 		this.numeroRigaContratto = numeroRigaContratto;
@@ -25,10 +25,10 @@ public class Contratto{ //List
 	public void setNumeroContratto(int numeroContratto) {
 		this.numeroContratto = numeroContratto;
 	}
-	public short getNumeroRigaContratto() {
+	public int getNumeroRigaContratto() {
 		return numeroRigaContratto;
 	}
-	public void setNumeroRigaContratto(short numeroRigaContratto) {
+	public void setNumeroRigaContratto(int numeroRigaContratto) {
 		this.numeroRigaContratto = numeroRigaContratto;
 	}
 	public LocalDate getDataContratto() {

@@ -19,7 +19,7 @@ public class WriteBentoDettaglio {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO BentoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
 		ps.setString(1, a.getCodiceBento());
-		ps.setString(2, a.getCodiceNumeroRigaBento());
+		ps.setInt(2, a.getNumeroRigaBento());
 		ps.setString(3, a.getCodiceTipoBento());
 		ps.setString(4, a.getCodiceRigaBento());
 		ps.setString(5, a.getCodiceArticolo());
@@ -27,7 +27,7 @@ public class WriteBentoDettaglio {
 		ps.setFloat(7, a.getQuantita());
 		ps.setString(8, a.getCodiceUnitaMisura());
 		ps.setFloat(9, a.getPrezzo());
-		ps.setString(10, a.getCodiceIVA());
+		ps.setString(10, a.getCodiceIva());
 		ps.setString(11, a.getCodiceControparte());
 		ps.setFloat(12, a.getPercentualeProvvigione());
 		ps.setFloat(13, a.getPercentualeScontoCliente());
@@ -38,7 +38,6 @@ public class WriteBentoDettaglio {
 		ps.setString(18, a.getDescrizioneAggiuntiva());
 		ps.setTimestamp(19, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(20, Utils.toTimestamp(a.getDataUltimaModifica()));
-		ps.setString(21, a.getLoginInserimento());
 
 		ps.executeUpdate();
 				ps.close();

@@ -1,6 +1,7 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -54,7 +55,7 @@ public class WriteCliente {
 			ps.setInt(32, a.getDataScadenzaSpostataDicembre());
 			ps.setString(33, a.getCodiceLingua());
 			ps.setString(34, a.getNote());
-			ps.setString(35, a.getCodiceStato());
+			ps.setString(35, a.getStato());
 			ps.setBoolean(36, a.isIndicatoreInviataInformativaPrivacy());
 			ps.setBoolean(37, a.isIndicatoreRicevutaInformativaPrivacy());
 			ps.setBoolean(38, a.isIndicatoreScorporoIVA());
@@ -62,19 +63,19 @@ public class WriteCliente {
 			ps.setBoolean(40, a.isIndicatoreEmail());
 			ps.setBoolean(41, a.isInputInibito());
 			ps.setBoolean(42, a.isIndicatoreFatturePA());
-			ps.setString(43, a.getCodiceDataUltimaFattura());
+			ps.setDate(43, Date.valueOf(a.getDataUltimaFattura()));
 			ps.setFloat(44, a.getImportoUltimaFattura());
 			ps.setFloat(45, a.getImportoPlafond());
 			ps.setString(46, a.getNumeroUltimaFattura());
-			ps.setString(47, a.getCodiceDataInizioPlafond());
+			ps.setDate(47, Date.valueOf(a.getDataInizioPlafond()));
 			ps.setBoolean(48, a.isIndicatoreFattureXML());
 			ps.setBoolean(49, a.isIndicatoreDdtEmail());
 			ps.setBoolean(50, a.isIndicatorePlafond());
 			ps.setString(51, a.getCodiceDestinatarioXml());
 			ps.setString(52, a.getCodiceEORI());
-			ps.setString(53, a.getCodiceStabileOrganizzazione());
-			ps.setString(54, a.getCodiceRappresentanteFiscale());
-			ps.setString(55, a.getCodiceTerzoIntermediario());
+			ps.setString(53, a.getStabileOrganizzazione());
+			ps.setString(54, a.getRappresentanteFiscale());
+			ps.setString(55, a.getTerzoIntermediario());
 			ps.setTimestamp(56, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(57, Utils.toTimestamp(a.getDataUltimaModificaa()));
 

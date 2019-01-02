@@ -3,13 +3,13 @@ import java.time.LocalDate;
 
 public class Convenzione{ //List
 	private int numeroConvenzione; //  NULL,
-	private short numeroRigaConvenzione; //  NULL,
+	private int numeroRigaConvenzione; //  NULL,
 	private LocalDate dataConvenzione; //  NULL,
 	private String cnvCodiceCommessaConvenzione; // (100),
 	private String cnvCodiceCUP; // (15),
 	private String cnvCodiceCIG; // (15),
 	
-	public Convenzione(int numeroConvenzione, short numeroRigaConvenzione, LocalDate dataConvenzione,
+	public Convenzione(int numeroConvenzione, int numeroRigaConvenzione, LocalDate dataConvenzione,
 			String cnvCodiceCommessaConvenzione, String cnvCodiceCUP, String cnvCodiceCIG) {
 		this.numeroConvenzione = numeroConvenzione;
 		this.numeroRigaConvenzione = numeroRigaConvenzione;
@@ -27,11 +27,11 @@ public class Convenzione{ //List
 		this.numeroConvenzione = numeroConvenzione;
 	}
 
-	public short getNumeroRigaConvenzione() {
+	public int getNumeroRigaConvenzione() {
 		return numeroRigaConvenzione;
 	}
 
-	public void setNumeroRigaConvenzione(short numeroRigaConvenzione) {
+	public void setNumeroRigaConvenzione(int numeroRigaConvenzione) {
 		this.numeroRigaConvenzione = numeroRigaConvenzione;
 	}
 

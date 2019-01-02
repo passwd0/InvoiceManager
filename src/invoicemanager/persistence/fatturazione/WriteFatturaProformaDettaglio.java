@@ -19,7 +19,7 @@ public class WriteFatturaProformaDettaglio {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaProformaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
 		ps.setInt(1, a.getNumeroFattura());
-		ps.setString(2, a.getCodiceNumeroRigaFattura());
+		ps.setInt(2, a.getNumeroRigaFattura());
 		ps.setDate(3, Date.valueOf(a.getDataFattura()));
 		ps.setString(4, a.getCodiceTipoRigaDocumento());
 		ps.setString(5, a.getCodiceArticolo());
