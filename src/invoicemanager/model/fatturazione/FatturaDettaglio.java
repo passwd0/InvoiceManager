@@ -49,7 +49,10 @@ public class FatturaDettaglio {
 	private LocalDateTime dataInserimento;
 	private LocalDateTime dataUltimaModifica;
 
-	public FatturaDettaglio(int numeroRigaFattura) {
+	public FatturaDettaglio(int numeroFattura, LocalDate dataFattura, int numeroRigaFattura) {
+		super();
+		this.numeroFattura = numeroFattura;
+		this.dataFattura = dataFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
 	}
 
@@ -464,5 +467,35 @@ public class FatturaDettaglio {
 		if (altriDatiGestionali == null || altriDatiGestionali.isEmpty())
 			return -1;
 		return altriDatiGestionali.get(0).getNumeroAltroDatoGestionale();
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dataFattura == null) ? 0 : dataFattura.hashCode());
+		result = prime * result + numeroFattura;
+		result = prime * result + numeroRigaFattura;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FatturaDettaglio other = (FatturaDettaglio) obj;
+		if (dataFattura == null) {
+			if (other.dataFattura != null)
+				return false;
+		} else if (!(dataFattura.getYear()==other.dataFattura.getYear()))
+			return false;
+		if (numeroFattura != other.numeroFattura)
+			return false;
+		if (numeroRigaFattura != other.numeroRigaFattura)
+			return false;
+		return true;
 	}
 }

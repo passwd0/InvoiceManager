@@ -8,12 +8,12 @@ public class Agente {
 	private boolean tipoProvvigione; // NULL
 	private boolean tipoMandato; // NULL
 	private String codiceContabile; //(30) NULL
-	private Controparte codiceControparte; // (10) COLLATE Latin1_General_CI_AS NULL
+	private Controparte controparte; // (10) COLLATE Latin1_General_CI_AS NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
 		
 	public Agente(String codiceAgente, String nome, float percentualeProvvigione, boolean tipoProvvigione,
-				boolean tipoMandato, String codiceContabile, Controparte codiceControparte,
+				boolean tipoMandato, String codiceContabile, Controparte controparte,
 				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceAgente = codiceAgente;
 		this.nome = nome;
@@ -21,7 +21,7 @@ public class Agente {
 		this.tipoProvvigione = tipoProvvigione;
 		this.tipoMandato = tipoMandato;
 		this.codiceContabile = codiceContabile;
-		this.codiceControparte = codiceControparte;
+		this.controparte = controparte;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
@@ -77,13 +77,19 @@ public class Agente {
 	public void setCodiceContabile(String codiceContabile) {
 		this.codiceContabile = codiceContabile;
 	}
-
-	public Controparte getCodiceControparte() {
-		return codiceControparte;
+	
+	public String getCodiceControparte() {
+		if (controparte == null)
+			return null;
+		return controparte.getCodiceControparte();
 	}
 
-	public void setCodiceControparte(Controparte codiceControparte) {
-		this.codiceControparte = codiceControparte;
+	public Controparte getControparte() {
+		return controparte;
+	}
+
+	public void setControparte(Controparte controparte) {
+		this.controparte = controparte;
 	}
 
 	public LocalDateTime getDataInserimento() {

@@ -45,8 +45,9 @@ public class Banca {
 		this.cap = cap;
 		}
 
-	public Banca(String codiceBanca){
+	public Banca(String codiceBanca, String descrizione){
 		this.codiceBanca = codiceBanca;
+		this.descrizione = descrizione;
 	}
 
 	public String getCodiceBanca() {

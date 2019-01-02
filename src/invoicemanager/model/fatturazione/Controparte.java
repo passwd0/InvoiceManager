@@ -4,16 +4,16 @@ import java.time.LocalDateTime;
 public class Controparte{
 	private String codiceControparte; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
 	private String codiceContoCOGE; //(30) NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
 
-	public Controparte(String codiceControparte, String descrizione, Stato codiceStato, String codiceContoCOGE,
+	public Controparte(String codiceControparte, String descrizione, Stato stato, String codiceContoCOGE,
 				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceControparte = codiceControparte;
 		this.descrizione = descrizione;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.codiceContoCOGE = codiceContoCOGE;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
@@ -40,11 +40,11 @@ public class Controparte{
 	}
 
 	public Stato getCodiceStato() {
-		return codiceStato;
+		return stato;
 	}
 
-	public void setCodiceStato(Stato codiceStato) {
-		this.codiceStato = codiceStato;
+	public void setCodiceStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public String getCodiceContoCOGE() {

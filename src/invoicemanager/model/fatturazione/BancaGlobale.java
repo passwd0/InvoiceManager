@@ -21,7 +21,9 @@ public class BancaGlobale {
 	private String cap; //(2000) COLLATE Latin1_General_CI_AS
 
 
-	public BancaGlobale (String codiceABI, String codiceCAB){
+	public BancaGlobale (String codiceBanca, String descrizione, String codiceABI, String codiceCAB){
+		this.codiceBanca = codiceBanca;
+		this.descrizione = descrizione;
 		this.codiceABI = codiceABI;
 		this.codiceCAB = codiceCAB;
 	}
@@ -217,6 +219,33 @@ public class BancaGlobale {
 
 	public void setCap(String cap) {
 		this.cap = cap;
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codiceBanca == null) ? 0 : codiceBanca.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BancaGlobale other = (BancaGlobale) obj;
+		if (codiceBanca == null) {
+			if (other.codiceBanca != null)
+				return false;
+		} else if (!codiceBanca.equals(other.codiceBanca))
+			return false;
+		return true;
 	}
 	
 }
