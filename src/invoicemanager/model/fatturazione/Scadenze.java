@@ -28,7 +28,7 @@ public class Scadenze{
 	private float importoPartita; //  NULL,
 	private float impostaIVAInSospensione; //  NULL,
 	private float imponibileIVAInSospensione; //  NULL,
-	private short numeroGiornaleIVA; //  NULL,
+	private int numeroGiornaleIVA; //  NULL,
 	private String tipoRitenutaAcconto; //(3) COLLATE Latin1_General_CI_AS NULL,
 	private LocalDate dataAutorizzazionePagamento; //  NULL,
 	private String codiceDivisa; //(4) COLLATE Latin1_General_CI_AS NULL,
@@ -56,7 +56,7 @@ public class Scadenze{
 			float contriburoINPSDatoreLavoro, float contriburoINPSDatorePercipiente, LocalDate dataValutaAssegno,
 			String note, float importoPagato, LocalDate dataPagamento, String numeroDocumento,
 			String codiceIVAInSospensione, float importoPartita, float impostaIVAInSospensione,
-			float imponibileIVAInSospensione, short numeroGiornaleIVA, String tipoRitenutaAcconto,
+			float imponibileIVAInSospensione, int numeroGiornaleIVA, String tipoRitenutaAcconto,
 			LocalDate dataAutorizzazionePagamento, String codiceDivisa, LocalDate dataRegistrazione,
 			float importoAbbuono, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
 			String descrizioneAggiuntiva, boolean indicatoreFattureProforma, float importoRimborsiCpap) {
@@ -298,11 +298,11 @@ public class Scadenze{
 		this.imponibileIVAInSospensione = imponibileIVAInSospensione;
 	}
 
-	public short getNumeroGiornaleIVA() {
+	public int getNumeroGiornaleIVA() {
 		return numeroGiornaleIVA;
 	}
 
-	public void setNumeroGiornaleIVA(short numeroGiornaleIVA) {
+	public void setNumeroGiornaleIVA(int numeroGiornaleIVA) {
 		this.numeroGiornaleIVA = numeroGiornaleIVA;
 	}
 

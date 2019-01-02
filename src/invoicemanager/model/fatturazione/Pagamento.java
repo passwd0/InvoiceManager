@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Pagamento {
 		private String codicePagamento; //(4) NOT NULL
 		private String descrizione; //(100) NULL
-		private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+		private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
 		private TipoPagamento tipoPagamento; // (10) COLLATE Latin1_General_CI_AS NULL
 		private boolean indicatoreScadenzaAVista; // NULL
 		private String giornoMese; //(10) NULL
@@ -34,13 +34,18 @@ public class Pagamento {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
-	public Stato getCodiceStato() {
-		return codiceStato;
+	
+	public String getCodiceStato() {
+		if (stato == null) return null;
+		return stato.name();
 	}
 
-	public void setCodiceStato(Stato codiceStato) {
-		this.codiceStato = codiceStato;
+	public Stato getStato() {
+		return stato;
+	}
+
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public TipoPagamento getTipoPagamento() {

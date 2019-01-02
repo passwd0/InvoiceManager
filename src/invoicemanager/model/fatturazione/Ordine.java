@@ -3,13 +3,13 @@ import java.time.LocalDate;
 
 public class Ordine{ //List
 	private int numeroOrdine; //  NULL,
-	private short numeroRigaOrdine; //  NULL,
+	private int numeroRigaOrdine; //  NULL,
 	private LocalDate dataOrdine; //  NULL,
 	private String ordCodiceCommessaConvenzione; // (100),
 	private String ordCodiceCUP; // (15),
 	private String ordCodiceCIG; // (15),
 	
-	public Ordine(int numeroOrdine, short numeroRigaOrdine, LocalDate dataOrdine, String ordCodiceCommessaConvenzione,
+	public Ordine(int numeroOrdine, int numeroRigaOrdine, LocalDate dataOrdine, String ordCodiceCommessaConvenzione,
 			String ordCodiceCUP, String ordCodiceCIG) {
 		this.numeroOrdine = numeroOrdine;
 		this.numeroRigaOrdine = numeroRigaOrdine;
@@ -27,11 +27,11 @@ public class Ordine{ //List
 		this.numeroOrdine = numeroOrdine;
 	}
 
-	public short getNumeroRigaOrdine() {
+	public int getNumeroRigaOrdine() {
 		return numeroRigaOrdine;
 	}
 
-	public void setNumeroRigaOrdine(short numeroRigaOrdine) {
+	public void setNumeroRigaOrdine(int numeroRigaOrdine) {
 		this.numeroRigaOrdine = numeroRigaOrdine;
 	}
 

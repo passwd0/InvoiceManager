@@ -44,7 +44,7 @@ public class WriteScadenze {
 		ps.setFloat(23, a.getImportoPartita());
 		ps.setFloat(24, a.getImpostaIVAInSospensione());
 		ps.setFloat(25, a.getImponibileIVAInSospensione());
-		ps.setString(26, a.getCodiceNumeroGiornaleIVA());
+		ps.setInt(26, a.getNumeroGiornaleIVA());
 		ps.setString(27, a.getTipoRitenutaAcconto());
 		ps.setDate(28, Date.valueOf(a.getDataAutorizzazionePagamento()));
 		ps.setString(29, a.getCodiceDivisa());

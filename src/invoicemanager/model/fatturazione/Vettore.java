@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Vettore {
 	private String codiceVettore; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
 	private String via; //(50) NULL
 	private String citta; //(100) NULL
 	private String partitaIva; //(11) NULL
@@ -17,12 +17,12 @@ public class Vettore {
 		this.codiceVettore = codiceVettore;
 	}
 
-	public Vettore(String codiceVettore, String descrizione, Stato codiceStato, String via, String citta,
+	public Vettore(String codiceVettore, String descrizione, Stato stato, String via, String citta,
 			String partitaIva, String iscrizione, String telefono, LocalDateTime dataInserimento,
 			LocalDateTime dataUltimaModifica) {
 		this.codiceVettore = codiceVettore;
 		this.descrizione = descrizione;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.via = via;
 		this.citta = citta;
 		this.partitaIva = partitaIva;
@@ -47,13 +47,19 @@ public class Vettore {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
-	public Stato getCodiceStato() {
-		return codiceStato;
+	
+	public String getCodiceStato() {
+		if (stato == null)
+			return null;
+		return stato.name();
 	}
 
-	public void setCodiceStato(Stato codiceStato) {
-		this.codiceStato = codiceStato;
+	public Stato getStato() {
+		return stato;
+	}
+
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public String getVia() {

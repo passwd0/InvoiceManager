@@ -4,15 +4,15 @@ import java.time.LocalDateTime;
 public class Imballo{
 	private String codiceImballo; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
 		
-	public Imballo(String codiceImballo, String descrizione, Stato codiceStato, LocalDateTime dataInserimento,
+	public Imballo(String codiceImballo, String descrizione, Stato stato, LocalDateTime dataInserimento,
 			LocalDateTime dataUltimaModifica) {
 		this.codiceImballo = codiceImballo;
 		this.descrizione = descrizione;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
@@ -36,13 +36,18 @@ public class Imballo{
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
-	public Stato getCodiceStato() {
-		return codiceStato;
+	
+	public String getCodiceStato() {
+		if (stato == null) return null;
+		return stato.name();
 	}
 
-	public void setCodiceStato(Stato codiceStato) {
-		this.codiceStato = codiceStato;
+	public Stato getStato() {
+		return stato;
+	}
+
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public LocalDateTime getDataInserimento() {

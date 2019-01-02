@@ -57,9 +57,8 @@ public class WriteOrdineTestata {
 			ps.setString(37, a.getRevisione());
 			ps.setString(38, a.getAttenzione());
 			ps.setBoolean(39, a.isIndicatoreOrdineTrading());
-			ps.setString(40, a.getCodiceOrdineDettagli());
-			ps.setTimestamp(41, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(42, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(40, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(41, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 			ps.executeUpdate();
 			ps.close();

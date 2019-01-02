@@ -19,7 +19,7 @@ public class WriteOrdine {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Ordine VALUES (?, ?, ?, ?, ?, ?,)");
 		ps.setInt(1, a.getNumeroOrdine());
-		ps.setString(2, a.getCodiceNumeroRigaOrdine());
+		ps.setInt(2, a.getNumeroRigaOrdine());
 		ps.setDate(3, Date.valueOf(a.getDataOrdine()));
 		ps.setString(4, a.getOrdCodiceCommessaConvenzione());
 		ps.setString(5, a.getOrdCodiceCUP());

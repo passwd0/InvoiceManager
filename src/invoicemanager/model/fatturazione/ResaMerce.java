@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class ResaMerce{
 	private String codiceResa; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
 	private float percentualeAddebito; //  NULL
 	private float importoMinimo; // (19, 5) NULL
 	private boolean indicatoreProvvigione; // NULL
@@ -15,12 +15,12 @@ public class ResaMerce{
 		this.codiceResa = CodiceResa;
 	}
 
-	public ResaMerce(String codiceResa, String descrizione, Stato codiceStato, float percentualeAddebito,
+	public ResaMerce(String codiceResa, String descrizione, Stato stato, float percentualeAddebito,
 		float importoMinimo, boolean indicatoreProvvigione, LocalDateTime dataInserimento,
 		LocalDateTime dataUltimaModifica) {
 	this.codiceResa = codiceResa;
 	this.descrizione = descrizione;
-	this.codiceStato = codiceStato;
+	this.stato = stato;
 	this.percentualeAddebito = percentualeAddebito;
 	this.importoMinimo = importoMinimo;
 	this.indicatoreProvvigione = indicatoreProvvigione;
@@ -43,13 +43,18 @@ public class ResaMerce{
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
-	public Stato getCodiceStato() {
-		return codiceStato;
+	
+	public String getCodiceStato() {
+		if (stato == null) return null;
+		return stato.name();
 	}
 
-	public void setCodiceStato(Stato codiceStato) {
-		this.codiceStato = codiceStato;
+	public Stato getStato() {
+		return stato;
+	}
+
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public float getPercentualeAddebito() {

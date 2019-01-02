@@ -20,7 +20,7 @@ public class WriteVettore {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Vettore VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
 			ps.setString(1, a.getCodiceVettore());
 			ps.setString(2, a.getDescrizione());
-			ps.setString(3, a.getCodiceCodiceStato());
+			ps.setString(3, a.getCodiceStato());
 			ps.setString(4, a.getVia());
 			ps.setString(5, a.getCitta());
 			ps.setString(6, a.getPartitaIva());

@@ -45,7 +45,7 @@ public class FatturaDettaglio {
 	private List<Convenzione> convenzioni;
 	private List<Ricezione> ricezioni;
 	private List<FatturaCollegata> fattureCollegate;
-	private List<AltroDatoGestionale> altriDatiGestioni;
+	private List<AltroDatoGestionale> altriDatiGestionali;
 	private LocalDateTime dataInserimento;
 	private LocalDateTime dataUltimaModifica;
 
@@ -63,7 +63,7 @@ public class FatturaDettaglio {
 			int numeroRigaDdt, String codicePercipiente, String codiceCassaPrevidenziale, String codiceCdc,
 			String contoRicavoUsato, String ricavoUsato, List<Ordine> ordini, List<Contratto> contratti,
 			List<Convenzione> convenzioni, List<Ricezione> ricezioni, List<FatturaCollegata> fattureCollegate,
-			List<AltroDatoGestionale> altriDatiGestioni, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			List<AltroDatoGestionale> altriDatiGestionali, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
@@ -101,7 +101,7 @@ public class FatturaDettaglio {
 		this.convenzioni = convenzioni;
 		this.ricezioni = ricezioni;
 		this.fattureCollegate = fattureCollegate;
-		this.altriDatiGestioni = altriDatiGestioni;
+		this.altriDatiGestionali = altriDatiGestionali;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
@@ -223,11 +223,11 @@ public class FatturaDettaglio {
 	}
 
 	public List<AltroDatoGestionale> getAltriDatiGestioni() {
-		return altriDatiGestioni;
+		return altriDatiGestionali;
 	}
 
 	public void setAltriDatiGestioni(List<AltroDatoGestionale> altriDatiGestioni) {
-		this.altriDatiGestioni = altriDatiGestioni;
+		this.altriDatiGestionali = altriDatiGestioni;
 	}
 
 	public String getCodiceIva() {
@@ -428,5 +428,41 @@ public class FatturaDettaglio {
 
 	public void setFattureCollegate(List<FatturaCollegata> fattureCollegate) {
 		this.fattureCollegate = fattureCollegate;
+	}
+	
+	public int getCodiceOrdine() {
+		if (ordini == null || ordini.isEmpty())
+			return -1;
+		return ordini.get(0).getNumeroOrdine();
+	}
+	
+	public int getCodiceContratto() {
+		if (contratti == null || contratti.isEmpty())
+			return -1;
+		return contratti.get(0).getNumeroContratto();
+	}
+	
+	public int getCodiceConvezione() {
+		if (convenzioni == null || convenzioni.isEmpty())
+			return -1;
+		return convenzioni.get(0).getNumeroConvenzione();
+	}
+	
+	public int getCodiceRicezione() {
+		if (ricezioni == null || ricezioni.isEmpty())
+			return -1;
+		return ricezioni.get(0).getNumeroRicezione();
+	}
+	
+	public int getCodiceFatturaCollegata() {
+		if (fattureCollegate == null || fattureCollegate.isEmpty())
+			return -1;
+		return fattureCollegate.get(0).getNumeroFtCollegate();
+	}
+	
+	public int getCodiceAltriDatiGestionali() {
+		if (altriDatiGestionali == null || altriDatiGestionali.isEmpty())
+			return -1;
+		return altriDatiGestionali.get(0).getNumeroAltroDatoGestionale();
 	}
 }

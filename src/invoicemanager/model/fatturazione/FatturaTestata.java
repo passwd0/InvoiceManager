@@ -214,6 +214,11 @@ public class FatturaTestata {
 	public void setDataFattura(LocalDate dataFattura) {
 		this.dataFattura = dataFattura;
 	}
+	
+	public String getCodiceStatoAvanzamento() {
+		if (statoAvanzamento == null) return null;
+		return statoAvanzamento.name();
+	}
 
 	public StatoAvanzamento getStatoAvanzamento() {
 		return statoAvanzamento;

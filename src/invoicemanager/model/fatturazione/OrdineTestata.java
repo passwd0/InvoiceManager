@@ -107,7 +107,7 @@ public class OrdineTestata{
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
-
+	
 	public List<OrdineDettaglio> getOrdineDettagli() {
 		return ordineDettagli;
 	}
@@ -130,6 +130,11 @@ public class OrdineTestata{
 
 	public void setDataOrdine(LocalDate dataOrdine) {
 		this.dataOrdine = dataOrdine;
+	}
+	
+	public String getCodiceStatoAvanzamento() {
+		if (statoAvanzamento == null) return null;
+		return statoAvanzamento.name();
 	}
 
 	public StatoAvanzamento getStatoAvanzamento() {
@@ -443,7 +448,7 @@ public class OrdineTestata{
 	public void setIndicatoreOrdineTrading(boolean indicatoreOrdineTrading) {
 		this.indicatoreOrdineTrading = indicatoreOrdineTrading;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

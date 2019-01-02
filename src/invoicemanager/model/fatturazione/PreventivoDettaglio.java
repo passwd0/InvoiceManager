@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class PreventivoDettaglio{
 	private int numeroPreventivo; //  NOT NULL
-	private short numeroRigaPreventivo; //  NOT NULL
+	private int numeroRigaPreventivo; //  NOT NULL
 	private LocalDate dataPreventivo; //  NOT NULL
 	private String codiceTipoRigaDocumento; //(4) NULL
 	private String codiceArticolo; //(30) NULL
@@ -26,13 +26,13 @@ public class PreventivoDettaglio{
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
 
-	public PreventivoDettaglio(int numeroPreventivo, short numeroRigaPreventivo, LocalDate dataPreventivo){
+	public PreventivoDettaglio(int numeroPreventivo, int numeroRigaPreventivo, LocalDate dataPreventivo){
 		this.numeroPreventivo = numeroPreventivo;
 		this.numeroRigaPreventivo = numeroRigaPreventivo;
 		this.dataPreventivo = dataPreventivo;
 	}
 
-	public PreventivoDettaglio(int numeroPreventivo, short numeroRigaPreventivo, LocalDate dataPreventivo,
+	public PreventivoDettaglio(int numeroPreventivo, int numeroRigaPreventivo, LocalDate dataPreventivo,
 			String codiceTipoRigaDocumento, String codiceArticolo, float quantitaArticolo, float quantitaConsegnata,
 			float quantitaDaConsegnare, String descrizione, String descrizioneAggiuntiva, LocalDate dataConsegna,
 			String codiceUnitaMisura, float prezzo, String codiceIVA, String codiceControparte,
@@ -71,11 +71,11 @@ public class PreventivoDettaglio{
 		this.numeroPreventivo = numeroPreventivo;
 	}
 
-	public short getNumeroRigaPreventivo() {
+	public int getNumeroRigaPreventivo() {
 		return numeroRigaPreventivo;
 	}
 
-	public void setNumeroRigaPreventivo(short numeroRigaPreventivo) {
+	public void setNumeroRigaPreventivo(int numeroRigaPreventivo) {
 		this.numeroRigaPreventivo = numeroRigaPreventivo;
 	}
 

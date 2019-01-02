@@ -3,13 +3,13 @@ import java.time.LocalDate;
 
 public class Ricezione{ //List
 	private int numeroRicezione; //  NULL,
-	private short numeroRigaRicezione; //  NULL,
+	private int numeroRigaRicezione; //  NULL,
 	private LocalDate dataRicezione; //  NULL,
 	private String rczCodiceCommessaRicezione; // (100),
 	private String rczCodiceCUP; // (15),
 	private String rczCodiceCIG; // (15),
 	
-	public Ricezione(int numeroRicezione, short numeroRigaRicezione, LocalDate dataRicezione,
+	public Ricezione(int numeroRicezione, int numeroRigaRicezione, LocalDate dataRicezione,
 			String rczCodiceCommessaRicezione, String rczCodiceCUP, String rczCodiceCIG) {
 		this.numeroRicezione = numeroRicezione;
 		this.numeroRigaRicezione = numeroRigaRicezione;
@@ -24,10 +24,10 @@ public class Ricezione{ //List
 	public void setNumeroRicezione(int numeroRicezione) {
 		this.numeroRicezione = numeroRicezione;
 	}
-	public short getNumeroRigaRicezione() {
+	public int getNumeroRigaRicezione() {
 		return numeroRigaRicezione;
 	}
-	public void setNumeroRigaRicezione(short numeroRigaRicezione) {
+	public void setNumeroRigaRicezione(int numeroRigaRicezione) {
 		this.numeroRigaRicezione = numeroRigaRicezione;
 	}
 	public LocalDate getDataRicezione() {

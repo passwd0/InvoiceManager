@@ -20,7 +20,7 @@ public class WriteImballo {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Imballo VALUES (?, ?, ?, ?, ?,)");
 			ps.setString(1, a.getCodiceImballo());
 			ps.setString(2, a.getDescrizione());
-			ps.setString(3, a.getCodiceCodiceStato());
+			ps.setString(3, a.getCodiceStato());
 			ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
 	    	

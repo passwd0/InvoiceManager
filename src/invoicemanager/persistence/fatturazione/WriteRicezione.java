@@ -19,7 +19,7 @@ public class WriteRicezione {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Ricezione VALUES (?, ?, ?, ?, ?, ?,)");
 		ps.setInt(1, a.getNumeroRicezione());
-		ps.setString(2, a.getCodiceNumeroRigaRicezione());
+		ps.setInt(2, a.getNumeroRigaRicezione());
 		ps.setDate(3, Date.valueOf(a.getDataRicezione()));
 		ps.setString(4, a.getRczCodiceCommessaRicezione());
 		ps.setString(5, a.getRczCodiceCUP());

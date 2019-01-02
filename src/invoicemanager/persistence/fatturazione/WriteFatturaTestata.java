@@ -56,18 +56,16 @@ public class WriteFatturaTestata {
 			ps.setBoolean(36, a.isIndicatoreFatturazioneDifferita());
 			ps.setBoolean(37, a.isIndicatoreEmail());
 			ps.setBoolean(38, a.isIndicatorePa());
-			ps.setString(39, a.getCodiceFatturadettaglio());
-			ps.setFloat(40, a.getSpeseTrasporto());
-			ps.setFloat(41, a.getSpeseImballo());
-			ps.setFloat(42, a.getSpeseIncasso());
-			ps.setFloat(43, a.getSpeseBolli());
-			ps.setFloat(44, a.getOmaggi());
-			ps.setFloat(45, a.getTotalePagato());
-			ps.setDate(46, Date.valueOf(a.getDataScadenza()));
-			ps.setFloat(47, a.getImportoScadenza());
-			ps.setString(48, a.getCodiceAllegati());
-			ps.setTimestamp(49, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(50, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setFloat(39, a.getSpeseTrasporto());
+			ps.setFloat(40, a.getSpeseImballo());
+			ps.setFloat(41, a.getSpeseIncasso());
+			ps.setFloat(42, a.getSpeseBolli());
+			ps.setFloat(43, a.getOmaggi());
+			ps.setFloat(44, a.getTotalePagato());
+			ps.setDate(45, Date.valueOf(a.getDataScadenza()));
+			ps.setFloat(46, a.getImportoScadenza());
+			ps.setTimestamp(47, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(48, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 	    	ps.executeUpdate();
 			ps.close();

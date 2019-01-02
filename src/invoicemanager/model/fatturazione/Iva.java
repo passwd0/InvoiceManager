@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Iva{
 	private String codiceIva; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato codiceStato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
 	private int rigaIVAAcquisti; //  NULL
 	private float addizionaleIVA; //  NULL
 	private float aliquotaIVA; //  NULL
@@ -35,7 +35,7 @@ public class Iva{
 	private String colonnaNoteClientiFornitori; //(50) NULL
 	private String splitPayment;
 		
-	public Iva(String codiceIva, String descrizione, Stato codiceStato, int rigaIVAAcquisti, float addizionaleIVA,
+	public Iva(String codiceIva, String descrizione, Stato stato, int rigaIVAAcquisti, float addizionaleIVA,
 				float aliquotaIVA, float imponibileAcquisti, float imponibileAcquistiNonDetraibile,
 				float impostaAcquisti, float imponibileVendite, float imponibileVenditeNonDetraibile,
 				float impostaVendite, int rigaIVAVendite, float coefficienteIVA, String percentualeIndetraibilita,
@@ -47,7 +47,7 @@ public class Iva{
 				String colonnaNoteClientiFornitori, String splitPayment) {
 		this.codiceIva = codiceIva;
 		this.descrizione = descrizione;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.rigaIVAAcquisti = rigaIVAAcquisti;
 		this.addizionaleIVA = addizionaleIVA;
 		this.aliquotaIVA = aliquotaIVA;
@@ -98,13 +98,18 @@ public class Iva{
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
-	public Stato getCodiceStato() {
-		return codiceStato;
+	
+	public String getCodiceStato() {
+		if (stato == null) return null;
+		return stato.name();
 	}
 
-	public void setCodiceStato(Stato codiceStato) {
-		this.codiceStato = codiceStato;
+	public Stato getStato() {
+		return stato;
+	}
+
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public int getRigaIVAAcquisti() {
