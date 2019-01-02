@@ -2,7 +2,7 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
 public class CausaleMagazzino{
-	private String codiceCausale; //(4) NOT NULL
+	private String codiceCausaleMagazzino; //(4) NOT NULL
 	private String descrizione; //(100) NULL
 	private boolean codiceStato; // NULL
 	private boolean segnoEsistenza; // NULL
@@ -22,7 +22,7 @@ public class CausaleMagazzino{
 	private String valoreDaProporre; //(10) NULL
 	private String valorePerValorizzazioneMovimenti; //(10) NULL
 	private boolean indicatoreConcatenamento; // NULL
-	private String codiceCausaleConcatenata; //(4) NULL
+	private String codiceCausaleMagazzinoConcatenata; //(4) NULL
 	private String nomeFileMemo; //(50) NULL
 	private boolean indicatoreModifica; // NULL
 	private boolean indicatoreBollaEntrata; // NULL
@@ -38,24 +38,24 @@ public class CausaleMagazzino{
 	private String loginModifica; //(30) NULL
 	private boolean indicatoreLotti;
 
-	public CausaleMagazzino(String codiceCausale){
-		this.codiceCausale = codiceCausale;
+	public CausaleMagazzino(String codiceCausaleMagazzino){
+		this.codiceCausaleMagazzino = codiceCausaleMagazzino;
 	}
 
-	public CausaleMagazzino(String codiceCausale, String descrizione, boolean codiceStato, boolean segnoEsistenza,
+	public CausaleMagazzino(String codiceCausaleMagazzino, String descrizione, boolean codiceStato, boolean segnoEsistenza,
 			boolean segnoImpegniCliente, boolean segnoOrdiniFornitore, boolean segnoFatturato,
 			boolean segnoCaricoAValore, boolean segnoUnitaVendute, boolean segnoCaricoAQuantita,
 			boolean indicatoreMovimentoAQuantita, boolean indicatoreMovimentoAValore,
 			boolean indicatoreMovimentoContoLavorazione, boolean indicatoreMovimentoCommessa,
 			boolean indicatoreAggiornamentoDataUltimoCarico, boolean indicatoreAggiornamentoDataUltimoScarico,
 			boolean indicatoreAggiornamentoCostoUltimo, String valoreDaProporre,
-			String valorePerValorizzazioneMovimenti, boolean indicatoreConcatenamento, String codiceCausaleConcatenata,
+			String valorePerValorizzazioneMovimenti, boolean indicatoreConcatenamento, String codiceCausaleMagazzinoConcatenata,
 			String nomeFileMemo, boolean indicatoreModifica, boolean indicatoreBollaEntrata,
 			boolean indicatoreDocumentoDiTrasporto, boolean indicatoreFatturaAccompagnatoria,
 			boolean indicatoreOrdineCliente, boolean indicatoreOrdineFornitore, boolean indicatoreDistinta, String note,
 			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
 			String loginModifica, boolean indicatoreLotti) {
-		this.codiceCausale = codiceCausale;
+		this.codiceCausaleMagazzino = codiceCausaleMagazzino;
 		this.descrizione = descrizione;
 		this.codiceStato = codiceStato;
 		this.segnoEsistenza = segnoEsistenza;
@@ -75,7 +75,7 @@ public class CausaleMagazzino{
 		this.valoreDaProporre = valoreDaProporre;
 		this.valorePerValorizzazioneMovimenti = valorePerValorizzazioneMovimenti;
 		this.indicatoreConcatenamento = indicatoreConcatenamento;
-		this.codiceCausaleConcatenata = codiceCausaleConcatenata;
+		this.codiceCausaleMagazzinoConcatenata = codiceCausaleMagazzinoConcatenata;
 		this.nomeFileMemo = nomeFileMemo;
 		this.indicatoreModifica = indicatoreModifica;
 		this.indicatoreBollaEntrata = indicatoreBollaEntrata;
@@ -92,12 +92,12 @@ public class CausaleMagazzino{
 		this.indicatoreLotti = indicatoreLotti;
 	}
 
-	public String getCodiceCausale() {
-		return codiceCausale;
+	public String getCodiceCausaleMagazzino() {
+		return codiceCausaleMagazzino;
 	}
 
-	public void setCodiceCausale(String codiceCausale) {
-		this.codiceCausale = codiceCausale;
+	public void setCodiceCausaleMagazzino(String codiceCausaleMagazzino) {
+		this.codiceCausaleMagazzino = codiceCausaleMagazzino;
 	}
 
 	public String getDescrizione() {
@@ -252,12 +252,12 @@ public class CausaleMagazzino{
 		this.indicatoreConcatenamento = indicatoreConcatenamento;
 	}
 
-	public String getCodiceCausaleConcatenata() {
-		return codiceCausaleConcatenata;
+	public String getCodiceCausaleMagazzinoConcatenata() {
+		return codiceCausaleMagazzinoConcatenata;
 	}
 
-	public void setCodiceCausaleConcatenata(String codiceCausaleConcatenata) {
-		this.codiceCausaleConcatenata = codiceCausaleConcatenata;
+	public void setCodiceCausaleMagazzinoConcatenata(String codiceCausaleMagazzinoConcatenata) {
+		this.codiceCausaleMagazzinoConcatenata = codiceCausaleMagazzinoConcatenata;
 	}
 
 	public String getNomeFileMemo() {

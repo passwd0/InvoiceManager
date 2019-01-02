@@ -3,7 +3,7 @@ import java.time.LocalDateTime;
 
 public class BentoDettaglio {
 	private String codiceBento; //(50) NOT NULL
-	private short numeroRigaBento; //  NOT NULL
+	private int numeroRigaBento; //  NOT NULL
 	private TipoBento tipoBento; //(2) NULL
 	private String codiceRigaBento; //(2) NULL
 	private String codiceArticolo; //(30) NULL
@@ -22,20 +22,19 @@ public class BentoDettaglio {
 	private String descrizioneAggiuntiva; //(200) NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
 
-	public BentoDettaglio(String codiceBento, TipoBento tipoBento, short numeroRigaBento){
+	public BentoDettaglio(String codiceBento, TipoBento tipoBento, int numeroRigaBento){
 		this.codiceBento = codiceBento;
 		this.tipoBento = tipoBento;
 		this.numeroRigaBento = numeroRigaBento;
 	}
 
-	public BentoDettaglio(String codiceBento, short numeroRigaBento, TipoBento tipoBento, String codiceRigaBento,
+	public BentoDettaglio(String codiceBento, int numeroRigaBento, TipoBento tipoBento, String codiceRigaBento,
 			String codiceArticolo, String descrizione, float quantita, UnitaMisura unitaMisura, float prezzo,
 			Iva iva, Controparte controparte, float percentualeProvvigione, float percentualeScontoCliente,
 			float percentualeScontoArticolo, float percentualeScontoPagamento, Magazzino magazzino,
 			CausaleMagazzino causale, String descrizioneAggiuntiva, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica, String loginInserimento) {
+			LocalDateTime dataUltimaModifica) {
 		this.codiceBento = codiceBento;
 		this.numeroRigaBento = numeroRigaBento;
 		this.tipoBento = tipoBento;
@@ -56,7 +55,6 @@ public class BentoDettaglio {
 		this.descrizioneAggiuntiva = descrizioneAggiuntiva;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
 	}
 
 	public String getCodiceBento() {
@@ -67,11 +65,11 @@ public class BentoDettaglio {
 		this.codiceBento = codiceBento;
 	}
 
-	public short getNumeroRigaBento() {
+	public int getNumeroRigaBento() {
 		return numeroRigaBento;
 	}
 
-	public void setNumeroRigaBento(short numeroRigaBento) {
+	public void setNumeroRigaBento(int numeroRigaBento) {
 		this.numeroRigaBento = numeroRigaBento;
 	}
 
@@ -206,7 +204,7 @@ public class BentoDettaglio {
 		this.percentualeScontoPagamento = percentualeScontoPagamento;
 	}
 
-	public Magazzino getCodiceMagazzino() {
+	public Magazzino getMagazzino() {
 		return magazzino;
 	}
 
@@ -214,7 +212,7 @@ public class BentoDettaglio {
 		this.magazzino = magazzino;
 	}
 
-	public String getCodiceMagazzino(Magazzino magazzino) {
+	public String getCodiceMagazzino() {
 		if (magazzino == null)
 			return null;
 		return magazzino.getCodiceMagazzino();
@@ -224,14 +222,14 @@ public class BentoDettaglio {
 		return causale;
 	}
 
-	public void setCodiceCausale(CausaleMagazzino causale) {
+	public void setCausale(CausaleMagazzino causale) {
 		this.causale = causale;
 	}
 
-	public String getCausaleMagazzino(CausaleMagazzino causale) {
+	public String getCodiceCausaleMagazzino() {
 		if (causale == null)
 			return null;
-		return causale.getCausaleMagazzino();
+		return causale.getCodiceCausaleMagazzino();
 	}
 		
 	public String getDescrizioneAggiuntiva() {
@@ -256,13 +254,5 @@ public class BentoDettaglio {
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
 	}
 }
