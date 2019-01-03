@@ -11,6 +11,14 @@ public class TipoPagamento{
 		this.codiceTipoPagamento = codiceTipoPagamento;
 	}
 
+	public TipoPagamento(String codiceTipoPagamento, String descrizione, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
+		this.codiceTipoPagamento = codiceTipoPagamento;
+		this.descrizione = descrizione;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
 	public String getCodiceTipoPagamento() {
 		return codiceTipoPagamento;
 	}

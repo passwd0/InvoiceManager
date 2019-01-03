@@ -29,19 +29,19 @@ public class ReadStatoFattura {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
-boolean tipoDocumento = rs.getBoolean("tipoDocumento");
-String descrizione = rs.getString("descrizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-StatoFattura statoFattura = new StatoFattura(indicatoreStatoAvanzamento, tipoDocumento, descrizione, dataInserimento, dataUltimaModifica);
+				boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
+				boolean tipoDocumento = rs.getBoolean("tipoDocumento");
+				String descrizione = rs.getString("descrizione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+
+				StatoFattura statoFattura = new StatoFattura(indicatoreStatoAvanzamento, tipoDocumento, descrizione, dataInserimento, dataUltimaModifica);
 
 		liststatoFattura.add(statoFattura);
 	         }

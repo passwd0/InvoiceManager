@@ -29,29 +29,29 @@ public class ReadPianoConto {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceConto = rs.getString("codiceConto");
-String descrizione = rs.getString("descrizione");
-boolean tipo = rs.getBoolean("tipo");
-String codiceClassificazione = rs.getString("codiceClassificazione");
-float darePeriodo = rs.getFloat("darePeriodo");
-float averePeriodo = rs.getFloat("averePeriodo");
-float dareProgressivo = rs.getFloat("dareProgressivo");
-float avereProgressivo = rs.getFloat("avereProgressivo");
-String codiceDivisa = rs.getString("codiceDivisa");
-String codiceBancaBonifico = rs.getString("codiceBancaBonifico");
-boolean contoBanca = rs.getBoolean("contoBanca");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-PianoConto pianoConto = new PianoConto(codiceConto, descrizione, tipo, codiceClassificazione, darePeriodo, averePeriodo, dareProgressivo, avereProgressivo, codiceDivisa, codiceBancaBonifico, contoBanca, dataInserimento, dataUltimaModifica);
+				String codiceConto = rs.getString("codiceConto");
+				String descrizione = rs.getString("descrizione");
+				boolean tipo = rs.getBoolean("tipo");
+				String codiceClassificazione = rs.getString("codiceClassificazione");
+				float darePeriodo = rs.getFloat("darePeriodo");
+				float averePeriodo = rs.getFloat("averePeriodo");
+				float dareProgressivo = rs.getFloat("dareProgressivo");
+				float avereProgressivo = rs.getFloat("avereProgressivo");
+				String codiceDivisa = rs.getString("codiceDivisa");
+				String codiceBancaBonifico = rs.getString("codiceBancaBonifico");
+				boolean contoBanca = rs.getBoolean("contoBanca");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				PianoConto pianoConto = new PianoConto(codiceConto, descrizione, tipo, codiceClassificazione, darePeriodo, averePeriodo, dareProgressivo, avereProgressivo, codiceDivisa, codiceBancaBonifico, contoBanca, dataInserimento, dataUltimaModifica);
 
-		listpianoConto.add(pianoConto);
+				listpianoConto.add(pianoConto);
 	         }
 		     rs.close();
 		     stmt.close();

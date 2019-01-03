@@ -29,25 +29,25 @@ public class ReadPercipiente {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codicePercipiente = rs.getString("codicePercipiente");
-String descrizione = rs.getString("descrizione");
-boolean codiceStato = rs.getBoolean("codiceStato");
-float aliquotaRitenutaAcconto = rs.getFloat("aliquotaRitenutaAcconto");
-float percentualeImponibileRitenutaAcconto = rs.getFloat("percentualeImponibileRitenutaAcconto");
-String codiceTributo = rs.getString("codiceTributo");
-boolean assoggettamentoINPS = rs.getBoolean("assoggettamentoINPS");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-Percipiente percipiente = new Percipiente(codicePercipiente, descrizione, codiceStato, aliquotaRitenutaAcconto, percentualeImponibileRitenutaAcconto, codiceTributo, assoggettamentoINPS, dataInserimento, dataUltimaModifica);
+				String codicePercipiente = rs.getString("codicePercipiente");
+				String descrizione = rs.getString("descrizione");
+				boolean codiceStato = rs.getBoolean("codiceStato");
+				float aliquotaRitenutaAcconto = rs.getFloat("aliquotaRitenutaAcconto");
+				float percentualeImponibileRitenutaAcconto = rs.getFloat("percentualeImponibileRitenutaAcconto");
+				String codiceTributo = rs.getString("codiceTributo");
+				boolean assoggettamentoINPS = rs.getBoolean("assoggettamentoINPS");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				Percipiente percipiente = new Percipiente(codicePercipiente, descrizione, codiceStato, aliquotaRitenutaAcconto, percentualeImponibileRitenutaAcconto, codiceTributo, assoggettamentoINPS, dataInserimento, dataUltimaModifica);
 
-		listpercipiente.add(percipiente);
+				listpercipiente.add(percipiente);
 	         }
 		     rs.close();
 		     stmt.close();

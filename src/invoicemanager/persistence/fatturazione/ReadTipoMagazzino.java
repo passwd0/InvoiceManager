@@ -29,20 +29,19 @@ public class ReadTipoMagazzino {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-boolean codiceTipoMagazzino = rs.getBoolean("codiceTipoMagazzino");
-String descrizione = rs.getString("descrizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-TipoMagazzino tipoMagazzino = new TipoMagazzino(codiceTipoMagazzino, descrizione, dataInserimento, dataUltimaModifica);
-
-		listtipoMagazzino.add(tipoMagazzino);
+				boolean codiceTipoMagazzino = rs.getBoolean("codiceTipoMagazzino");
+				String descrizione = rs.getString("descrizione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				TipoMagazzino tipoMagazzino = new TipoMagazzino(codiceTipoMagazzino, descrizione, dataInserimento, dataUltimaModifica);
+				listtipoMagazzino.add(tipoMagazzino);
 	         }
 		     rs.close();
 		     stmt.close();

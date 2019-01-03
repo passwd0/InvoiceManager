@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 import invoicemanager.model.fatturazione.Convenzione;
 
@@ -29,16 +29,15 @@ public class ReadConvenzione {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroConvenzione = rs.getInt("numeroConvenzione");
-int numeroRigaConvenzione = rs.getInt("numeroRigaConvenzione");
-LocalDate dataConvenzione = rs.getDate("dataConvenzione")).toLocalDate();
-String cnvCodiceCommessaConvenzione = rs.getString("cnvCodiceCommessaConvenzione");
-String cnvCodiceCUP = rs.getString("cnvCodiceCUP");
-String cnvCodiceCIG = rs.getString("cnvCodiceCIG");
-()
-Convenzione convenzione = new Convenzione(numeroConvenzione, numeroRigaConvenzione, dataConvenzione, cnvCodiceCommessaConvenzione, cnvCodiceCUP, cnvCodiceCIG);
-
-		listconvenzione.add(convenzione);
+				int numeroConvenzione = rs.getInt("numeroConvenzione");
+				int numeroRigaConvenzione = rs.getInt("numeroRigaConvenzione");
+				LocalDate dataConvenzione = rs.getDate("dataConvenzione").toLocalDate();
+				String cnvCodiceCommessaConvenzione = rs.getString("cnvCodiceCommessaConvenzione");
+				String cnvCodiceCUP = rs.getString("cnvCodiceCUP");
+				String cnvCodiceCIG = rs.getString("cnvCodiceCIG");
+				
+				Convenzione convenzione = new Convenzione(numeroConvenzione, numeroRigaConvenzione, dataConvenzione, cnvCodiceCommessaConvenzione, cnvCodiceCUP, cnvCodiceCIG);
+				listconvenzione.add(convenzione);
 	         }
 		     rs.close();
 		     stmt.close();

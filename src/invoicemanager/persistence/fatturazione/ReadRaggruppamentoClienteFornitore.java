@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import invoicemanager.model.fatturazione.RaggruppamentoClienteFornitore;
+import invoicemanager.model.fatturazione.Stato;
 
 
 public class ReadRaggruppamentoClienteFornitore {
@@ -29,21 +30,21 @@ public class ReadRaggruppamentoClienteFornitore {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceRaggruppamento = rs.getString("codiceRaggruppamento");
-String descrizione = rs.getString("descrizione");
-Stato stato = Stato.valueOf(rs.getString("stato"));
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-RaggruppamentoClienteFornitore raggruppamentoClienteFornitore = new RaggruppamentoClienteFornitore(codiceRaggruppamento, descrizione, stato, dataInserimento, dataUltimaModifica);
+				String codiceRaggruppamento = rs.getString("codiceRaggruppamento");
+				String descrizione = rs.getString("descrizione");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				RaggruppamentoClienteFornitore raggruppamentoClienteFornitore = new RaggruppamentoClienteFornitore(codiceRaggruppamento, descrizione, stato, dataInserimento, dataUltimaModifica);
 
-		listraggruppamentoClienteFornitore.add(raggruppamentoClienteFornitore);
+				listraggruppamentoClienteFornitore.add(raggruppamentoClienteFornitore);
 	         }
 		     rs.close();
 		     stmt.close();

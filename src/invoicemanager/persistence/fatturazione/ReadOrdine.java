@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 import invoicemanager.model.fatturazione.Ordine;
 
@@ -29,16 +29,16 @@ public class ReadOrdine {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroOrdine = rs.getInt("numeroOrdine");
-int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
-LocalDate dataOrdine = rs.getDate("dataOrdine")).toLocalDate();
-String ordCodiceCommessaConvenzione = rs.getString("ordCodiceCommessaConvenzione");
-String ordCodiceCUP = rs.getString("ordCodiceCUP");
-String ordCodiceCIG = rs.getString("ordCodiceCIG");
-()
-Ordine ordine = new Ordine(numeroOrdine, numeroRigaOrdine, dataOrdine, ordCodiceCommessaConvenzione, ordCodiceCUP, ordCodiceCIG);
+				int numeroOrdine = rs.getInt("numeroOrdine");
+				int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
+				LocalDate dataOrdine = rs.getDate("dataOrdine").toLocalDate();
+				String ordCodiceCommessaConvenzione = rs.getString("ordCodiceCommessaConvenzione");
+				String ordCodiceCUP = rs.getString("ordCodiceCUP");
+				String ordCodiceCIG = rs.getString("ordCodiceCIG");
+				
+				Ordine ordine = new Ordine(numeroOrdine, numeroRigaOrdine, dataOrdine, ordCodiceCommessaConvenzione, ordCodiceCUP, ordCodiceCIG);
 
-		listordine.add(ordine);
+				listordine.add(ordine);
 	         }
 		     rs.close();
 		     stmt.close();

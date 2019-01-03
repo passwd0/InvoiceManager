@@ -29,16 +29,16 @@ public class ReadStabileOrganizzazione {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String soIndirizzo = rs.getString("soIndirizzo");
-String soNumeroCivico = rs.getString("soNumeroCivico");
-String soCap = rs.getString("soCap");
-String soComune = rs.getString("soComune");
-String soProvincia = rs.getString("soProvincia");
-String soNazione = rs.getString("soNazione");
-()
-StabileOrganizzazione stabileOrganizzazione = new StabileOrganizzazione(soIndirizzo, soNumeroCivico, soCap, soComune, soProvincia, soNazione);
+				String soIndirizzo = rs.getString("soIndirizzo");
+				String soNumeroCivico = rs.getString("soNumeroCivico");
+				String soCap = rs.getString("soCap");
+				String soComune = rs.getString("soComune");
+				String soProvincia = rs.getString("soProvincia");
+				String soNazione = rs.getString("soNazione");
+				
+				StabileOrganizzazione stabileOrganizzazione = new StabileOrganizzazione(soIndirizzo, soNumeroCivico, soCap, soComune, soProvincia, soNazione);
 
-		liststabileOrganizzazione.add(stabileOrganizzazione);
+				liststabileOrganizzazione.add(stabileOrganizzazione);
 	         }
 		     rs.close();
 		     stmt.close();

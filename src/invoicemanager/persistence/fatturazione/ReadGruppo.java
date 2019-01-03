@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import invoicemanager.model.fatturazione.Gruppo;
 
@@ -29,20 +29,20 @@ public class ReadGruppo {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceGruppo = rs.getString("codiceGruppo");
-String descrizione = rs.getString("descrizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-Gruppo gruppo = new Gruppo(codiceGruppo, descrizione, dataInserimento, dataUltimaModifica);
+				String codiceGruppo = rs.getString("codiceGruppo");
+				String descrizione = rs.getString("descrizione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				Gruppo gruppo = new Gruppo(codiceGruppo, descrizione, dataInserimento, dataUltimaModifica);
 
-		listgruppo.add(gruppo);
+				listgruppo.add(gruppo);
 	         }
 		     rs.close();
 		     stmt.close();

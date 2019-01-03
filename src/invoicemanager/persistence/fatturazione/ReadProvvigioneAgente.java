@@ -29,24 +29,24 @@ public class ReadProvvigioneAgente {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceProvvigione = rs.getString("codiceProvvigione");
-String codiceAgente = rs.getString("codiceAgente");
-float scontoLegatoProvvigione = rs.getFloat("scontoLegatoProvvigione");
-float provvigioneLegataSconto = rs.getFloat("provvigioneLegataSconto");
-int progressivo = rs.getInt("progressivo");
-String codiceGruppoMerceologico = rs.getString("codiceGruppoMerceologico");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-ProvvigioneAgente provvigioneAgente = new ProvvigioneAgente(codiceProvvigione, codiceAgente, scontoLegatoProvvigione, provvigioneLegataSconto, progressivo, codiceGruppoMerceologico, dataInserimento, dataUltimaModifica);
+				String codiceProvvigione = rs.getString("codiceProvvigione");
+				String codiceAgente = rs.getString("codiceAgente");
+				float scontoLegatoProvvigione = rs.getFloat("scontoLegatoProvvigione");
+				float provvigioneLegataSconto = rs.getFloat("provvigioneLegataSconto");
+				int progressivo = rs.getInt("progressivo");
+				String codiceGruppoMerceologico = rs.getString("codiceGruppoMerceologico");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				ProvvigioneAgente provvigioneAgente = new ProvvigioneAgente(codiceProvvigione, codiceAgente, scontoLegatoProvvigione, provvigioneLegataSconto, progressivo, codiceGruppoMerceologico, dataInserimento, dataUltimaModifica);
 
-		listprovvigioneAgente.add(provvigioneAgente);
+				listprovvigioneAgente.add(provvigioneAgente);
 	         }
 		     rs.close();
 		     stmt.close();

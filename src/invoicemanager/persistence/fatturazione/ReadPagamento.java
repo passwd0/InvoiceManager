@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import invoicemanager.model.fatturazione.Pagamento;
+import invoicemanager.model.fatturazione.Stato;
+import invoicemanager.model.fatturazione.TipoPagamento;
 
 
 public class ReadPagamento {
@@ -19,7 +21,7 @@ public class ReadPagamento {
 		c = DBConnect.getConnection();
 	}
 
-	public List<Pagamento> read() {
+	public List<Pagamento> read(List<TipoPagamento> listaTipoPagamento) {
 		List<Pagamento> listpagamento = new ArrayList<>();
 		Statement stmt;
 
@@ -29,29 +31,28 @@ public class ReadPagamento {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codicePagamento = rs.getString("codicePagamento");
-String descrizione = rs.getString("descrizione");
-Stato stato = Stato.valueOf(rs.getString("stato"));
-String codice = rs.getString("tipoPagamento");
-TipoPagamento tipoPagamento = listaTipoPagamento.stream().filter(x->x.getCodiceTipoPagamento().equals(codice)).findFirst().get();
-boolean indicatoreScadenzaAVista = rs.getBoolean("indicatoreScadenzaAVista");
-String giornoMese = rs.getString("giornoMese");
-int numeroGiorni = rs.getInt("numeroGiorni");
-int numeroScadenze = rs.getInt("numeroScadenze");
-float sconto = rs.getFloat("sconto");
-boolean scadenzaIVAPrimaRata = rs.getBoolean("scadenzaIVAPrimaRata");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-(List<TipoPagamento> listaTipoPagamento,)
-Pagamento pagamento = new Pagamento(codicePagamento, descrizione, stato, tipoPagamento, indicatoreScadenzaAVista, giornoMese, numeroGiorni, numeroScadenze, sconto, scadenzaIVAPrimaRata, dataInserimento, dataUltimaModifica);
+				String codicePagamento = rs.getString("codicePagamento");
+				String descrizione = rs.getString("descrizione");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
+				String codice = rs.getString("tipoPagamento");
+				TipoPagamento tipoPagamento = listaTipoPagamento.stream().filter(x->x.getCodiceTipoPagamento().equals(codice)).findFirst().get();
+				boolean indicatoreScadenzaAVista = rs.getBoolean("indicatoreScadenzaAVista");
+				String giornoMese = rs.getString("giornoMese");
+				int numeroGiorni = rs.getInt("numeroGiorni");
+				int numeroScadenze = rs.getInt("numeroScadenze");
+				float sconto = rs.getFloat("sconto");
+				boolean scadenzaIVAPrimaRata = rs.getBoolean("scadenzaIVAPrimaRata");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				Pagamento pagamento = new Pagamento(codicePagamento, descrizione, stato, tipoPagamento, indicatoreScadenzaAVista, giornoMese, numeroGiorni, numeroScadenze, sconto, scadenzaIVAPrimaRata, dataInserimento, dataUltimaModifica);
 
-		listpagamento.add(pagamento);
+				listpagamento.add(pagamento);
 	         }
 		     rs.close();
 		     stmt.close();

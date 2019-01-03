@@ -19,6 +19,23 @@ public class Pagamento {
 		this.codicePagamento = codicePagamento;
 	}
 
+	public Pagamento(String codicePagamento, String descrizione, Stato stato, TipoPagamento tipoPagamento,
+			boolean indicatoreScadenzaAVista, String giornoMese, int numeroGiorni, int numeroScadenze, float sconto,
+			boolean scadenzaIVAPrimaRata, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+		this.codicePagamento = codicePagamento;
+		this.descrizione = descrizione;
+		this.stato = stato;
+		this.tipoPagamento = tipoPagamento;
+		this.indicatoreScadenzaAVista = indicatoreScadenzaAVista;
+		this.giornoMese = giornoMese;
+		this.numeroGiorni = numeroGiorni;
+		this.numeroScadenze = numeroScadenze;
+		this.sconto = sconto;
+		this.scadenzaIVAPrimaRata = scadenzaIVAPrimaRata;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
 	public String getCodicePagamento() {
 		return codicePagamento;
 	}

@@ -29,20 +29,20 @@ public class ReadTipoCliente {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceTipoCliente = rs.getString("codiceTipoCliente");
-String descrizione = rs.getString("descrizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-TipoCliente tipoCliente = new TipoCliente(codiceTipoCliente, descrizione, dataInserimento, dataUltimaModifica);
+				String codiceTipoCliente = rs.getString("codiceTipoCliente");
+				String descrizione = rs.getString("descrizione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				TipoCliente tipoCliente = new TipoCliente(codiceTipoCliente, descrizione, dataInserimento, dataUltimaModifica);
 
-		listtipoCliente.add(tipoCliente);
+				listtipoCliente.add(tipoCliente);
 	         }
 		     rs.close();
 		     stmt.close();

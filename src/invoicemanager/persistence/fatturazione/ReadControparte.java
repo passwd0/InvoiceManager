@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import invoicemanager.model.fatturazione.Controparte;
+import invoicemanager.model.fatturazione.Stato;
 
 
 public class ReadControparte {
@@ -29,22 +30,22 @@ public class ReadControparte {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceControparte = rs.getString("codiceControparte");
-String descrizione = rs.getString("descrizione");
-Stato stato = Stato.valueOf(rs.getString("stato"));
-String codiceContoCOGE = rs.getString("codiceContoCOGE");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-Controparte controparte = new Controparte(codiceControparte, descrizione, stato, codiceContoCOGE, dataInserimento, dataUltimaModifica);
+				String codiceControparte = rs.getString("codiceControparte");
+				String descrizione = rs.getString("descrizione");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
+				String codiceContoCOGE = rs.getString("codiceContoCOGE");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				Controparte controparte = new Controparte(codiceControparte, descrizione, stato, codiceContoCOGE, dataInserimento, dataUltimaModifica);
 
-		listcontroparte.add(controparte);
+				listcontroparte.add(controparte);
 	         }
 		     rs.close();
 		     stmt.close();

@@ -29,15 +29,15 @@ public class ReadRappresentanteFiscale {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String paese = rs.getString("paese");
-String identificativoFiscale = rs.getString("identificativoFiscale");
-String denominazione = rs.getString("denominazione");
-String nome = rs.getString("nome");
-String cognome = rs.getString("cognome");
-()
-RappresentanteFiscale rappresentanteFiscale = new RappresentanteFiscale(paese, identificativoFiscale, denominazione, nome, cognome);
+				String paese = rs.getString("paese");
+				String identificativoFiscale = rs.getString("identificativoFiscale");
+				String denominazione = rs.getString("denominazione");
+				String nome = rs.getString("nome");
+				String cognome = rs.getString("cognome");
+				
+				RappresentanteFiscale rappresentanteFiscale = new RappresentanteFiscale(paese, identificativoFiscale, denominazione, nome, cognome);
 
-		listrappresentanteFiscale.add(rappresentanteFiscale);
+				listrappresentanteFiscale.add(rappresentanteFiscale);
 	         }
 		     rs.close();
 		     stmt.close();

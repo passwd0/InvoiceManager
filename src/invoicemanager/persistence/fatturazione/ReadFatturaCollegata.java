@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 import invoicemanager.model.fatturazione.FatturaCollegata;
 
@@ -29,16 +29,16 @@ public class ReadFatturaCollegata {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroFtCollegate = rs.getInt("numeroFtCollegate");
-int numeroRigaFtCollegate = rs.getInt("numeroRigaFtCollegate");
-LocalDate dataFtCollegate = rs.getDate("dataFtCollegate")).toLocalDate();
-String ftcCodiceCommessaFtCollegate = rs.getString("ftcCodiceCommessaFtCollegate");
-String ftcCodiceCUP = rs.getString("ftcCodiceCUP");
-String ftcCodiceCIG = rs.getString("ftcCodiceCIG");
-()
-FatturaCollegata fatturaCollegata = new FatturaCollegata(numeroFtCollegate, numeroRigaFtCollegate, dataFtCollegate, ftcCodiceCommessaFtCollegate, ftcCodiceCUP, ftcCodiceCIG);
+				int numeroFtCollegate = rs.getInt("numeroFtCollegate");
+				int numeroRigaFtCollegate = rs.getInt("numeroRigaFtCollegate");
+				LocalDate dataFtCollegate = rs.getDate("dataFtCollegate").toLocalDate();
+				String ftcCodiceCommessaFtCollegate = rs.getString("ftcCodiceCommessaFtCollegate");
+				String ftcCodiceCUP = rs.getString("ftcCodiceCUP");
+				String ftcCodiceCIG = rs.getString("ftcCodiceCIG");
+				
+				FatturaCollegata fatturaCollegata = new FatturaCollegata(numeroFtCollegate, numeroRigaFtCollegate, dataFtCollegate, ftcCodiceCommessaFtCollegate, ftcCodiceCUP, ftcCodiceCIG);
 
-		listfatturaCollegata.add(fatturaCollegata);
+				listfatturaCollegata.add(fatturaCollegata);
 	         }
 		     rs.close();
 		     stmt.close();

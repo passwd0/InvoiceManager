@@ -29,15 +29,15 @@ public class ReadTerzoIntermediario {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String identificaticoFiscale = rs.getString("identificaticoFiscale");
-String denominazione = rs.getString("denominazione");
-String nome = rs.getString("nome");
-String cognome = rs.getString("cognome");
-String codEORI = rs.getString("codEORI");
-()
-TerzoIntermediario terzoIntermediario = new TerzoIntermediario(identificaticoFiscale, denominazione, nome, cognome, codEORI);
+				String identificaticoFiscale = rs.getString("identificaticoFiscale");
+				String denominazione = rs.getString("denominazione");
+				String nome = rs.getString("nome");
+				String cognome = rs.getString("cognome");
+				String codEORI = rs.getString("codEORI");
+				
+				TerzoIntermediario terzoIntermediario = new TerzoIntermediario(identificaticoFiscale, denominazione, nome, cognome, codEORI);
 
-		listterzoIntermediario.add(terzoIntermediario);
+				listterzoIntermediario.add(terzoIntermediario);
 	         }
 		     rs.close();
 		     stmt.close();

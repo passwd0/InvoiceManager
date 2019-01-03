@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 import invoicemanager.model.fatturazione.Ricezione;
 
@@ -29,16 +29,16 @@ public class ReadRicezione {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int numeroRicezione = rs.getInt("numeroRicezione");
-int numeroRigaRicezione = rs.getInt("numeroRigaRicezione");
-LocalDate dataRicezione = rs.getDate("dataRicezione")).toLocalDate();
-String rczCodiceCommessaRicezione = rs.getString("rczCodiceCommessaRicezione");
-String rczCodiceCUP = rs.getString("rczCodiceCUP");
-String rczCodiceCIG = rs.getString("rczCodiceCIG");
-()
-Ricezione ricezione = new Ricezione(numeroRicezione, numeroRigaRicezione, dataRicezione, rczCodiceCommessaRicezione, rczCodiceCUP, rczCodiceCIG);
+				int numeroRicezione = rs.getInt("numeroRicezione");
+				int numeroRigaRicezione = rs.getInt("numeroRigaRicezione");
+				LocalDate dataRicezione = rs.getDate("dataRicezione").toLocalDate();
+				String rczCodiceCommessaRicezione = rs.getString("rczCodiceCommessaRicezione");
+				String rczCodiceCUP = rs.getString("rczCodiceCUP");
+				String rczCodiceCIG = rs.getString("rczCodiceCIG");
+				
+				Ricezione ricezione = new Ricezione(numeroRicezione, numeroRigaRicezione, dataRicezione, rczCodiceCommessaRicezione, rczCodiceCUP, rczCodiceCIG);
 
-		listricezione.add(ricezione);
+				listricezione.add(ricezione);
 	         }
 		     rs.close();
 		     stmt.close();

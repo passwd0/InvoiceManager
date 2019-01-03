@@ -29,20 +29,20 @@ public class ReadTelefono {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceConto = rs.getString("codiceConto");
-int progressivo = rs.getInt("progressivo");
-String tipoTelefono = rs.getString("tipoTelefono");
-String numero = rs.getString("numero");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-Telefono telefono = new Telefono(codiceConto, progressivo, tipoTelefono, numero, dataInserimento, dataUltimaModifica);
+				String codiceConto = rs.getString("codiceConto");
+				int progressivo = rs.getInt("progressivo");
+				String tipoTelefono = rs.getString("tipoTelefono");
+				String numero = rs.getString("numero");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+					dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+					dataUltimaModifica = ts.toLocalDateTime();
+
+				Telefono telefono = new Telefono(codiceConto, progressivo, tipoTelefono, numero, dataInserimento, dataUltimaModifica);
 
 		listtelefono.add(telefono);
 	         }

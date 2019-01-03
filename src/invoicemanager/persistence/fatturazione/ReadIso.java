@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import invoicemanager.model.fatturazione.Iso;
+import invoicemanager.model.fatturazione.Stato;
 
 
 public class ReadIso {
@@ -29,21 +30,21 @@ public class ReadIso {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceISO = rs.getString("codiceISO");
-String descrizione = rs.getString("descrizione");
-Stato stato = Stato.valueOf(rs.getString("stato"));
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-Iso iso = new Iso(codiceISO, descrizione, stato, dataInserimento, dataUltimaModifica);
+				String codiceISO = rs.getString("codiceISO");
+				String descrizione = rs.getString("descrizione");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				Iso iso = new Iso(codiceISO, descrizione, stato, dataInserimento, dataUltimaModifica);
 
-		listiso.add(iso);
+				listiso.add(iso);
 	         }
 		     rs.close();
 		     stmt.close();

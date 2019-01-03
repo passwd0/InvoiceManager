@@ -4,10 +4,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 import invoicemanager.model.fatturazione.Prezzo;
 
@@ -29,13 +28,13 @@ public class ReadPrezzo {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int id = rs.getInt("id");
-int codiceListinoPersonalizzato = rs.getInt("codiceListinoPersonalizzato");
-float prezzo = rs.getFloat("prezzo");
-()
-Prezzo prezzo = new Prezzo(id, codiceListinoPersonalizzato, prezzo);
+				int id = rs.getInt("id");
+				int codiceListinoPersonalizzato = rs.getInt("codiceListinoPersonalizzato");
+				float prezzof = rs.getFloat("prezzo");
+				
+				Prezzo prezzo = new Prezzo(id, codiceListinoPersonalizzato, prezzof);
 
-		listprezzo.add(prezzo);
+				listprezzo.add(prezzo);
 	         }
 		     rs.close();
 		     stmt.close();

@@ -29,19 +29,19 @@ public class ReadUnitaMisura {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
-String descrizione = rs.getString("descrizione");
-boolean codiceStato = rs.getBoolean("codiceStato");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-UnitaMisura unitaMisura = new UnitaMisura(codiceUnitaMisura, descrizione, codiceStato, dataInserimento, dataUltimaModifica);
+				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
+				String descrizione = rs.getString("descrizione");
+				boolean codiceStato = rs.getBoolean("codiceStato");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+					dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+					dataUltimaModifica = ts.toLocalDateTime();
+				
+				UnitaMisura unitaMisura = new UnitaMisura(codiceUnitaMisura, descrizione, codiceStato, dataInserimento, dataUltimaModifica);
 
 		listunitaMisura.add(unitaMisura);
 	         }

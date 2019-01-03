@@ -29,31 +29,31 @@ public class ReadIndirizzoGeografico {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceIndirizzo = rs.getString("codiceIndirizzo");
-String codiceConto = rs.getString("codiceConto");
-String via = rs.getString("via");
-String provincia = rs.getString("provincia");
-String cap = rs.getString("cap");
-String citta = rs.getString("citta");
-String codiceNazione = rs.getString("codiceNazione");
-String codiceTipoIndirizzo = rs.getString("codiceTipoIndirizzo");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-String loginInserimento = rs.getString("loginInserimento");
-String loginModifica = rs.getString("loginModifica");
-String descrizione = rs.getString("descrizione");
-boolean indicatoreIndirizzoDefault = rs.getBoolean("indicatoreIndirizzoDefault");
-String codiceMinistero = rs.getString("codiceMinistero");
-()
-IndirizzoGeografico indirizzoGeografico = new IndirizzoGeografico(codiceIndirizzo, codiceConto, via, provincia, cap, citta, codiceNazione, codiceTipoIndirizzo, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, descrizione, indicatoreIndirizzoDefault, codiceMinistero);
+				String codiceIndirizzo = rs.getString("codiceIndirizzo");
+				String codiceConto = rs.getString("codiceConto");
+				String via = rs.getString("via");
+				String provincia = rs.getString("provincia");
+				String cap = rs.getString("cap");
+				String citta = rs.getString("citta");
+				String codiceNazione = rs.getString("codiceNazione");
+				String codiceTipoIndirizzo = rs.getString("codiceTipoIndirizzo");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+					dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+					dataUltimaModifica = ts.toLocalDateTime();
+				String loginInserimento = rs.getString("loginInserimento");
+				String loginModifica = rs.getString("loginModifica");
+				String descrizione = rs.getString("descrizione");
+				boolean indicatoreIndirizzoDefault = rs.getBoolean("indicatoreIndirizzoDefault");
+				String codiceMinistero = rs.getString("codiceMinistero");
 
-		listindirizzoGeografico.add(indirizzoGeografico);
+				IndirizzoGeografico indirizzoGeografico = new IndirizzoGeografico(codiceIndirizzo, codiceConto, via, provincia, cap, citta, codiceNazione, codiceTipoIndirizzo, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, descrizione, indicatoreIndirizzoDefault, codiceMinistero);
+
+				listindirizzoGeografico.add(indirizzoGeografico);
 	         }
 		     rs.close();
 		     stmt.close();

@@ -29,20 +29,20 @@ public class ReadTipoBento {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceTipoBento = rs.getString("codiceTipoBento");
-String descrizione = rs.getString("descrizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-TipoBento tipoBento = new TipoBento(codiceTipoBento, descrizione, dataInserimento, dataUltimaModifica);
+				String codiceTipoBento = rs.getString("codiceTipoBento");
+				String descrizione = rs.getString("descrizione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+					dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+					dataUltimaModifica = ts.toLocalDateTime();
+				
+				TipoBento tipoBento = new TipoBento(codiceTipoBento, descrizione, dataInserimento, dataUltimaModifica);
 
-		listtipoBento.add(tipoBento);
+				listtipoBento.add(tipoBento);
 	         }
 		     rs.close();
 		     stmt.close();

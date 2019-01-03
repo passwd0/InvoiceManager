@@ -29,18 +29,18 @@ public class ReadTipoRigaDocumento {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
-String descrizione = rs.getString("descrizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-TipoRigaDocumento tipoRigaDocumento = new TipoRigaDocumento(codiceTipoRigaDocumento, descrizione, dataInserimento, dataUltimaModifica);
+				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
+				String descrizione = rs.getString("descrizione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				TipoRigaDocumento tipoRigaDocumento = new TipoRigaDocumento(codiceTipoRigaDocumento, descrizione, dataInserimento, dataUltimaModifica);
 
 		listtipoRigaDocumento.add(tipoRigaDocumento);
 	         }

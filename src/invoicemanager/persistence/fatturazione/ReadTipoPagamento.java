@@ -29,18 +29,18 @@ public class ReadTipoPagamento {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceTipoPagamento = rs.getString("codiceTipoPagamento");
-String descrizione = rs.getString("descrizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-TipoPagamento tipoPagamento = new TipoPagamento(codiceTipoPagamento, descrizione, dataInserimento, dataUltimaModifica);
+				String codiceTipoPagamento = rs.getString("codiceTipoPagamento");
+				String descrizione = rs.getString("descrizione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				TipoPagamento tipoPagamento = new TipoPagamento(codiceTipoPagamento, descrizione, dataInserimento, dataUltimaModifica);
 
 		listtipoPagamento.add(tipoPagamento);
 	         }

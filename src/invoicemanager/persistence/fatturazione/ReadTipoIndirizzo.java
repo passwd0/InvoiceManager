@@ -29,20 +29,20 @@ public class ReadTipoIndirizzo {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceTipoIndirizzo = rs.getString("codiceTipoIndirizzo");
-String descrizione = rs.getString("descrizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-TipoIndirizzo tipoIndirizzo = new TipoIndirizzo(codiceTipoIndirizzo, descrizione, dataInserimento, dataUltimaModifica);
+				String codiceTipoIndirizzo = rs.getString("codiceTipoIndirizzo");
+				String descrizione = rs.getString("descrizione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				TipoIndirizzo tipoIndirizzo = new TipoIndirizzo(codiceTipoIndirizzo, descrizione, dataInserimento, dataUltimaModifica);
 
-		listtipoIndirizzo.add(tipoIndirizzo);
+				listtipoIndirizzo.add(tipoIndirizzo);
 	         }
 		     rs.close();
 		     stmt.close();

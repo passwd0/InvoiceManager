@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import invoicemanager.model.fatturazione.ResaMerce;
+import invoicemanager.model.fatturazione.Stato;
 
 
 public class ReadResaMerce {
@@ -29,22 +30,22 @@ public class ReadResaMerce {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceResa = rs.getString("codiceResa");
-String descrizione = rs.getString("descrizione");
-Stato stato = Stato.valueOf(rs.getString("stato"));
-float percentualeAddebito = rs.getFloat("percentualeAddebito");
-float importoMinimo = rs.getFloat("importoMinimo");
-boolean indicatoreProvvigione = rs.getBoolean("indicatoreProvvigione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-ResaMerce resaMerce = new ResaMerce(codiceResa, descrizione, stato, percentualeAddebito, importoMinimo, indicatoreProvvigione, dataInserimento, dataUltimaModifica);
+				String codiceResa = rs.getString("codiceResa");
+				String descrizione = rs.getString("descrizione");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
+				float percentualeAddebito = rs.getFloat("percentualeAddebito");
+				float importoMinimo = rs.getFloat("importoMinimo");
+				boolean indicatoreProvvigione = rs.getBoolean("indicatoreProvvigione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				ResaMerce resaMerce = new ResaMerce(codiceResa, descrizione, stato, percentualeAddebito, importoMinimo, indicatoreProvvigione, dataInserimento, dataUltimaModifica);
 
 		listresaMerce.add(resaMerce);
 	         }

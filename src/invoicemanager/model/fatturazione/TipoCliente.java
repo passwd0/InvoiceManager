@@ -11,6 +11,14 @@ public class TipoCliente{
 		this.codiceTipoCliente = codiceTipoCliente;
 	}
 
+	public TipoCliente(String codiceTipoCliente, String descrizione, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
+		this.codiceTipoCliente = codiceTipoCliente;
+		this.descrizione = descrizione;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
 	public String getCodiceTipoCliente() {
 		return codiceTipoCliente;
 	}

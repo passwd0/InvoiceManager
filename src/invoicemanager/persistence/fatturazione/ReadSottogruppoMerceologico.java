@@ -29,22 +29,22 @@ public class ReadSottogruppoMerceologico {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceSottogruppoMerceologico = rs.getString("codiceSottogruppoMerceologico");
-String descrizione = rs.getString("descrizione");
-boolean codiceStato = rs.getBoolean("codiceStato");
-float sconto = rs.getFloat("sconto");
-float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-String loginInserimento = rs.getString("loginInserimento");
-()
-SottogruppoMerceologico sottogruppoMerceologico = new SottogruppoMerceologico(codiceSottogruppoMerceologico, descrizione, codiceStato, sconto, percentualeProvvigione, dataInserimento, dataUltimaModifica, loginInserimento);
+				String codiceSottogruppoMerceologico = rs.getString("codiceSottogruppoMerceologico");
+				String descrizione = rs.getString("descrizione");
+				boolean codiceStato = rs.getBoolean("codiceStato");
+				float sconto = rs.getFloat("sconto");
+				float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				String loginInserimento = rs.getString("loginInserimento");
+
+				SottogruppoMerceologico sottogruppoMerceologico = new SottogruppoMerceologico(codiceSottogruppoMerceologico, descrizione, codiceStato, sconto, percentualeProvvigione, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listsottogruppoMerceologico.add(sottogruppoMerceologico);
 	         }
