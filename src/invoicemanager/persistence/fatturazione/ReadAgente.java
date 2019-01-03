@@ -55,9 +55,7 @@ public class ReadAgente {
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
 					dataUltimaModifica = ts.toLocalDateTime();
-				String loginInserimento = rs.getString("loginInserimento");
-				String loginModifica = rs.getString("loginModifica");
-				Agente agente = new Agente(codiceAgente, nome, percentualeProvvigione, tipoProvvigione, tipoMandato, codiceContabile, controparte, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica);
+				Agente agente = new Agente(codiceAgente, nome, percentualeProvvigione, tipoProvvigione, tipoMandato, codiceContabile, controparte, dataInserimento, dataUltimaModifica);
 				listAgente.add(agente);
 	         }
 		     rs.close();

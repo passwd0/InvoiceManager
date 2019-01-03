@@ -7,21 +7,18 @@ public class CodiceABarre{
 	private String tipo; //(50) NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
 
 	public CodiceABarre(String codiceArticolo, String codiceABarre){
 		this.codiceArticolo = codiceArticolo;
 		this.codiceABarre = codiceABarre;
 	}
 
-	public CodiceABarre(String codiceArticolo, String codiceABarre, String tipo, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica, String loginInserimento) {
+	public CodiceABarre(String codiceArticolo, String codiceABarre, String tipo, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceArticolo = codiceArticolo;
 		this.codiceABarre = codiceABarre;
 		this.tipo = tipo;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
 	}
 
 	public String getCodiceArticolo() {
@@ -62,13 +59,5 @@ public class CodiceABarre{
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
 	}
 }

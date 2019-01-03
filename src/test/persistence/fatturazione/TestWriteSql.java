@@ -18,7 +18,7 @@ public class TestWriteSql {
 	void setup() {
 		dm = new DataManager();
 		agente = new Agente("aaa");
-		banca = new Banca("bbb");
+	//	banca = new Banca("bbb");
 	}
 	
 	@Test

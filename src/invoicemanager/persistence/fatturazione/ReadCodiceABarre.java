@@ -29,22 +29,21 @@ public class ReadCodiceABarre {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceArticolo = rs.getString("codiceArticolo");
-String codiceABarre = rs.getString("codiceABarre");
-String tipo = rs.getString("tipo");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-String loginInserimento = rs.getString("loginInserimento");
-()
-CodiceABarre codiceABarre = new CodiceABarre(codiceArticolo, codiceABarre, tipo, dataInserimento, dataUltimaModifica, loginInserimento);
+				String codiceArticolo = rs.getString("codiceArticolo");
+				String codABarre = rs.getString("codiceABarre");
+				String tipo = rs.getString("tipo");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				
+				CodiceABarre codiceABarre = new CodiceABarre(codiceArticolo, codABarre, tipo, dataInserimento, dataUltimaModifica);
 
-		listcodiceABarre.add(codiceABarre);
+				listcodiceABarre.add(codiceABarre);
 	         }
 		     rs.close();
 		     stmt.close();

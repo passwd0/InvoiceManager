@@ -50,15 +50,14 @@ public class WriteFatturaDettaglio {
 			ps.setString(30, a.getCodiceCdc());
 			ps.setString(31, a.getContoRicavoUsato());
 			ps.setString(32, a.getRicavoUsato());
-			ps.setString(33, a.getCodiceOrdini());
-			ps.setString(34, a.getCodiceContratti());
-			ps.setString(35, a.getCodiceConvenzioni());
-			ps.setString(36, a.getCodiceRicezioni());
-			ps.setString(37, a.getCodiceFattureCollegate());
-			ps.setString(38, a.getCodiceAltriDatiGestioni());
+			ps.setInt(33, a.getCodiceOrdine());
+			ps.setInt(34, a.getCodiceContratto());
+			ps.setInt(35, a.getCodiceConvezione());
+			ps.setInt(36, a.getCodiceRicezione());
+			ps.setInt(37, a.getCodiceFatturaCollegata());
+			ps.setInt(38, a.getCodiceAltriDatiGestionali());
 			ps.setTimestamp(39, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(40, Utils.toTimestamp(a.getDataUltimaModifica()));
-
 
 			ps.executeUpdate();
 			ps.close();

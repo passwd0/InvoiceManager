@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import invoicemanager.model.fatturazione.BancaGlobale;
+import invoicemanager.utils.Utils;
 
 public class WriteBancaGlobale {
 	private Connection c;
@@ -28,13 +29,13 @@ public class WriteBancaGlobale {
 		ps.setString(8, a.getCodiceCIN());
 		ps.setString(9, a.getCodiceCINEur());
 		ps.setString(10, a.getPaese());
-		ps.setDate(11, Date.valueOf(a.getDataInserimento()));
-		ps.setDate(12, Date.valueOf(a.getDataUltimaModifica()));
-		ps.setString(13, a.getIban());
-		ps.setString(14, a.getSwift());
-		ps.setString(15, a.getCodiceConto());
-		ps.setString(16, a.getIndirizzo());
-		ps.setString(17, a.getCap());
+		ps.setString(11, a.getIban());
+		ps.setString(12, a.getSwift());
+		ps.setString(13, a.getCodiceConto());
+		ps.setString(14, a.getIndirizzo());
+		ps.setString(15, a.getCap());
+		ps.setTimestamp(16, Utils.toTimestamp(a.getDataInserimento()));
+		ps.setTimestamp(17, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 		ps.executeUpdate();
 				ps.close();

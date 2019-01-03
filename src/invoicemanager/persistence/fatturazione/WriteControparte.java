@@ -19,7 +19,7 @@ public class WriteControparte {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Controparte VALUES (?, ?, ?, ?, ?, ?,)");
 			ps.setString(1, a.getCodiceControparte());
 			ps.setString(2, a.getDescrizione());
-			ps.setString(3, a.getCodiceStato());
+			ps.setString(3, a.getStato().name());
 			ps.setString(4, a.getCodiceContoCOGE());
 			ps.setTimestamp(5, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(6, Utils.toTimestamp(a.getDataUltimaModifica()));

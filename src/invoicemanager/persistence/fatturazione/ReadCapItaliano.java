@@ -29,25 +29,24 @@ public class ReadCapItaliano {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int id = rs.getInt("id");
-String cap = rs.getString("cap");
-String comune = rs.getString("comune");
-String provincia = rs.getString("provincia");
-String nazione = rs.getString("nazione");
-String codiceISTAT = rs.getString("codiceISTAT");
-String codiceCAB = rs.getString("codiceCAB");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-()
-CapItaliano capItaliano = new CapItaliano(id, cap, comune, provincia, nazione, codiceISTAT, codiceCAB, dataInserimento, dataUltimaModifica);
+				int id = rs.getInt("id");
+				String cap = rs.getString("cap");
+				String comune = rs.getString("comune");
+				String provincia = rs.getString("provincia");
+				String nazione = rs.getString("nazione");
+				String codiceISTAT = rs.getString("codiceISTAT");
+				String codiceCAB = rs.getString("codiceCAB");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				CapItaliano capItaliano = new CapItaliano(id, cap, comune, provincia, nazione, codiceISTAT, codiceCAB, dataInserimento, dataUltimaModifica);
 
-		listcapItaliano.add(capItaliano);
+				listcapItaliano.add(capItaliano);
 	         }
 		     rs.close();
 		     stmt.close();

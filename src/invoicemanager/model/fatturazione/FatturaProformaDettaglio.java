@@ -305,4 +305,40 @@ public class FatturaProformaDettaglio{
 	public void setAltriDatiGestionali(List<AltroDatoGestionale> altriDatiGestionali) {
 		this.altriDatiGestionali = altriDatiGestionali;
 	}
+	
+	public int getCodiceOrdine() {
+		if (ordini == null || ordini.isEmpty())
+			return -1;
+		return ordini.get(0).getNumeroOrdine();
+	}
+	
+	public int getCodiceContratto() {
+		if (contratti == null || contratti.isEmpty())
+			return -1;
+		return contratti.get(0).getNumeroContratto();
+	}
+	
+	public int getCodiceConvezione() {
+		if (convenzioni == null || convenzioni.isEmpty())
+			return -1;
+		return convenzioni.get(0).getNumeroConvenzione();
+	}
+	
+	public int getCodiceRicezione() {
+		if (ricezioni == null || ricezioni.isEmpty())
+			return -1;
+		return ricezioni.get(0).getNumeroRicezione();
+	}
+	
+	public int getCodiceFatturaCollegata() {
+		if (fattureCollegate == null || fattureCollegate.isEmpty())
+			return -1;
+		return fattureCollegate.get(0).getNumeroFtCollegate();
+	}
+	
+	public int getCodiceAltriDatiGestionali() {
+		if (altriDatiGestionali == null || altriDatiGestionali.isEmpty())
+			return -1;
+		return altriDatiGestionali.get(0).getCodiceAltroDatoGestionale();
+	}
 }

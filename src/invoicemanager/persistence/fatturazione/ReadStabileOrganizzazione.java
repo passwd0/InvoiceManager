@@ -28,15 +28,15 @@ public class ReadStabileOrganizzazione {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM StabileOrganizzazione");
 			Timestamp ts;
 	         while ( rs.next() ) {
-
-				String soIndirizzo = rs.getString("soIndirizzo");
-				String soNumeroCivico = rs.getString("soNumeroCivico");
-				String soCap = rs.getString("soCap");
-				String soComune = rs.getString("soComune");
-				String soProvincia = rs.getString("soProvincia");
-				String soNazione = rs.getString("soNazione");
+	        	int soCodice = rs.getInt("Codice");
+				String soIndirizzo = rs.getString("Indirizzo");
+				String soNumeroCivico = rs.getString("NumeroCivico");
+				String soCap = rs.getString("Cap");
+				String soComune = rs.getString("Comune");
+				String soProvincia = rs.getString("Provincia");
+				String soNazione = rs.getString("Nazione");
 				
-				StabileOrganizzazione stabileOrganizzazione = new StabileOrganizzazione(soIndirizzo, soNumeroCivico, soCap, soComune, soProvincia, soNazione);
+				StabileOrganizzazione stabileOrganizzazione = new StabileOrganizzazione(soCodice, soIndirizzo, soNumeroCivico, soCap, soComune, soProvincia, soNazione);
 
 				liststabileOrganizzazione.add(stabileOrganizzazione);
 	         }

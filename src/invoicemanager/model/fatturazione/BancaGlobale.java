@@ -1,5 +1,6 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class BancaGlobale {
 	private String codiceBanca; //(4) COLLATE Latin1_General_CI_AS NOT NULL,
@@ -12,13 +13,14 @@ public class BancaGlobale {
 	private String codiceCIN; //(6) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceCINEur; //(6) COLLATE Latin1_General_CI_AS NULL,
 	private String paese; //(6) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDate dataInserimento; //  NULL,
-	private LocalDate dataUltimaModifica; //  NULL,
 	private String iban; //(50) COLLATE Latin1_General_CI_AS NULL,
 	private String swift; //(50) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceConto; //(30) COLLATE Latin1_General_CI_AS NULL,
 	private String indirizzo; //(2000) COLLATE Latin1_General_CI_AS NULL,
 	private String cap; //(2000) COLLATE Latin1_General_CI_AS
+	private LocalDateTime dataInserimento; //  NULL,
+	private LocalDateTime dataUltimaModifica; //  NULL,
+
 
 
 	public BancaGlobale (String codiceBanca, String descrizione, String codiceABI, String codiceCAB){
@@ -31,8 +33,8 @@ public class BancaGlobale {
 
 	public BancaGlobale(String codiceBanca, String descrizione, String codiceABI,
 			String codiceCAB, String localita, String provincia, String numeroContoCorrente, String codiceCIN,
-			String codiceCINEur, String paese, LocalDate dataInserimento, LocalDate dataUltimaModifica, String iban,
-			String swift, String codiceConto, String indirizzo, String cap) {
+			String codiceCINEur, String paese, String iban,
+			String swift, String codiceConto, String indirizzo, String cap, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceBanca = codiceBanca;
 		this.descrizione = descrizione;
 		this.codiceABI = codiceABI;
@@ -152,22 +154,22 @@ public class BancaGlobale {
 	}
 
 
-	public LocalDate getDataInserimento() {
+	public LocalDateTime getDataInserimento() {
 		return dataInserimento;
 	}
 
 
-	public void setDataInserimento(LocalDate dataInserimento) {
+	public void setDataInserimento(LocalDateTime dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
 
-	public LocalDate getDataUltimaModifica() {
+	public LocalDateTime getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
 
-	public void setDataUltimaModifica(LocalDate dataUltimaModifica) {
+	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

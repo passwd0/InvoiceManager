@@ -1,6 +1,7 @@
 package invoicemanager.model.fatturazione;
 
 public class StabileOrganizzazione {
+	private int codice;
 	private String soIndirizzo; // (60)
 	private String soNumeroCivico;	// (8)
 	private String soCap; // (5)
@@ -8,14 +9,23 @@ public class StabileOrganizzazione {
 	private String soProvincia; // (2)
 	private String soNazione; // (2)
 	
-	public StabileOrganizzazione(String soIndirizzo, String soNumeroCivico, String soCap, String soComune,
+	public StabileOrganizzazione(int codice, String soIndirizzo, String soNumeroCivico, String soCap, String soComune,
 			String soProvincia, String soNazione) {
+		this.codice = codice;
 		this.soIndirizzo = soIndirizzo;
 		this.soNumeroCivico = soNumeroCivico;
 		this.soCap = soCap;
 		this.soComune = soComune;
 		this.soProvincia = soProvincia;
 		this.soNazione = soNazione;
+	}
+	
+	public int getCodice() {
+		return codice;
+	}
+
+	public void setCodice(int codice) {
+		this.codice = codice;
 	}
 
 	public String getSoIndirizzo() {

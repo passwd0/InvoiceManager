@@ -31,7 +31,7 @@ public class ReadAllegato {
 
 String nomeAllegato = rs.getString("nomeAllegato");
 String pathAllegato = rs.getString("pathAllegato");
-()
+
 Allegato allegato = new Allegato(nomeAllegato, pathAllegato);
 
 		listallegato.add(allegato);

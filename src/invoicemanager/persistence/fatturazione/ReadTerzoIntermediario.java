@@ -28,14 +28,14 @@ public class ReadTerzoIntermediario {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TerzoIntermediario");
 			Timestamp ts;
 	         while ( rs.next() ) {
-
+	        	int codice = rs.getInt("codice");
 				String identificaticoFiscale = rs.getString("identificaticoFiscale");
 				String denominazione = rs.getString("denominazione");
 				String nome = rs.getString("nome");
 				String cognome = rs.getString("cognome");
 				String codEORI = rs.getString("codEORI");
 				
-				TerzoIntermediario terzoIntermediario = new TerzoIntermediario(identificaticoFiscale, denominazione, nome, cognome, codEORI);
+				TerzoIntermediario terzoIntermediario = new TerzoIntermediario(codice, identificaticoFiscale, denominazione, nome, cognome, codEORI);
 
 				listterzoIntermediario.add(terzoIntermediario);
 	         }

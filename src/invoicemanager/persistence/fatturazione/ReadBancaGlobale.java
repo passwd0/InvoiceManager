@@ -29,27 +29,32 @@ public class ReadBancaGlobale {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceBanca = rs.getString("codiceBanca");
-String descrizione = rs.getString("descrizione");
-String codiceABI = rs.getString("codiceABI");
-String codiceCAB = rs.getString("codiceCAB");
-String localita = rs.getString("localita");
-String provincia = rs.getString("provincia");
-String numeroContoCorrente = rs.getString("numeroContoCorrente");
-String codiceCIN = rs.getString("codiceCIN");
-String codiceCINEur = rs.getString("codiceCINEur");
-String paese = rs.getString("paese");
-LocalDate dataInserimento = rs.getDate("dataInserimento")).toLocalDate();
-LocalDate dataUltimaModifica = rs.getDate("dataUltimaModifica")).toLocalDate();
-String iban = rs.getString("iban");
-String swift = rs.getString("swift");
-String codiceConto = rs.getString("codiceConto");
-String indirizzo = rs.getString("indirizzo");
-String cap = rs.getString("cap");
-()
-BancaGlobale bancaGlobale = new BancaGlobale(codiceBanca, descrizione, codiceABI, codiceCAB, localita, provincia, numeroContoCorrente, codiceCIN, codiceCINEur, paese, dataInserimento, dataUltimaModifica, iban, swift, codiceConto, indirizzo, cap);
+				String codiceBanca = rs.getString("codiceBanca");
+				String descrizione = rs.getString("descrizione");
+				String codiceABI = rs.getString("codiceABI");
+				String codiceCAB = rs.getString("codiceCAB");
+				String localita = rs.getString("localita");
+				String provincia = rs.getString("provincia");
+				String numeroContoCorrente = rs.getString("numeroContoCorrente");
+				String codiceCIN = rs.getString("codiceCIN");
+				String codiceCINEur = rs.getString("codiceCINEur");
+				String paese = rs.getString("paese");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				String iban = rs.getString("iban");
+				String swift = rs.getString("swift");
+				String codiceConto = rs.getString("codiceConto");
+				String indirizzo = rs.getString("indirizzo");
+				String cap = rs.getString("cap");
+				BancaGlobale bancaGlobale = new BancaGlobale(codiceBanca, descrizione, codiceABI, codiceCAB, localita, provincia, numeroContoCorrente, codiceCIN, codiceCINEur, paese, iban, swift, codiceConto, indirizzo, cap, dataInserimento, dataUltimaModifica);
 
-		listbancaGlobale.add(bancaGlobale);
+				listbancaGlobale.add(bancaGlobale);
 	         }
 		     rs.close();
 		     stmt.close();

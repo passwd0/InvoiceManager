@@ -29,25 +29,22 @@ public class ReadBentoTestata {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceBento = rs.getString("codiceBento");
-String descrizione = rs.getString("descrizione");
-String codiceTipoBento = rs.getString("codiceTipoBento");
-String codiceMagazzino = rs.getString("codiceMagazzino");
-String codiceClienteFornitore = rs.getString("codiceClienteFornitore");
-String note = rs.getString("note");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-String loginInserimento = rs.getString("loginInserimento");
-()
-BentoTestata bentoTestata = new BentoTestata(codiceBento, descrizione, codiceTipoBento, codiceMagazzino, codiceClienteFornitore, note, dataInserimento, dataUltimaModifica, loginInserimento);
-
-		listbentoTestata.add(bentoTestata);
+				String codiceBento = rs.getString("codiceBento");
+				String descrizione = rs.getString("descrizione");
+				String codiceTipoBento = rs.getString("codiceTipoBento");
+				String codiceMagazzino = rs.getString("codiceMagazzino");
+				String codiceClienteFornitore = rs.getString("codiceClienteFornitore");
+				String note = rs.getString("note");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				BentoTestata bentoTestata = new BentoTestata(codiceBento, descrizione, codiceTipoBento, codiceMagazzino, codiceClienteFornitore, note, dataInserimento, dataUltimaModifica);
+				listbentoTestata.add(bentoTestata);
 	         }
 		     rs.close();
 		     stmt.close();

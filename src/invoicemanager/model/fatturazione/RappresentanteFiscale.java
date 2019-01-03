@@ -1,21 +1,31 @@
 package invoicemanager.model.fatturazione;
 
 public class RappresentanteFiscale {
+	private int codice;
 	private String paese;	// (2)
 	private String identificativoFiscale; //(28)
 	private String denominazione; //(80)
 	private String nome; //(60)
 	private String cognome; //(60)
 	
-	public RappresentanteFiscale(String paese, String identificativoFiscale, String denominazione, String nome,
+	public RappresentanteFiscale(int codice, String paese, String identificativoFiscale, String denominazione, String nome,
 			String cognome) {
+		this.codice = codice;
 		this.paese = paese;
 		this.identificativoFiscale = identificativoFiscale;
 		this.denominazione = denominazione;
 		this.nome = nome;
 		this.cognome = cognome;
 	}
+	
+	public int getCodice() {
+		return codice;
+	}
 
+	public void setCodice(int codice) {
+		this.codice = codice;
+	}
+	
 	public String getPaese() {
 		return paese;
 	}

@@ -61,7 +61,6 @@ public class WriteDdtTestata {
 			ps.setString(41, a.getCodiceFilialeEdi());
 			ps.setTimestamp(42, Utils.toTimestamp(a.getDataCaricamento()));
 			ps.setString(43, a.getUnitaMisuraPesoColli());
-			ps.setString(44, a.getDdtDettagli());
 			ps.setTimestamp(45, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(46, Utils.toTimestamp(a.getDataUltimaModifica()));
 

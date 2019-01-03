@@ -40,12 +40,12 @@ public class WriteFatturaProformaDettaglio {
 		ps.setString(20, a.getSerialNumber());
 		ps.setBoolean(21, a.isIndicatoreNoConferma());
 		ps.setString(22, a.getCodiceMagazzino());
-		ps.setString(23, a.getCodiceOrdini());
-		ps.setString(24, a.getCodiceContratti());
-		ps.setString(25, a.getCodiceConvenzioni());
-		ps.setString(26, a.getCodiceRicezioni());
-		ps.setString(27, a.getCodiceFattureCollegate());
-		ps.setString(28, a.getCodiceAltriDatiGestionali());
+		ps.setInt(23, a.getCodiceOrdine());
+		ps.setInt(24, a.getCodiceContratto());
+		ps.setInt(25, a.getCodiceConvezione());
+		ps.setInt(26, a.getCodiceRicezione());
+		ps.setInt(27, a.getCodiceFatturaCollegata());
+		ps.setInt(28, a.getCodiceAltriDatiGestionali());
 
 		ps.executeUpdate();
 				ps.close();

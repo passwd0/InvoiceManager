@@ -1,19 +1,29 @@
 package invoicemanager.model.fatturazione;
 
 public class TerzoIntermediario{
+	private int codice;
 	private String identificaticoFiscale; // (20)
 	private String denominazione; // (80)
 	private String nome; // (60)
 	private String cognome; // (60)
 	private String codEORI; // (17)
 	
-	public TerzoIntermediario(String identificaticoFiscale, String denominazione, String nome, String cognome,
+	public TerzoIntermediario(int codice, String identificaticoFiscale, String denominazione, String nome, String cognome,
 			String codEORI) {
+		this.codice = codice;
 		this.identificaticoFiscale = identificaticoFiscale;
 		this.denominazione = denominazione;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.codEORI = codEORI;
+	}
+
+	public int getCodice() {
+		return codice;
+	}
+
+	public void setCodice(int codice) {
+		this.codice = codice;
 	}
 
 	public String getIdentificaticoFiscale() {

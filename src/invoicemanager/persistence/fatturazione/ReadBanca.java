@@ -32,8 +32,7 @@ public class ReadBanca {
 
 				String codiceBanca = rs.getString("codiceBanca");
 				String descrizione = rs.getString("descrizione");
-				String codice = rs.getString("stato");
-				Stato stato = list.stream().filter(x->x.getCodiceStato().equals(codice)).findFirst().get();
+				Stato stato = Stato.valueOf(rs.getString("stato"));
 				String codiceABI = rs.getString("codiceABI");
 				String codiceCAB = rs.getString("codiceCAB");
 				String localita = rs.getString("localita");
@@ -50,13 +49,12 @@ public class ReadBanca {
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
 				dataUltimaModifica = ts.toLocalDateTime();
-				String loginInserimento = rs.getString("loginInserimento");
-				String loginModifica = rs.getString("loginModifica");
 				String iban = rs.getString("iban");
 				String swift = rs.getString("swift");
 				String codiceConto = rs.getString("codiceConto");
 				String indirizzo = rs.getString("indirizzo");
-				Banca banca = new Banca(codiceBanca, descrizione, stato, codiceABI, codiceCAB, localita, provincia, numeroContoCorrente, codiceCIN, codiceCINEur, paese, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, iban, swift, codiceConto, indirizzo);
+				String cap = rs.getString("cap");
+				Banca banca = new Banca(codiceBanca, descrizione, stato, codiceABI, codiceCAB, localita, provincia, numeroContoCorrente, codiceCIN, codiceCINEur, paese, iban, swift, codiceConto, indirizzo, cap, dataInserimento, dataUltimaModifica);
 
 				listbanca.add(banca);
 	         }

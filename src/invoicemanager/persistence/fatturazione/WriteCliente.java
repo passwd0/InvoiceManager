@@ -55,7 +55,7 @@ public class WriteCliente {
 			ps.setInt(32, a.getDataScadenzaSpostataDicembre());
 			ps.setString(33, a.getCodiceLingua());
 			ps.setString(34, a.getNote());
-			ps.setString(35, a.getStato());
+			ps.setString(35, a.getStato().name());
 			ps.setBoolean(36, a.isIndicatoreInviataInformativaPrivacy());
 			ps.setBoolean(37, a.isIndicatoreRicevutaInformativaPrivacy());
 			ps.setBoolean(38, a.isIndicatoreScorporoIVA());
@@ -73,9 +73,9 @@ public class WriteCliente {
 			ps.setBoolean(50, a.isIndicatorePlafond());
 			ps.setString(51, a.getCodiceDestinatarioXml());
 			ps.setString(52, a.getCodiceEORI());
-			ps.setString(53, a.getStabileOrganizzazione());
-			ps.setString(54, a.getRappresentanteFiscale());
-			ps.setString(55, a.getTerzoIntermediario());
+			ps.setInt(53, a.getCodiceStabileOrganizzazione());
+			ps.setInt(54, a.getCodiceRappresentanteFiscale());
+			ps.setInt(55, a.getCodiceTerzoIntermediario());
 			ps.setTimestamp(56, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(57, Utils.toTimestamp(a.getDataUltimaModificaa()));
 

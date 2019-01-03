@@ -142,31 +142,29 @@ public class BentoDettaglio {
 	public void setPrezzo(float prezzo) {
 		this.prezzo = prezzo;
 	}
+	
+	public String getCodiceIva() {
+		if (iva == null) return null;
+		return iva.getCodiceIva();
+	}
 
-	public Iva getCodiceIva() {
+	public Iva getIva() {
 		return iva;
 	}
 
-	public void setCodiceIva(Iva iva) {
+	public void setIva(Iva iva) {
 		this.iva = iva;
 	}
-	
-	public String getCodiceIva(Iva iva) {
-		if (iva == null)
-			return null;
-		return iva.getCodiceIva();
-	}
-	
 
-	public Controparte getCodiceControparte() {
+	public Controparte getControparte() {
 		return controparte;
 	}
 
-	public void setCodiceControparte(Controparte controparte) {
+	public void setControparte(Controparte controparte) {
 		this.controparte = controparte;
 	}
 	
-	public String getCodiceControparte(Controparte controparte) {
+	public String getCodiceControparte() {
 		if (controparte == null)
 			return null;
 		return controparte.getCodiceControparte();
@@ -218,7 +216,7 @@ public class BentoDettaglio {
 		return magazzino.getCodiceMagazzino();
 	}
 	
-	public CausaleMagazzino getCodiceCausale() {
+	public CausaleMagazzino getCausaleMagazzino() {
 		return causale;
 	}
 

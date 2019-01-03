@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import invoicemanager.model.fatturazione.AltroDatoGestionale;
@@ -19,7 +20,8 @@ public class ReadAltroDatoGestionale {
 		c = DBConnect.getConnection();
 	}
 
-	public List<AltroDatoGestionale> read() {
+	public List<AltroDatoGestionale> read(List<LocalDate> listaLocalDate)
+ {
 		List<AltroDatoGestionale> listaltroDatoGestionale = new ArrayList<>();
 		Statement stmt;
 
@@ -29,15 +31,15 @@ public class ReadAltroDatoGestionale {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int codiceAltroDatoGestionale = rs.getInt("codiceAltroDatoGestionale");
-String tipoDato = rs.getString("tipoDato");
-String riferimentoTesto = rs.getString("riferimentoTesto");
-float riferimentoNumero = rs.getFloat("riferimentoNumero");
-LocalDate riferimentoData = rs.getDate("riferimentoData")).toLocalDate();
-()
-AltroDatoGestionale altroDatoGestionale = new AltroDatoGestionale(codiceAltroDatoGestionale, tipoDato, riferimentoTesto, riferimentoNumero, riferimentoData);
+				int codiceAltroDatoGestionale = rs.getInt("codiceAltroDatoGestionale");
+				String tipoDato = rs.getString("tipoDato");
+				String riferimentoTesto = rs.getString("riferimentoTesto");
+				float riferimentoNumero = rs.getFloat("riferimentoNumero");
+				String codice = rs.getString("riferimentoData");
+				LocalDate riferimentoData = rs.getDate("riferimentoData").toLocalDate();
+				AltroDatoGestionale altroDatoGestionale = new AltroDatoGestionale(codiceAltroDatoGestionale, tipoDato, riferimentoTesto, riferimentoNumero, riferimentoData);
 
-		listaltroDatoGestionale.add(altroDatoGestionale);
+				listaltroDatoGestionale.add(altroDatoGestionale);
 	         }
 		     rs.close();
 		     stmt.close();

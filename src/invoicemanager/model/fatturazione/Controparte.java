@@ -38,8 +38,8 @@ public class Controparte{
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
-	public Stato getCodiceStato() {
+	
+	public Stato getStato() {
 		return stato;
 	}
 

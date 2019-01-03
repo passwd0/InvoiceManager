@@ -23,8 +23,7 @@ public class Banca {
 
 	public Banca(String codiceBanca, String descrizione, Stato stato, String codiceABI, String codiceCAB,
 				String localita, String provincia, String numeroContoCorrente, String codiceCIN, String codiceCINEur,
-				String paese, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String iban,
-				String swift, String codiceConto, String indirizzo, String cap) {
+				String paese, String iban, String swift, String codiceConto, String indirizzo, String cap, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceBanca = codiceBanca;
 		this.descrizione = descrizione;
 		this.stato = stato;

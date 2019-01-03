@@ -26,16 +26,15 @@ public class ReadRappresentanteFiscale {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM RappresentanteFiscale");
-			Timestamp ts;
 	         while ( rs.next() ) {
-
+	        	 int codice = rs.getInt("codice");
 				String paese = rs.getString("paese");
 				String identificativoFiscale = rs.getString("identificativoFiscale");
 				String denominazione = rs.getString("denominazione");
 				String nome = rs.getString("nome");
 				String cognome = rs.getString("cognome");
 				
-				RappresentanteFiscale rappresentanteFiscale = new RappresentanteFiscale(paese, identificativoFiscale, denominazione, nome, cognome);
+				RappresentanteFiscale rappresentanteFiscale = new RappresentanteFiscale(codice, paese, identificativoFiscale, denominazione, nome, cognome);
 
 				listrappresentanteFiscale.add(rappresentanteFiscale);
 	         }

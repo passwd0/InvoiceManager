@@ -10,15 +10,13 @@ public class BentoTestata{
 	private String note; //(500) NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL
-	private String loginInserimento; //(30) NULL
 
 	public BentoTestata(String codiceBento){
 		this.codiceBento = codiceBento;
 	}
 
 	public BentoTestata(String codiceBento, String descrizione, String codiceTipoBento, String codiceMagazzino,
-			String codiceClienteFornitore, String note, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
-			String loginInserimento) {
+			String codiceClienteFornitore, String note, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceBento = codiceBento;
 		this.descrizione = descrizione;
 		this.codiceTipoBento = codiceTipoBento;
@@ -27,7 +25,6 @@ public class BentoTestata{
 		this.note = note;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
 	}
 
 	public String getCodiceBento() {
@@ -92,13 +89,5 @@ public class BentoTestata{
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
 	}
 }

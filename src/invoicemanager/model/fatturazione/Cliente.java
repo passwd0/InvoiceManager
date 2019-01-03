@@ -141,12 +141,22 @@ public class Cliente implements Comparable<Cliente>{
 		this.dataUltimaModificaa = dataUltimaModificaa;
 	}
 
+	public int getCodiceRappresentanteFiscale() {
+		if (rappresentanteFiscale == null) return -1;
+		return rappresentanteFiscale.getCodice();
+	}
+	
 	public RappresentanteFiscale getRappresentanteFiscale() {
 		return rappresentanteFiscale;
 	}
 
 	public void setRappresentanteFiscale(RappresentanteFiscale rappresentanteFiscale) {
 		this.rappresentanteFiscale = rappresentanteFiscale;
+	}
+	
+	public int getCodiceTerzoIntermediario() {
+		if (terzoIntermediario == null) return -1;
+		return terzoIntermediario.getCodice();
 	}
 
 	public TerzoIntermediario getTerzoIntermediario() {
@@ -232,6 +242,11 @@ public class Cliente implements Comparable<Cliente>{
 
 	public void setCodiceEORI(String codiceEORI) {
 		this.codiceEORI = codiceEORI;
+	}
+	
+	public int getCodiceStabileOrganizzazione() {
+		if (stabileOrganizzazione == null) return -1;
+		return stabileOrganizzazione.getCodice();
 	}
 
 	public StabileOrganizzazione getStabileOrganizzazione() {
@@ -440,6 +455,11 @@ public class Cliente implements Comparable<Cliente>{
 
 	public void setIndicatoreAddebitoSpeseBolli(boolean indicatoreAddebitoSpeseBolli) {
 		this.indicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
+	}
+	
+	public String getCodiceVettore() {
+		if (vettore == null) return null;
+		return vettore.getCodiceVettore();
 	}
 
 	public Vettore getVettore() {
