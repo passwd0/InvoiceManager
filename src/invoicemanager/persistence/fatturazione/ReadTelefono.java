@@ -16,7 +16,7 @@ public class ReadTelefono {
 	private Connection c;
 
 	public ReadTelefono() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Telefono> read() {
@@ -41,6 +41,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 Telefono telefono = new Telefono(codiceConto, progressivo, tipoTelefono, numero, dataInserimento, dataUltimaModifica);
 
 		listtelefono.add(telefono);

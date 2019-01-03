@@ -16,7 +16,7 @@ public class ReadRappresentanteFiscale {
 	private Connection c;
 
 	public ReadRappresentanteFiscale() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<RappresentanteFiscale> read() {
@@ -34,6 +34,7 @@ String identificativoFiscale = rs.getString("identificativoFiscale");
 String denominazione = rs.getString("denominazione");
 String nome = rs.getString("nome");
 String cognome = rs.getString("cognome");
+()
 RappresentanteFiscale rappresentanteFiscale = new RappresentanteFiscale(paese, identificativoFiscale, denominazione, nome, cognome);
 
 		listrappresentanteFiscale.add(rappresentanteFiscale);

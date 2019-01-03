@@ -16,7 +16,7 @@ public class ReadTipoRigaDocumento {
 	private Connection c;
 
 	public ReadTipoRigaDocumento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<TipoRigaDocumento> read() {
@@ -39,6 +39,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 TipoRigaDocumento tipoRigaDocumento = new TipoRigaDocumento(codiceTipoRigaDocumento, descrizione, dataInserimento, dataUltimaModifica);
 
 		listtipoRigaDocumento.add(tipoRigaDocumento);

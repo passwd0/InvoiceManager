@@ -16,7 +16,7 @@ public class ReadTipoBento {
 	private Connection c;
 
 	public ReadTipoBento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<TipoBento> read() {
@@ -39,6 +39,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 TipoBento tipoBento = new TipoBento(codiceTipoBento, descrizione, dataInserimento, dataUltimaModifica);
 
 		listtipoBento.add(tipoBento);

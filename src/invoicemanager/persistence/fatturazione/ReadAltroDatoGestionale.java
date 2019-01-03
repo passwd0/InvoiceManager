@@ -16,7 +16,7 @@ public class ReadAltroDatoGestionale {
 	private Connection c;
 
 	public ReadAltroDatoGestionale() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<AltroDatoGestionale> read() {
@@ -34,7 +34,8 @@ String tipoDato = rs.getString("tipoDato");
 String riferimentoTesto = rs.getString("riferimentoTesto");
 float riferimentoNumero = rs.getFloat("riferimentoNumero");
 String codice = rs.getString("riferimentoData");
-LocalDate riferimentoData = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate riferimentoData = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+(List<LocalDate> listaLocalDate,)
 AltroDatoGestionale altroDatoGestionale = new AltroDatoGestionale(codiceAltroDatoGestionale, tipoDato, riferimentoTesto, riferimentoNumero, riferimentoData);
 
 		listaltroDatoGestionale.add(altroDatoGestionale);

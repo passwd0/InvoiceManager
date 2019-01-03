@@ -26,7 +26,7 @@ public class Read$classname {
 	private Connection c;
 
 	public Read$classname() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<$classname> read() {
@@ -41,6 +41,7 @@ public class Read$classname {
 " > $newfile
 
 #COLUMNS
+listArgs=()
 IFS=$'\n'
 for l in `cat $filename`; do
 	l=`echo $l | sed -r 's/\/\/.*//g'`
@@ -69,10 +70,12 @@ for l in `cat $filename`; do
 			echo "Stato stato = Stato.valueOf(rs.getString(\"$jname\"));" >> $newfile
 		else
 			echo String codice = rs.getString\(\""$jname"\"\)\; >> $newfile
-			echo "$jtype2 $jname = list.stream().filter(x->x.get$jtype2().equals(codice)).findFirst().get();" >> $newfile
+			echo "$jtype2 $jname = lista$jtype2.stream().filter(x->x.getCodice$jtype2().equals(codice)).findFirst().get();" >> $newfile
+			listArgs+=("List<$jtype2> lista$jtype2,")
 		fi
 	fi
 done
+echo "(${listArgs[@]})" >> $newfile
 
 a=`echo "${element[@]}"`
 elements=${a:0:-1}
@@ -95,3 +98,4 @@ echo "
 	}
 
 }" >> $newfile
+

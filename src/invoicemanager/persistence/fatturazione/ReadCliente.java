@@ -16,7 +16,7 @@ public class ReadCliente {
 	private Connection c;
 
 	public ReadCliente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Cliente> read() {
@@ -32,42 +32,42 @@ public class ReadCliente {
 String codiceCliente = rs.getString("codiceCliente");
 String descrizione = rs.getString("descrizione");
 String codice = rs.getString("tipoCliente");
-TipoCliente tipoCliente = list.stream().filter(x->x.getTipoCliente().equals(codice)).findFirst().get();
+TipoCliente tipoCliente = listaTipoCliente.stream().filter(x->x.getCodiceTipoCliente().equals(codice)).findFirst().get();
 String codice = rs.getString("resaMerce");
-ResaMerce resaMerce = list.stream().filter(x->x.getResaMerce().equals(codice)).findFirst().get();
+ResaMerce resaMerce = listaResaMerce.stream().filter(x->x.getCodiceResaMerce().equals(codice)).findFirst().get();
 String codice = rs.getString("imballo");
-Imballo imballo = list.stream().filter(x->x.getImballo().equals(codice)).findFirst().get();
+Imballo imballo = listaImballo.stream().filter(x->x.getCodiceImballo().equals(codice)).findFirst().get();
 String codice = rs.getString("raggruppamento");
-RaggruppamentoClienteFornitore raggruppamento = list.stream().filter(x->x.getRaggruppamentoClienteFornitore().equals(codice)).findFirst().get();
+RaggruppamentoClienteFornitore raggruppamento = listaRaggruppamentoClienteFornitore.stream().filter(x->x.getCodiceRaggruppamentoClienteFornitore().equals(codice)).findFirst().get();
 float fatturato = rs.getFloat("fatturato");
 float fido = rs.getFloat("fido");
 String partitaIVA = rs.getString("partitaIVA");
 String codiceFiscale = rs.getString("codiceFiscale");
 String codice = rs.getString("pagamento");
-Pagamento pagamento = list.stream().filter(x->x.getPagamento().equals(codice)).findFirst().get();
+Pagamento pagamento = listaPagamento.stream().filter(x->x.getCodicePagamento().equals(codice)).findFirst().get();
 String codice = rs.getString("banca");
-Banca banca = list.stream().filter(x->x.getBanca().equals(codice)).findFirst().get();
+Banca banca = listaBanca.stream().filter(x->x.getCodiceBanca().equals(codice)).findFirst().get();
 int numeroFattureEmesse = rs.getInt("numeroFattureEmesse");
 String codice = rs.getString("iva");
-Iva iva = list.stream().filter(x->x.getIva().equals(codice)).findFirst().get();
+Iva iva = listaIva.stream().filter(x->x.getCodiceIva().equals(codice)).findFirst().get();
 float imponibileNonEsente = rs.getFloat("imponibileNonEsente");
 float imponibileEsente = rs.getFloat("imponibileEsente");
 float importoIVA = rs.getFloat("importoIVA");
 String codiceClassificazione = rs.getString("codiceClassificazione");
 String codice = rs.getString("agente");
-Agente agente = list.stream().filter(x->x.getAgente().equals(codice)).findFirst().get();
+Agente agente = listaAgente.stream().filter(x->x.getCodiceAgente().equals(codice)).findFirst().get();
 float percentualeProvvigioneAgente = rs.getFloat("percentualeProvvigioneAgente");
 float scontoLegatoProvvigioniAgente = rs.getFloat("scontoLegatoProvvigioniAgente");
 int numeroCopieFattura = rs.getInt("numeroCopieFattura");
 boolean indicatoreAddebitoSpeseIncasso = rs.getBoolean("indicatoreAddebitoSpeseIncasso");
 boolean indicatoreAddebitoSpeseBolli = rs.getBoolean("indicatoreAddebitoSpeseBolli");
 String codice = rs.getString("listino");
-Listino listino = list.stream().filter(x->x.getListino().equals(codice)).findFirst().get();
+Listino listino = listaListino.stream().filter(x->x.getCodiceListino().equals(codice)).findFirst().get();
 String codice = rs.getString("vettore");
-Vettore vettore = list.stream().filter(x->x.getVettore().equals(codice)).findFirst().get();
+Vettore vettore = listaVettore.stream().filter(x->x.getCodiceVettore().equals(codice)).findFirst().get();
 String codiceAffidabilita = rs.getString("codiceAffidabilita");
 String codice = rs.getString("iso");
-Iso iso = list.stream().filter(x->x.getIso().equals(codice)).findFirst().get();
+Iso iso = listaIso.stream().filter(x->x.getCodiceIso().equals(codice)).findFirst().get();
 String partitaIVAEstero = rs.getString("partitaIVAEstero");
 String codiceDivisa = rs.getString("codiceDivisa");
 int dataScadenzaSpostataAgosto = rs.getInt("dataScadenzaSpostataAgosto");
@@ -83,23 +83,23 @@ boolean indicatoreEmail = rs.getBoolean("indicatoreEmail");
 boolean inputInibito = rs.getBoolean("inputInibito");
 boolean indicatoreFatturePA = rs.getBoolean("indicatoreFatturePA");
 String codice = rs.getString("dataUltimaFattura");
-LocalDate dataUltimaFattura = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataUltimaFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 float importoUltimaFattura = rs.getFloat("importoUltimaFattura");
 float importoPlafond = rs.getFloat("importoPlafond");
 String numeroUltimaFattura = rs.getString("numeroUltimaFattura");
 String codice = rs.getString("dataInizioPlafond");
-LocalDate dataInizioPlafond = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataInizioPlafond = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 boolean indicatoreFattureXML = rs.getBoolean("indicatoreFattureXML");
 boolean indicatoreDdtEmail = rs.getBoolean("indicatoreDdtEmail");
 boolean indicatorePlafond = rs.getBoolean("indicatorePlafond");
 String codiceDestinatarioXml = rs.getString("codiceDestinatarioXml");
 String codiceEORI = rs.getString("codiceEORI");
 String codice = rs.getString("stabileOrganizzazione");
-StabileOrganizzazione stabileOrganizzazione = list.stream().filter(x->x.getStabileOrganizzazione().equals(codice)).findFirst().get();
+StabileOrganizzazione stabileOrganizzazione = listaStabileOrganizzazione.stream().filter(x->x.getCodiceStabileOrganizzazione().equals(codice)).findFirst().get();
 String codice = rs.getString("rappresentanteFiscale");
-RappresentanteFiscale rappresentanteFiscale = list.stream().filter(x->x.getRappresentanteFiscale().equals(codice)).findFirst().get();
+RappresentanteFiscale rappresentanteFiscale = listaRappresentanteFiscale.stream().filter(x->x.getCodiceRappresentanteFiscale().equals(codice)).findFirst().get();
 String codice = rs.getString("terzoIntermediario");
-TerzoIntermediario terzoIntermediario = list.stream().filter(x->x.getTerzoIntermediario().equals(codice)).findFirst().get();
+TerzoIntermediario terzoIntermediario = listaTerzoIntermediario.stream().filter(x->x.getCodiceTerzoIntermediario().equals(codice)).findFirst().get();
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
 if (ts != null)
@@ -108,6 +108,7 @@ ts = rs.getTimestamp("dataUltimaModificaa");
 LocalDateTime dataUltimaModificaa = null;
 if (ts != null)
 dataUltimaModificaa = ts.toLocalDateTime();
+(List<TipoCliente> listaTipoCliente, List<ResaMerce> listaResaMerce, List<Imballo> listaImballo, List<RaggruppamentoClienteFornitore> listaRaggruppamentoClienteFornitore, List<Pagamento> listaPagamento, List<Banca> listaBanca, List<Iva> listaIva, List<Agente> listaAgente, List<Listino> listaListino, List<Vettore> listaVettore, List<Iso> listaIso, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<StabileOrganizzazione> listaStabileOrganizzazione, List<RappresentanteFiscale> listaRappresentanteFiscale, List<TerzoIntermediario> listaTerzoIntermediario,)
 Cliente cliente = new Cliente(codiceCliente, descrizione, tipoCliente, resaMerce, imballo, raggruppamento, fatturato, fido, partitaIVA, codiceFiscale, pagamento, banca, numeroFattureEmesse, iva, imponibileNonEsente, imponibileEsente, importoIVA, codiceClassificazione, agente, percentualeProvvigioneAgente, scontoLegatoProvvigioniAgente, numeroCopieFattura, indicatoreAddebitoSpeseIncasso, indicatoreAddebitoSpeseBolli, listino, vettore, codiceAffidabilita, iso, partitaIVAEstero, codiceDivisa, dataScadenzaSpostataAgosto, dataScadenzaSpostataDicembre, codiceLingua, note, stato, indicatoreInviataInformativaPrivacy, indicatoreRicevutaInformativaPrivacy, indicatoreScorporoIVA, indicatoreIVADifferita, indicatoreEmail, inputInibito, indicatoreFatturePA, dataUltimaFattura, importoUltimaFattura, importoPlafond, numeroUltimaFattura, dataInizioPlafond, indicatoreFattureXML, indicatoreDdtEmail, indicatorePlafond, codiceDestinatarioXml, codiceEORI, stabileOrganizzazione, rappresentanteFiscale, terzoIntermediario, dataInserimento, dataUltimaModificaa);
 
 		listcliente.add(cliente);

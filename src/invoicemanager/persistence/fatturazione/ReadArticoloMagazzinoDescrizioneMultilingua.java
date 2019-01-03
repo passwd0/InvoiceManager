@@ -16,7 +16,7 @@ public class ReadArticoloMagazzinoDescrizioneMultilingua {
 	private Connection c;
 
 	public ReadArticoloMagazzinoDescrizioneMultilingua() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<ArticoloMagazzinoDescrizioneMultilingua> read() {
@@ -40,6 +40,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 ArticoloMagazzinoDescrizioneMultilingua articoloMagazzinoDescrizioneMultilingua = new ArticoloMagazzinoDescrizioneMultilingua(codiceArticolo, codiceLingua, descrizione, dataInserimento, dataUltimaModifica);
 
 		listarticoloMagazzinoDescrizioneMultilingua.add(articoloMagazzinoDescrizioneMultilingua);

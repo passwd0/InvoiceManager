@@ -16,7 +16,7 @@ public class ReadSottogruppoMerceologico {
 	private Connection c;
 
 	public ReadSottogruppoMerceologico() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<SottogruppoMerceologico> read() {
@@ -43,6 +43,7 @@ LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
 String loginInserimento = rs.getString("loginInserimento");
+()
 SottogruppoMerceologico sottogruppoMerceologico = new SottogruppoMerceologico(codiceSottogruppoMerceologico, descrizione, codiceStato, sconto, percentualeProvvigione, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listsottogruppoMerceologico.add(sottogruppoMerceologico);

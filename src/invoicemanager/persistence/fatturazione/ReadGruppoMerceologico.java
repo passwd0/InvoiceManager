@@ -16,7 +16,7 @@ public class ReadGruppoMerceologico {
 	private Connection c;
 
 	public ReadGruppoMerceologico() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<GruppoMerceologico> read() {
@@ -43,6 +43,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 GruppoMerceologico gruppoMerceologico = new GruppoMerceologico(codiceGruppoMerceologico, descrizione, stato, sconto, percentualeProvvigione, numeroPezziConfezione, dataInserimento, dataUltimaModifica);
 
 		listgruppoMerceologico.add(gruppoMerceologico);

@@ -16,7 +16,7 @@ public class ReadAllegato {
 	private Connection c;
 
 	public ReadAllegato() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Allegato> read() {
@@ -31,6 +31,7 @@ public class ReadAllegato {
 
 String nomeAllegato = rs.getString("nomeAllegato");
 String pathAllegato = rs.getString("pathAllegato");
+()
 Allegato allegato = new Allegato(nomeAllegato, pathAllegato);
 
 		listallegato.add(allegato);

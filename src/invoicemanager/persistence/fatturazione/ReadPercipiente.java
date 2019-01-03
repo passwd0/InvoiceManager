@@ -16,7 +16,7 @@ public class ReadPercipiente {
 	private Connection c;
 
 	public ReadPercipiente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Percipiente> read() {
@@ -44,6 +44,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 Percipiente percipiente = new Percipiente(codicePercipiente, descrizione, codiceStato, aliquotaRitenutaAcconto, percentualeImponibileRitenutaAcconto, codiceTributo, assoggettamentoINPS, dataInserimento, dataUltimaModifica);
 
 		listpercipiente.add(percipiente);

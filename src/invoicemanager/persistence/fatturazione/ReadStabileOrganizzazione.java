@@ -16,7 +16,7 @@ public class ReadStabileOrganizzazione {
 	private Connection c;
 
 	public ReadStabileOrganizzazione() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<StabileOrganizzazione> read() {
@@ -35,6 +35,7 @@ String soCap = rs.getString("soCap");
 String soComune = rs.getString("soComune");
 String soProvincia = rs.getString("soProvincia");
 String soNazione = rs.getString("soNazione");
+()
 StabileOrganizzazione stabileOrganizzazione = new StabileOrganizzazione(soIndirizzo, soNumeroCivico, soCap, soComune, soProvincia, soNazione);
 
 		liststabileOrganizzazione.add(stabileOrganizzazione);

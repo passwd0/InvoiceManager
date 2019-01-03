@@ -16,7 +16,7 @@ public class ReadGruppo {
 	private Connection c;
 
 	public ReadGruppo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Gruppo> read() {
@@ -39,6 +39,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 Gruppo gruppo = new Gruppo(codiceGruppo, descrizione, dataInserimento, dataUltimaModifica);
 
 		listgruppo.add(gruppo);

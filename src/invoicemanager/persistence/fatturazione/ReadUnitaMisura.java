@@ -16,7 +16,7 @@ public class ReadUnitaMisura {
 	private Connection c;
 
 	public ReadUnitaMisura() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<UnitaMisura> read() {
@@ -40,6 +40,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 UnitaMisura unitaMisura = new UnitaMisura(codiceUnitaMisura, descrizione, codiceStato, dataInserimento, dataUltimaModifica);
 
 		listunitaMisura.add(unitaMisura);

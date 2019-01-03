@@ -16,7 +16,7 @@ public class ReadPianoConto {
 	private Connection c;
 
 	public ReadPianoConto() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<PianoConto> read() {
@@ -48,6 +48,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 PianoConto pianoConto = new PianoConto(codiceConto, descrizione, tipo, codiceClassificazione, darePeriodo, averePeriodo, dareProgressivo, avereProgressivo, codiceDivisa, codiceBancaBonifico, contoBanca, dataInserimento, dataUltimaModifica);
 
 		listpianoConto.add(pianoConto);

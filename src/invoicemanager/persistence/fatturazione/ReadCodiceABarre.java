@@ -16,7 +16,7 @@ public class ReadCodiceABarre {
 	private Connection c;
 
 	public ReadCodiceABarre() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<CodiceABarre> read() {
@@ -41,6 +41,7 @@ LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
 String loginInserimento = rs.getString("loginInserimento");
+()
 CodiceABarre codiceABarre = new CodiceABarre(codiceArticolo, codiceABarre, tipo, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listcodiceABarre.add(codiceABarre);

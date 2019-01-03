@@ -16,7 +16,7 @@ public class ReadStatoAvanzamento {
 	private Connection c;
 
 	public ReadStatoAvanzamento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<StatoAvanzamento> read() {
@@ -29,6 +29,7 @@ public class ReadStatoAvanzamento {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
+()
 StatoAvanzamento statoAvanzamento = new StatoAvanzamento();
 
 		liststatoAvanzamento.add(statoAvanzamento);

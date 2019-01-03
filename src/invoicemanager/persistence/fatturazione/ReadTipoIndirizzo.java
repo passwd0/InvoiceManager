@@ -16,7 +16,7 @@ public class ReadTipoIndirizzo {
 	private Connection c;
 
 	public ReadTipoIndirizzo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<TipoIndirizzo> read() {
@@ -39,6 +39,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 TipoIndirizzo tipoIndirizzo = new TipoIndirizzo(codiceTipoIndirizzo, descrizione, dataInserimento, dataUltimaModifica);
 
 		listtipoIndirizzo.add(tipoIndirizzo);

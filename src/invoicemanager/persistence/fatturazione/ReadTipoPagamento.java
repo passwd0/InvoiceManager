@@ -16,7 +16,7 @@ public class ReadTipoPagamento {
 	private Connection c;
 
 	public ReadTipoPagamento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<TipoPagamento> read() {
@@ -39,6 +39,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 TipoPagamento tipoPagamento = new TipoPagamento(codiceTipoPagamento, descrizione, dataInserimento, dataUltimaModifica);
 
 		listtipoPagamento.add(tipoPagamento);

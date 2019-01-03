@@ -16,7 +16,7 @@ public class ReadDdtDettaglio {
 	private Connection c;
 
 	public ReadDdtDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<DdtDettaglio> read() {
@@ -42,7 +42,7 @@ float costo = rs.getFloat("costo");
 int numeroOrdine = rs.getInt("numeroOrdine");
 int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
 String codice = rs.getString("dataOrdine");
-LocalDate dataOrdine = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataOrdine = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
 String descrizione = rs.getString("descrizione");
@@ -67,6 +67,7 @@ if (ts != null)
 DataUltimaModifica = ts.toLocalDateTime();
 boolean indicatorePrelevatoVendita = rs.getBoolean("indicatorePrelevatoVendita");
 String pesoLordo = rs.getString("pesoLordo");
+(List<LocalDate> listaLocalDate,)
 DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroDDT, dataDDT, numeroRigaDDT, codiceTipoRigaDocumento, codiceArticolo, codiceMagazzino, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, DataInserimento, DataUltimaModifica, indicatorePrelevatoVendita, pesoLordo);
 
 		listddtDettaglio.add(ddtDettaglio);

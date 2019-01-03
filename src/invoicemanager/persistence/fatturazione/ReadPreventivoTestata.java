@@ -16,7 +16,7 @@ public class ReadPreventivoTestata {
 	private Connection c;
 
 	public ReadPreventivoTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<PreventivoTestata> read() {
@@ -31,12 +31,12 @@ public class ReadPreventivoTestata {
 
 int numeroPreventivo = rs.getInt("numeroPreventivo");
 String codice = rs.getString("dataPreventivo");
-LocalDate dataPreventivo = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataPreventivo = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
 String codice = rs.getString("dataConsegna");
-LocalDate dataConsegna = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataConsegna = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codice = rs.getString("dataValidita");
-LocalDate dataValidita = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataValidita = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String periodoValidita = rs.getString("periodoValidita");
 boolean indicatoreUtilizzoDataValidita = rs.getBoolean("indicatoreUtilizzoDataValidita");
 String codiceCliente = rs.getString("codiceCliente");
@@ -77,6 +77,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
 PreventivoTestata preventivoTestata = new PreventivoTestata(numeroPreventivo, dataPreventivo, indicatoreStatoAvanzamento, dataConsegna, dataValidita, periodoValidita, indicatoreUtilizzoDataValidita, codiceCliente, attenzione, oggetto, riferimentoInterno, numeroInterno, codiceIVA, codiceAgente, codiceResa, codiceVettore, codicePagamento, codiceBanca, codiceCausale, codiceCausalePrelievo, codiceListino, descrizioneOrdine, codiceDivisa, cambio, numeroFax, venditore, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, note, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, loginInserimento, dataInserimento, dataUltimaModifica);
 
 		listpreventivoTestata.add(preventivoTestata);

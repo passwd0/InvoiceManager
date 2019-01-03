@@ -16,7 +16,7 @@ public class ReadIva {
 	private Connection c;
 
 	public ReadIva() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Iva> read() {
@@ -67,6 +67,7 @@ boolean elencoClientiFornitori = rs.getBoolean("elencoClientiFornitori");
 String colonnaClientiFornitori = rs.getString("colonnaClientiFornitori");
 String colonnaNoteClientiFornitori = rs.getString("colonnaNoteClientiFornitori");
 String splitPayment = rs.getString("splitPayment");
+()
 Iva iva = new Iva(codiceIva, descrizione, stato, rigaIVAAcquisti, addizionaleIVA, aliquotaIVA, imponibileAcquisti, imponibileAcquistiNonDetraibile, impostaAcquisti, imponibileVendite, imponibileVenditeNonDetraibile, impostaVendite, rigaIVAVendite, coefficienteIVA, percentualeIndetraibilita, valoreArrotondamento, indicatoreTroncaAcquisti, indicatoreSommaAcquisti, indicatoreArrotondaAcquisti, indicatoreSottraeAcquisti, indicatoreTroncaVendite, indicatoreSommaVendite, indicatoreArrotondaVendite, indicatoreSottraeVendite, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, elencoClientiFornitori, colonnaClientiFornitori, colonnaNoteClientiFornitori, splitPayment);
 
 		listiva.add(iva);

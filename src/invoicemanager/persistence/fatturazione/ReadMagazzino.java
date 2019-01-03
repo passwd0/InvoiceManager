@@ -16,7 +16,7 @@ public class ReadMagazzino {
 	private Connection c;
 
 	public ReadMagazzino() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Magazzino> read() {
@@ -41,6 +41,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 Magazzino magazzino = new Magazzino(codiceMagazzino, descrizione, codiceStato, codiceTipoMagazzino, dataInserimento, dataUltimaModifica);
 
 		listmagazzino.add(magazzino);

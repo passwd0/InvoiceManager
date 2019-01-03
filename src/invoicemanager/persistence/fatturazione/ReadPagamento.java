@@ -16,7 +16,7 @@ public class ReadPagamento {
 	private Connection c;
 
 	public ReadPagamento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Pagamento> read() {
@@ -33,7 +33,7 @@ String codicePagamento = rs.getString("codicePagamento");
 String descrizione = rs.getString("descrizione");
 Stato stato = Stato.valueOf(rs.getString("stato"));
 String codice = rs.getString("tipoPagamento");
-TipoPagamento tipoPagamento = list.stream().filter(x->x.getTipoPagamento().equals(codice)).findFirst().get();
+TipoPagamento tipoPagamento = listaTipoPagamento.stream().filter(x->x.getCodiceTipoPagamento().equals(codice)).findFirst().get();
 boolean indicatoreScadenzaAVista = rs.getBoolean("indicatoreScadenzaAVista");
 String giornoMese = rs.getString("giornoMese");
 int numeroGiorni = rs.getInt("numeroGiorni");
@@ -48,6 +48,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+(List<TipoPagamento> listaTipoPagamento,)
 Pagamento pagamento = new Pagamento(codicePagamento, descrizione, stato, tipoPagamento, indicatoreScadenzaAVista, giornoMese, numeroGiorni, numeroScadenze, sconto, scadenzaIVAPrimaRata, dataInserimento, dataUltimaModifica);
 
 		listpagamento.add(pagamento);

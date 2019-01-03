@@ -16,7 +16,7 @@ public class ReadConfezione {
 	private Connection c;
 
 	public ReadConfezione() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Confezione> read() {
@@ -46,6 +46,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 Confezione confezione = new Confezione(codiceConfezione, descrizione, codiceStato, larghezza, lunghezza, altezza, volume, pesoLordo, pesoTara, dataInserimento, dataUltimaModifica);
 
 		listconfezione.add(confezione);

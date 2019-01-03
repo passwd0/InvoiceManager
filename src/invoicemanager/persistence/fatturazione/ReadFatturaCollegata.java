@@ -16,7 +16,7 @@ public class ReadFatturaCollegata {
 	private Connection c;
 
 	public ReadFatturaCollegata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<FatturaCollegata> read() {
@@ -30,13 +30,13 @@ public class ReadFatturaCollegata {
 	         while ( rs.next() ) {
 
 int numeroFtCollegate = rs.getInt("numeroFtCollegate");
-String codice = rs.getString("numeroRigaFtCollegate");
-Short numeroRigaFtCollegate = list.stream().filter(x->x.getShort().equals(codice)).findFirst().get();
+int numeroRigaFtCollegate = rs.getInt("numeroRigaFtCollegate");
 String codice = rs.getString("dataFtCollegate");
-LocalDate dataFtCollegate = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFtCollegate = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String ftcCodiceCommessaFtCollegate = rs.getString("ftcCodiceCommessaFtCollegate");
 String ftcCodiceCUP = rs.getString("ftcCodiceCUP");
 String ftcCodiceCIG = rs.getString("ftcCodiceCIG");
+(List<LocalDate> listaLocalDate,)
 FatturaCollegata fatturaCollegata = new FatturaCollegata(numeroFtCollegate, numeroRigaFtCollegate, dataFtCollegate, ftcCodiceCommessaFtCollegate, ftcCodiceCUP, ftcCodiceCIG);
 
 		listfatturaCollegata.add(fatturaCollegata);

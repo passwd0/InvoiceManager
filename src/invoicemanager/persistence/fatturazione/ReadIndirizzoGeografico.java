@@ -16,7 +16,7 @@ public class ReadIndirizzoGeografico {
 	private Connection c;
 
 	public ReadIndirizzoGeografico() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<IndirizzoGeografico> read() {
@@ -50,6 +50,7 @@ String loginModifica = rs.getString("loginModifica");
 String descrizione = rs.getString("descrizione");
 boolean indicatoreIndirizzoDefault = rs.getBoolean("indicatoreIndirizzoDefault");
 String codiceMinistero = rs.getString("codiceMinistero");
+()
 IndirizzoGeografico indirizzoGeografico = new IndirizzoGeografico(codiceIndirizzo, codiceConto, via, provincia, cap, citta, codiceNazione, codiceTipoIndirizzo, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, descrizione, indicatoreIndirizzoDefault, codiceMinistero);
 
 		listindirizzoGeografico.add(indirizzoGeografico);

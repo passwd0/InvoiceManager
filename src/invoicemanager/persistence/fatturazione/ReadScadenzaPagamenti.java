@@ -16,7 +16,7 @@ public class ReadScadenzaPagamenti {
 	private Connection c;
 
 	public ReadScadenzaPagamenti() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<ScadenzaPagamenti> read() {
@@ -31,10 +31,11 @@ public class ReadScadenzaPagamenti {
 
 int numeroFattura = rs.getInt("numeroFattura");
 String codice = rs.getString("dataFattura");
-LocalDate dataFattura = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codice = rs.getString("dataScadenza");
-LocalDate dataScadenza = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataScadenza = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 float importoScadenza = rs.getFloat("importoScadenza");
+(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
 ScadenzaPagamenti scadenzaPagamenti = new ScadenzaPagamenti(numeroFattura, dataFattura, dataScadenza, importoScadenza);
 
 		listscadenzaPagamenti.add(scadenzaPagamenti);

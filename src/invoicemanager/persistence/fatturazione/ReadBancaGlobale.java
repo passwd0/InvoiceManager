@@ -16,7 +16,7 @@ public class ReadBancaGlobale {
 	private Connection c;
 
 	public ReadBancaGlobale() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<BancaGlobale> read() {
@@ -40,14 +40,15 @@ String codiceCIN = rs.getString("codiceCIN");
 String codiceCINEur = rs.getString("codiceCINEur");
 String paese = rs.getString("paese");
 String codice = rs.getString("dataInserimento");
-LocalDate dataInserimento = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataInserimento = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codice = rs.getString("dataUltimaModifica");
-LocalDate dataUltimaModifica = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataUltimaModifica = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String iban = rs.getString("iban");
 String swift = rs.getString("swift");
 String codiceConto = rs.getString("codiceConto");
 String indirizzo = rs.getString("indirizzo");
 String cap = rs.getString("cap");
+(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
 BancaGlobale bancaGlobale = new BancaGlobale(codiceBanca, descrizione, codiceABI, codiceCAB, localita, provincia, numeroContoCorrente, codiceCIN, codiceCINEur, paese, dataInserimento, dataUltimaModifica, iban, swift, codiceConto, indirizzo, cap);
 
 		listbancaGlobale.add(bancaGlobale);

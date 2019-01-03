@@ -16,7 +16,7 @@ public class ReadBentoTestata {
 	private Connection c;
 
 	public ReadBentoTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<BentoTestata> read() {
@@ -44,6 +44,7 @@ LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
 String loginInserimento = rs.getString("loginInserimento");
+()
 BentoTestata bentoTestata = new BentoTestata(codiceBento, descrizione, codiceTipoBento, codiceMagazzino, codiceClienteFornitore, note, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listbentoTestata.add(bentoTestata);

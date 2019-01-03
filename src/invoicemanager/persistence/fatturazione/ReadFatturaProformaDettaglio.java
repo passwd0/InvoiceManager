@@ -16,7 +16,7 @@ public class ReadFatturaProformaDettaglio {
 	private Connection c;
 
 	public ReadFatturaProformaDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<FatturaProformaDettaglio> read() {
@@ -30,10 +30,9 @@ public class ReadFatturaProformaDettaglio {
 	         while ( rs.next() ) {
 
 int numeroFattura = rs.getInt("numeroFattura");
-String codice = rs.getString("numeroRigaFattura");
-Short numeroRigaFattura = list.stream().filter(x->x.getShort().equals(codice)).findFirst().get();
+int numeroRigaFattura = rs.getInt("numeroRigaFattura");
 String codice = rs.getString("dataFattura");
-LocalDate dataFattura = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 String codiceArticolo = rs.getString("codiceArticolo");
 float costo = rs.getFloat("costo");
@@ -54,17 +53,18 @@ String serialNumber = rs.getString("serialNumber");
 boolean indicatoreNoConferma = rs.getBoolean("indicatoreNoConferma");
 String codiceMagazzino = rs.getString("codiceMagazzino");
 String codice = rs.getString("ordini");
-List<Ordine> ordini = list.stream().filter(x->x.getList<Ordine>().equals(codice)).findFirst().get();
+List<Ordine> ordini = listaList<Ordine>.stream().filter(x->x.getCodiceList<Ordine>().equals(codice)).findFirst().get();
 String codice = rs.getString("contratti");
-List<Contratto> contratti = list.stream().filter(x->x.getList<Contratto>().equals(codice)).findFirst().get();
+List<Contratto> contratti = listaList<Contratto>.stream().filter(x->x.getCodiceList<Contratto>().equals(codice)).findFirst().get();
 String codice = rs.getString("convenzioni");
-List<Convenzione> convenzioni = list.stream().filter(x->x.getList<Convenzione>().equals(codice)).findFirst().get();
+List<Convenzione> convenzioni = listaList<Convenzione>.stream().filter(x->x.getCodiceList<Convenzione>().equals(codice)).findFirst().get();
 String codice = rs.getString("ricezioni");
-List<Ricezione> ricezioni = list.stream().filter(x->x.getList<Ricezione>().equals(codice)).findFirst().get();
+List<Ricezione> ricezioni = listaList<Ricezione>.stream().filter(x->x.getCodiceList<Ricezione>().equals(codice)).findFirst().get();
 String codice = rs.getString("fattureCollegate");
-List<FatturaCollegata> fattureCollegate = list.stream().filter(x->x.getList<FatturaCollegata>().equals(codice)).findFirst().get();
+List<FatturaCollegata> fattureCollegate = listaList<FatturaCollegata>.stream().filter(x->x.getCodiceList<FatturaCollegata>().equals(codice)).findFirst().get();
 String codice = rs.getString("altriDatiGestionali");
-List<AltroDatoGestionale> altriDatiGestionali = list.stream().filter(x->x.getList<AltroDatoGestionale>().equals(codice)).findFirst().get();
+List<AltroDatoGestionale> altriDatiGestionali = listaList<AltroDatoGestionale>.stream().filter(x->x.getCodiceList<AltroDatoGestionale>().equals(codice)).findFirst().get();
+(List<LocalDate> listaLocalDate, List<List<Ordine>> listaList<Ordine>, List<List<Contratto>> listaList<Contratto>, List<List<Convenzione>> listaList<Convenzione>, List<List<Ricezione>> listaList<Ricezione>, List<List<FatturaCollegata>> listaList<FatturaCollegata>, List<List<AltroDatoGestionale>> listaList<AltroDatoGestionale>,)
 FatturaProformaDettaglio fatturaProformaDettaglio = new FatturaProformaDettaglio(numeroFattura, numeroRigaFattura, dataFattura, codiceTipoRigaDocumento, codiceArticolo, costo, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, indicatoreNoConferma, codiceMagazzino, ordini, contratti, convenzioni, ricezioni, fattureCollegate, altriDatiGestionali);
 
 		listfatturaProformaDettaglio.add(fatturaProformaDettaglio);

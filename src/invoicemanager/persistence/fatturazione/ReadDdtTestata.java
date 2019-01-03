@@ -16,7 +16,7 @@ public class ReadDdtTestata {
 	private Connection c;
 
 	public ReadDdtTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<DdtTestata> read() {
@@ -53,7 +53,7 @@ String codicePagamento = rs.getString("codicePagamento");
 String codiceBanca = rs.getString("codiceBanca");
 int numeroFattura = rs.getInt("numeroFattura");
 String codice = rs.getString("dataFattura");
-LocalDate dataFattura = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codiceDivisa = rs.getString("codiceDivisa");
 String causaleTrasporto = rs.getString("causaleTrasporto");
 float pesoColli = rs.getFloat("pesoColli");
@@ -88,7 +88,8 @@ if (ts != null)
 dataCaricamento = ts.toLocalDateTime();
 String unitaMisuraPesoColli = rs.getString("unitaMisuraPesoColli");
 String codice = rs.getString("ddtDettagli");
-List<DdtDettaglio> ddtDettagli = list.stream().filter(x->x.getList<DdtDettaglio>().equals(codice)).findFirst().get();
+List<DdtDettaglio> ddtDettagli = listaList<DdtDettaglio>.stream().filter(x->x.getCodiceList<DdtDettaglio>().equals(codice)).findFirst().get();
+(List<LocalDate> listaLocalDate, List<List<DdtDettaglio>> listaList<DdtDettaglio>,)
 DdtTestata ddtTestata = new DdtTestata(numeroDDT, dataDDT, indicatoreStatoAvanzamento, codiceCausale, codiceCausalePrelievi, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceImballo, codicePagamento, codiceBanca, numeroFattura, dataFattura, codiceDivisa, causaleTrasporto, pesoColli, descrizione, numeroColli, indicatorePreventivoDaConferma, indicatoreBollaVisione, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, codiceLingua, numeroDdtDeposito, codiceDeposito, noteCaricamento, codiceFilialeEdi, dataCaricamento, unitaMisuraPesoColli, ddtDettagli);
 
 		listddtTestata.add(ddtTestata);

@@ -16,7 +16,7 @@ public class ReadTerzoIntermediario {
 	private Connection c;
 
 	public ReadTerzoIntermediario() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<TerzoIntermediario> read() {
@@ -34,6 +34,7 @@ String denominazione = rs.getString("denominazione");
 String nome = rs.getString("nome");
 String cognome = rs.getString("cognome");
 String codEORI = rs.getString("codEORI");
+()
 TerzoIntermediario terzoIntermediario = new TerzoIntermediario(identificaticoFiscale, denominazione, nome, cognome, codEORI);
 
 		listterzoIntermediario.add(terzoIntermediario);

@@ -16,7 +16,7 @@ public class ReadOrdineTestata {
 	private Connection c;
 
 	public ReadOrdineTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<OrdineTestata> read() {
@@ -31,9 +31,9 @@ public class ReadOrdineTestata {
 
 int numeroOrdine = rs.getInt("numeroOrdine");
 String codice = rs.getString("dataOrdine");
-LocalDate dataOrdine = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataOrdine = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codice = rs.getString("statoAvanzamento");
-StatoAvanzamento statoAvanzamento = list.stream().filter(x->x.getStatoAvanzamento().equals(codice)).findFirst().get();
+StatoAvanzamento statoAvanzamento = listaStatoAvanzamento.stream().filter(x->x.getCodiceStatoAvanzamento().equals(codice)).findFirst().get();
 String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
 String descrizione = rs.getString("descrizione");
 String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");
@@ -51,7 +51,7 @@ String codiceCausale = rs.getString("codiceCausale");
 String codicePagamento = rs.getString("codicePagamento");
 String codiceBanca = rs.getString("codiceBanca");
 String codice = rs.getString("dataConsegna");
-LocalDate dataConsegna = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataConsegna = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String causaleTrasporto = rs.getString("causaleTrasporto");
 String codiceDivisa = rs.getString("codiceDivisa");
 boolean indicatoreConsegnaParziale = rs.getBoolean("indicatoreConsegnaParziale");
@@ -72,7 +72,7 @@ String revisione = rs.getString("revisione");
 String attenzione = rs.getString("attenzione");
 boolean indicatoreOrdineTrading = rs.getBoolean("indicatoreOrdineTrading");
 String codice = rs.getString("ordineDettagli");
-List<OrdineDettaglio> ordineDettagli = list.stream().filter(x->x.getList<OrdineDettaglio>().equals(codice)).findFirst().get();
+List<OrdineDettaglio> ordineDettagli = listaList<OrdineDettaglio>.stream().filter(x->x.getCodiceList<OrdineDettaglio>().equals(codice)).findFirst().get();
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
 if (ts != null)
@@ -81,6 +81,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+(List<LocalDate> listaLocalDate, List<StatoAvanzamento> listaStatoAvanzamento, List<LocalDate> listaLocalDate, List<List<OrdineDettaglio>> listaList<OrdineDettaglio>,)
 OrdineTestata ordineTestata = new OrdineTestata(numeroOrdine, dataOrdine, statoAvanzamento, codiceClienteFatturazione, descrizione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, percentualeScontoPagamento, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceCausale, codicePagamento, codiceBanca, dataConsegna, causaleTrasporto, codiceDivisa, indicatoreConsegnaParziale, indicatoreRaggruppamentoConsegne, codiceAgenteVecchio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, loginInserimento, loginModifica, codiceLingua, revisione, attenzione, indicatoreOrdineTrading, ordineDettagli, dataInserimento, dataUltimaModifica);
 
 		listordineTestata.add(ordineTestata);

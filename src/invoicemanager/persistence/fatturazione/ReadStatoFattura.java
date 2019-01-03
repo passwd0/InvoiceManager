@@ -16,7 +16,7 @@ public class ReadStatoFattura {
 	private Connection c;
 
 	public ReadStatoFattura() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<StatoFattura> read() {
@@ -40,6 +40,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 StatoFattura statoFattura = new StatoFattura(indicatoreStatoAvanzamento, tipoDocumento, descrizione, dataInserimento, dataUltimaModifica);
 
 		liststatoFattura.add(statoFattura);

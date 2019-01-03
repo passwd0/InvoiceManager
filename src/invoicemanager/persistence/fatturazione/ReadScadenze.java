@@ -16,7 +16,7 @@ public class ReadScadenze {
 	private Connection c;
 
 	public ReadScadenze() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Scadenze> read() {
@@ -33,13 +33,13 @@ String codiceConto = rs.getString("codiceConto");
 String codiceTipoPagamento = rs.getString("codiceTipoPagamento");
 String riferimentoPartita = rs.getString("riferimentoPartita");
 String codice = rs.getString("dataDocumento");
-LocalDate dataDocumento = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataDocumento = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codice = rs.getString("dataScadenza");
-LocalDate dataScadenza = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataScadenza = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 int numeroRegistrazione = rs.getInt("numeroRegistrazione");
 String codiceBanca = rs.getString("codiceBanca");
 String codice = rs.getString("dataValuta");
-LocalDate dataValuta = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataValuta = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codicePagamento = rs.getString("codicePagamento");
 String numeroAssegno = rs.getString("numeroAssegno");
 float importoImponibileRitenutaAcconto = rs.getFloat("importoImponibileRitenutaAcconto");
@@ -49,11 +49,11 @@ float importoIVARitenutaAcconto = rs.getFloat("importoIVARitenutaAcconto");
 float contriburoINPSDatoreLavoro = rs.getFloat("contriburoINPSDatoreLavoro");
 float contriburoINPSDatorePercipiente = rs.getFloat("contriburoINPSDatorePercipiente");
 String codice = rs.getString("dataValutaAssegno");
-LocalDate dataValutaAssegno = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataValutaAssegno = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String note = rs.getString("note");
 float importoPagato = rs.getFloat("importoPagato");
 String codice = rs.getString("dataPagamento");
-LocalDate dataPagamento = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataPagamento = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String numeroDocumento = rs.getString("numeroDocumento");
 String codiceIVAInSospensione = rs.getString("codiceIVAInSospensione");
 float importoPartita = rs.getFloat("importoPartita");
@@ -62,10 +62,10 @@ float imponibileIVAInSospensione = rs.getFloat("imponibileIVAInSospensione");
 int numeroGiornaleIVA = rs.getInt("numeroGiornaleIVA");
 String tipoRitenutaAcconto = rs.getString("tipoRitenutaAcconto");
 String codice = rs.getString("dataAutorizzazionePagamento");
-LocalDate dataAutorizzazionePagamento = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataAutorizzazionePagamento = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codiceDivisa = rs.getString("codiceDivisa");
 String codice = rs.getString("dataRegistrazione");
-LocalDate dataRegistrazione = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataRegistrazione = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 float importoAbbuono = rs.getFloat("importoAbbuono");
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
@@ -78,6 +78,7 @@ dataUltimaModifica = ts.toLocalDateTime();
 String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
 boolean indicatoreFattureProforma = rs.getBoolean("indicatoreFattureProforma");
 float importoRimborsiCpap = rs.getFloat("importoRimborsiCpap");
+(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
 Scadenze scadenze = new Scadenze(codiceConto, codiceTipoPagamento, riferimentoPartita, dataDocumento, dataScadenza, numeroRegistrazione, codiceBanca, dataValuta, codicePagamento, numeroAssegno, importoImponibileRitenutaAcconto, importoRitenutaAcconto, importoRimborsiRitenutaAcconto, importoIVARitenutaAcconto, contriburoINPSDatoreLavoro, contriburoINPSDatorePercipiente, dataValutaAssegno, note, importoPagato, dataPagamento, numeroDocumento, codiceIVAInSospensione, importoPartita, impostaIVAInSospensione, imponibileIVAInSospensione, numeroGiornaleIVA, tipoRitenutaAcconto, dataAutorizzazionePagamento, codiceDivisa, dataRegistrazione, importoAbbuono, dataInserimento, dataUltimaModifica, descrizioneAggiuntiva, indicatoreFattureProforma, importoRimborsiCpap);
 
 		listscadenze.add(scadenze);

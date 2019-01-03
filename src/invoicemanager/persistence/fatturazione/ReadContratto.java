@@ -16,7 +16,7 @@ public class ReadContratto {
 	private Connection c;
 
 	public ReadContratto() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Contratto> read() {
@@ -30,13 +30,13 @@ public class ReadContratto {
 	         while ( rs.next() ) {
 
 int numeroContratto = rs.getInt("numeroContratto");
-String codice = rs.getString("numeroRigaContratto");
-Short numeroRigaContratto = list.stream().filter(x->x.getShort().equals(codice)).findFirst().get();
+int numeroRigaContratto = rs.getInt("numeroRigaContratto");
 String codice = rs.getString("dataContratto");
-LocalDate dataContratto = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataContratto = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String cntCodiceCommessaConvenzione = rs.getString("cntCodiceCommessaConvenzione");
 String cntCodiceCUP = rs.getString("cntCodiceCUP");
 String cntCodiceCIG = rs.getString("cntCodiceCIG");
+(List<LocalDate> listaLocalDate,)
 Contratto contratto = new Contratto(numeroContratto, numeroRigaContratto, dataContratto, cntCodiceCommessaConvenzione, cntCodiceCUP, cntCodiceCIG);
 
 		listcontratto.add(contratto);

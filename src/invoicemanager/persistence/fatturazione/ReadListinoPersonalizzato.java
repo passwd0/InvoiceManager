@@ -16,7 +16,7 @@ public class ReadListinoPersonalizzato {
 	private Connection c;
 
 	public ReadListinoPersonalizzato() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<ListinoPersonalizzato> read() {
@@ -47,11 +47,11 @@ float scontoArticolo = rs.getFloat("scontoArticolo");
 float scontoPagamento = rs.getFloat("scontoPagamento");
 String codiceDivisa = rs.getString("codiceDivisa");
 String codice = rs.getString("gruppoMerceologico");
-GruppoMerceologico gruppoMerceologico = list.stream().filter(x->x.getGruppoMerceologico().equals(codice)).findFirst().get();
+GruppoMerceologico gruppoMerceologico = listaGruppoMerceologico.stream().filter(x->x.getCodiceGruppoMerceologico().equals(codice)).findFirst().get();
 String codice = rs.getString("dataInizioValidita");
-LocalDate dataInizioValidita = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataInizioValidita = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codice = rs.getString("dataFineValidita");
-LocalDate dataFineValidita = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFineValidita = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 boolean opzioneGruppi = rs.getBoolean("opzioneGruppi");
 boolean opzioneScontoClienti = rs.getBoolean("opzioneScontoClienti");
 boolean opzioneScontoArticolo = rs.getBoolean("opzioneScontoArticolo");
@@ -67,6 +67,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+(List<GruppoMerceologico> listaGruppoMerceologico, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
 ListinoPersonalizzato listinoPersonalizzato = new ListinoPersonalizzato(codiceListinoPersonalizzato, codiceCliente, codiceArticolo, variante, prezzo, provvigione, noteEsterne, noteInterne, numeroDecimali, scontoCliente, dataAggiornamento, scontoArticolo, scontoPagamento, codiceDivisa, gruppoMerceologico, dataInizioValidita, dataFineValidita, opzioneGruppi, opzioneScontoClienti, opzioneScontoArticolo, opzioneScontoPagamento, opzionePercentualeProvvigione, opzioneNoteEsterne, opzioneNoteInterne, dataInserimento, dataUltimaModifica);
 
 		listlistinoPersonalizzato.add(listinoPersonalizzato);

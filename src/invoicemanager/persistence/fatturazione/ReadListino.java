@@ -16,7 +16,7 @@ public class ReadListino {
 	private Connection c;
 
 	public ReadListino() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Listino> read() {
@@ -29,6 +29,7 @@ public class ReadListino {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
+()
 Listino listino = new Listino();
 
 		listlistino.add(listino);

@@ -16,7 +16,7 @@ public class ReadCapItaliano {
 	private Connection c;
 
 	public ReadCapItaliano() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<CapItaliano> read() {
@@ -44,6 +44,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 CapItaliano capItaliano = new CapItaliano(id, cap, comune, provincia, nazione, codiceISTAT, codiceCAB, dataInserimento, dataUltimaModifica);
 
 		listcapItaliano.add(capItaliano);

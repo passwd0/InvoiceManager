@@ -16,7 +16,7 @@ public class ReadArticoloMagazzino {
 	private Connection c;
 
 	public ReadArticoloMagazzino() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<ArticoloMagazzino> read() {
@@ -72,6 +72,7 @@ String codiceControparteContabileFornitore = rs.getString("codiceControparteCont
 String codiceIVAFornitore = rs.getString("codiceIVAFornitore");
 String codiceStampo = rs.getString("codiceStampo");
 String noteProduzione = rs.getString("noteProduzione");
+()
 ArticoloMagazzino articoloMagazzino = new ArticoloMagazzino(codiceArticolo, descrizione, codiceUnitaMisura, codiceGruppoMerceologico, codiceSottogruppoMerceologico, codiceControparteContabile, codiceIVA, indicatoreGestionePezzi, sconto, codiceTaglieColori, codiceColore, codiceTaglia, percentualeProvvigione, indicatoreSerialNumber, pesoNetto, codiceConfezione, numeroPezziConfezione, numeroColli, pesoLordo, volumeConfezione, altezza, larghezza, profondita, indicatoreArticoloPadreFiglio, codiceArticoloAlternativo, codicePercipiente, numeroDecimali, note, indicatorePubblicazioneWeb, indicatoreInibizione, dataInserimento, dataUltimaModifica, indicatoreScorporoIVA, codiceControparteContabileFornitore, codiceIVAFornitore, codiceStampo, noteProduzione);
 
 		listarticoloMagazzino.add(articoloMagazzino);

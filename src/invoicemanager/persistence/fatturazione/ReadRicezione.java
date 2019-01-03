@@ -16,7 +16,7 @@ public class ReadRicezione {
 	private Connection c;
 
 	public ReadRicezione() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Ricezione> read() {
@@ -32,10 +32,11 @@ public class ReadRicezione {
 int numeroRicezione = rs.getInt("numeroRicezione");
 int numeroRigaRicezione = rs.getInt("numeroRigaRicezione");
 String codice = rs.getString("dataRicezione");
-LocalDate dataRicezione = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataRicezione = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String rczCodiceCommessaRicezione = rs.getString("rczCodiceCommessaRicezione");
 String rczCodiceCUP = rs.getString("rczCodiceCUP");
 String rczCodiceCIG = rs.getString("rczCodiceCIG");
+(List<LocalDate> listaLocalDate,)
 Ricezione ricezione = new Ricezione(numeroRicezione, numeroRigaRicezione, dataRicezione, rczCodiceCommessaRicezione, rczCodiceCUP, rczCodiceCIG);
 
 		listricezione.add(ricezione);

@@ -16,7 +16,7 @@ public class ReadRaggruppamentoClienteFornitore {
 	private Connection c;
 
 	public ReadRaggruppamentoClienteFornitore() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<RaggruppamentoClienteFornitore> read() {
@@ -40,6 +40,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 RaggruppamentoClienteFornitore raggruppamentoClienteFornitore = new RaggruppamentoClienteFornitore(codiceRaggruppamento, descrizione, stato, dataInserimento, dataUltimaModifica);
 
 		listraggruppamentoClienteFornitore.add(raggruppamentoClienteFornitore);

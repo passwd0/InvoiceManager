@@ -16,7 +16,7 @@ public class ReadFatturaTestata {
 	private Connection c;
 
 	public ReadFatturaTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<FatturaTestata> read() {
@@ -31,9 +31,9 @@ public class ReadFatturaTestata {
 
 int numeroFatturazione = rs.getInt("numeroFatturazione");
 String codice = rs.getString("dataFattura");
-LocalDate dataFattura = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codice = rs.getString("statoAvanzamento");
-StatoAvanzamento statoAvanzamento = list.stream().filter(x->x.getStatoAvanzamento().equals(codice)).findFirst().get();
+StatoAvanzamento statoAvanzamento = listaStatoAvanzamento.stream().filter(x->x.getCodiceStatoAvanzamento().equals(codice)).findFirst().get();
 String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
 String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");
 String codiceAgente = rs.getString("codiceAgente");
@@ -70,7 +70,7 @@ boolean indicatoreFatturazioneDifferita = rs.getBoolean("indicatoreFatturazioneD
 boolean indicatoreEmail = rs.getBoolean("indicatoreEmail");
 boolean indicatorePa = rs.getBoolean("indicatorePa");
 String codice = rs.getString("fatturadettaglio");
-List<FatturaDettaglio> fatturadettaglio = list.stream().filter(x->x.getList<FatturaDettaglio>().equals(codice)).findFirst().get();
+List<FatturaDettaglio> fatturadettaglio = listaList<FatturaDettaglio>.stream().filter(x->x.getCodiceList<FatturaDettaglio>().equals(codice)).findFirst().get();
 float speseTrasporto = rs.getFloat("speseTrasporto");
 float speseImballo = rs.getFloat("speseImballo");
 float speseIncasso = rs.getFloat("speseIncasso");
@@ -78,10 +78,10 @@ float speseBolli = rs.getFloat("speseBolli");
 float omaggi = rs.getFloat("omaggi");
 float totalePagato = rs.getFloat("totalePagato");
 String codice = rs.getString("dataScadenza");
-LocalDate dataScadenza = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataScadenza = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 float importoScadenza = rs.getFloat("importoScadenza");
 String codice = rs.getString("allegati");
-List<Allegato> allegati = list.stream().filter(x->x.getList<Allegato>().equals(codice)).findFirst().get();
+List<Allegato> allegati = listaList<Allegato>.stream().filter(x->x.getCodiceList<Allegato>().equals(codice)).findFirst().get();
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
 if (ts != null)
@@ -90,6 +90,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+(List<LocalDate> listaLocalDate, List<StatoAvanzamento> listaStatoAvanzamento, List<List<FatturaDettaglio>> listaList<FatturaDettaglio>, List<LocalDate> listaLocalDate, List<List<Allegato>> listaList<Allegato>,)
 FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, statoAvanzamento, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, fatturadettaglio, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza, allegati, dataInserimento, dataUltimaModifica);
 
 		listfatturaTestata.add(fatturaTestata);

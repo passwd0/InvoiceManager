@@ -16,7 +16,7 @@ public class ReadPrezzo {
 	private Connection c;
 
 	public ReadPrezzo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Prezzo> read() {
@@ -32,6 +32,7 @@ public class ReadPrezzo {
 int id = rs.getInt("id");
 int codiceListinoPersonalizzato = rs.getInt("codiceListinoPersonalizzato");
 float prezzo = rs.getFloat("prezzo");
+()
 Prezzo prezzo = new Prezzo(id, codiceListinoPersonalizzato, prezzo);
 
 		listprezzo.add(prezzo);

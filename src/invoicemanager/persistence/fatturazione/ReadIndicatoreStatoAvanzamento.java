@@ -16,7 +16,7 @@ public class ReadIndicatoreStatoAvanzamento {
 	private Connection c;
 
 	public ReadIndicatoreStatoAvanzamento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<IndicatoreStatoAvanzamento> read() {
@@ -29,6 +29,7 @@ public class ReadIndicatoreStatoAvanzamento {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
+()
 IndicatoreStatoAvanzamento indicatoreStatoAvanzamento = new IndicatoreStatoAvanzamento();
 
 		listindicatoreStatoAvanzamento.add(indicatoreStatoAvanzamento);

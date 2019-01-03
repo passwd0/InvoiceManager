@@ -16,7 +16,7 @@ public class ReadPreventivoDettaglio {
 	private Connection c;
 
 	public ReadPreventivoDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<PreventivoDettaglio> read() {
@@ -32,7 +32,7 @@ public class ReadPreventivoDettaglio {
 int numeroPreventivo = rs.getInt("numeroPreventivo");
 int numeroRigaPreventivo = rs.getInt("numeroRigaPreventivo");
 String codice = rs.getString("dataPreventivo");
-LocalDate dataPreventivo = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataPreventivo = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 String codiceArticolo = rs.getString("codiceArticolo");
 float quantitaArticolo = rs.getFloat("quantitaArticolo");
@@ -41,7 +41,7 @@ float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 String descrizione = rs.getString("descrizione");
 String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
 String codice = rs.getString("dataConsegna");
-LocalDate dataConsegna = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataConsegna = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 float prezzo = rs.getFloat("prezzo");
 String codiceIVA = rs.getString("codiceIVA");
@@ -59,6 +59,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
 PreventivoDettaglio preventivoDettaglio = new PreventivoDettaglio(numeroPreventivo, numeroRigaPreventivo, dataPreventivo, codiceTipoRigaDocumento, codiceArticolo, quantitaArticolo, quantitaConsegnata, quantitaDaConsegnare, descrizione, descrizioneAggiuntiva, dataConsegna, codiceUnitaMisura, prezzo, codiceIVA, codiceControparte, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, codiceMagazzino, dataInserimento, dataUltimaModifica);
 
 		listpreventivoDettaglio.add(preventivoDettaglio);

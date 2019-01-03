@@ -16,7 +16,7 @@ public class ReadAreaGeografica {
 	private Connection c;
 
 	public ReadAreaGeografica() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<AreaGeografica> read() {
@@ -42,6 +42,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 AreaGeografica areaGeografica = new AreaGeografica(codiceArea, nazione, area, regione, provincia, dataInserimento, dataUltimaModifica);
 
 		listareaGeografica.add(areaGeografica);

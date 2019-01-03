@@ -16,7 +16,7 @@ public class ReadProvvigioneAgente {
 	private Connection c;
 
 	public ReadProvvigioneAgente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<ProvvigioneAgente> read() {
@@ -43,6 +43,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 ProvvigioneAgente provvigioneAgente = new ProvvigioneAgente(codiceProvvigione, codiceAgente, scontoLegatoProvvigione, provvigioneLegataSconto, progressivo, codiceGruppoMerceologico, dataInserimento, dataUltimaModifica);
 
 		listprovvigioneAgente.add(provvigioneAgente);

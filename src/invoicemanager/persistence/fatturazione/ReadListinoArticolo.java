@@ -16,7 +16,7 @@ public class ReadListinoArticolo {
 	private Connection c;
 
 	public ReadListinoArticolo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<ListinoArticolo> read() {
@@ -35,9 +35,9 @@ String codiceDivisa = rs.getString("codiceDivisa");
 float prezzo = rs.getFloat("prezzo");
 int numeroDecimali = rs.getInt("numeroDecimali");
 String codice = rs.getString("dataDecorrenza");
-LocalDate dataDecorrenza = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataDecorrenza = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 String codice = rs.getString("dataValidita");
-LocalDate dataValidita = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+LocalDate dataValidita = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
 if (ts != null)
@@ -46,6 +46,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
 ListinoArticolo listinoArticolo = new ListinoArticolo(codiceArticolo, progressivo, codiceDivisa, prezzo, numeroDecimali, dataDecorrenza, dataValidita, dataInserimento, dataUltimaModifica);
 
 		listlistinoArticolo.add(listinoArticolo);

@@ -16,7 +16,7 @@ public class ReadImballo {
 	private Connection c;
 
 	public ReadImballo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.connect();
+		c = DBConnect.getConnection();
 	}
 
 	public List<Imballo> read() {
@@ -40,6 +40,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
+()
 Imballo imballo = new Imballo(codiceImballo, descrizione, stato, dataInserimento, dataUltimaModifica);
 
 		listimballo.add(imballo);
