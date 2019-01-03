@@ -29,17 +29,7 @@ public class ReadStato {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-String codiceStato = rs.getString("codiceStato");
-String descrizione = rs.getString("descrizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-Stato stato = new Stato(codiceStato, descrizione, dataInserimento, dataUltimaModifica);
+Stato stato = new Stato();
 
 		liststato.add(stato);
 	         }

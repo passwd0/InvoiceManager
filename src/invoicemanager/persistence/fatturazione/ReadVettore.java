@@ -26,16 +26,17 @@ public class ReadVettore {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Vettore");
-			rs.mo
 			Timestamp ts;
 	         while ( rs.next() ) {
 
 String codiceVettore = rs.getString("codiceVettore");
 String descrizione = rs.getString("descrizione");
-String codice = rs.getString("codiceStato");
-Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+Stato stato = Stato.valueOf(rs.getString("stato"));
 String via = rs.getString("via");
 String citta = rs.getString("citta");
+String partitaIva = rs.getString("partitaIva");
+String iscrizione = rs.getString("iscrizione");
+String telefono = rs.getString("telefono");
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
 if (ts != null)
@@ -44,12 +45,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-String loginInserimento = rs.getString("loginInserimento");
-String loginModifica = rs.getString("loginModifica");
-String partitaIva = rs.getString("partitaIva");
-String iscrizione = rs.getString("iscrizione");
-String telefono = rs.getString("telefono");
-Vettore vettore = new Vettore(codiceVettore, descrizione, codiceStato, via, citta, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, partitaIva, iscrizione, telefono);
+Vettore vettore = new Vettore(codiceVettore, descrizione, stato, via, citta, partitaIva, iscrizione, telefono, dataInserimento, dataUltimaModifica);
 
 		listvettore.add(vettore);
 	         }

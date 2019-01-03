@@ -30,12 +30,10 @@ public class ReadFatturaTestata {
 	         while ( rs.next() ) {
 
 int numeroFatturazione = rs.getInt("numeroFatturazione");
-ts = rs.getTimestamp("dataFattura");
-LocalDateTime dataFattura = null;
-if (ts != null)
-dataFattura = ts.toLocalDateTime();
-String codice = rs.getString("indicatoreStatoAvanzamento");
-Char indicatoreStatoAvanzamento = list.stream().filter(x->x.getChar().equals(codice)).findFirst().get();
+String codice = rs.getString("dataFattura");
+LocalDate dataFattura = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+String codice = rs.getString("statoAvanzamento");
+StatoAvanzamento statoAvanzamento = list.stream().filter(x->x.getStatoAvanzamento().equals(codice)).findFirst().get();
 String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
 String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");
 String codiceAgente = rs.getString("codiceAgente");
@@ -67,14 +65,6 @@ String capSpedizione = rs.getString("capSpedizione");
 String cittaSpedizione = rs.getString("cittaSpedizione");
 String provinciaSpedizione = rs.getString("provinciaSpedizione");
 String codiceNazioneSpedizione = rs.getString("codiceNazioneSpedizione");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
 String note = rs.getString("note");
 boolean indicatoreFatturazioneDifferita = rs.getBoolean("indicatoreFatturazioneDifferita");
 boolean indicatoreEmail = rs.getBoolean("indicatoreEmail");
@@ -90,7 +80,17 @@ float totalePagato = rs.getFloat("totalePagato");
 String codice = rs.getString("dataScadenza");
 LocalDate dataScadenza = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
 float importoScadenza = rs.getFloat("importoScadenza");
-FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, indicatoreStatoAvanzamento, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, fatturadettaglio, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza);
+String codice = rs.getString("allegati");
+List<Allegato> allegati = list.stream().filter(x->x.getList<Allegato>().equals(codice)).findFirst().get();
+ts = rs.getTimestamp("dataInserimento");
+LocalDateTime dataInserimento = null;
+if (ts != null)
+dataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("dataUltimaModifica");
+LocalDateTime dataUltimaModifica = null;
+if (ts != null)
+dataUltimaModifica = ts.toLocalDateTime();
+FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, statoAvanzamento, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, fatturadettaglio, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza, allegati, dataInserimento, dataUltimaModifica);
 
 		listfatturaTestata.add(fatturaTestata);
 	         }

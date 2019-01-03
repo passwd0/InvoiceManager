@@ -31,8 +31,7 @@ public class ReadResaMerce {
 
 String codiceResa = rs.getString("codiceResa");
 String descrizione = rs.getString("descrizione");
-String codice = rs.getString("codiceStato");
-Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+Stato stato = Stato.valueOf(rs.getString("stato"));
 float percentualeAddebito = rs.getFloat("percentualeAddebito");
 float importoMinimo = rs.getFloat("importoMinimo");
 boolean indicatoreProvvigione = rs.getBoolean("indicatoreProvvigione");
@@ -44,8 +43,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-String loginInserimento = rs.getString("loginInserimento");
-ResaMerce resaMerce = new ResaMerce(codiceResa, descrizione, codiceStato, percentualeAddebito, importoMinimo, indicatoreProvvigione, dataInserimento, dataUltimaModifica, loginInserimento);
+ResaMerce resaMerce = new ResaMerce(codiceResa, descrizione, stato, percentualeAddebito, importoMinimo, indicatoreProvvigione, dataInserimento, dataUltimaModifica);
 
 		listresaMerce.add(resaMerce);
 	         }

@@ -31,8 +31,7 @@ public class ReadImballo {
 
 String codiceImballo = rs.getString("codiceImballo");
 String descrizione = rs.getString("descrizione");
-String codice = rs.getString("codiceStato");
-Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+Stato stato = Stato.valueOf(rs.getString("stato"));
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
 if (ts != null)
@@ -41,8 +40,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-String loginInserimento = rs.getString("loginInserimento");
-Imballo imballo = new Imballo(codiceImballo, descrizione, codiceStato, dataInserimento, dataUltimaModifica, loginInserimento);
+Imballo imballo = new Imballo(codiceImballo, descrizione, stato, dataInserimento, dataUltimaModifica);
 
 		listimballo.add(imballo);
 	         }

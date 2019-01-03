@@ -29,8 +29,45 @@ public class ReadDdtDettaglio {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
+int numeroDDT = rs.getInt("numeroDDT");
+ts = rs.getTimestamp("dataDDT");
+LocalDateTime dataDDT = null;
+if (ts != null)
+dataDDT = ts.toLocalDateTime();
 int numeroRigaDDT = rs.getInt("numeroRigaDDT");
-DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroRigaDDT);
+String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
+String codiceArticolo = rs.getString("codiceArticolo");
+String codiceMagazzino = rs.getString("codiceMagazzino");
+float costo = rs.getFloat("costo");
+int numeroOrdine = rs.getInt("numeroOrdine");
+int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
+String codice = rs.getString("dataOrdine");
+LocalDate dataOrdine = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
+float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
+boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
+String descrizione = rs.getString("descrizione");
+float quantita = rs.getFloat("quantita");
+float prezzo = rs.getFloat("prezzo");
+String codiceIva = rs.getString("codiceIva");
+String codiceContropartitaContabile = rs.getString("codiceContropartitaContabile");
+float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
+float percentualeScontoCliente = rs.getFloat("percentualeScontoCliente");
+float percentualeScontoArticolo = rs.getFloat("percentualeScontoArticolo");
+float percentualeScontoPagamento = rs.getFloat("percentualeScontoPagamento");
+String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
+String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
+String serialNumber = rs.getString("serialNumber");
+ts = rs.getTimestamp("DataInserimento");
+LocalDateTime DataInserimento = null;
+if (ts != null)
+DataInserimento = ts.toLocalDateTime();
+ts = rs.getTimestamp("DataUltimaModifica");
+LocalDateTime DataUltimaModifica = null;
+if (ts != null)
+DataUltimaModifica = ts.toLocalDateTime();
+boolean indicatorePrelevatoVendita = rs.getBoolean("indicatorePrelevatoVendita");
+String pesoLordo = rs.getString("pesoLordo");
+DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroDDT, dataDDT, numeroRigaDDT, codiceTipoRigaDocumento, codiceArticolo, codiceMagazzino, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, DataInserimento, DataUltimaModifica, indicatorePrelevatoVendita, pesoLordo);
 
 		listddtDettaglio.add(ddtDettaglio);
 	         }

@@ -52,10 +52,8 @@ String codiceImballo = rs.getString("codiceImballo");
 String codicePagamento = rs.getString("codicePagamento");
 String codiceBanca = rs.getString("codiceBanca");
 int numeroFattura = rs.getInt("numeroFattura");
-ts = rs.getTimestamp("dataFattura");
-LocalDateTime dataFattura = null;
-if (ts != null)
-dataFattura = ts.toLocalDateTime();
+String codice = rs.getString("dataFattura");
+LocalDate dataFattura = list.stream().filter(x->x.getLocalDate().equals(codice)).findFirst().get();
 String codiceDivisa = rs.getString("codiceDivisa");
 String causaleTrasporto = rs.getString("causaleTrasporto");
 float pesoColli = rs.getFloat("pesoColli");
@@ -79,8 +77,6 @@ LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
 String note = rs.getString("note");
-String loginInserimento = rs.getString("loginInserimento");
-String oginModifica = rs.getString("oginModifica");
 String codiceLingua = rs.getString("codiceLingua");
 int numeroDdtDeposito = rs.getInt("numeroDdtDeposito");
 String codiceDeposito = rs.getString("codiceDeposito");
@@ -93,7 +89,7 @@ dataCaricamento = ts.toLocalDateTime();
 String unitaMisuraPesoColli = rs.getString("unitaMisuraPesoColli");
 String codice = rs.getString("ddtDettagli");
 List<DdtDettaglio> ddtDettagli = list.stream().filter(x->x.getList<DdtDettaglio>().equals(codice)).findFirst().get();
-DdtTestata ddtTestata = new DdtTestata(numeroDDT, dataDDT, indicatoreStatoAvanzamento, codiceCausale, codiceCausalePrelievi, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceImballo, codicePagamento, codiceBanca, numeroFattura, dataFattura, codiceDivisa, causaleTrasporto, pesoColli, descrizione, numeroColli, indicatorePreventivoDaConferma, indicatoreBollaVisione, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, loginInserimento, oginModifica, codiceLingua, numeroDdtDeposito, codiceDeposito, noteCaricamento, codiceFilialeEdi, dataCaricamento, unitaMisuraPesoColli, ddtDettagli);
+DdtTestata ddtTestata = new DdtTestata(numeroDDT, dataDDT, indicatoreStatoAvanzamento, codiceCausale, codiceCausalePrelievi, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceImballo, codicePagamento, codiceBanca, numeroFattura, dataFattura, codiceDivisa, causaleTrasporto, pesoColli, descrizione, numeroColli, indicatorePreventivoDaConferma, indicatoreBollaVisione, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, codiceLingua, numeroDdtDeposito, codiceDeposito, noteCaricamento, codiceFilialeEdi, dataCaricamento, unitaMisuraPesoColli, ddtDettagli);
 
 		listddtTestata.add(ddtTestata);
 	         }

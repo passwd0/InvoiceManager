@@ -31,10 +31,8 @@ public class ReadControparte {
 
 String codiceControparte = rs.getString("codiceControparte");
 String descrizione = rs.getString("descrizione");
-String codice = rs.getString("codiceStato");
-Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+Stato stato = Stato.valueOf(rs.getString("stato"));
 String codiceContoCOGE = rs.getString("codiceContoCOGE");
-int progressivoRelazioniCOGECOA = rs.getInt("progressivoRelazioniCOGECOA");
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
 if (ts != null)
@@ -43,8 +41,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-String loginInserimento = rs.getString("loginInserimento");
-Controparte controparte = new Controparte(codiceControparte, descrizione, codiceStato, codiceContoCOGE, progressivoRelazioniCOGECOA, dataInserimento, dataUltimaModifica, loginInserimento);
+Controparte controparte = new Controparte(codiceControparte, descrizione, stato, codiceContoCOGE, dataInserimento, dataUltimaModifica);
 
 		listcontroparte.add(controparte);
 	         }

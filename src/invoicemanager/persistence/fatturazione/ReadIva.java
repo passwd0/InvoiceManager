@@ -31,8 +31,7 @@ public class ReadIva {
 
 String codiceIva = rs.getString("codiceIva");
 String descrizione = rs.getString("descrizione");
-String codice = rs.getString("codiceStato");
-Stato codiceStato = list.stream().filter(x->x.getStato().equals(codice)).findFirst().get();
+Stato stato = Stato.valueOf(rs.getString("stato"));
 int rigaIVAAcquisti = rs.getInt("rigaIVAAcquisti");
 float addizionaleIVA = rs.getFloat("addizionaleIVA");
 float aliquotaIVA = rs.getFloat("aliquotaIVA");
@@ -67,7 +66,8 @@ String loginModifica = rs.getString("loginModifica");
 boolean elencoClientiFornitori = rs.getBoolean("elencoClientiFornitori");
 String colonnaClientiFornitori = rs.getString("colonnaClientiFornitori");
 String colonnaNoteClientiFornitori = rs.getString("colonnaNoteClientiFornitori");
-Iva iva = new Iva(codiceIva, descrizione, codiceStato, rigaIVAAcquisti, addizionaleIVA, aliquotaIVA, imponibileAcquisti, imponibileAcquistiNonDetraibile, impostaAcquisti, imponibileVendite, imponibileVenditeNonDetraibile, impostaVendite, rigaIVAVendite, coefficienteIVA, percentualeIndetraibilita, valoreArrotondamento, indicatoreTroncaAcquisti, indicatoreSommaAcquisti, indicatoreArrotondaAcquisti, indicatoreSottraeAcquisti, indicatoreTroncaVendite, indicatoreSommaVendite, indicatoreArrotondaVendite, indicatoreSottraeVendite, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, elencoClientiFornitori, colonnaClientiFornitori, colonnaNoteClientiFornitori);
+String splitPayment = rs.getString("splitPayment");
+Iva iva = new Iva(codiceIva, descrizione, stato, rigaIVAAcquisti, addizionaleIVA, aliquotaIVA, imponibileAcquisti, imponibileAcquistiNonDetraibile, impostaAcquisti, imponibileVendite, imponibileVenditeNonDetraibile, impostaVendite, rigaIVAVendite, coefficienteIVA, percentualeIndetraibilita, valoreArrotondamento, indicatoreTroncaAcquisti, indicatoreSommaAcquisti, indicatoreArrotondaAcquisti, indicatoreSottraeAcquisti, indicatoreTroncaVendite, indicatoreSommaVendite, indicatoreArrotondaVendite, indicatoreSottraeVendite, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, elencoClientiFornitori, colonnaClientiFornitori, colonnaNoteClientiFornitori, splitPayment);
 
 		listiva.add(iva);
 	         }
