@@ -68,6 +68,8 @@ for l in `cat $filename`; do
 			echo "$jname = ts.toLocalDateTime();" >> $newfile
 		elif [[ $jtype2 == 'Stato' ]]; then
 			echo "Stato stato = Stato.valueOf(rs.getString(\"$jname\"));" >> $newfile
+		elif [[ $jtype2 == 'LocalDate' ]]; then
+			echo "LocalDate $jname = rs.getDate(\"$jname\")).toLocalDate();" >> $newfile
 		else
 			echo String codice = rs.getString\(\""$jname"\"\)\; >> $newfile
 			echo "$jtype2 $jname = lista$jtype2.stream().filter(x->x.getCodice$jtype2().equals(codice)).findFirst().get();" >> $newfile

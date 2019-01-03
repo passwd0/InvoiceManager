@@ -52,8 +52,7 @@ String codiceImballo = rs.getString("codiceImballo");
 String codicePagamento = rs.getString("codicePagamento");
 String codiceBanca = rs.getString("codiceBanca");
 int numeroFattura = rs.getInt("numeroFattura");
-String codice = rs.getString("dataFattura");
-LocalDate dataFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFattura = rs.getDate("dataFattura")).toLocalDate();
 String codiceDivisa = rs.getString("codiceDivisa");
 String causaleTrasporto = rs.getString("causaleTrasporto");
 float pesoColli = rs.getFloat("pesoColli");
@@ -89,7 +88,7 @@ dataCaricamento = ts.toLocalDateTime();
 String unitaMisuraPesoColli = rs.getString("unitaMisuraPesoColli");
 String codice = rs.getString("ddtDettagli");
 List<DdtDettaglio> ddtDettagli = listaList<DdtDettaglio>.stream().filter(x->x.getCodiceList<DdtDettaglio>().equals(codice)).findFirst().get();
-(List<LocalDate> listaLocalDate, List<List<DdtDettaglio>> listaList<DdtDettaglio>,)
+(List<List<DdtDettaglio>> listaList<DdtDettaglio>,)
 DdtTestata ddtTestata = new DdtTestata(numeroDDT, dataDDT, indicatoreStatoAvanzamento, codiceCausale, codiceCausalePrelievi, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceImballo, codicePagamento, codiceBanca, numeroFattura, dataFattura, codiceDivisa, causaleTrasporto, pesoColli, descrizione, numeroColli, indicatorePreventivoDaConferma, indicatoreBollaVisione, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, codiceLingua, numeroDdtDeposito, codiceDeposito, noteCaricamento, codiceFilialeEdi, dataCaricamento, unitaMisuraPesoColli, ddtDettagli);
 
 		listddtTestata.add(ddtTestata);

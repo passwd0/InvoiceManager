@@ -30,8 +30,7 @@ public class ReadOrdineDettaglio {
 	         while ( rs.next() ) {
 
 int numeroOrdine = rs.getInt("numeroOrdine");
-String codice = rs.getString("dataOrdine");
-LocalDate dataOrdine = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataOrdine = rs.getDate("dataOrdine")).toLocalDate();
 int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
 String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 String codiceMagazzino = rs.getString("codiceMagazzino");
@@ -39,8 +38,7 @@ String codiceArticolo = rs.getString("codiceArticolo");
 float quantitaConsegnata = rs.getFloat("quantitaConsegnata");
 boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
 String descrizione = rs.getString("descrizione");
-String codice = rs.getString("dataConsegna");
-LocalDate dataConsegna = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataConsegna = rs.getDate("dataConsegna")).toLocalDate();
 float quantita = rs.getFloat("quantita");
 String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 float prezzo = rs.getFloat("prezzo");
@@ -56,20 +54,16 @@ boolean indicatoreOrdineDaFatturare = rs.getBoolean("indicatoreOrdineDaFatturare
 float quantitaVariata = rs.getFloat("quantitaVariata");
 int numeroPreventivo = rs.getInt("numeroPreventivo");
 int numeroRigaPreventivo = rs.getInt("numeroRigaPreventivo");
-String codice = rs.getString("dataPreventivo");
-LocalDate dataPreventivo = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataPreventivo = rs.getDate("dataPreventivo")).toLocalDate();
 float quantitaEvasa = rs.getFloat("quantitaEvasa");
 boolean indicatoreEvasionePreventivi = rs.getBoolean("indicatoreEvasionePreventivi");
 boolean indicatoreEvasioneRigheNote = rs.getBoolean("indicatoreEvasioneRigheNote");
 boolean indicatoreNoConferma = rs.getBoolean("indicatoreNoConferma");
-String codice = rs.getString("dataConsegnaSchedulatore");
-LocalDate dataConsegnaSchedulatore = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
-String codice = rs.getString("dataConsegnaProposta");
-LocalDate dataConsegnaProposta = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataConsegnaSchedulatore = rs.getDate("dataConsegnaSchedulatore")).toLocalDate();
+LocalDate dataConsegnaProposta = rs.getDate("dataConsegnaProposta")).toLocalDate();
 boolean indicatoreBloccato = rs.getBoolean("indicatoreBloccato");
 boolean indicatoreOrdineTrading = rs.getBoolean("indicatoreOrdineTrading");
-String codice = rs.getString("dataInizioSchedulatore");
-LocalDate dataInizioSchedulatore = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataInizioSchedulatore = rs.getDate("dataInizioSchedulatore")).toLocalDate();
 String codiceArticoloBis = rs.getString("codiceArticoloBis");
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
@@ -79,7 +73,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
+()
 OrdineDettaglio ordineDettaglio = new OrdineDettaglio(numeroOrdine, dataOrdine, numeroRigaOrdine, codiceTipoRigaDocumento, codiceMagazzino, codiceArticolo, quantitaConsegnata, indicatoreEvasione, descrizione, dataConsegna, quantita, codiceUnitaMisura, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, indicatoreCoordinamento, indicatoreOrdineDaFatturare, quantitaVariata, numeroPreventivo, numeroRigaPreventivo, dataPreventivo, quantitaEvasa, indicatoreEvasionePreventivi, indicatoreEvasioneRigheNote, indicatoreNoConferma, dataConsegnaSchedulatore, dataConsegnaProposta, indicatoreBloccato, indicatoreOrdineTrading, dataInizioSchedulatore, codiceArticoloBis, dataInserimento, dataUltimaModifica);
 
 		listordineDettaglio.add(ordineDettaglio);

@@ -31,8 +31,7 @@ public class ReadPreventivoDettaglio {
 
 int numeroPreventivo = rs.getInt("numeroPreventivo");
 int numeroRigaPreventivo = rs.getInt("numeroRigaPreventivo");
-String codice = rs.getString("dataPreventivo");
-LocalDate dataPreventivo = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataPreventivo = rs.getDate("dataPreventivo")).toLocalDate();
 String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 String codiceArticolo = rs.getString("codiceArticolo");
 float quantitaArticolo = rs.getFloat("quantitaArticolo");
@@ -40,8 +39,7 @@ float quantitaConsegnata = rs.getFloat("quantitaConsegnata");
 float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 String descrizione = rs.getString("descrizione");
 String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
-String codice = rs.getString("dataConsegna");
-LocalDate dataConsegna = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataConsegna = rs.getDate("dataConsegna")).toLocalDate();
 String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 float prezzo = rs.getFloat("prezzo");
 String codiceIVA = rs.getString("codiceIVA");
@@ -59,7 +57,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
+()
 PreventivoDettaglio preventivoDettaglio = new PreventivoDettaglio(numeroPreventivo, numeroRigaPreventivo, dataPreventivo, codiceTipoRigaDocumento, codiceArticolo, quantitaArticolo, quantitaConsegnata, quantitaDaConsegnare, descrizione, descrizioneAggiuntiva, dataConsegna, codiceUnitaMisura, prezzo, codiceIVA, codiceControparte, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, codiceMagazzino, dataInserimento, dataUltimaModifica);
 
 		listpreventivoDettaglio.add(preventivoDettaglio);

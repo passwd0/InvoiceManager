@@ -31,12 +31,11 @@ public class ReadContratto {
 
 int numeroContratto = rs.getInt("numeroContratto");
 int numeroRigaContratto = rs.getInt("numeroRigaContratto");
-String codice = rs.getString("dataContratto");
-LocalDate dataContratto = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataContratto = rs.getDate("dataContratto")).toLocalDate();
 String cntCodiceCommessaConvenzione = rs.getString("cntCodiceCommessaConvenzione");
 String cntCodiceCUP = rs.getString("cntCodiceCUP");
 String cntCodiceCIG = rs.getString("cntCodiceCIG");
-(List<LocalDate> listaLocalDate,)
+()
 Contratto contratto = new Contratto(numeroContratto, numeroRigaContratto, dataContratto, cntCodiceCommessaConvenzione, cntCodiceCUP, cntCodiceCIG);
 
 		listcontratto.add(contratto);

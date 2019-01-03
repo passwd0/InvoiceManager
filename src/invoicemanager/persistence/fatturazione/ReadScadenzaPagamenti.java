@@ -30,12 +30,10 @@ public class ReadScadenzaPagamenti {
 	         while ( rs.next() ) {
 
 int numeroFattura = rs.getInt("numeroFattura");
-String codice = rs.getString("dataFattura");
-LocalDate dataFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
-String codice = rs.getString("dataScadenza");
-LocalDate dataScadenza = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFattura = rs.getDate("dataFattura")).toLocalDate();
+LocalDate dataScadenza = rs.getDate("dataScadenza")).toLocalDate();
 float importoScadenza = rs.getFloat("importoScadenza");
-(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
+()
 ScadenzaPagamenti scadenzaPagamenti = new ScadenzaPagamenti(numeroFattura, dataFattura, dataScadenza, importoScadenza);
 
 		listscadenzaPagamenti.add(scadenzaPagamenti);

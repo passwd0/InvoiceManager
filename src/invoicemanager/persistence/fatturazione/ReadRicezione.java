@@ -31,12 +31,11 @@ public class ReadRicezione {
 
 int numeroRicezione = rs.getInt("numeroRicezione");
 int numeroRigaRicezione = rs.getInt("numeroRigaRicezione");
-String codice = rs.getString("dataRicezione");
-LocalDate dataRicezione = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataRicezione = rs.getDate("dataRicezione")).toLocalDate();
 String rczCodiceCommessaRicezione = rs.getString("rczCodiceCommessaRicezione");
 String rczCodiceCUP = rs.getString("rczCodiceCUP");
 String rczCodiceCIG = rs.getString("rczCodiceCIG");
-(List<LocalDate> listaLocalDate,)
+()
 Ricezione ricezione = new Ricezione(numeroRicezione, numeroRigaRicezione, dataRicezione, rczCodiceCommessaRicezione, rczCodiceCUP, rczCodiceCIG);
 
 		listricezione.add(ricezione);

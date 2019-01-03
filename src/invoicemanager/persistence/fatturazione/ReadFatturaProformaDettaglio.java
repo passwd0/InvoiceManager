@@ -31,8 +31,7 @@ public class ReadFatturaProformaDettaglio {
 
 int numeroFattura = rs.getInt("numeroFattura");
 int numeroRigaFattura = rs.getInt("numeroRigaFattura");
-String codice = rs.getString("dataFattura");
-LocalDate dataFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFattura = rs.getDate("dataFattura")).toLocalDate();
 String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 String codiceArticolo = rs.getString("codiceArticolo");
 float costo = rs.getFloat("costo");
@@ -64,7 +63,7 @@ String codice = rs.getString("fattureCollegate");
 List<FatturaCollegata> fattureCollegate = listaList<FatturaCollegata>.stream().filter(x->x.getCodiceList<FatturaCollegata>().equals(codice)).findFirst().get();
 String codice = rs.getString("altriDatiGestionali");
 List<AltroDatoGestionale> altriDatiGestionali = listaList<AltroDatoGestionale>.stream().filter(x->x.getCodiceList<AltroDatoGestionale>().equals(codice)).findFirst().get();
-(List<LocalDate> listaLocalDate, List<List<Ordine>> listaList<Ordine>, List<List<Contratto>> listaList<Contratto>, List<List<Convenzione>> listaList<Convenzione>, List<List<Ricezione>> listaList<Ricezione>, List<List<FatturaCollegata>> listaList<FatturaCollegata>, List<List<AltroDatoGestionale>> listaList<AltroDatoGestionale>,)
+(List<List<Ordine>> listaList<Ordine>, List<List<Contratto>> listaList<Contratto>, List<List<Convenzione>> listaList<Convenzione>, List<List<Ricezione>> listaList<Ricezione>, List<List<FatturaCollegata>> listaList<FatturaCollegata>, List<List<AltroDatoGestionale>> listaList<AltroDatoGestionale>,)
 FatturaProformaDettaglio fatturaProformaDettaglio = new FatturaProformaDettaglio(numeroFattura, numeroRigaFattura, dataFattura, codiceTipoRigaDocumento, codiceArticolo, costo, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, indicatoreNoConferma, codiceMagazzino, ordini, contratti, convenzioni, ricezioni, fattureCollegate, altriDatiGestionali);
 
 		listfatturaProformaDettaglio.add(fatturaProformaDettaglio);

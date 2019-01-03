@@ -39,16 +39,14 @@ String numeroContoCorrente = rs.getString("numeroContoCorrente");
 String codiceCIN = rs.getString("codiceCIN");
 String codiceCINEur = rs.getString("codiceCINEur");
 String paese = rs.getString("paese");
-String codice = rs.getString("dataInserimento");
-LocalDate dataInserimento = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
-String codice = rs.getString("dataUltimaModifica");
-LocalDate dataUltimaModifica = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataInserimento = rs.getDate("dataInserimento")).toLocalDate();
+LocalDate dataUltimaModifica = rs.getDate("dataUltimaModifica")).toLocalDate();
 String iban = rs.getString("iban");
 String swift = rs.getString("swift");
 String codiceConto = rs.getString("codiceConto");
 String indirizzo = rs.getString("indirizzo");
 String cap = rs.getString("cap");
-(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
+()
 BancaGlobale bancaGlobale = new BancaGlobale(codiceBanca, descrizione, codiceABI, codiceCAB, localita, provincia, numeroContoCorrente, codiceCIN, codiceCINEur, paese, dataInserimento, dataUltimaModifica, iban, swift, codiceConto, indirizzo, cap);
 
 		listbancaGlobale.add(bancaGlobale);

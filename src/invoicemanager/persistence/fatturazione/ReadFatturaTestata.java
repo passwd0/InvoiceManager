@@ -30,8 +30,7 @@ public class ReadFatturaTestata {
 	         while ( rs.next() ) {
 
 int numeroFatturazione = rs.getInt("numeroFatturazione");
-String codice = rs.getString("dataFattura");
-LocalDate dataFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFattura = rs.getDate("dataFattura")).toLocalDate();
 String codice = rs.getString("statoAvanzamento");
 StatoAvanzamento statoAvanzamento = listaStatoAvanzamento.stream().filter(x->x.getCodiceStatoAvanzamento().equals(codice)).findFirst().get();
 String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
@@ -77,8 +76,7 @@ float speseIncasso = rs.getFloat("speseIncasso");
 float speseBolli = rs.getFloat("speseBolli");
 float omaggi = rs.getFloat("omaggi");
 float totalePagato = rs.getFloat("totalePagato");
-String codice = rs.getString("dataScadenza");
-LocalDate dataScadenza = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataScadenza = rs.getDate("dataScadenza")).toLocalDate();
 float importoScadenza = rs.getFloat("importoScadenza");
 String codice = rs.getString("allegati");
 List<Allegato> allegati = listaList<Allegato>.stream().filter(x->x.getCodiceList<Allegato>().equals(codice)).findFirst().get();
@@ -90,7 +88,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-(List<LocalDate> listaLocalDate, List<StatoAvanzamento> listaStatoAvanzamento, List<List<FatturaDettaglio>> listaList<FatturaDettaglio>, List<LocalDate> listaLocalDate, List<List<Allegato>> listaList<Allegato>,)
+(List<StatoAvanzamento> listaStatoAvanzamento, List<List<FatturaDettaglio>> listaList<FatturaDettaglio>, List<List<Allegato>> listaList<Allegato>,)
 FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, statoAvanzamento, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, fatturadettaglio, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza, allegati, dataInserimento, dataUltimaModifica);
 
 		listfatturaTestata.add(fatturaTestata);

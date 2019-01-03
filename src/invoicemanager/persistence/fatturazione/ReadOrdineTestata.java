@@ -30,8 +30,7 @@ public class ReadOrdineTestata {
 	         while ( rs.next() ) {
 
 int numeroOrdine = rs.getInt("numeroOrdine");
-String codice = rs.getString("dataOrdine");
-LocalDate dataOrdine = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataOrdine = rs.getDate("dataOrdine")).toLocalDate();
 String codice = rs.getString("statoAvanzamento");
 StatoAvanzamento statoAvanzamento = listaStatoAvanzamento.stream().filter(x->x.getCodiceStatoAvanzamento().equals(codice)).findFirst().get();
 String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
@@ -50,8 +49,7 @@ String codiceVettore = rs.getString("codiceVettore");
 String codiceCausale = rs.getString("codiceCausale");
 String codicePagamento = rs.getString("codicePagamento");
 String codiceBanca = rs.getString("codiceBanca");
-String codice = rs.getString("dataConsegna");
-LocalDate dataConsegna = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataConsegna = rs.getDate("dataConsegna")).toLocalDate();
 String causaleTrasporto = rs.getString("causaleTrasporto");
 String codiceDivisa = rs.getString("codiceDivisa");
 boolean indicatoreConsegnaParziale = rs.getBoolean("indicatoreConsegnaParziale");
@@ -81,7 +79,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-(List<LocalDate> listaLocalDate, List<StatoAvanzamento> listaStatoAvanzamento, List<LocalDate> listaLocalDate, List<List<OrdineDettaglio>> listaList<OrdineDettaglio>,)
+(List<StatoAvanzamento> listaStatoAvanzamento, List<List<OrdineDettaglio>> listaList<OrdineDettaglio>,)
 OrdineTestata ordineTestata = new OrdineTestata(numeroOrdine, dataOrdine, statoAvanzamento, codiceClienteFatturazione, descrizione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, percentualeScontoPagamento, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceCausale, codicePagamento, codiceBanca, dataConsegna, causaleTrasporto, codiceDivisa, indicatoreConsegnaParziale, indicatoreRaggruppamentoConsegne, codiceAgenteVecchio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, loginInserimento, loginModifica, codiceLingua, revisione, attenzione, indicatoreOrdineTrading, ordineDettagli, dataInserimento, dataUltimaModifica);
 
 		listordineTestata.add(ordineTestata);

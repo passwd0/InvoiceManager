@@ -32,14 +32,11 @@ public class ReadScadenze {
 String codiceConto = rs.getString("codiceConto");
 String codiceTipoPagamento = rs.getString("codiceTipoPagamento");
 String riferimentoPartita = rs.getString("riferimentoPartita");
-String codice = rs.getString("dataDocumento");
-LocalDate dataDocumento = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
-String codice = rs.getString("dataScadenza");
-LocalDate dataScadenza = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataDocumento = rs.getDate("dataDocumento")).toLocalDate();
+LocalDate dataScadenza = rs.getDate("dataScadenza")).toLocalDate();
 int numeroRegistrazione = rs.getInt("numeroRegistrazione");
 String codiceBanca = rs.getString("codiceBanca");
-String codice = rs.getString("dataValuta");
-LocalDate dataValuta = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataValuta = rs.getDate("dataValuta")).toLocalDate();
 String codicePagamento = rs.getString("codicePagamento");
 String numeroAssegno = rs.getString("numeroAssegno");
 float importoImponibileRitenutaAcconto = rs.getFloat("importoImponibileRitenutaAcconto");
@@ -48,12 +45,10 @@ float importoRimborsiRitenutaAcconto = rs.getFloat("importoRimborsiRitenutaAccon
 float importoIVARitenutaAcconto = rs.getFloat("importoIVARitenutaAcconto");
 float contriburoINPSDatoreLavoro = rs.getFloat("contriburoINPSDatoreLavoro");
 float contriburoINPSDatorePercipiente = rs.getFloat("contriburoINPSDatorePercipiente");
-String codice = rs.getString("dataValutaAssegno");
-LocalDate dataValutaAssegno = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataValutaAssegno = rs.getDate("dataValutaAssegno")).toLocalDate();
 String note = rs.getString("note");
 float importoPagato = rs.getFloat("importoPagato");
-String codice = rs.getString("dataPagamento");
-LocalDate dataPagamento = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataPagamento = rs.getDate("dataPagamento")).toLocalDate();
 String numeroDocumento = rs.getString("numeroDocumento");
 String codiceIVAInSospensione = rs.getString("codiceIVAInSospensione");
 float importoPartita = rs.getFloat("importoPartita");
@@ -61,11 +56,9 @@ float impostaIVAInSospensione = rs.getFloat("impostaIVAInSospensione");
 float imponibileIVAInSospensione = rs.getFloat("imponibileIVAInSospensione");
 int numeroGiornaleIVA = rs.getInt("numeroGiornaleIVA");
 String tipoRitenutaAcconto = rs.getString("tipoRitenutaAcconto");
-String codice = rs.getString("dataAutorizzazionePagamento");
-LocalDate dataAutorizzazionePagamento = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataAutorizzazionePagamento = rs.getDate("dataAutorizzazionePagamento")).toLocalDate();
 String codiceDivisa = rs.getString("codiceDivisa");
-String codice = rs.getString("dataRegistrazione");
-LocalDate dataRegistrazione = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataRegistrazione = rs.getDate("dataRegistrazione")).toLocalDate();
 float importoAbbuono = rs.getFloat("importoAbbuono");
 ts = rs.getTimestamp("dataInserimento");
 LocalDateTime dataInserimento = null;
@@ -78,7 +71,7 @@ dataUltimaModifica = ts.toLocalDateTime();
 String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
 boolean indicatoreFattureProforma = rs.getBoolean("indicatoreFattureProforma");
 float importoRimborsiCpap = rs.getFloat("importoRimborsiCpap");
-(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
+()
 Scadenze scadenze = new Scadenze(codiceConto, codiceTipoPagamento, riferimentoPartita, dataDocumento, dataScadenza, numeroRegistrazione, codiceBanca, dataValuta, codicePagamento, numeroAssegno, importoImponibileRitenutaAcconto, importoRitenutaAcconto, importoRimborsiRitenutaAcconto, importoIVARitenutaAcconto, contriburoINPSDatoreLavoro, contriburoINPSDatorePercipiente, dataValutaAssegno, note, importoPagato, dataPagamento, numeroDocumento, codiceIVAInSospensione, importoPartita, impostaIVAInSospensione, imponibileIVAInSospensione, numeroGiornaleIVA, tipoRitenutaAcconto, dataAutorizzazionePagamento, codiceDivisa, dataRegistrazione, importoAbbuono, dataInserimento, dataUltimaModifica, descrizioneAggiuntiva, indicatoreFattureProforma, importoRimborsiCpap);
 
 		listscadenze.add(scadenze);

@@ -31,12 +31,11 @@ public class ReadConvenzione {
 
 int numeroConvenzione = rs.getInt("numeroConvenzione");
 int numeroRigaConvenzione = rs.getInt("numeroRigaConvenzione");
-String codice = rs.getString("dataConvenzione");
-LocalDate dataConvenzione = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataConvenzione = rs.getDate("dataConvenzione")).toLocalDate();
 String cnvCodiceCommessaConvenzione = rs.getString("cnvCodiceCommessaConvenzione");
 String cnvCodiceCUP = rs.getString("cnvCodiceCUP");
 String cnvCodiceCIG = rs.getString("cnvCodiceCIG");
-(List<LocalDate> listaLocalDate,)
+()
 Convenzione convenzione = new Convenzione(numeroConvenzione, numeroRigaConvenzione, dataConvenzione, cnvCodiceCommessaConvenzione, cnvCodiceCUP, cnvCodiceCIG);
 
 		listconvenzione.add(convenzione);

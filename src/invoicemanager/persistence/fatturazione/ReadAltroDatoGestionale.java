@@ -33,9 +33,8 @@ int codiceAltroDatoGestionale = rs.getInt("codiceAltroDatoGestionale");
 String tipoDato = rs.getString("tipoDato");
 String riferimentoTesto = rs.getString("riferimentoTesto");
 float riferimentoNumero = rs.getFloat("riferimentoNumero");
-String codice = rs.getString("riferimentoData");
-LocalDate riferimentoData = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
-(List<LocalDate> listaLocalDate,)
+LocalDate riferimentoData = rs.getDate("riferimentoData")).toLocalDate();
+()
 AltroDatoGestionale altroDatoGestionale = new AltroDatoGestionale(codiceAltroDatoGestionale, tipoDato, riferimentoTesto, riferimentoNumero, riferimentoData);
 
 		listaltroDatoGestionale.add(altroDatoGestionale);

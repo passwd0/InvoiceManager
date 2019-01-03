@@ -30,13 +30,10 @@ public class ReadPreventivoTestata {
 	         while ( rs.next() ) {
 
 int numeroPreventivo = rs.getInt("numeroPreventivo");
-String codice = rs.getString("dataPreventivo");
-LocalDate dataPreventivo = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataPreventivo = rs.getDate("dataPreventivo")).toLocalDate();
 boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
-String codice = rs.getString("dataConsegna");
-LocalDate dataConsegna = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
-String codice = rs.getString("dataValidita");
-LocalDate dataValidita = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataConsegna = rs.getDate("dataConsegna")).toLocalDate();
+LocalDate dataValidita = rs.getDate("dataValidita")).toLocalDate();
 String periodoValidita = rs.getString("periodoValidita");
 boolean indicatoreUtilizzoDataValidita = rs.getBoolean("indicatoreUtilizzoDataValidita");
 String codiceCliente = rs.getString("codiceCliente");
@@ -77,7 +74,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate,)
+()
 PreventivoTestata preventivoTestata = new PreventivoTestata(numeroPreventivo, dataPreventivo, indicatoreStatoAvanzamento, dataConsegna, dataValidita, periodoValidita, indicatoreUtilizzoDataValidita, codiceCliente, attenzione, oggetto, riferimentoInterno, numeroInterno, codiceIVA, codiceAgente, codiceResa, codiceVettore, codicePagamento, codiceBanca, codiceCausale, codiceCausalePrelievo, codiceListino, descrizioneOrdine, codiceDivisa, cambio, numeroFax, venditore, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, note, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, loginInserimento, dataInserimento, dataUltimaModifica);
 
 		listpreventivoTestata.add(preventivoTestata);

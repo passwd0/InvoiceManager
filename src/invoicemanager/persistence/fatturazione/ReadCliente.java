@@ -82,13 +82,11 @@ boolean indicatoreIVADifferita = rs.getBoolean("indicatoreIVADifferita");
 boolean indicatoreEmail = rs.getBoolean("indicatoreEmail");
 boolean inputInibito = rs.getBoolean("inputInibito");
 boolean indicatoreFatturePA = rs.getBoolean("indicatoreFatturePA");
-String codice = rs.getString("dataUltimaFattura");
-LocalDate dataUltimaFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataUltimaFattura = rs.getDate("dataUltimaFattura")).toLocalDate();
 float importoUltimaFattura = rs.getFloat("importoUltimaFattura");
 float importoPlafond = rs.getFloat("importoPlafond");
 String numeroUltimaFattura = rs.getString("numeroUltimaFattura");
-String codice = rs.getString("dataInizioPlafond");
-LocalDate dataInizioPlafond = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataInizioPlafond = rs.getDate("dataInizioPlafond")).toLocalDate();
 boolean indicatoreFattureXML = rs.getBoolean("indicatoreFattureXML");
 boolean indicatoreDdtEmail = rs.getBoolean("indicatoreDdtEmail");
 boolean indicatorePlafond = rs.getBoolean("indicatorePlafond");
@@ -108,7 +106,7 @@ ts = rs.getTimestamp("dataUltimaModificaa");
 LocalDateTime dataUltimaModificaa = null;
 if (ts != null)
 dataUltimaModificaa = ts.toLocalDateTime();
-(List<TipoCliente> listaTipoCliente, List<ResaMerce> listaResaMerce, List<Imballo> listaImballo, List<RaggruppamentoClienteFornitore> listaRaggruppamentoClienteFornitore, List<Pagamento> listaPagamento, List<Banca> listaBanca, List<Iva> listaIva, List<Agente> listaAgente, List<Listino> listaListino, List<Vettore> listaVettore, List<Iso> listaIso, List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<StabileOrganizzazione> listaStabileOrganizzazione, List<RappresentanteFiscale> listaRappresentanteFiscale, List<TerzoIntermediario> listaTerzoIntermediario,)
+(List<TipoCliente> listaTipoCliente, List<ResaMerce> listaResaMerce, List<Imballo> listaImballo, List<RaggruppamentoClienteFornitore> listaRaggruppamentoClienteFornitore, List<Pagamento> listaPagamento, List<Banca> listaBanca, List<Iva> listaIva, List<Agente> listaAgente, List<Listino> listaListino, List<Vettore> listaVettore, List<Iso> listaIso, List<StabileOrganizzazione> listaStabileOrganizzazione, List<RappresentanteFiscale> listaRappresentanteFiscale, List<TerzoIntermediario> listaTerzoIntermediario,)
 Cliente cliente = new Cliente(codiceCliente, descrizione, tipoCliente, resaMerce, imballo, raggruppamento, fatturato, fido, partitaIVA, codiceFiscale, pagamento, banca, numeroFattureEmesse, iva, imponibileNonEsente, imponibileEsente, importoIVA, codiceClassificazione, agente, percentualeProvvigioneAgente, scontoLegatoProvvigioniAgente, numeroCopieFattura, indicatoreAddebitoSpeseIncasso, indicatoreAddebitoSpeseBolli, listino, vettore, codiceAffidabilita, iso, partitaIVAEstero, codiceDivisa, dataScadenzaSpostataAgosto, dataScadenzaSpostataDicembre, codiceLingua, note, stato, indicatoreInviataInformativaPrivacy, indicatoreRicevutaInformativaPrivacy, indicatoreScorporoIVA, indicatoreIVADifferita, indicatoreEmail, inputInibito, indicatoreFatturePA, dataUltimaFattura, importoUltimaFattura, importoPlafond, numeroUltimaFattura, dataInizioPlafond, indicatoreFattureXML, indicatoreDdtEmail, indicatorePlafond, codiceDestinatarioXml, codiceEORI, stabileOrganizzazione, rappresentanteFiscale, terzoIntermediario, dataInserimento, dataUltimaModificaa);
 
 		listcliente.add(cliente);

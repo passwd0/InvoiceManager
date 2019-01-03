@@ -31,12 +31,11 @@ public class ReadOrdine {
 
 int numeroOrdine = rs.getInt("numeroOrdine");
 int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
-String codice = rs.getString("dataOrdine");
-LocalDate dataOrdine = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataOrdine = rs.getDate("dataOrdine")).toLocalDate();
 String ordCodiceCommessaConvenzione = rs.getString("ordCodiceCommessaConvenzione");
 String ordCodiceCUP = rs.getString("ordCodiceCUP");
 String ordCodiceCIG = rs.getString("ordCodiceCIG");
-(List<LocalDate> listaLocalDate,)
+()
 Ordine ordine = new Ordine(numeroOrdine, numeroRigaOrdine, dataOrdine, ordCodiceCommessaConvenzione, ordCodiceCUP, ordCodiceCIG);
 
 		listordine.add(ordine);

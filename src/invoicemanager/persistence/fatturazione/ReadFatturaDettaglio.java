@@ -30,16 +30,14 @@ public class ReadFatturaDettaglio {
 	         while ( rs.next() ) {
 
 int numeroFattura = rs.getInt("numeroFattura");
-String codice = rs.getString("dataFattura");
-LocalDate dataFattura = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataFattura = rs.getDate("dataFattura")).toLocalDate();
 int numeroRigaFattura = rs.getInt("numeroRigaFattura");
 String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 String codiceArticolo = rs.getString("codiceArticolo");
 float costo = rs.getFloat("costo");
 int numeroOrdine = rs.getInt("numeroOrdine");
 int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
-String codice = rs.getString("dataOrdine");
-LocalDate dataOrdine = listaLocalDate.stream().filter(x->x.getCodiceLocalDate().equals(codice)).findFirst().get();
+LocalDate dataOrdine = rs.getDate("dataOrdine")).toLocalDate();
 float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
 String descrizione = rs.getString("descrizione");
@@ -86,7 +84,7 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-(List<LocalDate> listaLocalDate, List<LocalDate> listaLocalDate, List<List<Ordine>> listaList<Ordine>, List<List<Contratto>> listaList<Contratto>, List<List<Convenzione>> listaList<Convenzione>, List<List<Ricezione>> listaList<Ricezione>, List<List<FatturaCollegata>> listaList<FatturaCollegata>, List<List<AltroDatoGestionale>> listaList<AltroDatoGestionale>,)
+(List<List<Ordine>> listaList<Ordine>, List<List<Contratto>> listaList<Contratto>, List<List<Convenzione>> listaList<Convenzione>, List<List<Ricezione>> listaList<Ricezione>, List<List<FatturaCollegata>> listaList<FatturaCollegata>, List<List<AltroDatoGestionale>> listaList<AltroDatoGestionale>,)
 FatturaDettaglio fatturaDettaglio = new FatturaDettaglio(numeroFattura, dataFattura, numeroRigaFattura, codiceTipoRigaDocumento, codiceArticolo, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, codiceUnitaMisura, serialNumber, indicatoreNoConferma, codiceMagazzino, numeroDdt, dataDdt, numeroRigaDdt, codicePercipiente, codiceCassaPrevidenziale, codiceCdc, contoRicavoUsato, ricavoUsato, ordini, contratti, convenzioni, ricezioni, fattureCollegate, altriDatiGestionali, dataInserimento, dataUltimaModifica);
 
 		listfatturaDettaglio.add(fatturaDettaglio);
