@@ -2,7 +2,7 @@ filename=$1
 basename=`echo "$filename" | sed "s/.*\///g"`
 classname=${basename:0:-5}
 var=`echo ${classname:0:1} | tr '[:upper:]' '[:lower:]'`${classname:1}
-newfile=/home/passwd/Documents/java/InvoiceManager/src/invoicemanager/persistence/fatturazione/Read$basename
+newfile=Read$basename
 
 find_private=0
 element=()
@@ -65,6 +65,8 @@ for l in `cat $filename`; do
 			echo "LocalDateTime $jname = null;" >> $newfile
 			echo "if (ts != null)" >> $newfile
 			echo "$jname = ts.toLocalDateTime();" >> $newfile
+		elif [[ $jtype2 == 'Stato' ]]; then
+			echo "Stato stato = Stato.valueOf(rs.getString(\"$jname\"));" >> $newfile
 		else
 			echo String codice = rs.getString\(\""$jname"\"\)\; >> $newfile
 			echo "$jtype2 $jname = list.stream().filter(x->x.get$jtype2().equals(codice)).findFirst().get();" >> $newfile
