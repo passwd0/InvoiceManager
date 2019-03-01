@@ -24,7 +24,7 @@ public class ReadFatturaTestata {
 		c = DBConnect.getConnection();
 	}
 
-	public List<FatturaTestata> read(List<StatoAvanzamento> listaStatoAvanzamento, List<FatturaDettaglio> listaFatturaDettaglio, List<Allegato> listaAllegato) {
+	public List<FatturaTestata> read(StatoAvanzamento[] listaStatoAvanzamento, List<FatturaDettaglio> listaFatturaDettaglio, List<Allegato> listaAllegato) {
 		List<FatturaTestata> listfatturaTestata = new ArrayList<>();
 		Statement stmt;
 

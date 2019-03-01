@@ -23,7 +23,7 @@ public class ReadOrdineTestata {
 		c = DBConnect.getConnection();
 	}
 
-	public List<OrdineTestata> read(List<StatoAvanzamento> listaStatoAvanzamento, List<OrdineDettaglio> lista) {
+	public List<OrdineTestata> read(StatoAvanzamento[] listaStatoAvanzamento, List<OrdineDettaglio> lista) {
 		List<OrdineTestata> listordineTestata = new ArrayList<>();
 		Statement stmt;
 

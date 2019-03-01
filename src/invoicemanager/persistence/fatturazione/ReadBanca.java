@@ -20,7 +20,7 @@ public class ReadBanca {
 		c = DBConnect.getConnection();
 	}
 
-	public List<Banca> read(List<Stato> list) {
+	public List<Banca> read(Stato[] list) {
 		List<Banca> listbanca = new ArrayList<>();
 		Statement stmt;
 

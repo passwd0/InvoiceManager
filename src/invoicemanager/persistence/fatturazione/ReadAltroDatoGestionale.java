@@ -20,22 +20,19 @@ public class ReadAltroDatoGestionale {
 		c = DBConnect.getConnection();
 	}
 
-	public List<AltroDatoGestionale> read(List<LocalDate> listaLocalDate)
- {
+	public List<AltroDatoGestionale> read(List<LocalDate> listaLocalDate) {
 		List<AltroDatoGestionale> listaltroDatoGestionale = new ArrayList<>();
 		Statement stmt;
 
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM AltroDatoGestionale");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int codiceAltroDatoGestionale = rs.getInt("codiceAltroDatoGestionale");
 				String tipoDato = rs.getString("tipoDato");
 				String riferimentoTesto = rs.getString("riferimentoTesto");
 				float riferimentoNumero = rs.getFloat("riferimentoNumero");
-				String codice = rs.getString("riferimentoData");
 				LocalDate riferimentoData = rs.getDate("riferimentoData").toLocalDate();
 				AltroDatoGestionale altroDatoGestionale = new AltroDatoGestionale(codiceAltroDatoGestionale, tipoDato, riferimentoTesto, riferimentoNumero, riferimentoData);
 
