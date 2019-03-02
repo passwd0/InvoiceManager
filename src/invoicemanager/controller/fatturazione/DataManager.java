@@ -90,7 +90,7 @@ public final class DataManager {
 		return new ReadAllegato().read();
 	}
 	private static List<AltroDatoGestionale> loadAltroDatoGestionale() throws ClassNotFoundException, SQLException{
-		return new ReadAltroDatoGestionale().read(loadLocalDate);
+		return new ReadAltroDatoGestionale().read();
 	}
 	private static List<AreaGeografica> loadAreaGeografica() throws ClassNotFoundException, SQLException{
 		return new ReadAreaGeografica().read();

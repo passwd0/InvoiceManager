@@ -20,8 +20,8 @@ public class ReadAltroDatoGestionale {
 		c = DBConnect.getConnection();
 	}
 
-	public List<AltroDatoGestionale> read(List<LocalDate> listaLocalDate) {
-		List<AltroDatoGestionale> listaltroDatoGestionale = new ArrayList<>();
+	public List<AltroDatoGestionale> read() {
+		List<AltroDatoGestionale> listAltroDatoGestionale = new ArrayList<>();
 		Statement stmt;
 
 		try {
@@ -36,7 +36,7 @@ public class ReadAltroDatoGestionale {
 				LocalDate riferimentoData = rs.getDate("riferimentoData").toLocalDate();
 				AltroDatoGestionale altroDatoGestionale = new AltroDatoGestionale(codiceAltroDatoGestionale, tipoDato, riferimentoTesto, riferimentoNumero, riferimentoData);
 
-				listaltroDatoGestionale.add(altroDatoGestionale);
+				listAltroDatoGestionale.add(altroDatoGestionale);
 	         }
 		     rs.close();
 		     stmt.close();
@@ -46,7 +46,7 @@ public class ReadAltroDatoGestionale {
 		}
 
 
-		return listaltroDatoGestionale;
+		return listAltroDatoGestionale;
 	}
 
 }
