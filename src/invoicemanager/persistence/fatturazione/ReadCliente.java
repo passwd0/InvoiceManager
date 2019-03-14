@@ -17,6 +17,7 @@ import invoicemanager.model.fatturazione.Imballo;
 import invoicemanager.model.fatturazione.Iso;
 import invoicemanager.model.fatturazione.Iva;
 import invoicemanager.model.fatturazione.Listino;
+import invoicemanager.model.fatturazione.ListinoArticolo;
 import invoicemanager.model.fatturazione.Pagamento;
 import invoicemanager.model.fatturazione.RaggruppamentoClienteFornitore;
 import invoicemanager.model.fatturazione.RappresentanteFiscale;
@@ -37,7 +38,7 @@ public class ReadCliente {
 
 	public List<Cliente> read(List<TipoCliente> listaTipoCliente, List<ResaMerce> listaResaMerce, List<Imballo> listaImballo, 
 			List<RaggruppamentoClienteFornitore> listaRaggruppamentoClienteFornitore, List<Pagamento> listaPagamento, List<Banca> listaBanca, 
-			List<Iva> listaIva, List<Agente> listaAgente, List<Listino> listaListino, List<Vettore> listaVettore, List<Iso> listaIso, 
+			List<Iva> listaIva, List<Agente> listaAgente, List<Vettore> listaVettore, List<Iso> listaIso, 
 			List<StabileOrganizzazione> listaStabileOrganizzazione, List<RappresentanteFiscale> listaRappresentanteFiscale, 
 			List<TerzoIntermediario> listaTerzoIntermediario) {
 		List<Cliente> listcliente = new ArrayList<>();
@@ -81,8 +82,7 @@ public class ReadCliente {
 				int numeroCopieFattura = rs.getInt("numeroCopieFattura");
 				boolean indicatoreAddebitoSpeseIncasso = rs.getBoolean("indicatoreAddebitoSpeseIncasso");
 				boolean indicatoreAddebitoSpeseBolli = rs.getBoolean("indicatoreAddebitoSpeseBolli");
-				String codiceListino = rs.getString("listino");
-				Listino listino = listaListino.stream().filter(x->x.getCodiceListino().equals(codiceListino)).findFirst().get();
+				int progressivo = rs.getInt("progressivo");
 				String codiceVettore = rs.getString("vettore");
 				Vettore vettore = listaVettore.stream().filter(x->x.getCodiceVettore().equals(codiceVettore)).findFirst().get();
 				String codiceAffidabilita = rs.getString("codiceAffidabilita");
@@ -126,7 +126,7 @@ public class ReadCliente {
 				LocalDateTime dataUltimaModificaa = null;
 				if (ts != null)
 					dataUltimaModificaa = ts.toLocalDateTime();
-				Cliente cliente = new Cliente(codiceCliente, descrizione, tipoCliente, resaMerce, imballo, raggruppamento, fatturato, fido, partitaIVA, codiceFiscale, pagamento, banca, numeroFattureEmesse, iva, imponibileNonEsente, imponibileEsente, importoIVA, codiceClassificazione, agente, percentualeProvvigioneAgente, scontoLegatoProvvigioniAgente, numeroCopieFattura, indicatoreAddebitoSpeseIncasso, indicatoreAddebitoSpeseBolli, listino, vettore, codiceAffidabilita, iso, partitaIVAEstero, codiceDivisa, dataScadenzaSpostataAgosto, dataScadenzaSpostataDicembre, codiceLingua, note, stato, indicatoreInviataInformativaPrivacy, indicatoreRicevutaInformativaPrivacy, indicatoreScorporoIVA, indicatoreIVADifferita, indicatoreEmail, inputInibito, indicatoreFatturePA, dataUltimaFattura, importoUltimaFattura, importoPlafond, numeroUltimaFattura, dataInizioPlafond, indicatoreFattureXML, indicatoreDdtEmail, indicatorePlafond, codiceDestinatarioXml, codiceEORI, stabileOrganizzazione, rappresentanteFiscale, terzoIntermediario, dataInserimento, dataUltimaModificaa);
+				Cliente cliente = new Cliente(codiceCliente, descrizione, tipoCliente, resaMerce, imballo, raggruppamento, fatturato, fido, partitaIVA, codiceFiscale, pagamento, banca, numeroFattureEmesse, iva, imponibileNonEsente, imponibileEsente, importoIVA, codiceClassificazione, agente, percentualeProvvigioneAgente, scontoLegatoProvvigioniAgente, numeroCopieFattura, indicatoreAddebitoSpeseIncasso, indicatoreAddebitoSpeseBolli, progressivo, vettore, codiceAffidabilita, iso, partitaIVAEstero, codiceDivisa, dataScadenzaSpostataAgosto, dataScadenzaSpostataDicembre, codiceLingua, note, stato, indicatoreInviataInformativaPrivacy, indicatoreRicevutaInformativaPrivacy, indicatoreScorporoIVA, indicatoreIVADifferita, indicatoreEmail, inputInibito, indicatoreFatturePA, dataUltimaFattura, importoUltimaFattura, importoPlafond, numeroUltimaFattura, dataInizioPlafond, indicatoreFattureXML, indicatoreDdtEmail, indicatorePlafond, codiceDestinatarioXml, codiceEORI, stabileOrganizzazione, rappresentanteFiscale, terzoIntermediario, dataInserimento, dataUltimaModificaa);
 
 				listcliente.add(cliente);
 	         }

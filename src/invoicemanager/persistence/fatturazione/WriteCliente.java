@@ -45,7 +45,7 @@ public class WriteCliente {
 			ps.setInt(22, a.getNumeroCopieFattura());
 			ps.setBoolean(23, a.isIndicatoreAddebitoSpeseIncasso());
 			ps.setBoolean(24, a.isIndicatoreAddebitoSpeseBolli());
-			ps.setString(25, a.getCodiceListino());
+			ps.setInt(25, a.getProgressivo());
 			ps.setString(26, a.getCodiceVettore());
 			ps.setString(27, a.getCodiceAffidabilita());
 			ps.setString(28, a.getCodiceIso());

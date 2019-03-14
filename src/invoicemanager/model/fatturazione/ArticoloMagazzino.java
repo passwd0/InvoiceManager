@@ -2,7 +2,7 @@ package invoicemanager.model.fatturazione;
 
 import java.time.LocalDateTime;
 
-public class ArticoloMagazzino{
+public class ArticoloMagazzino {
 	private String codiceArticolo; //(30) NOT NULL
 	private String descrizione; //(200) NULL
 	private String codiceUnitaMisura; //(4) NULL
@@ -44,7 +44,6 @@ public class ArticoloMagazzino{
 	public ArticoloMagazzino(String codiceArticolo, String descrizione){
 		this.codiceArticolo = codiceArticolo;
 		this.descrizione = descrizione;
-		
 	}
 
 	public ArticoloMagazzino(String codiceArticolo, String descrizione, String codiceUnitaMisura,

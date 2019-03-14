@@ -121,7 +121,7 @@ public final class DataManager {
 	}
 	private static List<Cliente> loadCliente() throws ClassNotFoundException, SQLException{
 		return new ReadCliente().read(loadTipoCliente(), loadResaMerce(), loadImballo(), loadRaggruppamentoClienteFornitore(), loadPagamento(), loadBanca(), 
-				loadIva(), loadAgente(), loadListino(), loadVettore(), loadIso(), loadStabileOrganizzazione(), loadRappresentanteFiscale(), loadTerzoIntermediario());
+				loadIva(), loadAgente(), loadVettore(), loadIso(), loadStabileOrganizzazione(), loadRappresentanteFiscale(), loadTerzoIntermediario());
 	}
 	private static List<CodiceABarre> loadCodiceABarre() throws ClassNotFoundException, SQLException{
 		return new ReadCodiceABarre().read();
