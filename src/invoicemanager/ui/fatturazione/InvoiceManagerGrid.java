@@ -7,8 +7,9 @@ import javafx.scene.layout.GridPane;
 
 public class InvoiceManagerGrid extends GridPane {
 
-	public InvoiceManagerGrid(Controller controller, Label tmp, Button tmp1) {
-		// TODO Auto-generated constructor stub
+	public InvoiceManagerGrid(Controller controller) {
+		
+		this.add(new RiepilogoTestata(controller), 0, 0);
 	}
 	
 	

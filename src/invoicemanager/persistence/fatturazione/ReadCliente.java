@@ -140,5 +140,4 @@ public class ReadCliente {
 
 		return listcliente;
 	}
-
 }

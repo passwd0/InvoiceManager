@@ -4,6 +4,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class Controller {
+	private DataManager dm;
+	
+	public Controller() {
+		dm = new DataManager();
+	}
 	
 	public static void alert(String title, String headerMessage, String contentMessage) {
 		Alert alert = new Alert(AlertType.ERROR);
@@ -12,6 +17,7 @@ public class Controller {
 		alert.setContentText(contentMessage);
 		alert.show();
 	}
+
 	
 	public boolean testataConferma() {
 		return true;
