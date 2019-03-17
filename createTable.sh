@@ -2,7 +2,7 @@
 
 filename=$1
 basename_filename=$(basename $filename)
-filename_noext=${basename_filename:0:-5}
+filename_noext=${basename_filename:5:-5}
 
 IFS=$'\n'
 
@@ -27,4 +27,4 @@ for i in `cat $filename`; do
 		esac
 	fi
 done
-echo -e ")\n\n"
+echo -e ");"
