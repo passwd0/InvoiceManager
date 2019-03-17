@@ -56,6 +56,4 @@ public class AltroDatoGestionale {
 	public void setRiferimentoData(LocalDate riferimentoData) {
 		this.riferimentoData = riferimentoData;
 	}
-	
-	
 }

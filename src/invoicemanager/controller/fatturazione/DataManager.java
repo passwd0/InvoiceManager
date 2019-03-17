@@ -76,601 +76,1248 @@ import invoicemanager.persistence.fatturazione.*;
 
 public final class DataManager {
 	
-	public static List<Listino> loadListino() throws ClassNotFoundException, SQLException {
+	public static List<Listino> loadListino()  {
 		List<Listino> listini = new ArrayList<>();
 		listini.addAll(loadListinoArticolo());
 		listini.addAll(loadListinoPersonalizzato());
 		return listini;
 	}
 	
-	public static List<Agente> loadAgente() throws ClassNotFoundException, SQLException{
-		return new ReadAgente().read(loadControparte());
-	}
-	public static List<Allegato> loadAllegato() throws ClassNotFoundException, SQLException{
-		return new ReadAllegato().read();
-	}
-	public static List<AltroDatoGestionale> loadAltroDatoGestionale() throws ClassNotFoundException, SQLException{
-		return new ReadAltroDatoGestionale().read();
-	}
-	public static List<AreaGeografica> loadAreaGeografica() throws ClassNotFoundException, SQLException{
-		return new ReadAreaGeografica().read();
-	}
-	public static List<ArticoloMagazzinoDescrizioneMultilingua> loadArticoloMagazzinoDescrizioneMultilingua() throws ClassNotFoundException, SQLException{
-		return new ReadArticoloMagazzinoDescrizioneMultilingua().read();
-	}
-	public static List<ArticoloMagazzino> loadArticoloMagazzino() throws ClassNotFoundException, SQLException{
-		return new ReadArticoloMagazzino().read();
-	}
-	public static List<BancaGlobale> loadBancaGlobale() throws ClassNotFoundException, SQLException{
-		return new ReadBancaGlobale().read();
-	}
-	public static List<Banca> loadBanca() throws ClassNotFoundException, SQLException{
-		return new ReadBanca().read(Stato.values());
-	}
-	public static List<BentoDettaglio> loadBentoDettaglio() throws ClassNotFoundException, SQLException{
-		return new ReadBentoDettaglio().read(loadTipoBento(), loadUnitaMisura(), loadIva(), loadControparte(), loadMagazzino(), loadCausaleMagazzino());
-	}
-	public static List<BentoTestata> loadBentoTestata() throws ClassNotFoundException, SQLException{
-		return new ReadBentoTestata().read();
-	}
-	public static List<CapItaliano> loadCapItaliano() throws ClassNotFoundException, SQLException{
-		return new ReadCapItaliano().read();
-	}
-	public static List<CausaleMagazzino> loadCausaleMagazzino() throws ClassNotFoundException, SQLException{
-		return new ReadCausaleMagazzino().read();
-	}
-	public static List<Cliente> loadCliente() throws ClassNotFoundException, SQLException{
-		return new ReadCliente().read(loadTipoCliente(), loadResaMerce(), loadImballo(), loadRaggruppamentoClienteFornitore(), loadPagamento(), loadBanca(), 
-				loadIva(), loadAgente(), loadVettore(), loadIso(), loadStabileOrganizzazione(), loadRappresentanteFiscale(), loadTerzoIntermediario());
-	}
-	public static List<CodiceABarre> loadCodiceABarre() throws ClassNotFoundException, SQLException{
-		return new ReadCodiceABarre().read();
-	}
-	public static List<Confezione> loadConfezione() throws ClassNotFoundException, SQLException{
-		return new ReadConfezione().read();
-	}
-	public static List<Contratto> loadContratto() throws ClassNotFoundException, SQLException{
-		return new ReadContratto().read();
-	}
-	public static List<Controparte> loadControparte() throws ClassNotFoundException, SQLException{
-		return new ReadControparte().read();
-	}
-	public static List<Convenzione> loadConvenzione() throws ClassNotFoundException, SQLException{
-		return new ReadConvenzione().read();
-	}
-	public static List<DdtDettaglio> loadDdtDettaglio() throws ClassNotFoundException, SQLException{
-		return new ReadDdtDettaglio().read();
-	}
-	public static List<DdtTestata> loadDdtTestata() throws ClassNotFoundException, SQLException{
-		return new ReadDdtTestata().read(loadDdtDettaglio());
-	}
-	public static List<FatturaCollegata> loadFatturaCollegata() throws ClassNotFoundException, SQLException{
-		return new ReadFatturaCollegata().read();
-	}
-	public static List<FatturaDettaglio> loadFatturaDettaglio() throws ClassNotFoundException, SQLException{
-		return new ReadFatturaDettaglio().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
-	}
-	public static List<FatturaProformaDettaglio> loadFatturaProformaDettaglio() throws ClassNotFoundException, SQLException{
-		return new ReadFatturaProformaDettaglio().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
-	}
-	public static List<FatturaProformaTestata> loadFatturaProformaTestata() throws ClassNotFoundException, SQLException{
-		return new ReadFatturaProformaTestata().read();
-	}
-	public static List<FatturaTestata> loadFatturaTestata() throws ClassNotFoundException, SQLException{
-		return new ReadFatturaTestata().read(StatoAvanzamento.values(), loadFatturaDettaglio(), loadAllegato());
-	}
-	public static List<Gruppo> loadGruppo() throws ClassNotFoundException, SQLException{
-		return new ReadGruppo().read();
-	}
-	public static List<GruppoMerceologico> loadGruppoMerceologico() throws ClassNotFoundException, SQLException{
-		return new ReadGruppoMerceologico().read();
-	}
-	public static List<Imballo> loadImballo() throws ClassNotFoundException, SQLException{
-		return new ReadImballo().read();
-	}
-	public static List<IndirizzoGeografico> loadIndirizzoGeografico() throws ClassNotFoundException, SQLException{
-		return new ReadIndirizzoGeografico().read();
-	}
-	public static List<Iso> loadIso() throws ClassNotFoundException, SQLException{
-		return new ReadIso().read();
-	}
-	public static List<Iva> loadIva() throws ClassNotFoundException, SQLException{
-		return new ReadIva().read();
-	}
-	public static List<ListinoArticolo> loadListinoArticolo() throws ClassNotFoundException, SQLException{
-		return new ReadListinoArticolo().read();
-	}
-	public static List<ListinoPersonalizzato> loadListinoPersonalizzato() throws ClassNotFoundException, SQLException{
-		return new ReadListinoPersonalizzato().read(loadGruppoMerceologico());
-	}
-	public static List<Magazzino> loadMagazzino() throws ClassNotFoundException, SQLException{
-		return new ReadMagazzino().read();
-	}
-	public static List<OrdineDettaglio> loadOrdineDettaglio() throws ClassNotFoundException, SQLException{
-		return new ReadOrdineDettaglio().read();
-	}
-	public static List<Ordine> loadOrdine() throws ClassNotFoundException, SQLException{
-		return new ReadOrdine().read();
-	}
-	public static List<OrdineTestata> loadOrdineTestata() throws ClassNotFoundException, SQLException{
-		return new ReadOrdineTestata().read(StatoAvanzamento.values(), loadOrdineDettaglio());
-	}
-	public static List<Pagamento> loadPagamento() throws ClassNotFoundException, SQLException{
-		return new ReadPagamento().read(loadTipoPagamento());
-	}
-	public static List<Percipiente> loadPercipiente() throws ClassNotFoundException, SQLException{
-		return new ReadPercipiente().read();
-	}
-	public static List<PianoConto> loadPianoConto() throws ClassNotFoundException, SQLException{
-		return new ReadPianoConto().read();
-	}
-	public static List<PreventivoDettaglio> loadPreventivoDettaglio() throws ClassNotFoundException, SQLException{
-		return new ReadPreventivoDettaglio().read();
-	}
-	public static List<PreventivoTestata> loadPreventivoTestata() throws ClassNotFoundException, SQLException{
-		return new ReadPreventivoTestata().read();
-	}
-	public static List<Prezzo> loadPrezzo() throws ClassNotFoundException, SQLException{
-		return new ReadPrezzo().read();
-	}
-	public static List<ProvvigioneAgente> loadProvvigioneAgente() throws ClassNotFoundException, SQLException{
-		return new ReadProvvigioneAgente().read();
-	}
-	public static List<RaggruppamentoClienteFornitore> loadRaggruppamentoClienteFornitore() throws ClassNotFoundException, SQLException{
-		return new ReadRaggruppamentoClienteFornitore().read();
-	}
-	public static List<RappresentanteFiscale> loadRappresentanteFiscale() throws ClassNotFoundException, SQLException{
-		return new ReadRappresentanteFiscale().read();
-	}
-	public static List<ResaMerce> loadResaMerce() throws ClassNotFoundException, SQLException{
-		return new ReadResaMerce().read();
-	}
-	public static List<Ricezione> loadRicezione() throws ClassNotFoundException, SQLException{
-		return new ReadRicezione().read();
-	}
-	public static List<ScadenzaPagamenti> loadScadenzaPagamenti() throws ClassNotFoundException, SQLException{
-		return new ReadScadenzaPagamenti().read();
-	}
-	public static List<Scadenze> loadScadenze() throws ClassNotFoundException, SQLException{
-		return new ReadScadenze().read();
-	}
-	public static List<SottogruppiMerceologici> loadSottogruppiMerceologici() throws ClassNotFoundException, SQLException{
-		return new ReadSottogruppiMerceologici().read();
-	}
-	public static List<SottogruppoMerceologico> loadSottogruppoMerceologico() throws ClassNotFoundException, SQLException{
-		return new ReadSottogruppoMerceologico().read();
-	}
-	public static List<StabileOrganizzazione> loadStabileOrganizzazione() throws ClassNotFoundException, SQLException{
-		return new ReadStabileOrganizzazione().read();
-	}
-	public static List<StatoFattura> loadStatoFattura() throws ClassNotFoundException, SQLException{
-		return new ReadStatoFattura().read();
-	}
-	public static List<Telefono> loadTelefono() throws ClassNotFoundException, SQLException{
-		return new ReadTelefono().read();
-	}
-	public static List<TerzoIntermediario> loadTerzoIntermediario() throws ClassNotFoundException, SQLException{
-		return new ReadTerzoIntermediario().read();
-	}
-	public static List<TipoBento> loadTipoBento() throws ClassNotFoundException, SQLException{
-		return new ReadTipoBento().read();
-	}
-	public static List<TipoCliente> loadTipoCliente() throws ClassNotFoundException, SQLException{
-		return new ReadTipoCliente().read();
-	}
-	public static List<TipoIndirizzo> loadTipoIndirizzo() throws ClassNotFoundException, SQLException{
-		return new ReadTipoIndirizzo().read();
-	}
-	public static List<TipoMagazzino> loadTipoMagazzino() throws ClassNotFoundException, SQLException{
-		return new ReadTipoMagazzino().read();
-	}
-	public static List<TipoPagamento> loadTipoPagamento() throws ClassNotFoundException, SQLException{
-		return new ReadTipoPagamento().read();
-	}
-	public static List<TipoRigaDocumento> loadTipoRigaDocumento() throws ClassNotFoundException, SQLException{
-		return new ReadTipoRigaDocumento().read();
-	}
-	public static List<UnitaMisura> loadUnitaMisura() throws ClassNotFoundException, SQLException{
-		return new ReadUnitaMisura().read();
-	}
-	public static List<Utente> loadUtente() throws ClassNotFoundException, SQLException{
-		return new ReadUtente().read();
-	}
-	public static List<Vettore> loadVettore() throws ClassNotFoundException, SQLException{
-		return new ReadVettore().read();
+	public static List<Agente> loadAgente() {
+		try {
+			return new ReadAgente().read(loadControparte());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Allegato> loadAllegato() {
+		try {
+			return new ReadAllegato().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<AltroDatoGestionale> loadAltroDatoGestionale() {
+		try {
+			return new ReadAltroDatoGestionale().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<AreaGeografica> loadAreaGeografica() {
+		try {
+			return new ReadAreaGeografica().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<ArticoloMagazzinoDescrizioneMultilingua> loadArticoloMagazzinoDescrizioneMultilingua() {
+		try {
+			return new ReadArticoloMagazzinoDescrizioneMultilingua().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<ArticoloMagazzino> loadArticoloMagazzino() {
+		try {
+			return new ReadArticoloMagazzino().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<BancaGlobale> loadBancaGlobale() {
+		try {
+			return new ReadBancaGlobale().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Banca> loadBanca() {
+		try {
+			return new ReadBanca().read(Stato.values());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<BentoDettaglio> loadBentoDettaglio() {
+		try {
+			return new ReadBentoDettaglio().read(loadTipoBento(), loadUnitaMisura(), loadIva(), loadControparte(), loadMagazzino(), loadCausaleMagazzino());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<BentoTestata> loadBentoTestata() {
+		try {
+			return new ReadBentoTestata().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<CapItaliano> loadCapItaliano() {
+		try {
+			return new ReadCapItaliano().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<CausaleMagazzino> loadCausaleMagazzino() {
+		try {
+			return new ReadCausaleMagazzino().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Cliente> loadCliente() {
+		try {
+			return new ReadCliente().read(loadTipoCliente(), loadResaMerce(), loadImballo(), loadRaggruppamentoClienteFornitore(), loadPagamento(), loadBanca(), loadIva(), loadAgente(), loadVettore(), loadIso(), loadStabileOrganizzazione(), loadRappresentanteFiscale(), loadTerzoIntermediario());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<CodiceABarre> loadCodiceABarre() {
+		try {
+			return new ReadCodiceABarre().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Confezione> loadConfezione() {
+		try {
+			return new ReadConfezione().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Contratto> loadContratto() {
+		try {
+			return new ReadContratto().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Controparte> loadControparte() {
+		try {
+			return new ReadControparte().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Convenzione> loadConvenzione() {
+		try {
+			return new ReadConvenzione().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<DdtDettaglio> loadDdtDettaglio() {
+		try {
+			return new ReadDdtDettaglio().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<DdtTestata> loadDdtTestata() {
+		try {
+			return new ReadDdtTestata().read(loadDdtDettaglio());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<FatturaCollegata> loadFatturaCollegata() {
+		try {
+			return new ReadFatturaCollegata().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<FatturaDettaglio> loadFatturaDettaglio() {
+		try {
+			return new ReadFatturaDettaglio().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<FatturaProformaDettaglio> loadFatturaProformaDettaglio() {
+		try {
+			return new ReadFatturaProformaDettaglio().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<FatturaProformaTestata> loadFatturaProformaTestata() {
+		try {
+			return new ReadFatturaProformaTestata().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<FatturaTestata> loadFatturaTestata() {
+		try {
+			return new ReadFatturaTestata().read(StatoAvanzamento.values(), loadFatturaDettaglio(), loadAllegato());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Gruppo> loadGruppo() {
+		try {
+			return new ReadGruppo().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<GruppoMerceologico> loadGruppoMerceologico() {
+		try {
+			return new ReadGruppoMerceologico().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Imballo> loadImballo() {
+		try {
+			return new ReadImballo().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<IndirizzoGeografico> loadIndirizzoGeografico() {
+		try {
+			return new ReadIndirizzoGeografico().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Iso> loadIso() {
+		try {
+			return new ReadIso().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Iva> loadIva() {
+		try {
+			return new ReadIva().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<ListinoArticolo> loadListinoArticolo() {
+		try {
+			return new ReadListinoArticolo().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<ListinoPersonalizzato> loadListinoPersonalizzato() {
+		try {
+			return new ReadListinoPersonalizzato().read(loadGruppoMerceologico());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Magazzino> loadMagazzino() {
+		try {
+			return new ReadMagazzino().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<OrdineDettaglio> loadOrdineDettaglio() {
+		try {
+			return new ReadOrdineDettaglio().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Ordine> loadOrdine() {
+		try {
+			return new ReadOrdine().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<OrdineTestata> loadOrdineTestata() {
+		try {
+			return new ReadOrdineTestata().read(StatoAvanzamento.values(), loadOrdineDettaglio());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Pagamento> loadPagamento() {
+		try {
+			return new ReadPagamento().read(loadTipoPagamento());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Percipiente> loadPercipiente() {
+		try {
+			return new ReadPercipiente().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<PianoConto> loadPianoConto() {
+		try {
+			return new ReadPianoConto().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<PreventivoDettaglio> loadPreventivoDettaglio() {
+		try {
+			return new ReadPreventivoDettaglio().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<PreventivoTestata> loadPreventivoTestata() {
+		try {
+			return new ReadPreventivoTestata().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Prezzo> loadPrezzo() {
+		try {
+			return new ReadPrezzo().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<ProvvigioneAgente> loadProvvigioneAgente() {
+		try {
+			return new ReadProvvigioneAgente().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<RaggruppamentoClienteFornitore> loadRaggruppamentoClienteFornitore() {
+		try {
+			return new ReadRaggruppamentoClienteFornitore().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<RappresentanteFiscale> loadRappresentanteFiscale() {
+		try {
+			return new ReadRappresentanteFiscale().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<ResaMerce> loadResaMerce() {
+		try {
+			return new ReadResaMerce().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Ricezione> loadRicezione() {
+		try {
+			return new ReadRicezione().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<ScadenzaPagamenti> loadScadenzaPagamenti() {
+		try {
+			return new ReadScadenzaPagamenti().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Scadenze> loadScadenze() {
+		try {
+			return new ReadScadenze().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<SottogruppiMerceologici> loadSottogruppiMerceologici() {
+		try {
+			return new ReadSottogruppiMerceologici().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<SottogruppoMerceologico> loadSottogruppoMerceologico() {
+		try {
+			return new ReadSottogruppoMerceologico().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<StabileOrganizzazione> loadStabileOrganizzazione() {
+		try {
+			return new ReadStabileOrganizzazione().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<StatoFattura> loadStatoFattura() {
+		try {
+			return new ReadStatoFattura().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Telefono> loadTelefono() {
+		try {
+			return new ReadTelefono().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<TerzoIntermediario> loadTerzoIntermediario() {
+		try {
+			return new ReadTerzoIntermediario().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<TipoBento> loadTipoBento() {
+		try {
+			return new ReadTipoBento().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<TipoCliente> loadTipoCliente() {
+		try {
+			return new ReadTipoCliente().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<TipoIndirizzo> loadTipoIndirizzo() {
+		try {
+			return new ReadTipoIndirizzo().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<TipoMagazzino> loadTipoMagazzino() {
+		try {
+			return new ReadTipoMagazzino().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<TipoPagamento> loadTipoPagamento() {
+		try {
+			return new ReadTipoPagamento().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<TipoRigaDocumento> loadTipoRigaDocumento() {
+		try {
+			return new ReadTipoRigaDocumento().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<UnitaMisura> loadUnitaMisura() {
+		try {
+			return new ReadUnitaMisura().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Utente> loadUtente() {
+		try {
+			return new ReadUtente().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
+	public static List<Vettore> loadVettore() {
+		try {
+			return new ReadVettore().read();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
 	}
 	
-	
-	
-	public static void add(Agente agente) throws ClassNotFoundException, SQLException{
+	public static void add(Agente agente) {
 		List<Agente> listAgente = loadAgente();
 		if(!listAgente.contains(agente)) {
-			new WriteAgente().add(agente, false);
+			try {
+					new WriteAgente().add(agente, false);
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+
+			}
 		}
 	}
-	public static void add(Allegato allegato) throws ClassNotFoundException, SQLException{
+	public static void add(Allegato allegato) {
 		List<Allegato> listAllegato = loadAllegato();
 		if(!listAllegato.contains(allegato)) {
-			new WriteAllegato().add(allegato, false);
+		try {
+				new WriteAllegato().add(allegato, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(AltroDatoGestionale altroDatoGestionale) throws ClassNotFoundException, SQLException{
+	public static void add(AltroDatoGestionale altroDatoGestionale) {
 		List<AltroDatoGestionale> listAltroDatoGestionale = loadAltroDatoGestionale();
 		if(!listAltroDatoGestionale.contains(altroDatoGestionale)) {
-			new WriteAltroDatoGestionale().add(altroDatoGestionale, false);
+		try {
+				new WriteAltroDatoGestionale().add(altroDatoGestionale, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(AreaGeografica areaGeografica) throws ClassNotFoundException, SQLException{
+	public static void add(AreaGeografica areaGeografica) {
 		List<AreaGeografica> listAreaGeografica = loadAreaGeografica();
 		if(!listAreaGeografica.contains(areaGeografica)) {
-			new WriteAreaGeografica().add(areaGeografica, false);
+		try {
+				new WriteAreaGeografica().add(areaGeografica, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(ArticoloMagazzinoDescrizioneMultilingua articoloMagazzinoDescrizioneMultilingua) throws ClassNotFoundException, SQLException{
+	public static void add(ArticoloMagazzinoDescrizioneMultilingua articoloMagazzinoDescrizioneMultilingua) {
 		List<ArticoloMagazzinoDescrizioneMultilingua> listArticoloMagazzinoDescrizioneMultilingua = loadArticoloMagazzinoDescrizioneMultilingua();
 		if(!listArticoloMagazzinoDescrizioneMultilingua.contains(articoloMagazzinoDescrizioneMultilingua)) {
-			new WriteArticoloMagazzinoDescrizioneMultilingua().add(articoloMagazzinoDescrizioneMultilingua, false);
+		try {
+				new WriteArticoloMagazzinoDescrizioneMultilingua().add(articoloMagazzinoDescrizioneMultilingua, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(ArticoloMagazzino articoloMagazzino) throws ClassNotFoundException, SQLException{
+	public static void add(ArticoloMagazzino articoloMagazzino) {
 		List<ArticoloMagazzino> listArticoloMagazzino = loadArticoloMagazzino();
 		if(!listArticoloMagazzino.contains(articoloMagazzino)) {
-			new WriteArticoloMagazzino().add(articoloMagazzino, false);
+		try {
+				new WriteArticoloMagazzino().add(articoloMagazzino, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(BancaGlobale bancaGlobale) throws ClassNotFoundException, SQLException{
+	public static void add(BancaGlobale bancaGlobale) {
 		List<BancaGlobale> listBancaGlobale = loadBancaGlobale();
 		if(!listBancaGlobale.contains(bancaGlobale)) {
-			new WriteBancaGlobale().add(bancaGlobale, false);
+		try {
+				new WriteBancaGlobale().add(bancaGlobale, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Banca banca) throws ClassNotFoundException, SQLException{
+	public static void add(Banca banca) {
 		List<Banca> listBanca = loadBanca();
 		if(!listBanca.contains(banca)) {
-			new WriteBanca().add(banca, false);
+		try {
+				new WriteBanca().add(banca, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(BentoDettaglio bentoDettaglio) throws ClassNotFoundException, SQLException{
+	public static void add(BentoDettaglio bentoDettaglio) {
 		List<BentoDettaglio> listBentoDettaglio = loadBentoDettaglio();
 		if(!listBentoDettaglio.contains(bentoDettaglio)) {
-			new WriteBentoDettaglio().add(bentoDettaglio, false);
+		try {
+				new WriteBentoDettaglio().add(bentoDettaglio, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(BentoTestata bentoTestata) throws ClassNotFoundException, SQLException{
+	public static void add(BentoTestata bentoTestata) {
 		List<BentoTestata> listBentoTestata = loadBentoTestata();
 		if(!listBentoTestata.contains(bentoTestata)) {
-			new WriteBentoTestata().add(bentoTestata, false);
+		try {
+				new WriteBentoTestata().add(bentoTestata, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(CapItaliano capItaliano) throws ClassNotFoundException, SQLException{
+	public static void add(CapItaliano capItaliano) {
 		List<CapItaliano> listCapItaliano = loadCapItaliano();
 		if(!listCapItaliano.contains(capItaliano)) {
-			new WriteCapItaliano().add(capItaliano, false);
+		try {
+				new WriteCapItaliano().add(capItaliano, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(CausaleMagazzino causaleMagazzino) throws ClassNotFoundException, SQLException{
+	public static void add(CausaleMagazzino causaleMagazzino) {
 		List<CausaleMagazzino> listCausaleMagazzino = loadCausaleMagazzino();
 		if(!listCausaleMagazzino.contains(causaleMagazzino)) {
-			new WriteCausaleMagazzino().add(causaleMagazzino, false);
+		try {
+				new WriteCausaleMagazzino().add(causaleMagazzino, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Cliente cliente) throws ClassNotFoundException, SQLException{
+	public static void add(Cliente cliente) {
 		List<Cliente> listCliente = loadCliente();
 		if(!listCliente.contains(cliente)) {
-			new WriteCliente().add(cliente, false, loadTipoCliente());
+		try {
+				new WriteCliente().add(cliente, false, loadTipoCliente());
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(CodiceABarre codiceABarre) throws ClassNotFoundException, SQLException{
+	public static void add(CodiceABarre codiceABarre) {
 		List<CodiceABarre> listCodiceABarre = loadCodiceABarre();
 		if(!listCodiceABarre.contains(codiceABarre)) {
-			new WriteCodiceABarre().add(codiceABarre, false);
+		try {
+				new WriteCodiceABarre().add(codiceABarre, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Confezione confezione) throws ClassNotFoundException, SQLException{
+	public static void add(Confezione confezione) {
 		List<Confezione> listConfezione = loadConfezione();
 		if(!listConfezione.contains(confezione)) {
-			new WriteConfezione().add(confezione, false);
+		try {
+				new WriteConfezione().add(confezione, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Contratto contratto) throws ClassNotFoundException, SQLException{
+	public static void add(Contratto contratto) {
 		List<Contratto> listContratto = loadContratto();
 		if(!listContratto.contains(contratto)) {
-			new WriteContratto().add(contratto, false);
+		try {
+				new WriteContratto().add(contratto, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Controparte controparte) throws ClassNotFoundException, SQLException{
+	public static void add(Controparte controparte) {
 		List<Controparte> listControparte = loadControparte();
 		if(!listControparte.contains(controparte)) {
-			new WriteControparte().add(controparte, false);
+		try {
+				new WriteControparte().add(controparte, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Convenzione convenzione) throws ClassNotFoundException, SQLException{
+	public static void add(Convenzione convenzione) {
 		List<Convenzione> listConvenzione = loadConvenzione();
 		if(!listConvenzione.contains(convenzione)) {
-			new WriteConvenzione().add(convenzione, false);
+		try {
+				new WriteConvenzione().add(convenzione, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(DdtDettaglio ddtDettaglio) throws ClassNotFoundException, SQLException{
+	public static void add(DdtDettaglio ddtDettaglio) {
 		List<DdtDettaglio> listDdtDettaglio = loadDdtDettaglio();
 		if(!listDdtDettaglio.contains(ddtDettaglio)) {
-			new WriteDdtDettaglio().add(ddtDettaglio, false);
+		try {
+				new WriteDdtDettaglio().add(ddtDettaglio, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(DdtTestata ddtTestata) throws ClassNotFoundException, SQLException{
+	public static void add(DdtTestata ddtTestata) {
 		List<DdtTestata> listDdtTestata = loadDdtTestata();
 		if(!listDdtTestata.contains(ddtTestata)) {
-			new WriteDdtTestata().add(ddtTestata, false);
+		try {
+				new WriteDdtTestata().add(ddtTestata, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(FatturaCollegata fatturaCollegata) throws ClassNotFoundException, SQLException{
+	public static void add(FatturaCollegata fatturaCollegata) {
 		List<FatturaCollegata> listFatturaCollegata = loadFatturaCollegata();
 		if(!listFatturaCollegata.contains(fatturaCollegata)) {
-			new WriteFatturaCollegata().add(fatturaCollegata, false);
+		try {
+				new WriteFatturaCollegata().add(fatturaCollegata, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(FatturaDettaglio fatturaDettaglio) throws ClassNotFoundException, SQLException{
+	public static void add(FatturaDettaglio fatturaDettaglio) {
 		List<FatturaDettaglio> listFatturaDettaglio = loadFatturaDettaglio();
 		if(!listFatturaDettaglio.contains(fatturaDettaglio)) {
-			new WriteFatturaDettaglio().add(fatturaDettaglio, false);
+		try {
+				new WriteFatturaDettaglio().add(fatturaDettaglio, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(FatturaProformaDettaglio fatturaProformaDettaglio) throws ClassNotFoundException, SQLException{
+	public static void add(FatturaProformaDettaglio fatturaProformaDettaglio) {
 		List<FatturaProformaDettaglio> listFatturaProformaDettaglio = loadFatturaProformaDettaglio();
 		if(!listFatturaProformaDettaglio.contains(fatturaProformaDettaglio)) {
-			new WriteFatturaProformaDettaglio().add(fatturaProformaDettaglio, false);
+		try {
+				new WriteFatturaProformaDettaglio().add(fatturaProformaDettaglio, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(FatturaProformaTestata fatturaProformaTestata) throws ClassNotFoundException, SQLException{
+	public static void add(FatturaProformaTestata fatturaProformaTestata) {
 		List<FatturaProformaTestata> listFatturaProformaTestata = loadFatturaProformaTestata();
 		if(!listFatturaProformaTestata.contains(fatturaProformaTestata)) {
-			new WriteFatturaProformaTestata().add(fatturaProformaTestata, false);
+		try {
+				new WriteFatturaProformaTestata().add(fatturaProformaTestata, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(FatturaTestata fatturaTestata) throws ClassNotFoundException, SQLException{
+	public static void add(FatturaTestata fatturaTestata) {
 		List<FatturaTestata> listFatturaTestata = loadFatturaTestata();
 		if(!listFatturaTestata.contains(fatturaTestata)) {
-			new WriteFatturaTestata().add(fatturaTestata, false);
+		try {
+				new WriteFatturaTestata().add(fatturaTestata, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Gruppo gruppo) throws ClassNotFoundException, SQLException{
+	public static void add(Gruppo gruppo) {
 		List<Gruppo> listGruppo = loadGruppo();
 		if(!listGruppo.contains(gruppo)) {
-			new WriteGruppo().add(gruppo, false);
+		try {
+				new WriteGruppo().add(gruppo, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(GruppoMerceologico gruppoMerceologico) throws ClassNotFoundException, SQLException{
+	public static void add(GruppoMerceologico gruppoMerceologico) {
 		List<GruppoMerceologico> listGruppoMerceologico = loadGruppoMerceologico();
 		if(!listGruppoMerceologico.contains(gruppoMerceologico)) {
-			new WriteGruppoMerceologico().add(gruppoMerceologico, false);
+		try {
+				new WriteGruppoMerceologico().add(gruppoMerceologico, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Imballo imballo) throws ClassNotFoundException, SQLException{
+	public static void add(Imballo imballo) {
 		List<Imballo> listImballo = loadImballo();
 		if(!listImballo.contains(imballo)) {
-			new WriteImballo().add(imballo, false);
+		try {
+				new WriteImballo().add(imballo, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(IndirizzoGeografico indirizzoGeografico) throws ClassNotFoundException, SQLException{
+	public static void add(IndirizzoGeografico indirizzoGeografico) {
 		List<IndirizzoGeografico> listIndirizzoGeografico = loadIndirizzoGeografico();
 		if(!listIndirizzoGeografico.contains(indirizzoGeografico)) {
-			new WriteIndirizzoGeografico().add(indirizzoGeografico, false);
+		try {
+				new WriteIndirizzoGeografico().add(indirizzoGeografico, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Iso iso) throws ClassNotFoundException, SQLException{
+	public static void add(Iso iso) {
 		List<Iso> listIso = loadIso();
 		if(!listIso.contains(iso)) {
-			new WriteIso().add(iso, false);
+		try {
+				new WriteIso().add(iso, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Iva iva) throws ClassNotFoundException, SQLException{
+	public static void add(Iva iva) {
 		List<Iva> listIva = loadIva();
 		if(!listIva.contains(iva)) {
-			new WriteIva().add(iva, false);
+		try {
+				new WriteIva().add(iva, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(ListinoArticolo listinoArticolo) throws ClassNotFoundException, SQLException{
+	public static void add(ListinoArticolo listinoArticolo) {
 		List<ListinoArticolo> listListinoArticolo = loadListinoArticolo();
 		if(!listListinoArticolo.contains(listinoArticolo)) {
-			new WriteListinoArticolo().add(listinoArticolo, false);
+		try {
+				new WriteListinoArticolo().add(listinoArticolo, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Listino listino) throws ClassNotFoundException, SQLException{
+	public static void add(Listino listino) {
 		List<Listino> listListino = loadListino();
 		if(!listListino.contains(listino)) {
-			new WriteListino().add(listino, false);
+		try {
+				new WriteListino().add(listino, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(ListinoPersonalizzato listinoPersonalizzato) throws ClassNotFoundException, SQLException{
+	public static void add(ListinoPersonalizzato listinoPersonalizzato) {
 		List<ListinoPersonalizzato> listListinoPersonalizzato = loadListinoPersonalizzato();
 		if(!listListinoPersonalizzato.contains(listinoPersonalizzato)) {
-			new WriteListinoPersonalizzato().add(listinoPersonalizzato, false);
+		try {
+				new WriteListinoPersonalizzato().add(listinoPersonalizzato, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Magazzino magazzino) throws ClassNotFoundException, SQLException{
+	public static void add(Magazzino magazzino) {
 		List<Magazzino> listMagazzino = loadMagazzino();
 		if(!listMagazzino.contains(magazzino)) {
-			new WriteMagazzino().add(magazzino, false);
+		try {
+				new WriteMagazzino().add(magazzino, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(OrdineDettaglio ordineDettaglio) throws ClassNotFoundException, SQLException{
+	public static void add(OrdineDettaglio ordineDettaglio) {
 		List<OrdineDettaglio> listOrdineDettaglio = loadOrdineDettaglio();
 		if(!listOrdineDettaglio.contains(ordineDettaglio)) {
-			new WriteOrdineDettaglio().add(ordineDettaglio, false);
+		try {
+				new WriteOrdineDettaglio().add(ordineDettaglio, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Ordine ordine) throws ClassNotFoundException, SQLException{
+	public static void add(Ordine ordine) {
 		List<Ordine> listOrdine = loadOrdine();
 		if(!listOrdine.contains(ordine)) {
-			new WriteOrdine().add(ordine, false);
+		try {
+				new WriteOrdine().add(ordine, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(OrdineTestata ordineTestata) throws ClassNotFoundException, SQLException{
+	public static void add(OrdineTestata ordineTestata) {
 		List<OrdineTestata> listOrdineTestata = loadOrdineTestata();
 		if(!listOrdineTestata.contains(ordineTestata)) {
-			new WriteOrdineTestata().add(ordineTestata, false);
+		try {
+				new WriteOrdineTestata().add(ordineTestata, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Pagamento pagamento) throws ClassNotFoundException, SQLException{
+	public static void add(Pagamento pagamento) {
 		List<Pagamento> listPagamento = loadPagamento();
 		if(!listPagamento.contains(pagamento)) {
-			new WritePagamento().add(pagamento, false);
+		try {
+				new WritePagamento().add(pagamento, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Percipiente percipiente) throws ClassNotFoundException, SQLException{
+	public static void add(Percipiente percipiente) {
 		List<Percipiente> listPercipiente = loadPercipiente();
 		if(!listPercipiente.contains(percipiente)) {
-			new WritePercipiente().add(percipiente, false);
+		try {
+				new WritePercipiente().add(percipiente, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(PianoConto pianoConto) throws ClassNotFoundException, SQLException{
+	public static void add(PianoConto pianoConto) {
 		List<PianoConto> listPianoConto = loadPianoConto();
 		if(!listPianoConto.contains(pianoConto)) {
-			new WritePianoConto().add(pianoConto, false);
+		try {
+				new WritePianoConto().add(pianoConto, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(PreventivoDettaglio preventivoDettaglio) throws ClassNotFoundException, SQLException{
+	public static void add(PreventivoDettaglio preventivoDettaglio) {
 		List<PreventivoDettaglio> listPreventivoDettaglio = loadPreventivoDettaglio();
 		if(!listPreventivoDettaglio.contains(preventivoDettaglio)) {
-			new WritePreventivoDettaglio().add(preventivoDettaglio, false);
+		try {
+				new WritePreventivoDettaglio().add(preventivoDettaglio, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(PreventivoTestata preventivoTestata) throws ClassNotFoundException, SQLException{
+	public static void add(PreventivoTestata preventivoTestata) {
 		List<PreventivoTestata> listPreventivoTestata = loadPreventivoTestata();
 		if(!listPreventivoTestata.contains(preventivoTestata)) {
-			new WritePreventivoTestata().add(preventivoTestata, false);
+		try {
+				new WritePreventivoTestata().add(preventivoTestata, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Prezzo prezzo) throws ClassNotFoundException, SQLException{
+	public static void add(Prezzo prezzo) {
 		List<Prezzo> listPrezzo = loadPrezzo();
 		if(!listPrezzo.contains(prezzo)) {
-			new WritePrezzo().add(prezzo, false);
+		try {
+				new WritePrezzo().add(prezzo, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(ProvvigioneAgente provvigioneAgente) throws ClassNotFoundException, SQLException{
+	public static void add(ProvvigioneAgente provvigioneAgente) {
 		List<ProvvigioneAgente> listProvvigioneAgente = loadProvvigioneAgente();
 		if(!listProvvigioneAgente.contains(provvigioneAgente)) {
-			new WriteProvvigioneAgente().add(provvigioneAgente, false);
+		try {
+				new WriteProvvigioneAgente().add(provvigioneAgente, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(RaggruppamentoClienteFornitore raggruppamentoClienteFornitore) throws ClassNotFoundException, SQLException{
+	public static void add(RaggruppamentoClienteFornitore raggruppamentoClienteFornitore) {
 		List<RaggruppamentoClienteFornitore> listRaggruppamentoClienteFornitore = loadRaggruppamentoClienteFornitore();
 		if(!listRaggruppamentoClienteFornitore.contains(raggruppamentoClienteFornitore)) {
-			new WriteRaggruppamentoClienteFornitore().add(raggruppamentoClienteFornitore, false);
+		try {
+				new WriteRaggruppamentoClienteFornitore().add(raggruppamentoClienteFornitore, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(RappresentanteFiscale rappresentanteFiscale) throws ClassNotFoundException, SQLException{
+	public static void add(RappresentanteFiscale rappresentanteFiscale) {
 		List<RappresentanteFiscale> listRappresentanteFiscale = loadRappresentanteFiscale();
 		if(!listRappresentanteFiscale.contains(rappresentanteFiscale)) {
-			new WriteRappresentanteFiscale().add(rappresentanteFiscale, false);
+		try {
+				new WriteRappresentanteFiscale().add(rappresentanteFiscale, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(ResaMerce resaMerce) throws ClassNotFoundException, SQLException{
+	public static void add(ResaMerce resaMerce) {
 		List<ResaMerce> listResaMerce = loadResaMerce();
 		if(!listResaMerce.contains(resaMerce)) {
-			new WriteResaMerce().add(resaMerce, false);
+		try {
+				new WriteResaMerce().add(resaMerce, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Ricezione ricezione) throws ClassNotFoundException, SQLException{
+	public static void add(Ricezione ricezione) {
 		List<Ricezione> listRicezione = loadRicezione();
 		if(!listRicezione.contains(ricezione)) {
-			new WriteRicezione().add(ricezione, false);
+		try {
+				new WriteRicezione().add(ricezione, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Scadenze scadenze) throws ClassNotFoundException, SQLException{
+	public static void add(Scadenze scadenze) {
 		List<Scadenze> listScadenze = loadScadenze();
 		if(!listScadenze.contains(scadenze)) {
-			new WriteScadenze().add(scadenze, false);
+		try {
+				new WriteScadenze().add(scadenze, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(SottogruppiMerceologici sottogruppiMerceologici) throws ClassNotFoundException, SQLException{
+	public static void add(SottogruppiMerceologici sottogruppiMerceologici) {
 		List<SottogruppiMerceologici> listSottogruppiMerceologici = loadSottogruppiMerceologici();
 		if(!listSottogruppiMerceologici.contains(sottogruppiMerceologici)) {
-			new WriteSottogruppiMerceologici().add(sottogruppiMerceologici, false);
+		try {
+				new WriteSottogruppiMerceologici().add(sottogruppiMerceologici, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(SottogruppoMerceologico sottogruppoMerceologico) throws ClassNotFoundException, SQLException{
+	public static void add(SottogruppoMerceologico sottogruppoMerceologico) {
 		List<SottogruppoMerceologico> listSottogruppoMerceologico = loadSottogruppoMerceologico();
 		if(!listSottogruppoMerceologico.contains(sottogruppoMerceologico)) {
-			new WriteSottogruppoMerceologico().add(sottogruppoMerceologico, false);
+		try {
+				new WriteSottogruppoMerceologico().add(sottogruppoMerceologico, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(StabileOrganizzazione stabileOrganizzazione) throws ClassNotFoundException, SQLException{
+	public static void add(StabileOrganizzazione stabileOrganizzazione) {
 		List<StabileOrganizzazione> listStabileOrganizzazione = loadStabileOrganizzazione();
 		if(!listStabileOrganizzazione.contains(stabileOrganizzazione)) {
-			new WriteStabileOrganizzazione().add(stabileOrganizzazione, false);
+		try {
+				new WriteStabileOrganizzazione().add(stabileOrganizzazione, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
 
-	public static void add(StatoFattura statoFattura) throws ClassNotFoundException, SQLException{
+	public static void add(StatoFattura statoFattura) {
 		List<StatoFattura> listStatoFattura = loadStatoFattura();
 		if(!listStatoFattura.contains(statoFattura)) {
-			new WriteStatoFattura().add(statoFattura, false);
+		try {
+				new WriteStatoFattura().add(statoFattura, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Telefono telefono) throws ClassNotFoundException, SQLException{
+	public static void add(Telefono telefono) {
 		List<Telefono> listTelefono = loadTelefono();
 		if(!listTelefono.contains(telefono)) {
-			new WriteTelefono().add(telefono, false);
+		try {
+				new WriteTelefono().add(telefono, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(TerzoIntermediario terzoIntermediario) throws ClassNotFoundException, SQLException{
+	public static void add(TerzoIntermediario terzoIntermediario) {
 		List<TerzoIntermediario> listTerzoIntermediario = loadTerzoIntermediario();
 		if(!listTerzoIntermediario.contains(terzoIntermediario)) {
-			new WriteTerzoIntermediario().add(terzoIntermediario, false);
+		try {
+				new WriteTerzoIntermediario().add(terzoIntermediario, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(TipoBento tipoBento) throws ClassNotFoundException, SQLException{
+	public static void add(TipoBento tipoBento) {
 		List<TipoBento> listTipoBento = loadTipoBento();
 		if(!listTipoBento.contains(tipoBento)) {
-			new WriteTipoBento().add(tipoBento, false);
+		try {
+				new WriteTipoBento().add(tipoBento, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(TipoCliente tipoCliente) throws ClassNotFoundException, SQLException{
+	public static void add(TipoCliente tipoCliente) {
 		List<TipoCliente> listTipoCliente = loadTipoCliente();
 		if(!listTipoCliente.contains(tipoCliente)) {
-			new WriteTipoCliente().add(tipoCliente, false);
+		try {
+				new WriteTipoCliente().add(tipoCliente, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(TipoIndirizzo tipoIndirizzo) throws ClassNotFoundException, SQLException{
+	public static void add(TipoIndirizzo tipoIndirizzo) {
 		List<TipoIndirizzo> listTipoIndirizzo = loadTipoIndirizzo();
 		if(!listTipoIndirizzo.contains(tipoIndirizzo)) {
-			new WriteTipoIndirizzo().add(tipoIndirizzo, false);
+		try {
+				new WriteTipoIndirizzo().add(tipoIndirizzo, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(TipoMagazzino tipoMagazzino) throws ClassNotFoundException, SQLException{
+	public static void add(TipoMagazzino tipoMagazzino) {
 		List<TipoMagazzino> listTipoMagazzino = loadTipoMagazzino();
 		if(!listTipoMagazzino.contains(tipoMagazzino)) {
-			new WriteTipoMagazzino().add(tipoMagazzino, false);
+		try {
+				new WriteTipoMagazzino().add(tipoMagazzino, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(TipoPagamento tipoPagamento) throws ClassNotFoundException, SQLException{
+	public static void add(TipoPagamento tipoPagamento) {
 		List<TipoPagamento> listTipoPagamento = loadTipoPagamento();
 		if(!listTipoPagamento.contains(tipoPagamento)) {
-			new WriteTipoPagamento().add(tipoPagamento, false);
+		try {
+				new WriteTipoPagamento().add(tipoPagamento, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(TipoRigaDocumento tipoRigaDocumento) throws ClassNotFoundException, SQLException{
+	public static void add(TipoRigaDocumento tipoRigaDocumento) {
 		List<TipoRigaDocumento> listTipoRigaDocumento = loadTipoRigaDocumento();
 		if(!listTipoRigaDocumento.contains(tipoRigaDocumento)) {
-			new WriteTipoRigaDocumento().add(tipoRigaDocumento, false);
+		try {
+				new WriteTipoRigaDocumento().add(tipoRigaDocumento, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(UnitaMisura unitaMisura) throws ClassNotFoundException, SQLException{
+	public static void add(UnitaMisura unitaMisura) {
 		List<UnitaMisura> listUnitaMisura = loadUnitaMisura();
 		if(!listUnitaMisura.contains(unitaMisura)) {
-			new WriteUnitaMisura().add(unitaMisura, false);
+		try {
+				new WriteUnitaMisura().add(unitaMisura, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Utente utente) throws ClassNotFoundException, SQLException{
+	public static void add(Utente utente) {
 		List<Utente> listUtente = loadUtente();
 		if(!listUtente.contains(utente)) {
-			new WriteUtente().add(utente, false);
+		try {
+				new WriteUtente().add(utente, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
-	public static void add(Vettore vettore) throws ClassNotFoundException, SQLException{
+	public static void add(Vettore vettore) {
 		List<Vettore> listVettore = loadVettore();
 		if(!listVettore.contains(vettore)) {
-			new WriteVettore().add(vettore, false);
+		try {
+				new WriteVettore().add(vettore, false);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+
+		}
 		}
 	}
 }

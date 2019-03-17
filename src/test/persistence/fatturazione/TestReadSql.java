@@ -27,21 +27,11 @@ public class TestReadSql {
 	
 	@Test
 	void readControparteSize() {
-		try {
-			assertEquals(2, DataManager.loadControparte().size());
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		assertEquals(2, DataManager.loadControparte().size());
 	}
 	
 	@Test
 	void readAgenteSize() {
-		try {
-			assertEquals(0, DataManager.loadAgente().size());
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		assertEquals(0, DataManager.loadAgente().size());
 	}
 }
