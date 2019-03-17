@@ -2,7 +2,7 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class ListinoArticolo implements Listino{
+public class ListinoArticolo implements Listino {
 	private String codiceArticolo; //(30) NOT NULL
 	private int progressivo; //  NOT NULL
 	private String codiceDivisa; //(4) NOT NULL

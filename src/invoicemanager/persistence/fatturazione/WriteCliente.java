@@ -45,7 +45,7 @@ public class WriteCliente {
 			ps.setInt(22, a.getNumeroCopieFattura());
 			ps.setBoolean(23, a.isIndicatoreAddebitoSpeseIncasso());
 			ps.setBoolean(24, a.isIndicatoreAddebitoSpeseBolli());
-			ps.setString(25, a.getCodiceListino());
+			ps.setInt(25, a.getProgressivo());
 			ps.setString(26, a.getCodiceVettore());
 			ps.setString(27, a.getCodiceAffidabilita());
 			ps.setString(28, a.getCodiceIso());
@@ -113,6 +113,81 @@ public class WriteCliente {
 	        c.commit();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
+		}
+	}
+	
+	public void create() {
+		try {
+			Statement stmt = c.createStatement();
+			String sql = "CREATE TABLE public.clienti\n" + 
+					"(\n" + 
+					"	\"codiceCliente\" VARCHAR(10) NOT NULL,\n" + 
+					"	descrizione VARCHAR(50) NULL,\n" + 
+					"	\"tipoCliente\" VARCHAR(10) NULL,\n" + 
+					"	\"resaMerce\" VARCHAR(10) NULL,\n" + 
+					"	imballo VARCHAR(10) NULL,\n" + 
+					"	raggruppamento VARCHAR(10) NULL,\n" + 
+					"	fatturato FLOAT NULL,\n" + 
+					"	fido FLOAT NULL,\n" + 
+					"	\"partitaIVA\" VARCHAR(20) NULL,\n" + 
+					"	\"codiceFiscale\" VARCHAR(20) NULL,\n" + 
+					"	pagamento VARCHAR(20) NULL,\n" + 
+					"	banca VARCHAR(20) NULL,\n" + 
+					"	\"numeroFattureEmesse\" INTEGER NULL,\n" + 
+					"	iva VARCHAR(20) NULL,\n" + 
+					"	\"imponibileNonEsente\" FLOAT NULL,\n" + 
+					"	\"imponibileEsente\" FLOAT NULL,\n" + 
+					"	\"importoIVA\" FLOAT NULL,\n" + 
+					"	\"codiceClassificazione\" VARCHAR(20) NULL,\n" + 
+					"	agente VARCHAR(20) NULL,\n" + 
+					"	\"percentualeProvvigioneAgente\" FLOAT NULL,\n" + 
+					"	\"scontoLegatoProvvigioniAgente\" FLOAT NULL,\n" + 
+					"	\"numeroCopieFattura\" INTEGER NULL,\n" + 
+					"	\"indicatoreAddebitoSpeseIncasso\" BOOL NULL,\n" + 
+					"	\"indicatoreAddebitoSpeseBolli\" BOOL NULL,\n" + 
+					"	progressivo INTEGER NULL,\n" + 
+					"	vettore VARCHAR(20) NULL,\n" + 
+					"	\"codiceAffidabilita\" VARCHAR(20) NULL,\n" + 
+					"	iso VARCHAR(20) NULL,\n" + 
+					"	\"partitaIVAEstero\" VARCHAR(20) NULL,\n" + 
+					"	\"codiceDivisa\" VARCHAR(20) NULL,\n" + 
+					"	\"dataScadenzaSpostataAgosto\" INTEGER NULL,\n" + 
+					"	\"dataScadenzaSpostataDicembre\" INTEGER NULL,\n" + 
+					"	\"codiceLingua\" VARCHAR(20) NULL,\n" + 
+					"	note VARCHAR(200) NULL,\n" + 
+					"	\"indicatoreInviataInformativaPrivacy\" BOOL NULL,\n" + 
+					"	\"indicatoreRicevutaInformativaPrivacy\" BOOL NULL,\n" + 
+					"	\"indicatoreScorporoIVA\" BOOL NULL,\n" + 
+					"	\"indicatoreIVADifferita\" BOOL NULL,\n" + 
+					"	\"indicatoreEmail\" BOOL NULL,\n" + 
+					"	\"inputInibito\" BOOL NULL,\n" + 
+					"	\"indicatoreFatturePA\" BOOL NULL,\n" + 
+					"	\"dataUltimaFattura\" DATE NULL,\n" + 
+					"	\"importoUltimaFattura\" FLOAT NULL,\n" + 
+					"	\"importoPlafond\" FLOAT NULL,\n" + 
+					"	\"numeroUltimaFattura\" VARCHAR(20) NULL,\n" + 
+					"	\"dataInizioPlafond\" DATE NULL,\n" + 
+					"	\"indicatoreFattureXML\" BOOL NULL,\n" + 
+					"	\"indicatoreDdtEmail\" BOOL NULL,\n" + 
+					"	\"indicatorePlafond\" BOOL NULL,\n" + 
+					"	\"codiceDestinatarioXml\" VARCHAR(20) NULL,\n" + 
+					"	\"codiceEORI\" VARCHAR(20) NULL,\n" + 
+					"	\"stabileOrganizzazione\" INTEGER NULL,\n" + 
+					"	\"rappresentanteFiscale\" INTEGER NULL,\n" + 
+					"	\"terzoIntermediario\" INTEGER NULL,\n" + 
+					"	\"dataInserimento\" TIMESTAMP NULL,\n" + 
+					"	\"dataUltimaModificaa\" TIMESTAMP NULL\n" + 
+					");\n" + 
+					"\n" + 
+					"/* Add Primary Key */\n" + 
+					"ALTER TABLE public.clienti ADD CONSTRAINT pkclienti\n" + 
+					"	PRIMARY KEY (\"codiceCliente\");";
+			stmt.executeUpdate(sql);
+	    	stmt.close();
+	        c.commit();
+		}
+		catch (Exception e) {
+			e.getStackTrace();
 		}
 	}
 }

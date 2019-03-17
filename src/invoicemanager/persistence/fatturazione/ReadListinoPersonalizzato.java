@@ -31,7 +31,7 @@ public class ReadListinoPersonalizzato {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-				int codiceListinoPersonalizzato = rs.getInt("codiceListinoPersonalizzato");
+				String codiceListinoPersonalizzato = rs.getString("codiceListinoPersonalizzato");
 				String codiceCliente = rs.getString("codiceCliente");
 				String codiceArticolo = rs.getString("codiceArticolo");
 				String variante = rs.getString("variante");

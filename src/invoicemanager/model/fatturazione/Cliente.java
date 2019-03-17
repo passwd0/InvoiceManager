@@ -28,7 +28,7 @@ public class Cliente implements Comparable<Cliente>{
 	private int numeroCopieFattura;
 	private boolean indicatoreAddebitoSpeseIncasso;
 	private boolean indicatoreAddebitoSpeseBolli;
-	private Listino listino;
+	private int progressivo;
 	private Vettore vettore; //(3)
 	private String codiceAffidabilita; //(4)
 	private Iso iso; // (4)
@@ -71,8 +71,8 @@ public class Cliente implements Comparable<Cliente>{
 			String partitaIVA, String codiceFiscale, Pagamento pagamento, Banca banca, int numeroFattureEmesse, Iva iva,
 			float imponibileNonEsente, float imponibileEsente, float importoIVA, String codiceClassificazione,
 			Agente agente, float percentualeProvvigioneAgente, float scontoLegatoProvvigioniAgente,
-			int numeroCopieFattura, boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreAddebitoSpeseBolli,
-			Listino listino, Vettore vettore, String codiceAffidabilita, Iso iso, String partitaIVAEstero,
+			int numeroCopieFattura, boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreAddebitoSpeseBolli, int progressivo,
+			Vettore vettore, String codiceAffidabilita, Iso iso, String partitaIVAEstero,
 			String codiceDivisa, int dataScadenzaSpostataAgosto, int dataScadenzaSpostataDicembre, String codiceLingua,
 			String note, Stato stato, boolean indicatoreInviataInformativaPrivacy,
 			boolean indicatoreRicevutaInformativaPrivacy, boolean indicatoreScorporoIVA, boolean indicatoreIVADifferita,
@@ -106,7 +106,7 @@ public class Cliente implements Comparable<Cliente>{
 		this.numeroCopieFattura = numeroCopieFattura;
 		this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
 		this.indicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
-		this.listino = listino;
+		this.progressivo = progressivo;
 		this.vettore = vettore;
 		this.codiceAffidabilita = codiceAffidabilita;
 		this.iso = iso;
@@ -228,12 +228,12 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceCliente = codiceCliente;
 	}
 
-	public Listino getListino() {
-		return listino;
+	public int getProgressivo() {
+		return progressivo;
 	}
 
-	public void setListino(Listino listino) {
-		this.listino = listino;
+	public void setProgressivo(int progressivo) {
+		this.progressivo = progressivo;
 	}
 
 	public String getCodiceEORI() {

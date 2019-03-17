@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ListinoPersonalizzato implements Listino {
-	private int codiceListinoPersonalizzato;
+	private String codiceListinoPersonalizzato;
 	private String codiceCliente; //(30) NOT NULL
 	private String codiceArticolo; //(30) NOT NULL
 	private String variante; //(20) NULL
@@ -36,7 +36,7 @@ public class ListinoPersonalizzato implements Listino {
 		this.codiceDivisa = codiceDivisa;
 	}
 	
-	public ListinoPersonalizzato(int codiceListinoPersonalizzato, String codiceCliente, String codiceArticolo,
+	public ListinoPersonalizzato(String codiceListinoPersonalizzato, String codiceCliente, String codiceArticolo,
 			String variante, float prezzo, float provvigione, String noteEsterne, String noteInterne,
 			int numeroDecimali, float scontoCliente, LocalDateTime dataAggiornamento, float scontoArticolo,
 			float scontoPagamento, String codiceDivisa, GruppoMerceologico gruppoMerceologico,
@@ -78,11 +78,11 @@ public class ListinoPersonalizzato implements Listino {
 		return gruppoMerceologico.getCodiceGruppoMerceologico();
 	}
 
-	public int getCodiceListinoPersonalizzato() {
+	public String getCodiceListinoPersonalizzato() {
 		return codiceListinoPersonalizzato;
 	}
 
-	public void setCodiceListinoPersonalizzato(int codiceListinoPersonalizzato) {
+	public void setCodiceListinoPersonalizzato(String codiceListinoPersonalizzato) {
 		this.codiceListinoPersonalizzato = codiceListinoPersonalizzato;
 	}
 
