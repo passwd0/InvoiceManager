@@ -103,7 +103,7 @@ public class WriteFatturaDettaglio {
     	String sql = "Create table public.FatturaDettaglio (\r\n" + 
     			"	\"NumeroFattura\" INTEGER NOT NULL Primary Key,\r\n" + 
     			"	\"DataFattura\" Date NOT NULL Primary Key,\r\n" + 
-    			"	\"NumeroRigaFattura\" INTEGER NOT NULL,\r\n" + 
+    			"	\"NumeroRigaFattura\" INTEGER NOT NULL Primary Key,\r\n" + 
     			"	\"CodiceTipoRigaDocumento\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceArticolo\" varchar(25) NULL,\r\n" + 
     			"	\"Costo\" Float NULL,\r\n" + 
@@ -140,7 +140,7 @@ public class WriteFatturaDettaglio {
     			"	\"CodiceFatturaCollegata\" INTEGER NULL,\r\n" + 
     			"	\"CodiceAltriDatiGestionali\" INTEGER NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

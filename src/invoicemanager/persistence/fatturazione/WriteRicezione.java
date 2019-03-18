@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Ricezione;
 
@@ -33,4 +34,27 @@ public class WriteRicezione {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Ricezione (\r\n" + 
+    			"	\"NumeroRicezione\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroRigaRicezione\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"DataRicezione\" Date NULL,\r\n" + 
+    			"	\"RczCodiceCommessaRicezione\" varchar(25) NULL,\r\n" + 
+    			"	\"RczCodiceCUP\" varchar(25) NULL,\r\n" + 
+    			"	\"RczCodiceCIG\" varchar(25) NULL \r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

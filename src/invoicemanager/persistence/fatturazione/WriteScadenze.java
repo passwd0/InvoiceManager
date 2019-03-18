@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Scadenze;
 import invoicemanager.utils.Utils;
@@ -64,4 +65,57 @@ public class WriteScadenze {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Scadenze (\r\n" + 
+    			"	\"CodiceConto\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceTipoPagamento\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"RiferimentoPartita\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"DataDocumento\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"DataScadenza\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroRegistrazione\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceBanca\" varchar(25) NULL,\r\n" + 
+    			"	\"DataValuta\" Date NULL,\r\n" + 
+    			"	\"CodicePagamento\" varchar(25) NULL,\r\n" + 
+    			"	\"NumeroAssegno\" varchar(25) NULL,\r\n" + 
+    			"	\"ImportoImponibileRitenutaAcconto\" Float NULL,\r\n" + 
+    			"	\"ImportoRitenutaAcconto\" Float NULL,\r\n" + 
+    			"	\"ImportoRimborsiRitenutaAcconto\" Float NULL,\r\n" + 
+    			"	\"ImportoIVARitenutaAcconto\" Float NULL,\r\n" + 
+    			"	\"ContriburoINPSDatoreLavoro\" Float NULL,\r\n" + 
+    			"	\"ContriburoINPSDatorePercipiente\" Float NULL,\r\n" + 
+    			"	\"DataValutaAssegno\" Date NULL,\r\n" + 
+    			"	\"Note\" varchar(25) NULL,\r\n" + 
+    			"	\"ImportoPagato\" Float NULL,\r\n" + 
+    			"	\"DataPagamento\" Date NULL,\r\n" + 
+    			"	\"NumeroDocumento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceIVAInSospensione\" varchar(25) NULL,\r\n" + 
+    			"	\"ImportoPartita\" Float NULL,\r\n" + 
+    			"	\"ImpostaIVAInSospensione\" Float NULL,\r\n" + 
+    			"	\"ImponibileIVAInSospensione\" Float NULL,\r\n" + 
+    			"	\"NumeroGiornaleIVA\" INTEGER NULL,\r\n" + 
+    			"	\"TipoRitenutaAcconto\" varchar(25) NULL,\r\n" + 
+    			"	\"DataAutorizzazionePagamento\" Date NULL,\r\n" + 
+    			"	\"CodiceDivisa\" varchar(25) NULL,\r\n" + 
+    			"	\"DataRegistrazione\" Date NULL,\r\n" + 
+    			"	\"ImportoAbbuono\" Float NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DescrizioneAggiuntiva\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreFattureProforma\" Boolean NULL,\r\n" + 
+    			"	\"ImportoRimborsiCpap\" Float NULL \r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

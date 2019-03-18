@@ -119,69 +119,65 @@ public class WriteCliente {
 	public void create() {
 		try {
 			Statement stmt = c.createStatement();
-			String sql = "CREATE TABLE public.clienti\n" + 
-					"(\n" + 
-					"	\"codiceCliente\" VARCHAR(10) NOT NULL,\n" + 
-					"	descrizione VARCHAR(50) NULL,\n" + 
-					"	\"tipoCliente\" VARCHAR(10) NULL,\n" + 
-					"	\"resaMerce\" VARCHAR(10) NULL,\n" + 
-					"	imballo VARCHAR(10) NULL,\n" + 
-					"	raggruppamento VARCHAR(10) NULL,\n" + 
-					"	fatturato FLOAT NULL,\n" + 
-					"	fido FLOAT NULL,\n" + 
-					"	\"partitaIVA\" VARCHAR(20) NULL,\n" + 
-					"	\"codiceFiscale\" VARCHAR(20) NULL,\n" + 
-					"	pagamento VARCHAR(20) NULL,\n" + 
-					"	banca VARCHAR(20) NULL,\n" + 
-					"	\"numeroFattureEmesse\" INTEGER NULL,\n" + 
-					"	iva VARCHAR(20) NULL,\n" + 
-					"	\"imponibileNonEsente\" FLOAT NULL,\n" + 
-					"	\"imponibileEsente\" FLOAT NULL,\n" + 
-					"	\"importoIVA\" FLOAT NULL,\n" + 
-					"	\"codiceClassificazione\" VARCHAR(20) NULL,\n" + 
-					"	agente VARCHAR(20) NULL,\n" + 
-					"	\"percentualeProvvigioneAgente\" FLOAT NULL,\n" + 
-					"	\"scontoLegatoProvvigioniAgente\" FLOAT NULL,\n" + 
-					"	\"numeroCopieFattura\" INTEGER NULL,\n" + 
-					"	\"indicatoreAddebitoSpeseIncasso\" BOOL NULL,\n" + 
-					"	\"indicatoreAddebitoSpeseBolli\" BOOL NULL,\n" + 
-					"	progressivo INTEGER NULL,\n" + 
-					"	vettore VARCHAR(20) NULL,\n" + 
-					"	\"codiceAffidabilita\" VARCHAR(20) NULL,\n" + 
-					"	iso VARCHAR(20) NULL,\n" + 
-					"	\"partitaIVAEstero\" VARCHAR(20) NULL,\n" + 
-					"	\"codiceDivisa\" VARCHAR(20) NULL,\n" + 
-					"	\"dataScadenzaSpostataAgosto\" INTEGER NULL,\n" + 
-					"	\"dataScadenzaSpostataDicembre\" INTEGER NULL,\n" + 
-					"	\"codiceLingua\" VARCHAR(20) NULL,\n" + 
-					"	note VARCHAR(200) NULL,\n" + 
-					"	\"indicatoreInviataInformativaPrivacy\" BOOL NULL,\n" + 
-					"	\"indicatoreRicevutaInformativaPrivacy\" BOOL NULL,\n" + 
-					"	\"indicatoreScorporoIVA\" BOOL NULL,\n" + 
-					"	\"indicatoreIVADifferita\" BOOL NULL,\n" + 
-					"	\"indicatoreEmail\" BOOL NULL,\n" + 
-					"	\"inputInibito\" BOOL NULL,\n" + 
-					"	\"indicatoreFatturePA\" BOOL NULL,\n" + 
-					"	\"dataUltimaFattura\" DATE NULL,\n" + 
-					"	\"importoUltimaFattura\" FLOAT NULL,\n" + 
-					"	\"importoPlafond\" FLOAT NULL,\n" + 
-					"	\"numeroUltimaFattura\" VARCHAR(20) NULL,\n" + 
-					"	\"dataInizioPlafond\" DATE NULL,\n" + 
-					"	\"indicatoreFattureXML\" BOOL NULL,\n" + 
-					"	\"indicatoreDdtEmail\" BOOL NULL,\n" + 
-					"	\"indicatorePlafond\" BOOL NULL,\n" + 
-					"	\"codiceDestinatarioXml\" VARCHAR(20) NULL,\n" + 
-					"	\"codiceEORI\" VARCHAR(20) NULL,\n" + 
-					"	\"stabileOrganizzazione\" INTEGER NULL,\n" + 
-					"	\"rappresentanteFiscale\" INTEGER NULL,\n" + 
-					"	\"terzoIntermediario\" INTEGER NULL,\n" + 
-					"	\"dataInserimento\" TIMESTAMP NULL,\n" + 
-					"	\"dataUltimaModificaa\" TIMESTAMP NULL\n" + 
-					");\n" + 
-					"\n" + 
-					"/* Add Primary Key */\n" + 
-					"ALTER TABLE public.clienti ADD CONSTRAINT pkclienti\n" + 
-					"	PRIMARY KEY (\"codiceCliente\");";
+			String sql = "Create table public.Cliente (\r\n" + 
+					"	\"CodiceCliente\" varchar(25) NOT NULL Primary Key,\r\n" + 
+					"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceTipoCliente\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceResaMerce\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceImballo\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceRaggruppamento\" varchar(25) NULL,\r\n" + 
+					"	\"Fatturato\" Float NULL,\r\n" + 
+					"	\"Fido\" Float NULL,\r\n" + 
+					"	\"PartitaIVA\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceFiscale\" varchar(25) NULL,\r\n" + 
+					"	\"CodicePagamento\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceBanca\" varchar(25) NULL,\r\n" + 
+					"	\"NumeroFattureEmesse\" INTEGER NULL,\r\n" + 
+					"	\"CodiceIva\" varchar(25) NULL,\r\n" + 
+					"	\"ImponibileNonEsente\" Float NULL,\r\n" + 
+					"	\"ImponibileEsente\" Float NULL,\r\n" + 
+					"	\"ImportoIVA\" Float NULL,\r\n" + 
+					"	\"CodiceClassificazione\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceAgente\" varchar(25) NULL,\r\n" + 
+					"	\"PercentualeProvvigioneAgente\" Float NULL,\r\n" + 
+					"	\"ScontoLegatoProvvigioniAgente\" Float NULL,\r\n" + 
+					"	\"NumeroCopieFattura\" INTEGER NULL,\r\n" + 
+					"	\"IndicatoreAddebitoSpeseIncasso\" Boolean NULL,\r\n" + 
+					"	\"IndicatoreAddebitoSpeseBolli\" Boolean NULL,\r\n" + 
+					"	\"Progressivo\" INTEGER NULL,\r\n" + 
+					"	\"CodiceVettore\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceAffidabilita\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceIso\" varchar(25) NULL,\r\n" + 
+					"	\"PartitaIVAEstero\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceDivisa\" varchar(25) NULL,\r\n" + 
+					"	\"DataScadenzaSpostataAgosto\" INTEGER NULL,\r\n" + 
+					"	\"DataScadenzaSpostataDicembre\" INTEGER NULL,\r\n" + 
+					"	\"CodiceLingua\" varchar(25) NULL,\r\n" + 
+					"	\"Note\" varchar(25) NULL,\r\n" + 
+					"	\"Stato().name\" varchar(25) NULL,\r\n" + 
+					"	\"IndicatoreInviataInformativaPrivacy\" Boolean NULL,\r\n" + 
+					"	\"IndicatoreRicevutaInformativaPrivacy\" Boolean NULL,\r\n" + 
+					"	\"IndicatoreScorporoIVA\" Boolean NULL,\r\n" + 
+					"	\"IndicatoreIVADifferita\" Boolean NULL,\r\n" + 
+					"	\"IndicatoreEmail\" Boolean NULL,\r\n" + 
+					"	\"InputInibito\" Boolean NULL,\r\n" + 
+					"	\"IndicatoreFatturePA\" Boolean NULL,\r\n" + 
+					"	\"DataUltimaFattura\" Date NULL,\r\n" + 
+					"	\"ImportoUltimaFattura\" Float NULL,\r\n" + 
+					"	\"ImportoPlafond\" Float NULL,\r\n" + 
+					"	\"NumeroUltimaFattura\" varchar(25) NULL,\r\n" + 
+					"	\"DataInizioPlafond\" Date NULL,\r\n" + 
+					"	\"IndicatoreFattureXML\" Boolean NULL,\r\n" + 
+					"	\"IndicatoreDdtEmail\" Boolean NULL,\r\n" + 
+					"	\"IndicatorePlafond\" Boolean NULL,\r\n" + 
+					"	\"CodiceDestinatarioXml\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceEORI\" varchar(25) NULL,\r\n" + 
+					"	\"CodiceStabileOrganizzazione\" INTEGER NULL,\r\n" + 
+					"	\"CodiceRappresentanteFiscale\" INTEGER NULL,\r\n" + 
+					"	\"CodiceTerzoIntermediario\" INTEGER NULL,\r\n" + 
+					"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+					"	\"DataUltimaModificaa\" Timestamp NULL \r\n" + 
+					");";
 			stmt.executeUpdate(sql);
 	    	stmt.close();
 	        c.commit();

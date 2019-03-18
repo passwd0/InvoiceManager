@@ -44,7 +44,7 @@ public class WriteFatturaCollegata {
     			"	\"DataFtCollegate\" Date NULL,\r\n" + 
     			"	\"FtcCodiceCommessaFtCollegate\" varchar(25) NULL,\r\n" + 
     			"	\"FtcCodiceCUP\" varchar(25) NULL,\r\n" + 
-    			"	\"FtcCodiceCIG\" varchar(25) NULL,\r\n" + 
+    			"	\"FtcCodiceCIG\" varchar(25) NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

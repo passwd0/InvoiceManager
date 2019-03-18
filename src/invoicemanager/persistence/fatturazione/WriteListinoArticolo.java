@@ -51,7 +51,7 @@ public class WriteListinoArticolo {
     			"	\"DataDecorrenza\" Date NULL,\r\n" + 
     			"	\"DataValidita\" Date NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

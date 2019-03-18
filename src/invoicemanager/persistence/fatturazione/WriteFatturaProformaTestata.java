@@ -128,7 +128,7 @@ public class WriteFatturaProformaTestata {
     			"	\"IndicatoreEmail\" Boolean NULL,\r\n" + 
     			"	\"IndicatorePA\" Boolean NULL,\r\n" + 
     			"	\"IndicatoreXML\" Boolean NULL,\r\n" + 
-    			"	\"IndicatorePlafond\" Boolean NULL,\r\n" + 
+    			"	\"IndicatorePlafond\" Boolean NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

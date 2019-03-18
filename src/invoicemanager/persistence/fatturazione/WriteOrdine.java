@@ -44,7 +44,7 @@ public class WriteOrdine {
     			"	\"DataOrdine\" Date NOT NULL Primary Key,\r\n" + 
     			"	\"OrdCodiceCommessaConvenzione\" varchar(25) NULL,\r\n" + 
     			"	\"OrdCodiceCUP\" varchar(25) NULL,\r\n" + 
-    			"	\"OrdCodiceCIG\" varchar(25) NULL,\r\n" + 
+    			"	\"OrdCodiceCIG\" varchar(25) NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
