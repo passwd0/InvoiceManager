@@ -28,7 +28,7 @@ public class WriteUnitaMisura {
 		ps.executeUpdate();
 				ps.close();
 				c.commit();
-				c.close();
+
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
@@ -47,7 +47,7 @@ public class WriteUnitaMisura {
     	stmt.executeUpdate(sql);
     	stmt.close();
         c.commit();
-        c.close();
+
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();
 	}

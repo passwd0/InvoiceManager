@@ -50,7 +50,7 @@ public class ReadProvvigioneAgente {
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

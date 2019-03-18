@@ -48,7 +48,7 @@ AreaGeografica areaGeografica = new AreaGeografica(codiceArea, nazione, area, re
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

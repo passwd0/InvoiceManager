@@ -48,7 +48,7 @@ public class ReadMagazzino {
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -147,7 +147,7 @@ public class WriteDdtTestata {
     	stmt.executeUpdate(sql);
     	stmt.close();
         c.commit();
-        c.close();
+
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();
 	}

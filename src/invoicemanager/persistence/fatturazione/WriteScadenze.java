@@ -60,7 +60,7 @@ public class WriteScadenze {
 		ps.executeUpdate();
 				ps.close();
 				c.commit();
-				c.close();
+
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
@@ -110,7 +110,7 @@ public class WriteScadenze {
     	stmt.executeUpdate(sql);
     	stmt.close();
         c.commit();
-        c.close();
+
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();
 	}

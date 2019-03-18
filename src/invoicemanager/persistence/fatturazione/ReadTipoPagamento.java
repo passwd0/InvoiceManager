@@ -46,7 +46,7 @@ public class ReadTipoPagamento {
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

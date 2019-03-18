@@ -27,7 +27,6 @@ public class WriteRappresentanteFiscale {
 		ps.executeUpdate();
 				ps.close();
 				c.commit();
-				c.close();
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
@@ -37,6 +36,7 @@ public class WriteRappresentanteFiscale {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.RappresentanteFiscale (\r\n" + 
+    			"	\"id\" serial NOT NULL primary key,\r\n" +
     			"	\"Paese\" varchar(25) NOT NULL,\r\n" + 
     			"	\"IdentificativoFiscale\" varchar(25) NOT NULL,\r\n" + 
     			"	\"Denominazione\" varchar(25) NULL,\r\n" + 
@@ -46,7 +46,6 @@ public class WriteRappresentanteFiscale {
     	stmt.executeUpdate(sql);
     	stmt.close();
         c.commit();
-        c.close();
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();
 	}

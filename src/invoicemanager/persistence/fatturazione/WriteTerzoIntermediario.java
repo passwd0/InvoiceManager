@@ -27,7 +27,6 @@ public class WriteTerzoIntermediario {
 				ps.executeUpdate();
 				ps.close();
 				c.commit();
-				c.close();
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
@@ -37,6 +36,7 @@ public class WriteTerzoIntermediario {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.TerzoIntermediario (\r\n" + 
+    			"	\"id\" serial NOT NULL primary key,\r\n" +
     			"	\"IdentificaticoFiscale\" varchar(25) NOT NULL,\r\n" + 
     			"	\"Denominazione\" varchar(25) NULL,\r\n" + 
     			"	\"Nome\" varchar(25) NULL,\r\n" + 
@@ -46,7 +46,6 @@ public class WriteTerzoIntermediario {
     	stmt.executeUpdate(sql);
     	stmt.close();
         c.commit();
-        c.close();
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();
 	}

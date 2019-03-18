@@ -38,7 +38,7 @@ Allegato allegato = new Allegato(nomeAllegato, pathAllegato);
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

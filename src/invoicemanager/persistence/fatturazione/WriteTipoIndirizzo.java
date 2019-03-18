@@ -27,7 +27,7 @@ public class WriteTipoIndirizzo {
 		ps.executeUpdate();
 				ps.close();
 				c.commit();
-				c.close();
+
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
@@ -45,7 +45,7 @@ public class WriteTipoIndirizzo {
     	stmt.executeUpdate(sql);
     	stmt.close();
         c.commit();
-        c.close();
+
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();
 	}

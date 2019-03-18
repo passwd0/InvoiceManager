@@ -30,7 +30,7 @@ public class WriteSottogruppiMerceologici {
 		ps.executeUpdate();
 				ps.close();
 				c.commit();
-				c.close();
+
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
@@ -51,7 +51,7 @@ public class WriteSottogruppiMerceologici {
     	stmt.executeUpdate(sql);
     	stmt.close();
         c.commit();
-        c.close();
+
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();
 	}
