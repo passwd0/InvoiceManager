@@ -17,7 +17,7 @@ public class WriteIso {
 
 	public void add(Iso a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Iso VALUES (?, ?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Iso VALUES (?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceIso());
 			ps.setString(2, a.getDescrizione());
 			ps.setString(3, a.getCodiceStato());
