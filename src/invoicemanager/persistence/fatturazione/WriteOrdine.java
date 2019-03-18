@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Ordine;
 
@@ -33,4 +34,27 @@ public class WriteOrdine {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Ordine (\r\n" + 
+    			"	\"NumeroOrdine\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroRigaOrdine\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"DataOrdine\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"OrdCodiceCommessaConvenzione\" varchar(25) NULL,\r\n" + 
+    			"	\"OrdCodiceCUP\" varchar(25) NULL,\r\n" + 
+    			"	\"OrdCodiceCIG\" varchar(25) NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

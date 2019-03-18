@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.FatturaTestata;
 import invoicemanager.utils.Utils;
@@ -103,4 +104,69 @@ public class WriteFatturaTestata {
 			//Utils.createAlertFailWriteDB();
 		}
 	}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.FatturaTestata (\r\n" + 
+    			"	\"NumeroFatturazione\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"DataFattura\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceStatoAvanzamento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceClienteFatturazione\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"CodiceEsenzioneIva\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceAgente\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceCausale\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceCausalePrelievi\" varchar(25) NULL,\r\n" + 
+    			"	\"PercentualeSconto\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoPagamento\" Float NULL,\r\n" + 
+    			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreAddebitoBolli\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreAddebitoSpeseIncasso\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreScaricoMagazzino\" Boolean NULL,\r\n" + 
+    			"	\"CodiceListino\" INTEGER NULL,\r\n" + 
+    			"	\"CodiceResa\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceVettore\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreFatturaAccompagnatoria\" Boolean NULL,\r\n" + 
+    			"	\"CodicePagamento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceBanca\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceImballo\" varchar(25) NULL,\r\n" + 
+    			"	\"PesoColli\" Float NULL,\r\n" + 
+    			"	\"NumeroColli\" Float NULL,\r\n" + 
+    			"	\"Acconto\" Float NULL,\r\n" + 
+    			"	\"CodiceDivisa\" varchar(25) NULL,\r\n" + 
+    			"	\"Cambio\" Float NULL,\r\n" + 
+    			"	\"CodiceClienteSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"NomeSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"IndirizzoSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CapSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CittaSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"ProvinciaSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceNazioneSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"Note\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreFatturazioneDifferita\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreEmail\" Boolean NULL,\r\n" + 
+    			"	\"IndicatorePa\" Boolean NULL,\r\n" + 
+    			"	\"SpeseTrasporto\" Float NULL,\r\n" + 
+    			"	\"SpeseImballo\" Float NULL,\r\n" + 
+    			"	\"SpeseIncasso\" Float NULL,\r\n" + 
+    			"	\"SpeseBolli\" Float NULL,\r\n" + 
+    			"	\"Omaggi\" Float NULL,\r\n" + 
+    			"	\"TotalePagato\" Float NULL,\r\n" + 
+    			"	\"DataScadenza\" Date NULL,\r\n" + 
+    			"	\"ImportoScadenza\" Float NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 } 

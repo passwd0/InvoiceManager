@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.utils.Utils;
@@ -42,4 +43,36 @@ public class WriteIndirizzoGeografico {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.IndirizzoGeografico (\r\n" + 
+    			"	\"CodiceIndirizzo\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceConto\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"Via\" varchar(25) NULL,\r\n" + 
+    			"	\"Provincia\" varchar(25) NULL,\r\n" + 
+    			"	\"Cap\" varchar(25) NULL,\r\n" + 
+    			"	\"Citta\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceNazione\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"CodiceTipoIndirizzo\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"LoginInserimento\" varchar(25) NULL,\r\n" + 
+    			"	\"LoginModifica\" varchar(25) NULL,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreIndirizzoDefault\" Boolean NULL,\r\n" + 
+    			"	\"CodiceMinistero\" varchar(25) NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

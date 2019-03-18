@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Contratto;
 
@@ -33,4 +34,27 @@ public class WriteContratto {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Contratto (\r\n" + 
+    			"	\"NumeroContratto\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroRigaContratto\" INTEGER NOT NULL,\r\n" + 
+    			"	\"DataContratto\" Date NULL,\r\n" + 
+    			"	\"CntCodiceCommessaConvenzione\" varchar(25) NULL,\r\n" + 
+    			"	\"CntCodiceCUP\" varchar(25) NULL,\r\n" + 
+    			"	\"CntCodiceCIG\" varchar(25) NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

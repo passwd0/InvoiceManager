@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.ListinoPersonalizzato;
 import invoicemanager.utils.Utils;
@@ -53,4 +54,46 @@ public class WriteListinoPersonalizzato {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.ListinoPersonalizzato (\r\n" + 
+    			"	\"CodiceCliente\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Variante\" varchar(25) NULL,\r\n" + 
+    			"	\"Prezzo\" Float NULL,\r\n" + 
+    			"	\"Provvigione\" Float NULL,\r\n" + 
+    			"	\"NoteEsterne\" varchar(25) NULL,\r\n" + 
+    			"	\"NoteInterne\" varchar(25) NULL,\r\n" + 
+    			"	\"NumeroDecimali\" INTEGER NULL,\r\n" + 
+    			"	\"ScontoCliente\" Float NULL,\r\n" + 
+    			"	\"DataAggiornamento\" Timestamp NULL,\r\n" + 
+    			"	\"ScontoArticolo\" Float NULL,\r\n" + 
+    			"	\"ScontoPagamento\" Float NULL,\r\n" + 
+    			"	\"CodiceDivisa\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceGruppoMerceologico\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInizioValidita\" Date NULL,\r\n" + 
+    			"	\"DataFineValidita\" Date NULL,\r\n" + 
+    			"	\"OpzioneGruppi\" Boolean NULL,\r\n" + 
+    			"	\"OpzioneScontoClienti\" Boolean NULL,\r\n" + 
+    			"	\"OpzioneScontoArticolo\" Boolean NULL,\r\n" + 
+    			"	\"OpzioneScontoPagamento\" Boolean NULL,\r\n" + 
+    			"	\"OpzionePercentualeProvvigione\" Boolean NULL,\r\n" + 
+    			"	\"OpzioneNoteEsterne\" Boolean NULL,\r\n" + 
+    			"	\"OpzioneNoteInterne\" Boolean NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Confezione;
 import invoicemanager.utils.Utils;
@@ -38,4 +39,32 @@ public class WriteConfezione {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Confezione (\r\n" + 
+    			"	\"CodiceConfezione\" varchar(25) NOT NULL Key Primary,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceStato\" Boolean NULL,\r\n" + 
+    			"	\"Larghezza\" Float NULL,\r\n" + 
+    			"	\"Lunghezza\" Float NULL,\r\n" + 
+    			"	\"Altezza\" Float NULL,\r\n" + 
+    			"	\"Volume\" Float NULL,\r\n" + 
+    			"	\"PesoLordo\" Float NULL,\r\n" + 
+    			"	\"PesoTara\" Float NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

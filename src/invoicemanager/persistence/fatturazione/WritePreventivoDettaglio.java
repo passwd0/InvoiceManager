@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.PreventivoDettaglio;
 import invoicemanager.utils.Utils;
@@ -50,4 +51,43 @@ public class WritePreventivoDettaglio {
 				  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.PreventivoDettaglio (\r\n" + 
+    			"	\"NumeroPreventivo\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroRigaPreventivo\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"DataPreventivo\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceTipoRigaDocumento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NULL,\r\n" + 
+    			"	\"QuantitaArticolo\" Float NULL,\r\n" + 
+    			"	\"QuantitaConsegnata\" Float NULL,\r\n" + 
+    			"	\"QuantitaDaConsegnare\" Float NULL,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"DescrizioneAggiuntiva\" varchar(25) NULL,\r\n" + 
+    			"	\"DataConsegna\" Date NULL,\r\n" + 
+    			"	\"CodiceUnitaMisura\" varchar(25) NULL,\r\n" + 
+    			"	\"Prezzo\" Float NULL,\r\n" + 
+    			"	\"CodiceIVA\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceControparte\" varchar(25) NULL,\r\n" + 
+    			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoCliente\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoArticolo\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoPagamento\" Float NULL,\r\n" + 
+    			"	\"CodiceMagazzino\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

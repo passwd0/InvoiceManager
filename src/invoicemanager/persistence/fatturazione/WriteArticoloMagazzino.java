@@ -64,4 +64,57 @@ public class WriteArticoloMagazzino {
 			  //Utils.createAlertFailWriteDB();
 			}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.ArticoloMagazzino (\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"CodiceUnitaMisura\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceGruppoMerceologico\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceSottogruppoMerceologico\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceControparteContabile\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceIVA\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreGestionePezzi\" Boolean NULL,\r\n" + 
+    			"	\"Sconto\" Float NULL,\r\n" + 
+    			"	\"CodiceTaglieColori\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceColore\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceTaglia\" varchar(25) NULL,\r\n" + 
+    			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
+    			"	\"IndicatoreSerialNumber\" Boolean NULL,\r\n" + 
+    			"	\"PesoNetto\" Float NULL,\r\n" + 
+    			"	\"CodiceConfezione\" varchar(25) NULL,\r\n" + 
+    			"	\"NumeroPezziConfezione\" Float NULL,\r\n" + 
+    			"	\"NumeroColli\" INTEGER NULL,\r\n" + 
+    			"	\"PesoLordo\" Float NULL,\r\n" + 
+    			"	\"VolumeConfezione\" Float NULL,\r\n" + 
+    			"	\"Altezza\" Float NULL,\r\n" + 
+    			"	\"Larghezza\" Float NULL,\r\n" + 
+    			"	\"Profondita\" Float NULL,\r\n" + 
+    			"	\"IndicatoreArticoloPadreFiglio\" Boolean NULL,\r\n" + 
+    			"	\"CodiceArticoloAlternativo\" varchar(25) NULL,\r\n" + 
+    			"	\"CodicePercipiente\" varchar(25) NULL,\r\n" + 
+    			"	\"NumeroDecimali\" INTEGER NULL,\r\n" + 
+    			"	\"Note\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatorePubblicazioneWeb\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreInibizione\" Boolean NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"IndicatoreScorporoIVA\" Boolean NULL,\r\n" + 
+    			"	\"CodiceControparteContabileFornitore\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceIVAFornitore\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceStampo\" varchar(25) NULL,\r\n" + 
+    			"	\"NoteProduzione\" varchar(25) NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
 }
