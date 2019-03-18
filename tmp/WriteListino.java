@@ -1,0 +1,2 @@
+Create table public.Listino (
+);
