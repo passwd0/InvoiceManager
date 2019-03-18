@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.TerzoIntermediario;
 
@@ -31,4 +32,20 @@ public class WriteTerzoIntermediario {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+
+	
 }

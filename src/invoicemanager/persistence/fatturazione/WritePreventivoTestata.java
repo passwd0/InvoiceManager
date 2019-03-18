@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.PreventivoTestata;
 import invoicemanager.utils.Utils;
@@ -67,4 +68,60 @@ public class WritePreventivoTestata {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.PreventivoTestata (\r\n" + 
+    			"	\"NumeroPreventivo\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"DataPreventivo\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"IndicatoreStatoAvanzamento\" Boolean NULL,\r\n" + 
+    			"	\"DataConsegna\" Date NULL,\r\n" + 
+    			"	\"DataValidita\" Date NULL,\r\n" + 
+    			"	\"PeriodoValidita\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreUtilizzoDataValidita\" Boolean NULL,\r\n" + 
+    			"	\"CodiceCliente\" varchar(25) NULL,\r\n" + 
+    			"	\"Attenzione\" varchar(25) NULL,\r\n" + 
+    			"	\"Oggetto\" varchar(25) NULL,\r\n" + 
+    			"	\"RiferimentoInterno\" varchar(25) NULL,\r\n" + 
+    			"	\"NumeroInterno\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceIVA\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceAgente\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceResa\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceVettore\" varchar(25) NULL,\r\n" + 
+    			"	\"CodicePagamento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceBanca\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceCausale\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceCausalePrelievo\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceListino\" Boolean NULL,\r\n" + 
+    			"	\"DescrizioneOrdine\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceDivisa\" varchar(25) NULL,\r\n" + 
+    			"	\"Cambio\" Float NULL,\r\n" + 
+    			"	\"NumeroFax\" varchar(25) NULL,\r\n" + 
+    			"	\"Venditore\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreAddebitoBolli\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreAddebitoSpeseIncasso\" Boolean NULL,\r\n" + 
+    			"	\"Note\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceClienteSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"NomeSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"IndirizzoSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CapSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CittaSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"ProvinciaSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceNazioneSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"LoginInserimento\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

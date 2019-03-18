@@ -87,4 +87,53 @@ public class WriteUtente {
 //			//Utils.createAlertFailWriteDB();
 //		}
 	}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Utente (\r\n" + 
+    			"	\"CodiceUtente\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Path\" varchar(25) NULL,\r\n" + 
+    			"	\"PathSalvataggi\" varchar(25) NULL,\r\n" + 
+    			"	\"SubUtente\" varchar(25) NULL,\r\n" + 
+    			"	\"TipoUtente\" Boolean NULL,\r\n" + 
+    			"	\"Cognome\" varchar(25) NULL,\r\n" + 
+    			"	\"Nome\" varchar(25) NULL,\r\n" + 
+    			"	\"DataNascita\" Timestamp NULL,\r\n" + 
+    			"	\"Sesso\" Boolean NULL,\r\n" + 
+    			"	\"ComuneNascita\" varchar(25) NULL,\r\n" + 
+    			"	\"ProvinciaNascita\" varchar(25) NULL,\r\n" + 
+    			"	\"DomicilioFiscale\" varchar(25) NULL,\r\n" + 
+    			"	\"Comune\" varchar(25) NULL,\r\n" + 
+    			"	\"Provincia\" varchar(25) NULL,\r\n" + 
+    			"	\"PartitaIVA\" varchar(25) NULL,\r\n" + 
+    			"	\"Attivita\" varchar(25) NULL,\r\n" + 
+    			"	\"CodicePersonaFisica\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceFiscale\" varchar(25) NULL,\r\n" + 
+    			"	\"RagioneSociale\" varchar(25) NULL,\r\n" + 
+    			"	\"NaturaGiuridica\" varchar(25) NULL,\r\n" + 
+    			"	\"DomicilioAzienda\" varchar(25) NULL,\r\n" + 
+    			"	\"ComuneAzienda\" varchar(25) NULL,\r\n" + 
+    			"	\"ProvinciaAzienda\" varchar(25) NULL,\r\n" + 
+    			"	\"PartitaIVAAzienda\" varchar(25) NULL,\r\n" + 
+    			"	\"AttivitaAzienda\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceAzienda\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceFiscaleAzienda\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreConversione\" Boolean NULL,\r\n" + 
+    			"	\"Password\" varchar(25) NULL,\r\n" + 
+    			"	\"Cap\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 } 

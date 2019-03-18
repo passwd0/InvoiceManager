@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.TipoIndirizzo;
 import invoicemanager.utils.Utils;
@@ -31,4 +32,25 @@ public class WriteTipoIndirizzo {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.TipoIndirizzo (\r\n" + 
+    			"	\"CodiceTipoIndirizzo\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Prezzo;
 
@@ -29,4 +30,24 @@ public class WritePrezzo {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Prezzo (\r\n" + 
+    			"	\"Id\" INTEGER NOT NULL,\r\n" + 
+    			"	\"CodiceListinoPersonalizzato\" INTEGER NULL,\r\n" + 
+    			"	\"Prezzo\" Float NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

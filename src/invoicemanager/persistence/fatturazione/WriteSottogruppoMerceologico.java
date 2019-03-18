@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.SottogruppoMerceologico;
 import invoicemanager.utils.Utils;
@@ -35,4 +36,29 @@ public class WriteSottogruppoMerceologico {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.SottogruppoMerceologico (\r\n" + 
+    			"	\"CodiceSottogruppoMerceologico\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceStato\" Boolean NULL,\r\n" + 
+    			"	\"Sconto\" Float NULL,\r\n" + 
+    			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"LoginInserimento\" varchar(25) NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

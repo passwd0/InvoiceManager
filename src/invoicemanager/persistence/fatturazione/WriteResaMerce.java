@@ -64,4 +64,29 @@ public class WriteResaMerce {
 			//Utils.createAlertFailWriteDB();
 		}
 	}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.ResaMerce (\r\n" + 
+    			"	\"CodiceResa\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceStato\" varchar(25) NULL,\r\n" + 
+    			"	\"PercentualeAddebito\" Float NULL,\r\n" + 
+    			"	\"ImportoMinimo\" Float NULL,\r\n" + 
+    			"	\"IndicatoreProvvigione\" Boolean NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 } 
