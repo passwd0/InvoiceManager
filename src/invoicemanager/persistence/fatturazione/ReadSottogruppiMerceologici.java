@@ -49,7 +49,7 @@ public class ReadSottogruppiMerceologici {
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

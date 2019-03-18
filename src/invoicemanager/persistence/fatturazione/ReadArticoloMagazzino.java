@@ -78,7 +78,7 @@ ArticoloMagazzino articoloMagazzino = new ArticoloMagazzino(codiceArticolo, desc
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
