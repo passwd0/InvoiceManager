@@ -30,7 +30,7 @@ public class WriteBentoTestata {
 			ps.executeUpdate();
 			ps.close();
 			c.commit();
-			c.close();
+
 			} catch (Exception e) {
 			  //Utils.createAlertFailWriteDB();
 			}

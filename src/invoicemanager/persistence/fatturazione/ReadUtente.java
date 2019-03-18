@@ -76,7 +76,7 @@ Utente utente = new Utente(codiceUtente, path, pathSalvataggi, subUtente, tipoUt
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

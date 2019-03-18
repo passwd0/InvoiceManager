@@ -73,7 +73,7 @@ public class ReadListinoPersonalizzato {
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

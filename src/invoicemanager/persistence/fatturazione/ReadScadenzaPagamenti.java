@@ -40,7 +40,7 @@ public class ReadScadenzaPagamenti {
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

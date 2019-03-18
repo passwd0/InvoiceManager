@@ -81,7 +81,7 @@ public class ReadOrdineDettaglio {
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

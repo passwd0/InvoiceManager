@@ -57,7 +57,7 @@ public class ReadIndirizzoGeografico {
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

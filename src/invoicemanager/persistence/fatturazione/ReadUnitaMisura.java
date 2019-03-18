@@ -47,7 +47,7 @@ public class ReadUnitaMisura {
 	         }
 		     rs.close();
 		     stmt.close();
-		     c.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
