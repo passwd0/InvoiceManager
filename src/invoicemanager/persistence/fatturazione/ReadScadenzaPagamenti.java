@@ -26,13 +26,12 @@ public class ReadScadenzaPagamenti {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM ScadenzaPagamenti");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroFattura = rs.getInt("numeroFattura");
+				float importoScadenza = rs.getFloat("importoScadenza");
 				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
 				LocalDate dataScadenza = rs.getDate("dataScadenza").toLocalDate();
-				float importoScadenza = rs.getFloat("importoScadenza");
 				
 				ScadenzaPagamenti scadenzaPagamenti = new ScadenzaPagamenti(numeroFattura, dataFattura, dataScadenza, importoScadenza);
 
