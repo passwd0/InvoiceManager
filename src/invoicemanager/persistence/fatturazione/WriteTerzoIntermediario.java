@@ -36,7 +36,13 @@ public class WriteTerzoIntermediario {
 	public void createDB() {
 		try {
         Statement stmt = c.createStatement();
-    	String sql = "";		//AGGIUNGERE STATO
+    	String sql = "Create table public.TerzoIntermediario (\r\n" + 
+    			"	\"IdentificaticoFiscale\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"Denominazione\" varchar(25) NULL,\r\n" + 
+    			"	\"Nome\" varchar(25) NULL,\r\n" + 
+    			"	\"Cognome\" varchar(25) NULL,\r\n" + 
+    			"	\"CodEORI\" varchar(25) NULL\r\n" + 
+    			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
         c.commit();

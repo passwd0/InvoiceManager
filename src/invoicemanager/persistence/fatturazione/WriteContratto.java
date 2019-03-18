@@ -44,7 +44,7 @@ public class WriteContratto {
     			"	\"DataContratto\" Date NULL,\r\n" + 
     			"	\"CntCodiceCommessaConvenzione\" varchar(25) NULL,\r\n" + 
     			"	\"CntCodiceCUP\" varchar(25) NULL,\r\n" + 
-    			"	\"CntCodiceCIG\" varchar(25) NULL,\r\n" + 
+    			"	\"CntCodiceCIG\" varchar(25) NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

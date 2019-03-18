@@ -105,7 +105,7 @@ public class WriteArticoloMagazzino {
     			"	\"CodiceControparteContabileFornitore\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceIVAFornitore\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceStampo\" varchar(25) NULL,\r\n" + 
-    			"	\"NoteProduzione\" varchar(25) NULL,\r\n" + 
+    			"	\"NoteProduzione\" varchar(25) NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

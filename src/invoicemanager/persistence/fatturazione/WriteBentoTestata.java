@@ -48,7 +48,7 @@ public class WriteBentoTestata {
     			"	\"CodiceClienteFornitore\" varchar(25) NULL,\r\n" + 
     			"	\"Note\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

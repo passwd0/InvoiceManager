@@ -73,15 +73,15 @@ public class BentoDettaglio {
 		this.numeroRigaBento = numeroRigaBento;
 	}
 
-	public TipoBento getCodiceTipoBento() {
+	public TipoBento getTipoBento() {
 		return tipoBento;
 	}
 
-	public void setCodiceTipoBento(TipoBento tipoBento) {
+	public void setTipoBento(TipoBento tipoBento) {
 		this.tipoBento = tipoBento;
 	}
 	
-	public String getCodiceTipoBento(TipoBento tipoBento) {
+	public String getCodiceTipoBento() {
 		if (tipoBento == null)
 			return null;
 		return tipoBento.getCodiceTipoBento();

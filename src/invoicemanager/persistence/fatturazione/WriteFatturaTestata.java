@@ -156,7 +156,7 @@ public class WriteFatturaTestata {
     			"	\"DataScadenza\" Date NULL,\r\n" + 
     			"	\"ImportoScadenza\" Float NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

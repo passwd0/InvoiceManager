@@ -77,7 +77,7 @@ public class WritePreventivoDettaglio {
     			"	\"PercentualeScontoPagamento\" Float NULL,\r\n" + 
     			"	\"CodiceMagazzino\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

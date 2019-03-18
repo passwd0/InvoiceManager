@@ -102,7 +102,7 @@ public class WriteCausaleMagazzino {
     			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
     			"	\"LoginInserimento\" varchar(25) NULL,\r\n" + 
     			"	\"LoginModifica\" varchar(25) NULL,\r\n" + 
-    			"	\"IndicatoreLotti\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreLotti\" Boolean NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

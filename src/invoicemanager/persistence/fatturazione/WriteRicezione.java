@@ -44,7 +44,7 @@ public class WriteRicezione {
     			"	\"DataRicezione\" Date NULL,\r\n" + 
     			"	\"RczCodiceCommessaRicezione\" varchar(25) NULL,\r\n" + 
     			"	\"RczCodiceCUP\" varchar(25) NULL,\r\n" + 
-    			"	\"RczCodiceCIG\" varchar(25) NULL,\r\n" + 
+    			"	\"RczCodiceCIG\" varchar(25) NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
