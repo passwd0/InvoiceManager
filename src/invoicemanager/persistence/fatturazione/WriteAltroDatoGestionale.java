@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.AltroDatoGestionale;
 
@@ -30,4 +31,28 @@ public class WriteAltroDatoGestionale {
    			  //Utils.createAlertFailWriteDB();
 			}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.AltroDatoGestionale (\r\n" + 
+    			"  \"CodiceAltroDatoGestionale\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"TipoDato\" varchar(25) NULL,\r\n" + 
+    			"	\"RiferimentoTesto\" varchar(25) NULL,\r\n" + 
+    			"	\"RiferimentoNumero\" Float NULL,\r\n" + 
+    			"	\"RiferimentoData\" Date NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
+	
+	
 }

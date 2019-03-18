@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.ListinoArticolo;
 import invoicemanager.utils.Utils;
@@ -37,4 +38,30 @@ public class WriteListinoArticolo {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.ListinoArticolo (\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Progressivo\" INTEGER NULL,\r\n" + 
+    			"	\"CodiceDivisa\" varchar(25) NULL,\r\n" + 
+    			"	\"Prezzo\" Float NULL,\r\n" + 
+    			"	\"NumeroDecimali\" INTEGER NULL,\r\n" + 
+    			"	\"DataDecorrenza\" Date NULL,\r\n" + 
+    			"	\"DataValidita\" Date NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

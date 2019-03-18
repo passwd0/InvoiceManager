@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.utils.Utils;
@@ -96,4 +97,62 @@ public class WriteOrdineTestata {
 			//Utils.createAlertFailWriteDB();
 		}
 	}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.OrdineTestata (\r\n" + 
+    			"	\"NumeroOrdine\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"DataOrdine\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceStatoAvanzamento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceClienteFatturazione\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceEsenzioneIva\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceAgente\" varchar(25) NULL,\r\n" + 
+    			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
+    			"	\"PercentualeSconto\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoPagamento\" Float NULL,\r\n" + 
+    			"	\"NumeroCopieFattura\" INTEGER NULL,\r\n" + 
+    			"	\"IndicatoreAddebitoBolli\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreAddebitoSpeseIncasso\" Boolean NULL,\r\n" + 
+    			"	\"CodiceListino\" INTEGER NULL,\r\n" + 
+    			"	\"CodiceResa\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceVettore\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceCausale\" varchar(25) NULL,\r\n" + 
+    			"	\"CodicePagamento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceBanca\" varchar(25) NULL,\r\n" + 
+    			"	\"DataConsegna\" Date NULL,\r\n" + 
+    			"	\"CausaleTrasporto\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceDivisa\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreConsegnaParziale\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreRaggruppamentoConsegne\" Boolean NULL,\r\n" + 
+    			"	\"CodiceAgenteVecchio\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceClienteSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"NomeSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"IndirizzoSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CapSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CittaSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"ProvinciaSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceNazioneSpedizione\" varchar(25) NULL,\r\n" + 
+    			"	\"Note\" varchar(25) NULL,\r\n" + 
+    			"	\"LoginInserimento\" varchar(25) NULL,\r\n" + 
+    			"	\"LoginModifica\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceLingua\" varchar(25) NULL,\r\n" + 
+    			"	\"Revisione\" varchar(25) NULL,\r\n" + 
+    			"	\"Attenzione\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreOrdineTrading\" Boolean NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 } 

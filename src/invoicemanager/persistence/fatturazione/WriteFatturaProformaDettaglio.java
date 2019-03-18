@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.FatturaProformaDettaglio;
 
@@ -55,4 +56,49 @@ public class WriteFatturaProformaDettaglio {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.FatturaProformaDettaglio (\r\n" + 
+    			"	\"NumeroFattura\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroRigaFattura\" INTEGER NOT NULL,\r\n" + 
+    			"	\"DataFattura\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceTipoRigaDocumento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NULL,\r\n" + 
+    			"	\"Costo\" Float NULL,\r\n" + 
+    			"	\"QuantitaDaConsegnare\" Float NULL,\r\n" + 
+    			"	\"IndicatoreEvasione\" Boolean NULL,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"Quantita\" Float NULL,\r\n" + 
+    			"	\"Prezzo\" Float NULL,\r\n" + 
+    			"	\"CodiceIva\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceContropartitaContabile\" varchar(25) NULL,\r\n" + 
+    			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoCliente\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoArticolo\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoPagamento\" Float NULL,\r\n" + 
+    			"	\"DescrizioneAggiuntiva\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceUnitaMisura\" varchar(25) NULL,\r\n" + 
+    			"	\"SerialNumber\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreNoConferma\" Boolean NULL,\r\n" + 
+    			"	\"CodiceMagazzino\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceOrdine\" INTEGER NULL,\r\n" + 
+    			"	\"CodiceContratto\" INTEGER NULL,\r\n" + 
+    			"	\"CodiceConvezione\" INTEGER NULL,\r\n" + 
+    			"	\"CodiceRicezione\" INTEGER NULL,\r\n" + 
+    			"	\"CodiceFatturaCollegata\" INTEGER NULL,\r\n" + 
+    			"	\"CodiceAltriDatiGestionali\" INTEGER NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

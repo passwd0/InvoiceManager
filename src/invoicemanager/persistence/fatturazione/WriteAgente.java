@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Agente;
 import invoicemanager.utils.Utils;
@@ -71,15 +72,26 @@ public class WriteAgente {
 	}
 	
 	public void createDB() {
-//		create table Agenti (
-//				codiceAgente varchar(4) not null primary key,
-//				nome varchar(20),
-//				percentualeProvvigione float,
-//				tipoProvvigione boolean,
-//				tipoMandato boolean,
-//				dataInserimento timestamp,
-//				dataUltimaModifica timestamp
-//		);
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Agente (\r\n" + 
+    			"	\"CodiceAgente\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"Nome\" varchar(25) NULL,\r\n" + 
+    			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
+    			"	\"TipoProvvigione\" Boolean NULL,\r\n" + 
+    			"	\"TipoMandato\" Boolean NULL,\r\n" + 
+    			"	\"CodiceContabile\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceControparte\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL\r\n" + 
+    			"); ";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
 
 	}
 	

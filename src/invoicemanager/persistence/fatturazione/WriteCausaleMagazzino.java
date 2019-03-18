@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.CausaleMagazzino;
 import invoicemanager.utils.Utils;
@@ -62,4 +63,56 @@ public class WriteCausaleMagazzino {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.CausaleMagazzino (\r\n" + 
+    			"	\"CodiceCausaleMagazzino\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"CodiceStato\" Boolean NULL,\r\n" + 
+    			"	\"SegnoEsistenza\" Boolean NULL,\r\n" + 
+    			"	\"SegnoImpegniCliente\" Boolean NULL,\r\n" + 
+    			"	\"SegnoOrdiniFornitore\" Boolean NULL,\r\n" + 
+    			"	\"SegnoFatturato\" Boolean NULL,\r\n" + 
+    			"	\"SegnoCaricoAValore\" Boolean NULL,\r\n" + 
+    			"	\"SegnoUnitaVendute\" Boolean NULL,\r\n" + 
+    			"	\"SegnoCaricoAQuantita\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreMovimentoAQuantita\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreMovimentoAValore\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreMovimentoContoLavorazione\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreMovimentoCommessa\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreAggiornamentoDataUltimoCarico\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreAggiornamentoDataUltimoScarico\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreAggiornamentoCostoUltimo\" Boolean NULL,\r\n" + 
+    			"	\"ValoreDaProporre\" varchar(25) NULL,\r\n" + 
+    			"	\"ValorePerValorizzazioneMovimenti\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreConcatenamento\" Boolean NULL,\r\n" + 
+    			"	\"CodiceCausaleMagazzinoConcatenata\" varchar(25) NULL,\r\n" + 
+    			"	\"NomeFileMemo\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreModifica\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreBollaEntrata\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreDocumentoDiTrasporto\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreFatturaAccompagnatoria\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreOrdineCliente\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreOrdineFornitore\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreDistinta\" Boolean NULL,\r\n" + 
+    			"	\"Note\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"LoginInserimento\" varchar(25) NULL,\r\n" + 
+    			"	\"LoginModifica\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreLotti\" Boolean NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

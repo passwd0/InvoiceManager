@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Banca;
 import invoicemanager.utils.Utils;
@@ -86,25 +87,37 @@ public class WriteBanca {
 	}
 	
 	public void createDB() {
-//		create table Banche (
-//				codiceBanca varchar(4) not null primary key,
-//				descrizione varchar(20),
-//				stato varchar(20),
-//				codiceABI varchar(4),
-//				codiceCAB varchar(4),
-//				provincia varchar(20),
-//				numeroContoCorrente varchar(20),
-//				codiceCIN varchar(4),
-//				codiceCINEur varchar(4),
-//				paese varchar(20),
-//				dataInserimento timestamp,
-//				dataUltimaModifica timestamp,
-//				loginInserimento varchar(20),
-//				loginModifica varchar(20),
-//				iban varchar(20),
-//				swift varchar(20),
-//				codiceConto varchar(4),
-//				indirizzo varchar(20)
-//		);
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Banca (\r\n" + 
+    			"	\"CodiceBanca\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"Stato().name\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceABI\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceCAB\" varchar(25) NULL,\r\n" + 
+    			"	\"Localita\" varchar(25) NULL,\r\n" + 
+    			"	\"Provincia\" varchar(25) NULL,\r\n" + 
+    			"	\"NumeroContoCorrente\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceCIN\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceCINEur\" varchar(25) NULL,\r\n" + 
+    			"	\"Paese\" varchar(25) NULL,\r\n" + 
+    			"	\"Iban\" varchar(25) NULL,\r\n" + 
+    			"	\"Swift\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceConto\" varchar(25) NULL,\r\n" + 
+    			"	\"Indirizzo\" varchar(25) NULL,\r\n" + 
+    			"	\"Cap\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
 	}
+
+	}
+	
+	
 } 

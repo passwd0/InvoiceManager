@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.PianoConto;
 import invoicemanager.utils.Utils;
@@ -40,4 +41,34 @@ public class WritePianoConto {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.PianoConto (\r\n" + 
+    			"	\"CodiceConto\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"Tipo\" Boolean NULL,\r\n" + 
+    			"	\"CodiceClassificazione\" varchar(25) NULL,\r\n" + 
+    			"	\"DarePeriodo\" Float NULL,\r\n" + 
+    			"	\"AverePeriodo\" Float NULL,\r\n" + 
+    			"	\"DareProgressivo\" Float NULL,\r\n" + 
+    			"	\"AvereProgressivo\" Float NULL,\r\n" + 
+    			"	\"CodiceDivisa\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceBancaBonifico\" varchar(25) NULL,\r\n" + 
+    			"	\"ContoBanca\" Boolean NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

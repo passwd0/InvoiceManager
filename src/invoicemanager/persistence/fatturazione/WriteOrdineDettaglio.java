@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.OrdineDettaglio;
 import invoicemanager.utils.Utils;
@@ -94,4 +95,59 @@ public class WriteOrdineDettaglio {
 			//Utils.createAlertFailWriteDB();
 		}
 	}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.OrdineDettaglio (\r\n" + 
+    			"	\"NumeroOrdine\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"DataOrdine\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroRigaOrdine\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceTipoRigaDocumento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceMagazzino\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NULL,\r\n" + 
+    			"	\"QuantitaConsegnata\" Float NULL,\r\n" + 
+    			"	\"IndicatoreEvasione\" Boolean NULL,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"DataConsegna\" Date NULL,\r\n" + 
+    			"	\"Quantita\" Float NULL,\r\n" + 
+    			"	\"CodiceUnitaMisura\" varchar(25) NULL,\r\n" + 
+    			"	\"Prezzo\" Float NULL,\r\n" + 
+    			"	\"CodiceIva\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceContropartitaContabile\" varchar(25) NULL,\r\n" + 
+    			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoCliente\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoArticolo\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoPagamento\" Float NULL,\r\n" + 
+    			"	\"DescrizioneAggiuntiva\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreCoordinamento\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreOrdineDaFatturare\" Boolean NULL,\r\n" + 
+    			"	\"QuantitaVariata\" Float NULL,\r\n" + 
+    			"	\"NumeroPreventivo\" INTEGER NULL,\r\n" + 
+    			"	\"NumeroRigaPreventivo\" INTEGER NULL,\r\n" + 
+    			"	\"DataPreventivo\" Date NULL,\r\n" + 
+    			"	\"QuantitaEvasa\" Float NULL,\r\n" + 
+    			"	\"IndicatoreEvasionePreventivi\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreEvasioneRigheNote\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreNoConferma\" Boolean NULL,\r\n" + 
+    			"	\"DataConsegnaSchedulatore\" Date NULL,\r\n" + 
+    			"	\"DataConsegnaProposta\" Date NULL,\r\n" + 
+    			"	\"IndicatoreBloccato\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreOrdineTrading\" Boolean NULL,\r\n" + 
+    			"	\"DataInizioSchedulatore\" Date NULL,\r\n" + 
+    			"	\"CodiceArticoloBis\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 } 

@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Iva;
 import invoicemanager.utils.Utils;
@@ -87,4 +88,53 @@ public class WriteIva {
 //			//Utils.createAlertFailWriteDB();
 //		}
 	}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Iva (\r\n" + 
+    			"	\"CodiceIva\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceStato\" varchar(25) NULL,\r\n" + 
+    			"	\"RigaIVAAcquisti\" INTEGER NULL,\r\n" + 
+    			"	\"AddizionaleIVA\" Float NULL,\r\n" + 
+    			"	\"AliquotaIVA\" Float NULL,\r\n" + 
+    			"	\"ImponibileAcquisti\" Float NULL,\r\n" + 
+    			"	\"ImponibileAcquistiNonDetraibile\" Float NULL,\r\n" + 
+    			"	\"ImpostaAcquisti\" Float NULL,\r\n" + 
+    			"	\"ImponibileVendite\" Float NULL,\r\n" + 
+    			"	\"ImponibileVenditeNonDetraibile\" Float NULL,\r\n" + 
+    			"	\"ImpostaVendite\" Float NULL,\r\n" + 
+    			"	\"RigaIVAVendite\" INTEGER NULL,\r\n" + 
+    			"	\"CoefficienteIVA\" Float NULL,\r\n" + 
+    			"	\"PercentualeIndetraibilita\" varchar(25) NULL,\r\n" + 
+    			"	\"ValoreArrotondamento\" Float NULL,\r\n" + 
+    			"	\"IndicatoreTroncaAcquisti\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreSommaAcquisti\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreArrotondaAcquisti\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreSottraeAcquisti\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreTroncaVendite\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreSommaVendite\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreArrotondaVendite\" Boolean NULL,\r\n" + 
+    			"	\"IndicatoreSottraeVendite\" Boolean NULL,\r\n" + 
+    			"	\"LoginInserimento\" varchar(25) NULL,\r\n" + 
+    			"	\"LoginModifica\" varchar(25) NULL,\r\n" + 
+    			"	\"ElencoClientiFornitori\" Boolean NULL,\r\n" + 
+    			"	\"ColonnaClientiFornitori\" varchar(25) NULL,\r\n" + 
+    			"	\"ColonnaNoteClientiFornitori\" varchar(25) NULL,\r\n" + 
+    			"	\"SplitPayment\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 } 
