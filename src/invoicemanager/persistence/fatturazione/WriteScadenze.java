@@ -105,7 +105,7 @@ public class WriteScadenze {
     			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
     			"	\"DescrizioneAggiuntiva\" varchar(25) NULL,\r\n" + 
     			"	\"IndicatoreFattureProforma\" Boolean NULL,\r\n" + 
-    			"	\"ImportoRimborsiCpap\" Float NULL,\r\n" + 
+    			"	\"ImportoRimborsiCpap\" Float NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

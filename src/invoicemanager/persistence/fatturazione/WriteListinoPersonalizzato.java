@@ -83,7 +83,7 @@ public class WriteListinoPersonalizzato {
     			"	\"OpzioneNoteEsterne\" Boolean NULL,\r\n" + 
     			"	\"OpzioneNoteInterne\" Boolean NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

@@ -40,7 +40,7 @@ public class WriteAltroDatoGestionale {
     			"	\"TipoDato\" varchar(25) NULL,\r\n" + 
     			"	\"RiferimentoTesto\" varchar(25) NULL,\r\n" + 
     			"	\"RiferimentoNumero\" Float NULL,\r\n" + 
-    			"	\"RiferimentoData\" Date NULL,\r\n" + 
+    			"	\"RiferimentoData\" Date NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

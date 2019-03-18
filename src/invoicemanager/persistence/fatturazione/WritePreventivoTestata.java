@@ -111,7 +111,7 @@ public class WritePreventivoTestata {
     			"	\"CodiceNazioneSpedizione\" varchar(25) NULL,\r\n" + 
     			"	\"LoginInserimento\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

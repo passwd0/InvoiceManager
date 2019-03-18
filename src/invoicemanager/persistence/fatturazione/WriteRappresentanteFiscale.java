@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.RappresentanteFiscale;
 
@@ -31,4 +32,26 @@ public class WriteRappresentanteFiscale {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.RappresentanteFiscale (\r\n" + 
+    			"	\"Paese\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"IdentificativoFiscale\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"Denominazione\" varchar(25) NULL,\r\n" + 
+    			"	\"Nome\" varchar(25) NULL,\r\n" + 
+    			"	\"Cognome\" varchar(25) NULL\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }

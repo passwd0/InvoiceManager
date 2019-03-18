@@ -54,7 +54,7 @@ public class WriteConfezione {
     			"	\"PesoLordo\" Float NULL,\r\n" + 
     			"	\"PesoTara\" Float NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

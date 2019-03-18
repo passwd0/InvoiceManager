@@ -35,9 +35,9 @@ public class WritePrezzo {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Prezzo (\r\n" + 
-    			"	\"Id\" INTEGER NOT NULL,\r\n" + 
+    			"	\"Id\" INTEGER NOT NULL Primary Key,\r\n" + 
     			"	\"CodiceListinoPersonalizzato\" INTEGER NULL,\r\n" + 
-    			"	\"Prezzo\" Float NULL,\r\n" + 
+    			"	\"Prezzo\" Float NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

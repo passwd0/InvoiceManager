@@ -46,7 +46,7 @@ public class WriteSottogruppiMerceologici {
     			"	\"Sconto\" Float NULL,\r\n" + 
     			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

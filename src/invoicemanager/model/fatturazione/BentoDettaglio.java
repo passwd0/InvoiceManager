@@ -77,7 +77,7 @@ public class BentoDettaglio {
 		return tipoBento;
 	}
 
-	public void setCodiceTipoBento(TipoBento tipoBento) {
+	public void setTipoBento(TipoBento tipoBento) {
 		this.tipoBento = tipoBento;
 	}
 	

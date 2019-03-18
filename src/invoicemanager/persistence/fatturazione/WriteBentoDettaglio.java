@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.BentoDettaglio;
 import invoicemanager.utils.Utils;
@@ -47,4 +48,41 @@ public class WriteBentoDettaglio {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.BentoDettaglio (\r\n" + 
+    			"	\"CodiceBento\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroRigaBento\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceTipoBento\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceRigaBento\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NULL,\r\n" + 
+    			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
+    			"	\"Quantita\" Float NULL,\r\n" + 
+    			"	\"CodiceUnitaMisura\" varchar(25) NULL,\r\n" + 
+    			"	\"Prezzo\" Float NULL,\r\n" + 
+    			"	\"CodiceIva\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceControparte\" varchar(25) NULL,\r\n" + 
+    			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoCliente\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoArticolo\" Float NULL,\r\n" + 
+    			"	\"PercentualeScontoPagamento\" Float NULL,\r\n" + 
+    			"	\"CodiceMagazzino\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceCausaleMagazzino\" varchar(25) NULL,\r\n" + 
+    			"	\"DescrizioneAggiuntiva\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+        c.close();
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
+	
+	
 }
