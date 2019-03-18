@@ -38,7 +38,7 @@ public class ReadAgente {
 				boolean tipoMandato = rs.getBoolean("tipoMandato");
 				String codiceContabile = rs.getString("codiceContabile");
 				String codice = rs.getString("codiceControparte");
-				
+
 				Controparte controparte = null;
 				for (int i=0; i<list.size(); i++) {
 					String tmp = list.get(i).getCodiceControparte();
@@ -46,7 +46,7 @@ public class ReadAgente {
 						controparte = list.get(i);
 					}
 				}
-				
+
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
 				if (ts != null)
