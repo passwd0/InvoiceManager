@@ -38,11 +38,12 @@ public class WriteCodiceABarre {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.CodiceABarre (\r\n" + 
-    			"	\"CodiceArticolo\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"CodiceABarre\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"CodiceABarre\" varchar(25) NOT NULL,\r\n" + 
     			"	\"Tipo\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"   Primary Key (\"CodiceArticolo\", \"CodiceABarre\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

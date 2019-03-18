@@ -38,11 +38,12 @@ public class WriteArticoloMagazzinoDescrizioneMultilingua {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.ArticoloMagazzinoDescrizioneMultilingua (\r\n" + 
-    			"	\"CodiceArticolo\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"CodiceLingua\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NOT NULL ,\r\n" + 
+    			"	\"CodiceLingua\" varchar(25) NOT NULL ,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"   Primary Key (\"CodiceArticolo\", \"CodiceLingua\")" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

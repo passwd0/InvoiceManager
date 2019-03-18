@@ -44,7 +44,7 @@ public class WriteConfezione {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Confezione (\r\n" + 
-    			"	\"CodiceConfezione\" varchar(25) NOT NULL Key Primary,\r\n" + 
+    			"	\"CodiceConfezione\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceStato\" Boolean NULL,\r\n" + 
     			"	\"Larghezza\" Float NULL,\r\n" + 

@@ -42,14 +42,15 @@ public class WriteProvvigioneAgente {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.ProvvigioneAgente (\r\n" + 
-    			"	\"CodiceProvvigione\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"CodiceAgente\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceProvvigione\" varchar(25) NOT NULL ,\r\n" + 
+    			"	\"CodiceAgente\" varchar(25) NOT NULL ,\r\n" + 
     			"	\"ScontoLegatoProvvigione\" Float NULL,\r\n" + 
     			"	\"ProvvigioneLegataSconto\" Float NULL,\r\n" + 
     			"	\"Progressivo\" INTEGER NULL,\r\n" + 
     			"	\"CodiceGruppoMerceologico\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"   Primary Key (\"CodiceProvvigione\", \"CodiceAgente\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

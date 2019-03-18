@@ -102,8 +102,8 @@ public class WriteOrdineTestata {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.OrdineTestata (\r\n" + 
-    			"	\"NumeroOrdine\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"DataOrdine\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroOrdine\" INTEGER NOT NULL ,\r\n" + 
+    			"	\"DataOrdine\" Date NOT NULL ,\r\n" + 
     			"	\"CodiceStatoAvanzamento\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceClienteFatturazione\" varchar(25) NOT NULL,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
@@ -142,7 +142,8 @@ public class WriteOrdineTestata {
     			"	\"Attenzione\" varchar(25) NULL,\r\n" + 
     			"	\"IndicatoreOrdineTrading\" Boolean NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"    Primary Key (\"NumeroOrdine\", \"DataOrdine\") \r\n " +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

@@ -81,8 +81,8 @@ public class WriteFatturaProformaTestata {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.FatturaProformaTestata (\r\n" + 
-    			"	\"NumeroFattura\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"DataFattura\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroFattura\" INTEGER NOT NULL,\r\n" + 
+    			"	\"DataFattura\" Date NOT NULL,\r\n" + 
     			"	\"IndicatoreStatoAvanzamento\" Boolean NULL,\r\n" + 
     			"	\"CodiceClienteFatturazione\" varchar(25) NOT NULL,\r\n" + 
     			"	\"CodiceEsenzioneIva\" varchar(25) NULL,\r\n" + 
@@ -128,7 +128,8 @@ public class WriteFatturaProformaTestata {
     			"	\"IndicatoreEmail\" Boolean NULL,\r\n" + 
     			"	\"IndicatorePA\" Boolean NULL,\r\n" + 
     			"	\"IndicatoreXML\" Boolean NULL,\r\n" + 
-    			"	\"IndicatorePlafond\" Boolean NULL \r\n" + 
+    			"	\"IndicatorePlafond\" Boolean NULL, \r\n" + 
+    			"   Primary Key (\"NumeroFattura\", \"DataFattura\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

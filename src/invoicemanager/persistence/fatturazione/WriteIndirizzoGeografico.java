@@ -48,8 +48,8 @@ public class WriteIndirizzoGeografico {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.IndirizzoGeografico (\r\n" + 
-    			"	\"CodiceIndirizzo\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"CodiceConto\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceIndirizzo\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"CodiceConto\" varchar(25) NOT NULL,\r\n" + 
     			"	\"Via\" varchar(25) NULL,\r\n" + 
     			"	\"Provincia\" varchar(25) NULL,\r\n" + 
     			"	\"Cap\" varchar(25) NULL,\r\n" + 
@@ -62,7 +62,8 @@ public class WriteIndirizzoGeografico {
     			"	\"LoginModifica\" varchar(25) NULL,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
     			"	\"IndicatoreIndirizzoDefault\" Boolean NULL,\r\n" + 
-    			"	\"CodiceMinistero\" varchar(25) NULL \r\n" + 
+    			"	\"CodiceMinistero\" varchar(25) NULL, \r\n" + 
+    			"   Primary Key (\"CodiceIndirizzo\", \"CodiceConto\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

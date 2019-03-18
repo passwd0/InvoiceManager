@@ -39,12 +39,13 @@ public class WriteOrdine {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Ordine (\r\n" + 
-    			"	\"NumeroOrdine\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"NumeroRigaOrdine\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"DataOrdine\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroOrdine\" INTEGER NOT NULL,\r\n" + 
+    			"	\"NumeroRigaOrdine\" INTEGER NOT NULL ,\r\n" + 
+    			"	\"DataOrdine\" Date NOT NULL ,\r\n" + 
     			"	\"OrdCodiceCommessaConvenzione\" varchar(25) NULL,\r\n" + 
     			"	\"OrdCodiceCUP\" varchar(25) NULL,\r\n" + 
-    			"	\"OrdCodiceCIG\" varchar(25) NULL \r\n" + 
+    			"	\"OrdCodiceCIG\" varchar(25) NULL, \r\n" + 
+    			"   Primary Key (\"NumeroOrdine\", \"NumeroRigaOrdine\", \"DataOrdine\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

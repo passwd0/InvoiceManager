@@ -98,8 +98,8 @@ public class WriteDdtTestata {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.DdtTestata (\r\n" + 
-    			"	\"NumeroDDT\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"DataDDT\" Timestamp NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroDDT\" INTEGER NOT NULL,\r\n" + 
+    			"	\"DataDDT\" Timestamp NOT NULL,\r\n" + 
     			"	\"IndicatoreStatoAvanzamento\" Boolean NULL,\r\n" + 
     			"	\"CodiceCausale\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceCausalePrelievi\" varchar(25) NULL,\r\n" + 
@@ -142,7 +142,8 @@ public class WriteDdtTestata {
     			"	\"DataCaricamento\" Timestamp NULL,\r\n" + 
     			"	\"UnitaMisuraPesoColli\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"    Primary Key (\"NumeroDDT\", \"DataDDT\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

@@ -79,48 +79,47 @@ import invoicemanager.persistence.fatturazione.*;
 public final class DataManager {
 	
 	public static void createTables() throws ClassNotFoundException, SQLException {
-//		new WriteListino().createDB();
-		new WriteAgente().createDB();
-//		new WriteAllegato().createDB();
-		new WriteAltroDatoGestionale().createDB();
-		new WriteAreaGeografica().createDB();
-		new WriteArticoloMagazzinoDescrizioneMultilingua().createDB();
-		new WriteArticoloMagazzino().createDB();
-		new WriteBancaGlobale().createDB();
-		new WriteBanca().createDB();
-//		new WriteBentoDettaglio().createDB();
-		new WriteBentoTestata().createDB();
-		new WriteCapItaliano().createDB();
-		new WriteCausaleMagazzino().createDB();
+		//new WriteAgente().createDB();
+		//new WriteAllegato().createDB();
+		//new WriteAltroDatoGestionale().createDB();
+		//new WriteAreaGeografica().createDB();
+		//new WriteArticoloMagazzinoDescrizioneMultilingua().createDB();
+		//new WriteArticoloMagazzino().createDB();
+		//new WriteBancaGlobale().createDB();
+		//new WriteBanca().createDB();
+		//new WriteBentoDettaglio().createDB();
+		//new WriteBentoTestata().createDB();
+		//new WriteCapItaliano().createDB();
+		//new WriteCausaleMagazzino().createDB();
 //		new WriteCliente().createDB();
-		new WriteCodiceABarre().createDB();
-		new WriteConfezione().createDB();
-		new WriteContratto().createDB();
+		//new WriteCodiceABarre().createDB();
+		//new WriteConfezione().createDB();
+		//new WriteContratto().createDB();
 //		new WriteControparte().createDB();
-		new WriteConvenzione().createDB();
-		new WriteDdtDettaglio().createDB();
-		new WriteDdtTestata().createDB();
-		new WriteFatturaCollegata().createDB();
-		new WriteFatturaDettaglio().createDB();
-		new WriteFatturaProformaDettaglio().createDB();
-		new WriteFatturaProformaTestata().createDB();
-		new WriteFatturaTestata().createDB();
-		new WriteGruppo().createDB();
-		new WriteGruppoMerceologico().createDB();
-		new WriteImballo().createDB();
-		new WriteIndirizzoGeografico().createDB();
-		new WriteIso().createDB();
-		new WriteIva().createDB();
-		new WriteListinoArticolo().createDB();
-		new WriteListinoPersonalizzato().createDB();
-		new WriteMagazzino().createDB();
-		new WriteOrdineDettaglio().createDB();
-		new WriteOrdine().createDB();
-		new WriteOrdineTestata().createDB();
-		new WritePagamento().createDB();
-		new WritePercipiente().createDB();
-		new WritePianoConto().createDB();
-		new WritePreventivoDettaglio().createDB();
+		//new WriteConvenzione().createDB();
+		//new WriteDdtDettaglio().createDB();
+		//new WriteDdtTestata().createDB();
+		//new WriteFatturaCollegata().createDB();
+		//new WriteFatturaDettaglio().createDB();
+		//new WriteFatturaProformaDettaglio().createDB();
+		//new WriteFatturaProformaTestata().createDB();
+		//new WriteFatturaTestata().createDB();
+		//new WriteGruppo().createDB();
+		//new WriteGruppoMerceologico().createDB();
+		//new WriteImballo().createDB();
+		//new WriteIndirizzoGeografico().createDB();
+		//new WriteIso().createDB();
+		//new WriteIva().createDB();
+		//new WriteListinoArticolo().createDB();
+		//new WriteListinoPersonalizzato().createDB();
+		//new WriteMagazzino().createDB();
+		//new WriteOrdineDettaglio().createDB();
+		//new WriteOrdine().createDB();
+		//new WriteOrdineTestata().createDB();
+		//new WritePagamento().createDB();
+		//new WritePercipiente().createDB();
+		//new WritePianoConto().createDB();
+		//new WritePreventivoDettaglio().createDB();
 //		new WritePreventivoTestata().createDB();
 //		new WritePrezzo().createDB();
 //		new WriteProvvigioneAgente().createDB();
@@ -1027,17 +1026,7 @@ public final class DataManager {
 		}
 		}
 	}
-	public static void add(Listino listino) {
-		List<Listino> listListino = loadListino();
-		if(!listListino.contains(listino)) {
-		try {
-				new WriteListino().add(listino, false);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-
-		}
-		}
-	}
+	
 	public static void add(ListinoPersonalizzato listinoPersonalizzato) {
 		List<ListinoPersonalizzato> listListinoPersonalizzato = loadListinoPersonalizzato();
 		if(!listListinoPersonalizzato.contains(listinoPersonalizzato)) {

@@ -59,8 +59,8 @@ public class WriteListinoPersonalizzato {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.ListinoPersonalizzato (\r\n" + 
-    			"	\"CodiceCliente\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"CodiceArticolo\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceCliente\" varchar(25) NOT NULL,\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NOT NULL,\r\n" + 
     			"	\"Variante\" varchar(25) NULL,\r\n" + 
     			"	\"Prezzo\" Float NULL,\r\n" + 
     			"	\"Provvigione\" Float NULL,\r\n" + 
@@ -83,7 +83,8 @@ public class WriteListinoPersonalizzato {
     			"	\"OpzioneNoteEsterne\" Boolean NULL,\r\n" + 
     			"	\"OpzioneNoteInterne\" Boolean NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"   Primary Key (\"CodiceCliente\", \"CodiceArticolo\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

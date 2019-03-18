@@ -56,9 +56,9 @@ public class WritePreventivoDettaglio {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.PreventivoDettaglio (\r\n" + 
-    			"	\"NumeroPreventivo\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"NumeroRigaPreventivo\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"DataPreventivo\" Date NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroPreventivo\" INTEGER NOT NULL ,\r\n" + 
+    			"	\"NumeroRigaPreventivo\" INTEGER NOT NULL ,\r\n" + 
+    			"	\"DataPreventivo\" Date NOT NULL ,\r\n" + 
     			"	\"CodiceTipoRigaDocumento\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceArticolo\" varchar(25) NULL,\r\n" + 
     			"	\"QuantitaArticolo\" Float NULL,\r\n" + 
@@ -77,7 +77,8 @@ public class WritePreventivoDettaglio {
     			"	\"PercentualeScontoPagamento\" Float NULL,\r\n" + 
     			"	\"CodiceMagazzino\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"   Primary Key (\"NumeroPreventivo\", \"NumeroRigaPreventivo\", \"DataPreventivo\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

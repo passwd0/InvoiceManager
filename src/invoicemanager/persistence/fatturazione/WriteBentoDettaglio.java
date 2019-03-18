@@ -53,9 +53,9 @@ public class WriteBentoDettaglio {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.BentoDettaglio (\r\n" + 
-    			"	\"CodiceBento\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"NumeroRigaBento\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"CodiceTipoBento\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceBento\" varchar(25) NOT NULL ,\r\n" + 
+    			"	\"NumeroRigaBento\" INTEGER NOT NULL ,\r\n" + 
+    			"	\"CodiceTipoBento\" varchar(25) NOT NULL ,\r\n" + 
     			"	\"CodiceRigaBento\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceArticolo\" varchar(25) NULL,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
@@ -72,7 +72,8 @@ public class WriteBentoDettaglio {
     			"	\"CodiceCausaleMagazzino\" varchar(25) NULL,\r\n" + 
     			"	\"DescrizioneAggiuntiva\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"   Primary Key (\"CodiceBento\", \"NumeroRigaBento\", \"CodiceTipoBento\")" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

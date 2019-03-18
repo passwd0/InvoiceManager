@@ -70,12 +70,12 @@ public class WriteScadenze {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Scadenze (\r\n" + 
-    			"	\"CodiceConto\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"CodiceTipoPagamento\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"RiferimentoPartita\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"DataDocumento\" Date NOT NULL Primary Key,\r\n" + 
-    			"	\"DataScadenza\" Date NOT NULL Primary Key,\r\n" + 
-    			"	\"NumeroRegistrazione\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceConto\" varchar(25) NOT NULL ,\r\n" + 
+    			"	\"CodiceTipoPagamento\" varchar(25) NOT NULL ,\r\n" + 
+    			"	\"RiferimentoPartita\" varchar(25) NOT NULL ,\r\n" + 
+    			"	\"DataDocumento\" Date NOT NULL ,\r\n" + 
+    			"	\"DataScadenza\" Date NOT NULL ,\r\n" + 
+    			"	\"NumeroRegistrazione\" INTEGER NOT NULL ,\r\n" + 
     			"	\"CodiceBanca\" varchar(25) NULL,\r\n" + 
     			"	\"DataValuta\" Date NULL,\r\n" + 
     			"	\"CodicePagamento\" varchar(25) NULL,\r\n" + 
@@ -105,7 +105,8 @@ public class WriteScadenze {
     			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
     			"	\"DescrizioneAggiuntiva\" varchar(25) NULL,\r\n" + 
     			"	\"IndicatoreFattureProforma\" Boolean NULL,\r\n" + 
-    			"	\"ImportoRimborsiCpap\" Float NULL \r\n" + 
+    			"	\"ImportoRimborsiCpap\" Float NULL, \r\n" + 
+    			"   Primary Key (\"CodiceConto\", \"CodiceTipoPagamento\", \"NumeroRegistrazione\", \"DataDocumento\", \"DataScadenza\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

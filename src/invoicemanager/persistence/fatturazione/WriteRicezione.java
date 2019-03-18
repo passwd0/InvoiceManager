@@ -39,12 +39,13 @@ public class WriteRicezione {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Ricezione (\r\n" + 
-    			"	\"NumeroRicezione\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"NumeroRigaRicezione\" INTEGER NOT NULL Primary Key,\r\n" + 
+    			"	\"NumeroRicezione\" INTEGER NOT NULL ,\r\n" + 
+    			"	\"NumeroRigaRicezione\" INTEGER NOT NULL ,\r\n" + 
     			"	\"DataRicezione\" Date NULL,\r\n" + 
     			"	\"RczCodiceCommessaRicezione\" varchar(25) NULL,\r\n" + 
     			"	\"RczCodiceCUP\" varchar(25) NULL,\r\n" + 
-    			"	\"RczCodiceCIG\" varchar(25) NULL \r\n" + 
+    			"	\"RczCodiceCIG\" varchar(25) NULL, \r\n" + 
+    			"   Primary Key (\"NumeroRicezione\", \"NumeroRigaRicezione\") \r\n" +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

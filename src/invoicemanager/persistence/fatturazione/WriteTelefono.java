@@ -39,12 +39,13 @@ public class WriteTelefono {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Telefono (\r\n" + 
-    			"	\"CodiceConto\" varchar(25) NOT NULL Primary Key,\r\n" + 
-    			"	\"Progressivo\" INTEGER NOT NULL Primary Key,\r\n" + 
-    			"	\"TipoTelefono\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceConto\" varchar(25) NOT NULL ,\r\n" + 
+    			"	\"Progressivo\" INTEGER NOT NULL ,\r\n" + 
+    			"	\"TipoTelefono\" varchar(25) NOT NULL ,\r\n" + 
     			"	\"Numero\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"   Primary Key (\"CodiceConto\", \"Progressivo\", \"TipoTelefono\") " +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
