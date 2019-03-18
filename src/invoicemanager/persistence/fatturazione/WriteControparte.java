@@ -3,6 +3,7 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.Controparte;
 import invoicemanager.utils.Utils;
@@ -30,6 +31,27 @@ public class WriteControparte {
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
+	}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.Controparte (\r\n" + 
+    			"	\"CodiceControparte\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"Descrizione\" varchar(250) NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
+    			"	\"CodiceContoCOGE\" varchar(25) NULL,\r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			");";
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
 	}
 
 	public void set(Controparte a) throws ClassNotFoundException, SQLException {

@@ -27,7 +27,7 @@ public class ReadAgente {
 
 		try {
 			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM Agenti");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Agente");
 			Timestamp ts;
 	         while ( rs.next() ) {
 

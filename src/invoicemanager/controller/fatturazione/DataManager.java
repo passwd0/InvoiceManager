@@ -57,7 +57,6 @@ import invoicemanager.model.fatturazione.ResaMerce;
 import invoicemanager.model.fatturazione.Ricezione;
 import invoicemanager.model.fatturazione.ScadenzaPagamenti;
 import invoicemanager.model.fatturazione.Scadenze;
-import invoicemanager.model.fatturazione.SottogruppiMerceologici;
 import invoicemanager.model.fatturazione.SottogruppoMerceologico;
 import invoicemanager.model.fatturazione.StabileOrganizzazione;
 import invoicemanager.model.fatturazione.Stato;
@@ -79,71 +78,70 @@ import invoicemanager.persistence.fatturazione.*;
 public final class DataManager {
 	
 	public static void createTables() throws ClassNotFoundException, SQLException {
-		//new WriteAgente().createDB();
-		//new WriteAllegato().createDB();
-		//new WriteAltroDatoGestionale().createDB();
-		//new WriteAreaGeografica().createDB();
-		//new WriteArticoloMagazzinoDescrizioneMultilingua().createDB();
-		//new WriteArticoloMagazzino().createDB();
-		//new WriteBancaGlobale().createDB();
-		//new WriteBanca().createDB();
-		//new WriteBentoDettaglio().createDB();
-		//new WriteBentoTestata().createDB();
-		//new WriteCapItaliano().createDB();
-		//new WriteCausaleMagazzino().createDB();
-//		new WriteCliente().createDB();
-		//new WriteCodiceABarre().createDB();
-		//new WriteConfezione().createDB();
-		//new WriteContratto().createDB();
-//		new WriteControparte().createDB();
-		//new WriteConvenzione().createDB();
-		//new WriteDdtDettaglio().createDB();
-		//new WriteDdtTestata().createDB();
-		//new WriteFatturaCollegata().createDB();
-		//new WriteFatturaDettaglio().createDB();
-		//new WriteFatturaProformaDettaglio().createDB();
-		//new WriteFatturaProformaTestata().createDB();
-		//new WriteFatturaTestata().createDB();
-		//new WriteGruppo().createDB();
-		//new WriteGruppoMerceologico().createDB();
-		//new WriteImballo().createDB();
-		//new WriteIndirizzoGeografico().createDB();
-		//new WriteIso().createDB();
-		//new WriteIva().createDB();
-		//new WriteListinoArticolo().createDB();
-		//new WriteListinoPersonalizzato().createDB();
-		//new WriteMagazzino().createDB();
-		//new WriteOrdineDettaglio().createDB();
-		//new WriteOrdine().createDB();
-		//new WriteOrdineTestata().createDB();
-		//new WritePagamento().createDB();
-		//new WritePercipiente().createDB();
-		//new WritePianoConto().createDB();
-		//new WritePreventivoDettaglio().createDB();
-//		new WritePreventivoTestata().createDB();
-//		new WritePrezzo().createDB();
-//		new WriteProvvigioneAgente().createDB();
-//		new WriteRaggruppamentoClienteFornitore().createDB();
-//		new WriteRappresentanteFiscale().createDB();
-//		new WriteResaMerce().createDB();
-//		new WriteRicezione().createDB();
-//		new WriteScadenzaPagamenti().createDB();
-//		new WriteScadenze().createDB();
-//		new WriteSottogruppiMerceologici().createDB();
-//		new WriteSottogruppoMerceologico().createDB();
-//		new WriteStabileOrganizzazione().createDB();
-//		new WriteStatoFattura().createDB();
-//		new WriteTelefono().createDB();
-//		new WriteTerzoIntermediario().createDB();
-//		new WriteTipoBento().createDB();
-//		new WriteTipoCliente().createDB();
-//		new WriteTipoIndirizzo().createDB();
-//		new WriteTipoMagazzino().createDB();
-//		new WriteTipoPagamento().createDB();
-//		new WriteTipoRigaDocumento().createDB();
-//		new WriteUnitaMisura().createDB();
-//		new WriteUtente().createDB();
-//		new WriteVettore().createDB();
+		new WriteAgente().createDB();
+		new WriteAllegato().createDB();
+		new WriteAltroDatoGestionale().createDB();
+		new WriteAreaGeografica().createDB();
+		new WriteArticoloMagazzinoDescrizioneMultilingua().createDB();
+		new WriteArticoloMagazzino().createDB();
+		new WriteBancaGlobale().createDB();
+		new WriteBanca().createDB();
+		new WriteBentoDettaglio().createDB();
+		new WriteBentoTestata().createDB();
+		new WriteCapItaliano().createDB();
+		new WriteCausaleMagazzino().createDB();
+		new WriteCliente().createDB();
+		new WriteCodiceABarre().createDB();
+		new WriteConfezione().createDB();
+		new WriteContratto().createDB();
+		new WriteControparte().createDB();
+		new WriteConvenzione().createDB();
+		new WriteDdtDettaglio().createDB();
+		new WriteDdtTestata().createDB();
+		new WriteFatturaCollegata().createDB();
+		new WriteFatturaDettaglio().createDB();
+		new WriteFatturaProformaDettaglio().createDB();
+		new WriteFatturaProformaTestata().createDB();
+		new WriteFatturaTestata().createDB();
+		new WriteGruppo().createDB();
+		new WriteGruppoMerceologico().createDB();
+		new WriteImballo().createDB();
+		new WriteIndirizzoGeografico().createDB();
+		new WriteIso().createDB();
+		new WriteIva().createDB();
+		new WriteListinoArticolo().createDB();
+		new WriteListinoPersonalizzato().createDB();
+		new WriteMagazzino().createDB();
+		new WriteOrdineDettaglio().createDB();
+		new WriteOrdine().createDB();
+		new WriteOrdineTestata().createDB();
+		new WritePagamento().createDB();
+		new WritePercipiente().createDB();
+		new WritePianoConto().createDB();
+		new WritePreventivoDettaglio().createDB();
+		new WritePreventivoTestata().createDB();
+		new WritePrezzo().createDB();
+		new WriteProvvigioneAgente().createDB();
+		new WriteRaggruppamentoClienteFornitore().createDB();
+		new WriteRappresentanteFiscale().createDB();
+		new WriteResaMerce().createDB();
+		new WriteRicezione().createDB();
+		new WriteScadenzaPagamenti().createDB();
+		new WriteScadenze().createDB();
+		new WriteSottogruppoMerceologico().createDB();
+		new WriteStabileOrganizzazione().createDB();
+		new WriteStatoFattura().createDB();
+		new WriteTelefono().createDB();
+		new WriteTerzoIntermediario().createDB();
+		new WriteTipoBento().createDB();
+		new WriteTipoCliente().createDB();
+		new WriteTipoIndirizzo().createDB();
+		new WriteTipoMagazzino().createDB();
+		new WriteTipoPagamento().createDB();
+		new WriteTipoRigaDocumento().createDB();
+		new WriteUnitaMisura().createDB();
+		new WriteUtente().createDB();
+		new WriteVettore().createDB();
 	}
 	
 	public static List<Listino> loadListino()  {
@@ -553,14 +551,7 @@ public final class DataManager {
 			return new ArrayList<>();
 		}
 	}
-	public static List<SottogruppiMerceologici> loadSottogruppiMerceologici() {
-		try {
-			return new ReadSottogruppiMerceologici().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
-	}
+
 	public static List<SottogruppoMerceologico> loadSottogruppoMerceologico() {
 		try {
 			return new ReadSottogruppoMerceologico().read();
@@ -1214,17 +1205,7 @@ public final class DataManager {
 		}
 		}
 	}
-	public static void add(SottogruppiMerceologici sottogruppiMerceologici) {
-		List<SottogruppiMerceologici> listSottogruppiMerceologici = loadSottogruppiMerceologici();
-		if(!listSottogruppiMerceologici.contains(sottogruppiMerceologici)) {
-		try {
-				new WriteSottogruppiMerceologici().add(sottogruppiMerceologici, false);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
 
-		}
-		}
-	}
 	public static void add(SottogruppoMerceologico sottogruppoMerceologico) {
 		List<SottogruppoMerceologico> listSottogruppoMerceologico = loadSottogruppoMerceologico();
 		if(!listSottogruppoMerceologico.contains(sottogruppoMerceologico)) {

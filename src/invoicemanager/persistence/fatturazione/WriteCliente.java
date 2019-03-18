@@ -116,7 +116,7 @@ public class WriteCliente {
 		}
 	}
 	
-	public void create() {
+	public void createDB() {
 		try {
 			Statement stmt = c.createStatement();
 			String sql = "Create table public.Cliente (\r\n" + 

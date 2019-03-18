@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.ScadenzaPagamenti;
 import invoicemanager.model.fatturazione.Scadenze;
@@ -35,4 +36,23 @@ public class WriteScadenzaPagamenti {
 	   			  //Utils.createAlertFailWriteDB();
 				}
 		}
+	
+	public void createDB() {
+		try {
+        Statement stmt = c.createStatement();
+    	String sql = "Create table public.ScadenzaPagamenti (\r\n" + 
+    			"	\"NumeroFattura\" integer NOT NULL Primary Key,\r\n" + 
+    			"	\"ImportoScadenza\" float NULL,\r\n" + 
+    			"	\"DataFattura\" date NULL,\r\n" + 
+    			"	\"DataScadenza\" date NULL\r\n" + 
+    			");";		//AGGIUNGERE STATO
+    	stmt.executeUpdate(sql);
+    	stmt.close();
+        c.commit();
+
+	} catch (Exception e) {
+		//Utils.createAlertFailWriteDB();
+	}
+
+	}
 }
