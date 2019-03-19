@@ -29,6 +29,5 @@ public class RiepilogoTestataController implements Initializable {
 				);
 		combobox_clienti.setItems(oClientiId);
 		combobox_clienti.setConverter(new ClienteConverter());
-		//button_anagrafica.setText("edit");
 	}
 }

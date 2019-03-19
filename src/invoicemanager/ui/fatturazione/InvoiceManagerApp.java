@@ -23,7 +23,7 @@ public class InvoiceManagerApp extends Application {
 		stage.setTitle("Fatturazione");
 		InvoiceManagerPane root = new InvoiceManagerPane(controller, stage);
 
-		Scene scene = new Scene(root, 1000, 700, Color.ALICEBLUE);
+		Scene scene = new Scene(root, 1020, 720, Color.ALICEBLUE);
 		
 		stage.setScene(scene);
 		stage.show();

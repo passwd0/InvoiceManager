@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="Testata">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>
-                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="1000.0">
+                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="1000.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                      <children>
                         <HBox>
                            <children>
-                              <Label text="Stato Documento: " />
-                              <Label text="Label" />
+                              <Label text="Stato Documento: " textFill="RED" />
+                              <Label text="Label">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin></Label>
                            </children>
                         </HBox>
-                        <Label text="Cliente" />
+                        <Label text="Cliente" textFill="RED">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Label>
                         <GridPane>
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="149.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="265.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="14.0" prefWidth="76.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="260.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="130.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
@@ -46,18 +53,21 @@
                               <Label text="Partita IVA:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                               <Label text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                               <Label text="\% prov. cliente:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                              <Label text="\$conto cliente:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                              <Label text="Sconto cliente:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
                               <TextField GridPane.columnIndex="5" GridPane.rowIndex="2" />
                               <TextField GridPane.columnIndex="5" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
-                        <Label text="Spedizioni e Codici" />
+                        <Label text="Spedizioni e Codici" textFill="RED">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Label>
                         <GridPane>
                            <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="162.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="56.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="70.0" prefWidth="97.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.0" minWidth="10.0" prefWidth="139.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="190.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -72,13 +82,19 @@
                               <Label text="Indirizzo:" GridPane.rowIndex="1" />
                               <Label text="Località:" GridPane.rowIndex="2" />
                               <Label text="Nazione:" GridPane.rowIndex="3" />
-                              <Button mnemonicParsing="false" text="Nuova naz." GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                              <Button mnemonicParsing="false" text="Nuova loc." GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                              <Button mnemonicParsing="false" text="Indirizzi" GridPane.columnIndex="5" />
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova naz." GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova loc." GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Indirizzi" GridPane.columnIndex="5" />
                               <TextField GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                              <Label text="CAP:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                              <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="CAP:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin></Label>
                               <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <Label text="Prov:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label text="Prov:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets right="10.0" />
+                                 </GridPane.margin></Label>
                               <TextField GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
                               <TextField GridPane.columnIndex="2" GridPane.columnSpan="2" />
                               <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
@@ -88,12 +104,12 @@
                         </GridPane>
                         <GridPane>
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="50.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="250.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="50.0" prefWidth="70.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="250.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="50.0" prefWidth="70.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="250.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -115,7 +131,10 @@
                               <Label text="Label" GridPane.columnIndex="5" />
                            </children>
                         </GridPane>
-                        <Label text="Riferimenti" />
+                        <Label text="Riferimenti" textFill="RED">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Label>
                         <GridPane>
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="64.0" />
@@ -135,15 +154,15 @@
                           </rowConstraints>
                            <children>
                               <Label text="Ordine N:" />
-                              <Label text="del:" GridPane.rowIndex="1" />
+                              <Label text="del:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                               <Label text="Id filiale:" GridPane.rowIndex="2" />
-                              <Label text="Bolla N:" GridPane.columnIndex="2" />
-                              <Label text="del:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <Label text="Copie:" GridPane.columnIndex="4" />
-                              <Label text="Listino:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                              <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="6" />
-                              <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                              <Label text="Rif.:" GridPane.columnIndex="7" />
+                              <Label text="Bolla N:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                              <Label text="del:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <Label text="Copie:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
+                              <Label text="Listino:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                              <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="6" GridPane.halignment="CENTER" />
+                              <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Label text="Rif.:" GridPane.columnIndex="7" GridPane.halignment="RIGHT" />
                               <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="8" GridPane.rowIndex="1" />
                               <TextField prefHeight="23.0" prefWidth="88.0" GridPane.columnIndex="8" />
                               <TextField GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
