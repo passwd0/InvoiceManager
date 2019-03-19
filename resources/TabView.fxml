@@ -11,7 +11,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>
-                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="1000.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <children>
                         <HBox>
                            <children>
@@ -186,7 +186,184 @@
     </Tab>
       <Tab text="Corpo">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <HBox maxWidth="1.7976931348623157E308">
+                           <children>
+                              <Label text="Magazzino:">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox prefWidth="150.0">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                              <TextField prefWidth="400.0">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button mnemonicParsing="false" text="Decodifica Articolo" />
+                           </children>
+                        </HBox>
+                        <VBox>
+                           <children>
+                              <Label text="Riga Fattura" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Divisa:" />
+                                    <Label text="Articolo:" GridPane.rowIndex="1" />
+                                    <Label text="Desc. agg:" GridPane.rowIndex="2" />
+                                    <Label text="Quantità:" GridPane.rowIndex="3" />
+                                    <Label text="Sconto cliente:" GridPane.rowIndex="4" />
+                                    <Label text="Note:" GridPane.rowIndex="5" />
+                                    <ComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Prezzo:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Sconto art.:" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Sconto pag.:" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="\% pro.:" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Controparti:" GridPane.columnIndex="8" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="IVA:" GridPane.columnIndex="8" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="U.M.:" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="2" />
+                                    <TextField GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="1" />
+                                    <TextField GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                                    <TextField GridPane.columnIndex="2" GridPane.columnSpan="4" />
+                                    <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                                    <TextField GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                                    <Spinner GridPane.columnIndex="9" GridPane.rowIndex="3" />
+                                    <Spinner GridPane.columnIndex="9" GridPane.rowIndex="4" />
+                                    <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="al giorno:" GridPane.columnIndex="6">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Cambio:" GridPane.columnIndex="8">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="7" />
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="9" />
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Netto:" GridPane.columnIndex="8" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <TextField GridPane.columnIndex="9" GridPane.rowIndex="6" />
+                                    <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <HBox>
+                           <children>
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Inserisci">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Modifica">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Pulisci Riga">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Elimina Riga">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Note Riga">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bento">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Colonne">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="108.0" text="Codice" />
+                            <TableColumn prefWidth="468.0" text="Descrizione" />
+                              <TableColumn minWidth="0.0" prefWidth="134.0" text="Quantità" />
+                              <TableColumn prefWidth="90.0" text="Prezzo" />
+                              <TableColumn prefWidth="95.0" text="U.M." />
+                              <TableColumn prefWidth="104.0" text="Sc. Cli" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
         </content>
       </Tab>
       <Tab text="Note">
@@ -196,7 +373,112 @@
       </Tab>
       <Tab text="Piede">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane hgap="20.0" layoutX="154.0" layoutY="83.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="35.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="15.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="300.0" minHeight="200.0" percentHeight="30.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="300.0" minHeight="200.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="300.0" minHeight="200.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="300.0" minHeight="200.0" percentHeight="40.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="300.0" minHeight="200.0" percentHeight="5.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="IVA" textFill="RED">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin></Label>
+                        <Label text="Fattura" textFill="RED" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin></Label>
+                        <Label text="Ritenuta d'Acconto" textFill="RED" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin></Label>
+                        <Label text="Tratte" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin></Label>
+                        <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="3">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="IVA" />
+                            <TableColumn prefWidth="163.0" text="Imponibile" />
+                              <TableColumn prefWidth="100.0" text="\%" />
+                              <TableColumn prefWidth="141.0" text="Imposta" />
+                          </columns>
+                        </TableView>
+                        <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
+                          <columns>
+                            <TableColumn prefWidth="111.0" text="Perc" />
+                            <TableColumn prefWidth="139.0" text="Importo" />
+                              <TableColumn prefWidth="106.0" text="\%" />
+                              <TableColumn prefWidth="143.0" text="Importo RA" />
+                          </columns>
+                        </TableView>
+                        <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                          <columns>
+                            <TableColumn prefWidth="160.0" text="Scadenza" />
+                            <TableColumn prefWidth="189.0" text="Importo" />
+                          </columns>
+                        </TableView>
+                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Acconto:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin></Label>
+                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Totale fattura: (pari a Euro)" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin></Label>
+                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Ritenuta:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin></Label>
+                        <GridPane GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Merce" />
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Spese" GridPane.rowIndex="1" />
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Imposte" GridPane.rowIndex="2" />
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Fattura" GridPane.rowIndex="3" />
+                              <TextField GridPane.columnIndex="1" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="IVA" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Bolli" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Trasporto Imballo" GridPane.columnIndex="2" />
+                              <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Spese banca" GridPane.columnIndex="3" />
+                           </children>
+                        </GridPane>
+                        <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
         </content>
       </Tab>
       <Tab text="Totali Fattura">
