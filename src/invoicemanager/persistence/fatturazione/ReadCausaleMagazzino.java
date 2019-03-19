@@ -67,11 +67,18 @@ public class ReadCausaleMagazzino {
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
 				dataUltimaModifica = ts.toLocalDateTime();
-				String loginInserimento = rs.getString("loginInserimento");
-				String loginModifica = rs.getString("loginModifica");
 				boolean indicatoreLotti = rs.getBoolean("indicatoreLotti");
 				
-				CausaleMagazzino causaleMagazzino = new CausaleMagazzino(codiceCausaleMagazzino, descrizione, codiceStato, segnoEsistenza, segnoImpegniCliente, segnoOrdiniFornitore, segnoFatturato, segnoCaricoAValore, segnoUnitaVendute, segnoCaricoAQuantita, indicatoreMovimentoAQuantita, indicatoreMovimentoAValore, indicatoreMovimentoContoLavorazione, indicatoreMovimentoCommessa, indicatoreAggiornamentoDataUltimoCarico, indicatoreAggiornamentoDataUltimoScarico, indicatoreAggiornamentoCostoUltimo, valoreDaProporre, valorePerValorizzazioneMovimenti, indicatoreConcatenamento, codiceCausaleMagazzinoConcatenata, nomeFileMemo, indicatoreModifica, indicatoreBollaEntrata, indicatoreDocumentoDiTrasporto, indicatoreFatturaAccompagnatoria, indicatoreOrdineCliente, indicatoreOrdineFornitore, indicatoreDistinta, note, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, indicatoreLotti);
+				CausaleMagazzino causaleMagazzino = new CausaleMagazzino(codiceCausaleMagazzino, descrizione, 
+						codiceStato, segnoEsistenza, segnoImpegniCliente, segnoOrdiniFornitore, segnoFatturato, 
+						segnoCaricoAValore, segnoUnitaVendute, segnoCaricoAQuantita, indicatoreMovimentoAQuantita, 
+						indicatoreMovimentoAValore, indicatoreMovimentoContoLavorazione, indicatoreMovimentoCommessa, 
+						indicatoreAggiornamentoDataUltimoCarico, indicatoreAggiornamentoDataUltimoScarico, 
+						indicatoreAggiornamentoCostoUltimo, valoreDaProporre, valorePerValorizzazioneMovimenti, 
+						indicatoreConcatenamento, codiceCausaleMagazzinoConcatenata, nomeFileMemo, indicatoreModifica, 
+						indicatoreBollaEntrata, indicatoreDocumentoDiTrasporto, indicatoreFatturaAccompagnatoria, 
+						indicatoreOrdineCliente, indicatoreOrdineFornitore, indicatoreDistinta, note, dataInserimento, 
+						dataUltimaModifica, indicatoreLotti);
 
 				listcausaleMagazzino.add(causaleMagazzino);
 	         }

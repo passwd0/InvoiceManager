@@ -53,7 +53,7 @@ public class FatturaTestata {
 	private LocalDate dataScadenza;
 	private float importoScadenza;
 	private List<Allegato> allegati;
-	private LocalDateTime dataInserimento;
+	private LocalDateTime dataInserimento = LocalDateTime.now();
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now();
 
 	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura, StatoAvanzamento statoAvanzamento,
@@ -68,8 +68,7 @@ public class FatturaTestata {
 			String codiceNazioneSpedizione, String note, boolean indicatoreFatturazioneDifferita,
 			boolean indicatoreEmail, boolean indicatorePa, List<FatturaDettaglio> fatturadettaglio,
 			float speseTrasporto, float speseImballo, float speseIncasso, float speseBolli, float omaggi,
-			float totalePagato, LocalDate dataScadenza, float importoScadenza, List<Allegato> allegati,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			float totalePagato, LocalDate dataScadenza, float importoScadenza, List<Allegato> allegati) {
 		this.numeroFatturazione = numeroFatturazione;
 		this.dataFattura = dataFattura;
 		this.statoAvanzamento = statoAvanzamento;
@@ -118,8 +117,6 @@ public class FatturaTestata {
 		this.dataScadenza = dataScadenza;
 		this.importoScadenza = importoScadenza;
 		this.allegati = allegati;
-		this.dataInserimento = dataInserimento;
-		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
 	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura) {

@@ -32,14 +32,13 @@ public class CausaleMagazzino{
 	private boolean indicatoreOrdineFornitore; // NULL
 	private boolean indicatoreDistinta; // NULL
 	private String note; //(300) NULL
-	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
-	private String loginInserimento; //(30) NULL
-	private String loginModifica; //(30) NULL
 	private boolean indicatoreLotti;
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
-	public CausaleMagazzino(String codiceCausaleMagazzino){
+	public CausaleMagazzino(String codiceCausaleMagazzino, String descrizione){
 		this.codiceCausaleMagazzino = codiceCausaleMagazzino;
+		this.descrizione = descrizione;
 	}
 
 	public CausaleMagazzino(String codiceCausaleMagazzino, String descrizione, boolean codiceStato, boolean segnoEsistenza,
@@ -53,8 +52,7 @@ public class CausaleMagazzino{
 			String nomeFileMemo, boolean indicatoreModifica, boolean indicatoreBollaEntrata,
 			boolean indicatoreDocumentoDiTrasporto, boolean indicatoreFatturaAccompagnatoria,
 			boolean indicatoreOrdineCliente, boolean indicatoreOrdineFornitore, boolean indicatoreDistinta, String note,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
-			String loginModifica, boolean indicatoreLotti) {
+			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, boolean indicatoreLotti) {
 		this.codiceCausaleMagazzino = codiceCausaleMagazzino;
 		this.descrizione = descrizione;
 		this.codiceStato = codiceStato;
@@ -87,8 +85,6 @@ public class CausaleMagazzino{
 		this.note = note;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
-		this.loginModifica = loginModifica;
 		this.indicatoreLotti = indicatoreLotti;
 	}
 
@@ -346,22 +342,6 @@ public class CausaleMagazzino{
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
-	}
-
-	public String getLoginModifica() {
-		return loginModifica;
-	}
-
-	public void setLoginModifica(String loginModifica) {
-		this.loginModifica = loginModifica;
 	}
 
 	public boolean isIndicatoreLotti() {

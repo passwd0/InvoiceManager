@@ -13,7 +13,7 @@ public class CausaleMagazzinoConverter extends StringConverter<CausaleMagazzino>
 
 	@Override
 	public String toString(CausaleMagazzino causaleMagazzino) {
-		return causaleMagazzino == null ? null : causaleMagazzino.getDescrizione();
+		return causaleMagazzino == null ? null : causaleMagazzino.getCodiceCausaleMagazzino();
 	}
 
 }

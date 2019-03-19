@@ -18,7 +18,7 @@ public class WriteCausaleMagazzino {
 	public void add(CausaleMagazzino a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO CausaleMagazzino VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO CausaleMagazzino VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceCausaleMagazzino());
 		ps.setString(2, a.getDescrizione());
 		ps.setBoolean(3, a.isCodiceStato());
@@ -49,11 +49,9 @@ public class WriteCausaleMagazzino {
 		ps.setBoolean(28, a.isIndicatoreOrdineFornitore());
 		ps.setBoolean(29, a.isIndicatoreDistinta());
 		ps.setString(30, a.getNote());
-		ps.setTimestamp(31, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(32, Utils.toTimestamp(a.getDataUltimaModifica()));
-		ps.setString(33, a.getLoginInserimento());
-		ps.setString(34, a.getLoginModifica());
-		ps.setBoolean(35, a.isIndicatoreLotti());
+		ps.setBoolean(31, a.isIndicatoreLotti());
+		ps.setTimestamp(32, Utils.toTimestamp(a.getDataInserimento()));
+		ps.setTimestamp(33, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 		ps.executeUpdate();
 				ps.close();
@@ -98,11 +96,9 @@ public class WriteCausaleMagazzino {
     			"	\"IndicatoreOrdineFornitore\" Boolean NULL,\r\n" + 
     			"	\"IndicatoreDistinta\" Boolean NULL,\r\n" + 
     			"	\"Note\" varchar(25) NULL,\r\n" + 
+    			"	\"IndicatoreLotti\" Boolean NULL, \r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
-    			"	\"LoginInserimento\" varchar(25) NULL,\r\n" + 
-    			"	\"LoginModifica\" varchar(25) NULL,\r\n" + 
-    			"	\"IndicatoreLotti\" Boolean NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL\r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
