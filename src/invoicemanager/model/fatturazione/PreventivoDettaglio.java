@@ -23,7 +23,7 @@ public class PreventivoDettaglio{
 	private float percentualeScontoArticolo; //  NULL
 	private float percentualeScontoPagamento; //  NULL
 	private String codiceMagazzino; //(4) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public PreventivoDettaglio(int numeroPreventivo, int numeroRigaPreventivo, LocalDate dataPreventivo){

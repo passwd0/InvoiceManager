@@ -6,7 +6,7 @@ public class Magazzino{
 	private String descrizione; //(100) NULL
 	private boolean codiceStato; // NULL
 	private String codiceTipoMagazzino; //(15) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public Magazzino(String codiceMagazzino){

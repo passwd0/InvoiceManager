@@ -5,7 +5,7 @@ public class CodiceABarre{
 	private String codiceArticolo; //(30) NOT NULL
 	private String codiceABarre; //(50) NOT NULL
 	private String tipo; //(50) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public CodiceABarre(String codiceArticolo, String codiceABarre){

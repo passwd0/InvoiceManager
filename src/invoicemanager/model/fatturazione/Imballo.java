@@ -5,7 +5,7 @@ public class Imballo{
 	private String codiceImballo; //(4) NOT NULL
 	private String descrizione; //(100) NULL
 	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 		
 	public Imballo(String codiceImballo, String descrizione, Stato stato, LocalDateTime dataInserimento,

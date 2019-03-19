@@ -6,7 +6,7 @@ public class Telefono{
 	private int progressivo; //  NOT NULL,
 	private String tipoTelefono; //(2) COLLATE Latin1_General_CI_AS NOT NULL,
 	private String numero; //(50) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDateTime dataInserimento; //  NULL,
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL,
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
 
 	public Telefono(String codiceConto, int progressivo, String tipoTelefono){

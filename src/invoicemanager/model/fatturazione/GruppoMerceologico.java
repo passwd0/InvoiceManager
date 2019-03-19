@@ -8,7 +8,7 @@ public class GruppoMerceologico{
 	private float sconto; //  NULL
 	private float percentualeProvvigione; //  NULL
 	private int numeroPezziConfezione; //  NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public GruppoMerceologico(String codiceGruppoMerceologico){

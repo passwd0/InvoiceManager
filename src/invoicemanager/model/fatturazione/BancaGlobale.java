@@ -18,7 +18,7 @@ public class BancaGlobale {
 	private String codiceConto; //(30) COLLATE Latin1_General_CI_AS NULL,
 	private String indirizzo; //(2000) COLLATE Latin1_General_CI_AS NULL,
 	private String cap; //(2000) COLLATE Latin1_General_CI_AS
-	private LocalDateTime dataInserimento; //  NULL,
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL,
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
 
 

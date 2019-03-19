@@ -40,7 +40,7 @@ public class PreventivoTestata {
 	private String provinciaSpedizione; //(30) NULL
 	private String codiceNazioneSpedizione; //(10) NULL
 	private String loginInserimento; //(30) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public PreventivoTestata(int numeroPreventivo, LocalDate dataPreventivo){

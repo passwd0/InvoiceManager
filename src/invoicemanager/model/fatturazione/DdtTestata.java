@@ -40,7 +40,7 @@ public class DdtTestata {
 	private String cittaSpedizione; //] [varchar](50) ,
 	private String provinciaSpedizione; //] [varchar](30) ,
 	private String codiceNazioneSpedizione; //] [varchar](10) ,
-	private LocalDateTime dataInserimento; //NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //NULL
 	private String note; //[Note] [varchar](500) ,
 	private String codiceLingua; //] [varchar](4) ,

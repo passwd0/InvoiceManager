@@ -9,7 +9,7 @@ public class Percipiente {
 	private float percentualeImponibileRitenutaAcconto; //  NULL
 	private String codiceTributo; //(10) NULL
 	private boolean assoggettamentoINPS; // NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public Percipiente(String codicePercipiente){

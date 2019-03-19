@@ -8,7 +8,7 @@ public class BentoTestata{
 	private String codiceMagazzino; //(4) NULL
 	private String codiceClienteFornitore; //(30) NULL
 	private String note; //(500) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public BentoTestata(String codiceBento){

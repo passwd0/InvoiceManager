@@ -34,7 +34,7 @@ public class Scadenze{
 	private String codiceDivisa; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private LocalDate dataRegistrazione; //  NULL,
 	private float importoAbbuono; //  NULL,
-	private LocalDateTime dataInserimento; //  NULL,
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL,
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
 	private String descrizioneAggiuntiva; //(100) COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatoreFattureProforma; // COLLATE Latin1_General_CI_AS NULL,

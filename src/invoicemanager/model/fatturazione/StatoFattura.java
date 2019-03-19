@@ -5,7 +5,7 @@ public class StatoFattura{
 	private boolean indicatoreStatoAvanzamento; // COLLATE Latin1_General_CI_AS NOT NULL,
 	private boolean tipoDocumento; // 
 	private String descrizione; //(50) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDateTime dataInserimento; //  NULL,
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL,
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
 
 	public StatoFattura(boolean indicatoreStatoAvanzamento){

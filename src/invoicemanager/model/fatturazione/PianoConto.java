@@ -13,7 +13,7 @@ public class PianoConto {
 	private String codiceDivisa; //(4) NULL
 	private String codiceBancaBonifico; //(4) NULL
 	private boolean contoBanca; 
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	
 	public PianoConto(String codiceConto){

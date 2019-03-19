@@ -70,7 +70,10 @@ ts = rs.getTimestamp("dataUltimaModifica");
 LocalDateTime dataUltimaModifica = null;
 if (ts != null)
 dataUltimaModifica = ts.toLocalDateTime();
-Utente utente = new Utente(codiceUtente, path, pathSalvataggi, subUtente, tipoUtente, cognome, nome, dataNascita, sesso, comuneNascita, provinciaNascita, domicilioFiscale, comune, provincia, partitaIVA, attivita, codicePersonaFisica, codiceFiscale, ragioneSociale, naturaGiuridica, domicilioAzienda, comuneAzienda, provinciaAzienda, partitaIVAAzienda, attivitaAzienda, codiceAzienda, codiceFiscaleAzienda, indicatoreConversione, password, cap, dataInserimento, dataUltimaModifica);
+Utente utente = new Utente(codiceUtente, path, pathSalvataggi, subUtente, tipoUtente, cognome, nome, dataNascita, sesso, comuneNascita, 
+		provinciaNascita, domicilioFiscale, comune, provincia, partitaIVA, attivita, codicePersonaFisica, codiceFiscale, ragioneSociale, 
+		naturaGiuridica, domicilioAzienda, comuneAzienda, provinciaAzienda, partitaIVAAzienda, attivitaAzienda, codiceAzienda, codiceFiscaleAzienda, 
+		indicatoreConversione, password, cap, dataInserimento, dataUltimaModifica);
 
 		listutente.add(utente);
 	         }

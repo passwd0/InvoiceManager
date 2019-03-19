@@ -1,7 +1,7 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
-public class Utente{
+public class Utente {
 	private String codiceUtente; //(15) NULL
 	private String path; //(50) NULL
 	private String pathSalvataggi; //(50) NULL
@@ -32,9 +32,13 @@ public class Utente{
 	private boolean indicatoreConversione; // NULL
 	private String password; //(20) NULL
 	private String cap; //(50) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
+	public Utente(String codiceUtente) {
+		this.codiceUtente = codiceUtente;
+	}
+	
 	public Utente(String codiceUtente, String path, String pathSalvataggi, String subUtente, boolean tipoUtente,
 			String cognome, String nome, LocalDateTime dataNascita, boolean sesso, String comuneNascita,
 			String provinciaNascita, String domicilioFiscale, String comune, String provincia, String partitaIVA,

@@ -20,7 +20,7 @@ public class BentoDettaglio {
 	private Magazzino magazzino; //(4) NULL
 	private CausaleMagazzino causale; //(4) NULL
 	private String descrizioneAggiuntiva; //(200) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public BentoDettaglio(String codiceBento, TipoBento tipoBento, int numeroRigaBento){

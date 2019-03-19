@@ -12,7 +12,7 @@ public class Pagamento {
 		private int numeroScadenze; //  NULL
 		private float sconto; //  NULL
 		private boolean scadenzaIVAPrimaRata; // NULL
-		private LocalDateTime dataInserimento; //  NULL
+		private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 		private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public Pagamento(String codicePagamento){

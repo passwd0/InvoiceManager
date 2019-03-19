@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class TipoCliente{
 	private String codiceTipoCliente; //(4) NOT NULL
 	private String descrizione; //(50) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public TipoCliente(String codiceTipoCliente){

@@ -33,7 +33,7 @@ public class ArticoloMagazzino {
 	private String note; //(1500) NULL
 	private boolean indicatorePubblicazioneWeb; // NULL
 	private boolean indicatoreInibizione; // NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	private boolean indicatoreScorporoIVA; // NULL
 	private String codiceControparteContabileFornitore; //(4) NULL

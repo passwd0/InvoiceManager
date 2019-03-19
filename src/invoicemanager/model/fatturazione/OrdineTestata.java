@@ -44,7 +44,7 @@ public class OrdineTestata{
 	private String attenzione; //(50) NULL
 	private boolean indicatoreOrdineTrading; // NULL
 	private List<OrdineDettaglio> ordineDettagli;
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	
 	public OrdineTestata(int numeroOrdine, LocalDate dataOrdine) {

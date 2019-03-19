@@ -11,7 +11,7 @@ public class Confezione{
 	private float volume; //  NULL
 	private float pesoLordo; //  NULL
 	private float pesoTara; //  NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public Confezione(String codiceConfezione){

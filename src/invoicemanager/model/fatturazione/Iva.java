@@ -26,7 +26,7 @@ public class Iva{
 	private boolean indicatoreSommaVendite; // NULL
 	private boolean indicatoreArrotondaVendite; // NULL
 	private boolean indicatoreSottraeVendite; // NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	private String loginInserimento; //(30) NULL
 	private String loginModifica; //(30) NULL

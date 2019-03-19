@@ -8,7 +8,7 @@ public class ProvvigioneAgente{
 	private float provvigioneLegataSconto; //  NULL
 	private int progressivo; //  NULL
 	private String codiceGruppoMerceologico; //(4) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); // 
 	
 	public ProvvigioneAgente(String codiceProvvigione, String codiceAgente, float scontoLegatoProvvigione,

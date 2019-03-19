@@ -9,7 +9,7 @@ public class Agente {
 	private boolean tipoMandato; // NULL
 	private String codiceContabile; //(30) NULL
 	private Controparte controparte; // (10) COLLATE Latin1_General_CI_AS NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 		
 	public Agente(String codiceAgente, String nome, float percentualeProvvigione, boolean tipoProvvigione,

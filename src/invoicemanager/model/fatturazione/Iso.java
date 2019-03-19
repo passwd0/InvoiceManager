@@ -5,7 +5,7 @@ public class Iso{
 	private String codiceISO; //(4) NOT NULL
 	private String descrizione; //(100) NULL
 	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 		
 	public Iso(String codiceISO, String descrizione, Stato stato, LocalDateTime dataInserimento,

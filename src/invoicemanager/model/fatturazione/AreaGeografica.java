@@ -7,7 +7,7 @@ public class AreaGeografica{
 	private String area; //(50) NULL
 	private String regione; //(50) NULL
 	private String provincia; //(2) NOT NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now();
 
 	public AreaGeografica(int codiceArea, String provincia){

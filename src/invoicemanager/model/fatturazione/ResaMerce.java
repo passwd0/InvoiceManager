@@ -8,7 +8,7 @@ public class ResaMerce{
 	private float percentualeAddebito; //  NULL
 	private float importoMinimo; // (19, 5) NULL
 	private boolean indicatoreProvvigione; // NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public ResaMerce(String CodiceResa){

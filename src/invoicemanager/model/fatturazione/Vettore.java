@@ -10,7 +10,7 @@ public class Vettore {
 	private String partitaIva; //(11) NULL
 	private String iscrizione; //(50) NULL
 	private String telefono; //(50) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	
 	public Vettore(String codiceVettore){

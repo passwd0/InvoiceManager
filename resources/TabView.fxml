@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicemanager.controller.fatturazione.TabViewController">
   <tabs>
     <Tab text="Testata">
       <content>
@@ -43,15 +43,15 @@
                           </rowConstraints>
                            <children>
                               <Label text="Ragione Sociale:" />
-                              <Label text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="label_ragionesociale" text="Label" GridPane.columnIndex="1" />
                               <Label text="Indirizzo:" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="label_indirizzo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label text="Località:" GridPane.rowIndex="2" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="label_nazione" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="label_localita" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label text="Nazione:" GridPane.rowIndex="3" />
                               <Label text="Partita IVA:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <Label text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Label fx:id="label_partitaiva" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                               <Label text="\% prov. cliente:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                               <Label text="Sconto cliente:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
                               <TextField GridPane.columnIndex="5" GridPane.rowIndex="2" />

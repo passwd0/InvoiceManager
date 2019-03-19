@@ -10,7 +10,7 @@ public class ListinoArticolo implements Listino {
 	private int numeroDecimali; //  NULL
 	private LocalDate dataDecorrenza; //  NULL
 	private LocalDate dataValidita; //  NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public ListinoArticolo(String codiceArticolo, int progressivo, String codiceDivisa){

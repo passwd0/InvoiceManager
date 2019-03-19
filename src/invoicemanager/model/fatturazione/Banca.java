@@ -13,7 +13,7 @@ public class Banca {
 	private String codiceCIN; //(6) NULL
 	private String codiceCINEur; //(6) NULL
 	private String paese; //(6) NULL
-	private LocalDateTime dataInserimento; //  NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	private String iban; //(50) NULL
 	private String swift; //(50) NULL
