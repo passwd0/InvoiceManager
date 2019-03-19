@@ -6,6 +6,7 @@ import invoicemanager.controller.fatturazione.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
 public class InvoiceManagerGrid extends GridPane {
@@ -16,8 +17,10 @@ public class InvoiceManagerGrid extends GridPane {
 		try {
 			GridPane riepilogoTestata = FXMLLoader.load(getClass().getClassLoader().getResource("RiepilogoTestata.fxml"));
 			this.add(riepilogoTestata, 0, 0);
-			TabPane rootContainer = FXMLLoader.load(getClass().getClassLoader().getResource("MainView.fxml"));
-			this.add(rootContainer, 0, 1);
+			TabPane tabView = FXMLLoader.load(getClass().getClassLoader().getResource("TabView.fxml"));
+			this.add(tabView, 0, 1);
+			HBox footerView = FXMLLoader.load(getClass().getClassLoader().getResource("FooterView.fxml"));
+			this.add(footerView, 0, 2);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
