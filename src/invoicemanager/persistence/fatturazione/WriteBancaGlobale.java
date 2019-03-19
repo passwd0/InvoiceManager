@@ -19,7 +19,7 @@ public class WriteBancaGlobale {
 	public void add(BancaGlobale a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO BancaGlobale VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO BancaGlobale VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceBanca());
 		ps.setString(2, a.getDescrizione());
 		ps.setString(3, a.getCodiceABI());

@@ -18,7 +18,7 @@ public class WriteTipoMagazzino {
 	public void add(TipoMagazzino a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO TipoMagazzino VALUES (?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO TipoMagazzino VALUES (?, ?, ?, ?)");
 		ps.setBoolean(1, a.isCodiceTipoMagazzino());
 		ps.setString(2, a.getDescrizione());
 		ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));

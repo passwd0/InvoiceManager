@@ -17,7 +17,7 @@ public class WritePagamento {
 
 	public void add(Pagamento a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Pagamento VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Pagamento VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodicePagamento());
 			ps.setString(2, a.getDescrizione());
 			ps.setString(3, a.getCodiceStato());

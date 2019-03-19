@@ -15,9 +15,9 @@ public class WriteBanca {
 		c = DBConnect.getConnection();
 	}
 
-	public void add(Banca a, boolean exist) throws ClassNotFoundException, SQLException {
+	public void add(Banca a, boolean exist) {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Banche VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO banca VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	    	ps.setString(1, a.getCodiceBanca());
 	    	ps.setString(2, a.getDescrizione());
 	    	ps.setString(3, a.getStato().name());
@@ -41,13 +41,14 @@ public class WriteBanca {
 			ps.close();
 			c.commit();
 	      } catch (Exception e) {
+	    	  e.getStackTrace();
 	    	  //Utils.createAlertFailWriteDB();
 	      }
 	}
 
 	public void set(Banca a) throws ClassNotFoundException, SQLException {
 		try {
-			PreparedStatement ps = c.prepareStatement("UPDATE Banche SET nome=?, percentualeProvvigione=?, tipoProvvigione=?, tipoMandato=?, "
+			PreparedStatement ps = c.prepareStatement("UPDATE Banca SET nome=?, percentualeProvvigione=?, tipoProvvigione=?, tipoMandato=?, "
 					+ "codiceContabile=?, codiceControparte=?, dataInserimento=?, dataUltimaModifica=?, loginInserimento=?, loginModifica=? "
 					+ "WHERE codiceAgente=?");
 	    	ps.setString(1, a.getDescrizione());
@@ -59,12 +60,12 @@ public class WriteBanca {
 	    	ps.setString(7, a.getCodiceCIN());
 	    	ps.setString(8, a.getCodiceCINEur());
 	    	ps.setString(9, a.getPaese());
-	    	ps.setTimestamp(10, Utils.toTimestamp(a.getDataInserimento()));
-	    	ps.setTimestamp(11, Utils.toTimestamp(a.getDataUltimaModifica()));
-	    	ps.setString(12, a.getIban());
-	    	ps.setString(13, a.getSwift());
-	    	ps.setString(14, a.getCodiceConto());
-	    	ps.setString(15, a.getIndirizzo());
+	    	ps.setString(10, a.getIban());
+	    	ps.setString(11, a.getSwift());
+	    	ps.setString(12, a.getCodiceConto());
+	    	ps.setString(13, a.getIndirizzo());
+	    	ps.setTimestamp(14, Utils.toTimestamp(a.getDataInserimento()));
+	    	ps.setTimestamp(15, Utils.toTimestamp(a.getDataUltimaModifica()));
 			
 			ps.executeUpdate();
 			ps.close();
@@ -92,7 +93,7 @@ public class WriteBanca {
     	String sql = "Create table public.Banca (\r\n" + 
     			"	\"CodiceBanca\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NOT NULL,\r\n" + 
-    			"	\"Stato().name\" varchar(25) NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceABI\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceCAB\" varchar(25) NULL,\r\n" + 
     			"	\"Localita\" varchar(25) NULL,\r\n" + 

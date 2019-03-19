@@ -18,7 +18,7 @@ public class WritePercipiente {
 	public void add(Percipiente a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Percipiente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Percipiente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodicePercipiente());
 		ps.setString(2, a.getDescrizione());
 		ps.setBoolean(3, a.isCodiceStato());

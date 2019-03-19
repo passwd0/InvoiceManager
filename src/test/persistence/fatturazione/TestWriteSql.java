@@ -10,26 +10,21 @@ import invoicemanager.model.fatturazione.Agente;
 import invoicemanager.model.fatturazione.Banca;
 
 public class TestWriteSql {
-	private DataManager dm;
-	private Agente agente;
-	private Banca banca;
 	
 	@BeforeEach
-	void setup() {
-		dm = new DataManager();
-		agente = new Agente("aaa");
-	//	banca = new Banca("bbb");
-	}
+	void setup() {	}
 	
 	@Test
 	void writeAgente() {
-		//dm.add(agente);
-		//assertEquals(1, dm.getAgenti().size());
+		Agente agente = new Agente("bbb");
+		DataManager.add(agente);
+		assertEquals(1, DataManager.loadAgente().size());
 	}
 	
 	@Test
 	void writeBanca() {
-		//dm.add(banca);
-		//assertEquals(1, dm.getBanche().size());
+		Banca banca = new Banca("bbb", "ccc");
+		DataManager.add(banca);
+		assertEquals(1, DataManager.loadBanca().size());
 	}
 }

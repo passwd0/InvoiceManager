@@ -18,7 +18,7 @@ public class WriteTelefono {
 	public void add(Telefono a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Telefono VALUES (?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Telefono VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceConto());
 		ps.setInt(2, a.getProgressivo());
 		ps.setString(3, a.getTipoTelefono());

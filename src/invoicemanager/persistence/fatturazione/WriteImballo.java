@@ -17,7 +17,7 @@ public class WriteImballo {
 
 	public void add(Imballo a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Imballo VALUES (?, ?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Imballo VALUES (?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceImballo());
 			ps.setString(2, a.getDescrizione());
 			ps.setString(3, a.getCodiceStato());

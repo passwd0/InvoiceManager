@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class GruppoMerceologico{
 	private String codiceGruppoMerceologico; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato stato; // NULL
+	private Stato stato = Stato.DISPONIBILE; // NULL
 	private float sconto; //  NULL
 	private float percentualeProvvigione; //  NULL
 	private int numeroPezziConfezione; //  NULL

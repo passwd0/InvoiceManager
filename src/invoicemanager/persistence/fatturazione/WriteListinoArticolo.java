@@ -19,7 +19,7 @@ public class WriteListinoArticolo {
 	public void add(ListinoArticolo a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO ListinoArticolo VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO ListinoArticolo VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceArticolo());
 		ps.setInt(2, a.getProgressivo());
 		ps.setString(3, a.getCodiceDivisa());

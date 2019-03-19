@@ -19,7 +19,7 @@ public class WriteListinoPersonalizzato {
 	public void add(ListinoPersonalizzato a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO ListinoPersonalizzato VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO ListinoPersonalizzato VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceCliente());
 		ps.setString(2, a.getCodiceArticolo());
 		ps.setString(3, a.getVariante());

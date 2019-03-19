@@ -18,7 +18,7 @@ public class WriteGruppoMerceologico {
 	public void add(GruppoMerceologico a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO GruppoMerceologico VALUES (?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO GruppoMerceologico VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceGruppoMerceologico());
 		ps.setString(2, a.getDescrizione());
 		ps.setString(3, a.getCodiceStato());

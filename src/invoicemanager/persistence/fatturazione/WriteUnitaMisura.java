@@ -18,7 +18,7 @@ public class WriteUnitaMisura {
 	public void add(UnitaMisura a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO UnitaMisura VALUES (?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO UnitaMisura VALUES (?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceUnitaMisura());
 		ps.setString(2, a.getDescrizione());
 		ps.setBoolean(3, a.isCodiceStato());

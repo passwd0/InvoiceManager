@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Controparte{
 	private String codiceControparte; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
 	private String codiceContoCOGE; //(30) NULL
 	private LocalDateTime dataInserimento; //  NULL
 	private LocalDateTime dataUltimaModifica; //  NULL

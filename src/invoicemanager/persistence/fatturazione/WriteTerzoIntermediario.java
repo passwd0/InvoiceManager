@@ -17,7 +17,7 @@ public class WriteTerzoIntermediario {
 	public void add(TerzoIntermediario a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-				PreparedStatement ps = c.prepareStatement("INSERT INTO TerzoIntermediario VALUES (DEFAULT, ?, ?, ?, ?, ?,)");
+				PreparedStatement ps = c.prepareStatement("INSERT INTO TerzoIntermediario VALUES (DEFAULT, ?, ?, ?, ?, ?)");
 				ps.setString(1, a.getIdentificaticoFiscale());
 				ps.setString(2, a.getDenominazione());
 				ps.setString(3, a.getNome());

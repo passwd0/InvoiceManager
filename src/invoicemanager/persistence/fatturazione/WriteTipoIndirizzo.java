@@ -18,7 +18,7 @@ public class WriteTipoIndirizzo {
 	public void add(TipoIndirizzo a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO TipoIndirizzo VALUES (?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO TipoIndirizzo VALUES (?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceTipoIndirizzo());
 		ps.setString(2, a.getDescrizione());
 		ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));

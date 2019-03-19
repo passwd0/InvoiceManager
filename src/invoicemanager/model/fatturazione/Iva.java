@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Iva{
 	private String codiceIva; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
 	private int rigaIVAAcquisti; //  NULL
 	private float addizionaleIVA; //  NULL
 	private float aliquotaIVA; //  NULL

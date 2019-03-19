@@ -18,7 +18,7 @@ public class WriteAgente {
 	public void add(Agente a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Agente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Agente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceAgente());
 		ps.setString(2, a.getNome());
 		ps.setFloat(3, a.getPercentualeProvvigione());

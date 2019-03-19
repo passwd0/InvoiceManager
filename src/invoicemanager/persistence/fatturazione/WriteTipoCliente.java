@@ -17,7 +17,7 @@ public class WriteTipoCliente {
 
 	public void add(TipoCliente a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO TipiCliente VALUES (?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO TipiCliente VALUES (?, ?, ?, ?)");
 	    	ps.setString(1, a.getCodiceTipoCliente());
 	    	ps.setString(2, a.getDescrizione());
 	    	ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));

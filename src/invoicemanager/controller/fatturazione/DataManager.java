@@ -3,6 +3,7 @@ package invoicemanager.controller.fatturazione;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,7 +78,14 @@ import invoicemanager.persistence.fatturazione.*;
 
 public final class DataManager {
 	
-	public static void createTables() throws ClassNotFoundException, SQLException {
+	public static void createDB() throws ClassNotFoundException, SQLException {
+    	String sql = "Create DATABASE invoicemanager;";
+		Connection c = DBConnect.checkDB();
+        Statement stmt = c.createStatement();
+    	stmt.execute(sql);
+    	stmt.close();
+        c.close();
+	
 		new WriteAgente().createDB();
 		new WriteAllegato().createDB();
 		new WriteAltroDatoGestionale().createDB();
@@ -746,7 +754,7 @@ public final class DataManager {
 		List<Banca> listBanca = loadBanca();
 		if(!listBanca.contains(banca)) {
 		try {
-				new WriteBanca().add(banca, false);
+			new WriteBanca().add(banca, false);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 

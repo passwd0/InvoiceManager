@@ -18,7 +18,7 @@ public class WriteConvenzione {
 	public void add(Convenzione a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Convenzione VALUES (?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Convenzione VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroConvenzione());
 		ps.setInt(2, a.getNumeroRigaConvenzione());
 		ps.setDate(3, Date.valueOf(a.getDataConvenzione()));

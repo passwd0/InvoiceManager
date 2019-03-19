@@ -20,7 +20,7 @@ public class WriteCliente {
 	
 	public void add(Cliente a, boolean exist, List<TipoCliente> tipiCliente) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Cliente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Cliente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceCliente());
 			ps.setString(2, a.getDescrizione());
 			ps.setString(3, a.getCodiceTipoCliente());
@@ -154,7 +154,7 @@ public class WriteCliente {
 					"	\"DataScadenzaSpostataDicembre\" INTEGER NULL,\r\n" + 
 					"	\"CodiceLingua\" varchar(25) NULL,\r\n" + 
 					"	\"Note\" varchar(25) NULL,\r\n" + 
-					"	\"Stato().name\" varchar(25) NULL,\r\n" + 
+					"	\"Stato\" varchar(25) NULL,\r\n" + 
 					"	\"IndicatoreInviataInformativaPrivacy\" Boolean NULL,\r\n" + 
 					"	\"IndicatoreRicevutaInformativaPrivacy\" Boolean NULL,\r\n" + 
 					"	\"IndicatoreScorporoIVA\" Boolean NULL,\r\n" + 

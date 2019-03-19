@@ -17,7 +17,7 @@ public class WriteAltroDatoGestionale {
 
 	public void add(AltroDatoGestionale a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-			PreparedStatement ps = c.prepareStatement("INSERT INTO AltroDatoGestionale VALUES (?, ?, ?, ?,)");
+			PreparedStatement ps = c.prepareStatement("INSERT INTO AltroDatoGestionale VALUES (?, ?, ?, ?)");
 			ps.setString(1, a.getTipoDato());
 			ps.setString(2, a.getRiferimentoTesto());
 			ps.setFloat(3, a.getRiferimentoNumero());

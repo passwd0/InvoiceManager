@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Pagamento {
 		private String codicePagamento; //(4) NOT NULL
 		private String descrizione; //(100) NULL
-		private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
+		private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
 		private TipoPagamento tipoPagamento; // (10) COLLATE Latin1_General_CI_AS NULL
 		private boolean indicatoreScadenzaAVista; // NULL
 		private String giornoMese; //(10) NULL

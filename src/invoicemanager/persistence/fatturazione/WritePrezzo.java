@@ -17,7 +17,7 @@ public class WritePrezzo {
 	public void add(Prezzo a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Prezzo VALUES (?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Prezzo VALUES (?, ?, ?)");
 		ps.setInt(1, a.getId());
 		ps.setInt(2, a.getCodiceListinoPersonalizzato());
 		ps.setFloat(3, a.getPrezzo());

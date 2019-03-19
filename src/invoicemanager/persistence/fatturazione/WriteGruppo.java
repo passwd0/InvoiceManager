@@ -18,7 +18,7 @@ public class WriteGruppo {
 	public void add(Gruppo a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Gruppo VALUES (?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Gruppo VALUES (?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceGruppo());
 		ps.setString(2, a.getDescrizione());
 		ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));

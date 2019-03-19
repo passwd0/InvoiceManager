@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class ResaMerce{
 	private String codiceResa; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
 	private float percentualeAddebito; //  NULL
 	private float importoMinimo; // (19, 5) NULL
 	private boolean indicatoreProvvigione; // NULL

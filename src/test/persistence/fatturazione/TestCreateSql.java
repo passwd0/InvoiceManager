@@ -14,10 +14,9 @@ public class TestCreateSql {
 	@Test
 	void createDB() {
 		try {
-			DataManager.createTables();
+			DataManager.createDB();
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("Error: DB gia' esistente");
 		}
 	}
 }

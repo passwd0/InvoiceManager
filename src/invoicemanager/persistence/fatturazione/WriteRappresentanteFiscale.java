@@ -17,7 +17,7 @@ public class WriteRappresentanteFiscale {
 	public void add(RappresentanteFiscale a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO RappresentanteFiscale VALUES (DEFAULT, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO RappresentanteFiscale VALUES (DEFAULT, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getPaese());
 		ps.setString(2, a.getIdentificativoFiscale());
 		ps.setString(3, a.getDenominazione());

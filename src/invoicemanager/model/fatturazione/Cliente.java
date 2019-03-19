@@ -38,7 +38,7 @@ public class Cliente implements Comparable<Cliente>{
 	private int dataScadenzaSpostataDicembre;
 	private String codiceLingua; //(5)
 	private String note; //(6000)
-	private Stato stato; // (2)
+	private Stato stato = Stato.DISPONIBILE; // (2)
 	private boolean indicatoreInviataInformativaPrivacy;
 	private boolean indicatoreRicevutaInformativaPrivacy;
 	private boolean indicatoreScorporoIVA;

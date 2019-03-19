@@ -17,7 +17,7 @@ public class WriteTipoPagamento {
 
 	public void add(TipoPagamento a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-			PreparedStatement ps = c.prepareStatement("INSERT INTO TipiPagamento VALUES (?, ?, ?, ?,)");
+			PreparedStatement ps = c.prepareStatement("INSERT INTO TipiPagamento VALUES (?, ?, ?, ?)");
 	    	ps.setString(1, a.getCodiceTipoPagamento());
 	    	ps.setString(2, a.getDescrizione());
 	    	ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));

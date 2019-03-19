@@ -18,7 +18,7 @@ public class WriteOrdine {
 	public void add(Ordine a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Ordine VALUES (?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Ordine VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroOrdine());
 		ps.setInt(2, a.getNumeroRigaOrdine());
 		ps.setDate(3, Date.valueOf(a.getDataOrdine()));

@@ -18,7 +18,7 @@ public class WriteRicezione {
 	public void add(Ricezione a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Ricezione VALUES (?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Ricezione VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroRicezione());
 		ps.setInt(2, a.getNumeroRigaRicezione());
 		ps.setDate(3, Date.valueOf(a.getDataRicezione()));

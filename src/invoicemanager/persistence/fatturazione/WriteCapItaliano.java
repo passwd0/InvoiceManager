@@ -18,7 +18,7 @@ public class WriteCapItaliano {
 	public void add(CapItaliano a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO CapItaliano VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO CapItaliano VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getId());
 		ps.setString(2, a.getCap());
 		ps.setString(3, a.getComune());

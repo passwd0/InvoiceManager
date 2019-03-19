@@ -17,7 +17,7 @@ public class WriteStabileOrganizzazione {
 	public void add(StabileOrganizzazione a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO StabileOrganizzazione VALUES (DEFAULT, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO StabileOrganizzazione VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getSoIndirizzo());
 		ps.setString(2, a.getSoNumeroCivico());
 		ps.setString(3, a.getSoCap());

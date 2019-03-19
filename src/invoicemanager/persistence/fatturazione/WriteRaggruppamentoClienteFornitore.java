@@ -17,7 +17,7 @@ public class WriteRaggruppamentoClienteFornitore {
 
 	public void add(RaggruppamentoClienteFornitore a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO RaggruppamentoClienteFornitore VALUES (?, ?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO RaggruppamentoClienteFornitore VALUES (?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceRaggruppamento());
 			ps.setString(2, a.getDescrizione());
 			ps.setString(3, a.getCodiceStato());

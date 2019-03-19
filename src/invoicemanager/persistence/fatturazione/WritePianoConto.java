@@ -18,7 +18,7 @@ public class WritePianoConto {
 	public void add(PianoConto a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO PianoConto VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO PianoConto VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceConto());
 		ps.setString(2, a.getDescrizione());
 		ps.setBoolean(3, a.isTipo());

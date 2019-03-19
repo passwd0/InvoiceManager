@@ -17,7 +17,7 @@ public class WriteVettore {
 
 	public void add(Vettore a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Vettore VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Vettore VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceVettore());
 			ps.setString(2, a.getDescrizione());
 			ps.setString(3, a.getCodiceStato());

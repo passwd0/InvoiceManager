@@ -18,7 +18,7 @@ public class WriteStatoFattura {
 	public void add(StatoFattura a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO StatoFattura VALUES (?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO StatoFattura VALUES (?, ?, ?, ?, ?)");
 		ps.setBoolean(1, a.isIndicatoreStatoAvanzamento());
 		ps.setBoolean(2, a.isTipoDocumento());
 		ps.setString(3, a.getDescrizione());

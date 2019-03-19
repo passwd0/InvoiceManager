@@ -18,7 +18,7 @@ public class WriteFatturaCollegata {
 	public void add(FatturaCollegata a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaCollegata VALUES (?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaCollegata VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroFtCollegate());
 		ps.setInt(2, a.getNumeroRigaFtCollegate());
 		ps.setDate(3, Date.valueOf(a.getDataFtCollegate()));

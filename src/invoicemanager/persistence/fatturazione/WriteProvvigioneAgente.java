@@ -18,7 +18,7 @@ public class WriteProvvigioneAgente {
 	public void add(ProvvigioneAgente a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO ProvvigioneAgente VALUES (?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO ProvvigioneAgente VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceProvvigione());
 		ps.setString(2, a.getCodiceAgente());
 		ps.setFloat(3, a.getScontoLegatoProvvigione());

@@ -18,7 +18,7 @@ public class WriteTipoRigaDocumento {
 	public void add(TipoRigaDocumento a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO TipoRigaDocumento VALUES (?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO TipoRigaDocumento VALUES (?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceTipoRigaDocumento());
 		ps.setString(2, a.getDescrizione());
 		ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));

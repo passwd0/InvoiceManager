@@ -18,7 +18,7 @@ public class WriteContratto {
 	public void add(Contratto a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Contratto VALUES (?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Contratto VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroContratto());
 		ps.setInt(2, a.getNumeroRigaContratto());
 		ps.setDate(3, Date.valueOf(a.getDataContratto()));

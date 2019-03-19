@@ -18,7 +18,7 @@ public class WriteFatturaDettaglio {
 
 	public void add(FatturaDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroFattura());
 			ps.setDate(2, Date.valueOf(a.getDataFattura()));
 			ps.setInt(3, a.getNumeroRigaFattura());
@@ -143,7 +143,6 @@ public class WriteFatturaDettaglio {
     			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
     			"    Primary Key (\"NumeroFattura\", \"DataFattura\", \"NumeroRigaFattura\") " +
     			");";		//AGGIUNGERE STATO
-    	System.out.print(sql);
     	stmt.executeUpdate(sql);
     	stmt.close();
         c.commit();

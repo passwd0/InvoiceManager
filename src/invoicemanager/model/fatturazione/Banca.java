@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Banca {
 	private String codiceBanca; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
 	private String codiceABI; //(5) NULL
 	private String codiceCAB; //(5) NULL
 	private String localita; //(50) NULL

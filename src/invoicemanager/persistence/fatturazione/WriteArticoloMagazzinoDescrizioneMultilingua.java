@@ -18,7 +18,7 @@ public class WriteArticoloMagazzinoDescrizioneMultilingua {
 	public void add(ArticoloMagazzinoDescrizioneMultilingua a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-				PreparedStatement ps = c.prepareStatement("INSERT INTO ArticoloMagazzinoDescrizioneMultilingua VALUES (?, ?, ?, ?, ?,)");
+				PreparedStatement ps = c.prepareStatement("INSERT INTO ArticoloMagazzinoDescrizioneMultilingua VALUES (?, ?, ?, ?, ?)");
 				ps.setString(1, a.getCodiceArticolo());
 				ps.setString(2, a.getCodiceLingua());
 				ps.setString(3, a.getDescrizione());

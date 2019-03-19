@@ -17,7 +17,7 @@ public class WriteControparte {
 
 	public void add(Controparte a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Controparte VALUES (?, ?, ?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Controparte VALUES (?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceControparte());
 			ps.setString(2, a.getDescrizione());
 			ps.setString(3, a.getStato().name());

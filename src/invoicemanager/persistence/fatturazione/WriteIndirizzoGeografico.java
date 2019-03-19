@@ -18,7 +18,7 @@ public class WriteIndirizzoGeografico {
 	public void add(IndirizzoGeografico a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO IndirizzoGeografico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO IndirizzoGeografico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceIndirizzo());
 		ps.setString(2, a.getCodiceConto());
 		ps.setString(3, a.getVia());

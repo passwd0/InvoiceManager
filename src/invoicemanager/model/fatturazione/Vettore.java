@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Vettore {
 	private String codiceVettore; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private Stato stato; // (1) COLLATE Latin1_General_CI_AS NULL
+	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
 	private String via; //(50) NULL
 	private String citta; //(100) NULL
 	private String partitaIva; //(11) NULL

@@ -17,7 +17,7 @@ public class WriteAreaGeografica {
 
 	public void add(AreaGeografica a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-			PreparedStatement ps = c.prepareStatement("INSERT INTO AreaGeografica VALUES (?, ?, ?, ?, ?, ?, ?,)");
+			PreparedStatement ps = c.prepareStatement("INSERT INTO AreaGeografica VALUES (?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getCodiceArea());
 			ps.setString(2, a.getNazione());
 			ps.setString(3, a.getArea());

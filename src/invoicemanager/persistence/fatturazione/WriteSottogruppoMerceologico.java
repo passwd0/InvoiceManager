@@ -18,7 +18,7 @@ public class WriteSottogruppoMerceologico {
 	public void add(SottogruppoMerceologico a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO SottogruppoMerceologico VALUES (?, ?, ?, ?, ?, ?, ?, ?,)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO SottogruppoMerceologico VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceSottogruppoMerceologico());
 		ps.setString(2, a.getDescrizione());
 		ps.setBoolean(3, a.isCodiceStato());

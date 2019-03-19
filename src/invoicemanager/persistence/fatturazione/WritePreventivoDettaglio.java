@@ -19,7 +19,7 @@ public class WritePreventivoDettaglio {
 	public void add(PreventivoDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-				PreparedStatement ps = c.prepareStatement("INSERT INTO PreventivoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)");
+				PreparedStatement ps = c.prepareStatement("INSERT INTO PreventivoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				ps.setInt(1, a.getNumeroPreventivo());
 				ps.setInt(2, a.getNumeroRigaPreventivo());
 				ps.setDate(3, Date.valueOf(a.getDataPreventivo()));

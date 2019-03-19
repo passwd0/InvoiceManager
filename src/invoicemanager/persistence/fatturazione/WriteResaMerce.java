@@ -17,7 +17,7 @@ public class WriteResaMerce {
 
 	public void add(ResaMerce a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO ResaMerce VALUES (?, ?, ?, ?, ?, ?, ?, ?,)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO ResaMerce VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceResa());
 			ps.setString(2, a.getDescrizione());
 			ps.setString(3, a.getCodiceStato());

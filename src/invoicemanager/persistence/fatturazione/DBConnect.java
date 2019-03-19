@@ -3,13 +3,6 @@ package invoicemanager.persistence.fatturazione;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
-
-import invoicemanager.controller.fatturazione.Controller;
-import invoicemanager.controller.fatturazione.DataManager;
-import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 public class DBConnect {
     private static Connection conn;
@@ -39,21 +32,17 @@ public class DBConnect {
         return conn;
     }
     
-    public static void verifyDB() {
+    public static Connection checkDB() throws SQLException {
     	try {
-    	Class.forName("org.postgresql.Driver");
-        Connection conn = DriverManager.getConnection(url, user, pass);
-        Statement s;
-		
-			s = conn.createStatement();
-
-        int Result = s.executeUpdate("CREATE DATABASE "+db);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		conn = DriverManager.getConnection(url, user, pass);
+        conn.setAutoCommit(true);
+		
+        return conn;
     }
 }
