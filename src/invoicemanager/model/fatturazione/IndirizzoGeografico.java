@@ -11,7 +11,7 @@ public class IndirizzoGeografico{
 	private String codiceNazione; //(10) NULL
 	private String codiceTipoIndirizzo; //(3) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	private String loginInserimento; //(30) NULL
 	private String loginModifica; //(30) NULL
 	private String descrizione; //(100) NULL

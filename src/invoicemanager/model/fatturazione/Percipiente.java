@@ -10,7 +10,7 @@ public class Percipiente {
 	private String codiceTributo; //(10) NULL
 	private boolean assoggettamentoINPS; // NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public Percipiente(String codicePercipiente){
 		this.codicePercipiente = codicePercipiente;

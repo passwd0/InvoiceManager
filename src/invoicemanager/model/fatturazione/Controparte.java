@@ -7,7 +7,7 @@ public class Controparte{
 	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
 	private String codiceContoCOGE; //(30) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public Controparte(String codiceControparte, String descrizione, Stato stato, String codiceContoCOGE,
 				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {

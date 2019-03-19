@@ -9,7 +9,7 @@ public class ResaMerce{
 	private float importoMinimo; // (19, 5) NULL
 	private boolean indicatoreProvvigione; // NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public ResaMerce(String CodiceResa){
 		this.codiceResa = CodiceResa;

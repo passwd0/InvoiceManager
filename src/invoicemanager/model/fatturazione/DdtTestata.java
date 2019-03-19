@@ -41,7 +41,7 @@ public class DdtTestata {
 	private String provinciaSpedizione; //] [varchar](30) ,
 	private String codiceNazioneSpedizione; //] [varchar](10) ,
 	private LocalDateTime dataInserimento; //NULL
-	private LocalDateTime dataUltimaModifica; //NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //NULL
 	private String note; //[Note] [varchar](500) ,
 	private String codiceLingua; //] [varchar](4) ,
 	private int numeroDdtDeposito; //NULL

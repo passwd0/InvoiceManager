@@ -11,7 +11,7 @@ public class Vettore {
 	private String iscrizione; //(50) NULL
 	private String telefono; //(50) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	
 	public Vettore(String codiceVettore){
 		this.codiceVettore = codiceVettore;

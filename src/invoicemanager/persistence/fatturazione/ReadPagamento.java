@@ -35,7 +35,7 @@ public class ReadPagamento {
 				String descrizione = rs.getString("descrizione");
 				Stato stato = Stato.valueOf(rs.getString("stato"));
 				String codice = rs.getString("tipoPagamento");
-				TipoPagamento tipoPagamento = listaTipoPagamento.stream().filter(x->x.getCodiceTipoPagamento().equals(codice)).findFirst().get();
+				TipoPagamento tipoPagamento = listaTipoPagamento.stream().filter(x->x.getCodiceTipoPagamento().equals(codice)).findFirst().orElse(null);
 				boolean indicatoreScadenzaAVista = rs.getBoolean("indicatoreScadenzaAVista");
 				String giornoMese = rs.getString("giornoMese");
 				int numeroGiorni = rs.getInt("numeroGiorni");

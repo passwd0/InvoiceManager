@@ -54,7 +54,7 @@ public class FatturaTestata {
 	private float importoScadenza;
 	private List<Allegato> allegati;
 	private LocalDateTime dataInserimento;
-	private LocalDateTime dataUltimaModifica;
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now();
 
 	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura, StatoAvanzamento statoAvanzamento,
 			String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,

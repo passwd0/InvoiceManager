@@ -5,7 +5,7 @@ public class TipoCliente{
 	private String codiceTipoCliente; //(4) NOT NULL
 	private String descrizione; //(50) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public TipoCliente(String codiceTipoCliente){
 		this.codiceTipoCliente = codiceTipoCliente;

@@ -13,7 +13,7 @@ public class Pagamento {
 		private float sconto; //  NULL
 		private boolean scadenzaIVAPrimaRata; // NULL
 		private LocalDateTime dataInserimento; //  NULL
-		private LocalDateTime dataUltimaModifica; //  NULL
+		private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public Pagamento(String codicePagamento){
 		this.codicePagamento = codicePagamento;

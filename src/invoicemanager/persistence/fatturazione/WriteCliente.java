@@ -5,10 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import invoicemanager.model.fatturazione.Cliente;
-import invoicemanager.model.fatturazione.TipoCliente;
 import invoicemanager.utils.Utils;
 
 public class WriteCliente {
@@ -18,10 +16,10 @@ public class WriteCliente {
 		c = DBConnect.getConnection();
 	}
 	
-	public void add(Cliente a, boolean exist, List<TipoCliente> tipiCliente) throws ClassNotFoundException, SQLException {
+	public void add(Cliente a, boolean exist){
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Cliente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			ps.setString(1, a.getCodiceCliente());
+	    	ps.setString(1, a.getCodiceCliente());
 			ps.setString(2, a.getDescrizione());
 			ps.setString(3, a.getCodiceTipoCliente());
 			ps.setString(4, a.getCodiceResaMerce());
@@ -77,12 +75,13 @@ public class WriteCliente {
 			ps.setInt(54, a.getCodiceRappresentanteFiscale());
 			ps.setInt(55, a.getCodiceTerzoIntermediario());
 			ps.setTimestamp(56, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(57, Utils.toTimestamp(a.getDataUltimaModificaa()));
+			ps.setTimestamp(57, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 			ps.executeUpdate();
 			ps.close();
 			c.commit();
 	      } catch (Exception e) {
+	    	  e.getStackTrace();
 	    	  //Utils.createAlertFailWriteDB();
 	      }
 	}
@@ -176,7 +175,7 @@ public class WriteCliente {
 					"	\"CodiceRappresentanteFiscale\" INTEGER NULL,\r\n" + 
 					"	\"CodiceTerzoIntermediario\" INTEGER NULL,\r\n" + 
 					"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-					"	\"DataUltimaModificaa\" Timestamp NULL \r\n" + 
+					"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
 					");";
 			stmt.executeUpdate(sql);
 	    	stmt.close();

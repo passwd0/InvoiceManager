@@ -9,7 +9,7 @@ public class BentoTestata{
 	private String codiceClienteFornitore; //(30) NULL
 	private String note; //(500) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public BentoTestata(String codiceBento){
 		this.codiceBento = codiceBento;

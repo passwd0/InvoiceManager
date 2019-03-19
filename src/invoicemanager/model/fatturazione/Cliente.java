@@ -59,8 +59,8 @@ public class Cliente implements Comparable<Cliente>{
 	private StabileOrganizzazione stabileOrganizzazione;
 	private RappresentanteFiscale rappresentanteFiscale;
 	private TerzoIntermediario terzoIntermediario;
-	private LocalDateTime dataInserimento; // NULL
-	private LocalDateTime dataUltimaModificaa; // NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now();
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); // NULL
 	
 	public Cliente(String codiceCliente){
 		this.codiceCliente = codiceCliente;
@@ -81,7 +81,7 @@ public class Cliente implements Comparable<Cliente>{
 			LocalDate dataInizioPlafond, boolean indicatoreFattureXML, boolean indicatoreDdtEmail,
 			boolean indicatorePlafond, String codiceDestinatarioXml, String codiceEORI,
 			StabileOrganizzazione stabileOrganizzazione, RappresentanteFiscale rappresentanteFiscale,
-			TerzoIntermediario terzoIntermediario, LocalDateTime dataInserimento, LocalDateTime dataUltimaModificaa) {
+			TerzoIntermediario terzoIntermediario) {
 		this.codiceCliente = codiceCliente;
 		this.descrizione = descrizione;
 		this.tipoCliente = tipoCliente;
@@ -137,8 +137,6 @@ public class Cliente implements Comparable<Cliente>{
 		this.stabileOrganizzazione = stabileOrganizzazione;
 		this.rappresentanteFiscale = rappresentanteFiscale;
 		this.terzoIntermediario = terzoIntermediario;
-		this.dataInserimento = dataInserimento;
-		this.dataUltimaModificaa = dataUltimaModificaa;
 	}
 
 	public int getCodiceRappresentanteFiscale() {
@@ -167,12 +165,12 @@ public class Cliente implements Comparable<Cliente>{
 		this.terzoIntermediario = terzoIntermediario;
 	}
 
-	public LocalDateTime getDataUltimaModificaa() {
-		return dataUltimaModificaa;
+	public LocalDateTime getDataUltimaModifica() {
+		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModificaa(LocalDateTime dataUltimaModificaa) {
-		this.dataUltimaModificaa = dataUltimaModificaa;
+	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
 	public String getCodiceTipoCliente() {

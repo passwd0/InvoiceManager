@@ -33,7 +33,7 @@ public class CausaleMagazzino{
 	private boolean indicatoreDistinta; // NULL
 	private String note; //(300) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	private String loginInserimento; //(30) NULL
 	private String loginModifica; //(30) NULL
 	private boolean indicatoreLotti;

@@ -5,7 +5,7 @@ public class TipoPagamento{
 	private String codiceTipoPagamento; //(10) NOT NULL
 	private String descrizione; //(100) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public TipoPagamento(String codiceTipoPagamento){
 		this.codiceTipoPagamento = codiceTipoPagamento;

@@ -33,7 +33,7 @@ public class Utente{
 	private String password; //(20) NULL
 	private String cap; //(50) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public Utente(String codiceUtente, String path, String pathSalvataggi, String subUtente, boolean tipoUtente,
 			String cognome, String nome, LocalDateTime dataNascita, boolean sesso, String comuneNascita,

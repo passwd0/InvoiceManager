@@ -45,7 +45,7 @@ public class OrdineTestata{
 	private boolean indicatoreOrdineTrading; // NULL
 	private List<OrdineDettaglio> ordineDettagli;
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	
 	public OrdineTestata(int numeroOrdine, LocalDate dataOrdine) {
 		this.numeroOrdine = numeroOrdine;

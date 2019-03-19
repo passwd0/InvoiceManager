@@ -35,7 +35,7 @@ public class Scadenze{
 	private LocalDate dataRegistrazione; //  NULL,
 	private float importoAbbuono; //  NULL,
 	private LocalDateTime dataInserimento; //  NULL,
-	private LocalDateTime dataUltimaModifica; //  NULL,
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
 	private String descrizioneAggiuntiva; //(100) COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatoreFattureProforma; // COLLATE Latin1_General_CI_AS NULL,
 	private float importoRimborsiCpap; // 

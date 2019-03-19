@@ -11,7 +11,7 @@ public class ListinoArticolo implements Listino {
 	private LocalDate dataDecorrenza; //  NULL
 	private LocalDate dataValidita; //  NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public ListinoArticolo(String codiceArticolo, int progressivo, String codiceDivisa){
 		this.codiceArticolo = codiceArticolo;

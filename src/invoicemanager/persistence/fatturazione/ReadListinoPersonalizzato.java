@@ -49,7 +49,7 @@ public class ReadListinoPersonalizzato {
 				float scontoPagamento = rs.getFloat("scontoPagamento");
 				String codiceDivisa = rs.getString("codiceDivisa");
 				String codice = rs.getString("gruppoMerceologico");
-				GruppoMerceologico gruppoMerceologico = listaGruppoMerceologico.stream().filter(x->x.getCodiceGruppoMerceologico().equals(codice)).findFirst().get();
+				GruppoMerceologico gruppoMerceologico = listaGruppoMerceologico.stream().filter(x->x.getCodiceGruppoMerceologico().equals(codice)).findFirst().orElse(null);
 				LocalDate dataInizioValidita = rs.getDate("dataInizioValidita").toLocalDate();
 				LocalDate dataFineValidita = rs.getDate("dataFineValidita").toLocalDate();
 				boolean opzioneGruppi = rs.getBoolean("opzioneGruppi");

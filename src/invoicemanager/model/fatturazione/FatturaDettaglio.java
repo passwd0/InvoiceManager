@@ -47,7 +47,7 @@ public class FatturaDettaglio {
 	private List<FatturaCollegata> fattureCollegate;
 	private List<AltroDatoGestionale> altriDatiGestionali;
 	private LocalDateTime dataInserimento;
-	private LocalDateTime dataUltimaModifica;
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now();
 
 	public FatturaDettaglio(int numeroFattura, LocalDate dataFattura, int numeroRigaFattura) {
 		super();

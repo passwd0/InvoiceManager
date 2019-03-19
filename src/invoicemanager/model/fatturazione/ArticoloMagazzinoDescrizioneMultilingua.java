@@ -6,7 +6,7 @@ public class ArticoloMagazzinoDescrizioneMultilingua {
 	private String codiceLingua; //(4) NOT NULL
 	private String descrizione; //(500) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public ArticoloMagazzinoDescrizioneMultilingua(String codiceArticolo, String codiceLingua){
 		this.codiceArticolo = codiceArticolo;

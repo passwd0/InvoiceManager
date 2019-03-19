@@ -7,7 +7,7 @@ public class Magazzino{
 	private boolean codiceStato; // NULL
 	private String codiceTipoMagazzino; //(15) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public Magazzino(String codiceMagazzino){
 		this.codiceMagazzino = codiceMagazzino;

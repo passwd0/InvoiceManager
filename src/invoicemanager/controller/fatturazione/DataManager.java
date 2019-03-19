@@ -809,7 +809,7 @@ public final class DataManager {
 		List<Cliente> listCliente = loadCliente();
 		if(!listCliente.contains(cliente)) {
 		try {
-				new WriteCliente().add(cliente, false, loadTipoCliente());
+				new WriteCliente().add(cliente, false);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 

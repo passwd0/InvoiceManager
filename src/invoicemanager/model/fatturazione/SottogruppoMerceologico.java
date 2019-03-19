@@ -8,7 +8,7 @@ public class SottogruppoMerceologico{
 	private float sconto; //  NULL
 	private float percentualeProvvigione; //  NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	private String loginInserimento; //(30) NULL
 
 	public SottogruppoMerceologico(String codiceSottogruppoMerceologico){

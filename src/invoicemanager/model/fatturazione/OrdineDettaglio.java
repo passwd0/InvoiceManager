@@ -40,7 +40,7 @@ public class OrdineDettaglio{
 	private LocalDate dataInizioSchedulatore; //  NULL
 	private String codiceArticoloBis; //(30) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	
 	public OrdineDettaglio(int numeroOrdine, LocalDate dataOrdine, int numeroRigaOrdine) {
 		this.numeroOrdine = numeroOrdine;

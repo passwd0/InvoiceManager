@@ -6,7 +6,7 @@ public class CodiceABarre{
 	private String codiceABarre; //(50) NOT NULL
 	private String tipo; //(50) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public CodiceABarre(String codiceArticolo, String codiceABarre){
 		this.codiceArticolo = codiceArticolo;

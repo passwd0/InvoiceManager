@@ -10,7 +10,7 @@ public class CapItaliano{
 	private String codiceISTAT; //(20) NULL
 	private String codiceCAB; //(20) NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public CapItaliano(int id){
 		this.id = id;

@@ -5,7 +5,7 @@ public class TipoRigaDocumento{
 	private String codiceTipoRigaDocumento; //(4) COLLATE Latin1_General_CI_AS NOT NULL,
 	private String descrizione; //(50) COLLATE Latin1_General_CI_AS NULL,
 	private LocalDateTime dataInserimento; //  NULL,
-	private LocalDateTime dataUltimaModifica; //  NULL,
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
 
 	public TipoRigaDocumento(String codiceTipoRigaDocumento){
 		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;

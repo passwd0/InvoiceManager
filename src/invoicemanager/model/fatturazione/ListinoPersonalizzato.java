@@ -28,7 +28,7 @@ public class ListinoPersonalizzato implements Listino {
 	private boolean opzioneNoteEsterne; //  NULL
 	private boolean opzioneNoteInterne; //  NULL
 	private LocalDateTime dataInserimento; //  NULL
-	private LocalDateTime dataUltimaModifica; //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public ListinoPersonalizzato(String codiceCliente, String codiceArticolo, String codiceDivisa){
 		this.codiceCliente = codiceCliente;
