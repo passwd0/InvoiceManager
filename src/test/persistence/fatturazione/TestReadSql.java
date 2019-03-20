@@ -32,4 +32,9 @@ public class TestReadSql {
 	void readAgenteSize() {
 		assertEquals(0, DataManager.loadAgente().size());
 	}
+	
+	@Test
+	void readIndirizzoGeografico() {
+		assertEquals(1, DataManager.loadIndirizzoGeografico().size());
+	}
 }

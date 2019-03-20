@@ -37,6 +37,9 @@ public class ReadIndirizzoGeografico {
 				String citta = rs.getString("citta");
 				String codiceNazione = rs.getString("codiceNazione");
 				String codiceTipoIndirizzo = rs.getString("codiceTipoIndirizzo");
+				String descrizione = rs.getString("descrizione");
+				boolean indicatoreIndirizzoDefault = rs.getBoolean("indicatoreIndirizzoDefault");
+				String codiceMinistero = rs.getString("codiceMinistero");
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
 				if (ts != null)
@@ -45,13 +48,7 @@ public class ReadIndirizzoGeografico {
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
 					dataUltimaModifica = ts.toLocalDateTime();
-				String loginInserimento = rs.getString("loginInserimento");
-				String loginModifica = rs.getString("loginModifica");
-				String descrizione = rs.getString("descrizione");
-				boolean indicatoreIndirizzoDefault = rs.getBoolean("indicatoreIndirizzoDefault");
-				String codiceMinistero = rs.getString("codiceMinistero");
-
-				IndirizzoGeografico indirizzoGeografico = new IndirizzoGeografico(codiceIndirizzo, codiceConto, via, provincia, cap, citta, codiceNazione, codiceTipoIndirizzo, dataInserimento, dataUltimaModifica, loginInserimento, loginModifica, descrizione, indicatoreIndirizzoDefault, codiceMinistero);
+				IndirizzoGeografico indirizzoGeografico = new IndirizzoGeografico(codiceIndirizzo, codiceConto, via, provincia, cap, citta, codiceNazione, codiceTipoIndirizzo, descrizione, indicatoreIndirizzoDefault, codiceMinistero, dataInserimento, dataUltimaModifica);
 
 				listindirizzoGeografico.add(indirizzoGeografico);
 	         }

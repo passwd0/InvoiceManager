@@ -14,7 +14,10 @@ import invoicemanager.model.fatturazione.Agente;
 import invoicemanager.model.fatturazione.Banca;
 import invoicemanager.model.fatturazione.CausaleMagazzino;
 import invoicemanager.model.fatturazione.Cliente;
+import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.model.fatturazione.Utente;
+import invoicemanager.persistence.fatturazione.ReadIndirizzoGeografico;
+import invoicemanager.persistence.fatturazione.WriteIndirizzoGeografico;
 
 public class TestWriteSql {
 	
@@ -65,6 +68,15 @@ public class TestWriteSql {
 //		u.setDataNascita(LocalDateTime.of(1979, 1, 5, 5, 2));
 //		u.setPartitaIVA("a003_partitaiva");
 //		DataManager.add(u);
-//		assertEquals(3, DataManager.loadUtente().size());
+		assertEquals(3, DataManager.loadUtente().size());
+	}
+	
+	@Test 
+	void writeIndirizzoGeografico(){
+		IndirizzoGeografico ig = new IndirizzoGeografico("a003_indirizzo", "a003");
+		ig.setCodiceNazione("c_nazione");
+		ig.setCodiceTipoIndirizzo("c_tipoindirizzo");
+		DataManager.add(ig);
+		assertEquals(1, DataManager.loadIndirizzoGeografico().size());
 	}
 }

@@ -3,20 +3,19 @@ import java.time.LocalDateTime;
 
 public class IndirizzoGeografico{
 	private String codiceIndirizzo; //(50) NOT NULL
-	private String codiceConto; //(30) NOT NULL
+	private String codiceConto; //(30) NOT NULL			//codiceCliente, codiceFornitore
 	private String via; //(100) NULL
 	private String provincia; //(3) NULL
 	private String cap; //(10) NULL
 	private String citta; //(50) NULL
 	private String codiceNazione; //(10) NULL
 	private String codiceTipoIndirizzo; //(3) NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
-	private String loginInserimento; //(30) NULL
-	private String loginModifica; //(30) NULL
 	private String descrizione; //(100) NULL
 	private boolean indicatoreIndirizzoDefault; // NULL
 	private String codiceMinistero; //(50) NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	
 
 	public IndirizzoGeografico(String codiceIndirizzo, String codiceConto){
 		this.codiceIndirizzo = codiceIndirizzo;
@@ -24,9 +23,9 @@ public class IndirizzoGeografico{
 	}
 
 	public IndirizzoGeografico(String codiceIndirizzo, String codiceConto, String via, String provincia, String cap,
-			String citta, String codiceNazione, String codiceTipoIndirizzo, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica, String loginInserimento, String loginModifica, String descrizione,
-			boolean indicatoreIndirizzoDefault, String codiceMinistero) {
+			String citta, String codiceNazione, String codiceTipoIndirizzo, String descrizione,
+			boolean indicatoreIndirizzoDefault, String codiceMinistero, LocalDateTime dataInserimento,
+			LocalDateTime dataUltimaModifica) {
 		this.codiceIndirizzo = codiceIndirizzo;
 		this.codiceConto = codiceConto;
 		this.via = via;
@@ -35,13 +34,11 @@ public class IndirizzoGeografico{
 		this.citta = citta;
 		this.codiceNazione = codiceNazione;
 		this.codiceTipoIndirizzo = codiceTipoIndirizzo;
-		this.dataInserimento = dataInserimento;
-		this.dataUltimaModifica = dataUltimaModifica;
-		this.loginInserimento = loginInserimento;
-		this.loginModifica = loginModifica;
 		this.descrizione = descrizione;
 		this.indicatoreIndirizzoDefault = indicatoreIndirizzoDefault;
 		this.codiceMinistero = codiceMinistero;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
 	public String getCodiceIndirizzo() {
@@ -122,22 +119,6 @@ public class IndirizzoGeografico{
 
 	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
-	}
-
-	public String getLoginInserimento() {
-		return loginInserimento;
-	}
-
-	public void setLoginInserimento(String loginInserimento) {
-		this.loginInserimento = loginInserimento;
-	}
-
-	public String getLoginModifica() {
-		return loginModifica;
-	}
-
-	public void setLoginModifica(String loginModifica) {
-		this.loginModifica = loginModifica;
 	}
 
 	public String getDescrizione() {
