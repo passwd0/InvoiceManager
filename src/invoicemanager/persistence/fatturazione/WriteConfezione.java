@@ -40,7 +40,7 @@ public class WriteConfezione {
 				}
 		}
 	
-	public void createDB() {
+	public void createTable() {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Confezione (\r\n" + 

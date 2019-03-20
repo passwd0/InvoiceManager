@@ -33,7 +33,7 @@ public class WriteControparte {
 	      }
 	}
 	
-	public void createDB() {
+	public void createTable() {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Controparte (\r\n" + 

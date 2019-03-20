@@ -38,7 +38,7 @@ public class WritePercipiente {
 				}
 		}
 	
-	public void createDB() {
+	public void createTable() {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Percipiente (\r\n" + 

@@ -35,7 +35,7 @@ public class WriteAreaGeografica {
 			}
 		}
 	
-	public void createDB() {
+	public void createTable() {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.AreaGeografica (\r\n" + 

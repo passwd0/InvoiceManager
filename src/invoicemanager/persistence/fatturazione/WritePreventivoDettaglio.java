@@ -52,7 +52,7 @@ public class WritePreventivoDettaglio {
 				}
 		}
 	
-	public void createDB() {
+	public void createTable() {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.PreventivoDettaglio (\r\n" + 

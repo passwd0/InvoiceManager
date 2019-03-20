@@ -89,7 +89,7 @@ public class WriteIva {
 //		}
 	}
 	
-	public void createDB() {
+	public void createTable() {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Iva (\r\n" + 

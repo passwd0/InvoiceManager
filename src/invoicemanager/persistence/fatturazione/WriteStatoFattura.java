@@ -34,7 +34,7 @@ public class WriteStatoFattura {
 				}
 		}
 	
-	public void createDB() {
+	public void createTable() {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.StatoFattura (\r\n" + 

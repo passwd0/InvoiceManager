@@ -61,7 +61,7 @@ public class WriteImballo {
 		}
 	}
 	
-	public void createDB() {
+	public void createTable() {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Imballo (\r\n" + 

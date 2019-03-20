@@ -37,7 +37,7 @@ public class WriteGruppoMerceologico {
 				}
 		}
 	
-	public void createDB() {
+	public void createTable() {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.GruppoMerceologico (\r\n" + 
