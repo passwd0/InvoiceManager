@@ -9,7 +9,7 @@ public class DBConnect {
     public final static String url = "jdbc:postgresql://127.0.0.1/";
 	public final static String db = "invoicemanager";
 	public final static String user = "postgres";
-	public final static String pass = "";
+	public final static String pass = "postgres";
 
     public static Connection connect() throws SQLException {
     	try {

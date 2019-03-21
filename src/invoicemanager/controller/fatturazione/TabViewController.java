@@ -108,8 +108,10 @@ public class TabViewController implements Initializable {
 	public void combobox_codicespedizione_pressed(Event e) {
 		IndirizzoGeografico indirizzoGeografico = combobox_codicespedizione.getSelectionModel().getSelectedItem();
 		textfield_indirizzospedizione.setText(indirizzoGeografico.getCodiceIndirizzo());
-		combobox_localitaspedizione.getItems().add(indirizzoGeografico.getCitta());
-		combobox_nazionespedizione.getItems().add(indirizzoGeografico.getCodiceNazione());
+		//combobox_localitaspedizione.setItems(FXCollections.observableArrayList(indirizzoGeografico.getCitta()));
+		//combobox_nazionespedizione.setItems(FXCollections.observableArrayList(indirizzoGeografico.getCodiceNazione()));
+		combobox_localitaspedizione.setValue(indirizzoGeografico.getCodiceNazione());
+		combobox_nazionespedizione.setValue(indirizzoGeografico.getCodiceNazione());
 		textfield_provinciaspedizione.setText(indirizzoGeografico.getProvincia());
 		textfield_capspedizione.setText(indirizzoGeografico.getCap());
 	}
