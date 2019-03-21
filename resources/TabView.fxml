@@ -96,7 +96,7 @@
                                     <Insets right="10.0" />
                                  </GridPane.margin></Label>
                               <TextField fx:id="textfield_indirizzospedizione" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="2" GridPane.columnSpan="2" />
+                              <TextField fx:id="textfield_codicespedizione" GridPane.columnIndex="2" GridPane.columnSpan="2" />
                               <ComboBox fx:id="combobox_codicespedizione" onAction="#combobox_codicespedizione_pressed" prefWidth="150.0" GridPane.columnIndex="1" />
                               <ComboBox fx:id="combobox_localitaspedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <ComboBox fx:id="combobox_nazionespedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
@@ -126,15 +126,15 @@
                               <Label text="Divisa:" GridPane.columnIndex="4" />
                               <Label text="Es. IVA:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
                               <Label text="Lingua:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                              <Label text="Label" GridPane.columnIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="3" />
-                              <Label text="Label" GridPane.columnIndex="5" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <Label text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <Label fx:id="label_pagamento" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="label_banca" text="Label" GridPane.columnIndex="3" />
+                              <Label fx:id="label_divisa" text="Label" GridPane.columnIndex="5" />
+                              <Label fx:id="label_vettore" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="label_agente" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="label_resa" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="label_imballo" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label fx:id="label_esiva" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <Label fx:id="label_lingua" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                         <Label text="Riferimenti" textFill="RED">
@@ -175,11 +175,11 @@
                                  </GridPane.margin></Label>
                               <Label text="Copie:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
                               <Label text="Listino:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                              <CheckBox maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bolli" GridPane.columnIndex="6" GridPane.halignment="CENTER">
+                              <CheckBox fx:id="checkbox_bolli" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bolli" GridPane.columnIndex="6" GridPane.halignment="CENTER">
                                  <GridPane.margin>
                                     <Insets left="30.0" />
                                  </GridPane.margin></CheckBox>
-                              <CheckBox maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Spese" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                              <CheckBox fx:id="checkbox_spese" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Spese" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="30.0" />
                                  </GridPane.margin></CheckBox>
@@ -187,18 +187,18 @@
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin></Label>
-                              <CheckBox mnemonicParsing="false" text="Lotti / serial number" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-                              <TextField prefHeight="23.0" prefWidth="88.0" GridPane.columnIndex="8" />
-                              <TextField GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
-                              <ComboBox prefWidth="150.0" GridPane.columnIndex="3" />
-                              <TextField GridPane.columnIndex="5">
+                              <CheckBox fx:id="checkbox_lotti" mnemonicParsing="false" text="Lotti / serial number" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                              <TextField fx:id="textfield_rif" prefHeight="23.0" prefWidth="88.0" GridPane.columnIndex="8" />
+                              <TextField fx:id="textfield_idfiliale" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="textfield_ordinen_del" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="textfield_bollandel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="combobox_ordinen" prefWidth="150.0" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="combobox_bollan" prefWidth="150.0" GridPane.columnIndex="3" />
+                              <TextField fx:id="textfield_copie" GridPane.columnIndex="5">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin></TextField>
-                              <TextField GridPane.columnIndex="5" GridPane.rowIndex="1">
+                              <TextField fx:id="textfield_listino" GridPane.columnIndex="5" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
                                  </GridPane.margin></TextField>
@@ -227,7 +227,7 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <ComboBox prefWidth="150.0">
+                              <ComboBox fx:id="combobox_magazzino" prefWidth="150.0">
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
@@ -273,11 +273,11 @@
                                  <children>
                                     <Label text="Divisa:" />
                                     <Label text="Articolo:" GridPane.rowIndex="1" />
-                                    <Label text="Desc. agg:" GridPane.rowIndex="2" />
+                                    <Label text="Descr. agg:" GridPane.rowIndex="2" />
                                     <Label text="Quantità:" GridPane.rowIndex="3" />
                                     <Label text="Sconto cliente:" GridPane.rowIndex="4" />
                                     <Label text="Note:" GridPane.rowIndex="5" />
-                                    <ComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="combobox_divisa" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
                                     <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Prezzo:" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                        <GridPane.margin>
@@ -307,18 +307,18 @@
                                        <GridPane.margin>
                                           <Insets right="10.0" />
                                        </GridPane.margin></Label>
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <TextField GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="2" />
+                                    <TextField fx:id="textfield_scontocliente" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField fx:id="textfield_quantita" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="textfield_descraggiuntiva" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="2" />
                                     <TextField GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="1" />
-                                    <TextField GridPane.columnIndex="5" GridPane.rowIndex="4" />
-                                    <TextField GridPane.columnIndex="2" GridPane.columnSpan="4" />
-                                    <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-                                    <TextField GridPane.columnIndex="7" GridPane.rowIndex="4" />
-                                    <Spinner GridPane.columnIndex="9" GridPane.rowIndex="3" />
-                                    <Spinner GridPane.columnIndex="9" GridPane.rowIndex="4" />
-                                    <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                    <TextField fx:id="textfield_scontopag" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                                    <TextField fx:id="textfield_divisa" GridPane.columnIndex="2" GridPane.columnSpan="4" />
+                                    <ComboBox fx:id="combobox_articolo" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="combobox_um" prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                                    <TextField fx:id="textfield_percpro" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                                    <Spinner fx:id="spinner_iva" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+                                    <Spinner fx:id="spinner_controparti" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+                                    <TextArea fx:id="textarea_note" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="5" GridPane.rowSpan="3" />
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="al giorno:" GridPane.columnIndex="6">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
@@ -327,14 +327,14 @@
                                        <GridPane.margin>
                                           <Insets right="10.0" />
                                        </GridPane.margin></Label>
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="7" />
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="9" />
+                                    <ComboBox fx:id="combobox_algiorno" prefWidth="150.0" GridPane.columnIndex="7" />
+                                    <ComboBox fx:id="combobox_cambio" prefWidth="150.0" GridPane.columnIndex="9" />
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Netto:" GridPane.columnIndex="8" GridPane.rowIndex="6">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
                                        </GridPane.margin></Label>
-                                    <TextField GridPane.columnIndex="9" GridPane.rowIndex="6" />
-                                    <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <TextField fx:id="textfield_netto" GridPane.columnIndex="9" GridPane.rowIndex="6" />
+                                    <TextField fx:id="textfield_scontoart" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                                  </children>
                               </GridPane>
                            </children>
@@ -344,37 +344,37 @@
                         </VBox>
                         <HBox>
                            <children>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Inserisci">
+                              <Button fx:id="button_inserisci" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Inserisci">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                               </Button>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Modifica">
+                              <Button fx:id="button_modifica" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Modifica">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Pulisci Riga">
+                              <Button fx:id="button_pulisciriga" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Pulisci Riga">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Elimina Riga">
+                              <Button fx:id="button_eliminariga" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Elimina Riga">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Note Riga">
+                              <Button fx:id="button_noteriga" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Note Riga">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bento">
+                              <Button fx:id="button_bento" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bento">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Colonne">
+                              <Button fx:id="button_colonne" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Colonne">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
@@ -489,23 +489,23 @@
                               <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Spese" GridPane.rowIndex="1" />
                               <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Imposte" GridPane.rowIndex="2" />
                               <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Fattura" GridPane.rowIndex="3" />
-                              <TextField GridPane.columnIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="textfield_merce" GridPane.columnIndex="1" />
+                              <TextField fx:id="textfield_spese" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="textfield_imposte" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="textfield_fattura" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="textfield_trasportoimballo" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <TextField fx:id="textfield_iva" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <TextField fx:id="textfield_spesebanca" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <TextField fx:id="textfield_bolli" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="IVA" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                               <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Bolli" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                               <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Trasporto Imballo" GridPane.columnIndex="2" />
                               <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Spese banca" GridPane.columnIndex="3" />
                            </children>
                         </GridPane>
-                        <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <Label fx:id="label_acconto" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="label_ritenuta" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label fx:id="label_totalefattura" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
                </children></AnchorPane>

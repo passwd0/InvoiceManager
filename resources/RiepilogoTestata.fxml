@@ -28,12 +28,12 @@
       <Label text="Casuale default" textFill="RED" GridPane.columnIndex="5" GridPane.columnSpan="3" />
       <HBox GridPane.rowIndex="1">
          <children>
-            <Button id="button_anagrafica" mnemonicParsing="false" text="Anagrafica" />
+            <Button id="button_anagrafica" fx:id="button_anagrafica" mnemonicParsing="false" text="Anagrafica" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <children>
-            <ComboBox prefWidth="150.0" />
+            <ComboBox fx:id="combobox_fattura" prefWidth="150.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.rowSpan="2">
@@ -44,12 +44,12 @@
                </HBox.margin></ComboBox>
          </children>
       </HBox>
-      <Button id="button_decodifica" mnemonicParsing="false" text="Decodifica" GridPane.rowIndex="2" />
+      <Button id="button_decodifica" fx:id="button_decodifica" mnemonicParsing="false" text="Decodifica" GridPane.rowIndex="2" />
       <ComboBox id="combobox_clienti" fx:id="combobox_cliente" maxWidth="1.7976931348623157E308" onAction="#combobox_cliente_pressed" prefHeight="26.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets left="10.0" right="40.0" />
          </GridPane.margin></ComboBox>
-      <TextField prefHeight="26.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+      <TextField fx:id="textfield_fattura" prefHeight="26.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2" />
       <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <children>
             <Label minWidth="-Infinity" text="del:">
@@ -70,7 +70,7 @@
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin></TextField>
-      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Causali" GridPane.columnIndex="7" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+      <Button fx:id="button_causali" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Causali" GridPane.columnIndex="7" GridPane.rowIndex="1" GridPane.rowSpan="2" />
    </children>
    <padding>
       <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />

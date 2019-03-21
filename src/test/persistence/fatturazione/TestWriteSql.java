@@ -73,10 +73,10 @@ public class TestWriteSql {
 	
 	@Test 
 	void writeIndirizzoGeografico(){
-		IndirizzoGeografico ig = new IndirizzoGeografico("a003_indirizzo", "a003");
-		ig.setCodiceNazione("c_nazione");
-		ig.setCodiceTipoIndirizzo("c_tipoindirizzo");
+		IndirizzoGeografico ig = new IndirizzoGeografico("a000_indirizzo", "a000");
+		ig.setCodiceNazione("c0_nazione");
+		ig.setCodiceTipoIndirizzo("c0_tipoindirizzo");
 		DataManager.add(ig);
-		assertEquals(1, DataManager.loadIndirizzoGeografico().size());
+		assertEquals(2, DataManager.loadIndirizzoGeografico().size());
 	}
 }
