@@ -5,18 +5,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class FatturaTestata {
+	private int id;			//uniq serial autoinc
 	private int numeroFatturazione;
 	private LocalDate dataFattura;
-	private StatoAvanzamento statoAvanzamento;
+	private StatoAvanzamento statoAvanzamento = StatoAvanzamento.DAINVIARE;
 	private int sezionale = 1;
-	public int getSezionale() {
-		return sezionale;
-	}
-
-	public void setSezionale(int sezionale) {
-		this.sezionale = sezionale;
-	}
-
 	private String codiceClienteFatturazione;
 	private String codiceEsenzioneIva;
 	private String codiceAgente;
@@ -61,7 +54,7 @@ public class FatturaTestata {
 	private float totalePagato;
 	private LocalDate dataScadenza;
 	private float importoScadenza;
-	private List<Allegato> allegati;
+	private List<Allegato> allegati;		//ci sara' una lista di allegati collegati tramite un id
 	private LocalDateTime dataInserimento = LocalDateTime.now();
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now();
 
@@ -128,12 +121,30 @@ public class FatturaTestata {
 		this.importoScadenza = importoScadenza;
 		this.allegati = allegati;
 	}
-
-	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura) {
+	
+	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura, int sezionale, String codiceClienteFatturazione) {
 		this.numeroFatturazione = numeroFatturazione;
 		this.dataFattura = dataFattura;
+		this.codiceClienteFatturazione = codiceClienteFatturazione;
+		this.sezionale = sezionale;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getSezionale() {
+		return sezionale;
+	}
+
+	public void setSezionale(int sezionale) {
+		this.sezionale = sezionale;
+	}
+
 	public LocalDate getDataScadenza() {
 		return dataScadenza;
 	}

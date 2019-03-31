@@ -1,8 +1,11 @@
 package invoicemanager.utils;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 public class Utils {
 	public static DateTimeFormatter formatterOra = DateTimeFormatter.ofPattern("HH:mm");
@@ -18,4 +21,16 @@ public class Utils {
 			return null;
 		return Timestamp.valueOf(datetime);
 	}
+	
+	public static Date convertToDatabaseColumn(LocalDate localDate) {
+        return Optional.ofNullable(localDate)
+          .map(Date::valueOf)
+          .orElse(null);
+    }
+ 
+    public static LocalDate convertToEntityAttribute(Date date) {
+        return Optional.ofNullable(date)
+          .map(Date::toLocalDate)
+          .orElse(null);
+    }
 }

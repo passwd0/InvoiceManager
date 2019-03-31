@@ -11,10 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 import invoicemanager.model.fatturazione.Allegato;
 import invoicemanager.model.fatturazione.FatturaDettaglio;
 import invoicemanager.model.fatturazione.FatturaTestata;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
+import invoicemanager.utils.Utils;
 
 
 public class ReadFatturaTestata {
@@ -36,7 +38,7 @@ public class ReadFatturaTestata {
 
 				int numeroFatturazione = rs.getInt("numeroFatturazione");
 				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
-				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("statoAvanzamento"));
+				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("codiceStatoAvanzamento"));
 				int sezionale = rs.getInt("sezionale");
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
 				String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");
@@ -80,10 +82,10 @@ public class ReadFatturaTestata {
 				float speseBolli = rs.getFloat("speseBolli");
 				float omaggi = rs.getFloat("omaggi");
 				float totalePagato = rs.getFloat("totalePagato");
-				LocalDate dataScadenza = rs.getDate("dataScadenza").toLocalDate();
+				LocalDate dataScadenza = Utils.convertToEntityAttribute(rs.getDate("dataScadenza"));
 				float importoScadenza = rs.getFloat("importoScadenza");
-				String codice = rs.getString("allegati");
-				List<Allegato> allegati = listaAllegato.stream().filter(x->x.getNomeAllegato().equals(codice)).collect(Collectors.toList());
+				int idFatturaTestata = rs.getInt("IdFatturaTestata");
+				List<Allegato> allegati = listaAllegato.stream().filter(x->x.getIdFatturaTestata()== idFatturaTestata).collect(Collectors.toList());
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
 				if (ts != null)

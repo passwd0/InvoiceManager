@@ -3,10 +3,12 @@ package invoicemanager.model.fatturazione;
 public class Allegato { //List
 	private String nomeAllegato; // (60),
 	private String pathAllegato; // (60),
+	private int idFatturaTestata;
 
-	public Allegato(String nomeAllegato, String pathAllegato) {
+	public Allegato(String nomeAllegato, String pathAllegato, int idFatturaTestata) {
 		this.nomeAllegato = nomeAllegato;
 		this.pathAllegato = pathAllegato;
+		this.idFatturaTestata = idFatturaTestata;
 	}
 
 	public String getNomeAllegato() {
@@ -23,6 +25,14 @@ public class Allegato { //List
 
 	public void setPathAllegato(String pathAllegato) {
 		this.pathAllegato = pathAllegato;
+	}
+
+	public int getIdFatturaTestata() {
+		return idFatturaTestata;
+	}
+
+	public void setIdFatturaTestata(int idFatturaTestata) {
+		this.idFatturaTestata = idFatturaTestata;
 	}
 
 	@Override

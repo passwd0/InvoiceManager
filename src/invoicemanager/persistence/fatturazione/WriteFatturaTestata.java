@@ -17,64 +17,69 @@ public class WriteFatturaTestata {
 	}
 
 	public void add(FatturaTestata a, boolean exist) throws ClassNotFoundException, SQLException {
-	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			ps.setInt(1, a.getNumeroFatturazione());
-			ps.setDate(2, Date.valueOf(a.getDataFattura()));
-			ps.setString(3, a.getCodiceStatoAvanzamento());
-			ps.setInt(4, a.getSezionale());
-			ps.setString(5, a.getCodiceClienteFatturazione());
-			ps.setString(6, a.getCodiceEsenzioneIva());
-			ps.setString(7, a.getCodiceAgente());
-			ps.setString(8, a.getCodiceCausale());
-			ps.setString(9, a.getCodiceCausalePrelievi());
-			ps.setFloat(10, a.getPercentualeSconto());
-			ps.setFloat(11, a.getPercentualeScontoPagamento());
-			ps.setFloat(12, a.getPercentualeProvvigione());
-			ps.setString(13, a.getDescrizione());
-			ps.setBoolean(14, a.isIndicatoreAddebitoBolli());
-			ps.setBoolean(15, a.isIndicatoreAddebitoSpeseIncasso());
-			ps.setBoolean(16, a.isIndicatoreScaricoMagazzino());
-			ps.setInt(17, a.getCodiceListino());
-			ps.setString(18, a.getCodiceResa());
-			ps.setString(19, a.getCodiceVettore());
-			ps.setBoolean(20, a.isIndicatoreFatturaAccompagnatoria());
-			ps.setString(21, a.getCodicePagamento());
-			ps.setString(22, a.getCodiceBanca());
-			ps.setString(23, a.getCodiceImballo());
-			ps.setFloat(24, a.getPesoColli());
-			ps.setFloat(25, a.getNumeroColli());
-			ps.setFloat(26, a.getAcconto());
-			ps.setString(27, a.getCodiceDivisa());
-			ps.setFloat(28, a.getCambio());
-			ps.setString(29, a.getCodiceClienteSpedizione());
-			ps.setString(30, a.getNomeSpedizione());
-			ps.setString(31, a.getIndirizzoSpedizione());
-			ps.setString(32, a.getCapSpedizione());
-			ps.setString(33, a.getCittaSpedizione());
-			ps.setString(34, a.getProvinciaSpedizione());
-			ps.setString(35, a.getCodiceNazioneSpedizione());
-			ps.setString(36, a.getNote());
-			ps.setBoolean(37, a.isIndicatoreFatturazioneDifferita());
-			ps.setBoolean(38, a.isIndicatoreEmail());
-			ps.setBoolean(39, a.isIndicatorePa());
-			ps.setFloat(40, a.getSpeseTrasporto());
-			ps.setFloat(41, a.getSpeseImballo());
-			ps.setFloat(42, a.getSpeseIncasso());
-			ps.setFloat(43, a.getSpeseBolli());
-			ps.setFloat(44, a.getOmaggi());
-			ps.setFloat(45, a.getTotalePagato());
-			ps.setDate(46, Date.valueOf(a.getDataScadenza()));
-			ps.setFloat(47, a.getImportoScadenza());
-			ps.setTimestamp(48, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(49, Utils.toTimestamp(a.getDataUltimaModifica()));
+
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			ps.setInt(1, a.getId());
+	    	ps.setInt(2, a.getNumeroFatturazione());
+			ps.setDate(3, Date.valueOf(a.getDataFattura()));
+			ps.setString(4, a.getCodiceStatoAvanzamento());
+			ps.setInt(5, a.getSezionale());
+			ps.setString(6, a.getCodiceClienteFatturazione());
+			ps.setString(7, a.getCodiceEsenzioneIva());
+			ps.setString(8, a.getCodiceAgente());
+			ps.setString(9, a.getCodiceCausale());
+			ps.setString(10, a.getCodiceCausalePrelievi());
+			ps.setFloat(11, a.getPercentualeSconto());
+			ps.setFloat(12, a.getPercentualeScontoPagamento());
+			ps.setFloat(13, a.getPercentualeProvvigione());
+			ps.setString(14, a.getDescrizione());
+			ps.setBoolean(15, a.isIndicatoreAddebitoBolli());
+			ps.setBoolean(16, a.isIndicatoreAddebitoSpeseIncasso());
+			ps.setBoolean(17, a.isIndicatoreScaricoMagazzino());
+			ps.setInt(18, a.getCodiceListino());
+			ps.setString(19, a.getCodiceResa());
+			ps.setString(20, a.getCodiceVettore());
+			ps.setBoolean(21, a.isIndicatoreFatturaAccompagnatoria());
+			ps.setString(22, a.getCodicePagamento());
+			ps.setString(23, a.getCodiceBanca());
+			ps.setString(24, a.getCodiceImballo());
+			ps.setFloat(25, a.getPesoColli());
+			ps.setFloat(26, a.getNumeroColli());
+			ps.setFloat(27, a.getAcconto());
+			ps.setString(28, a.getCodiceDivisa());
+			ps.setFloat(29, a.getCambio());
+			ps.setString(30, a.getCodiceClienteSpedizione());
+			ps.setString(31, a.getNomeSpedizione());
+			ps.setString(32, a.getIndirizzoSpedizione());
+			ps.setString(33, a.getCapSpedizione());
+			ps.setString(34, a.getCittaSpedizione());
+			ps.setString(35, a.getProvinciaSpedizione());
+			ps.setString(36, a.getCodiceNazioneSpedizione());
+			ps.setString(37, a.getNote());
+			ps.setBoolean(38, a.isIndicatoreFatturazioneDifferita());
+			ps.setBoolean(39, a.isIndicatoreEmail());
+			ps.setBoolean(40, a.isIndicatorePa());
+			ps.setFloat(41, a.getSpeseTrasporto());
+			ps.setFloat(42, a.getSpeseImballo());
+			ps.setFloat(43, a.getSpeseIncasso());
+			ps.setFloat(44, a.getSpeseBolli());
+			ps.setFloat(45, a.getOmaggi());
+			ps.setFloat(46, a.getTotalePagato());
+
+			if (a.getDataScadenza() != null)
+				ps.setDate(47, Date.valueOf(a.getDataScadenza()));
+			else
+				ps.setDate(47, null);
+
+
+			ps.setFloat(48, a.getImportoScadenza());
+			ps.setTimestamp(49, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(50, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 	    	ps.executeUpdate();
 			ps.close();
 			c.commit();
-	      } catch (Exception e) {
-	    	  //Utils.createAlertFailWriteDB();
-	      }
+
 	}
 
 	public void set(FatturaTestata a) throws ClassNotFoundException, SQLException {
@@ -110,6 +115,7 @@ public class WriteFatturaTestata {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.FatturaTestata (\r\n" +
+    			"   \"IdFatturaTestata\" serial, \r\n" +
     			"	\"NumeroFatturazione\" INTEGER NOT NULL,\r\n" +
     			"	\"DataFattura\" Date NOT NULL ,\r\n" +
     			"	\"CodiceStatoAvanzamento\" varchar(25) NULL,\r\n" +

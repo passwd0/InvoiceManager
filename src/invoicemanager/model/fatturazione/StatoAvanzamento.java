@@ -1,8 +1,8 @@
 package invoicemanager.model.fatturazione;
 
 public enum StatoAvanzamento {
-	AAA,
-	BBB,
+	DAINVIARE,
+	INVIATA,
 	CCC,
 	DDD,
 	EEE
