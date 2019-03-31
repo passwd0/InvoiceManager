@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,12 +33,12 @@ public class ReadFatturaProformaDettaglio {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM FatturaProformaDettaglio");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 					int numeroFattura = rs.getInt("numeroFattura");
 					int numeroRigaFattura = rs.getInt("numeroRigaFattura");
 					LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
+					int sezionale = rs.getInt("sezionale");
 					String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 					String codiceArticolo = rs.getString("codiceArticolo");
 					float costo = rs.getFloat("costo");
@@ -72,7 +71,7 @@ public class ReadFatturaProformaDettaglio {
 					int codiceAltroDatoGestionale = rs.getInt("altriDatiGestionali");
 					List<AltroDatoGestionale> altriDatiGestionali = listaAltroDatoGestionale.stream().filter(x->x.getCodiceAltroDatoGestionale() == codiceAltroDatoGestionale).collect(Collectors.toList());
 					
-					FatturaProformaDettaglio fatturaProformaDettaglio = new FatturaProformaDettaglio(numeroFattura, numeroRigaFattura, dataFattura, codiceTipoRigaDocumento, codiceArticolo, costo, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, indicatoreNoConferma, codiceMagazzino, ordini, contratti, convenzioni, ricezioni, fattureCollegate, altriDatiGestionali);
+					FatturaProformaDettaglio fatturaProformaDettaglio = new FatturaProformaDettaglio(numeroFattura, numeroRigaFattura, dataFattura, sezionale, codiceTipoRigaDocumento, codiceArticolo, costo, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, indicatoreNoConferma, codiceMagazzino, ordini, contratti, convenzioni, ricezioni, fattureCollegate, altriDatiGestionali);
 
 					listfatturaProformaDettaglio.add(fatturaProformaDettaglio);
 	         }

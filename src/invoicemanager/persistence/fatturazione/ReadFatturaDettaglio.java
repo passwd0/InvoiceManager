@@ -40,6 +40,7 @@ public class ReadFatturaDettaglio {
 				int numeroFattura = rs.getInt("numeroFattura");
 				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
 				int numeroRigaFattura = rs.getInt("numeroRigaFattura");
+				int sezionale = rs.getInt("sezionale");
 				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 				String codiceArticolo = rs.getString("codiceArticolo");
 				float costo = rs.getFloat("costo");
@@ -93,7 +94,7 @@ public class ReadFatturaDettaglio {
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
 				dataUltimaModifica = ts.toLocalDateTime();
-				FatturaDettaglio fatturaDettaglio = new FatturaDettaglio(numeroFattura, dataFattura, numeroRigaFattura, codiceTipoRigaDocumento, codiceArticolo, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, codiceUnitaMisura, serialNumber, indicatoreNoConferma, codiceMagazzino, numeroDdt, dataDdt, numeroRigaDdt, codicePercipiente, codiceCassaPrevidenziale, codiceCdc, contoRicavoUsato, ricavoUsato, ordini, contratti, convenzioni, ricezioni, fattureCollegate, altriDatiGestionali, dataInserimento, dataUltimaModifica);
+				FatturaDettaglio fatturaDettaglio = new FatturaDettaglio(numeroFattura, dataFattura, numeroRigaFattura, sezionale, codiceTipoRigaDocumento, codiceArticolo, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, codiceUnitaMisura, serialNumber, indicatoreNoConferma, codiceMagazzino, numeroDdt, dataDdt, numeroRigaDdt, codicePercipiente, codiceCassaPrevidenziale, codiceCdc, contoRicavoUsato, ricavoUsato, ordini, contratti, convenzioni, ricezioni, fattureCollegate, altriDatiGestionali, dataInserimento, dataUltimaModifica);
 
 				listfatturaDettaglio.add(fatturaDettaglio);
 	         }

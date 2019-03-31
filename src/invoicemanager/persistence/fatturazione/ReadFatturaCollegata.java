@@ -31,12 +31,13 @@ public class ReadFatturaCollegata {
 
 				int numeroFtCollegate = rs.getInt("numeroFtCollegate");
 				int numeroRigaFtCollegate = rs.getInt("numeroRigaFtCollegate");
+				int sezionale = rs.getInt("sezionale");
 				LocalDate dataFtCollegate = rs.getDate("dataFtCollegate").toLocalDate();
 				String ftcCodiceCommessaFtCollegate = rs.getString("ftcCodiceCommessaFtCollegate");
 				String ftcCodiceCUP = rs.getString("ftcCodiceCUP");
 				String ftcCodiceCIG = rs.getString("ftcCodiceCIG");
 				
-				FatturaCollegata fatturaCollegata = new FatturaCollegata(numeroFtCollegate, numeroRigaFtCollegate, dataFtCollegate, ftcCodiceCommessaFtCollegate, ftcCodiceCUP, ftcCodiceCIG);
+				FatturaCollegata fatturaCollegata = new FatturaCollegata(numeroFtCollegate, numeroRigaFtCollegate, sezionale, dataFtCollegate, ftcCodiceCommessaFtCollegate, ftcCodiceCUP, ftcCodiceCIG);
 
 				listfatturaCollegata.add(fatturaCollegata);
 	         }

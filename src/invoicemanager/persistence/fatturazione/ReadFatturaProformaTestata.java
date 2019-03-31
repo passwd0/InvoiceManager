@@ -32,6 +32,7 @@ public class ReadFatturaProformaTestata {
 				int numeroFattura = rs.getInt("numeroFattura");
 				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
 				boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
+				int sezionale = rs.getInt("sezionale");
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
 				String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");
 				String codiceAgente = rs.getString("codiceAgente");
@@ -78,7 +79,7 @@ public class ReadFatturaProformaTestata {
 				boolean indicatoreXML = rs.getBoolean("indicatoreXML");
 				boolean indicatorePlafond = rs.getBoolean("indicatorePlafond");
 				
-				FatturaProformaTestata fatturaProformaTestata = new FatturaProformaTestata(numeroFattura, dataFattura, indicatoreStatoAvanzamento, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, numeroDDT, dataDDT, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, codiceLingua, indicatoreFatturazioneDifferita, indicatoreEdi, codiceFilialeEdi, indicatoreEmail, indicatorePA, indicatoreXML, indicatorePlafond);
+				FatturaProformaTestata fatturaProformaTestata = new FatturaProformaTestata(numeroFattura, dataFattura, indicatoreStatoAvanzamento, sezionale, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, numeroDDT, dataDDT, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, codiceLingua, indicatoreFatturazioneDifferita, indicatoreEdi, codiceFilialeEdi, indicatoreEmail, indicatorePA, indicatoreXML, indicatorePlafond);
 
 				listfatturaProformaTestata.add(fatturaProformaTestata);
 	         }

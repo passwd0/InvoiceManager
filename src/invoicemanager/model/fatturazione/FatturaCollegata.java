@@ -4,19 +4,29 @@ import java.time.LocalDate;
 public class FatturaCollegata{ //List
 	private int numeroFtCollegate; //  NULL,
 	private int numeroRigaFtCollegate; //  NULL,
+	private int sezionale = 1;
 	private LocalDate dataFtCollegate; //  NULL,
 	private String ftcCodiceCommessaFtCollegate; // (100),
 	private String ftcCodiceCUP; // (15),
 	private String ftcCodiceCIG; // (15),
 	
-	public FatturaCollegata(int numeroFtCollegate, int numeroRigaFtCollegate, LocalDate dataFtCollegate,
+	public FatturaCollegata(int numeroFtCollegate, int numeroRigaFtCollegate, int sezionale, LocalDate dataFtCollegate,
 			String ftcCodiceCommessaFtCollegate, String ftcCodiceCUP, String ftcCodiceCIG) {
 		this.numeroFtCollegate = numeroFtCollegate;
 		this.numeroRigaFtCollegate = numeroRigaFtCollegate;
+		this.sezionale = sezionale;
 		this.dataFtCollegate = dataFtCollegate;
 		this.ftcCodiceCommessaFtCollegate = ftcCodiceCommessaFtCollegate;
 		this.ftcCodiceCUP = ftcCodiceCUP;
 		this.ftcCodiceCIG = ftcCodiceCIG;
+	}
+	
+	public int getSezionale() {
+		return sezionale;
+	}
+
+	public void setSezionale(int sezionale) {
+		this.sezionale = sezionale;
 	}
 	
 	public int getNumeroFtCollegate() {

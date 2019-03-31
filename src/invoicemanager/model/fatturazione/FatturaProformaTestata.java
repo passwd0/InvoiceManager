@@ -5,6 +5,7 @@ public class FatturaProformaTestata{
 	private int numeroFattura; //  NOT NULL,
 	private LocalDate dataFattura; //  NOT NULL,
 	private boolean indicatoreStatoAvanzamento; // COLLATE Latin1_General_CI_AS NULL,
+	private int sezionale = 1;
 	private String codiceClienteFatturazione; //(30) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceEsenzioneIva; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceAgente; //(10) COLLATE Latin1_General_CI_AS NULL,
@@ -56,7 +57,7 @@ public class FatturaProformaTestata{
 		this.dataFattura = dataFattura;
 	}
 
-	public FatturaProformaTestata(int numeroFattura, LocalDate dataFattura, boolean indicatoreStatoAvanzamento,
+	public FatturaProformaTestata(int numeroFattura, LocalDate dataFattura, boolean indicatoreStatoAvanzamento, int sezionale,
 			String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
 			String codiceCausalePrelievi, float percentualeSconto, float percentualeScontoPagamento,
 			float percentualeProvvigione, String descrizione, int numeroCopieFattura, boolean indicatoreAddebitoBolli,
@@ -72,6 +73,7 @@ public class FatturaProformaTestata{
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
+		this.sezionale = sezionale;
 		this.codiceClienteFatturazione = codiceClienteFatturazione;
 		this.codiceEsenzioneIva = codiceEsenzioneIva;
 		this.codiceAgente = codiceAgente;
@@ -117,6 +119,14 @@ public class FatturaProformaTestata{
 		this.indicatorePA = indicatorePA;
 		this.indicatoreXML = indicatoreXML;
 		this.indicatorePlafond = indicatorePlafond;
+	}
+
+	public int getSezionale() {
+		return sezionale;
+	}
+
+	public void setSezionale(int sezionale) {
+		this.sezionale = sezionale;
 	}
 
 	public int getNumeroFattura() {

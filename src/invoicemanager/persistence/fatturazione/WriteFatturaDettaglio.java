@@ -18,10 +18,11 @@ public class WriteFatturaDettaglio {
 
 	public void add(FatturaDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroFattura());
 			ps.setDate(2, Date.valueOf(a.getDataFattura()));
 			ps.setInt(3, a.getNumeroRigaFattura());
+			ps.setInt(4, a.getSezionale());
 			ps.setString(4, a.getCodiceTipoRigaDocumento());
 			ps.setString(5, a.getCodiceArticolo());
 			ps.setFloat(6, a.getCosto());
@@ -104,6 +105,7 @@ public class WriteFatturaDettaglio {
     			"	\"NumeroFattura\" INTEGER NOT NULL ,\r\n" + 
     			"	\"DataFattura\" Date NOT NULL ,\r\n" + 
     			"	\"NumeroRigaFattura\" INTEGER NOT NULL,\r\n" + 
+    			"	\"Sezionale\" INTEGER NOT NULL,\r\n" + 
     			"	\"CodiceTipoRigaDocumento\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceArticolo\" varchar(25) NULL,\r\n" + 
     			"	\"Costo\" Float NULL,\r\n" + 

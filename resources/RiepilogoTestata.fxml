@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.HBox?>
 
-<GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicemanager.controller.fatturazione.RiepilogoTestataController">
+<GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicemanager.controller.fatturazione.RiepilogoTestataController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -33,7 +33,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <children>
-            <ComboBox fx:id="combobox_fattura" prefWidth="150.0" />
+            <Spinner fx:id="spinner_sezionale" prefWidth="150.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.rowSpan="2">

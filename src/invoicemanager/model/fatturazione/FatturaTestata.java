@@ -8,6 +8,15 @@ public class FatturaTestata {
 	private int numeroFatturazione;
 	private LocalDate dataFattura;
 	private StatoAvanzamento statoAvanzamento;
+	private int sezionale = 1;
+	public int getSezionale() {
+		return sezionale;
+	}
+
+	public void setSezionale(int sezionale) {
+		this.sezionale = sezionale;
+	}
+
 	private String codiceClienteFatturazione;
 	private String codiceEsenzioneIva;
 	private String codiceAgente;
@@ -57,7 +66,7 @@ public class FatturaTestata {
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now();
 
 	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura, StatoAvanzamento statoAvanzamento,
-			String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
+			int sezionale, String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
 			String codiceCausalePrelievi, float percentualeSconto, float percentualeScontoPagamento,
 			float percentualeProvvigione, String descrizione, boolean indicatoreAddebitoBolli,
 			boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreScaricoMagazzino, int codiceListino,
@@ -73,6 +82,7 @@ public class FatturaTestata {
 		this.dataFattura = dataFattura;
 		this.statoAvanzamento = statoAvanzamento;
 		this.codiceClienteFatturazione = codiceClienteFatturazione;
+		this.sezionale = sezionale;
 		this.codiceEsenzioneIva = codiceEsenzioneIva;
 		this.codiceAgente = codiceAgente;
 		this.codiceCausale = codiceCausale;

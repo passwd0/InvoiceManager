@@ -6,6 +6,7 @@ public class FatturaProformaDettaglio{
 	private int numeroFattura; //  NOT NULL,
 	private int numeroRigaFattura; //  NOT NULL,
 	private LocalDate dataFattura; //  NOT NULL,
+	private int sezionale = 1;
 	private String codiceTipoRigaDocumento; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceArticolo; //(30) COLLATE Latin1_General_CI_AS NULL,
 	private float costo; //  NULL,
@@ -38,7 +39,7 @@ public class FatturaProformaDettaglio{
 		this.dataFattura = dataFattura;
 	}
 
-	public FatturaProformaDettaglio(int numeroFattura, int numeroRigaFattura, LocalDate dataFattura,
+	public FatturaProformaDettaglio(int numeroFattura, int numeroRigaFattura, LocalDate dataFattura, int sezionale,
 			String codiceTipoRigaDocumento, String codiceArticolo, float costo, float quantitaDaConsegnare,
 			boolean indicatoreEvasione, String descrizione, float quantita, float prezzo, String codiceIva,
 			String codiceContropartitaContabile, float percentualeProvvigione, float percentualeScontoCliente,
@@ -49,6 +50,7 @@ public class FatturaProformaDettaglio{
 		this.numeroFattura = numeroFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
 		this.dataFattura = dataFattura;
+		this.sezionale = sezionale;
 		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
 		this.codiceArticolo = codiceArticolo;
 		this.costo = costo;
@@ -74,6 +76,14 @@ public class FatturaProformaDettaglio{
 		this.ricezioni = ricezioni;
 		this.fattureCollegate = fattureCollegate;
 		this.altriDatiGestionali = altriDatiGestionali;
+	}
+
+	public int getSezionale() {
+		return sezionale;
+	}
+
+	public void setSezionale(int sezionale) {
+		this.sezionale = sezionale;
 	}
 
 	public int getNumeroFattura() {

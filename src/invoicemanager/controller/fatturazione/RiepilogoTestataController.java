@@ -24,17 +24,31 @@ import javafx.scene.control.TextField;
 
 public class RiepilogoTestataController implements Initializable {
 	@FXML
-	private Button button_anagrafica;
-	@FXML
-	private Button button_decodifica;
-	@FXML
-	private ComboBox<Cliente> combobox_cliente;
-	@FXML
-	private TextField textfield_fattura_data;
-	@FXML
-	private ComboBox<CausaleMagazzino> combobox_causale;
-	@FXML
-	private TextField textfield_causale;
+    private Button button_decodifica;
+
+    @FXML
+    private TextField textfield_fattura_data;
+
+    @FXML
+    private ComboBox<Cliente> combobox_cliente;
+
+    @FXML
+    private Button button_causali;
+
+    @FXML
+    private TextField textfield_causale;
+
+    @FXML
+    private ComboBox<Integer> combobox_sezionale;
+
+    @FXML
+    private ComboBox<CausaleMagazzino> combobox_causale;
+
+    @FXML
+    private TextField textfield_fattura;
+
+    @FXML
+    private Button button_anagrafica;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -54,6 +68,7 @@ public class RiepilogoTestataController implements Initializable {
 				);
 		combobox_causale.setItems(oCausaliId);
 		combobox_causale.setConverter(new CausaleMagazzinoConverter());
+		
 	}
 	
 	public void combobox_causale_pressed(Event e) {
@@ -62,26 +77,28 @@ public class RiepilogoTestataController implements Initializable {
 	
 	public void combobox_cliente_pressed(Event e) {
 		Cliente cliente = combobox_cliente.getSelectionModel().getSelectedItem();
+		if (cliente != null) {
+			InvoiceManagerGrid.tabViewController.set_textfield_percprovcliente(String.valueOf(cliente.getPercentualeProvvigioneAgente()));
+			InvoiceManagerGrid.tabViewController.set_textfield_scontocliente(String.valueOf(cliente.getScontoLegatoProvvigioniAgente()));
+		}
 		Utente utente = DataManager.loadUtente().stream()
 				.filter(u -> u.getCodiceUtente().equals(
 						cliente.getCodiceCliente()))
 				.findFirst().orElse(null);
-		if (utente == null)
-			return;
+		
+		if (utente != null) {
+			InvoiceManagerGrid.tabViewController.set_label_ragionesociale(utente.getRagioneSociale());
+			InvoiceManagerGrid.tabViewController.set_label_partitaiva(utente.getPartitaIVA());
+		}
+		
 		IndirizzoGeografico indirizzoGeografico = DataManager.loadIndirizzoGeografico().stream()
 				.filter(ig -> ig.getCodiceConto().equals(
 						utente.getCodiceUtente()))
 				.findFirst().orElse(null);
-		if (indirizzoGeografico == null)
-			return;
-		
-		InvoiceManagerGrid.tabViewController.set_label_ragionesociale(utente.getRagioneSociale());
-		InvoiceManagerGrid.tabViewController.set_label_indirizzo(indirizzoGeografico.getCodiceIndirizzo());
-		InvoiceManagerGrid.tabViewController.set_label_localita(indirizzoGeografico.getCitta());
-		InvoiceManagerGrid.tabViewController.set_label_nazione(indirizzoGeografico.getCodiceNazione());
-		InvoiceManagerGrid.tabViewController.set_label_partitaiva(utente.getPartitaIVA());
-		InvoiceManagerGrid.tabViewController.set_textfield_percprovcliente(String.valueOf(cliente.getPercentualeProvvigioneAgente()));
-		InvoiceManagerGrid.tabViewController.set_textfield_scontocliente(String.valueOf(cliente.getScontoLegatoProvvigioniAgente()));
-	
+		if (indirizzoGeografico != null) {
+			InvoiceManagerGrid.tabViewController.set_label_indirizzo(indirizzoGeografico.getCodiceIndirizzo());
+			InvoiceManagerGrid.tabViewController.set_label_localita(indirizzoGeografico.getCitta());
+			InvoiceManagerGrid.tabViewController.set_label_nazione(indirizzoGeografico.getCodiceNazione());
+		}
 	}
 }

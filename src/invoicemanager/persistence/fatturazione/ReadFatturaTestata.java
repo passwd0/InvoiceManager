@@ -37,6 +37,7 @@ public class ReadFatturaTestata {
 				int numeroFatturazione = rs.getInt("numeroFatturazione");
 				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
 				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("statoAvanzamento"));
+				int sezionale = rs.getInt("sezionale");
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
 				String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");
 				String codiceAgente = rs.getString("codiceAgente");
@@ -91,7 +92,7 @@ public class ReadFatturaTestata {
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
 					dataUltimaModifica = ts.toLocalDateTime();
-				FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, statoAvanzamento, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, fatturadettaglio, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza, allegati);
+				FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, statoAvanzamento, sezionale, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, fatturadettaglio, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza, allegati);
 
 				listfatturaTestata.add(fatturaTestata);
 	         }

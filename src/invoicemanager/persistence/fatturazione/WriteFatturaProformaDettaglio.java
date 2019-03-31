@@ -18,35 +18,36 @@ public class WriteFatturaProformaDettaglio {
 	public void add(FatturaProformaDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaProformaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaProformaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroFattura());
 		ps.setInt(2, a.getNumeroRigaFattura());
 		ps.setDate(3, Date.valueOf(a.getDataFattura()));
-		ps.setString(4, a.getCodiceTipoRigaDocumento());
-		ps.setString(5, a.getCodiceArticolo());
-		ps.setFloat(6, a.getCosto());
-		ps.setFloat(7, a.getQuantitaDaConsegnare());
-		ps.setBoolean(8, a.isIndicatoreEvasione());
-		ps.setString(9, a.getDescrizione());
-		ps.setFloat(10, a.getQuantita());
-		ps.setFloat(11, a.getPrezzo());
-		ps.setString(12, a.getCodiceIva());
-		ps.setString(13, a.getCodiceContropartitaContabile());
-		ps.setFloat(14, a.getPercentualeProvvigione());
-		ps.setFloat(15, a.getPercentualeScontoCliente());
-		ps.setFloat(16, a.getPercentualeScontoArticolo());
-		ps.setFloat(17, a.getPercentualeScontoPagamento());
-		ps.setString(18, a.getDescrizioneAggiuntiva());
-		ps.setString(19, a.getCodiceUnitaMisura());
-		ps.setString(20, a.getSerialNumber());
-		ps.setBoolean(21, a.isIndicatoreNoConferma());
-		ps.setString(22, a.getCodiceMagazzino());
-		ps.setInt(23, a.getCodiceOrdine());
-		ps.setInt(24, a.getCodiceContratto());
-		ps.setInt(25, a.getCodiceConvezione());
-		ps.setInt(26, a.getCodiceRicezione());
-		ps.setInt(27, a.getCodiceFatturaCollegata());
-		ps.setInt(28, a.getCodiceAltriDatiGestionali());
+		ps.setInt(4,  a.getSezionale());
+		ps.setString(5, a.getCodiceTipoRigaDocumento());
+		ps.setString(6, a.getCodiceArticolo());
+		ps.setFloat(7, a.getCosto());
+		ps.setFloat(8, a.getQuantitaDaConsegnare());
+		ps.setBoolean(9, a.isIndicatoreEvasione());
+		ps.setString(10, a.getDescrizione());
+		ps.setFloat(11, a.getQuantita());
+		ps.setFloat(12, a.getPrezzo());
+		ps.setString(13, a.getCodiceIva());
+		ps.setString(14, a.getCodiceContropartitaContabile());
+		ps.setFloat(15, a.getPercentualeProvvigione());
+		ps.setFloat(16, a.getPercentualeScontoCliente());
+		ps.setFloat(17, a.getPercentualeScontoArticolo());
+		ps.setFloat(18, a.getPercentualeScontoPagamento());
+		ps.setString(19, a.getDescrizioneAggiuntiva());
+		ps.setString(20, a.getCodiceUnitaMisura());
+		ps.setString(21, a.getSerialNumber());
+		ps.setBoolean(22, a.isIndicatoreNoConferma());
+		ps.setString(23, a.getCodiceMagazzino());
+		ps.setInt(24, a.getCodiceOrdine());
+		ps.setInt(25, a.getCodiceContratto());
+		ps.setInt(26, a.getCodiceConvezione());
+		ps.setInt(27, a.getCodiceRicezione());
+		ps.setInt(28, a.getCodiceFatturaCollegata());
+		ps.setInt(29, a.getCodiceAltriDatiGestionali());
 
 		ps.executeUpdate();
 				ps.close();
@@ -64,6 +65,7 @@ public class WriteFatturaProformaDettaglio {
     			"	\"NumeroFattura\" INTEGER NOT NULL ,\r\n" + 
     			"	\"NumeroRigaFattura\" INTEGER NOT NULL ,\r\n" + 
     			"	\"DataFattura\" Date NOT NULL ,\r\n" + 
+    			"	\"Sezionale\" INTEGER NOT NULL ,\r\n" + 
     			"	\"CodiceTipoRigaDocumento\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceArticolo\" varchar(25) NULL,\r\n" + 
     			"	\"Costo\" Float NULL,\r\n" + 

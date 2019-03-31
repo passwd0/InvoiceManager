@@ -11,6 +11,7 @@ public class FatturaDettaglio {
 	private int numeroFattura;
 	private LocalDate dataFattura;
 	private int numeroRigaFattura;
+	private int sezionale = 1;
 	private String codiceTipoRigaDocumento;
 	private String codiceArticolo;
 	private float costo;
@@ -56,7 +57,7 @@ public class FatturaDettaglio {
 		this.numeroRigaFattura = numeroRigaFattura;
 	}
 
-	public FatturaDettaglio(int numeroFattura, LocalDate dataFattura, int numeroRigaFattura,
+	public FatturaDettaglio(int numeroFattura, LocalDate dataFattura, int numeroRigaFattura, int sezionale,
 			String codiceTipoRigaDocumento, String codiceArticolo, float costo, int numeroOrdine, int numeroRigaOrdine,
 			LocalDate dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
 			float quantita, float prezzo, String codiceIva, String codiceContropartitaContabile,
@@ -70,6 +71,7 @@ public class FatturaDettaglio {
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
+		this.sezionale = sezionale;
 		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
 		this.codiceArticolo = codiceArticolo;
 		this.costo = costo;
@@ -107,6 +109,22 @@ public class FatturaDettaglio {
 		this.altriDatiGestionali = altriDatiGestionali;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
+	}
+
+	public int getSezionale() {
+		return sezionale;
+	}
+
+	public void setSezionale(int sezionale) {
+		this.sezionale = sezionale;
+	}
+
+	public List<AltroDatoGestionale> getAltriDatiGestionali() {
+		return altriDatiGestionali;
+	}
+
+	public void setAltriDatiGestionali(List<AltroDatoGestionale> altriDatiGestionali) {
+		this.altriDatiGestionali = altriDatiGestionali;
 	}
 
 	public int getNumeroFattura() {
