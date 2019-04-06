@@ -151,7 +151,8 @@ public class RiepilogoTestataController implements Initializable {
 			Stage stage = new Stage();
 			stage.setTitle("Anagrafica");
 
-			Scene scene = new Scene(anagrafica, 1020, 730, Color.ALICEBLUE);
+			Scene scene = new Scene(anagrafica, 1020, 505, Color.ALICEBLUE);
+			stage.setResizable(false);
 			stage.setScene(scene);
 			stage.show();
 		} catch (IOException e) {
