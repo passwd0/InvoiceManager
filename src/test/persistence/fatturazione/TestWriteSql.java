@@ -13,13 +13,14 @@ import invoicemanager.model.fatturazione.FatturaTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.model.fatturazione.Pagamento;
 import invoicemanager.model.fatturazione.Utente;
+import invoicemanager.model.fatturazione.Vettore;
 import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestWriteSql {
 	
 //	@BeforeEach
 //	void setup() {	}
-//	
+	
 	@Test
 	void writeAgente() {
 		Agente agente = new Agente("bbb");
@@ -34,15 +35,26 @@ public class TestWriteSql {
 		//assertEquals(1, DataManager.loadBanca().size());
 	}
 	
+	@Test
+	void writeVettore() {
+		
+	}
+	
 	@Test 
 	void writeCliente() {
-		
-		
 		Cliente cliente = new Cliente("a003");
 		cliente.setDataUltimaFattura(LocalDate.now());
 		cliente.setDataInizioPlafond(LocalDate.now());
 		Pagamento p = new Pagamento("1111");
+		Vettore v = new Vettore("vettore");
+		Agente a = new Agente("agente");
+		
 		cliente.setPagamento(p);
+		cliente.setVettore(v);
+		cliente.setAgente(a);
+		
+		DataManager.add(a);
+		DataManager.add(v);
 		DataManager.add(p);
 		DataManager.add(cliente);
 		//assertEquals(2,  DataManager.loadCliente().size());
