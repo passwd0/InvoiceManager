@@ -2,6 +2,7 @@ package invoicemanager.ui.controller.fatturazione;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import invoicemanager.model.fatturazione.ArticoloMagazzino;
@@ -11,6 +12,7 @@ import invoicemanager.model.fatturazione.Magazzino;
 import invoicemanager.model.fatturazione.Ordine;
 import invoicemanager.model.fatturazione.UnitaMisura;
 import invoicemanager.ui.fatturazione.converter.CodiceSpedizioneConverter;
+import invoicemanager.ui.fatturazione.converter.OrdineConverter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -242,10 +244,15 @@ public class TabViewController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<IndirizzoGeografico> oIndirizzoGeografico = FXCollections.observableArrayList(
 				DataManager.loadIndirizzoGeografico().stream()
-				.collect(Collectors.toList())
-				);
+				.collect(Collectors.toList()));
 		combobox_codicespedizione.setItems(oIndirizzoGeografico);
 		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());
+		
+		ObservableList<Ordine> oOrdine = FXCollections.observableArrayList(
+				DataManager.loadOrdine().stream()
+				.collect(Collectors.toList()));
+		combobox_ordinen.setItems(oOrdine);
+		combobox_ordinen.setConverter(new OrdineConverter());
 	}
 
 	void set_label_ragionesociale(String ragionesociale) {
