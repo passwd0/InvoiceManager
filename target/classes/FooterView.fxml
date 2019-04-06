@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="CENTER" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicemanager.ui.controller.fatturazione.FooterViewController">
+   <children>
+      <Button fx:id="button_conferma" mnemonicParsing="false" onAction="#button_conferma_onAction" prefWidth="100.0" text="Conferma">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <opaqueInsets>
+            <Insets left="30.0" />
+         </opaqueInsets>
+      </Button>
+      <Button fx:id="button_prelievodaordinare" mnemonicParsing="false" onAction="#button_prelievodaordinare_onAction" prefWidth="200.0" text="Prelievo da Ordinare">
+         <HBox.margin>
+            <Insets left="30.0" />
+         </HBox.margin>
+         <opaqueInsets>
+            <Insets left="30.0" />
+         </opaqueInsets>
+      </Button>
+      <VBox alignment="CENTER_LEFT">
+         <children>
+            <Label lineSpacing="1.0" text="Riferimenti ordine" textFill="RED">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </opaqueInsets>
+            </Label>
+            <HBox>
+               <children>
+                  <Label text="Anno">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Label>
+                  <TextField fx:id="textfield_anno" prefWidth="100.0">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin></TextField>
+                  <Label text="n.:">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Label>
+                  <TextField fx:id="textfield_n" prefWidth="100.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets left="30.0" />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+      </VBox>
+      <Button fx:id="button_pulisci" mnemonicParsing="false" onAction="#button_pulisci_onAction" prefWidth="100.0" text="Pulisci">
+         <opaqueInsets>
+            <Insets left="30.0" />
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="30.0" />
+         </HBox.margin></Button>
+      <Button fx:id="button_esci" mnemonicParsing="false" onAction="#button_esci_onAction" prefWidth="100.0" text="Esci">
+         <HBox.margin>
+            <Insets left="30.0" />
+         </HBox.margin>
+         <opaqueInsets>
+            <Insets left="30.0" />
+         </opaqueInsets>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>
