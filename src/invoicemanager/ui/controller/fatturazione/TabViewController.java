@@ -245,8 +245,7 @@ public class TabViewController implements Initializable {
 				.collect(Collectors.toList())
 				);
 		combobox_codicespedizione.setItems(oIndirizzoGeografico);
-		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());
-		
+		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());	
 	}
 	
 	void set_label_ragionesociale(String ragionesociale) {
@@ -317,5 +316,4 @@ public class TabViewController implements Initializable {
 		textfield_provinciaspedizione.setText(indirizzoGeografico.getProvincia());
 		textfield_capspedizione.setText(indirizzoGeografico.getCap());
 	}
-	
 }

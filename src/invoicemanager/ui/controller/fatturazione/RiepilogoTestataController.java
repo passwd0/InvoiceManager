@@ -1,5 +1,6 @@
 package invoicemanager.ui.controller.fatturazione;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -20,12 +21,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class RiepilogoTestataController implements Initializable {
     @FXML
@@ -134,4 +140,23 @@ public class RiepilogoTestataController implements Initializable {
 			//caricare tutti i campi
 		}
     }
+	
+	@FXML
+	private void button_anagrafica_onAction(ActionEvent event) {
+		try {
+			FXMLLoader anagraficaLoader = new FXMLLoader(getClass().getClassLoader().getResource("Anagrafica.fxml"));
+			AnchorPane anagrafica = (AnchorPane) anagraficaLoader.load();
+			AnagraficaController anagraficaController = anagraficaLoader.getController();
+			
+			Stage stage = new Stage();
+			stage.setTitle("Anagrafica");
+
+			Scene scene = new Scene(anagrafica, 1020, 730, Color.ALICEBLUE);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

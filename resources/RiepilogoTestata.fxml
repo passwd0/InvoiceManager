@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicemanager.controller.fatturazione.RiepilogoTestataController">
+<GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicemanager.ui.controller.fatturazione.RiepilogoTestataController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
@@ -32,7 +32,7 @@
       <Label text="Casuale default" textFill="RED" GridPane.columnIndex="5" GridPane.columnSpan="3" />
       <HBox GridPane.rowIndex="1">
          <children>
-            <Button id="button_anagrafica" fx:id="button_anagrafica" mnemonicParsing="false" text="Anagrafica" />
+            <Button id="button_anagrafica" fx:id="button_anagrafica" mnemonicParsing="false" onAction="#button_anagrafica_onAction" text="Anagrafica" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
