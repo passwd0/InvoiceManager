@@ -1,4 +1,4 @@
-package invoicemanager.controller.fatturazione;
+package invoicemanager.ui.controller.fatturazione;
 
 import java.net.URL;
 import java.time.LocalDate;

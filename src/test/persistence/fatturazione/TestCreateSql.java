@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import org.junit.jupiter.api.Test;
 
-import invoicemanager.controller.fatturazione.DataManager;
+import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestCreateSql {
 	

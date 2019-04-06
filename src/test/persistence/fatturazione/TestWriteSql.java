@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
-import invoicemanager.controller.fatturazione.DataManager;
 import invoicemanager.model.fatturazione.FatturaTestata;
+import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestWriteSql {
 	

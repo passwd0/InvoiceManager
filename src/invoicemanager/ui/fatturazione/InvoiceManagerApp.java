@@ -1,6 +1,6 @@
 package invoicemanager.ui.fatturazione;
 
-import invoicemanager.controller.fatturazione.Controller;
+import invoicemanager.ui.controller.fatturazione.Controller;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;

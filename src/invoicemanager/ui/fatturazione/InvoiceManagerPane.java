@@ -1,6 +1,6 @@
 package invoicemanager.ui.fatturazione;
 
-import invoicemanager.controller.fatturazione.Controller;
+import invoicemanager.ui.controller.fatturazione.Controller;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 

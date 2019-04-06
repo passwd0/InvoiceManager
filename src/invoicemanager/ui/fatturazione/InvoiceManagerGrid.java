@@ -2,9 +2,9 @@ package invoicemanager.ui.fatturazione;
 
 import java.io.IOException;
 
-import invoicemanager.controller.fatturazione.Controller;
-import invoicemanager.controller.fatturazione.RiepilogoTestataController;
-import invoicemanager.controller.fatturazione.TabViewController;
+import invoicemanager.ui.controller.fatturazione.Controller;
+import invoicemanager.ui.controller.fatturazione.RiepilogoTestataController;
+import invoicemanager.ui.controller.fatturazione.TabViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.GridPane;

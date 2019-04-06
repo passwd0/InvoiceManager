@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import invoicemanager.controller.fatturazione.DataManager;
+import invoicemanager.ui.controller.fatturazione.DataManager;
 
 //import invoicemanager.controller.fatturazione.DataManager;
 
