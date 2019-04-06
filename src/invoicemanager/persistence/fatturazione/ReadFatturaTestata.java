@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 import invoicemanager.model.fatturazione.Allegato;
 import invoicemanager.model.fatturazione.FatturaDettaglio;
 import invoicemanager.model.fatturazione.FatturaTestata;

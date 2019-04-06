@@ -1,24 +1,11 @@
 package test.persistence.fatturazione;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import invoicemanager.controller.fatturazione.DataManager;
-import invoicemanager.model.fatturazione.Agente;
-import invoicemanager.model.fatturazione.Banca;
-import invoicemanager.model.fatturazione.CausaleMagazzino;
-import invoicemanager.model.fatturazione.Cliente;
 import invoicemanager.model.fatturazione.FatturaTestata;
-import invoicemanager.model.fatturazione.IndirizzoGeografico;
-import invoicemanager.model.fatturazione.Utente;
-import invoicemanager.persistence.fatturazione.ReadIndirizzoGeografico;
-import invoicemanager.persistence.fatturazione.WriteIndirizzoGeografico;
 
 public class TestWriteSql {
 	

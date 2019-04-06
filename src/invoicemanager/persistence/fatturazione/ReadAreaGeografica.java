@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import invoicemanager.model.fatturazione.AreaGeografica;
 
@@ -29,22 +29,22 @@ public class ReadAreaGeografica {
 			Timestamp ts;
 	         while ( rs.next() ) {
 
-int codiceArea = rs.getInt("codiceArea");
-String nazione = rs.getString("nazione");
-String area = rs.getString("area");
-String regione = rs.getString("regione");
-String provincia = rs.getString("provincia");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
-AreaGeografica areaGeografica = new AreaGeografica(codiceArea, nazione, area, regione, provincia, dataInserimento, dataUltimaModifica);
+				int codiceArea = rs.getInt("codiceArea");
+				String nazione = rs.getString("nazione");
+				String area = rs.getString("area");
+				String regione = rs.getString("regione");
+				String provincia = rs.getString("provincia");
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+				dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+				dataUltimaModifica = ts.toLocalDateTime();
+				AreaGeografica areaGeografica = new AreaGeografica(codiceArea, nazione, area, regione, provincia, dataInserimento, dataUltimaModifica);
 
-		listareaGeografica.add(areaGeografica);
+				listareaGeografica.add(areaGeografica);
 	         }
 		     rs.close();
 		     stmt.close();

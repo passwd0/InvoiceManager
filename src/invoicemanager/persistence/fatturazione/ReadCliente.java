@@ -16,8 +16,6 @@ import invoicemanager.model.fatturazione.Cliente;
 import invoicemanager.model.fatturazione.Imballo;
 import invoicemanager.model.fatturazione.Iso;
 import invoicemanager.model.fatturazione.Iva;
-import invoicemanager.model.fatturazione.Listino;
-import invoicemanager.model.fatturazione.ListinoArticolo;
 import invoicemanager.model.fatturazione.Pagamento;
 import invoicemanager.model.fatturazione.RaggruppamentoClienteFornitore;
 import invoicemanager.model.fatturazione.RappresentanteFiscale;

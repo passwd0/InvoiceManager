@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 
 public class InvoiceManagerGrid extends GridPane {
 	public static RiepilogoTestataController riepilogoTestataController;

@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.ScadenzaPagamenti;
-import invoicemanager.model.fatturazione.Scadenze;
-import invoicemanager.utils.Utils;
 
 public class WriteScadenzaPagamenti {
 	private Connection c;

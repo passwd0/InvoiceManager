@@ -3,10 +3,6 @@ package invoicemanager.ui.fatturazione;
 import invoicemanager.controller.fatturazione.Controller;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 

@@ -244,9 +244,9 @@ public class TabViewController implements Initializable {
 				DataManager.loadIndirizzoGeografico().stream()
 				.collect(Collectors.toList())
 				);
-		System.out.println(oIndirizzoGeografico.get(0).getCodiceConto());
 		combobox_codicespedizione.setItems(oIndirizzoGeografico);
 		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());
+		
 	}
 	
 	void set_label_ragionesociale(String ragionesociale) {
