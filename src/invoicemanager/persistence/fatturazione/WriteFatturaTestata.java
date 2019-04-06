@@ -22,7 +22,7 @@ public class WriteFatturaTestata {
 			ps.setInt(1, a.getId());
 	    	ps.setInt(2, a.getNumeroFatturazione());
 			ps.setDate(3, Date.valueOf(a.getDataFattura()));
-			ps.setString(4, a.getCodiceStatoAvanzamento());
+			ps.setString(4, a.getStatoAvanzamento().name());
 			ps.setInt(5, a.getSezionale());
 			ps.setString(6, a.getCodiceClienteFatturazione());
 			ps.setString(7, a.getCodiceEsenzioneIva());
@@ -118,7 +118,7 @@ public class WriteFatturaTestata {
     			"   \"IdFatturaTestata\" serial, \r\n" +
     			"	\"NumeroFatturazione\" INTEGER NOT NULL,\r\n" +
     			"	\"DataFattura\" Date NOT NULL ,\r\n" +
-    			"	\"CodiceStatoAvanzamento\" varchar(25) NULL,\r\n" +
+    			"	\"StatoAvanzamento\" varchar(25) NULL,\r\n" +
     			"	\"Sezionale\" INTEGER NOT NULL,\r\n" +
     			"	\"CodiceClienteFatturazione\" varchar(25) NOT NULL,\r\n" +
     			"	\"CodiceEsenzioneIva\" varchar(25) NULL,\r\n" +

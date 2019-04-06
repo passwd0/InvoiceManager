@@ -21,7 +21,7 @@ public class WriteSottogruppoMerceologico {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO SottogruppoMerceologico VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceSottogruppoMerceologico());
 		ps.setString(2, a.getDescrizione());
-		ps.setBoolean(3, a.isCodiceStato());
+		ps.setString(3, a.getStato().name());
 		ps.setFloat(4, a.getSconto());
 		ps.setFloat(5, a.getPercentualeProvvigione());
 		ps.setTimestamp(6, Utils.toTimestamp(a.getDataInserimento()));
@@ -43,7 +43,7 @@ public class WriteSottogruppoMerceologico {
     	String sql = "Create table public.SottogruppoMerceologico (\r\n" + 
     			"	\"CodiceSottogruppoMerceologico\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"CodiceStato\" Boolean NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"Sconto\" Float NULL,\r\n" + 
     			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 

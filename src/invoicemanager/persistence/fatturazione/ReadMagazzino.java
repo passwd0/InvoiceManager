@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Magazzino;
+import invoicemanager.model.fatturazione.Stato;
 
 
 public class ReadMagazzino {
@@ -31,7 +32,7 @@ public class ReadMagazzino {
 
 				String codiceMagazzino = rs.getString("codiceMagazzino");
 				String descrizione = rs.getString("descrizione");
-				boolean codiceStato = rs.getBoolean("codiceStato");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
 				String codiceTipoMagazzino = rs.getString("codiceTipoMagazzino");
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
@@ -42,7 +43,7 @@ public class ReadMagazzino {
 				if (ts != null)
 				dataUltimaModifica = ts.toLocalDateTime();
 				
-				Magazzino magazzino = new Magazzino(codiceMagazzino, descrizione, codiceStato, codiceTipoMagazzino, dataInserimento, dataUltimaModifica);
+				Magazzino magazzino = new Magazzino(codiceMagazzino, descrizione, stato, codiceTipoMagazzino, dataInserimento, dataUltimaModifica);
 
 				listmagazzino.add(magazzino);
 	         }

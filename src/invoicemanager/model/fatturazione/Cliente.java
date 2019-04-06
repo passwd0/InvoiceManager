@@ -367,14 +367,6 @@ public class Cliente implements Comparable<Cliente>{
 		this.numeroFattureEmesse = numeroFattureEmesse;
 	}
 
-	public Iva getCodiceEsenzioneIVA() {
-		return iva;
-	}
-
-	public void setCodiceEsenzioneIVA(Iva codiceEsenzioneIVA) {
-		this.iva = codiceEsenzioneIVA;
-	}
-
 	public float getImponibileNonEsente() {
 		return imponibileNonEsente;
 	}
@@ -536,7 +528,7 @@ public class Cliente implements Comparable<Cliente>{
 		return stato;
 	}
 
-	public void setCodiceStato(Stato stato) {
+	public void setStato(Stato stato) {
 		this.stato = stato;
 	}
 
@@ -670,10 +662,6 @@ public class Cliente implements Comparable<Cliente>{
 
 	public void setIso(Iso iso) {
 		this.iso = iso;
-	}
-
-	public void setStato(Stato stato) {
-		this.stato = stato;
 	}
 
 	@Override

@@ -37,7 +37,7 @@ public class ReadFatturaTestata {
 
 				int numeroFatturazione = rs.getInt("numeroFatturazione");
 				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
-				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("codiceStatoAvanzamento"));
+				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("StatoAvanzamento"));
 				int sezionale = rs.getInt("sezionale");
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
 				String codiceEsenzioneIva = rs.getString("codiceEsenzioneIva");

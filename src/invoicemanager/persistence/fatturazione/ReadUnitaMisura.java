@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import invoicemanager.model.fatturazione.Stato;
 import invoicemanager.model.fatturazione.UnitaMisura;
 
 
@@ -31,7 +32,7 @@ public class ReadUnitaMisura {
 
 				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 				String descrizione = rs.getString("descrizione");
-				boolean codiceStato = rs.getBoolean("codiceStato");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
 				if (ts != null)
@@ -41,7 +42,7 @@ public class ReadUnitaMisura {
 				if (ts != null)
 					dataUltimaModifica = ts.toLocalDateTime();
 				
-				UnitaMisura unitaMisura = new UnitaMisura(codiceUnitaMisura, descrizione, codiceStato, dataInserimento, dataUltimaModifica);
+				UnitaMisura unitaMisura = new UnitaMisura(codiceUnitaMisura, descrizione, stato, dataInserimento, dataUltimaModifica);
 
 		listunitaMisura.add(unitaMisura);
 	         }

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class UnitaMisura{
 	private String codiceUnitaMisura; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private boolean codiceStato; // NULL
+	private Stato stato = Stato.DISPONIBILE; // NULL
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
@@ -12,11 +12,11 @@ public class UnitaMisura{
 		this.codiceUnitaMisura = codiceUnitaMisura;
 	}
 
-	public UnitaMisura(String codiceUnitaMisura, String descrizione, boolean codiceStato, LocalDateTime dataInserimento,
+	public UnitaMisura(String codiceUnitaMisura, String descrizione, Stato stato, LocalDateTime dataInserimento,
 			LocalDateTime dataUltimaModifica) {
 		this.codiceUnitaMisura = codiceUnitaMisura;
 		this.descrizione = descrizione;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
@@ -37,12 +37,12 @@ public class UnitaMisura{
 		this.descrizione = descrizione;
 	}
 
-	public boolean isCodiceStato() {
-		return codiceStato;
+	public Stato getStato() {
+		return stato;
 	}
 
-	public void setCodiceStato(boolean codiceStato) {
-		this.codiceStato = codiceStato;
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public LocalDateTime getDataInserimento() {

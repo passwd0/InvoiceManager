@@ -20,7 +20,7 @@ public class WritePagamento {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Pagamento VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodicePagamento());
 			ps.setString(2, a.getDescrizione());
-			ps.setString(3, a.getCodiceStato());
+			ps.setString(3, a.getStato().name());
 			ps.setString(4, a.getCodiceTipoPagamento());
 			ps.setBoolean(5, a.isIndicatoreScadenzaAVista());
 			ps.setString(6, a.getGiornoMese());
@@ -74,7 +74,7 @@ public class WritePagamento {
     	String sql = "Create table public.Pagamento (\r\n" + 
     			"	\"CodicePagamento\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"CodiceStato\" varchar(25) NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceTipoPagamento\" varchar(25) NULL,\r\n" + 
     			"	\"IndicatoreScadenzaAVista\" Boolean NULL,\r\n" + 
     			"	\"GiornoMese\" varchar(25) NULL,\r\n" + 

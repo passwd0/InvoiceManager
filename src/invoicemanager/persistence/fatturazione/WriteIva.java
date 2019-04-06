@@ -20,7 +20,7 @@ public class WriteIva {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Iva VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceIva());
 			ps.setString(2, a.getDescrizione());
-			ps.setString(3, a.getCodiceStato());
+			ps.setString(3, a.getStato().name());
 			ps.setInt(4, a.getRigaIVAAcquisti());
 			ps.setFloat(5, a.getAddizionaleIVA());
 			ps.setFloat(6, a.getAliquotaIVA());
@@ -95,7 +95,7 @@ public class WriteIva {
     	String sql = "Create table public.Iva (\r\n" + 
     			"	\"CodiceIva\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"CodiceStato\" varchar(25) NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"RigaIVAAcquisti\" INTEGER NULL,\r\n" + 
     			"	\"AddizionaleIVA\" Float NULL,\r\n" + 
     			"	\"AliquotaIVA\" Float NULL,\r\n" + 

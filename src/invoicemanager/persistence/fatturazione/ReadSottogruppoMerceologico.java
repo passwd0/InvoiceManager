@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.SottogruppoMerceologico;
+import invoicemanager.model.fatturazione.Stato;
 
 
 public class ReadSottogruppoMerceologico {
@@ -31,7 +32,7 @@ public class ReadSottogruppoMerceologico {
 
 				String codiceSottogruppoMerceologico = rs.getString("codiceSottogruppoMerceologico");
 				String descrizione = rs.getString("descrizione");
-				boolean codiceStato = rs.getBoolean("codiceStato");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
 				float sconto = rs.getFloat("sconto");
 				float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
 				ts = rs.getTimestamp("dataInserimento");
@@ -44,7 +45,7 @@ public class ReadSottogruppoMerceologico {
 				dataUltimaModifica = ts.toLocalDateTime();
 				String loginInserimento = rs.getString("loginInserimento");
 
-				SottogruppoMerceologico sottogruppoMerceologico = new SottogruppoMerceologico(codiceSottogruppoMerceologico, descrizione, codiceStato, sconto, percentualeProvvigione, dataInserimento, dataUltimaModifica, loginInserimento);
+				SottogruppoMerceologico sottogruppoMerceologico = new SottogruppoMerceologico(codiceSottogruppoMerceologico, descrizione, stato, sconto, percentualeProvvigione, dataInserimento, dataUltimaModifica, loginInserimento);
 
 		listsottogruppoMerceologico.add(sottogruppoMerceologico);
 	         }

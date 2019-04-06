@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Percipiente;
+import invoicemanager.model.fatturazione.Stato;
 
 
 public class ReadPercipiente {
@@ -31,7 +32,7 @@ public class ReadPercipiente {
 
 				String codicePercipiente = rs.getString("codicePercipiente");
 				String descrizione = rs.getString("descrizione");
-				boolean codiceStato = rs.getBoolean("codiceStato");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
 				float aliquotaRitenutaAcconto = rs.getFloat("aliquotaRitenutaAcconto");
 				float percentualeImponibileRitenutaAcconto = rs.getFloat("percentualeImponibileRitenutaAcconto");
 				String codiceTributo = rs.getString("codiceTributo");
@@ -45,7 +46,7 @@ public class ReadPercipiente {
 				if (ts != null)
 				dataUltimaModifica = ts.toLocalDateTime();
 				
-				Percipiente percipiente = new Percipiente(codicePercipiente, descrizione, codiceStato, aliquotaRitenutaAcconto, percentualeImponibileRitenutaAcconto, codiceTributo, assoggettamentoINPS, dataInserimento, dataUltimaModifica);
+				Percipiente percipiente = new Percipiente(codicePercipiente, descrizione, stato, aliquotaRitenutaAcconto, percentualeImponibileRitenutaAcconto, codiceTributo, assoggettamentoINPS, dataInserimento, dataUltimaModifica);
 
 				listpercipiente.add(percipiente);
 	         }

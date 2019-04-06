@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class SottogruppoMerceologico{
 	private String codiceSottogruppoMerceologico; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private boolean codiceStato; // NULL
+	private Stato stato = Stato.DISPONIBILE; // NULL
 	private float sconto; //  NULL
 	private float percentualeProvvigione; //  NULL
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
@@ -15,12 +15,12 @@ public class SottogruppoMerceologico{
 		this.codiceSottogruppoMerceologico = codiceSottogruppoMerceologico;
 	}
 
-	public SottogruppoMerceologico(String codiceSottogruppoMerceologico, String descrizione, boolean codiceStato,
+	public SottogruppoMerceologico(String codiceSottogruppoMerceologico, String descrizione, Stato stato,
 			float sconto, float percentualeProvvigione, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
 			String loginInserimento) {
 		this.codiceSottogruppoMerceologico = codiceSottogruppoMerceologico;
 		this.descrizione = descrizione;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.sconto = sconto;
 		this.percentualeProvvigione = percentualeProvvigione;
 		this.dataInserimento = dataInserimento;
@@ -44,12 +44,12 @@ public class SottogruppoMerceologico{
 		this.descrizione = descrizione;
 	}
 
-	public boolean isCodiceStato() {
-		return codiceStato;
+	public Stato getStato() {
+		return stato;
 	}
 
-	public void setCodiceStato(boolean codiceStato) {
-		this.codiceStato = codiceStato;
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
 
 	public float getSconto() {

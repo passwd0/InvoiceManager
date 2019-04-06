@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Confezione{
 	private String codiceConfezione; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private boolean codiceStato; // NULL
+	private Stato stato; // NULL
 	private float larghezza; //  NULL
 	private float lunghezza; //  NULL
 	private float altezza; //  NULL
@@ -18,12 +18,12 @@ public class Confezione{
 		this.codiceConfezione = codiceConfezione;
 	}
 
-	public Confezione(String codiceConfezione, String descrizione, boolean codiceStato, float larghezza,
+	public Confezione(String codiceConfezione, String descrizione, Stato stato, float larghezza,
 			float lunghezza, float altezza, float volume, float pesoLordo, float pesoTara,
 			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceConfezione = codiceConfezione;
 		this.descrizione = descrizione;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.larghezza = larghezza;
 		this.lunghezza = lunghezza;
 		this.altezza = altezza;
@@ -50,12 +50,12 @@ public class Confezione{
 		this.descrizione = descrizione;
 	}
 
-	public boolean isCodiceStato() {
-		return codiceStato;
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
-
-	public void setCodiceStato(boolean codiceStato) {
-		this.codiceStato = codiceStato;
+	
+	public Stato getStato() {
+		return stato;
 	}
 
 	public float getLarghezza() {

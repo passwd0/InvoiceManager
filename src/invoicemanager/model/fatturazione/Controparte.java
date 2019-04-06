@@ -43,7 +43,7 @@ public class Controparte{
 		return stato;
 	}
 
-	public void setCodiceStato(Stato stato) {
+	public void setStato(Stato stato) {
 		this.stato = stato;
 	}
 

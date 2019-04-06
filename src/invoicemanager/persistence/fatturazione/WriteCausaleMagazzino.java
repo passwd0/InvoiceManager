@@ -21,7 +21,7 @@ public class WriteCausaleMagazzino {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO CausaleMagazzino VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceCausaleMagazzino());
 		ps.setString(2, a.getDescrizione());
-		ps.setBoolean(3, a.isCodiceStato());
+		ps.setString(3, a.getStato().name());
 		ps.setBoolean(4, a.isSegnoEsistenza());
 		ps.setBoolean(5, a.isSegnoImpegniCliente());
 		ps.setBoolean(6, a.isSegnoOrdiniFornitore());
@@ -68,7 +68,7 @@ public class WriteCausaleMagazzino {
     	String sql = "Create table public.CausaleMagazzino (\r\n" + 
     			"	\"CodiceCausaleMagazzino\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NOT NULL,\r\n" + 
-    			"	\"CodiceStato\" Boolean NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"SegnoEsistenza\" Boolean NULL,\r\n" + 
     			"	\"SegnoImpegniCliente\" Boolean NULL,\r\n" + 
     			"	\"SegnoOrdiniFornitore\" Boolean NULL,\r\n" + 

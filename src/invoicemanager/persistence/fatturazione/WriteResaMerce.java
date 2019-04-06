@@ -20,7 +20,7 @@ public class WriteResaMerce {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO ResaMerce VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceResa());
 			ps.setString(2, a.getDescrizione());
-			ps.setString(3, a.getCodiceStato());
+			ps.setString(3, a.getStato().name());
 			ps.setFloat(4, a.getPercentualeAddebito());
 			ps.setFloat(5, a.getImportoMinimo());
 			ps.setBoolean(6, a.isIndicatoreProvvigione());
@@ -71,7 +71,7 @@ public class WriteResaMerce {
     	String sql = "Create table public.ResaMerce (\r\n" + 
     			"	\"CodiceResa\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"CodiceStato\" varchar(25) NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"PercentualeAddebito\" Float NULL,\r\n" + 
     			"	\"ImportoMinimo\" Float NULL,\r\n" + 
     			"	\"IndicatoreProvvigione\" Boolean NULL,\r\n" + 

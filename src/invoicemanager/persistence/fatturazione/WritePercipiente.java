@@ -21,7 +21,7 @@ public class WritePercipiente {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Percipiente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodicePercipiente());
 		ps.setString(2, a.getDescrizione());
-		ps.setBoolean(3, a.isCodiceStato());
+		ps.setString(3, a.getStato().name());
 		ps.setFloat(4, a.getAliquotaRitenutaAcconto());
 		ps.setFloat(5, a.getPercentualeImponibileRitenutaAcconto());
 		ps.setString(6, a.getCodiceTributo());
@@ -44,7 +44,7 @@ public class WritePercipiente {
     	String sql = "Create table public.Percipiente (\r\n" + 
     			"	\"CodicePercipiente\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"CodiceStato\" Boolean NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"AliquotaRitenutaAcconto\" Float NULL,\r\n" + 
     			"	\"PercentualeImponibileRitenutaAcconto\" Float NULL,\r\n" + 
     			"	\"CodiceTributo\" varchar(25) NULL,\r\n" + 

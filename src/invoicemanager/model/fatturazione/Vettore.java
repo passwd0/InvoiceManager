@@ -47,12 +47,6 @@ public class Vettore {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-	
-	public String getCodiceStato() {
-		if (stato == null)
-			return null;
-		return stato.name();
-	}
 
 	public Stato getStato() {
 		return stato;

@@ -20,7 +20,7 @@ public class WriteImballo {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Imballo VALUES (?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceImballo());
 			ps.setString(2, a.getDescrizione());
-			ps.setString(3, a.getCodiceStato());
+			ps.setString(3, a.getStato().name());
 			ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
 	    	
@@ -67,7 +67,7 @@ public class WriteImballo {
     	String sql = "Create table public.Imballo (\r\n" + 
     			"	\"CodiceImballo\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"CodiceStato\" varchar(25) NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
     			"	\"DataUltimaModifica\" Timestamp NULL\r\n" + 
     			"); ";		//AGGIUNGERE STATO

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Confezione;
+import invoicemanager.model.fatturazione.Stato;
 
 
 public class ReadConfezione {
@@ -31,7 +32,7 @@ public class ReadConfezione {
 
 				String codiceConfezione = rs.getString("codiceConfezione");
 				String descrizione = rs.getString("descrizione");
-				boolean codiceStato = rs.getBoolean("codiceStato");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
 				float larghezza = rs.getFloat("larghezza");
 				float lunghezza = rs.getFloat("lunghezza");
 				float altezza = rs.getFloat("altezza");
@@ -47,7 +48,7 @@ public class ReadConfezione {
 				if (ts != null)
 				dataUltimaModifica = ts.toLocalDateTime();
 				
-				Confezione confezione = new Confezione(codiceConfezione, descrizione, codiceStato, larghezza, lunghezza, altezza, volume, pesoLordo, pesoTara, dataInserimento, dataUltimaModifica);
+				Confezione confezione = new Confezione(codiceConfezione, descrizione, stato, larghezza, lunghezza, altezza, volume, pesoLordo, pesoTara, dataInserimento, dataUltimaModifica);
 	
 				listconfezione.add(confezione);
 	         }

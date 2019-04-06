@@ -21,7 +21,7 @@ public class WriteUnitaMisura {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO UnitaMisura VALUES (?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceUnitaMisura());
 		ps.setString(2, a.getDescrizione());
-		ps.setBoolean(3, a.isCodiceStato());
+		ps.setString(3, a.getStato().name());
 		ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
 
@@ -40,7 +40,7 @@ public class WriteUnitaMisura {
     	String sql = "Create table public.UnitaMisura (\r\n" + 
     			"	\"CodiceUnitaMisura\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"CodiceStato\" Boolean NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
     			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO

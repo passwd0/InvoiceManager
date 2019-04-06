@@ -131,11 +131,6 @@ public class OrdineTestata{
 	public void setDataOrdine(LocalDate dataOrdine) {
 		this.dataOrdine = dataOrdine;
 	}
-	
-	public String getCodiceStatoAvanzamento() {
-		if (statoAvanzamento == null) return null;
-		return statoAvanzamento.name();
-	}
 
 	public StatoAvanzamento getStatoAvanzamento() {
 		return statoAvanzamento;

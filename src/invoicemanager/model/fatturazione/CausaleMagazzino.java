@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class CausaleMagazzino{
 	private String codiceCausaleMagazzino; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private boolean codiceStato; // NULL
+	private Stato stato = Stato.DISPONIBILE; // NULL
 	private boolean segnoEsistenza; // NULL
 	private boolean segnoImpegniCliente; // NULL
 	private boolean segnoOrdiniFornitore; // NULL
@@ -41,7 +41,7 @@ public class CausaleMagazzino{
 		this.descrizione = descrizione;
 	}
 
-	public CausaleMagazzino(String codiceCausaleMagazzino, String descrizione, boolean codiceStato, boolean segnoEsistenza,
+	public CausaleMagazzino(String codiceCausaleMagazzino, String descrizione, Stato stato, boolean segnoEsistenza,
 			boolean segnoImpegniCliente, boolean segnoOrdiniFornitore, boolean segnoFatturato,
 			boolean segnoCaricoAValore, boolean segnoUnitaVendute, boolean segnoCaricoAQuantita,
 			boolean indicatoreMovimentoAQuantita, boolean indicatoreMovimentoAValore,
@@ -55,7 +55,7 @@ public class CausaleMagazzino{
 			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, boolean indicatoreLotti) {
 		this.codiceCausaleMagazzino = codiceCausaleMagazzino;
 		this.descrizione = descrizione;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.segnoEsistenza = segnoEsistenza;
 		this.segnoImpegniCliente = segnoImpegniCliente;
 		this.segnoOrdiniFornitore = segnoOrdiniFornitore;
@@ -104,14 +104,14 @@ public class CausaleMagazzino{
 		this.descrizione = descrizione;
 	}
 
-	public boolean isCodiceStato() {
-		return codiceStato;
+	public Stato getStato() {
+		return stato;
 	}
 
-	public void setCodiceStato(boolean codiceStato) {
-		this.codiceStato = codiceStato;
+	public void setStato(Stato stato) {
+		this.stato = stato;
 	}
-
+	
 	public boolean isSegnoEsistenza() {
 		return segnoEsistenza;
 	}

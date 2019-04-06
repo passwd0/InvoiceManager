@@ -21,7 +21,7 @@ public class WriteGruppoMerceologico {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO GruppoMerceologico VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceGruppoMerceologico());
 		ps.setString(2, a.getDescrizione());
-		ps.setString(3, a.getCodiceStato());
+		ps.setString(3, a.getStato().name());
 		ps.setFloat(4, a.getSconto());
 		ps.setFloat(5, a.getPercentualeProvvigione());
 		ps.setInt(6, a.getNumeroPezziConfezione());
@@ -43,7 +43,7 @@ public class WriteGruppoMerceologico {
     	String sql = "Create table public.GruppoMerceologico (\r\n" + 
     			"	\"CodiceGruppoMerceologico\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"CodiceStato\" varchar(25) NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"Sconto\" Float NULL,\r\n" + 
     			"	\"PercentualeProvvigione\" Float NULL,\r\n" + 
     			"	\"NumeroPezziConfezione\" INTEGER NULL,\r\n" + 

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Percipiente {
 	private String codicePercipiente; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private boolean codiceStato; // NULL
+	private Stato codiceStato = Stato.DISPONIBILE; // NULL
 	private float aliquotaRitenutaAcconto; //  NULL
 	private float percentualeImponibileRitenutaAcconto; //  NULL
 	private String codiceTributo; //(10) NULL
@@ -16,7 +16,7 @@ public class Percipiente {
 		this.codicePercipiente = codicePercipiente;
 	}
 
-	public Percipiente(String codicePercipiente, String descrizione, boolean codiceStato, float aliquotaRitenutaAcconto,
+	public Percipiente(String codicePercipiente, String descrizione, Stato codiceStato, float aliquotaRitenutaAcconto,
 			float percentualeImponibileRitenutaAcconto, String codiceTributo, boolean assoggettamentoINPS,
 			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codicePercipiente = codicePercipiente;
@@ -46,11 +46,11 @@ public class Percipiente {
 		this.descrizione = descrizione;
 	}
 
-	public boolean isCodiceStato() {
+	public Stato getStato() {
 		return codiceStato;
 	}
 
-	public void setCodiceStato(boolean codiceStato) {
+	public void setStato(Stato codiceStato) {
 		this.codiceStato = codiceStato;
 	}
 

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 public class Magazzino{
 	private String codiceMagazzino; //(4) NOT NULL
 	private String descrizione; //(100) NULL
-	private boolean codiceStato; // NULL
+	private Stato stato = Stato.DISPONIBILE; // NULL
 	private String codiceTipoMagazzino; //(15) NULL
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
@@ -13,11 +13,11 @@ public class Magazzino{
 		this.codiceMagazzino = codiceMagazzino;
 	}
 
-	public Magazzino(String codiceMagazzino, String descrizione, boolean codiceStato, String codiceTipoMagazzino,
+	public Magazzino(String codiceMagazzino, String descrizione, Stato stato, String codiceTipoMagazzino,
 			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceMagazzino = codiceMagazzino;
 		this.descrizione = descrizione;
-		this.codiceStato = codiceStato;
+		this.stato = stato;
 		this.codiceTipoMagazzino = codiceTipoMagazzino;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
@@ -39,12 +39,12 @@ public class Magazzino{
 		this.descrizione = descrizione;
 	}
 
-	public boolean isCodiceStato() {
-		return codiceStato;
+	public Stato getStato() {
+		return stato;
 	}
 
-	public void setCodiceStato(boolean codiceStato) {
-		this.codiceStato = codiceStato;
+	public void setStato(Stato codiceStato) {
+		this.stato = codiceStato;
 	}
 
 	public String getCodiceTipoMagazzino() {

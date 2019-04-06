@@ -123,6 +123,16 @@ public class RiepilogoTestataController implements Initializable {
 			InvoiceManagerGrid.tabViewController.set_label_localita(indirizzoGeografico.getCitta());
 			InvoiceManagerGrid.tabViewController.set_label_nazione(indirizzoGeografico.getCodiceNazione());
 		}
+		
+		InvoiceManagerGrid.tabViewController.set_label_pagamento(cliente.getCodicePagamento());
+		InvoiceManagerGrid.tabViewController.set_label_vettore(cliente.getCodiceVettore());
+		InvoiceManagerGrid.tabViewController.set_label_agente(cliente.getCodiceAgente());
+		InvoiceManagerGrid.tabViewController.set_label_banca(cliente.getCodiceBanca());
+		InvoiceManagerGrid.tabViewController.set_label_resa(cliente.getCodiceResaMerce());
+		InvoiceManagerGrid.tabViewController.set_label_imballo(cliente.getCodiceImballo());
+		InvoiceManagerGrid.tabViewController.set_label_divisa(cliente.getCodiceDivisa());
+		InvoiceManagerGrid.tabViewController.set_label_esiva(cliente.getCodiceIva());
+		InvoiceManagerGrid.tabViewController.set_label_lingua(cliente.getCodiceLingua());
 	}
 	
 	@FXML

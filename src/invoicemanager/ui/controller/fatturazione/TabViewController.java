@@ -245,67 +245,89 @@ public class TabViewController implements Initializable {
 				.collect(Collectors.toList())
 				);
 		combobox_codicespedizione.setItems(oIndirizzoGeografico);
-		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());	
+		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());
 	}
-	
+
 	void set_label_ragionesociale(String ragionesociale) {
-		label_ragionesociale.setText(ragionesociale);
+		if (ragionesociale != null)
+			label_ragionesociale.setText(ragionesociale);
 	}
-	
+
 	void set_label_indirizzo(String indirizzo) {
-		label_indirizzo.setText(indirizzo);
+		if (indirizzo != null)
+			label_indirizzo.setText(indirizzo);
 	}
-	
+
 	void set_label_localita(String localita) {
-		label_localita.setText(localita);
+		if (localita != null)
+			label_localita.setText(localita);
 	}
-	
+
 	void set_label_nazione(String nazione) {
-		label_nazione.setText(nazione);
+		if (nazione != null)
+			label_nazione.setText(nazione);
 	}
 
 	public void set_label_partitaiva(String partitaIVA) {
-		label_partitaiva.setText(partitaIVA);
-		
+		if (partitaIVA != null)
+			label_partitaiva.setText(partitaIVA);
 	}
-	
+
 	public void set_textfield_percprovcliente(String percentualeProvvigioneAgente) {
-		textfield_percprovcliente.setText(percentualeProvvigioneAgente);
+		if (percentualeProvvigioneAgente != null)
+			textfield_percprovcliente.setText(percentualeProvvigioneAgente);
 	}
-	
+
 	public void set_textfield_scontocliente(String scontocliente) {
-		textfield_scontocliente.setText(scontocliente);
+		if (scontocliente != null)
+			textfield_scontocliente.setText(scontocliente);
 	}
-	
+
 	public void set_label_pagamento(String pagamento) {
-		label_pagamento.setText(pagamento);
+		if (pagamento != null)
+			label_pagamento.setText(pagamento);
 	}
-	
+
 	public void set_label_vettore(String vettore) {
-		label_vettore.setText(vettore);
+		if (vettore != null)
+			label_vettore.setText(vettore);
 	}
-	
+
 	public void set_label_agente(String agente) {
-		label_agente.setText(agente);
+		if (agente != null)
+			label_agente.setText(agente);
 	}
-	
+
 	public void set_label_banca(String banca) {
-		label_banca.setText(banca);
+		if (banca != null)
+			label_banca.setText(banca);
 	}
-	
+
 	public void set_label_resa(String resa) {
-		label_resa.setText(resa);
+		if (resa != null)
+			label_resa.setText(resa);
 	}
-	
+
 	public void set_label_imballo(String imballo) {
-		label_imballo.setText(imballo);
+		if (imballo != null)
+			label_imballo.setText(imballo);
 	}
-	//-------------------------- da finire (label/textfield) -------------------------------------
-	
-	
-	
-	//--------------------------------------------------------------------------
-	
+
+	public void set_label_divisa(String divisa) {
+		if (divisa != null)
+			label_divisa.setText(divisa);
+	}
+
+	public void set_label_esiva(String esIva) {
+		if (esIva != null)
+			label_esiva.setText(esIva);
+	}
+
+	public void set_label_lingua(String lingua) {
+		if (lingua != null)
+			label_lingua.setText(lingua);
+	}
+
 	public void combobox_codicespedizione_pressed(Event e) {
 		IndirizzoGeografico indirizzoGeografico = combobox_codicespedizione.getSelectionModel().getSelectedItem();
 		textfield_indirizzospedizione.setText(indirizzoGeografico.getCodiceIndirizzo());

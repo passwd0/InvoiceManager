@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.CausaleMagazzino;
+import invoicemanager.model.fatturazione.Stato;
 
 
 public class ReadCausaleMagazzino {
@@ -31,7 +32,7 @@ public class ReadCausaleMagazzino {
 
 				String codiceCausaleMagazzino = rs.getString("codiceCausaleMagazzino");
 				String descrizione = rs.getString("descrizione");
-				boolean codiceStato = rs.getBoolean("codiceStato");
+				Stato stato = Stato.valueOf(rs.getString("stato"));
 				boolean segnoEsistenza = rs.getBoolean("segnoEsistenza");
 				boolean segnoImpegniCliente = rs.getBoolean("segnoImpegniCliente");
 				boolean segnoOrdiniFornitore = rs.getBoolean("segnoOrdiniFornitore");
@@ -70,7 +71,7 @@ public class ReadCausaleMagazzino {
 				boolean indicatoreLotti = rs.getBoolean("indicatoreLotti");
 				
 				CausaleMagazzino causaleMagazzino = new CausaleMagazzino(codiceCausaleMagazzino, descrizione, 
-						codiceStato, segnoEsistenza, segnoImpegniCliente, segnoOrdiniFornitore, segnoFatturato, 
+						stato, segnoEsistenza, segnoImpegniCliente, segnoOrdiniFornitore, segnoFatturato, 
 						segnoCaricoAValore, segnoUnitaVendute, segnoCaricoAQuantita, indicatoreMovimentoAQuantita, 
 						indicatoreMovimentoAValore, indicatoreMovimentoContoLavorazione, indicatoreMovimentoCommessa, 
 						indicatoreAggiornamentoDataUltimoCarico, indicatoreAggiornamentoDataUltimoScarico, 

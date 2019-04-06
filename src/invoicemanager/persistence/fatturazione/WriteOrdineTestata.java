@@ -21,7 +21,7 @@ public class WriteOrdineTestata {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO OrdineTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroOrdine());
 			ps.setDate(2, Date.valueOf(a.getDataOrdine()));
-			ps.setString(3, a.getCodiceStatoAvanzamento());
+			ps.setString(3, a.getStatoAvanzamento().name());
 			ps.setString(4, a.getCodiceClienteFatturazione());
 			ps.setString(5, a.getDescrizione());
 			ps.setString(6, a.getCodiceEsenzioneIva());
@@ -104,7 +104,7 @@ public class WriteOrdineTestata {
     	String sql = "Create table public.OrdineTestata (\r\n" + 
     			"	\"NumeroOrdine\" INTEGER NOT NULL ,\r\n" + 
     			"	\"DataOrdine\" Date NOT NULL ,\r\n" + 
-    			"	\"CodiceStatoAvanzamento\" varchar(25) NULL,\r\n" + 
+    			"	\"StatoAvanzamento\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceClienteFatturazione\" varchar(25) NOT NULL,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceEsenzioneIva\" varchar(25) NULL,\r\n" + 

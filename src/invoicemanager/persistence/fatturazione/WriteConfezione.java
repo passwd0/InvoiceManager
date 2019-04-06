@@ -21,7 +21,7 @@ public class WriteConfezione {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Confezione VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceConfezione());
 		ps.setString(2, a.getDescrizione());
-		ps.setBoolean(3, a.isCodiceStato());
+		ps.setString(3, a.getStato().name());
 		ps.setFloat(4, a.getLarghezza());
 		ps.setFloat(5, a.getLunghezza());
 		ps.setFloat(6, a.getAltezza());
@@ -46,7 +46,7 @@ public class WriteConfezione {
     	String sql = "Create table public.Confezione (\r\n" + 
     			"	\"CodiceConfezione\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"CodiceStato\" Boolean NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"Larghezza\" Float NULL,\r\n" + 
     			"	\"Lunghezza\" Float NULL,\r\n" + 
     			"	\"Altezza\" Float NULL,\r\n" + 
