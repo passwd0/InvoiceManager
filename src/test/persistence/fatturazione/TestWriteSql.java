@@ -1,5 +1,6 @@
 package test.persistence.fatturazione;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -18,6 +19,8 @@ import invoicemanager.model.fatturazione.Pagamento;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.Utente;
 import invoicemanager.model.fatturazione.Vettore;
+import invoicemanager.persistence.fatturazione.WriteDdtDettaglio;
+import invoicemanager.persistence.fatturazione.WriteDdtTestata;
 import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestWriteSql {
@@ -47,6 +50,7 @@ public class TestWriteSql {
 //	@Test 
 //	void writeCliente() {
 //		Cliente cliente = new Cliente("a003");
+//		cliente.setCodiceDestinatarioXml("codiceDestinatarioXML");
 //		cliente.setDataUltimaFattura(LocalDate.now());
 //		cliente.setDataInizioPlafond(LocalDate.now());
 //		Pagamento p = new Pagamento("1111");
@@ -111,37 +115,50 @@ public class TestWriteSql {
 //		DataManager.add(o);
 //	}
 	
-//	@Test
-//	void writeDdtTestata() {
-//		DdtTestata ddtTestata = new DdtTestata(123, LocalDateTime.now());
-//		ddtTestata.setCodiceClienteFatturazione("a003");
-//		DataManager.add(ddtTestata);
-//		
-//		ddtTestata = new DdtTestata(135, LocalDateTime.now());
-//		ddtTestata.setCodiceClienteFatturazione("a002");
-//		DataManager.add(ddtTestata);
-//		
-//		ddtTestata = new DdtTestata(171, LocalDateTime.now());
-//		ddtTestata.setCodiceClienteFatturazione("a001");
-//		DataManager.add(ddtTestata);
-//	}
-	
 	@Test
-	void writeOrdineTestata() {
-		OrdineTestata ordineTestata = new OrdineTestata(1, LocalDate.now());
-		ordineTestata.setCodiceClienteFatturazione("a003");
-		ordineTestata.setDataConsegna(LocalDate.now());
-		DataManager.add(ordineTestata);
+	void writeDdtTestata() {
+		try {
+			new WriteDdtTestata().createTable();
+			//new WriteDdtDettaglio().createTable();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DdtTestata ddtTestata = new DdtTestata(123, LocalDateTime.now());
+		ddtTestata.setDataCaricamento(LocalDateTime.now());
+		ddtTestata.setDataFattura(LocalDate.now());
+		ddtTestata.setCodiceClienteFatturazione("a003");
+		DataManager.add(ddtTestata);
 		
-		ordineTestata = new OrdineTestata(2, LocalDate.now());
-		ordineTestata.setCodiceClienteFatturazione("a003");
-		ordineTestata.setDataConsegna(LocalDate.now());
-		ordineTestata.setStatoAvanzamento(StatoAvanzamento.INVIATA);
-		DataManager.add(ordineTestata);
+		ddtTestata = new DdtTestata(135, LocalDateTime.now());
+		ddtTestata.setDataFattura(LocalDate.now());
+		ddtTestata.setDataCaricamento(LocalDateTime.now());
+		ddtTestata.setCodiceClienteFatturazione("a002");
+		DataManager.add(ddtTestata);
 		
-		ordineTestata = new OrdineTestata(3, LocalDate.now());
-		ordineTestata.setCodiceClienteFatturazione("a001");
-		ordineTestata.setDataConsegna(LocalDate.now());
-		DataManager.add(ordineTestata);
+		ddtTestata = new DdtTestata(171, LocalDateTime.now());
+		ddtTestata.setDataFattura(LocalDate.now());
+		ddtTestata.setDataCaricamento(LocalDateTime.now());
+		ddtTestata.setCodiceClienteFatturazione("a001");
+		DataManager.add(ddtTestata);
 	}
+//	
+//	@Test
+//	void writeOrdineTestata() {
+//		OrdineTestata ordineTestata = new OrdineTestata(1, LocalDate.now());
+//		ordineTestata.setCodiceClienteFatturazione("a003");
+//		ordineTestata.setDataConsegna(LocalDate.now());
+//		DataManager.add(ordineTestata);
+//		
+//		ordineTestata = new OrdineTestata(2, LocalDate.now());
+//		ordineTestata.setCodiceClienteFatturazione("a003");
+//		ordineTestata.setDataConsegna(LocalDate.now());
+//		ordineTestata.setStatoAvanzamento(StatoAvanzamento.INVIATA);
+//		DataManager.add(ordineTestata);
+//		
+//		ordineTestata = new OrdineTestata(3, LocalDate.now());
+//		ordineTestata.setCodiceClienteFatturazione("a001");
+//		ordineTestata.setDataConsegna(LocalDate.now());
+//		DataManager.add(ordineTestata);
+//	}
 }

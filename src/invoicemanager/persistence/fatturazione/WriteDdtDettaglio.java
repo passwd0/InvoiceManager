@@ -17,8 +17,7 @@ public class WriteDdtDettaglio {
 	}
 
 	public void add(DdtDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
-	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroDDT());
 			ps.setTimestamp(2, Utils.toTimestamp(a.getDataDDT()));
 			ps.setInt(3, a.getNumeroRigaDDT());
@@ -45,16 +44,13 @@ public class WriteDdtDettaglio {
 			ps.setString(24, a.getSerialNumber());
 			ps.setBoolean(25, a.isIndicatorePrelevatoVendita());
 			ps.setString(26, a.getPesoLordo());
+			ps.setInt(27, a.getIdDdtTestata());
 			ps.setTimestamp(27, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(28, Utils.toTimestamp(a.getDataUltimaModifica()));
-
 
 			ps.executeUpdate();
 			ps.close();
 			c.commit();
-	      } catch (Exception e) {
-	    	  //Utils.createAlertFailWriteDB();
-	      }
 	}
 
 	public void set(DdtDettaglio a) throws ClassNotFoundException, SQLException {
@@ -110,6 +106,7 @@ public class WriteDdtDettaglio {
     			"	\"SerialNumber\" varchar(25) NULL,\r\n" + 
     			"	\"IndicatorePrelevatoVendita\" Boolean NULL,\r\n" + 
     			"	\"PesoLordo\" varchar(25) NULL,\r\n" + 
+    			"	\"IdDdtTestata\" INTEGER NOT NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
     			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
     			"    Primary Key (\"NumeroDDT\", \"DataDDT\", \"NumeroRigaDDT\") \r\n" +

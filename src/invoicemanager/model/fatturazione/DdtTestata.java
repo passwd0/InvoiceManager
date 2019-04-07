@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class DdtTestata {
+	private int id;
 	private int numeroDDT; //NOT NULL
 	private LocalDateTime dataDDT; //NOT NULL
 	private StatoAvanzamento statoAvanzamento = StatoAvanzamento.DAINVIARE; //] [varchar](1) ,
@@ -54,7 +55,7 @@ public class DdtTestata {
 	
 	
 
-	public DdtTestata(int numeroDDT, LocalDateTime dataDDT, StatoAvanzamento statoAvanzamento, String codiceCausale,
+	public DdtTestata(int id, int numeroDDT, LocalDateTime dataDDT, StatoAvanzamento statoAvanzamento, String codiceCausale,
 			String codiceCausalePrelievi, String codiceClienteFatturazione, String codiceEsenzioneIva,
 			String codiceAgente, float percentualeProvvigione, float percentualeSconto, int numeroCopieFattura,
 			boolean indicatoreAddebitoBolli, boolean indicatoreAddebitoSpeseIncasso, int codiceListino,
@@ -66,6 +67,7 @@ public class DdtTestata {
 			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String note, String codiceLingua,
 			int numeroDdtDeposito, String codiceDeposito, String noteCaricamento, String codiceFilialeEdi,
 			LocalDateTime dataCaricamento, String unitaMisuraPesoColli, List<DdtDettaglio> ddtDettagli) {
+		this.id = id;
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;
 		this.statoAvanzamento = statoAvanzamento;
@@ -118,15 +120,19 @@ public class DdtTestata {
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public List<DdtDettaglio> getDdtDettagli() {
 		return ddtDettagli;
 	}
-
 	public void setDdtDettagli(List<DdtDettaglio> ddtDettagli) {
 		this.ddtDettagli = ddtDettagli;
 	}
-
 	public int getNumeroDDT() {
 		return numeroDDT;
 	}
@@ -142,7 +148,7 @@ public class DdtTestata {
 	public StatoAvanzamento getStatoAvanzamento() {
 		return statoAvanzamento;
 	}
-	public void setIndicatoreStatoAvanzamento(StatoAvanzamento statoAvanzamento) {
+	public void setStatoAvanzamento(StatoAvanzamento statoAvanzamento) {
 		this.statoAvanzamento = statoAvanzamento;
 	}
 	public String getCodiceCausale() {

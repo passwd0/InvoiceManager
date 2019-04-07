@@ -28,10 +28,11 @@ public class DdtDettaglio {
 	private String descrizioneAggiuntiva; // [varchar](2000) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceUnitaMisura; //] [varchar](4) COLLATE Latin1_General_CI_AS NULL,
 	private String serialNumber; //[SerialNumber] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDateTime DataInserimento; //NULL
-	private LocalDateTime DataUltimaModifica; //NULL
 	private boolean indicatorePrelevatoVendita; //] [varchar](1) COLLATE Latin1_General_CI_AS NULL,
 	private String pesoLordo; //[PesoLordo] [varchar](50) COLLATE Latin1_General_CI_AS NULL
+	private int idDdtTestata;
+	private LocalDateTime DataInserimento; //NULL
+	private LocalDateTime DataUltimaModifica; //NULL
 	
 	public DdtDettaglio(int numeroDDT, LocalDateTime dataDDT, int numeroRigaDDT, String codiceTipoRigaDocumento,
 			String codiceArticolo, String codiceMagazzino, float costo, int numeroOrdine, int numeroRigaOrdine,
@@ -39,8 +40,8 @@ public class DdtDettaglio {
 			float quantita, float prezzo, String codiceIva, String codiceContropartitaContabile,
 			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
 			float percentualeScontoPagamento, String descrizioneAggiuntiva, String codiceUnitaMisura,
-			String serialNumber, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
-			boolean indicatorePrelevatoVendita, String pesoLordo) {
+			String serialNumber, boolean indicatorePrelevatoVendita, String pesoLordo, 
+			int idDdtTestata, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;
 		this.numeroRigaDDT = numeroRigaDDT;
@@ -69,6 +70,7 @@ public class DdtDettaglio {
 		DataUltimaModifica = dataUltimaModifica;
 		this.indicatorePrelevatoVendita = indicatorePrelevatoVendita;
 		this.pesoLordo = pesoLordo;
+		this.idDdtTestata = idDdtTestata;
 	}
 
 	public LocalDateTime getDataDDT() {
@@ -247,5 +249,13 @@ public class DdtDettaglio {
 	}
 	public void setPesoLordo(String pesoLordo) {
 		this.pesoLordo = pesoLordo;
+	}
+
+	public int getIdDdtTestata() {
+		return idDdtTestata;
+	}
+
+	public void setIdDdtTestata(int idDdtTestata) {
+		this.idDdtTestata = idDdtTestata;
 	}
 }

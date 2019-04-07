@@ -32,7 +32,7 @@ public class ReadDdtTestata {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM DdtTestata");
 			Timestamp ts;
 	         while ( rs.next() ) {
-
+	        	 int id = rs.getInt("id");
 				int numeroDDT = rs.getInt("numeroDDT");
 				ts = rs.getTimestamp("dataDDT");
 				LocalDateTime dataDDT = null;
@@ -74,11 +74,11 @@ public class ReadDdtTestata {
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
 				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
+					dataInserimento = ts.toLocalDateTime();
 				ts = rs.getTimestamp("dataUltimaModifica");
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+					dataUltimaModifica = ts.toLocalDateTime();
 				String note = rs.getString("note");
 				String codiceLingua = rs.getString("codiceLingua");
 				int numeroDdtDeposito = rs.getInt("numeroDdtDeposito");
@@ -90,10 +90,10 @@ public class ReadDdtTestata {
 				if (ts != null)
 					dataCaricamento = ts.toLocalDateTime();
 				String unitaMisuraPesoColli = rs.getString("unitaMisuraPesoColli");
-				int codiceDdtDettaglio = rs.getInt("ddtDettagli");
-				List<DdtDettaglio> ddtDettagli = listaDdtDettaglio.stream().filter(x->x.getNumeroDDT() == codiceDdtDettaglio).collect(Collectors.toList());
 				
-				DdtTestata ddtTestata = new DdtTestata(numeroDDT, dataDDT, statoAvanzamento, codiceCausale, codiceCausalePrelievi, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceImballo, codicePagamento, codiceBanca, numeroFattura, dataFattura, codiceDivisa, causaleTrasporto, pesoColli, descrizione, numeroColli, indicatorePreventivoDaConferma, indicatoreBollaVisione, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, codiceLingua, numeroDdtDeposito, codiceDeposito, noteCaricamento, codiceFilialeEdi, dataCaricamento, unitaMisuraPesoColli, ddtDettagli);
+				List<DdtDettaglio> ddtDettagli = listaDdtDettaglio.stream().filter(x->x.getIdDdtTestata() == id).collect(Collectors.toList());
+				
+				DdtTestata ddtTestata = new DdtTestata(id, numeroDDT, dataDDT, statoAvanzamento, codiceCausale, codiceCausalePrelievi, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceImballo, codicePagamento, codiceBanca, numeroFattura, dataFattura, codiceDivisa, causaleTrasporto, pesoColli, descrizione, numeroColli, indicatorePreventivoDaConferma, indicatoreBollaVisione, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, codiceLingua, numeroDdtDeposito, codiceDeposito, noteCaricamento, codiceFilialeEdi, dataCaricamento, unitaMisuraPesoColli, ddtDettagli);
 				listddtTestata.add(ddtTestata);
 	         }
 		     rs.close();

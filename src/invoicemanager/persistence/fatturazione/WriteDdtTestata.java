@@ -17,9 +17,8 @@ public class WriteDdtTestata {
 	}
 
 	public void add(DdtTestata a, boolean exist) throws ClassNotFoundException, SQLException {
-	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			ps.setInt(1, a.getNumeroDDT());
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtTestata VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	    	ps.setInt(1, a.getNumeroDDT());
 			ps.setTimestamp(2, Utils.toTimestamp(a.getDataDDT()));
 			ps.setString(3, a.getStatoAvanzamento().name());
 			ps.setString(4, a.getCodiceCausale());
@@ -62,15 +61,12 @@ public class WriteDdtTestata {
 			ps.setString(41, a.getCodiceFilialeEdi());
 			ps.setTimestamp(42, Utils.toTimestamp(a.getDataCaricamento()));
 			ps.setString(43, a.getUnitaMisuraPesoColli());
-			ps.setTimestamp(45, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(46, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(44, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(45, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 	    	ps.executeUpdate();
 			ps.close();
 			c.commit();
-	      } catch (Exception e) {
-	    	  //Utils.createAlertFailWriteDB();
-	      }
 	}
 
 	public void set(DdtTestata a) throws ClassNotFoundException, SQLException {
@@ -98,6 +94,7 @@ public class WriteDdtTestata {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.DdtTestata (\r\n" + 
+    			"	\"id\" serial NOT NULL,\r\n" + 
     			"	\"NumeroDDT\" INTEGER NOT NULL,\r\n" + 
     			"	\"DataDDT\" Timestamp NOT NULL,\r\n" + 
     			"	\"StatoAvanzamento\" varchar(25) NULL,\r\n" + 

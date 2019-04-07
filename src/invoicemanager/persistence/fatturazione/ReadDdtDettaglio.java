@@ -57,6 +57,9 @@ public class ReadDdtDettaglio {
 				String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
 				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 				String serialNumber = rs.getString("serialNumber");
+				boolean indicatorePrelevatoVendita = rs.getBoolean("indicatorePrelevatoVendita");
+				String pesoLordo = rs.getString("pesoLordo");
+				int idDdtTestata = rs.getInt("idDdtTestata");
 				ts = rs.getTimestamp("DataInserimento");
 				LocalDateTime DataInserimento = null;
 				if (ts != null)
@@ -65,10 +68,8 @@ public class ReadDdtDettaglio {
 				LocalDateTime DataUltimaModifica = null;
 				if (ts != null)
 				DataUltimaModifica = ts.toLocalDateTime();
-				boolean indicatorePrelevatoVendita = rs.getBoolean("indicatorePrelevatoVendita");
-				String pesoLordo = rs.getString("pesoLordo");
 				
-				DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroDDT, dataDDT, numeroRigaDDT, codiceTipoRigaDocumento, codiceArticolo, codiceMagazzino, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, DataInserimento, DataUltimaModifica, indicatorePrelevatoVendita, pesoLordo);
+				DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroDDT, dataDDT, numeroRigaDDT, codiceTipoRigaDocumento, codiceArticolo, codiceMagazzino, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, indicatorePrelevatoVendita, pesoLordo, idDdtTestata, DataInserimento, DataUltimaModifica);
 
 				listddtDettaglio.add(ddtDettaglio);
 	         }
