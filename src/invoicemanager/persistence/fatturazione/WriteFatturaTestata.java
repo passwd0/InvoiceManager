@@ -21,7 +21,7 @@ public class WriteFatturaTestata {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getId());
 	    	ps.setInt(2, a.getNumeroFatturazione());
-			ps.setDate(3, Date.valueOf(a.getDataFattura()));
+			ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataFattura()));
 			ps.setString(4, a.getStatoAvanzamento().name());
 			ps.setInt(5, a.getSezionale());
 			ps.setString(6, a.getCodiceClienteFatturazione());
@@ -67,7 +67,7 @@ public class WriteFatturaTestata {
 			ps.setFloat(46, a.getTotalePagato());
 
 			if (a.getDataScadenza() != null)
-				ps.setDate(47, Date.valueOf(a.getDataScadenza()));
+				ps.setDate(47, Utils.convertToDatabaseColumn(a.getDataScadenza()));
 			else
 				ps.setDate(47, null);
 

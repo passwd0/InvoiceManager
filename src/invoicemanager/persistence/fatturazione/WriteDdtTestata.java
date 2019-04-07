@@ -38,7 +38,7 @@ public class WriteDdtTestata {
 			ps.setString(18, a.getCodicePagamento());
 			ps.setString(19, a.getCodiceBanca());
 			ps.setInt(20, a.getNumeroFattura());
-			ps.setDate(21, Date.valueOf(a.getDataFattura()));
+			ps.setDate(21, Utils.convertToDatabaseColumn(a.getDataFattura()));
 			ps.setString(22, a.getCodiceDivisa());
 			ps.setString(23, a.getCausaleTrasporto());
 			ps.setFloat(24, a.getPesoColli());

@@ -22,7 +22,7 @@ public class WritePreventivoDettaglio {
 				PreparedStatement ps = c.prepareStatement("INSERT INTO PreventivoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				ps.setInt(1, a.getNumeroPreventivo());
 				ps.setInt(2, a.getNumeroRigaPreventivo());
-				ps.setDate(3, Date.valueOf(a.getDataPreventivo()));
+				ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataPreventivo()));
 				ps.setString(4, a.getCodiceTipoRigaDocumento());
 				ps.setString(5, a.getCodiceArticolo());
 				ps.setFloat(6, a.getQuantitaArticolo());
@@ -30,7 +30,7 @@ public class WritePreventivoDettaglio {
 				ps.setFloat(8, a.getQuantitaDaConsegnare());
 				ps.setString(9, a.getDescrizione());
 				ps.setString(10, a.getDescrizioneAggiuntiva());
-				ps.setDate(11, Date.valueOf(a.getDataConsegna()));
+				ps.setDate(11, Utils.convertToDatabaseColumn(a.getDataConsegna()));
 				ps.setString(12, a.getCodiceUnitaMisura());
 				ps.setFloat(13, a.getPrezzo());
 				ps.setString(14, a.getCodiceIVA());

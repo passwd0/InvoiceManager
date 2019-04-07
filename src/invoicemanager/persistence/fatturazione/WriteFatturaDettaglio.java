@@ -20,7 +20,7 @@ public class WriteFatturaDettaglio {
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroFattura());
-			ps.setDate(2, Date.valueOf(a.getDataFattura()));
+			ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataFattura()));
 			ps.setInt(3, a.getNumeroRigaFattura());
 			ps.setInt(4, a.getSezionale());
 			ps.setString(4, a.getCodiceTipoRigaDocumento());
@@ -28,7 +28,7 @@ public class WriteFatturaDettaglio {
 			ps.setFloat(6, a.getCosto());
 			ps.setInt(7, a.getNumeroOrdine());
 			ps.setInt(8, a.getNumeroRigaOrdine());
-			ps.setDate(9, Date.valueOf(a.getDataOrdine()));
+			ps.setDate(9, Utils.convertToDatabaseColumn(a.getDataOrdine()));
 			ps.setFloat(10, a.getQuantitaDaConsegnare());
 			ps.setBoolean(11, a.isIndicatoreEvasione());
 			ps.setString(12, a.getDescrizione());

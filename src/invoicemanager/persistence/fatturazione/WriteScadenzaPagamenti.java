@@ -22,8 +22,8 @@ public class WriteScadenzaPagamenti {
 		
 		ps.setInt(1, a.getNumeroFattura());
 		ps.setFloat(2, a.getImportoScadenza());
-		ps.setDate(3, Date.valueOf(a.getDataFattura()));
-		ps.setDate(4, Date.valueOf(a.getDataScadenza()));
+		ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataFattura()));
+		ps.setDate(4, Utils.convertToDatabaseColumn(a.getDataScadenza()));
 		
 
 		ps.executeUpdate();

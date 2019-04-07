@@ -21,10 +21,10 @@ public class WritePreventivoTestata {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO PreventivoTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroPreventivo());
-		ps.setDate(2, Date.valueOf(a.getDataPreventivo()));
+		ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataPreventivo()));
 		ps.setBoolean(3, a.isIndicatoreStatoAvanzamento());
-		ps.setDate(4, Date.valueOf(a.getDataConsegna()));
-		ps.setDate(5, Date.valueOf(a.getDataValidita()));
+		ps.setDate(4, Utils.convertToDatabaseColumn(a.getDataConsegna()));
+		ps.setDate(5, Utils.convertToDatabaseColumn(a.getDataValidita()));
 		ps.setString(6, a.getPeriodoValidita());
 		ps.setBoolean(7, a.isIndicatoreUtilizzoDataValidita());
 		ps.setString(8, a.getCodiceCliente());

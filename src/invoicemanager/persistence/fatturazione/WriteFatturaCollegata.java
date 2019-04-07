@@ -22,7 +22,7 @@ public class WriteFatturaCollegata {
 		ps.setInt(1, a.getNumeroFtCollegate());
 		ps.setInt(2, a.getNumeroRigaFtCollegate());
 		ps.setInt(3, a.getSezionale());
-		ps.setDate(4, Date.valueOf(a.getDataFtCollegate()));
+		ps.setDate(4, Utils.convertToDatabaseColumn(a.getDataFtCollegate()));
 		ps.setString(5, a.getFtcCodiceCommessaFtCollegate());
 		ps.setString(6, a.getFtcCodiceCUP());
 		ps.setString(7, a.getFtcCodiceCIG());

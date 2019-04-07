@@ -25,8 +25,8 @@ public class WriteListinoArticolo {
 		ps.setString(3, a.getCodiceDivisa());
 		ps.setFloat(4, a.getPrezzo());
 		ps.setInt(5, a.getNumeroDecimali());
-		ps.setDate(6, Date.valueOf(a.getDataDecorrenza()));
-		ps.setDate(7, Date.valueOf(a.getDataValidita()));
+		ps.setDate(6, Utils.convertToDatabaseColumn(a.getDataDecorrenza()));
+		ps.setDate(7, Utils.convertToDatabaseColumn(a.getDataValidita()));
 		ps.setTimestamp(8, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(9, Utils.toTimestamp(a.getDataUltimaModifica()));
 

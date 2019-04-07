@@ -34,8 +34,8 @@ public class WriteListinoPersonalizzato {
 		ps.setFloat(12, a.getScontoPagamento());
 		ps.setString(13, a.getCodiceDivisa());
 		ps.setString(14, a.getCodiceGruppoMerceologico());
-		ps.setDate(15, Date.valueOf(a.getDataInizioValidita()));
-		ps.setDate(16, Date.valueOf(a.getDataFineValidita()));
+		ps.setDate(15, Utils.convertToDatabaseColumn(a.getDataInizioValidita()));
+		ps.setDate(16, Utils.convertToDatabaseColumn(a.getDataFineValidita()));
 		ps.setBoolean(17, a.isOpzioneGruppi());
 		ps.setBoolean(18, a.isOpzioneScontoClienti());
 		ps.setBoolean(19, a.isOpzioneScontoArticolo());

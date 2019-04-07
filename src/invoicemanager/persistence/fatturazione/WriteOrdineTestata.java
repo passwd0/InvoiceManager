@@ -19,7 +19,7 @@ public class WriteOrdineTestata {
 	public void add(OrdineTestata a, boolean exist) throws ClassNotFoundException, SQLException {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO OrdineTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroOrdine());
-			ps.setDate(2, Date.valueOf(a.getDataOrdine()));
+			ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataOrdine()));
 			ps.setString(3, a.getStatoAvanzamento().name());
 			ps.setString(4, a.getCodiceClienteFatturazione());
 			ps.setString(5, a.getDescrizione());
@@ -37,7 +37,7 @@ public class WriteOrdineTestata {
 			ps.setString(17, a.getCodiceCausale());
 			ps.setString(18, a.getCodicePagamento());
 			ps.setString(19, a.getCodiceBanca());
-			ps.setDate(20, Date.valueOf(a.getDataConsegna()));
+			ps.setDate(20, Utils.convertToDatabaseColumn(a.getDataConsegna()));
 			ps.setString(21, a.getCausaleTrasporto());
 			ps.setString(22, a.getCodiceDivisa());
 			ps.setBoolean(23, a.isIndicatoreConsegnaParziale());

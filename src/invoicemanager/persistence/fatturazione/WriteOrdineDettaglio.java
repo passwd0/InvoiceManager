@@ -20,7 +20,7 @@ public class WriteOrdineDettaglio {
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO OrdineDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroOrdine());
-			ps.setDate(2, Date.valueOf(a.getDataOrdine()));
+			ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataOrdine()));
 			ps.setInt(3, a.getNumeroRigaOrdine());
 			ps.setString(4, a.getCodiceTipoRigaDocumento());
 			ps.setString(5, a.getCodiceMagazzino());
@@ -28,7 +28,7 @@ public class WriteOrdineDettaglio {
 			ps.setFloat(7, a.getQuantitaConsegnata());
 			ps.setBoolean(8, a.isIndicatoreEvasione());
 			ps.setString(9, a.getDescrizione());
-			ps.setDate(10, Date.valueOf(a.getDataConsegna()));
+			ps.setDate(10, Utils.convertToDatabaseColumn(a.getDataConsegna()));
 			ps.setFloat(11, a.getQuantita());
 			ps.setString(12, a.getCodiceUnitaMisura());
 			ps.setFloat(13, a.getPrezzo());
@@ -44,16 +44,16 @@ public class WriteOrdineDettaglio {
 			ps.setFloat(23, a.getQuantitaVariata());
 			ps.setInt(24, a.getNumeroPreventivo());
 			ps.setInt(25, a.getNumeroRigaPreventivo());
-			ps.setDate(26, Date.valueOf(a.getDataPreventivo()));
+			ps.setDate(26, Utils.convertToDatabaseColumn(a.getDataPreventivo()));
 			ps.setFloat(27, a.getQuantitaEvasa());
 			ps.setBoolean(28, a.isIndicatoreEvasionePreventivi());
 			ps.setBoolean(29, a.isIndicatoreEvasioneRigheNote());
 			ps.setBoolean(30, a.isIndicatoreNoConferma());
-			ps.setDate(31, Date.valueOf(a.getDataConsegnaSchedulatore()));
-			ps.setDate(32, Date.valueOf(a.getDataConsegnaProposta()));
+			ps.setDate(31, Utils.convertToDatabaseColumn(a.getDataConsegnaSchedulatore()));
+			ps.setDate(32, Utils.convertToDatabaseColumn(a.getDataConsegnaProposta()));
 			ps.setBoolean(33, a.isIndicatoreBloccato());
 			ps.setBoolean(34, a.isIndicatoreOrdineTrading());
-			ps.setDate(35, Date.valueOf(a.getDataInizioSchedulatore()));
+			ps.setDate(35, Utils.convertToDatabaseColumn(a.getDataInizioSchedulatore()));
 			ps.setString(36, a.getCodiceArticoloBis());
 			ps.setTimestamp(37, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(38, Utils.toTimestamp(a.getDataUltimaModifica()));

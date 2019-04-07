@@ -21,7 +21,7 @@ public class WriteAltroDatoGestionale {
 			ps.setString(1, a.getTipoDato());
 			ps.setString(2, a.getRiferimentoTesto());
 			ps.setFloat(3, a.getRiferimentoNumero());
-			ps.setDate(4, Date.valueOf(a.getRiferimentoData()));
+			ps.setDate(4, Utils.convertToDatabaseColumn(a.getRiferimentoData()));
 	
 			ps.executeUpdate();
 			ps.close();

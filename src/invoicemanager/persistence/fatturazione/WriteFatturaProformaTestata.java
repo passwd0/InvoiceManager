@@ -20,7 +20,7 @@ public class WriteFatturaProformaTestata {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaProformaTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroFattura());
-		ps.setDate(2, Date.valueOf(a.getDataFattura()));
+		ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataFattura()));
 		ps.setBoolean(3, a.isIndicatoreStatoAvanzamento());
 		ps.setInt(4, a.getSezionale());
 		ps.setString(5, a.getCodiceClienteFatturazione());
@@ -43,7 +43,7 @@ public class WriteFatturaProformaTestata {
 		ps.setString(22, a.getCodicePagamento());
 		ps.setString(23, a.getCodiceBanca());
 		ps.setInt(24, a.getNumeroDDT());
-		ps.setDate(25, Date.valueOf(a.getDataDDT()));
+		ps.setDate(25, Utils.convertToDatabaseColumn(a.getDataDDT()));
 		ps.setString(26, a.getCodiceImballo());
 		ps.setFloat(27, a.getPesoColli());
 		ps.setFloat(28, a.getNumeroColli());
@@ -57,8 +57,8 @@ public class WriteFatturaProformaTestata {
 		ps.setString(36, a.getCittaSpedizione());
 		ps.setString(37, a.getProvinciaSpedizione());
 		ps.setString(38, a.getCodiceNazioneSpedizione());
-		ps.setDate(39, Date.valueOf(a.getDataInserimento()));
-		ps.setDate(40, Date.valueOf(a.getDataUltimaModifica()));
+		ps.setDate(39, Utils.convertToDatabaseColumn(a.getDataInserimento()));
+		ps.setDate(40, Utils.convertToDatabaseColumn(a.getDataUltimaModifica()));
 		ps.setString(41, a.getNote());
 		ps.setString(42, a.getCodiceLingua());
 		ps.setBoolean(43, a.isIndicatoreFatturazioneDifferita());

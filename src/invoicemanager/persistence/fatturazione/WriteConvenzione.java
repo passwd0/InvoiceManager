@@ -21,7 +21,7 @@ public class WriteConvenzione {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Convenzione VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroConvenzione());
 		ps.setInt(2, a.getNumeroRigaConvenzione());
-		ps.setDate(3, Date.valueOf(a.getDataConvenzione()));
+		ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataConvenzione()));
 		ps.setString(4, a.getCnvCodiceCommessaConvenzione());
 		ps.setString(5, a.getCnvCodiceCUP());
 		ps.setString(6, a.getCnvCodiceCIG());

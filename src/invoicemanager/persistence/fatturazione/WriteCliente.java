@@ -61,11 +61,11 @@ public class WriteCliente {
 			ps.setBoolean(40, a.isIndicatoreEmail());
 			ps.setBoolean(41, a.isInputInibito());
 			ps.setBoolean(42, a.isIndicatoreFatturePA());
-			ps.setDate(43, Date.valueOf(a.getDataUltimaFattura()));
+			ps.setDate(43, Utils.convertToDatabaseColumn(a.getDataUltimaFattura()));
 			ps.setFloat(44, a.getImportoUltimaFattura());
 			ps.setFloat(45, a.getImportoPlafond());
 			ps.setString(46, a.getNumeroUltimaFattura());
-			ps.setDate(47, Date.valueOf(a.getDataInizioPlafond()));
+			ps.setDate(47, Utils.convertToDatabaseColumn(a.getDataInizioPlafond()));
 			ps.setBoolean(48, a.isIndicatoreFattureXML());
 			ps.setBoolean(49, a.isIndicatoreDdtEmail());
 			ps.setBoolean(50, a.isIndicatorePlafond());
