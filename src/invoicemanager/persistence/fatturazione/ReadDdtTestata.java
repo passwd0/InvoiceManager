@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 import invoicemanager.model.fatturazione.DdtDettaglio;
 import invoicemanager.model.fatturazione.DdtTestata;
+import invoicemanager.model.fatturazione.StatoAvanzamento;
 
 
 public class ReadDdtTestata {
@@ -37,7 +38,7 @@ public class ReadDdtTestata {
 				LocalDateTime dataDDT = null;
 				if (ts != null)
 				dataDDT = ts.toLocalDateTime();
-				boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
+				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("StatoAvanzamento"));
 				String codiceCausale = rs.getString("codiceCausale");
 				String codiceCausalePrelievi = rs.getString("codiceCausalePrelievi");
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
@@ -92,7 +93,7 @@ public class ReadDdtTestata {
 				int codiceDdtDettaglio = rs.getInt("ddtDettagli");
 				List<DdtDettaglio> ddtDettagli = listaDdtDettaglio.stream().filter(x->x.getNumeroDDT() == codiceDdtDettaglio).collect(Collectors.toList());
 				
-				DdtTestata ddtTestata = new DdtTestata(numeroDDT, dataDDT, indicatoreStatoAvanzamento, codiceCausale, codiceCausalePrelievi, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceImballo, codicePagamento, codiceBanca, numeroFattura, dataFattura, codiceDivisa, causaleTrasporto, pesoColli, descrizione, numeroColli, indicatorePreventivoDaConferma, indicatoreBollaVisione, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, codiceLingua, numeroDdtDeposito, codiceDeposito, noteCaricamento, codiceFilialeEdi, dataCaricamento, unitaMisuraPesoColli, ddtDettagli);
+				DdtTestata ddtTestata = new DdtTestata(numeroDDT, dataDDT, statoAvanzamento, codiceCausale, codiceCausalePrelievi, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceImballo, codicePagamento, codiceBanca, numeroFattura, dataFattura, codiceDivisa, causaleTrasporto, pesoColli, descrizione, numeroColli, indicatorePreventivoDaConferma, indicatoreBollaVisione, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, dataInserimento, dataUltimaModifica, note, codiceLingua, numeroDdtDeposito, codiceDeposito, noteCaricamento, codiceFilialeEdi, dataCaricamento, unitaMisuraPesoColli, ddtDettagli);
 				listddtTestata.add(ddtTestata);
 	         }
 		     rs.close();

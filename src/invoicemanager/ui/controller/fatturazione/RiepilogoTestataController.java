@@ -10,8 +10,10 @@ import java.util.stream.Collectors;
 
 import invoicemanager.model.fatturazione.CausaleMagazzino;
 import invoicemanager.model.fatturazione.Cliente;
+import invoicemanager.model.fatturazione.DdtTestata;
 import invoicemanager.model.fatturazione.FatturaTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
+import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.Utente;
 import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import invoicemanager.ui.fatturazione.converter.CausaleMagazzinoConverter;
@@ -133,6 +135,20 @@ public class RiepilogoTestataController implements Initializable {
 		InvoiceManagerGrid.tabViewController.set_label_divisa(cliente.getCodiceDivisa());
 		InvoiceManagerGrid.tabViewController.set_label_esiva(cliente.getCodiceIva());
 		InvoiceManagerGrid.tabViewController.set_label_lingua(cliente.getCodiceLingua());
+		
+		InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(
+				DataManager.loadDdtTestata().stream()
+				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
+						d.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
+				.collect(Collectors.toList()));
+		
+		InvoiceManagerGrid.tabViewController.oOrdineTestata.setAll(
+				DataManager.loadOrdineTestata().stream()
+				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
+						o.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
+				.collect(Collectors.toList()));
+		
+		InvoiceManagerGrid.tabViewController.set_textfield_iddest(cliente.getCodiceDestinatarioXml());
 	}
 	
 	@FXML

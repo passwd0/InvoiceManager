@@ -17,8 +17,7 @@ public class WriteOrdineTestata {
 	}
 
 	public void add(OrdineTestata a, boolean exist) throws ClassNotFoundException, SQLException {
-	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO OrdineTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO OrdineTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroOrdine());
 			ps.setDate(2, Date.valueOf(a.getDataOrdine()));
 			ps.setString(3, a.getStatoAvanzamento().name());
@@ -64,9 +63,6 @@ public class WriteOrdineTestata {
 			ps.executeUpdate();
 			ps.close();
 			c.commit();
-	      } catch (Exception e) {
-	    	  //Utils.createAlertFailWriteDB();
-	      }
 	}
 
 	public void set(OrdineTestata a) throws ClassNotFoundException, SQLException {

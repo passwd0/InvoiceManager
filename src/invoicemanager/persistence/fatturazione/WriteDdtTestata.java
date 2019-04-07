@@ -21,7 +21,7 @@ public class WriteDdtTestata {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroDDT());
 			ps.setTimestamp(2, Utils.toTimestamp(a.getDataDDT()));
-			ps.setBoolean(3, a.isIndicatoreStatoAvanzamento());
+			ps.setString(3, a.getStatoAvanzamento().name());
 			ps.setString(4, a.getCodiceCausale());
 			ps.setString(5, a.getCodiceCausalePrelievi());
 			ps.setString(6, a.getCodiceClienteFatturazione());
@@ -100,7 +100,7 @@ public class WriteDdtTestata {
     	String sql = "Create table public.DdtTestata (\r\n" + 
     			"	\"NumeroDDT\" INTEGER NOT NULL,\r\n" + 
     			"	\"DataDDT\" Timestamp NOT NULL,\r\n" + 
-    			"	\"IndicatoreStatoAvanzamento\" Boolean NULL,\r\n" + 
+    			"	\"StatoAvanzamento\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceCausale\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceCausalePrelievi\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceClienteFatturazione\" varchar(25) NULL,\r\n" + 

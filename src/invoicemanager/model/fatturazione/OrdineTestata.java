@@ -6,8 +6,8 @@ import java.util.List;
 public class OrdineTestata{
 	private int numeroOrdine; //  NOT NULL
 	private LocalDate dataOrdine; //  NOT NULL
-	private StatoAvanzamento statoAvanzamento; // NULL
-	private String codiceClienteFatturazione; //(30) NULL
+	private StatoAvanzamento statoAvanzamento = StatoAvanzamento.DAINVIARE; // NULL
+	private String codiceClienteFatturazione; //(30) NULL			//codiceCliente
 	private String descrizione; //(200) NULL
 	private String codiceEsenzioneIva; //(4) NULL
 	private String codiceAgente; //(10) NULL

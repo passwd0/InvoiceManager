@@ -25,7 +25,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>
-                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="1000.0">
                      <children>
                         <HBox>
                            <children>
@@ -33,13 +33,15 @@
                               <Label text="Label">
                                  <HBox.margin>
                                     <Insets left="20.0" />
-                                 </HBox.margin></Label>
+                                 </HBox.margin>
+                              </Label>
                            </children>
                         </HBox>
                         <Label text="Cliente" textFill="RED">
                            <VBox.margin>
                               <Insets top="10.0" />
-                           </VBox.margin></Label>
+                           </VBox.margin>
+                        </Label>
                         <GridPane>
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="149.0" />
@@ -75,7 +77,8 @@
                         <Label text="Spedizioni e Codici" textFill="RED">
                            <VBox.margin>
                               <Insets top="10.0" />
-                           </VBox.margin></Label>
+                           </VBox.margin>
+                        </Label>
                         <GridPane>
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="70.0" prefWidth="97.0" />
@@ -103,12 +106,14 @@
                               <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="CAP:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
-                                 </GridPane.margin></Label>
+                                 </GridPane.margin>
+                              </Label>
                               <TextField fx:id="textfield_provinciaspedizione" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               <Label text="Prov:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
-                                 </GridPane.margin></Label>
+                                 </GridPane.margin>
+                              </Label>
                               <TextField fx:id="textfield_indirizzospedizione" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
                               <TextField fx:id="textfield_codicespedizione" GridPane.columnIndex="2" GridPane.columnSpan="2" />
                               <ComboBox fx:id="combobox_codicespedizione" onAction="#combobox_codicespedizione_pressed" prefWidth="150.0" GridPane.columnIndex="1" />
@@ -154,7 +159,8 @@
                         <Label text="Riferimenti" textFill="RED">
                            <VBox.margin>
                               <Insets top="10.0" />
-                           </VBox.margin></Label>
+                           </VBox.margin>
+                        </Label>
                         <GridPane>
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="64.0" />
@@ -177,45 +183,53 @@
                               <Label text="del:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
-                                 </GridPane.margin></Label>
-                              <Label text="Id filiale:" GridPane.rowIndex="2" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Id dest.:" GridPane.rowIndex="2" />
                               <Label text="Bolla N:" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
-                                 </GridPane.margin></Label>
+                                 </GridPane.margin>
+                              </Label>
                               <Label text="del:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
-                                 </GridPane.margin></Label>
+                                 </GridPane.margin>
+                              </Label>
                               <Label text="Copie:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
                               <Label text="Listino:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                               <CheckBox fx:id="checkbox_bolli" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bolli" GridPane.columnIndex="6" GridPane.halignment="CENTER">
                                  <GridPane.margin>
                                     <Insets left="30.0" />
-                                 </GridPane.margin></CheckBox>
+                                 </GridPane.margin>
+                              </CheckBox>
                               <CheckBox fx:id="checkbox_spese" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Spese" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets left="30.0" />
-                                 </GridPane.margin></CheckBox>
+                                 </GridPane.margin>
+                              </CheckBox>
                               <Label prefWidth="33.0" text="Rif.:" GridPane.columnIndex="7" GridPane.halignment="RIGHT">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
-                                 </GridPane.margin></Label>
+                                 </GridPane.margin>
+                              </Label>
                               <CheckBox fx:id="checkbox_lotti" mnemonicParsing="false" text="Lotti / serial number" GridPane.columnIndex="8" GridPane.rowIndex="1" />
                               <TextField fx:id="textfield_rif" prefHeight="23.0" prefWidth="88.0" GridPane.columnIndex="8" />
-                              <TextField fx:id="textfield_idfiliale" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="textfield_iddest" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
                               <TextField fx:id="textfield_ordinen_del" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="textfield_bollandel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <ComboBox fx:id="combobox_ordinen" prefWidth="150.0" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="combobox_ordinen" onAction="#combobox_ordinen_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
                               <ComboBox fx:id="combobox_bollan" prefWidth="150.0" GridPane.columnIndex="3" />
                               <TextField fx:id="textfield_copie" GridPane.columnIndex="5">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
-                                 </GridPane.margin></TextField>
+                                 </GridPane.margin>
+                              </TextField>
                               <TextField fx:id="textfield_listino" GridPane.columnIndex="5" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="10.0" />
-                                 </GridPane.margin></TextField>
+                                 </GridPane.margin>
+                              </TextField>
                            </children>
                         </GridPane>
                      </children>

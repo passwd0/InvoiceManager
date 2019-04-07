@@ -9,10 +9,13 @@ import invoicemanager.model.fatturazione.Agente;
 import invoicemanager.model.fatturazione.Banca;
 import invoicemanager.model.fatturazione.CausaleMagazzino;
 import invoicemanager.model.fatturazione.Cliente;
+import invoicemanager.model.fatturazione.DdtTestata;
 import invoicemanager.model.fatturazione.FatturaTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.model.fatturazione.Ordine;
+import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.model.fatturazione.Pagamento;
+import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.Utente;
 import invoicemanager.model.fatturazione.Vettore;
 import invoicemanager.ui.controller.fatturazione.DataManager;
@@ -107,4 +110,38 @@ public class TestWriteSql {
 //		Ordine o = new Ordine(1, 2, LocalDate.now(), "ordCodiceCommessaConv", "ordCodiceCUP", "ordCodiceCIG");
 //		DataManager.add(o);
 //	}
+	
+//	@Test
+//	void writeDdtTestata() {
+//		DdtTestata ddtTestata = new DdtTestata(123, LocalDateTime.now());
+//		ddtTestata.setCodiceClienteFatturazione("a003");
+//		DataManager.add(ddtTestata);
+//		
+//		ddtTestata = new DdtTestata(135, LocalDateTime.now());
+//		ddtTestata.setCodiceClienteFatturazione("a002");
+//		DataManager.add(ddtTestata);
+//		
+//		ddtTestata = new DdtTestata(171, LocalDateTime.now());
+//		ddtTestata.setCodiceClienteFatturazione("a001");
+//		DataManager.add(ddtTestata);
+//	}
+	
+	@Test
+	void writeOrdineTestata() {
+		OrdineTestata ordineTestata = new OrdineTestata(1, LocalDate.now());
+		ordineTestata.setCodiceClienteFatturazione("a003");
+		ordineTestata.setDataConsegna(LocalDate.now());
+		DataManager.add(ordineTestata);
+		
+		ordineTestata = new OrdineTestata(2, LocalDate.now());
+		ordineTestata.setCodiceClienteFatturazione("a003");
+		ordineTestata.setDataConsegna(LocalDate.now());
+		ordineTestata.setStatoAvanzamento(StatoAvanzamento.INVIATA);
+		DataManager.add(ordineTestata);
+		
+		ordineTestata = new OrdineTestata(3, LocalDate.now());
+		ordineTestata.setCodiceClienteFatturazione("a001");
+		ordineTestata.setDataConsegna(LocalDate.now());
+		DataManager.add(ordineTestata);
+	}
 }

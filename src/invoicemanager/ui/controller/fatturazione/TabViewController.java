@@ -10,11 +10,16 @@ import invoicemanager.model.fatturazione.DdtTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.model.fatturazione.Magazzino;
 import invoicemanager.model.fatturazione.Ordine;
+import invoicemanager.model.fatturazione.OrdineTestata;
+import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.UnitaMisura;
 import invoicemanager.ui.fatturazione.converter.CodiceSpedizioneConverter;
-import invoicemanager.ui.fatturazione.converter.OrdineConverter;
+import invoicemanager.ui.fatturazione.converter.DdtTestataConverter;
+import invoicemanager.ui.fatturazione.converter.OrdineTestataConverter;
+import invoicemanager.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -118,7 +123,7 @@ public class TabViewController implements Initializable {
     private TextField textfield_rif;
 
     @FXML
-    private TextField textfield_idfiliale;
+    private TextField textfield_iddest;
 
     @FXML
     private TextField textfield_ordinen_del;
@@ -127,7 +132,7 @@ public class TabViewController implements Initializable {
     private TextField textfield_bollandel;
 
     @FXML
-    private ComboBox<Ordine> combobox_ordinen;
+    private ComboBox<OrdineTestata> combobox_ordinen;
 
     @FXML
     private ComboBox<DdtTestata> combobox_bollan;
@@ -239,6 +244,9 @@ public class TabViewController implements Initializable {
 
     @FXML
     private Label label_totalefattura;
+    
+    public ObservableList<DdtTestata> oDdtTestata;
+    public ObservableList<OrdineTestata> oOrdineTestata;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -248,11 +256,19 @@ public class TabViewController implements Initializable {
 		combobox_codicespedizione.setItems(oIndirizzoGeografico);
 		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());
 		
-		ObservableList<Ordine> oOrdine = FXCollections.observableArrayList(
-				DataManager.loadOrdine().stream()
+		oOrdineTestata = FXCollections.observableArrayList(
+				DataManager.loadOrdineTestata().stream()
+				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
 				.collect(Collectors.toList()));
-		combobox_ordinen.setItems(oOrdine);
-		combobox_ordinen.setConverter(new OrdineConverter());
+		combobox_ordinen.setItems(oOrdineTestata);
+		combobox_ordinen.setConverter(new OrdineTestataConverter());
+		
+		oDdtTestata = FXCollections.observableArrayList(
+				DataManager.loadDdtTestata().stream()
+				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
+				.collect(Collectors.toList()));
+		combobox_bollan.setItems(oDdtTestata);
+		combobox_bollan.setConverter(new DdtTestataConverter());
 	}
 
 	void set_label_ragionesociale(String ragionesociale) {
@@ -334,7 +350,13 @@ public class TabViewController implements Initializable {
 		if (lingua != null)
 			label_lingua.setText(lingua);
 	}
+	
+	public void set_textfield_iddest(String idDestinazioneXML) {
+		if (idDestinazioneXML != null)
+			textfield_iddest.setText(idDestinazioneXML);
+	}
 
+	@FXML
 	public void combobox_codicespedizione_pressed(Event e) {
 		IndirizzoGeografico indirizzoGeografico = combobox_codicespedizione.getSelectionModel().getSelectedItem();
 		textfield_indirizzospedizione.setText(indirizzoGeografico.getCodiceIndirizzo());
@@ -344,5 +366,12 @@ public class TabViewController implements Initializable {
 		combobox_nazionespedizione.setValue(indirizzoGeografico.getCodiceNazione());
 		textfield_provinciaspedizione.setText(indirizzoGeografico.getProvincia());
 		textfield_capspedizione.setText(indirizzoGeografico.getCap());
+	}
+	
+
+	@FXML
+	private void combobox_ordinen_onAction(ActionEvent event) {
+		textfield_ordinen_del.setText(
+				combobox_ordinen.getSelectionModel().getSelectedItem().getDataOrdine().format(Utils.formatterData));
 	}
 }

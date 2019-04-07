@@ -7,10 +7,10 @@ import java.util.List;
 public class DdtTestata {
 	private int numeroDDT; //NOT NULL
 	private LocalDateTime dataDDT; //NOT NULL
-	private boolean indicatoreStatoAvanzamento; //] [varchar](1) ,
+	private StatoAvanzamento statoAvanzamento = StatoAvanzamento.DAINVIARE; //] [varchar](1) ,
 	private String codiceCausale; //] [varchar](4) ,
 	private String codiceCausalePrelievi; //] [varchar](4) ,
-	private String codiceClienteFatturazione; //] [varchar](30) ,
+	private String codiceClienteFatturazione; //] [varchar](30) ,				//codiceCliente
 	private String codiceEsenzioneIva; //] [varchar](4) ,
 	private String codiceAgente; //] [varchar](10) ,
 	private float percentualeProvvigione; //NULL
@@ -54,7 +54,7 @@ public class DdtTestata {
 	
 	
 
-	public DdtTestata(int numeroDDT, LocalDateTime dataDDT, boolean indicatoreStatoAvanzamento, String codiceCausale,
+	public DdtTestata(int numeroDDT, LocalDateTime dataDDT, StatoAvanzamento statoAvanzamento, String codiceCausale,
 			String codiceCausalePrelievi, String codiceClienteFatturazione, String codiceEsenzioneIva,
 			String codiceAgente, float percentualeProvvigione, float percentualeSconto, int numeroCopieFattura,
 			boolean indicatoreAddebitoBolli, boolean indicatoreAddebitoSpeseIncasso, int codiceListino,
@@ -68,7 +68,7 @@ public class DdtTestata {
 			LocalDateTime dataCaricamento, String unitaMisuraPesoColli, List<DdtDettaglio> ddtDettagli) {
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;
-		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
+		this.statoAvanzamento = statoAvanzamento;
 		this.codiceCausale = codiceCausale;
 		this.codiceCausalePrelievi = codiceCausalePrelievi;
 		this.codiceClienteFatturazione = codiceClienteFatturazione;
@@ -139,11 +139,11 @@ public class DdtTestata {
 	public void setDataDDT(LocalDateTime dataDDT) {
 		this.dataDDT = dataDDT;
 	}
-	public boolean isIndicatoreStatoAvanzamento() {
-		return indicatoreStatoAvanzamento;
+	public StatoAvanzamento getStatoAvanzamento() {
+		return statoAvanzamento;
 	}
-	public void setIndicatoreStatoAvanzamento(boolean indicatoreStatoAvanzamento) {
-		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
+	public void setIndicatoreStatoAvanzamento(StatoAvanzamento statoAvanzamento) {
+		this.statoAvanzamento = statoAvanzamento;
 	}
 	public String getCodiceCausale() {
 		return codiceCausale;
