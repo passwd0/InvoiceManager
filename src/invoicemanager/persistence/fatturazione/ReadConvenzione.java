@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Convenzione;
+import invoicemanager.utils.Utils;
 
 
 public class ReadConvenzione {
@@ -31,7 +32,7 @@ public class ReadConvenzione {
 
 				int numeroConvenzione = rs.getInt("numeroConvenzione");
 				int numeroRigaConvenzione = rs.getInt("numeroRigaConvenzione");
-				LocalDate dataConvenzione = rs.getDate("dataConvenzione").toLocalDate();
+				LocalDate dataConvenzione = Utils.convertToEntityAttribute(rs.getDate("dataConvenzione"));
 				String cnvCodiceCommessaConvenzione = rs.getString("cnvCodiceCommessaConvenzione");
 				String cnvCodiceCUP = rs.getString("cnvCodiceCUP");
 				String cnvCodiceCIG = rs.getString("cnvCodiceCIG");

@@ -16,6 +16,7 @@ import invoicemanager.model.fatturazione.FatturaCollegata;
 import invoicemanager.model.fatturazione.FatturaProformaDettaglio;
 import invoicemanager.model.fatturazione.Ordine;
 import invoicemanager.model.fatturazione.Ricezione;
+import invoicemanager.utils.Utils;
 
 
 public class ReadFatturaProformaDettaglio {
@@ -37,7 +38,7 @@ public class ReadFatturaProformaDettaglio {
 
 					int numeroFattura = rs.getInt("numeroFattura");
 					int numeroRigaFattura = rs.getInt("numeroRigaFattura");
-					LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
+					LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
 					int sezionale = rs.getInt("sezionale");
 					String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 					String codiceArticolo = rs.getString("codiceArticolo");

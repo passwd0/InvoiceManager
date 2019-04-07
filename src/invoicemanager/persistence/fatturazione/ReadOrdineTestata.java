@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import invoicemanager.model.fatturazione.OrdineDettaglio;
 import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
+import invoicemanager.utils.Utils;
 
 
 public class ReadOrdineTestata {
@@ -34,7 +35,7 @@ public class ReadOrdineTestata {
 	         while ( rs.next() ) {
 
 				int numeroOrdine = rs.getInt("numeroOrdine");
-				LocalDate dataOrdine = rs.getDate("dataOrdine").toLocalDate();
+				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
 				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("statoAvanzamento")); 
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
 				String descrizione = rs.getString("descrizione");
@@ -52,7 +53,7 @@ public class ReadOrdineTestata {
 				String codiceCausale = rs.getString("codiceCausale");
 				String codicePagamento = rs.getString("codicePagamento");
 				String codiceBanca = rs.getString("codiceBanca");
-				LocalDate dataConsegna = rs.getDate("dataConsegna").toLocalDate();
+				LocalDate dataConsegna = Utils.convertToEntityAttribute(rs.getDate("dataConsegna"));
 				String causaleTrasporto = rs.getString("causaleTrasporto");
 				String codiceDivisa = rs.getString("codiceDivisa");
 				boolean indicatoreConsegnaParziale = rs.getBoolean("indicatoreConsegnaParziale");

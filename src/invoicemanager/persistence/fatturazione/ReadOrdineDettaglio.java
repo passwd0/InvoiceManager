@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.OrdineDettaglio;
+import invoicemanager.utils.Utils;
 
 
 public class ReadOrdineDettaglio {
@@ -31,7 +32,7 @@ public class ReadOrdineDettaglio {
 	         while ( rs.next() ) {
 
 				int numeroOrdine = rs.getInt("numeroOrdine");
-				LocalDate dataOrdine = rs.getDate("dataOrdine").toLocalDate();
+				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
 				int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
 				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 				String codiceMagazzino = rs.getString("codiceMagazzino");
@@ -39,7 +40,7 @@ public class ReadOrdineDettaglio {
 				float quantitaConsegnata = rs.getFloat("quantitaConsegnata");
 				boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
 				String descrizione = rs.getString("descrizione");
-				LocalDate dataConsegna = rs.getDate("dataConsegna").toLocalDate();
+				LocalDate dataConsegna = Utils.convertToEntityAttribute(rs.getDate("dataConsegna"));
 				float quantita = rs.getFloat("quantita");
 				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 				float prezzo = rs.getFloat("prezzo");
@@ -55,16 +56,16 @@ public class ReadOrdineDettaglio {
 				float quantitaVariata = rs.getFloat("quantitaVariata");
 				int numeroPreventivo = rs.getInt("numeroPreventivo");
 				int numeroRigaPreventivo = rs.getInt("numeroRigaPreventivo");
-				LocalDate dataPreventivo = rs.getDate("dataPreventivo").toLocalDate();
+				LocalDate dataPreventivo = Utils.convertToEntityAttribute(rs.getDate("dataPreventivo"));
 				float quantitaEvasa = rs.getFloat("quantitaEvasa");
 				boolean indicatoreEvasionePreventivi = rs.getBoolean("indicatoreEvasionePreventivi");
 				boolean indicatoreEvasioneRigheNote = rs.getBoolean("indicatoreEvasioneRigheNote");
 				boolean indicatoreNoConferma = rs.getBoolean("indicatoreNoConferma");
-				LocalDate dataConsegnaSchedulatore = rs.getDate("dataConsegnaSchedulatore").toLocalDate();
-				LocalDate dataConsegnaProposta = rs.getDate("dataConsegnaProposta").toLocalDate();
+				LocalDate dataConsegnaSchedulatore = Utils.convertToEntityAttribute(rs.getDate("dataConsegnaSchedulatore"));
+				LocalDate dataConsegnaProposta = Utils.convertToEntityAttribute(rs.getDate("dataConsegnaProposta"));
 				boolean indicatoreBloccato = rs.getBoolean("indicatoreBloccato");
 				boolean indicatoreOrdineTrading = rs.getBoolean("indicatoreOrdineTrading");
-				LocalDate dataInizioSchedulatore = rs.getDate("dataInizioSchedulatore").toLocalDate();
+				LocalDate dataInizioSchedulatore = Utils.convertToEntityAttribute(rs.getDate("dataInizioSchedulatore"));
 				String codiceArticoloBis = rs.getString("codiceArticoloBis");
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;

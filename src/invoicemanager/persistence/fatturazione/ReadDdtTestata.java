@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import invoicemanager.model.fatturazione.DdtDettaglio;
 import invoicemanager.model.fatturazione.DdtTestata;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
+import invoicemanager.utils.Utils;
 
 
 public class ReadDdtTestata {
@@ -56,7 +57,7 @@ public class ReadDdtTestata {
 				String codicePagamento = rs.getString("codicePagamento");
 				String codiceBanca = rs.getString("codiceBanca");
 				int numeroFattura = rs.getInt("numeroFattura");
-				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
+				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
 				String codiceDivisa = rs.getString("codiceDivisa");
 				String causaleTrasporto = rs.getString("causaleTrasporto");
 				float pesoColli = rs.getFloat("pesoColli");

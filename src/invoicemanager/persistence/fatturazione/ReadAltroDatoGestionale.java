@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.AltroDatoGestionale;
+import invoicemanager.utils.Utils;
 
 
 public class ReadAltroDatoGestionale {
@@ -31,7 +32,7 @@ public class ReadAltroDatoGestionale {
 				String tipoDato = rs.getString("tipoDato");
 				String riferimentoTesto = rs.getString("riferimentoTesto");
 				float riferimentoNumero = rs.getFloat("riferimentoNumero");
-				LocalDate riferimentoData = rs.getDate("riferimentoData").toLocalDate();
+				LocalDate riferimentoData = Utils.convertToEntityAttribute(rs.getDate("riferimentoData"));
 				AltroDatoGestionale altroDatoGestionale = new AltroDatoGestionale(codiceAltroDatoGestionale, tipoDato, riferimentoTesto, riferimentoNumero, riferimentoData);
 
 				listAltroDatoGestionale.add(altroDatoGestionale);

@@ -25,6 +25,7 @@ import invoicemanager.model.fatturazione.Stato;
 import invoicemanager.model.fatturazione.TerzoIntermediario;
 import invoicemanager.model.fatturazione.TipoCliente;
 import invoicemanager.model.fatturazione.Vettore;
+import invoicemanager.utils.Utils;
 
 
 public class ReadCliente {
@@ -100,11 +101,11 @@ public class ReadCliente {
 				boolean indicatoreEmail = rs.getBoolean("indicatoreEmail");
 				boolean inputInibito = rs.getBoolean("inputInibito");
 				boolean indicatoreFatturePA = rs.getBoolean("indicatoreFatturePA");
-				LocalDate dataUltimaFattura = rs.getDate("dataUltimaFattura").toLocalDate();
+				LocalDate dataUltimaFattura = Utils.convertToEntityAttribute(rs.getDate("dataUltimaFattura"));
 				float importoUltimaFattura = rs.getFloat("importoUltimaFattura");
 				float importoPlafond = rs.getFloat("importoPlafond");
 				String numeroUltimaFattura = rs.getString("numeroUltimaFattura");
-				LocalDate dataInizioPlafond = rs.getDate("dataInizioPlafond").toLocalDate();
+				LocalDate dataInizioPlafond = Utils.convertToEntityAttribute(rs.getDate("dataInizioPlafond"));
 				boolean indicatoreFattureXML = rs.getBoolean("indicatoreFattureXML");
 				boolean indicatoreDdtEmail = rs.getBoolean("indicatoreDdtEmail");
 				boolean indicatorePlafond = rs.getBoolean("indicatorePlafond");

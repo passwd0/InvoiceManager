@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
+import invoicemanager.model.fatturazione.IndirizzoGeografico;
+
 public class Utils {
 	public static DateTimeFormatter formatterOra = DateTimeFormatter.ofPattern("HH:mm");
 	public static DateTimeFormatter formatterData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -32,5 +34,9 @@ public class Utils {
         return Optional.ofNullable(date)
           .map(Date::toLocalDate)
           .orElse(null);
+    }
+    
+    public static IndirizzoGeografico getVoidIndirizzoGeografico() {
+    	return new IndirizzoGeografico("", "", "", "", "", "", "", "", "", false, "", LocalDateTime.now(), LocalDateTime.now());
     }
 }

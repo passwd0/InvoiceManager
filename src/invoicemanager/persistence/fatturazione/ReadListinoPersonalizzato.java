@@ -12,6 +12,7 @@ import java.util.List;
 
 import invoicemanager.model.fatturazione.GruppoMerceologico;
 import invoicemanager.model.fatturazione.ListinoPersonalizzato;
+import invoicemanager.utils.Utils;
 
 
 public class ReadListinoPersonalizzato {
@@ -50,8 +51,8 @@ public class ReadListinoPersonalizzato {
 				String codiceDivisa = rs.getString("codiceDivisa");
 				String codice = rs.getString("gruppoMerceologico");
 				GruppoMerceologico gruppoMerceologico = listaGruppoMerceologico.stream().filter(x->x.getCodiceGruppoMerceologico().equals(codice)).findFirst().orElse(null);
-				LocalDate dataInizioValidita = rs.getDate("dataInizioValidita").toLocalDate();
-				LocalDate dataFineValidita = rs.getDate("dataFineValidita").toLocalDate();
+				LocalDate dataInizioValidita = Utils.convertToEntityAttribute(rs.getDate("dataInizioValidita"));
+				LocalDate dataFineValidita = Utils.convertToEntityAttribute(rs.getDate("dataFineValidita"));
 				boolean opzioneGruppi = rs.getBoolean("opzioneGruppi");
 				boolean opzioneScontoClienti = rs.getBoolean("opzioneScontoClienti");
 				boolean opzioneScontoArticolo = rs.getBoolean("opzioneScontoArticolo");

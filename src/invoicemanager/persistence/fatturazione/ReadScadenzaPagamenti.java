@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.ScadenzaPagamenti;
+import invoicemanager.utils.Utils;
 
 
 public class ReadScadenzaPagamenti {
@@ -29,8 +30,8 @@ public class ReadScadenzaPagamenti {
 
 				int numeroFattura = rs.getInt("numeroFattura");
 				float importoScadenza = rs.getFloat("importoScadenza");
-				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
-				LocalDate dataScadenza = rs.getDate("dataScadenza").toLocalDate();
+				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
+				LocalDate dataScadenza = Utils.convertToEntityAttribute(rs.getDate("dataScadenza"));
 				
 				ScadenzaPagamenti scadenzaPagamenti = new ScadenzaPagamenti(numeroFattura, dataFattura, dataScadenza, importoScadenza);
 

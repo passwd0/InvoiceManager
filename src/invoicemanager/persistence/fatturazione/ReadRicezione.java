@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Ricezione;
+import invoicemanager.utils.Utils;
 
 
 public class ReadRicezione {
@@ -31,7 +32,7 @@ public class ReadRicezione {
 
 				int numeroRicezione = rs.getInt("numeroRicezione");
 				int numeroRigaRicezione = rs.getInt("numeroRigaRicezione");
-				LocalDate dataRicezione = rs.getDate("dataRicezione").toLocalDate();
+				LocalDate dataRicezione = Utils.convertToEntityAttribute(rs.getDate("dataRicezione"));
 				String rczCodiceCommessaRicezione = rs.getString("rczCodiceCommessaRicezione");
 				String rczCodiceCUP = rs.getString("rczCodiceCUP");
 				String rczCodiceCIG = rs.getString("rczCodiceCIG");

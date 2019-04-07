@@ -18,6 +18,7 @@ import invoicemanager.model.fatturazione.FatturaCollegata;
 import invoicemanager.model.fatturazione.FatturaDettaglio;
 import invoicemanager.model.fatturazione.Ordine;
 import invoicemanager.model.fatturazione.Ricezione;
+import invoicemanager.utils.Utils;
 
 
 public class ReadFatturaDettaglio {
@@ -38,7 +39,7 @@ public class ReadFatturaDettaglio {
 	         while ( rs.next() ) {
 
 				int numeroFattura = rs.getInt("numeroFattura");
-				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
+				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
 				int numeroRigaFattura = rs.getInt("numeroRigaFattura");
 				int sezionale = rs.getInt("sezionale");
 				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
@@ -46,7 +47,7 @@ public class ReadFatturaDettaglio {
 				float costo = rs.getFloat("costo");
 				int numeroOrdine = rs.getInt("numeroOrdine");
 				int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
-				LocalDate dataOrdine = rs.getDate("dataOrdine").toLocalDate();
+				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
 				float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 				boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
 				String descrizione = rs.getString("descrizione");

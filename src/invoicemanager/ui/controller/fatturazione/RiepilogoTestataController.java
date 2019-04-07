@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 import invoicemanager.model.fatturazione.CausaleMagazzino;
 import invoicemanager.model.fatturazione.Cliente;
-import invoicemanager.model.fatturazione.DdtTestata;
 import invoicemanager.model.fatturazione.FatturaTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
@@ -66,7 +65,6 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
 		ObservableList<Cliente> oClientiId = FXCollections.observableArrayList(
 				DataManager.loadCliente().stream()
 				  .collect(Collectors.toList())
@@ -100,11 +98,23 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_cliente_pressed(ActionEvent e) {
-		Cliente cliente = combobox_cliente.getSelectionModel().getSelectedItem();
+		clean();
+		
+		Cliente cliente = combobox_cliente.getValue();
 		if (cliente != null) {
 			InvoiceManagerGrid.tabViewController.set_textfield_percprovcliente(String.valueOf(cliente.getPercentualeProvvigioneAgente()));
 			InvoiceManagerGrid.tabViewController.set_textfield_scontocliente(String.valueOf(cliente.getScontoLegatoProvvigioniAgente()));
-			//----------------------------- da finire -----------------------------------------------
+			InvoiceManagerGrid.tabViewController.set_textfield_iddest(cliente.getCodiceDestinatarioXml());
+			InvoiceManagerGrid.tabViewController.checkbox_bolli.setSelected(cliente.isIndicatoreAddebitoSpeseBolli());
+			InvoiceManagerGrid.tabViewController.set_label_pagamento(cliente.getCodicePagamento());
+			InvoiceManagerGrid.tabViewController.set_label_vettore(cliente.getCodiceVettore());
+			InvoiceManagerGrid.tabViewController.set_label_agente(cliente.getCodiceAgente());
+			InvoiceManagerGrid.tabViewController.set_label_banca(cliente.getCodiceBanca());
+			InvoiceManagerGrid.tabViewController.set_label_resa(cliente.getCodiceResaMerce());
+			InvoiceManagerGrid.tabViewController.set_label_imballo(cliente.getCodiceImballo());
+			InvoiceManagerGrid.tabViewController.set_label_divisa(cliente.getCodiceDivisa());
+			InvoiceManagerGrid.tabViewController.set_label_esiva(cliente.getCodiceIva());
+			InvoiceManagerGrid.tabViewController.set_label_lingua(cliente.getCodiceLingua());
 		}
 		Utente utente = DataManager.loadUtente().stream()
 				.filter(u -> u.getCodiceUtente().equals(
@@ -114,28 +124,15 @@ public class RiepilogoTestataController implements Initializable {
 		if (utente != null) {
 			InvoiceManagerGrid.tabViewController.set_label_ragionesociale(utente.getRagioneSociale());
 			InvoiceManagerGrid.tabViewController.set_label_partitaiva(utente.getPartitaIVA());
+			IndirizzoGeografico indirizzoGeografico = DataManager.loadIndirizzoGeografico().stream()
+					.filter(ig -> ig.getCodiceConto().equals(utente.getCodiceUtente()))
+					.findFirst().orElse(null);
+			if (indirizzoGeografico != null) {
+				InvoiceManagerGrid.tabViewController.set_label_indirizzo(indirizzoGeografico.getCodiceIndirizzo());
+				InvoiceManagerGrid.tabViewController.set_label_localita(indirizzoGeografico.getCitta());
+				InvoiceManagerGrid.tabViewController.set_label_nazione(indirizzoGeografico.getCodiceNazione());
+			}
 		}
-		
-		IndirizzoGeografico indirizzoGeografico = DataManager.loadIndirizzoGeografico().stream()
-				.filter(ig -> ig.getCodiceConto().equals(
-						utente.getCodiceUtente()))
-				.findFirst().orElse(null);
-		if (indirizzoGeografico != null) {
-			InvoiceManagerGrid.tabViewController.set_label_indirizzo(indirizzoGeografico.getCodiceIndirizzo());
-			InvoiceManagerGrid.tabViewController.set_label_localita(indirizzoGeografico.getCitta());
-			InvoiceManagerGrid.tabViewController.set_label_nazione(indirizzoGeografico.getCodiceNazione());
-		}
-		
-		InvoiceManagerGrid.tabViewController.set_label_pagamento(cliente.getCodicePagamento());
-		InvoiceManagerGrid.tabViewController.set_label_vettore(cliente.getCodiceVettore());
-		InvoiceManagerGrid.tabViewController.set_label_agente(cliente.getCodiceAgente());
-		InvoiceManagerGrid.tabViewController.set_label_banca(cliente.getCodiceBanca());
-		InvoiceManagerGrid.tabViewController.set_label_resa(cliente.getCodiceResaMerce());
-		InvoiceManagerGrid.tabViewController.set_label_imballo(cliente.getCodiceImballo());
-		InvoiceManagerGrid.tabViewController.set_label_divisa(cliente.getCodiceDivisa());
-		InvoiceManagerGrid.tabViewController.set_label_esiva(cliente.getCodiceIva());
-		InvoiceManagerGrid.tabViewController.set_label_lingua(cliente.getCodiceLingua());
-		
 		InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(
 				DataManager.loadDdtTestata().stream()
 				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
@@ -148,7 +145,33 @@ public class RiepilogoTestataController implements Initializable {
 						o.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
 				.collect(Collectors.toList()));
 		
-		InvoiceManagerGrid.tabViewController.set_textfield_iddest(cliente.getCodiceDestinatarioXml());
+	}
+	
+	private void clean() {
+		InvoiceManagerGrid.tabViewController.label_ragionesociale.setText("");
+		InvoiceManagerGrid.tabViewController.label_indirizzo.setText("");
+		InvoiceManagerGrid.tabViewController.label_localita.setText("");
+		InvoiceManagerGrid.tabViewController.label_nazione.setText("");
+		InvoiceManagerGrid.tabViewController.label_partitaiva.setText("");
+		InvoiceManagerGrid.tabViewController.textfield_percprovcliente.setText("");
+		InvoiceManagerGrid.tabViewController.textfield_scontocliente.setText("");
+		//InvoiceManagerGrid.tabViewController.combobox_codicespedizione.getItems().clear();
+		InvoiceManagerGrid.tabViewController.textfield_indirizzospedizione.setText("");
+		InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText("");
+		InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText("");
+		//InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.getItems().clear();
+		//InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.getItems().clear();
+		InvoiceManagerGrid.tabViewController.label_pagamento.setText("");
+		InvoiceManagerGrid.tabViewController.label_vettore.setText("");
+		InvoiceManagerGrid.tabViewController.label_agente.setText("");
+		InvoiceManagerGrid.tabViewController.label_banca.setText("");
+		InvoiceManagerGrid.tabViewController.label_resa.setText("");
+		InvoiceManagerGrid.tabViewController.label_imballo.setText("");
+		InvoiceManagerGrid.tabViewController.label_divisa.setText("");
+		InvoiceManagerGrid.tabViewController.label_esiva.setText("");
+		InvoiceManagerGrid.tabViewController.label_lingua.setText("");
+		InvoiceManagerGrid.tabViewController.label_vettore.setText("");
+		InvoiceManagerGrid.tabViewController.label_vettore.setText("");
 	}
 	
 	@FXML

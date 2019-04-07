@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Ordine;
+import invoicemanager.utils.Utils;
 
 
 public class ReadOrdine {
@@ -31,7 +32,7 @@ public class ReadOrdine {
 
 				int numeroOrdine = rs.getInt("numeroOrdine");
 				int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
-				LocalDate dataOrdine = rs.getDate("dataOrdine").toLocalDate();
+				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
 				String ordCodiceCommessaConvenzione = rs.getString("ordCodiceCommessaConvenzione");
 				String ordCodiceCUP = rs.getString("ordCodiceCUP");
 				String ordCodiceCIG = rs.getString("ordCodiceCIG");

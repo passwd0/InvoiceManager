@@ -1,12 +1,12 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.FatturaProformaDettaglio;
+import invoicemanager.utils.Utils;
 
 public class WriteFatturaProformaDettaglio {
 	private Connection c;

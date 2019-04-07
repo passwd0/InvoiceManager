@@ -1,12 +1,12 @@
 package invoicemanager.persistence.fatturazione;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import invoicemanager.model.fatturazione.FatturaCollegata;
+import invoicemanager.utils.Utils;
 
 public class WriteFatturaCollegata {
 	private Connection c;

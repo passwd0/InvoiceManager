@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.PreventivoDettaglio;
+import invoicemanager.utils.Utils;
 
 
 public class ReadPreventivoDettaglio {
@@ -32,7 +33,7 @@ public class ReadPreventivoDettaglio {
 
 				int numeroPreventivo = rs.getInt("numeroPreventivo");
 				int numeroRigaPreventivo = rs.getInt("numeroRigaPreventivo");
-				LocalDate dataPreventivo = rs.getDate("dataPreventivo").toLocalDate();
+				LocalDate dataPreventivo = Utils.convertToEntityAttribute(rs.getDate("dataPreventivo"));
 				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 				String codiceArticolo = rs.getString("codiceArticolo");
 				float quantitaArticolo = rs.getFloat("quantitaArticolo");
@@ -40,7 +41,7 @@ public class ReadPreventivoDettaglio {
 				float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 				String descrizione = rs.getString("descrizione");
 				String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
-				LocalDate dataConsegna = rs.getDate("dataConsegna").toLocalDate();
+				LocalDate dataConsegna = Utils.convertToEntityAttribute(rs.getDate("dataConsegna"));
 				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 				float prezzo = rs.getFloat("prezzo");
 				String codiceIVA = rs.getString("codiceIVA");

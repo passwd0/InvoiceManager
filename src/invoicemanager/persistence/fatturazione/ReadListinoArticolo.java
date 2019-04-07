@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.ListinoArticolo;
+import invoicemanager.utils.Utils;
 
 
 public class ReadListinoArticolo {
@@ -35,8 +36,8 @@ public class ReadListinoArticolo {
 				String codiceDivisa = rs.getString("codiceDivisa");
 				float prezzo = rs.getFloat("prezzo");
 				int numeroDecimali = rs.getInt("numeroDecimali");
-				LocalDate dataDecorrenza = rs.getDate("dataDecorrenza").toLocalDate();
-				LocalDate dataValidita = rs.getDate("dataValidita").toLocalDate();
+				LocalDate dataDecorrenza = Utils.convertToEntityAttribute(rs.getDate("dataDecorrenza"));
+				LocalDate dataValidita = Utils.convertToEntityAttribute(rs.getDate("dataValidita"));
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
 				if (ts != null)

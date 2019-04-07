@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.PreventivoTestata;
+import invoicemanager.utils.Utils;
 
 
 public class ReadPreventivoTestata {
@@ -31,10 +32,10 @@ public class ReadPreventivoTestata {
 	         while ( rs.next() ) {
 
 			int numeroPreventivo = rs.getInt("numeroPreventivo");
-			LocalDate dataPreventivo = rs.getDate("dataPreventivo").toLocalDate();
+			LocalDate dataPreventivo = Utils.convertToEntityAttribute(rs.getDate("dataPreventivo"));
 			boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
-			LocalDate dataConsegna = rs.getDate("dataConsegna").toLocalDate();
-			LocalDate dataValidita = rs.getDate("dataValidita").toLocalDate();
+			LocalDate dataConsegna = Utils.convertToEntityAttribute(rs.getDate("dataConsegna"));
+			LocalDate dataValidita = Utils.convertToEntityAttribute(rs.getDate("dataValidita"));
 			String periodoValidita = rs.getString("periodoValidita");
 			boolean indicatoreUtilizzoDataValidita = rs.getBoolean("indicatoreUtilizzoDataValidita");
 			String codiceCliente = rs.getString("codiceCliente");

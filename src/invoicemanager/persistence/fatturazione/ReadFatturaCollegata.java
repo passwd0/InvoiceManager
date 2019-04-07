@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.FatturaCollegata;
+import invoicemanager.utils.Utils;
 
 
 public class ReadFatturaCollegata {
@@ -32,7 +33,7 @@ public class ReadFatturaCollegata {
 				int numeroFtCollegate = rs.getInt("numeroFtCollegate");
 				int numeroRigaFtCollegate = rs.getInt("numeroRigaFtCollegate");
 				int sezionale = rs.getInt("sezionale");
-				LocalDate dataFtCollegate = rs.getDate("dataFtCollegate").toLocalDate();
+				LocalDate dataFtCollegate = Utils.convertToEntityAttribute(rs.getDate("dataFtCollegate"));
 				String ftcCodiceCommessaFtCollegate = rs.getString("ftcCodiceCommessaFtCollegate");
 				String ftcCodiceCUP = rs.getString("ftcCodiceCUP");
 				String ftcCodiceCIG = rs.getString("ftcCodiceCIG");

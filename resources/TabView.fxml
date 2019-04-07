@@ -116,7 +116,7 @@
                               </Label>
                               <TextField fx:id="textfield_indirizzospedizione" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
                               <TextField fx:id="textfield_codicespedizione" GridPane.columnIndex="2" GridPane.columnSpan="2" />
-                              <ComboBox fx:id="combobox_codicespedizione" onAction="#combobox_codicespedizione_pressed" prefWidth="150.0" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="combobox_codicespedizione" onAction="#combobox_codicespedizione_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
                               <ComboBox fx:id="combobox_localitaspedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <ComboBox fx:id="combobox_nazionespedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
                            </children>
@@ -216,10 +216,10 @@
                               <CheckBox fx:id="checkbox_lotti" mnemonicParsing="false" text="Lotti / serial number" GridPane.columnIndex="8" GridPane.rowIndex="1" />
                               <TextField fx:id="textfield_rif" prefHeight="23.0" prefWidth="88.0" GridPane.columnIndex="8" />
                               <TextField fx:id="textfield_iddest" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
-                              <TextField fx:id="textfield_ordinen_del" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="textfield_ordinendel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="textfield_bollandel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                               <ComboBox fx:id="combobox_ordinen" onAction="#combobox_ordinen_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
-                              <ComboBox fx:id="combobox_bollan" prefWidth="150.0" GridPane.columnIndex="3" />
+                              <ComboBox fx:id="combobox_bollan" onAction="#combobox_bollan_onAction" prefWidth="150.0" GridPane.columnIndex="3" />
                               <TextField fx:id="textfield_copie" GridPane.columnIndex="5">
                                  <GridPane.margin>
                                     <Insets right="10.0" />

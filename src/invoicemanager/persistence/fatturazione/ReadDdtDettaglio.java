@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.DdtDettaglio;
+import invoicemanager.utils.Utils;
 
 
 public class ReadDdtDettaglio {
@@ -42,7 +43,7 @@ public class ReadDdtDettaglio {
 				float costo = rs.getFloat("costo");
 				int numeroOrdine = rs.getInt("numeroOrdine");
 				int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
-				LocalDate dataOrdine = rs.getDate("dataOrdine").toLocalDate();
+				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
 				float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 				boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
 				String descrizione = rs.getString("descrizione");

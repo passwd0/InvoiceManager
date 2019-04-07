@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Scadenze;
+import invoicemanager.utils.Utils;
 
 
 public class ReadScadenze {
@@ -33,11 +34,11 @@ public class ReadScadenze {
 				String codiceConto = rs.getString("codiceConto");
 				String codiceTipoPagamento = rs.getString("codiceTipoPagamento");
 				String riferimentoPartita = rs.getString("riferimentoPartita");
-				LocalDate dataDocumento = rs.getDate("dataDocumento").toLocalDate();
-				LocalDate dataScadenza = rs.getDate("dataScadenza").toLocalDate();
+				LocalDate dataDocumento = Utils.convertToEntityAttribute(rs.getDate("dataDocumento"));
+				LocalDate dataScadenza = Utils.convertToEntityAttribute(rs.getDate("dataScadenza"));
 				int numeroRegistrazione = rs.getInt("numeroRegistrazione");
 				String codiceBanca = rs.getString("codiceBanca");
-				LocalDate dataValuta = rs.getDate("dataValuta").toLocalDate();
+				LocalDate dataValuta = Utils.convertToEntityAttribute(rs.getDate("dataValuta"));
 				String codicePagamento = rs.getString("codicePagamento");
 				String numeroAssegno = rs.getString("numeroAssegno");
 				float importoImponibileRitenutaAcconto = rs.getFloat("importoImponibileRitenutaAcconto");
@@ -46,10 +47,10 @@ public class ReadScadenze {
 				float importoIVARitenutaAcconto = rs.getFloat("importoIVARitenutaAcconto");
 				float contriburoINPSDatoreLavoro = rs.getFloat("contriburoINPSDatoreLavoro");
 				float contriburoINPSDatorePercipiente = rs.getFloat("contriburoINPSDatorePercipiente");
-				LocalDate dataValutaAssegno = rs.getDate("dataValutaAssegno").toLocalDate();
+				LocalDate dataValutaAssegno = Utils.convertToEntityAttribute(rs.getDate("dataValutaAssegno"));
 				String note = rs.getString("note");
 				float importoPagato = rs.getFloat("importoPagato");
-				LocalDate dataPagamento = rs.getDate("dataPagamento").toLocalDate();
+				LocalDate dataPagamento = Utils.convertToEntityAttribute(rs.getDate("dataPagamento"));
 				String numeroDocumento = rs.getString("numeroDocumento");
 				String codiceIVAInSospensione = rs.getString("codiceIVAInSospensione");
 				float importoPartita = rs.getFloat("importoPartita");
@@ -57,9 +58,9 @@ public class ReadScadenze {
 				float imponibileIVAInSospensione = rs.getFloat("imponibileIVAInSospensione");
 				int numeroGiornaleIVA = rs.getInt("numeroGiornaleIVA");
 				String tipoRitenutaAcconto = rs.getString("tipoRitenutaAcconto");
-				LocalDate dataAutorizzazionePagamento = rs.getDate("dataAutorizzazionePagamento").toLocalDate();
+				LocalDate dataAutorizzazionePagamento = Utils.convertToEntityAttribute(rs.getDate("dataAutorizzazionePagamento"));
 				String codiceDivisa = rs.getString("codiceDivisa");
-				LocalDate dataRegistrazione = rs.getDate("dataRegistrazione").toLocalDate();
+				LocalDate dataRegistrazione = Utils.convertToEntityAttribute(rs.getDate("dataRegistrazione"));
 				float importoAbbuono = rs.getFloat("importoAbbuono");
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Contratto;
+import invoicemanager.utils.Utils;
 
 
 public class ReadContratto {
@@ -32,7 +33,7 @@ public class ReadContratto {
 				int numeroContratto = rs.getInt("numeroContratto");
 				int numeroRigaContratto = rs.getInt("numeroRigaContratto");
 				String codice = rs.getString("dataContratto");
-				LocalDate riferimentoData = rs.getDate("dataContratto").toLocalDate();
+				LocalDate riferimentoData = Utils.convertToEntityAttribute(rs.getDate("dataContratto"));
 				String cntCodiceCommessaConvenzione = rs.getString("cntCodiceCommessaConvenzione");
 				String cntCodiceCUP = rs.getString("cntCodiceCUP");
 				String cntCodiceCIG = rs.getString("cntCodiceCIG");

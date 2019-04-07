@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.FatturaProformaTestata;
+import invoicemanager.utils.Utils;
 
 
 public class ReadFatturaProformaTestata {
@@ -30,7 +31,7 @@ public class ReadFatturaProformaTestata {
 	         while ( rs.next() ) {
 
 				int numeroFattura = rs.getInt("numeroFattura");
-				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
+				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
 				boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
 				int sezionale = rs.getInt("sezionale");
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
@@ -53,7 +54,7 @@ public class ReadFatturaProformaTestata {
 				String codicePagamento = rs.getString("codicePagamento");
 				String codiceBanca = rs.getString("codiceBanca");
 				int numeroDDT = rs.getInt("numeroDDT");
-				LocalDate dataDDT = rs.getDate("dataDDT").toLocalDate();
+				LocalDate dataDDT = Utils.convertToEntityAttribute(rs.getDate("dataDDT"));
 				String codiceImballo = rs.getString("codiceImballo");
 				float pesoColli = rs.getFloat("pesoColli");
 				float numeroColli = rs.getFloat("numeroColli");
@@ -67,8 +68,8 @@ public class ReadFatturaProformaTestata {
 				String cittaSpedizione = rs.getString("cittaSpedizione");
 				String provinciaSpedizione = rs.getString("provinciaSpedizione");
 				String codiceNazioneSpedizione = rs.getString("codiceNazioneSpedizione");
-				LocalDate dataInserimento = rs.getDate("dataInserimento").toLocalDate();
-				LocalDate dataUltimaModifica = rs.getDate("dataUltimaModifica").toLocalDate();
+				LocalDate dataInserimento = Utils.convertToEntityAttribute(rs.getDate("dataInserimento"));
+				LocalDate dataUltimaModifica = Utils.convertToEntityAttribute(rs.getDate("dataUltimaModifica"));
 				String note = rs.getString("note");
 				String codiceLingua = rs.getString("codiceLingua");
 				boolean indicatoreFatturazioneDifferita = rs.getBoolean("indicatoreFatturazioneDifferita");

@@ -36,7 +36,7 @@ public class ReadFatturaTestata {
 	         while ( rs.next() ) {
 
 				int numeroFatturazione = rs.getInt("numeroFatturazione");
-				LocalDate dataFattura = rs.getDate("dataFattura").toLocalDate();
+				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
 				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("StatoAvanzamento"));
 				int sezionale = rs.getInt("sezionale");
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
