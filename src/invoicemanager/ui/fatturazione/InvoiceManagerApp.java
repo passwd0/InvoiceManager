@@ -17,10 +17,10 @@ public class InvoiceManagerApp extends Application {
 			System.exit(1);
 		}
 		stage.setTitle("Fatturazione");
-		stage.setResizable(false);
+		//stage.setResizable(false);
 		InvoiceManagerPane root = new InvoiceManagerPane(controller, stage);
 
-		Scene scene = new Scene(root, 1020, 730, Color.ALICEBLUE);
+		Scene scene = new Scene(root, 1020, 630, Color.ALICEBLUE);
 		stage.setScene(scene);
 		stage.show();
 
