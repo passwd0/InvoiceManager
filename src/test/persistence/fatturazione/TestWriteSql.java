@@ -1,10 +1,8 @@
 package test.persistence.fatturazione;
 
-import java.time.LocalDate;
-
 import org.junit.jupiter.api.Test;
 
-import invoicemanager.model.fatturazione.OrdineTestata;
+import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestWriteSql {
@@ -93,14 +91,18 @@ public class TestWriteSql {
 //		//assertEquals(3, DataManager.loadUtente().size());
 //	}
 //	
-//	@Test 
-//	void writeIndirizzoGeografico(){
+	@Test 
+	void writeIndirizzoGeografico(){
 //		IndirizzoGeografico ig = new IndirizzoGeografico("a000_indirizzo", "a000");
 //		ig.setCodiceNazione("c0_nazione");
 //		ig.setCodiceTipoIndirizzo("c0_tipoindirizzo");
 //		DataManager.add(ig);
+		IndirizzoGeografico ig = new IndirizzoGeografico("a003_indirizzo", "a003");
+		ig.setCodiceNazione("c3_nazione");
+		ig.setCodiceTipoIndirizzo("c3_tipoindirizzo");
+		DataManager.add(ig);
 //		//assertEquals(2, DataManager.loadIndirizzoGeografico().size());
-//	}
+	}
 //	
 //	@Test
 //	void writeFatturazioneTestata() {

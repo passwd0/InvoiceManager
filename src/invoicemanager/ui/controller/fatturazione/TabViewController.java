@@ -245,13 +245,14 @@ public class TabViewController implements Initializable {
     
     public ObservableList<DdtTestata> oDdtTestata;
     public ObservableList<OrdineTestata> oOrdineTestata;
+    public ObservableList<IndirizzoGeografico> oIndirizzoGeograficoSpedizione;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		ObservableList<IndirizzoGeografico> oIndirizzoGeografico = FXCollections.observableArrayList(
+		oIndirizzoGeograficoSpedizione = FXCollections.observableArrayList(
 				DataManager.loadIndirizzoGeografico().stream()
 				.collect(Collectors.toList()));
-		combobox_codicespedizione.setItems(oIndirizzoGeografico);
+		combobox_codicespedizione.setItems(oIndirizzoGeograficoSpedizione);
 		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());
 		
 		oOrdineTestata = FXCollections.observableArrayList(
@@ -267,6 +268,9 @@ public class TabViewController implements Initializable {
 				.collect(Collectors.toList()));
 		combobox_bollan.setItems(oDdtTestata);
 		combobox_bollan.setConverter(new DdtTestataConverter());
+		
+		combobox_localitaspedizione.setItems(FXCollections.observableArrayList(Utils.listaLocalita));
+		combobox_nazionespedizione.setItems(FXCollections.observableArrayList(Utils.listaNazioni));
 	}
 
 	void set_label_ragionesociale(String ragionesociale) {
@@ -357,14 +361,16 @@ public class TabViewController implements Initializable {
 
 	@FXML
 	public void combobox_codicespedizione_onAction(Event e) {
-		IndirizzoGeografico indirizzoGeografico = combobox_codicespedizione.getSelectionModel().getSelectedItem();
-		textfield_indirizzospedizione.setText(indirizzoGeografico.getCodiceIndirizzo());
-		combobox_localitaspedizione.setItems(FXCollections.observableArrayList(indirizzoGeografico.getCitta()));
-		combobox_nazionespedizione.setItems(FXCollections.observableArrayList(indirizzoGeografico.getCodiceNazione()));
-		//combobox_localitaspedizione.setValue(indirizzoGeografico.getCitta());
-		combobox_nazionespedizione.setValue(indirizzoGeografico.getCodiceNazione());
-		textfield_provinciaspedizione.setText(indirizzoGeografico.getProvincia());
-		textfield_capspedizione.setText(indirizzoGeografico.getCap());
+//		IndirizzoGeografico indirizzoGeografico = combobox_codicespedizione.getValue();
+//		if (indirizzoGeografico != null) {
+//			textfield_indirizzospedizione.setText(indirizzoGeografico.getCodiceIndirizzo());
+//			combobox_localitaspedizione.setItems(FXCollections.observableArrayList(indirizzoGeografico.getCitta()));
+//			combobox_localitaspedizione.setValue(indirizzoGeografico.getCitta());
+//			combobox_nazionespedizione.setItems(FXCollections.observableArrayList(indirizzoGeografico.getCodiceNazione()));
+//			combobox_nazionespedizione.setValue(indirizzoGeografico.getCodiceNazione());
+//			textfield_provinciaspedizione.setText(indirizzoGeografico.getProvincia());
+//			textfield_capspedizione.setText(indirizzoGeografico.getCap());
+//		}
 	}
 
 	@FXML

@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
@@ -15,6 +18,8 @@ public class Utils {
 	public static DateTimeFormatter formatterComplete = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 	public static DateTimeFormatter formatterDataDB = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	public static DateTimeFormatter formatterCompleteDB = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	public static List<String> listaLocalita = new ArrayList<>(Arrays.asList("citta_a", "citta_b", "citta_c"));
+	public static List<String> listaNazioni = new ArrayList<>(Arrays.asList("nazione_a", "nazione_b", "nazione_c"));
 	
 	public Utils() {}
 	

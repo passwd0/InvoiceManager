@@ -102,10 +102,35 @@ public class RiepilogoTestataController implements Initializable {
 		
 		Cliente cliente = combobox_cliente.getValue();
 		if (cliente != null) {
+	// "CLIENTE" e "SPEDIZIONE e CODICI"
+			//InvoiceManagerGrid.tabViewController.set_label_ragionesociale(utente.getRagioneSociale());
+			List<IndirizzoGeografico> indirizziGeografici = DataManager.loadIndirizzoGeografico().stream()
+					.filter(ig -> ig.getCodiceConto().equals(cliente.getCodiceCliente()))
+					.collect(Collectors.toList());
+			if (indirizziGeografici.size() > 0) {
+		// SPEDIZIONE e CODICI
+				InvoiceManagerGrid.tabViewController.oIndirizzoGeograficoSpedizione.setAll(indirizziGeografici);
+		// CLIENTE
+				IndirizzoGeografico indirizzoGeograficoDefault = indirizziGeografici.stream()
+						.filter(ig -> ig.isIndicatoreIndirizzoDefault()).findFirst().orElse(null);
+				if (indirizzoGeograficoDefault != null) {
+					InvoiceManagerGrid.tabViewController.label_indirizzo.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
+					InvoiceManagerGrid.tabViewController.label_localita.setText(indirizzoGeograficoDefault.getCitta());
+					InvoiceManagerGrid.tabViewController.label_nazione.setText(indirizzoGeograficoDefault.getCodiceNazione());
+					
+					InvoiceManagerGrid.tabViewController.textfield_indirizzospedizione.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
+					InvoiceManagerGrid.tabViewController.combobox_codicespedizione.setValue(indirizzoGeograficoDefault);
+					InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.setValue(indirizzoGeograficoDefault.getCitta());
+					InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.setValue(indirizzoGeograficoDefault.getCodiceNazione());
+					InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText(indirizzoGeograficoDefault.getProvincia());
+					InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText(indirizzoGeograficoDefault.getCap());
+				}
+			}
+			
+			InvoiceManagerGrid.tabViewController.set_label_partitaiva(cliente.getPartitaIVA());
 			InvoiceManagerGrid.tabViewController.set_textfield_percprovcliente(String.valueOf(cliente.getPercentualeProvvigioneAgente()));
 			InvoiceManagerGrid.tabViewController.set_textfield_scontocliente(String.valueOf(cliente.getScontoLegatoProvvigioniAgente()));
-			InvoiceManagerGrid.tabViewController.set_textfield_iddest(cliente.getCodiceDestinatarioXml());
-			InvoiceManagerGrid.tabViewController.checkbox_bolli.setSelected(cliente.isIndicatoreAddebitoSpeseBolli());
+			
 			InvoiceManagerGrid.tabViewController.set_label_pagamento(cliente.getCodicePagamento());
 			InvoiceManagerGrid.tabViewController.set_label_vettore(cliente.getCodiceVettore());
 			InvoiceManagerGrid.tabViewController.set_label_agente(cliente.getCodiceAgente());
@@ -115,24 +140,12 @@ public class RiepilogoTestataController implements Initializable {
 			InvoiceManagerGrid.tabViewController.set_label_divisa(cliente.getCodiceDivisa());
 			InvoiceManagerGrid.tabViewController.set_label_esiva(cliente.getCodiceIva());
 			InvoiceManagerGrid.tabViewController.set_label_lingua(cliente.getCodiceLingua());
+			
+			InvoiceManagerGrid.tabViewController.checkbox_bolli.setSelected(cliente.isIndicatoreAddebitoSpeseBolli());
+			InvoiceManagerGrid.tabViewController.set_textfield_iddest(cliente.getCodiceDestinatarioXml());
 		}
-		Utente utente = DataManager.loadUtente().stream()
-				.filter(u -> u.getCodiceUtente().equals(
-						cliente.getCodiceCliente()))
-				.findFirst().orElse(null);
 		
-		if (utente != null) {
-			InvoiceManagerGrid.tabViewController.set_label_ragionesociale(utente.getRagioneSociale());
-			InvoiceManagerGrid.tabViewController.set_label_partitaiva(utente.getPartitaIVA());
-			IndirizzoGeografico indirizzoGeografico = DataManager.loadIndirizzoGeografico().stream()
-					.filter(ig -> ig.getCodiceConto().equals(utente.getCodiceUtente()))
-					.findFirst().orElse(null);
-			if (indirizzoGeografico != null) {
-				InvoiceManagerGrid.tabViewController.set_label_indirizzo(indirizzoGeografico.getCodiceIndirizzo());
-				InvoiceManagerGrid.tabViewController.set_label_localita(indirizzoGeografico.getCitta());
-				InvoiceManagerGrid.tabViewController.set_label_nazione(indirizzoGeografico.getCodiceNazione());
-			}
-		}
+			
 		InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(
 				DataManager.loadDdtTestata().stream()
 				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
@@ -155,12 +168,16 @@ public class RiepilogoTestataController implements Initializable {
 		InvoiceManagerGrid.tabViewController.label_partitaiva.setText("");
 		InvoiceManagerGrid.tabViewController.textfield_percprovcliente.setText("");
 		InvoiceManagerGrid.tabViewController.textfield_scontocliente.setText("");
-		//InvoiceManagerGrid.tabViewController.combobox_codicespedizione.getItems().clear();
+		InvoiceManagerGrid.tabViewController.combobox_codicespedizione.getSelectionModel().clearSelection();
+		InvoiceManagerGrid.tabViewController.combobox_codicespedizione.getItems().clear();
 		InvoiceManagerGrid.tabViewController.textfield_indirizzospedizione.setText("");
 		InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText("");
 		InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText("");
-		//InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.getItems().clear();
-		//InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.getItems().clear();
+																												// NON CANCELLA
+		InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.getSelectionModel().clearSelection();
+		InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.getItems().clear();
+		InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.getSelectionModel().clearSelection();
+		InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.getItems().clear();
 		InvoiceManagerGrid.tabViewController.label_pagamento.setText("");
 		InvoiceManagerGrid.tabViewController.label_vettore.setText("");
 		InvoiceManagerGrid.tabViewController.label_agente.setText("");

@@ -1,8 +1,8 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
-public class IndirizzoGeografico{
-	private String codiceIndirizzo; //(50) NOT NULL
+public class IndirizzoGeografico {
+	private String codiceIndirizzo; //(50) NOT NULL		//serial
 	private String codiceConto; //(30) NOT NULL			//codiceCliente, codiceFornitore
 	private String via; //(100) NULL
 	private String provincia; //(3) NULL
@@ -11,7 +11,7 @@ public class IndirizzoGeografico{
 	private String codiceNazione; //(10) NULL
 	private String codiceTipoIndirizzo; //(3) NULL
 	private String descrizione; //(100) NULL
-	private boolean indicatoreIndirizzoDefault; // NULL
+	private boolean indicatoreIndirizzoDefault = true; // NULL		//cliente
 	private String codiceMinistero; //(50) NULL
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
