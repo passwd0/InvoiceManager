@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicemanager.ui.controller.fatturazione.AnagraficaController">
    <children>
       <VBox maxWidth="1.7976931348623157E308">
@@ -40,20 +39,20 @@
               </rowConstraints>
                <children>
                   <Label text="Esercizio:" textFill="RED" GridPane.columnSpan="3" />
-                  <RadioButton mnemonicParsing="false" text="Corr." GridPane.rowIndex="1" />
-                  <RadioButton mnemonicParsing="false" text="Anno:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <ComboBox prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Contatti" GridPane.columnIndex="3">
+                  <RadioButton fx:id="radiobutton_eserciziocorr" mnemonicParsing="false" onAction="#radiobutton_eserciziocorr_onAction" selected="true" text="Corr." GridPane.rowIndex="1" />
+                  <RadioButton fx:id="radiobutton_esercizioanno" mnemonicParsing="false" onAction="#radiobutton_esercizioanno_onAction" text="Anno:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="combobox_esercizioanno" disable="true" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="button_contatti" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Contatti" GridPane.columnIndex="3">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuovo" GridPane.columnIndex="4">
+                  <Button fx:id="button_nuovo" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuovo" GridPane.columnIndex="4">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Decodifica" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <Button fx:id="button_decodifica" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Decodifica" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
@@ -63,8 +62,8 @@
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <ComboBox prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowSpan="2" />
-                  <CheckBox mnemonicParsing="false" text="I.I." GridPane.columnIndex="9" GridPane.rowSpan="2" />
+                  <ComboBox fx:id="combobox_tipo" prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowSpan="2" />
+                  <CheckBox fx:id="checkbox_ii" mnemonicParsing="false" text="I.I." GridPane.columnIndex="9" GridPane.rowSpan="2" />
                   <TextField GridPane.columnIndex="5" GridPane.rowSpan="2" />
                </children>
                <VBox.margin>
@@ -132,10 +131,10 @@
                                           <Label text="Indirizzo:" GridPane.rowIndex="1" />
                                           <Label text="Località" GridPane.rowIndex="2" />
                                           <Label text="Nazione:" GridPane.rowIndex="3" />
-                                          <TextField GridPane.columnIndex="1" GridPane.columnSpan="2147483647" />
-                                          <TextField GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
-                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova loc." GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova naz." GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                          <TextField fx:id="textfield_ragsociale" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" />
+                                          <TextField fx:id="textfield_indirizzo" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                                          <Button fx:id="button_nuovaloc" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova loc." GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                          <Button fx:id="button_nuovanaz" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova naz." GridPane.columnIndex="5" GridPane.rowIndex="3" />
                                           <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="CAP:" GridPane.columnIndex="4" GridPane.rowIndex="2">
                                              <GridPane.margin>
                                                 <Insets right="10.0" />
@@ -146,10 +145,10 @@
                                                 <Insets right="10.0" />
                                              </GridPane.margin>
                                           </Label>
-                                          <ComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <ComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
-                                          <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                          <TextField GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                          <ComboBox fx:id="combobox_localita" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <ComboBox fx:id="combobox_nazione" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                                          <TextField fx:id="textfield_prov" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <TextField fx:id="textfield_cap" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
                                     <Label text="Telefoni / fax:" textFill="RED">
@@ -174,27 +173,27 @@
                                        <children>
                                           <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Prefissi Nazionali" GridPane.rowIndex="1" />
                                           <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Prefissi inter. ali" GridPane.rowIndex="3" />
-                                          <ComboBox maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <ComboBox fx:id="combobox_prefissinazionali" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
                                           </ComboBox>
-                                          <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                          <ComboBox fx:id="combobox_fax" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
                                           </ComboBox>
-                                          <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                          <ComboBox fx:id="combobox_telefoni" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
                                           </ComboBox>
-                                          <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                          <ComboBox fx:id="combobox_email" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
                                           </ComboBox>
-                                          <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                                          <ComboBox fx:id="combobox_url" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
@@ -223,7 +222,7 @@
                                                       <Insets right="10.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <TextField />
+                                                <TextField fx:id="textfield_partitaiva" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -233,7 +232,7 @@
                                                       <Insets right="10.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <TextField />
+                                                <TextField fx:id="textfield_codicefiscale" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -246,12 +245,12 @@
                                     </GridPane>
                                     <HBox>
                                        <children>
-                                          <Button mnemonicParsing="false" text="Inserisci">
+                                          <Button fx:id="button_inserisci" mnemonicParsing="false" text="Inserisci">
                                              <HBox.margin>
                                                 <Insets right="10.0" />
                                              </HBox.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" text="Intrastat" />
+                                          <Button fx:id="button_intrastat" mnemonicParsing="false" text="Intrastat" />
                                        </children>
                                        <VBox.margin>
                                           <Insets top="10.0" />

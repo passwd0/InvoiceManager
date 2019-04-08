@@ -48,7 +48,7 @@ public class RiepilogoTestataController implements Initializable {
     private Button button_decodifica;
 
     @FXML
-    private ComboBox<Cliente> combobox_cliente;
+    public ComboBox<Cliente> combobox_cliente;
 
     @FXML
     private TextField textfield_fattura;
@@ -99,7 +99,6 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_cliente_onAction(ActionEvent e) {
-		System.out.print("call");
 		clean();
 		
 		Cliente cliente = combobox_cliente.getValue();
@@ -212,21 +211,23 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	private void button_anagrafica_onAction(ActionEvent event) {
-		try {
-			FXMLLoader anagraficaLoader = new FXMLLoader(getClass().getClassLoader().getResource("Anagrafica.fxml"));
-			AnchorPane anagrafica = (AnchorPane) anagraficaLoader.load();
-			AnagraficaController anagraficaController = anagraficaLoader.getController();
-			
-			Stage stage = new Stage();
-			stage.setTitle("Anagrafica");
-
-			Scene scene = new Scene(anagrafica, 1020, 505, Color.ALICEBLUE);
-			stage.setResizable(false);
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (combobox_cliente.getValue() != null) {
+			try {
+				FXMLLoader anagraficaLoader = new FXMLLoader(getClass().getClassLoader().getResource("Anagrafica.fxml"));
+				AnchorPane anagrafica = (AnchorPane) anagraficaLoader.load();
+				AnagraficaController anagraficaController = anagraficaLoader.getController();		
+				
+				Stage stage = new Stage();
+				stage.setTitle("Anagrafica");
+	
+				Scene scene = new Scene(anagrafica, 1020, 505, Color.ALICEBLUE);
+				stage.setResizable(false);
+				stage.setScene(scene);
+				stage.show();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }
