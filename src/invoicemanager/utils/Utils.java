@@ -40,8 +40,4 @@ public class Utils {
           .map(Date::toLocalDate)
           .orElse(null);
     }
-    
-    public static IndirizzoGeografico getVoidIndirizzoGeografico() {
-    	return new IndirizzoGeografico("", "", "", "", "", "", "", "", "", false, "", LocalDateTime.now(), LocalDateTime.now());
-    }
 }

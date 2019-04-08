@@ -61,14 +61,15 @@ public class RiepilogoTestataController implements Initializable {
 
     @FXML
     private Button button_causali;
+    
+    private ObservableList<Cliente> oClientiId;
 
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		ObservableList<Cliente> oClientiId = FXCollections.observableArrayList(
+		oClientiId = FXCollections.observableArrayList(
 				DataManager.loadCliente().stream()
-				  .collect(Collectors.toList())
-				);
+				  .collect(Collectors.toList()));
 		combobox_cliente.setItems(oClientiId);
 		combobox_cliente.setConverter(new ClienteConverter());
 		
@@ -97,13 +98,15 @@ public class RiepilogoTestataController implements Initializable {
 	}
 	
 	@FXML
-	public void combobox_cliente_pressed(ActionEvent e) {
+	public void combobox_cliente_onAction(ActionEvent e) {
+		System.out.print("call");
 		clean();
 		
 		Cliente cliente = combobox_cliente.getValue();
 		if (cliente != null) {
+			InvoiceManagerGrid.tabViewController.label_partitaiva.setText(cliente.getPartitaIVA());
 	// "CLIENTE" e "SPEDIZIONE e CODICI"
-			//InvoiceManagerGrid.tabViewController.set_label_ragionesociale(utente.getRagioneSociale());
+			InvoiceManagerGrid.tabViewController.set_label_ragionesociale(cliente.getDescrizione());
 			List<IndirizzoGeografico> indirizziGeografici = DataManager.loadIndirizzoGeografico().stream()
 					.filter(ig -> ig.getCodiceConto().equals(cliente.getCodiceCliente()))
 					.collect(Collectors.toList());
