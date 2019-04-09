@@ -63,7 +63,7 @@ public class RiepilogoTestataController implements Initializable {
     private Button button_causali;
     
     private ObservableList<Cliente> oClientiId;
-
+    ObservableList<CausaleMagazzino> oCausaliId;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -75,16 +75,16 @@ public class RiepilogoTestataController implements Initializable {
 		
 		textfield_fattura_data.setText(LocalDate.now().format(Utils.formatterData));
 		
-		ObservableList<CausaleMagazzino> oCausaliId = FXCollections.observableArrayList(
+		oCausaliId = FXCollections.observableArrayList(
 				DataManager.loadCausaleMagazzino().stream()
 				  .collect(Collectors.toList())
 				);
 		combobox_causale.setItems(oCausaliId);
 		combobox_causale.setConverter(new CausaleMagazzinoConverter());
-		
  
 		combobox_sezionale.setItems(FXCollections.observableArrayList(Arrays.asList(1, 2, 3, 4, 5)));
         combobox_sezionale.setValue(1);
+        
         List<FatturaTestata> listFatturaTestata = DataManager.loadFatturaTestata();
         textfield_fattura.setText(
         		String.valueOf(listFatturaTestata.stream().filter(f -> f.getSezionale() == combobox_sezionale.getValue())
@@ -115,7 +115,7 @@ public class RiepilogoTestataController implements Initializable {
 		// CLIENTE
 				IndirizzoGeografico indirizzoGeograficoDefault = indirizziGeografici.stream()
 						.filter(ig -> ig.isIndicatoreIndirizzoDefault()).findFirst().orElse(null);
-				if (indirizzoGeograficoDefault != null) {
+//				if (indirizzoGeograficoDefault != null) {
 					InvoiceManagerGrid.tabViewController.label_indirizzo.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
 					InvoiceManagerGrid.tabViewController.label_localita.setText(indirizzoGeograficoDefault.getCitta());
 					InvoiceManagerGrid.tabViewController.label_nazione.setText(indirizzoGeograficoDefault.getCodiceNazione());
@@ -126,7 +126,7 @@ public class RiepilogoTestataController implements Initializable {
 					InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.setValue(indirizzoGeograficoDefault.getCodiceNazione());
 					InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText(indirizzoGeograficoDefault.getProvincia());
 					InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText(indirizzoGeograficoDefault.getCap());
-				}
+//				}
 			}
 			
 			InvoiceManagerGrid.tabViewController.set_label_partitaiva(cliente.getPartitaIVA());
@@ -170,16 +170,15 @@ public class RiepilogoTestataController implements Initializable {
 		InvoiceManagerGrid.tabViewController.label_partitaiva.setText("");
 		InvoiceManagerGrid.tabViewController.textfield_percprovcliente.setText("");
 		InvoiceManagerGrid.tabViewController.textfield_scontocliente.setText("");
+		
 		InvoiceManagerGrid.tabViewController.combobox_codicespedizione.getSelectionModel().clearSelection();
-		InvoiceManagerGrid.tabViewController.combobox_codicespedizione.getItems().clear();
+		InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.getSelectionModel().clearSelection();
+		InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.getSelectionModel().clearSelection();
+		
 		InvoiceManagerGrid.tabViewController.textfield_indirizzospedizione.setText("");
 		InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText("");
 		InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText("");
-																												// NON CANCELLA
-		InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.getSelectionModel().clearSelection();
-		InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.getItems().clear();
-		InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.getSelectionModel().clearSelection();
-		InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.getItems().clear();
+		
 		InvoiceManagerGrid.tabViewController.label_pagamento.setText("");
 		InvoiceManagerGrid.tabViewController.label_vettore.setText("");
 		InvoiceManagerGrid.tabViewController.label_agente.setText("");
