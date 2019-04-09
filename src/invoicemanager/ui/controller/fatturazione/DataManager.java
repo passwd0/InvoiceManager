@@ -21,6 +21,7 @@ import invoicemanager.model.fatturazione.CausaleMagazzino;
 import invoicemanager.model.fatturazione.Cliente;
 import invoicemanager.model.fatturazione.CodiceABarre;
 import invoicemanager.model.fatturazione.Confezione;
+import invoicemanager.model.fatturazione.Contatto;
 import invoicemanager.model.fatturazione.Contratto;
 import invoicemanager.model.fatturazione.Controparte;
 import invoicemanager.model.fatturazione.Convenzione;
@@ -583,7 +584,7 @@ public final class DataManager {
 			return new ArrayList<>();
 		}
 	}
-	public static List<Telefono> loadTelefono() {
+	public static List<Contatto> loadContatto() {
 		try {
 			return new ReadContatto().read();
 		} catch (ClassNotFoundException | SQLException e) {
@@ -1247,8 +1248,8 @@ public final class DataManager {
 		}
 		}
 	}
-	public static void add(Telefono telefono) {
-		List<Telefono> listTelefono = loadTelefono();
+	public static void add(Contatto telefono) {
+		List<Contatto> listTelefono = loadContatto();
 		if(!listTelefono.contains(telefono)) {
 		try {
 				new WriteContatto().add(telefono, false);

@@ -1,6 +1,7 @@
 package invoicemanager.ui.controller.fatturazione;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -31,7 +32,7 @@ public class AnagraficaController implements Initializable {
     private RadioButton radiobutton_esercizioanno;
 
     @FXML
-    private ComboBox<?> combobox_esercizioanno;
+    private ComboBox<Integer> combobox_esercizioanno;
 
     @FXML
     private Button button_contatti;
@@ -132,6 +133,8 @@ public class AnagraficaController implements Initializable {
 		ToggleGroup tg = new ToggleGroup();
 		radiobutton_esercizioanno.setToggleGroup(tg);
 		radiobutton_eserciziocorr.setToggleGroup(tg);
+		
+		combobox_esercizioanno.setItems(FXCollections.observableArrayList(Arrays.asList(2019, 2018, 2017, 2016)));
 	}
 	
     @FXML
