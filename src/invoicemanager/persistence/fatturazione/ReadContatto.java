@@ -9,29 +9,29 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import invoicemanager.model.fatturazione.Telefono;
+import invoicemanager.model.fatturazione.Contatto;
 
 
-public class ReadTelefono {
+public class ReadContatto {
 	private Connection c;
 
-	public ReadTelefono() throws ClassNotFoundException, SQLException {
+	public ReadContatto() throws ClassNotFoundException, SQLException {
 		c = DBConnect.getConnection();
 	}
 
-	public List<Telefono> read() {
-		List<Telefono> listtelefono = new ArrayList<>();
+	public List<Contatto> read() {
+		List<Contatto> listtelefono = new ArrayList<>();
 		Statement stmt;
 
 		try {
 			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM Telefono");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Contatto");
 			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceConto = rs.getString("codiceConto");
 				int progressivo = rs.getInt("progressivo");
-				String tipoTelefono = rs.getString("tipoTelefono");
+				String tipoContatto = rs.getString("tipoContatto");
 				String numero = rs.getString("numero");
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
@@ -42,7 +42,7 @@ public class ReadTelefono {
 				if (ts != null)
 					dataUltimaModifica = ts.toLocalDateTime();
 
-				Telefono telefono = new Telefono(codiceConto, progressivo, tipoTelefono, numero, dataInserimento, dataUltimaModifica);
+				Contatto telefono = new Contatto(codiceConto, progressivo, tipoContatto, numero, dataInserimento, dataUltimaModifica);
 
 		listtelefono.add(telefono);
 	         }

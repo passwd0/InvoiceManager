@@ -305,7 +305,7 @@
                                     <Label text="Quantità:" GridPane.rowIndex="3" />
                                     <Label text="Sconto cliente:" GridPane.rowIndex="4" />
                                     <Label text="Note:" GridPane.rowIndex="5" />
-                                    <ComboBox fx:id="combobox_divisa" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="combobox_divisa" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" />
                                     <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Prezzo:" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                        <GridPane.margin>

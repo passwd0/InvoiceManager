@@ -138,7 +138,7 @@ public final class DataManager {
 		new WriteSottogruppoMerceologico().createTable();
 		new WriteStabileOrganizzazione().createTable();
 		new WriteStatoFattura().createTable();
-		new WriteTelefono().createTable();
+		new WriteContatto().createTable();
 		new WriteTerzoIntermediario().createTable();
 		new WriteTipoBento().createTable();
 		new WriteTipoCliente().createTable();
@@ -585,7 +585,7 @@ public final class DataManager {
 	}
 	public static List<Telefono> loadTelefono() {
 		try {
-			return new ReadTelefono().read();
+			return new ReadContatto().read();
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 			return new ArrayList<>();
@@ -1251,7 +1251,7 @@ public final class DataManager {
 		List<Telefono> listTelefono = loadTelefono();
 		if(!listTelefono.contains(telefono)) {
 		try {
-				new WriteTelefono().add(telefono, false);
+				new WriteContatto().add(telefono, false);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 
