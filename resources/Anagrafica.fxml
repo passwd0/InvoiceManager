@@ -178,28 +178,28 @@
                                                 <Insets />
                                              </GridPane.margin>
                                           </ComboBox>
-                                          <ComboBox fx:id="combobox_fax" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                          <ComboBox fx:id="combobox_fax" editable="true" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
                                           </ComboBox>
-                                          <ComboBox fx:id="combobox_telefoni" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                          <ComboBox fx:id="combobox_telefoni" editable="true" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
                                           </ComboBox>
-                                          <ComboBox fx:id="combobox_email" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                          <ComboBox fx:id="combobox_email" editable="true" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
                                           </ComboBox>
-                                          <ComboBox fx:id="combobox_url" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                                          <ComboBox fx:id="combobox_url" editable="true" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
                                              <GridPane.margin>
                                                 <Insets />
                                              </GridPane.margin>
                                           </ComboBox>
-                                          <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="-Infinity" mnemonicParsing="false" text="Button" GridPane.columnIndex="4" />
-                                          <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="-Infinity" mnemonicParsing="false" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Invia" GridPane.columnIndex="4" />
+                                          <Button alignment="CENTER" contentDisplay="RIGHT" maxWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" text="Collega" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                                           <Label text="Url:" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                           <Label text="E-mail:" GridPane.columnIndex="3" />
                                           <Label text="Telefoni:" GridPane.columnIndex="2" />

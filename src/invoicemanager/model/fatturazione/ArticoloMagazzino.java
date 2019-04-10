@@ -33,13 +33,13 @@ public class ArticoloMagazzino {
 	private String note; //(1500) NULL
 	private boolean indicatorePubblicazioneWeb; // NULL
 	private boolean indicatoreInibizione; // NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	private boolean indicatoreScorporoIVA; // NULL
 	private String codiceControparteContabileFornitore; //(4) NULL
 	private String codiceIVAFornitore; //(4) NULL
 	private String codiceStampo; //(10) NULL
 	private String noteProduzione; //(1500) NULL
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
 	public ArticoloMagazzino(String codiceArticolo, String descrizione){
 		this.codiceArticolo = codiceArticolo;
@@ -53,10 +53,9 @@ public class ArticoloMagazzino {
 			float pesoNetto, String codiceConfezione, float numeroPezziConfezione, int numeroColli, float pesoLordo,
 			float volumeConfezione, float altezza, float larghezza, float profondita,
 			boolean indicatoreArticoloPadreFiglio, String codiceArticoloAlternativo, String codicePercipiente,
-			int numeroDecimali, String note, boolean indicatorePubblicazioneWeb, boolean indicatoreInibizione,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, boolean indicatoreScorporoIVA,
+			int numeroDecimali, String note, boolean indicatorePubblicazioneWeb, boolean indicatoreInibizione, boolean indicatoreScorporoIVA,
 			String codiceControparteContabileFornitore, String codiceIVAFornitore, String codiceStampo,
-			String noteProduzione) {
+			String noteProduzione, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceArticolo = codiceArticolo;
 		this.descrizione = descrizione;
 		this.codiceUnitaMisura = codiceUnitaMisura;

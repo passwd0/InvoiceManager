@@ -44,7 +44,7 @@ public class AnagraficaController implements Initializable {
     private Button button_decodifica;
 
     @FXML
-    private ComboBox<?> combobox_tipo;
+    private ComboBox<String> combobox_tipo;
 
     @FXML
     private CheckBox checkbox_ii;
@@ -135,6 +135,8 @@ public class AnagraficaController implements Initializable {
 		radiobutton_eserciziocorr.setToggleGroup(tg);
 		
 		combobox_esercizioanno.setItems(FXCollections.observableArrayList(Arrays.asList(2019, 2018, 2017, 2016)));
+		combobox_divisa.setValue(cliente.getCodiceDivisa());
+		if (cliente.getTipoCliente() != null) combobox_tipo.setValue(cliente.getTipoCliente().getCodiceTipoCliente());
 	}
 	
     @FXML

@@ -99,7 +99,7 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_cliente_onAction(ActionEvent e) {
-		clean();
+		InvoiceManagerGrid.tabViewController.clean();
 		
 		Cliente cliente = combobox_cliente.getValue();
 		if (cliente != null) {
@@ -160,36 +160,6 @@ public class RiepilogoTestataController implements Initializable {
 						o.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
 				.collect(Collectors.toList()));
 		
-	}
-	
-	private void clean() {
-		InvoiceManagerGrid.tabViewController.label_ragionesociale.setText("");
-		InvoiceManagerGrid.tabViewController.label_indirizzo.setText("");
-		InvoiceManagerGrid.tabViewController.label_localita.setText("");
-		InvoiceManagerGrid.tabViewController.label_nazione.setText("");
-		InvoiceManagerGrid.tabViewController.label_partitaiva.setText("");
-		InvoiceManagerGrid.tabViewController.textfield_percprovcliente.setText("");
-		InvoiceManagerGrid.tabViewController.textfield_scontocliente.setText("");
-		
-		InvoiceManagerGrid.tabViewController.combobox_codicespedizione.getSelectionModel().clearSelection();
-		InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.getSelectionModel().clearSelection();
-		InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.getSelectionModel().clearSelection();
-		
-		InvoiceManagerGrid.tabViewController.textfield_indirizzospedizione.setText("");
-		InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText("");
-		InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText("");
-		
-		InvoiceManagerGrid.tabViewController.label_pagamento.setText("");
-		InvoiceManagerGrid.tabViewController.label_vettore.setText("");
-		InvoiceManagerGrid.tabViewController.label_agente.setText("");
-		InvoiceManagerGrid.tabViewController.label_banca.setText("");
-		InvoiceManagerGrid.tabViewController.label_resa.setText("");
-		InvoiceManagerGrid.tabViewController.label_imballo.setText("");
-		InvoiceManagerGrid.tabViewController.label_divisa.setText("");
-		InvoiceManagerGrid.tabViewController.label_esiva.setText("");
-		InvoiceManagerGrid.tabViewController.label_lingua.setText("");
-		InvoiceManagerGrid.tabViewController.label_vettore.setText("");
-		InvoiceManagerGrid.tabViewController.label_vettore.setText("");
 	}
 	
 	@FXML

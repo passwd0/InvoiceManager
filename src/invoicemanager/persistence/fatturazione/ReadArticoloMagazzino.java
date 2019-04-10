@@ -59,20 +59,20 @@ public class ReadArticoloMagazzino {
 				String note = rs.getString("note");
 				boolean indicatorePubblicazioneWeb = rs.getBoolean("indicatorePubblicazioneWeb");
 				boolean indicatoreInibizione = rs.getBoolean("indicatoreInibizione");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
 				boolean indicatoreScorporoIVA = rs.getBoolean("indicatoreScorporoIVA");
 				String codiceControparteContabileFornitore = rs.getString("codiceControparteContabileFornitore");
 				String codiceIVAFornitore = rs.getString("codiceIVAFornitore");
 				String codiceStampo = rs.getString("codiceStampo");
 				String noteProduzione = rs.getString("noteProduzione");
-				ArticoloMagazzino articoloMagazzino = new ArticoloMagazzino(codiceArticolo, descrizione, codiceUnitaMisura, codiceGruppoMerceologico, codiceSottogruppoMerceologico, codiceControparteContabile, codiceIVA, indicatoreGestionePezzi, sconto, codiceTaglieColori, codiceColore, codiceTaglia, percentualeProvvigione, indicatoreSerialNumber, pesoNetto, codiceConfezione, numeroPezziConfezione, numeroColli, pesoLordo, volumeConfezione, altezza, larghezza, profondita, indicatoreArticoloPadreFiglio, codiceArticoloAlternativo, codicePercipiente, numeroDecimali, note, indicatorePubblicazioneWeb, indicatoreInibizione, dataInserimento, dataUltimaModifica, indicatoreScorporoIVA, codiceControparteContabileFornitore, codiceIVAFornitore, codiceStampo, noteProduzione);
+				ts = rs.getTimestamp("dataInserimento");
+				LocalDateTime dataInserimento = null;
+				if (ts != null)
+					dataInserimento = ts.toLocalDateTime();
+				ts = rs.getTimestamp("dataUltimaModifica");
+				LocalDateTime dataUltimaModifica = null;
+				if (ts != null)
+					dataUltimaModifica = ts.toLocalDateTime();
+				ArticoloMagazzino articoloMagazzino = new ArticoloMagazzino(codiceArticolo, descrizione, codiceUnitaMisura, codiceGruppoMerceologico, codiceSottogruppoMerceologico, codiceControparteContabile, codiceIVA, indicatoreGestionePezzi, sconto, codiceTaglieColori, codiceColore, codiceTaglia, percentualeProvvigione, indicatoreSerialNumber, pesoNetto, codiceConfezione, numeroPezziConfezione, numeroColli, pesoLordo, volumeConfezione, altezza, larghezza, profondita, indicatoreArticoloPadreFiglio, codiceArticoloAlternativo, codicePercipiente, numeroDecimali, note, indicatorePubblicazioneWeb, indicatoreInibizione, indicatoreScorporoIVA, codiceControparteContabileFornitore, codiceIVAFornitore, codiceStampo, noteProduzione, dataInserimento, dataUltimaModifica);
 				
 				listarticoloMagazzino.add(articoloMagazzino);
 	         }

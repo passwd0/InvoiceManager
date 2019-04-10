@@ -63,7 +63,6 @@ import invoicemanager.model.fatturazione.StabileOrganizzazione;
 import invoicemanager.model.fatturazione.Stato;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.StatoFattura;
-import invoicemanager.model.fatturazione.Telefono;
 import invoicemanager.model.fatturazione.TerzoIntermediario;
 import invoicemanager.model.fatturazione.TipoBento;
 import invoicemanager.model.fatturazione.TipoCliente;

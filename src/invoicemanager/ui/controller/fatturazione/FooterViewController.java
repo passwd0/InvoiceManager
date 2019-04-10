@@ -3,6 +3,7 @@ package invoicemanager.ui.controller.fatturazione;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,7 +36,7 @@ public class FooterViewController implements Initializable {
 	
 	@FXML
     void button_conferma_onAction(ActionEvent event) {
-
+		
     }
 
     @FXML
@@ -50,7 +51,7 @@ public class FooterViewController implements Initializable {
 
     @FXML
     void button_pulisci_onAction(ActionEvent event) {
-
+    	InvoiceManagerGrid.tabViewController.clean();
     }
 
 }

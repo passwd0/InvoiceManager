@@ -35,7 +35,7 @@ public class FatturaTestata {
 	private String codiceDivisa;
 	private float cambio;
 	private String codiceClienteSpedizione;
-	private String nomeSpedizione;
+	private String nomeSpedizione;				//note dell'indirizzo di spedizione
 	private String indirizzoSpedizione;
 	private String capSpedizione;
 	private String cittaSpedizione;

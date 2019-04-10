@@ -11,6 +11,7 @@ import invoicemanager.model.fatturazione.Magazzino;
 import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.UnitaMisura;
+import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import invoicemanager.ui.fatturazione.converter.CodiceSpedizioneConverter;
 import invoicemanager.ui.fatturazione.converter.DdtTestataConverter;
 import invoicemanager.ui.fatturazione.converter.OrdineTestataConverter;
@@ -242,7 +243,7 @@ public class TabViewController implements Initializable {
 
     @FXML
     public Label label_totalefattura;
-    
+
     public ObservableList<DdtTestata> oDdtTestata;
     public ObservableList<OrdineTestata> oOrdineTestata;
     public ObservableList<IndirizzoGeografico> oIndirizzoGeograficoSpedizione;
@@ -254,21 +255,21 @@ public class TabViewController implements Initializable {
 				.collect(Collectors.toList()));
 		combobox_codicespedizione.setItems(oIndirizzoGeograficoSpedizione);
 		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());
-		
+
 		oOrdineTestata = FXCollections.observableArrayList(
 				DataManager.loadOrdineTestata().stream()
 				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
 				.collect(Collectors.toList()));
 		combobox_ordinen.setItems(oOrdineTestata);
 		combobox_ordinen.setConverter(new OrdineTestataConverter());
-		
+
 		oDdtTestata = FXCollections.observableArrayList(
 				DataManager.loadDdtTestata().stream()
 				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
 				.collect(Collectors.toList()));
 		combobox_bollan.setItems(oDdtTestata);
 		combobox_bollan.setConverter(new DdtTestataConverter());
-		
+
 		combobox_localitaspedizione.setItems(FXCollections.observableArrayList(Utils.listaLocalita));
 		combobox_nazionespedizione.setItems(FXCollections.observableArrayList(Utils.listaNazioni));
 	}
@@ -353,7 +354,7 @@ public class TabViewController implements Initializable {
 		if (lingua != null)
 			label_lingua.setText(lingua);
 	}
-	
+
 	public void set_textfield_iddest(String idDestinazioneXML) {
 		if (idDestinazioneXML != null)
 			textfield_iddest.setText(idDestinazioneXML);
@@ -379,11 +380,41 @@ public class TabViewController implements Initializable {
 		textfield_ordinendel.setText(
 				ordineTestata != null ? ordineTestata.getDataOrdine().format(Utils.formatterData): "");
 	}
-	
+
 	@FXML
 	public void combobox_bollan_onAction(ActionEvent event) {
 		DdtTestata ddtTestata = combobox_bollan.getValue();
 		textfield_bollandel.setText(
 				ddtTestata != null? ddtTestata.getDataDDT().format(Utils.formatterData) : "");
+	}
+
+	public void clean() {
+		label_ragionesociale.setText("");
+		label_indirizzo.setText("");
+		label_localita.setText("");
+		label_nazione.setText("");
+		label_partitaiva.setText("");
+		textfield_percprovcliente.setText("");
+		textfield_scontocliente.setText("");
+
+		combobox_codicespedizione.getSelectionModel().clearSelection();
+		combobox_localitaspedizione.getSelectionModel().clearSelection();
+		combobox_nazionespedizione.getSelectionModel().clearSelection();
+
+		textfield_indirizzospedizione.setText("");
+		textfield_provinciaspedizione.setText("");
+		textfield_capspedizione.setText("");
+
+		label_pagamento.setText("");
+		label_vettore.setText("");
+		label_agente.setText("");
+		label_banca.setText("");
+		label_resa.setText("");
+		label_imballo.setText("");
+		label_divisa.setText("");
+		label_esiva.setText("");
+		label_lingua.setText("");
+		label_vettore.setText("");
+		label_vettore.setText("");
 	}
 }

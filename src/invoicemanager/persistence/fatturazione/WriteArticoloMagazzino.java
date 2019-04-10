@@ -48,13 +48,13 @@ public class WriteArticoloMagazzino {
 			ps.setString(28, a.getNote());
 			ps.setBoolean(29, a.isIndicatorePubblicazioneWeb());
 			ps.setBoolean(30, a.isIndicatoreInibizione());
-			ps.setTimestamp(31, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(32, Utils.toTimestamp(a.getDataUltimaModifica()));
-			ps.setBoolean(33, a.isIndicatoreScorporoIVA());
-			ps.setString(34, a.getCodiceControparteContabileFornitore());
-			ps.setString(35, a.getCodiceIVAFornitore());
-			ps.setString(36, a.getCodiceStampo());
-			ps.setString(37, a.getNoteProduzione());
+			ps.setBoolean(31, a.isIndicatoreScorporoIVA());
+			ps.setString(32, a.getCodiceControparteContabileFornitore());
+			ps.setString(33, a.getCodiceIVAFornitore());
+			ps.setString(34, a.getCodiceStampo());
+			ps.setString(35, a.getNoteProduzione());
+			ps.setTimestamp(36, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(37, Utils.toTimestamp(a.getDataUltimaModifica()));
 	
 			ps.executeUpdate();
 			ps.close();
@@ -99,13 +99,13 @@ public class WriteArticoloMagazzino {
     			"	\"Note\" varchar(25) NULL,\r\n" + 
     			"	\"IndicatorePubblicazioneWeb\" Boolean NULL,\r\n" + 
     			"	\"IndicatoreInibizione\" Boolean NULL,\r\n" + 
-    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
     			"	\"IndicatoreScorporoIVA\" Boolean NULL,\r\n" + 
     			"	\"CodiceControparteContabileFornitore\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceIVAFornitore\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceStampo\" varchar(25) NULL,\r\n" + 
     			"	\"NoteProduzione\" varchar(25) NULL \r\n" + 
+    			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL,\r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
