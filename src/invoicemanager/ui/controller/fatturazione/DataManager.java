@@ -676,7 +676,7 @@ public final class DataManager {
 		List<Agente> listAgente = loadAgente();
 		if(!listAgente.contains(agente)) {
 			try {
-					new WriteAgente().add(agente, false);
+					new WriteAgente().add(agente);
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 
@@ -805,14 +805,11 @@ public final class DataManager {
 		}
 	}
 	public static void add(Cliente cliente) {
-		List<Cliente> listCliente = loadCliente();
-		if(!listCliente.contains(cliente)) {
 		try {
-				new WriteCliente().add(cliente, false);
+			new WriteCliente().add(cliente);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 
-		}
 		}
 	}
 	public static void add(CodiceABarre codiceABarre) {

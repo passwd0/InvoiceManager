@@ -18,7 +18,7 @@ public class WriteBentoDettaglio {
 	public void add(BentoDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-				PreparedStatement ps = c.prepareStatement("INSERT INTO BentoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				PreparedStatement ps = c.prepareStatement("INSERT INTO BentoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				ps.setString(1, a.getCodiceBento());
 				ps.setInt(2, a.getNumeroRigaBento());
 				ps.setString(3, a.getCodiceTipoBento());
