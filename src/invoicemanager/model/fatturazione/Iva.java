@@ -2,22 +2,22 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
 public class Iva{
-	private String codiceIva; //(4) NOT NULL
-	private String descrizione; //(100) NULL
-	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
-	private int rigaIVAAcquisti; //  NULL
-	private float addizionaleIVA; //  NULL
-	private float aliquotaIVA; //  NULL
-	private float imponibileAcquisti; //  NULL
-	private float imponibileAcquistiNonDetraibile; //  NULL
-	private float impostaAcquisti; //  NULL
-	private float imponibileVendite; //  NULL
-	private float imponibileVenditeNonDetraibile; //  NULL
-	private float impostaVendite; //  NULL
-	private int rigaIVAVendite; //  NULL
-	private float coefficienteIVA; //  NULL
-	private String percentualeIndetraibilita; //(5) NULL
-	private float valoreArrotondamento; //  NULL
+	private String codiceIva; //(4) NOT NULL											x
+	private String descrizione; //(100) NULL											x
+	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL	x
+	private int rigaIVAAcquisti; //  NULL												x
+	private float addizionaleIVA; //  NULL												----
+	private float aliquotaIVA; //  NULL													----
+	private float imponibileAcquisti; //  NULL											----
+	private float imponibileAcquistiNonDetraibile; //  NULL								----
+	private float impostaAcquisti; //  NULL												----
+	private float imponibileVendite; //  NULL											----
+	private float imponibileVenditeNonDetraibile; //  NULL								----
+	private float impostaVendite; //  NULL												----
+	private int rigaIVAVendite; //  NULL												----
+	private float coefficienteIVA; //  NULL												x
+	private String percentualeIndetraibilita; //(5) NULL								
+	private float valoreArrotondamento; //  NULL										----
 	private boolean indicatoreTroncaAcquisti; // NULL
 	private boolean indicatoreSommaAcquisti; // NULL
 	private boolean indicatoreArrotondaAcquisti; // NULL
@@ -30,10 +30,10 @@ public class Iva{
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	private String loginInserimento; //(30) NULL
 	private String loginModifica; //(30) NULL
-	private boolean elencoClientiFornitori; // NULL
-	private String colonnaClientiFornitori; //(50) NULL
-	private String colonnaNoteClientiFornitori; //(50) NULL
-	private String splitPayment;
+	private boolean elencoClientiFornitori; // NULL										----
+	private String colonnaClientiFornitori; //(50) NULL									----
+	private String colonnaNoteClientiFornitori; //(50) NULL								----
+	private String splitPayment;	//													----
 		
 	public Iva(String codiceIva, String descrizione, Stato stato, int rigaIVAAcquisti, float addizionaleIVA,
 				float aliquotaIVA, float imponibileAcquisti, float imponibileAcquistiNonDetraibile,

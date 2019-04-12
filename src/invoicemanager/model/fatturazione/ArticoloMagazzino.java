@@ -3,22 +3,22 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
 public class ArticoloMagazzino {
-	private String codiceArticolo; //(30) NOT NULL
-	private String descrizione; //(200) NULL
-	private String codiceUnitaMisura; //(4) NULL
+	private String codiceArticolo; //(30) NOT NULL			x
+	private String descrizione; //(200) NULL				x
+	private String codiceUnitaMisura; //(4) NULL			x
 	private String codiceGruppoMerceologico; //(4) NULL
 	private String codiceSottogruppoMerceologico; //(4) NULL
-	private String codiceControparteContabile; //(4) NULL
-	private String codiceIVA; //(4) NULL
+	private String codiceControparteContabile; //(4) NULL 	----
+	private String codiceIVA; //(4) NULL					x
 	private boolean indicatoreGestionePezzi; // NULL
-	private float sconto; //  NULL
+	private float sconto; //  NULL							x
 	private String codiceTaglieColori; //(30) NULL
 	private String codiceColore; //(10) NULL
 	private String codiceTaglia; //(10) NULL
-	private float percentualeProvvigione; //  NULL
-	private boolean indicatoreSerialNumber; // NULL
+	private float percentualeProvvigione; //  NULL			----
+	private boolean indicatoreSerialNumber; // NULL			----
 	private float pesoNetto; //  NULL
-	private String codiceConfezione; //(4) NULL
+	private String codiceConfezione; //(4) NULL				----
 	private float numeroPezziConfezione; //  NULL
 	private int numeroColli; //  NULL
 	private float pesoLordo; //  NULL
@@ -28,14 +28,14 @@ public class ArticoloMagazzino {
 	private float profondita; //  NULL
 	private boolean indicatoreArticoloPadreFiglio; // NULL
 	private String codiceArticoloAlternativo; //(30) NULL
-	private String codicePercipiente; //(4) NULL
+	private String codicePercipiente; //(4) NULL			----
 	private int numeroDecimali; //  NULL
 	private String note; //(1500) NULL
 	private boolean indicatorePubblicazioneWeb; // NULL
 	private boolean indicatoreInibizione; // NULL
 	private boolean indicatoreScorporoIVA; // NULL
 	private String codiceControparteContabileFornitore; //(4) NULL
-	private String codiceIVAFornitore; //(4) NULL
+	private String codiceIVAFornitore; //(4) NULL			x
 	private String codiceStampo; //(10) NULL
 	private String noteProduzione; //(1500) NULL
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL

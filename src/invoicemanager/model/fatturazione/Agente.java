@@ -2,13 +2,13 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
 public class Agente {
-	private String codiceAgente; //(10) NOT NULL
-	private String nome; //(50) NULL
-	private float percentualeProvvigione; //  NULL
-	private boolean tipoProvvigione; // NULL
-	private boolean tipoMandato; // NULL
-	private String codiceContabile; //(30) NULL
-	private Controparte controparte; // (10) COLLATE Latin1_General_CI_AS NULL
+	private String codiceAgente; //(10) NOT NULL								x
+	private String nome; //(50) NULL											x
+	private float percentualeProvvigione; //  NULL								x
+	private boolean tipoProvvigione; // NULL									----
+	private boolean tipoMandato; // NULL										
+	private String codiceContabile; //(30) NULL									x
+	private Controparte controparte; // (10) COLLATE Latin1_General_CI_AS NULL	----
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 		

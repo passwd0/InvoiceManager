@@ -5,54 +5,53 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class DdtTestata {
-	private int id;
-	private int numeroDDT; //NOT NULL
-	private LocalDateTime dataDDT; //NOT NULL
-	private StatoAvanzamento statoAvanzamento = StatoAvanzamento.DAINVIARE; //] [varchar](1) ,
-	private String codiceCausale; //] [varchar](4) ,
-	private String codiceCausalePrelievi; //] [varchar](4) ,
-	private String codiceClienteFatturazione; //] [varchar](30) ,				//codiceCliente
-	private String codiceEsenzioneIva; //] [varchar](4) ,
-	private String codiceAgente; //] [varchar](10) ,
-	private float percentualeProvvigione; //NULL
-	private float percentualeSconto; //NULL
-	private int numeroCopieFattura; //NULL
+	private int id;											// 					x
+	private int numeroDDT; //NOT NULL											x
+	private LocalDateTime dataDDT; //NOT NULL									x
+	private StatoAvanzamento statoAvanzamento = StatoAvanzamento.DAINVIARE; //] [varchar](1) ,	x
+	private String codiceCausale; //] [varchar](4) ,							x
+	private String codiceCausalePrelievi; //] [varchar](4) ,					
+	private String codiceClienteFatturazione; //] [varchar](30) ,				//codiceCliente	x
+	private String codiceEsenzioneIva; //] [varchar](4) ,						
+	private String codiceAgente; //] [varchar](10) ,							x
+	private float percentualeProvvigione; //NULL								----
+	private float percentualeSconto; //NULL										x
+	private int numeroCopieFattura; //NULL										----
 	private boolean indicatoreAddebitoBolli; //] [varchar](1) ,
 	private boolean indicatoreAddebitoSpeseIncasso; //] [varchar](1) ,
-	private int codiceListino; //NULL
-	private String codiceResa; //] [varchar](4) ,
-	private String codiceVettore; //] [varchar](4) ,
-	private String codiceImballo; //] [varchar](4) ,
-	private String codicePagamento; //] [varchar](4) ,
-	private String codiceBanca; //] [varchar](4) ,
-	private int numeroFattura; //NULL
-	private LocalDate dataFattura; //NULL
-	private String codiceDivisa; // [varchar](4) ,
-	private String causaleTrasporto; //] [varchar](50) ,
+	private int codiceListino; //NULL											x
+	private String codiceResa; //] [varchar](4) ,								x
+	private String codiceVettore; //] [varchar](4) ,							x
+	private String codiceImballo; //] [varchar](4) ,							x
+	private String codicePagamento; //] [varchar](4) ,							x
+	private String codiceBanca; //] [varchar](4) ,								x
+	private int numeroFattura; //NULL											x
+	private LocalDate dataFattura; //NULL										x
+	private String codiceDivisa; // [varchar](4) ,								----
+	private String causaleTrasporto; //] [varchar](50) ,						x
 	private float pesoColli; //NULL
-	private String descrizione; //] [varchar](200) ,
+	private String descrizione; //] [varchar](200) ,							x
 	private int numeroColli; //NULL
 	private boolean indicatorePreventivoDaConferma; //] [varchar](1) ,
 	private boolean indicatoreBollaVisione; //] [varchar](1) ,
-	private String codiceClienteSpedizione; //] [varchar](30) ,
-	private String nomeSpedizione; //] [varchar](100) ,
+	private String codiceClienteSpedizione; //] [varchar](30) ,					x
+	private String nomeSpedizione; //] [varchar](100) ,							----
 	private String indirizzoSpedizione; //] [varchar](100) ,
 	private String capSpedizione; //] [varchar](20) ,
 	private String cittaSpedizione; //] [varchar](50) ,
 	private String provinciaSpedizione; //] [varchar](30) ,
 	private String codiceNazioneSpedizione; //] [varchar](10) ,
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //NULL
-	private String note; //[Note] [varchar](500) ,
-	private String codiceLingua; //] [varchar](4) ,
-	private int numeroDdtDeposito; //NULL
-	private String codiceDeposito; //] [varchar](4) ,
-	private String noteCaricamento; //] [varchar](2000) ,
-	private String codiceFilialeEdi;//] [varchar](50) ,
+	private String note; //[Note] [varchar](500) ,								x
+	private String codiceLingua; //] [varchar](4) ,								x
+	private int numeroDdtDeposito; //NULL										x
+	private String codiceDeposito; //] [varchar](4) ,							x
+	private String noteCaricamento; //] [varchar](2000) ,						----
+	private String codiceFilialeEdi;//] [varchar](50) ,							----
 	private LocalDateTime dataCaricamento; //NULL
 	private String unitaMisuraPesoColli; //[UnitaMisuraPesoColli] [varchar](3) 
-	private List<DdtDettaglio> ddtDettagli;
-	
+	private List<DdtDettaglio> ddtDettagli;	//									x
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //NULL
 	
 
 	public DdtTestata(int id, int numeroDDT, LocalDateTime dataDDT, StatoAvanzamento statoAvanzamento, String codiceCausale,
@@ -64,9 +63,10 @@ public class DdtTestata {
 			String descrizione, int numeroColli, boolean indicatorePreventivoDaConferma, boolean indicatoreBollaVisione,
 			String codiceClienteSpedizione, String nomeSpedizione, String indirizzoSpedizione, String capSpedizione,
 			String cittaSpedizione, String provinciaSpedizione, String codiceNazioneSpedizione,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String note, String codiceLingua,
+			String note, String codiceLingua,
 			int numeroDdtDeposito, String codiceDeposito, String noteCaricamento, String codiceFilialeEdi,
-			LocalDateTime dataCaricamento, String unitaMisuraPesoColli, List<DdtDettaglio> ddtDettagli) {
+			LocalDateTime dataCaricamento, String unitaMisuraPesoColli, List<DdtDettaglio> ddtDettagli,
+			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.id = id;
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;

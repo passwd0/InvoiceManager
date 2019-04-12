@@ -101,7 +101,7 @@ public class RiepilogoTestataController implements Initializable {
 	public void combobox_cliente_onAction(ActionEvent e) {
 		InvoiceManagerGrid.tabViewController.clean();
 		
-		Cliente cliente = combobox_cliente.getValue();
+		Cliente cliente = combobox_cliente.getSelectionModel().getSelectedItem();
 		if (cliente != null) {
 			InvoiceManagerGrid.tabViewController.label_partitaiva.setText(cliente.getPartitaIVA());
 	// "CLIENTE" e "SPEDIZIONE e CODICI"
@@ -148,6 +148,7 @@ public class RiepilogoTestataController implements Initializable {
 		}
 		
 			
+		System.out.print(cliente);
 		InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(
 				DataManager.loadDdtTestata().stream()
 				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
@@ -180,7 +181,7 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	private void button_anagrafica_onAction(ActionEvent event) {
-		if (combobox_cliente.getValue() != null) {
+		if (combobox_cliente.getSelectionModel().getSelectedItem() != null) {
 			try {
 				FXMLLoader anagraficaLoader = new FXMLLoader(getClass().getClassLoader().getResource("Anagrafica.fxml"));
 				AnchorPane anagrafica = (AnchorPane) anagraficaLoader.load();

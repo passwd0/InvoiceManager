@@ -4,33 +4,33 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class DdtDettaglio {
-	private int numeroDDT;
-	private LocalDateTime dataDDT;
-	private int numeroRigaDDT; //NOT NULL
-	private String codiceTipoRigaDocumento;
-	private String codiceArticolo;
-	private String codiceMagazzino;
-	private float costo; //NULL
-	private int numeroOrdine; //NULL
-	private int numeroRigaOrdine; //NULL
-	private LocalDate dataOrdine; //NULL
-	private float quantitaDaConsegnare; //NULL
+	private int numeroDDT; //												x
+	private LocalDateTime dataDDT; //										x
+	private int numeroRigaDDT; //NOT NULL									x
+	private String codiceTipoRigaDocumento;	//								----
+	private String codiceArticolo;	//										x
+	private String codiceMagazzino; //										x
+	private float costo; //NULL												x
+	private int numeroOrdine; //NULL										----
+	private int numeroRigaOrdine; //NULL									----
+	private LocalDate dataOrdine; //NULL									----
+	private float quantitaDaConsegnare; //NULL								x
 	private boolean indicatoreEvasione;
-	private String descrizione;
-	private float quantita; //NULL
-	private float prezzo; //[Prezzo] [decimal](19, 5) NULL,
-	private String codiceIva; //[CodiceIva] [varchar](4) COLLATE Latin1_General_CI_AS NULL,
+	private String descrizione; //											x
+	private float quantita; //NULL											x
+	private float prezzo; //[Prezzo] [decimal](19, 5) NULL,					x
+	private String codiceIVA; //[CodiceIva] [varchar](4) COLLATE Latin1_General_CI_AS NULL,				x
 	private String codiceContropartitaContabile; // [varchar](4) COLLATE Latin1_General_CI_AS NULL,
-	private float percentualeProvvigione; //NULL
-	private float percentualeScontoCliente; //NULL
-	private float percentualeScontoArticolo; //NULL
-	private float percentualeScontoPagamento; //NULL
+	private float percentualeProvvigione; //NULL							----
+	private float percentualeScontoCliente; //NULL							----
+	private float percentualeScontoArticolo; //NULL							----
+	private float percentualeScontoPagamento; //NULL						----
 	private String descrizioneAggiuntiva; // [varchar](2000) COLLATE Latin1_General_CI_AS NULL,
-	private String codiceUnitaMisura; //] [varchar](4) COLLATE Latin1_General_CI_AS NULL,
-	private String serialNumber; //[SerialNumber] [varchar](50) COLLATE Latin1_General_CI_AS NULL,
+	private String codiceUnitaMisura; //] [varchar](4) COLLATE Latin1_General_CI_AS NULL,			x
+	private String serialNumber; //[SerialNumber] [varchar](50) COLLATE Latin1_General_CI_AS NULL,	----
 	private boolean indicatorePrelevatoVendita; //] [varchar](1) COLLATE Latin1_General_CI_AS NULL,
 	private String pesoLordo; //[PesoLordo] [varchar](50) COLLATE Latin1_General_CI_AS NULL
-	private int idDdtTestata;
+	private int idDdtTestata; //																	x
 	private LocalDateTime DataInserimento; //NULL
 	private LocalDateTime DataUltimaModifica; //NULL
 	
@@ -57,7 +57,7 @@ public class DdtDettaglio {
 		this.descrizione = descrizione;
 		this.quantita = quantita;
 		this.prezzo = prezzo;
-		this.codiceIva = codiceIva;
+		this.codiceIVA = codiceIva;
 		this.codiceContropartitaContabile = codiceContropartitaContabile;
 		this.percentualeProvvigione = percentualeProvvigione;
 		this.percentualeScontoCliente = percentualeScontoCliente;
@@ -172,10 +172,10 @@ public class DdtDettaglio {
 		this.prezzo = prezzo;
 	}
 	public String getCodiceIva() {
-		return codiceIva;
+		return codiceIVA;
 	}
 	public void setCodiceIva(String codiceIva) {
-		this.codiceIva = codiceIva;
+		this.codiceIVA = codiceIva;
 	}
 	public String getCodiceContropartitaContabile() {
 		return codiceContropartitaContabile;

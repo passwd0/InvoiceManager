@@ -1,0 +1,7 @@
+ArticoloMagazzino.java **
+mi conviene utilizzare codiceUnitaMisura (String) oppure unitaMisura (UnitaMisura) perchè appesantirebbe il programma il caricamento di tutte le istanze.
+
+UML
+inserire i get/set standard
+
+

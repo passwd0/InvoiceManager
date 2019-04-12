@@ -4,41 +4,41 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Cliente implements Comparable<Cliente>{
-	private String codiceCliente; //(30) NOT NULL
-	private String descrizione; //(100) 
-	private TipoCliente tipoCliente; // (4)
-	private ResaMerce resaMerce; // (4)
-	private Imballo imballo; // (4)
-	private RaggruppamentoClienteFornitore raggruppamento; // (4)
-	private float fatturato;
+	private String codiceCliente; //(30) NOT NULL					x
+	private String descrizione; //(100) 							x
+	private TipoCliente tipoCliente; // (4)							x
+	private ResaMerce resaMerce; // (4)								----
+	private Imballo imballo; // (4)									----
+	private RaggruppamentoClienteFornitore raggruppamento; // (4)	----
+	private float fatturato; //										x
 	private float fido;
-	private String partitaIVA; //(15)
-	private String codiceFiscale; //(16)
-	private Pagamento pagamento; // (4)
-	private Banca banca; // (4)
-	private int numeroFattureEmesse;
-	private Iva iva; // (4)
-	private float imponibileNonEsente;
-	private float imponibileEsente;
-	private float importoIVA;
+	private String partitaIVA; //(15)								x			
+	private String codiceFiscale; //(16)							x
+	private Pagamento pagamento; // (4)								x
+	private Banca banca; // (4)										x
+	private int numeroFattureEmesse; //								x
+	private Iva iva; // (4)											x
+	private float imponibileNonEsente;	 //							----
+	private float imponibileEsente;	//								----
+	private float importoIVA; //									x (perche e' qui e non in Iva)
 	private String codiceClassificazione; //(10)
-	private Agente agente; // (10)
-	private float percentualeProvvigioneAgente;
-	private float scontoLegatoProvvigioniAgente;
-	private int numeroCopieFattura;
+	private Agente agente; // (10)									----
+	private float percentualeProvvigioneAgente; //					----
+	private float scontoLegatoProvvigioneAgente; //					----
+	private int numeroCopieFattura; //								x
 	private boolean indicatoreAddebitoSpeseIncasso;
 	private boolean indicatoreAddebitoSpeseBolli;
-	private int progressivo;
-	private Vettore vettore; //(3)
+	private int progressivo; //										x
+	private Vettore vettore; //(3)									x
 	private String codiceAffidabilita; //(4)
-	private Iso iso; // (4)
-	private String partitaIVAEstero; //(12)
-	private String codiceDivisa; //(4)
+	private Iso iso; // (4)											----						
+	private String partitaIVAEstero; //(12)							x
+	private String codiceDivisa; //(4)								x
 	private int dataScadenzaSpostataAgosto;
 	private int dataScadenzaSpostataDicembre;
-	private String codiceLingua; //(5)
-	private String note; //(6000)
-	private Stato stato = Stato.DISPONIBILE; // (2)
+	private String codiceLingua; //(5)								x
+	private String note; //(6000)									x
+	private Stato stato = Stato.DISPONIBILE; // (2)					x
 	private boolean indicatoreInviataInformativaPrivacy;
 	private boolean indicatoreRicevutaInformativaPrivacy;
 	private boolean indicatoreScorporoIVA;
@@ -54,10 +54,10 @@ public class Cliente implements Comparable<Cliente>{
 	private boolean indicatoreFattureXML; // NULL
 	private boolean indicatoreDdtEmail; // NULL
 	private boolean indicatorePlafond; // NULL
-	private String codiceDestinatarioXml; //(7) COLLATE Latin1_General_CI_AS
+	private String codiceDestinatarioXml; //(7) COLLATE Latin1_General_CI_AS	x
 	private String codiceEORI;	// (17)
-	private StabileOrganizzazione stabileOrganizzazione;
-	private RappresentanteFiscale rappresentanteFiscale;
+	private StabileOrganizzazione stabileOrganizzazione; //						----
+	private RappresentanteFiscale rappresentanteFiscale; //						----
 	private TerzoIntermediario terzoIntermediario;
 	private LocalDateTime dataInserimento = LocalDateTime.now();
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); // NULL
@@ -102,7 +102,7 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceClassificazione = codiceClassificazione;
 		this.agente = agente;
 		this.percentualeProvvigioneAgente = percentualeProvvigioneAgente;
-		this.scontoLegatoProvvigioniAgente = scontoLegatoProvvigioniAgente;
+		this.scontoLegatoProvvigioneAgente = scontoLegatoProvvigioniAgente;
 		this.numeroCopieFattura = numeroCopieFattura;
 		this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
 		this.indicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
@@ -416,11 +416,11 @@ public class Cliente implements Comparable<Cliente>{
 	}
 
 	public float getScontoLegatoProvvigioniAgente() {
-		return scontoLegatoProvvigioniAgente;
+		return scontoLegatoProvvigioneAgente;
 	}
 
 	public void setScontoLegatoProvvigioniAgente(float scontoLegatoProvvigioniAgente) {
-		this.scontoLegatoProvvigioniAgente = scontoLegatoProvvigioniAgente;
+		this.scontoLegatoProvvigioneAgente = scontoLegatoProvvigioniAgente;
 	}
 
 	public int getNumeroCopieFattura() {

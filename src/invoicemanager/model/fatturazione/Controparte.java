@@ -2,10 +2,10 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
 public class Controparte{
-	private String codiceControparte; //(4) NOT NULL
-	private String descrizione; //(100) NULL
-	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
-	private String codiceContoCOGE; //(30) NULL
+	private String codiceControparte; //(4) NOT NULL									x
+	private String descrizione; //(100) NULL											x
+	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL	x
+	private String codiceContoCOGE; //(30) NULL											----
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 

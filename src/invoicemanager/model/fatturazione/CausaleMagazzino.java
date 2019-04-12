@@ -1,10 +1,10 @@
 package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
-public class CausaleMagazzino{
-	private String codiceCausaleMagazzino; //(4) NOT NULL
-	private String descrizione; //(100) NULL
-	private Stato stato = Stato.DISPONIBILE; // NULL
+public class CausaleMagazzino {
+	private String codiceCausaleMagazzino; //(4) NOT NULL			x
+	private String descrizione; //(100) NULL						x		
+	private Stato stato = Stato.DISPONIBILE; // NULL				x
 	private boolean segnoEsistenza; // NULL
 	private boolean segnoImpegniCliente; // NULL
 	private boolean segnoOrdiniFornitore; // NULL
@@ -31,7 +31,7 @@ public class CausaleMagazzino{
 	private boolean indicatoreOrdineCliente; // NULL
 	private boolean indicatoreOrdineFornitore; // NULL
 	private boolean indicatoreDistinta; // NULL
-	private String note; //(300) NULL
+	private String note; //(300) NULL								x
 	private boolean indicatoreLotti;
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL

@@ -1,0 +1,9 @@
+Controparte non serve per la fatturazione?
+ha senso memorizzare le copieFattura?
+DdtTestata: codiceListino dovrebbe essere un listino?
+DdtTestata: riga 39-43 non e' l'IndirizzoGeografico? (da modificare nell'uml)
+DdtDettaglio: riga 14-16 non e' l'Ordine? (da modificare nell'uml)
+DdtDettaglio: percentualeScontoCliente non va nell'Cliente?
+DdtDettaglio: percentualeScontoArticolo non va nell'Articolo?
+DdtDettaglio: percentualeScontoPagamento non va nell'Pagamento?
+FatturaTestata: fattura e' diversa se e' per Pa oppure privato?
