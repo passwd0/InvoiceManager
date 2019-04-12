@@ -11,11 +11,13 @@ import invoicemanager.model.fatturazione.Ordine;
 public class WriteOrdine {
 	private Connection c;
 
-	public WriteOrdine() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteOrdine()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Ordine a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Ordine a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Ordine VALUES (?, ?, ?, ?, ?, ?)");
@@ -26,13 +28,14 @@ public class WriteOrdine {
 		ps.setString(5, a.getOrdCodiceCUP());
 		ps.setString(6, a.getOrdCodiceCIG());
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

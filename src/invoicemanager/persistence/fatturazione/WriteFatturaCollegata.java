@@ -11,11 +11,13 @@ import invoicemanager.model.fatturazione.FatturaCollegata;
 public class WriteFatturaCollegata {
 	private Connection c;
 
-	public WriteFatturaCollegata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteFatturaCollegata()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(FatturaCollegata a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(FatturaCollegata a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaCollegata VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -27,13 +29,14 @@ public class WriteFatturaCollegata {
 		ps.setString(6, a.getFtcCodiceCUP());
 		ps.setString(7, a.getFtcCodiceCIG());
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

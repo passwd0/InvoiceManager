@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteTipoMagazzino {
 	private Connection c;
 
-	public WriteTipoMagazzino() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteTipoMagazzino()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(TipoMagazzino a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(TipoMagazzino a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO TipoMagazzino VALUES (?, ?, ?, ?)");
@@ -24,13 +26,14 @@ public class WriteTipoMagazzino {
 		ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(4, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

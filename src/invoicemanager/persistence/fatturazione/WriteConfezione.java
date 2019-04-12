@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteConfezione {
 	private Connection c;
 
-	public WriteConfezione() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteConfezione()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Confezione a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Confezione a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Confezione VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -31,13 +33,14 @@ public class WriteConfezione {
 		ps.setTimestamp(10, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(11, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

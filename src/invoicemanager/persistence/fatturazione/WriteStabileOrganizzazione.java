@@ -10,11 +10,13 @@ import invoicemanager.model.fatturazione.StabileOrganizzazione;
 public class WriteStabileOrganizzazione {
 	private Connection c;
 
-	public WriteStabileOrganizzazione() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteStabileOrganizzazione()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(StabileOrganizzazione a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(StabileOrganizzazione a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO StabileOrganizzazione VALUES (DEFAULT, ?, ?, ?, ?, ?, ?)");
@@ -25,12 +27,13 @@ public class WriteStabileOrganizzazione {
 		ps.setString(5, a.getSoProvincia());
 		ps.setString(6, a.getSoNazione());
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 
 	public void createTable() {

@@ -11,11 +11,13 @@ import invoicemanager.model.fatturazione.Ricezione;
 public class WriteRicezione {
 	private Connection c;
 
-	public WriteRicezione() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteRicezione()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Ricezione a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Ricezione a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Ricezione VALUES (?, ?, ?, ?, ?, ?)");
@@ -26,13 +28,14 @@ public class WriteRicezione {
 		ps.setString(5, a.getRczCodiceCUP());
 		ps.setString(6, a.getRczCodiceCIG());
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

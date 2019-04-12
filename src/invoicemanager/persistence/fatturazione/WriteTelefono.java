@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteTelefono {
 	private Connection c;
 
-	public WriteTelefono() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteTelefono()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Telefono a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Telefono a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Telefono VALUES (?, ?, ?, ?, ?, ?)");
@@ -26,13 +28,14 @@ public class WriteTelefono {
 		ps.setTimestamp(5, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(6, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

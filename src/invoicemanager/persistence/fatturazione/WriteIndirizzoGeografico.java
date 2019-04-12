@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteIndirizzoGeografico {
 	private Connection c;
 
-	public WriteIndirizzoGeografico() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteIndirizzoGeografico()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(IndirizzoGeografico a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(IndirizzoGeografico a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO IndirizzoGeografico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -33,13 +35,14 @@ public class WriteIndirizzoGeografico {
 		ps.setTimestamp(12, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(13, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
-				ps.close();
-				c.commit();
+		res = ps.executeUpdate();
+		ps.close();
+		c.commit();
 
-				} catch (Exception e) {
-	   			  //Utils.createAlertFailWriteDB();
-				}
+		} catch (Exception e) {
+		  //Utils.createAlertFailWriteDB();
+		}
+	    return res;
 		}
 	
 	public void createTable() {

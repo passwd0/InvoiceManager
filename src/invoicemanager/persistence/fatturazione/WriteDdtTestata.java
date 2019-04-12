@@ -12,18 +12,15 @@ import invoicemanager.utils.Utils;
 public class WriteDdtTestata {
 	private Connection c;
 
-	public WriteDdtTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteDdtTestata()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(DdtTestata a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(DdtTestata a, boolean exist) {
+	    int res = 0;
 	    try {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtTestata VALUES (
-	    		?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
-	    		?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
-	    		?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
-	    		?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
-	    		?, ?, ?, ?, ?, ?)");
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroDDT());
 			ps.setTimestamp(2, Utils.toTimestamp(a.getDataDDT()));
 			ps.setBoolean(3, a.isIndicatoreStatoAvanzamento());
@@ -70,12 +67,13 @@ public class WriteDdtTestata {
 			ps.setTimestamp(44, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(45, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-	    	ps.executeUpdate();
+	    	res = ps.executeUpdate();
 			ps.close();
 			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
+	    return res;
 	}
 
 	public void set(DdtTestata a) throws ClassNotFoundException, SQLException {

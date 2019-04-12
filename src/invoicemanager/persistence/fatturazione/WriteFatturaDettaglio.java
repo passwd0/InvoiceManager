@@ -12,11 +12,13 @@ import invoicemanager.utils.Utils;
 public class WriteFatturaDettaglio {
 	private Connection c;
 
-	public WriteFatturaDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteFatturaDettaglio()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(FatturaDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(FatturaDettaglio a, boolean exist) {
+	    int res = 0;
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroFattura());
@@ -61,12 +63,13 @@ public class WriteFatturaDettaglio {
 			ps.setTimestamp(39, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(40, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
+	    return res;
 	}
 
 	public void set(FatturaDettaglio a) throws ClassNotFoundException, SQLException {

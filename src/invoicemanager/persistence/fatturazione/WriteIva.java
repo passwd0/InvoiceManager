@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteIva {
 	private Connection c;
 
-	public WriteIva() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteIva()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Iva a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Iva a, boolean exist) {
+	    int res = 0;
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Iva VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceIva());
@@ -51,13 +53,14 @@ public class WriteIva {
 			ps.setTimestamp(31, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(32, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
 
 			} catch (Exception e) {
    			  //Utils.createAlertFailWriteDB();
 			}
+	    return res;
 	}
 
 	public void set(Iva a) throws ClassNotFoundException, SQLException {

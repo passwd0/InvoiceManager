@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteCausaleMagazzino {
 	private Connection c;
 
-	public WriteCausaleMagazzino() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteCausaleMagazzino()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(CausaleMagazzino a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(CausaleMagazzino a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO CausaleMagazzino VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -53,13 +55,15 @@ public class WriteCausaleMagazzino {
 		ps.setTimestamp(32, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(33, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
-				ps.close();
-				c.commit();
+		res = ps.executeUpdate();
+		ps.close();
+		c.commit();
 
-				} catch (Exception e) {
-	   			  //Utils.createAlertFailWriteDB();
-				}
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			//Utils.createAlertFailWriteDB();
+		}
+	    return res;
 		}
 	
 	public void createTable() {

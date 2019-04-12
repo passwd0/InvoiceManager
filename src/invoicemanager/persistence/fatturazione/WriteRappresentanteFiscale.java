@@ -10,11 +10,13 @@ import invoicemanager.model.fatturazione.RappresentanteFiscale;
 public class WriteRappresentanteFiscale {
 	private Connection c;
 
-	public WriteRappresentanteFiscale() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteRappresentanteFiscale()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(RappresentanteFiscale a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(RappresentanteFiscale a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO RappresentanteFiscale VALUES (DEFAULT, ?, ?, ?, ?, ?)");
@@ -24,12 +26,13 @@ public class WriteRappresentanteFiscale {
 		ps.setString(4, a.getNome());
 		ps.setString(5, a.getCognome());
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 
 	public void createTable() {

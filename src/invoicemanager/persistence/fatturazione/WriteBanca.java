@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteBanca {
 	private Connection c;
 
-	public WriteBanca() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteBanca()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Banca a, boolean exist) {
+	public int add(Banca a, boolean exist) {
+	    int res = 0;
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO banca VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	    	ps.setString(1, a.getCodiceBanca());
@@ -37,13 +39,15 @@ public class WriteBanca {
 	    	ps.setTimestamp(17, Utils.toTimestamp(a.getDataInserimento()));
 	    	ps.setTimestamp(18, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-	    	ps.executeUpdate();
+	    	res = ps.executeUpdate();
 			ps.close();
 			c.commit();
-	      } catch (Exception e) {
+	      } catch (SQLException e) {
+	    	  System.err.println(e.getMessage()+"\n"+e.getErrorCode());
 	    	  e.getStackTrace();
 	    	  //Utils.createAlertFailWriteDB();
 	      }
+	    return res;
 	}
 
 	public void set(Banca a) throws ClassNotFoundException, SQLException {

@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteVettore {
 	private Connection c;
 
-	public WriteVettore() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteVettore()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Vettore a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Vettore a, boolean exist) {
+	    int res = 0;
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Vettore VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceVettore());
@@ -29,13 +31,14 @@ public class WriteVettore {
 			ps.setTimestamp(9, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(10, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
 
 			} catch (Exception e) {
    			  //Utils.createAlertFailWriteDB();
 			}
+	    return res;
 	}
 
 	public void set(Vettore a) throws ClassNotFoundException, SQLException {

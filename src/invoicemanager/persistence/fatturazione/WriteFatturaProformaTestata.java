@@ -11,11 +11,13 @@ import invoicemanager.model.fatturazione.FatturaProformaTestata;
 public class WriteFatturaProformaTestata {
 	private Connection c;
 
-	public WriteFatturaProformaTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteFatturaProformaTestata()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(FatturaProformaTestata a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(FatturaProformaTestata a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaProformaTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -69,13 +71,14 @@ public class WriteFatturaProformaTestata {
 		ps.setBoolean(48, a.isIndicatoreXML());
 		ps.setBoolean(49, a.isIndicatorePlafond());
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 
 	public void createTable() {

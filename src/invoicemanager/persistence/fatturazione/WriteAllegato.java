@@ -10,23 +10,26 @@ import invoicemanager.model.fatturazione.Allegato;
 public class WriteAllegato {
 	private Connection c;
 
-	public WriteAllegato() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteAllegato()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Allegato a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Allegato a) {
+	    int res = 0;
 	    try {
 			PreparedStatement ps = c.prepareStatement("INSERT INTO Allegato VALUES (DEFAULT, ?, ?)");
 			ps.setString(1, a.getNomeAllegato());
 			ps.setString(2, a.getPathAllegato());
 
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
 
 		} catch (Exception e) {
 		  //Utils.createAlertFailWriteDB();
 		}
+	    return res;
 	}
 
 	public void createTable() {

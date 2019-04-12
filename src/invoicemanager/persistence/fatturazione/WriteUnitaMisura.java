@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteUnitaMisura {
 	private Connection c;
 
-	public WriteUnitaMisura() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteUnitaMisura()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(UnitaMisura a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(UnitaMisura a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO UnitaMisura VALUES (?, ?, ?, ?, ?)");
@@ -25,14 +27,15 @@ public class WriteUnitaMisura {
 		ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
-				ps.close();
-				c.commit();
+			res = ps.executeUpdate();
+		ps.close();
+		c.commit();
 
-				} catch (Exception e) {
-	   			  //Utils.createAlertFailWriteDB();
-				}
+		} catch (Exception e) {
+		  //Utils.createAlertFailWriteDB();
 		}
+	    return res;
+	}
 	
 	public void createTable() {
 		try {

@@ -1,5 +1,7 @@
 package test.persistence.fatturazione;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -19,24 +21,26 @@ import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestWriteSql {
 	
+	//ATTENTION all fail if rows already present in tables
+	
 	@Test
 	void writeAgente() {
 		Agente agente = new Agente("bbb");
-		DataManager.add(agente);
-		//assertEquals(1, DataManager.loadAgente().size());
+		int res = DataManager.add(agente);
+		assertTrue(res > 0);
 	}
 	
 	@Test
 	void writeBanca() {
 		Banca banca = new Banca("bbb", "ccc");
-		DataManager.add(banca);
-		//assertEquals(1, DataManager.loadBanca().size());
+		int res = DataManager.add(banca);
+		assertTrue(res > 0);
 	}
 	
-	@Test
+	/*@Test
 	void writeVettore() {
 		
-	}
+	}*/
 	
 	@Test 
 	void writeCliente() {
@@ -51,11 +55,14 @@ public class TestWriteSql {
 		cliente.setVettore(v);
 		cliente.setAgente(a);
 		
-		DataManager.add(a);
-		DataManager.add(v);
-		DataManager.add(p);
-		DataManager.add(cliente);
-		//assertEquals(2,  DataManager.loadCliente().size());
+		int res1 = DataManager.add(a);
+		assertTrue(res1 > 0);
+		int res2 = DataManager.add(v);
+		assertTrue(res2 > 0);
+		int res3 = DataManager.add(p);
+		assertTrue(res3 > 0);
+		int res4 = DataManager.add(cliente);
+		assertTrue(res4 > 0);
 	}
 	
 	@Test
@@ -64,12 +71,14 @@ public class TestWriteSql {
 		CausaleMagazzino cm2 = new CausaleMagazzino("2", "b");
 		CausaleMagazzino cm3 = new CausaleMagazzino("3", "c");
 		CausaleMagazzino cm4 = new CausaleMagazzino("4", "d");
-		DataManager.add(cm1);
-		DataManager.add(cm2);
-		DataManager.add(cm3);
-		DataManager.add(cm4);
-		
-		//assertEquals(4,  DataManager.loadCausaleMagazzino().size());
+		int res1 = DataManager.add(cm1);
+		assertTrue(res1 > 0);
+		int res2 = DataManager.add(cm2);
+		assertTrue(res2 > 0);
+		int res3 = DataManager.add(cm3);
+		assertTrue(res3 > 0);
+		int res4 = DataManager.add(cm4);
+		assertTrue(res4 > 0);		
 	}
 	
 	@Test
@@ -78,8 +87,8 @@ public class TestWriteSql {
 		u.setRagioneSociale("a003_ragione");
 		u.setDataNascita(LocalDateTime.of(1979, 1, 5, 5, 2));
 		u.setPartitaIVA("a003_partitaiva");
-		DataManager.add(u);
-		//assertEquals(3, DataManager.loadUtente().size());
+		int res = DataManager.add(u);
+		assertTrue(res > 0);
 	}
 	
 	@Test 
@@ -87,21 +96,24 @@ public class TestWriteSql {
 		IndirizzoGeografico ig = new IndirizzoGeografico("a000_indirizzo", "a000");
 		ig.setCodiceNazione("c0_nazione");
 		ig.setCodiceTipoIndirizzo("c0_tipoindirizzo");
-		DataManager.add(ig);
-		//assertEquals(2, DataManager.loadIndirizzoGeografico().size());
+		int res = DataManager.add(ig);
+		assertTrue(res > 0);
 	}
 	
 	@Test
 	void writeFatturazioneTestata() {
 		FatturaTestata ft = new FatturaTestata(2, LocalDate.now(), 1, "a003");
 		FatturaTestata ft1 = new FatturaTestata(1, LocalDate.now(), 1, "a001");
-		DataManager.add(ft);
-		DataManager.add(ft1);
+		int res1 = DataManager.add(ft);
+		assertTrue(res1 > 0);
+		int res2 = DataManager.add(ft1);
+		assertTrue(res2 > 0);
 	}
 	
 	@Test
 	void writeOrdine() {
 		Ordine o = new Ordine(1, 2, LocalDate.now(), "ordCodiceCommessaConv", "ordCodiceCUP", "ordCodiceCIG");
-		DataManager.add(o);
+		int res = DataManager.add(o);
+		assertTrue(res > 0);
 	}
 }

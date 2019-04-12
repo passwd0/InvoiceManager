@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteImballo {
 	private Connection c;
 
-	public WriteImballo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteImballo()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Imballo a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Imballo a, boolean exist) {
+	    int res = 0;
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Imballo VALUES (?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceImballo());
@@ -30,6 +32,7 @@ public class WriteImballo {
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
+	    return res;
 	}
 
 	public void set(Imballo a) throws ClassNotFoundException, SQLException {

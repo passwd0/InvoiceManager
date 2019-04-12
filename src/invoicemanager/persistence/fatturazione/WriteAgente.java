@@ -11,13 +11,14 @@ import invoicemanager.utils.Utils;
 public class WriteAgente {
 	private Connection c;
 
-	public WriteAgente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteAgente() {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Agente a) throws ClassNotFoundException, SQLException {
+	public int add(Agente a) {
+	    int res = 0;
 	    try {
-
 			PreparedStatement ps = c.prepareStatement("INSERT INTO Agente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceAgente());
 			ps.setString(2, a.getNome());
@@ -29,13 +30,14 @@ public class WriteAgente {
 			ps.setTimestamp(8, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(9, Utils.toTimestamp(a.getDataUltimaModifica()));
 	
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
 
 		} catch (Exception e) {
 		  //Utils.createAlertFailWriteDB();
 		}
+	    return res;
 	}
 
 	public void set(Agente a) throws ClassNotFoundException, SQLException {
