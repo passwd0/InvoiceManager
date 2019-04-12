@@ -53,6 +53,7 @@ invoicemanager/ui/controller/fatturazione/RiepilogoTestataController.class
 invoicemanager/persistence/fatturazione/ReadUtente.class
 invoicemanager/persistence/fatturazione/ReadArticoloMagazzinoDescrizioneMultilingua.class
 invoicemanager/model/fatturazione/OrdineTestata.class
+invoicemanager/ui/fatturazione/MainAnchorPane.class
 invoicemanager/persistence/fatturazione/ReadFatturaCollegata.class
 invoicemanager/model/fatturazione/Imballo.class
 invoicemanager/model/fatturazione/ArticoloMagazzino.class

@@ -34,6 +34,7 @@
 /home/samu/coseGit/invoicemanager/src/invoicemanager/persistence/fatturazione/WriteFatturaDettaglio.java
 /home/samu/coseGit/invoicemanager/src/invoicemanager/persistence/fatturazione/ReadTipoMagazzino.java
 /home/samu/coseGit/invoicemanager/src/invoicemanager/persistence/fatturazione/WriteTipoPagamento.java
+/home/samu/coseGit/invoicemanager/src/invoicemanager/ui/fatturazione/MainAnchorPane.java
 /home/samu/coseGit/invoicemanager/src/invoicemanager/model/fatturazione/CodiceABarre.java
 /home/samu/coseGit/invoicemanager/src/invoicemanager/model/fatturazione/Listino.java
 /home/samu/coseGit/invoicemanager/src/invoicemanager/persistence/fatturazione/WriteScadenze.java

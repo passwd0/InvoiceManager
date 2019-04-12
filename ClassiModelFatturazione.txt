@@ -1,0 +1,19 @@
+articoloMagazzino
+bentoTestata
+bentoDettaglio
+causale Magazzino
+cliente
+(controparte)
+ddt testata
+(fatturaDettaglio)
+statoAvanzamento [enum]
+indirizzo geografico
+(listino articolo)
+(listino personalizzato)
+magazzino
+ordineTestata
+(ordineDettaglio)
+Ordine [??]
+stato [enum]
+tipoIndirizzo [enum??]
+Tipo Pagamento [enum??]
