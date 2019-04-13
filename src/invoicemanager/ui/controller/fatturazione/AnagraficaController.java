@@ -140,6 +140,8 @@ public class AnagraficaController implements Initializable {
 		textfield_cliente.setText(cliente.getCodiceCliente());
 		if (cliente.getTipoCliente() != null) combobox_tipo.setValue(cliente.getTipoCliente().getCodiceTipoCliente());
 		
+		combobox_divisa.setValue(cliente.getCodiceDivisa());
+		
 		textfield_ragsociale.setText(cliente.getDescrizione());
 		combobox_localita.setItems(FXCollections.observableArrayList(Utils.listaLocalita));
 		combobox_nazione.setItems(FXCollections.observableArrayList(Utils.listaNazioni));
