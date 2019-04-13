@@ -70,7 +70,11 @@ public class ReadDdtDettaglio {
 				if (ts != null)
 				DataUltimaModifica = ts.toLocalDateTime();
 				
-				DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroDDT, dataDDT, numeroRigaDDT, codiceTipoRigaDocumento, codiceArticolo, codiceMagazzino, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, indicatorePrelevatoVendita, pesoLordo, idDdtTestata, DataInserimento, DataUltimaModifica);
+				DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroDDT, dataDDT, numeroRigaDDT, codiceTipoRigaDocumento, codiceArticolo, codiceMagazzino, 
+						costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, 
+						codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, 
+						percentualeScontoPagamento, descrizioneAggiuntiva, codiceUnitaMisura, serialNumber, indicatorePrelevatoVendita, pesoLordo, 
+						idDdtTestata, DataInserimento, DataUltimaModifica);
 
 				listddtDettaglio.add(ddtDettaglio);
 	         }

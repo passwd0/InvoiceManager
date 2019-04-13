@@ -2,8 +2,9 @@ package invoicemanager.model.fatturazione;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
-public class Cliente implements Comparable<Cliente>{
+public class Cliente implements Comparable<Cliente> {
 	private String codiceCliente; //(30) NOT NULL					x
 	private String descrizione; //(100) 							x
 	private TipoCliente tipoCliente; // (4)							x
@@ -39,6 +40,7 @@ public class Cliente implements Comparable<Cliente>{
 	private String codiceLingua; //(5)								x
 	private String note; //(6000)									x
 	private Stato stato = Stato.DISPONIBILE; // (2)					x
+	private List<Contatto> contatti; //								da aggiungere nell'uml
 	private boolean indicatoreInviataInformativaPrivacy;
 	private boolean indicatoreRicevutaInformativaPrivacy;
 	private boolean indicatoreScorporoIVA;
@@ -70,18 +72,18 @@ public class Cliente implements Comparable<Cliente>{
 			Imballo imballo, RaggruppamentoClienteFornitore raggruppamento, float fatturato, float fido,
 			String partitaIVA, String codiceFiscale, Pagamento pagamento, Banca banca, int numeroFattureEmesse, Iva iva,
 			float imponibileNonEsente, float imponibileEsente, float importoIVA, String codiceClassificazione,
-			Agente agente, float percentualeProvvigioneAgente, float scontoLegatoProvvigioniAgente,
-			int numeroCopieFattura, boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreAddebitoSpeseBolli, int progressivo,
-			Vettore vettore, String codiceAffidabilita, Iso iso, String partitaIVAEstero,
+			Agente agente, float percentualeProvvigioneAgente, float scontoLegatoProvvigioneAgente,
+			int numeroCopieFattura, boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreAddebitoSpeseBolli,
+			int progressivo, Vettore vettore, String codiceAffidabilita, Iso iso, String partitaIVAEstero,
 			String codiceDivisa, int dataScadenzaSpostataAgosto, int dataScadenzaSpostataDicembre, String codiceLingua,
-			String note, Stato stato, boolean indicatoreInviataInformativaPrivacy,
+			String note, Stato stato, List<Contatto> contatti, boolean indicatoreInviataInformativaPrivacy,
 			boolean indicatoreRicevutaInformativaPrivacy, boolean indicatoreScorporoIVA, boolean indicatoreIVADifferita,
 			boolean indicatoreEmail, boolean inputInibito, boolean indicatoreFatturePA, LocalDate dataUltimaFattura,
-			float importoUltimaFattura, float importoPlafond, String numeroUltimaFattura,
-			LocalDate dataInizioPlafond, boolean indicatoreFattureXML, boolean indicatoreDdtEmail,
-			boolean indicatorePlafond, String codiceDestinatarioXml, String codiceEORI,
-			StabileOrganizzazione stabileOrganizzazione, RappresentanteFiscale rappresentanteFiscale,
-			TerzoIntermediario terzoIntermediario) {
+			float importoUltimaFattura, float importoPlafond, String numeroUltimaFattura, LocalDate dataInizioPlafond,
+			boolean indicatoreFattureXML, boolean indicatoreDdtEmail, boolean indicatorePlafond,
+			String codiceDestinatarioXml, String codiceEORI, StabileOrganizzazione stabileOrganizzazione,
+			RappresentanteFiscale rappresentanteFiscale, TerzoIntermediario terzoIntermediario,
+			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceCliente = codiceCliente;
 		this.descrizione = descrizione;
 		this.tipoCliente = tipoCliente;
@@ -102,7 +104,7 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceClassificazione = codiceClassificazione;
 		this.agente = agente;
 		this.percentualeProvvigioneAgente = percentualeProvvigioneAgente;
-		this.scontoLegatoProvvigioneAgente = scontoLegatoProvvigioniAgente;
+		this.scontoLegatoProvvigioneAgente = scontoLegatoProvvigioneAgente;
 		this.numeroCopieFattura = numeroCopieFattura;
 		this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
 		this.indicatoreAddebitoSpeseBolli = indicatoreAddebitoSpeseBolli;
@@ -117,6 +119,7 @@ public class Cliente implements Comparable<Cliente>{
 		this.codiceLingua = codiceLingua;
 		this.note = note;
 		this.stato = stato;
+		this.contatti = contatti;
 		this.indicatoreInviataInformativaPrivacy = indicatoreInviataInformativaPrivacy;
 		this.indicatoreRicevutaInformativaPrivacy = indicatoreRicevutaInformativaPrivacy;
 		this.indicatoreScorporoIVA = indicatoreScorporoIVA;
@@ -137,7 +140,11 @@ public class Cliente implements Comparable<Cliente>{
 		this.stabileOrganizzazione = stabileOrganizzazione;
 		this.rappresentanteFiscale = rappresentanteFiscale;
 		this.terzoIntermediario = terzoIntermediario;
+		this.dataInserimento = dataInserimento;
+		this.dataUltimaModifica = dataUltimaModifica;
 	}
+
+
 
 	public int getCodiceRappresentanteFiscale() {
 		if (rappresentanteFiscale == null) return -1;
@@ -662,6 +669,22 @@ public class Cliente implements Comparable<Cliente>{
 
 	public void setIso(Iso iso) {
 		this.iso = iso;
+	}
+	
+	public float getScontoLegatoProvvigioneAgente() {
+		return scontoLegatoProvvigioneAgente;
+	}
+
+	public void setScontoLegatoProvvigioneAgente(float scontoLegatoProvvigioneAgente) {
+		this.scontoLegatoProvvigioneAgente = scontoLegatoProvvigioneAgente;
+	}
+
+	public List<Contatto> getContatti() {
+		return contatti;
+	}
+
+	public void setContatti(List<Contatto> contatti) {
+		this.contatti = contatti;
 	}
 
 	@Override

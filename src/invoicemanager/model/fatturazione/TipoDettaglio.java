@@ -2,5 +2,7 @@ package invoicemanager.model.fatturazione;
 
 public enum TipoDettaglio {
 	TELEFONO,
-	EMAIL
+	EMAIL,
+	FAX,
+	URL
 }

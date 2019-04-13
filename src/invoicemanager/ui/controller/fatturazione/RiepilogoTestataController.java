@@ -148,7 +148,6 @@ public class RiepilogoTestataController implements Initializable {
 		}
 		
 			
-		System.out.print(cliente);
 		InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(
 				DataManager.loadDdtTestata().stream()
 				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 

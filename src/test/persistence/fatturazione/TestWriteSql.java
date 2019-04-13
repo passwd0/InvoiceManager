@@ -1,8 +1,27 @@
 package test.persistence.fatturazione;
 
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.Test;
 
+import invoicemanager.model.fatturazione.Agente;
+import invoicemanager.model.fatturazione.Banca;
+import invoicemanager.model.fatturazione.CausaleMagazzino;
+import invoicemanager.model.fatturazione.Cliente;
+import invoicemanager.model.fatturazione.Contatto;
+import invoicemanager.model.fatturazione.DdtTestata;
+import invoicemanager.model.fatturazione.FatturaTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
+import invoicemanager.model.fatturazione.Ordine;
+import invoicemanager.model.fatturazione.OrdineTestata;
+import invoicemanager.model.fatturazione.Pagamento;
+import invoicemanager.model.fatturazione.StatoAvanzamento;
+import invoicemanager.model.fatturazione.TipoDettaglio;
+import invoicemanager.model.fatturazione.Utente;
+import invoicemanager.model.fatturazione.Vettore;
+import invoicemanager.persistence.fatturazione.WriteDdtTestata;
 import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestWriteSql {
@@ -48,13 +67,13 @@ public class TestWriteSql {
 //		DataManager.add(p);
 //		DataManager.add(cliente);
 //		
-//		Cliente cliente = new Cliente("a001");
+//		cliente = new Cliente("a001");
 //		cliente.setCodiceDestinatarioXml("codiceDestinatarioXML2");
 //		cliente.setDataUltimaFattura(LocalDate.now());
 //		cliente.setDataInizioPlafond(LocalDate.now());
-//		Pagamento p = new Pagamento("2222");
-//		Vettore v = new Vettore("vettore2");
-//		Agente a = new Agente("agente2");
+//		p = new Pagamento("2222");
+//		v = new Vettore("vettore2");
+//		a = new Agente("agente2");
 //		
 //		cliente.setPagamento(p);
 //		cliente.setVettore(v);
@@ -64,7 +83,7 @@ public class TestWriteSql {
 //		DataManager.add(v);
 //		DataManager.add(p);
 //		DataManager.add(cliente);
-		//assertEquals(2,  DataManager.loadCliente().size());
+//		//assertEquals(2,  DataManager.loadCliente().size());
 //	}
 //	
 //	@Test
@@ -91,18 +110,18 @@ public class TestWriteSql {
 //		//assertEquals(3, DataManager.loadUtente().size());
 //	}
 //	
-	@Test 
-	void writeIndirizzoGeografico(){
+//	@Test 
+//	void writeIndirizzoGeografico(){
 //		IndirizzoGeografico ig = new IndirizzoGeografico("a000_indirizzo", "a000");
 //		ig.setCodiceNazione("c0_nazione");
 //		ig.setCodiceTipoIndirizzo("c0_tipoindirizzo");
 //		DataManager.add(ig);
-		IndirizzoGeografico ig = new IndirizzoGeografico("a003_indirizzo", "a003");
-		ig.setCodiceNazione("c3_nazione");
-		ig.setCodiceTipoIndirizzo("c3_tipoindirizzo");
-		DataManager.add(ig);
+//		ig = new IndirizzoGeografico("a003_indirizzo", "a003");
+//		ig.setCodiceNazione("c3_nazione");
+//		ig.setCodiceTipoIndirizzo("c3_tipoindirizzo");
+//		DataManager.add(ig);
 //		//assertEquals(2, DataManager.loadIndirizzoGeografico().size());
-	}
+//	}
 //	
 //	@Test
 //	void writeFatturazioneTestata() {
@@ -120,13 +139,6 @@ public class TestWriteSql {
 //	
 //	@Test
 //	void writeDdtTestata() {
-//		try {
-//			new WriteDdtTestata().createTable();
-//			//new WriteDdtDettaglio().createTable();
-//		} catch (ClassNotFoundException | SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 //		DdtTestata ddtTestata = new DdtTestata(123, LocalDateTime.now());
 //		ddtTestata.setDataCaricamento(LocalDateTime.now());
 //		ddtTestata.setDataFattura(LocalDate.now());
@@ -146,8 +158,8 @@ public class TestWriteSql {
 //		DataManager.add(ddtTestata);
 //	}
 //	
-	@Test
-	void writeOrdineTestata() {
+//	@Test
+//	void writeOrdineTestata() {
 //		OrdineTestata ordineTestata = new OrdineTestata(1, LocalDate.now());
 //		ordineTestata.setCodiceClienteFatturazione("a003");
 //		ordineTestata.setDataConsegna(LocalDate.now());
@@ -164,8 +176,22 @@ public class TestWriteSql {
 //		ordineTestata.setDataConsegna(LocalDate.now());
 //		DataManager.add(ordineTestata);
 //		
-//		OrdineTestata ordineTestata = new OrdineTestata(4, LocalDate.now());
+//		ordineTestata = new OrdineTestata(4, LocalDate.now());
 //		ordineTestata.setCodiceClienteFatturazione("a002");
 //		DataManager.add(ordineTestata);
-	}
+//	}
+//	
+//	@Test 
+//	void writeContatto() {
+//		Contatto contatto = new Contatto("a003", TipoDettaglio.TELEFONO, "041123");
+//		DataManager.add(contatto);
+//		contatto = new Contatto("a003", TipoDettaglio.EMAIL, "aaa.g@gmail.com");
+//		DataManager.add(contatto);
+//		contatto = new Contatto("a003", TipoDettaglio.FAX, "faaaax");
+//		DataManager.add(contatto);
+//		contatto = new Contatto("a003", TipoDettaglio.FAX, "fax2");
+//		DataManager.add(contatto);
+//		contatto = new Contatto("a003", TipoDettaglio.FAX, "faax3");
+//		DataManager.add(contatto);
+//	}
 }

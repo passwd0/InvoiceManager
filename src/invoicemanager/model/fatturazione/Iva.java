@@ -26,14 +26,14 @@ public class Iva{
 	private boolean indicatoreSommaVendite; // NULL
 	private boolean indicatoreArrotondaVendite; // NULL
 	private boolean indicatoreSottraeVendite; // NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 	private String loginInserimento; //(30) NULL
 	private String loginModifica; //(30) NULL
 	private boolean elencoClientiFornitori; // NULL										----
 	private String colonnaClientiFornitori; //(50) NULL									----
 	private String colonnaNoteClientiFornitori; //(50) NULL								----
 	private String splitPayment;	//													----
+	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
+	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 		
 	public Iva(String codiceIva, String descrizione, Stato stato, int rigaIVAAcquisti, float addizionaleIVA,
 				float aliquotaIVA, float imponibileAcquisti, float imponibileAcquistiNonDetraibile,

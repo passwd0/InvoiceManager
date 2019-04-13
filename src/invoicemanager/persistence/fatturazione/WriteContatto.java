@@ -18,13 +18,12 @@ public class WriteContatto {
 	public void add(Contatto a, boolean exist) throws ClassNotFoundException, SQLException {
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Contatto VALUES (?, ?, ?, ?, ?, ?)");
+		PreparedStatement ps = c.prepareStatement("INSERT INTO Contatto VALUES (default, ?, ?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceConto());
-		ps.setInt(2, a.getProgressivo());
-		ps.setString(3, a.getTipoContatto());
-		ps.setString(4, a.getNumero());
-		ps.setTimestamp(5, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(6, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setString(2, a.getTipoDettaglio().name());
+		ps.setString(3, a.getNumero());
+		ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
+		ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 		ps.executeUpdate();
 				ps.close();
@@ -39,13 +38,12 @@ public class WriteContatto {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.Contatto (\r\n" + 
+    			"	\"id\" serial NOT NULL primary key,\r\n" + 
     			"	\"CodiceConto\" varchar(25) NOT NULL ,\r\n" + 
-    			"	\"Progressivo\" INTEGER NOT NULL ,\r\n" + 
-    			"	\"TipoContatto\" varchar(25) NOT NULL ,\r\n" + 
-    			"	\"Numero\" varchar(25) NULL,\r\n" + 
+    			"	\"TipoDettaglio\" varchar(25) NOT NULL ,\r\n" + 
+    			"	\"Dettaglio\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
-    			"   Primary Key (\"CodiceConto\", \"Progressivo\", \"TipoContatto\") " +
+    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

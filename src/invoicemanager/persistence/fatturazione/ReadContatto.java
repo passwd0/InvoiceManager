@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.Contatto;
+import invoicemanager.model.fatturazione.TipoDettaglio;
 
 
 public class ReadContatto {
@@ -28,11 +29,10 @@ public class ReadContatto {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Contatto");
 			Timestamp ts;
 	         while ( rs.next() ) {
-
+	        	int id = rs.getInt("id");
 				String codiceConto = rs.getString("codiceConto");
-				int progressivo = rs.getInt("progressivo");
-				String tipoContatto = rs.getString("tipoContatto");
-				String numero = rs.getString("numero");
+				TipoDettaglio tipoDettaglio = TipoDettaglio.valueOf(rs.getString("tipoDettaglio"));
+				String dettaglio = rs.getString("dettaglio");
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
 				if (ts != null)
@@ -41,10 +41,10 @@ public class ReadContatto {
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
 					dataUltimaModifica = ts.toLocalDateTime();
-
-				Contatto telefono = new Contatto(codiceConto, progressivo, tipoContatto, numero, dataInserimento, dataUltimaModifica);
-
-		listtelefono.add(telefono);
+				
+				Contatto telefono = new Contatto(id, codiceConto, tipoDettaglio, dettaglio, dataInserimento, dataUltimaModifica);
+				
+				listtelefono.add(telefono);
 	         }
 		     rs.close();
 		     stmt.close();

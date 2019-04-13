@@ -2,27 +2,43 @@ package invoicemanager.model.fatturazione;
 import java.time.LocalDateTime;
 
 public class Contatto {
+	private int id;
 	private String codiceConto; //(30) COLLATE Latin1_General_CI_AS NOT NULL,	x
-	private int progressivo; //  NOT NULL,										x
 	private TipoDettaglio tipoDettaglio; //(2) COLLATE Latin1_General_CI_AS NOT NULL,	x
 	private String dettaglio; //(50) COLLATE Latin1_General_CI_AS NULL,			x
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL,
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
 
-	public Contatto(String codiceConto, int progressivo, TipoDettaglio tipoDettaglio){
+	public Contatto(String codiceConto, TipoDettaglio tipoDettaglio, String dettaglio){
 		this.codiceConto = codiceConto;
-		this.progressivo = progressivo;
 		this.tipoDettaglio = tipoDettaglio;
+		this.dettaglio = dettaglio;
 	}
 
-	public Contatto(String codiceConto, int progressivo, TipoDettaglio tipoDettaglio, String numero,
+	public Contatto(int id, String codiceConto, TipoDettaglio tipoDettaglio, String dettaglio,
 			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+		this.id = id;
 		this.codiceConto = codiceConto;
-		this.progressivo = progressivo;
 		this.tipoDettaglio = tipoDettaglio;
-		this.dettaglio = numero;
+		this.dettaglio = dettaglio;
 		this.dataInserimento = dataInserimento;
 		this.dataUltimaModifica = dataUltimaModifica;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDettaglio() {
+		return dettaglio;
+	}
+
+	public void setDettaglio(String dettaglio) {
+		this.dettaglio = dettaglio;
 	}
 
 	public String getCodiceConto() {
@@ -31,14 +47,6 @@ public class Contatto {
 
 	public void setCodiceConto(String codiceConto) {
 		this.codiceConto = codiceConto;
-	}
-
-	public int getProgressivo() {
-		return progressivo;
-	}
-
-	public void setProgressivo(int progressivo) {
-		this.progressivo = progressivo;
 	}
 
 	public TipoDettaglio getTipoDettaglio() {

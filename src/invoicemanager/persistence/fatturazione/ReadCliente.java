@@ -9,10 +9,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import invoicemanager.model.fatturazione.Agente;
 import invoicemanager.model.fatturazione.Banca;
 import invoicemanager.model.fatturazione.Cliente;
+import invoicemanager.model.fatturazione.Contatto;
 import invoicemanager.model.fatturazione.Imballo;
 import invoicemanager.model.fatturazione.Iso;
 import invoicemanager.model.fatturazione.Iva;
@@ -39,7 +41,7 @@ public class ReadCliente {
 			List<RaggruppamentoClienteFornitore> listaRaggruppamentoClienteFornitore, List<Pagamento> listaPagamento, List<Banca> listaBanca, 
 			List<Iva> listaIva, List<Agente> listaAgente, List<Vettore> listaVettore, List<Iso> listaIso, 
 			List<StabileOrganizzazione> listaStabileOrganizzazione, List<RappresentanteFiscale> listaRappresentanteFiscale, 
-			List<TerzoIntermediario> listaTerzoIntermediario) {
+			List<TerzoIntermediario> listaTerzoIntermediario, List<Contatto> listaContatti) {
 		List<Cliente> listcliente = new ArrayList<>();
 		Statement stmt;
 
@@ -94,6 +96,7 @@ public class ReadCliente {
 				String codiceLingua = rs.getString("codiceLingua");
 				String note = rs.getString("note");
 				Stato stato = Stato.valueOf(rs.getString("stato"));
+				List<Contatto> contatti = listaContatti.stream().filter(x->x.getCodiceConto().equals(codiceCliente)).collect(Collectors.toList());
 				boolean indicatoreInviataInformativaPrivacy = rs.getBoolean("indicatoreInviataInformativaPrivacy");
 				boolean indicatoreRicevutaInformativaPrivacy = rs.getBoolean("indicatoreRicevutaInformativaPrivacy");
 				boolean indicatoreScorporoIVA = rs.getBoolean("indicatoreScorporoIVA");
@@ -114,9 +117,9 @@ public class ReadCliente {
 				int codiceStabileOrganizzazione = rs.getInt("CodiceStabileOrganizzazione");
 				StabileOrganizzazione stabileOrganizzazione = listaStabileOrganizzazione.stream().filter(x->x.getCodice()==codiceStabileOrganizzazione).findFirst().orElse(null);
 				int codiceRappresentanteFiscale = rs.getInt("codiceRappresentanteFiscale");
-				RappresentanteFiscale rappresentanteFiscale = listaRappresentanteFiscale.stream().filter(x->x.getCodice() ==  codiceRappresentanteFiscale).findFirst().orElse(null);
+				RappresentanteFiscale rappresentanteFiscale = listaRappresentanteFiscale.stream().filter(x->x.getCodice()==codiceRappresentanteFiscale).findFirst().orElse(null);
 				int codiceTerzoIntermediario = rs.getInt("codiceTerzoIntermediario");
-				TerzoIntermediario terzoIntermediario = listaTerzoIntermediario.stream().filter(x->x.getCodice() == codiceTerzoIntermediario).findFirst().orElse(null);
+				TerzoIntermediario terzoIntermediario = listaTerzoIntermediario.stream().filter(x->x.getCodice()==codiceTerzoIntermediario).findFirst().orElse(null);
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
 				if (ts != null)
@@ -125,7 +128,15 @@ public class ReadCliente {
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
 					dataUltimaModifica = ts.toLocalDateTime();
-				Cliente cliente = new Cliente(codiceCliente, descrizione, tipoCliente, resaMerce, imballo, raggruppamento, fatturato, fido, partitaIVA, codiceFiscale, pagamento, banca, numeroFattureEmesse, iva, imponibileNonEsente, imponibileEsente, importoIVA, codiceClassificazione, agente, percentualeProvvigioneAgente, scontoLegatoProvvigioniAgente, numeroCopieFattura, indicatoreAddebitoSpeseIncasso, indicatoreAddebitoSpeseBolli, progressivo, vettore, codiceAffidabilita, iso, partitaIVAEstero, codiceDivisa, dataScadenzaSpostataAgosto, dataScadenzaSpostataDicembre, codiceLingua, note, stato, indicatoreInviataInformativaPrivacy, indicatoreRicevutaInformativaPrivacy, indicatoreScorporoIVA, indicatoreIVADifferita, indicatoreEmail, inputInibito, indicatoreFatturePA, dataUltimaFattura, importoUltimaFattura, importoPlafond, numeroUltimaFattura, dataInizioPlafond, indicatoreFattureXML, indicatoreDdtEmail, indicatorePlafond, codiceDestinatarioXml, codiceEORI, stabileOrganizzazione, rappresentanteFiscale, terzoIntermediario);
+				Cliente cliente = new Cliente(codiceCliente, descrizione, tipoCliente, resaMerce, imballo, raggruppamento, fatturato, fido, partitaIVA, 
+						codiceFiscale, pagamento, banca, numeroFattureEmesse, iva, imponibileNonEsente, imponibileEsente, importoIVA, codiceClassificazione, 
+						agente, percentualeProvvigioneAgente, scontoLegatoProvvigioniAgente, numeroCopieFattura, indicatoreAddebitoSpeseIncasso, 
+						indicatoreAddebitoSpeseBolli, progressivo, vettore, codiceAffidabilita, iso, partitaIVAEstero, codiceDivisa, dataScadenzaSpostataAgosto, 
+						dataScadenzaSpostataDicembre, codiceLingua, note, stato, contatti, indicatoreInviataInformativaPrivacy, indicatoreRicevutaInformativaPrivacy, 
+						indicatoreScorporoIVA, indicatoreIVADifferita, indicatoreEmail, inputInibito, indicatoreFatturePA, dataUltimaFattura, importoUltimaFattura, 
+						importoPlafond, numeroUltimaFattura, dataInizioPlafond, indicatoreFattureXML, indicatoreDdtEmail, indicatorePlafond, 
+						codiceDestinatarioXml, codiceEORI, stabileOrganizzazione, rappresentanteFiscale, terzoIntermediario, dataInserimento, 
+						dataUltimaModifica);
 
 				listcliente.add(cliente);
 	         }
