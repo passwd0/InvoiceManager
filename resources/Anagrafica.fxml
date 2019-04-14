@@ -82,13 +82,7 @@
                         <Insets />
                      </HBox.margin>
                   </ComboBox>
-                  <TextField />
-                  <Label text="al giorno:">
-                     <padding>
-                        <Insets left="40.0" right="10.0" />
-                     </padding>
-                  </Label>
-                  <ComboBox fx:id="combobox_algiorno" prefWidth="100.0" />
+                  <TextField fx:id="textfield_cambiovaluta" />
                   <Label text="Cambio:">
                      <HBox.margin>
                         <Insets left="40.0" right="10.0" />
