@@ -17,6 +17,7 @@ public class ClienteConverter extends StringConverter<Cliente> {
 				.collect(Collectors.toList());
 		InvoiceManagerGrid.riepilogoTestataController.oClientiId.setAll(clienti);
 		return clienti.size() == 0 ? null : clienti.get(0);
+		//magari se non trova niente, ne crea uno nuovo
 	}
 
 	@Override

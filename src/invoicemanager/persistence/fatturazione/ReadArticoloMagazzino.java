@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.fatturazione.ArticoloMagazzino;
+import invoicemanager.model.fatturazione.GruppoMerceologico;
+import invoicemanager.model.fatturazione.Percipiente;
+import invoicemanager.model.fatturazione.SottogruppoMerceologico;
+import invoicemanager.model.fatturazione.UnitaMisura;
 
 
 public class ReadArticoloMagazzino {
@@ -19,7 +23,8 @@ public class ReadArticoloMagazzino {
 		c = DBConnect.getConnection();
 	}
 
-	public List<ArticoloMagazzino> read() {
+	public List<ArticoloMagazzino> read(List<UnitaMisura> unitaMisure, List<GruppoMerceologico> gruppiMerceologici, List<SottogruppoMerceologico> sottogruppiMerceologici, 
+			List<Percipiente> percipienti) {
 		List<ArticoloMagazzino> listarticoloMagazzino = new ArrayList<>();
 		Statement stmt;
 
@@ -32,8 +37,11 @@ public class ReadArticoloMagazzino {
 				String codiceArticolo = rs.getString("codiceArticolo");
 				String descrizione = rs.getString("descrizione");
 				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
+				UnitaMisura unitaMisura = unitaMisure.stream().filter(u -> u.getCodiceUnitaMisura().equals(codiceUnitaMisura)).findFirst().orElse(null);
 				String codiceGruppoMerceologico = rs.getString("codiceGruppoMerceologico");
+				GruppoMerceologico gruppoMerceologico = gruppiMerceologici.stream().filter(gm -> gm.getCodiceGruppoMerceologico().equals(codiceGruppoMerceologico)).findFirst().orElse(null);
 				String codiceSottogruppoMerceologico = rs.getString("codiceSottogruppoMerceologico");
+				SottogruppoMerceologico sottogruppoMerceologico = sottogruppiMerceologici.stream().filter(gm -> gm.getCodiceSottogruppoMerceologico().equals(codiceSottogruppoMerceologico)).findFirst().orElse(null);
 				String codiceControparteContabile = rs.getString("codiceControparteContabile");
 				String codiceIVA = rs.getString("codiceIVA");
 				boolean indicatoreGestionePezzi = rs.getBoolean("indicatoreGestionePezzi");
@@ -55,6 +63,7 @@ public class ReadArticoloMagazzino {
 				boolean indicatoreArticoloPadreFiglio = rs.getBoolean("indicatoreArticoloPadreFiglio");
 				String codiceArticoloAlternativo = rs.getString("codiceArticoloAlternativo");
 				String codicePercipiente = rs.getString("codicePercipiente");
+				Percipiente percipiente = percipienti.stream().filter(p -> p.getCodicePercipiente().equals(codicePercipiente)).findFirst().orElse(null);
 				int numeroDecimali = rs.getInt("numeroDecimali");
 				String note = rs.getString("note");
 				boolean indicatorePubblicazioneWeb = rs.getBoolean("indicatorePubblicazioneWeb");
@@ -72,7 +81,11 @@ public class ReadArticoloMagazzino {
 				LocalDateTime dataUltimaModifica = null;
 				if (ts != null)
 					dataUltimaModifica = ts.toLocalDateTime();
-				ArticoloMagazzino articoloMagazzino = new ArticoloMagazzino(codiceArticolo, descrizione, codiceUnitaMisura, codiceGruppoMerceologico, codiceSottogruppoMerceologico, codiceControparteContabile, codiceIVA, indicatoreGestionePezzi, sconto, codiceTaglieColori, codiceColore, codiceTaglia, percentualeProvvigione, indicatoreSerialNumber, pesoNetto, codiceConfezione, numeroPezziConfezione, numeroColli, pesoLordo, volumeConfezione, altezza, larghezza, profondita, indicatoreArticoloPadreFiglio, codiceArticoloAlternativo, codicePercipiente, numeroDecimali, note, indicatorePubblicazioneWeb, indicatoreInibizione, indicatoreScorporoIVA, codiceControparteContabileFornitore, codiceIVAFornitore, codiceStampo, noteProduzione, dataInserimento, dataUltimaModifica);
+				ArticoloMagazzino articoloMagazzino = new ArticoloMagazzino(codiceArticolo, descrizione, unitaMisura, gruppoMerceologico, sottogruppoMerceologico, codiceControparteContabile, 
+						codiceIVA, indicatoreGestionePezzi, sconto, codiceTaglieColori, codiceColore, codiceTaglia, percentualeProvvigione, indicatoreSerialNumber, pesoNetto, 
+						codiceConfezione, numeroPezziConfezione, numeroColli, pesoLordo, volumeConfezione, altezza, larghezza, profondita, indicatoreArticoloPadreFiglio, 
+						codiceArticoloAlternativo, percipiente, numeroDecimali, note, indicatorePubblicazioneWeb, indicatoreInibizione, indicatoreScorporoIVA, 
+						codiceControparteContabileFornitore, codiceIVAFornitore, codiceStampo, noteProduzione, dataInserimento, dataUltimaModifica);
 				
 				listarticoloMagazzino.add(articoloMagazzino);
 	         }

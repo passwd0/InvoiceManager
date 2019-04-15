@@ -1,18 +1,24 @@
 package invoicemanager.ui.controller.fatturazione;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 import invoicemanager.model.fatturazione.ArticoloMagazzino;
+import invoicemanager.model.fatturazione.Cliente;
 import invoicemanager.model.fatturazione.DdtTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.model.fatturazione.Magazzino;
 import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.UnitaMisura;
+import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
+import invoicemanager.ui.fatturazione.converter.ArticoloMagazzinoConverter;
 import invoicemanager.ui.fatturazione.converter.CodiceSpedizioneConverter;
 import invoicemanager.ui.fatturazione.converter.DdtTestataConverter;
+import invoicemanager.ui.fatturazione.converter.MagazzinoConverter;
 import invoicemanager.ui.fatturazione.converter.OrdineTestataConverter;
 import invoicemanager.utils.Utils;
 import javafx.collections.FXCollections;
@@ -28,6 +34,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.util.StringConverter;
 
 public class TabViewController implements Initializable {
 	@FXML
@@ -148,11 +155,14 @@ public class TabViewController implements Initializable {
     private TextField textfield_magazzino;
 
     @FXML
-    public ComboBox<?> combobox_divisa;
+    public ComboBox<String> combobox_divisa;
 
     @FXML
     public TextField textfield_quantita;
 
+    @FXML
+    public TextField textfield_descr;
+    
     @FXML
     public TextField textfield_descraggiuntiva;
 
@@ -181,10 +191,10 @@ public class TabViewController implements Initializable {
     public TextArea textarea_note;
 
     @FXML
-    public ComboBox<?> combobox_algiorno;
+    public TextField textfield_algiorno;
 
     @FXML
-    public ComboBox<?> combobox_cambio;
+    public ComboBox<String> combobox_cambio;
 
     @FXML
     public TextField textfield_netto;
@@ -246,12 +256,18 @@ public class TabViewController implements Initializable {
     @FXML
     public Label label_totalefattura;
 
+    //TESTATA
     public ObservableList<DdtTestata> oDdtTestata;
     public ObservableList<OrdineTestata> oOrdineTestata;
     public ObservableList<IndirizzoGeografico> oIndirizzoGeograficoSpedizione;
+    //CORPO
+    public ObservableList<Magazzino> oMagazzino;		//sono relativi all'utente che sta fatturando quindi pressoche' immodificabili
+    private ObservableList<String> oDivisa;				//sono per tutti uguali quindi immodificabili
+    public ObservableList<ArticoloMagazzino> oArticolo;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		//TESTATA
 		oIndirizzoGeograficoSpedizione = FXCollections.observableArrayList(
 				DataManager.loadIndirizzoGeografico().stream()
 				.collect(Collectors.toList()));
@@ -274,92 +290,31 @@ public class TabViewController implements Initializable {
 
 		combobox_localitaspedizione.setItems(FXCollections.observableArrayList(Utils.listaLocalita));
 		combobox_nazionespedizione.setItems(FXCollections.observableArrayList(Utils.listaNazioni));
+		
+		//CORPO
+		oMagazzino = FXCollections.observableArrayList(DataManager.loadMagazzino());
+		combobox_magazzino.setItems(oMagazzino);
+		combobox_magazzino.setConverter(new MagazzinoConverter());
+		
+		oDivisa = FXCollections.observableArrayList(Arrays.asList("EUR", "USD", "AAA", "BBB"));
+		combobox_divisa.setItems(oDivisa);
+		
+		textfield_algiorno.setText(LocalDate.now().format(Utils.formatterData));
+		
+		combobox_cambio.setItems(oDivisa);
+		
+		oArticolo = FXCollections.observableArrayList(DataManager.loadArticoloMagazzino());
+		combobox_articolo.setItems(oArticolo);
+		combobox_articolo.setConverter(new ArticoloMagazzinoConverter());
 	}
-
-	void set_label_ragionesociale(String ragionesociale) {
-		if (ragionesociale != null)
-			label_ragionesociale.setText(ragionesociale);
-	}
-
-	void set_label_indirizzo(String indirizzo) {
-		if (indirizzo == null)
-			indirizzo = "";
-		label_indirizzo.setText(indirizzo);
-	}
-
-	void set_label_localita(String localita) {
-		if (localita != null)
-			label_localita.setText(localita);
-	}
-
-	void set_label_nazione(String nazione) {
-		if (nazione != null)
-			label_nazione.setText(nazione);
-	}
-
-	public void set_label_partitaiva(String partitaIVA) {
-		if (partitaIVA != null)
-			label_partitaiva.setText(partitaIVA);
-	}
-
-	public void set_textfield_percprovcliente(String percentualeProvvigioneAgente) {
-		if (percentualeProvvigioneAgente != null)
-			textfield_percprovcliente.setText(percentualeProvvigioneAgente);
-	}
-
-	public void set_textfield_scontocliente(String scontocliente) {
-		if (scontocliente != null)
-			textfield_scontocliente.setText(scontocliente);
-	}
-
-	public void set_label_pagamento(String pagamento) {
-		if (pagamento != null)
-			label_pagamento.setText(pagamento);
-	}
-
-	public void set_label_vettore(String vettore) {
-		if (vettore != null)
-			label_vettore.setText(vettore);
-	}
-
-	public void set_label_agente(String agente) {
-		if (agente != null)
-			label_agente.setText(agente);
-	}
-
-	public void set_label_banca(String banca) {
-		if (banca != null)
-			label_banca.setText(banca);
-	}
-
-	public void set_label_resa(String resa) {
-		if (resa != null)
-			label_resa.setText(resa);
-	}
-
-	public void set_label_imballo(String imballo) {
-		if (imballo != null)
-			label_imballo.setText(imballo);
-	}
-
-	public void set_label_divisa(String divisa) {
-		if (divisa != null)
-			label_divisa.setText(divisa);
-	}
-
-	public void set_label_esiva(String esIva) {
-		if (esIva != null)
-			label_esiva.setText(esIva);
-	}
-
-	public void set_label_lingua(String lingua) {
-		if (lingua != null)
-			label_lingua.setText(lingua);
-	}
-
-	public void set_textfield_iddest(String idDestinazioneXML) {
-		if (idDestinazioneXML != null)
-			textfield_iddest.setText(idDestinazioneXML);
+	
+	@FXML
+	void combobox_articolo_onAction(ActionEvent event) {
+		ArticoloMagazzino articolo = combobox_articolo.getValue();
+//		textfield_descr.setText(articolo.getDescrizione());
+//		textfield_descraggiuntiva.setText(articolo);
+		textfield_scontoart.setText(String.valueOf(articolo.getSconto()));
+		textarea_note.setText(articolo.getNote());
 	}
 
 	@FXML
@@ -421,8 +376,8 @@ public class TabViewController implements Initializable {
 	}
 	
 	@FXML
-    public void combobox_magazzino_pressed(Event event) {
-		Magazzino magazzino = combobox_magazzino.getSelectionModel().getSelectedItem();
+    public void combobox_magazzino_onAction(Event event) {
+		Magazzino magazzino = combobox_magazzino.getValue();
 		textfield_magazzino.setText(magazzino.getDescrizione());
     }
 }

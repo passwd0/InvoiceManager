@@ -5,9 +5,9 @@ import java.time.LocalDateTime;
 public class ArticoloMagazzino {
 	private String codiceArticolo; //(30) NOT NULL			x
 	private String descrizione; //(200) NULL				x
-	private String codiceUnitaMisura; //(4) NULL			x
-	private String codiceGruppoMerceologico; //(4) NULL
-	private String codiceSottogruppoMerceologico; //(4) NULL
+	private UnitaMisura unitaMisura; //(4) NULL			x
+	private GruppoMerceologico gruppoMerceologico; //(4) NULL
+	private SottogruppoMerceologico sottogruppoMerceologico; //(4) NULL
 	private String codiceControparteContabile; //(4) NULL 	----
 	private String codiceIVA; //(4) NULL					x
 	private boolean indicatoreGestionePezzi; // NULL
@@ -28,7 +28,7 @@ public class ArticoloMagazzino {
 	private float profondita; //  NULL
 	private boolean indicatoreArticoloPadreFiglio; // NULL
 	private String codiceArticoloAlternativo; //(30) NULL
-	private String codicePercipiente; //(4) NULL			----
+	private Percipiente percipiente; //(4) NULL			----
 	private int numeroDecimali; //  NULL
 	private String note; //(1500) NULL
 	private boolean indicatorePubblicazioneWeb; // NULL
@@ -46,21 +46,21 @@ public class ArticoloMagazzino {
 		this.descrizione = descrizione;
 	}
 
-	public ArticoloMagazzino(String codiceArticolo, String descrizione, String codiceUnitaMisura,
-			String codiceGruppoMerceologico, String codiceSottogruppoMerceologico, String codiceControparteContabile,
+	public ArticoloMagazzino(String codiceArticolo, String descrizione, UnitaMisura unitaMisura,
+			GruppoMerceologico gruppoMerceologico, SottogruppoMerceologico sottogruppoMerceologico, String codiceControparteContabile,
 			String codiceIVA, boolean indicatoreGestionePezzi, float sconto, String codiceTaglieColori,
 			String codiceColore, String codiceTaglia, float percentualeProvvigione, boolean indicatoreSerialNumber,
 			float pesoNetto, String codiceConfezione, float numeroPezziConfezione, int numeroColli, float pesoLordo,
 			float volumeConfezione, float altezza, float larghezza, float profondita,
-			boolean indicatoreArticoloPadreFiglio, String codiceArticoloAlternativo, String codicePercipiente,
+			boolean indicatoreArticoloPadreFiglio, String codiceArticoloAlternativo, Percipiente percipiente,
 			int numeroDecimali, String note, boolean indicatorePubblicazioneWeb, boolean indicatoreInibizione, boolean indicatoreScorporoIVA,
 			String codiceControparteContabileFornitore, String codiceIVAFornitore, String codiceStampo,
 			String noteProduzione, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceArticolo = codiceArticolo;
 		this.descrizione = descrizione;
-		this.codiceUnitaMisura = codiceUnitaMisura;
-		this.codiceGruppoMerceologico = codiceGruppoMerceologico;
-		this.codiceSottogruppoMerceologico = codiceSottogruppoMerceologico;
+		this.unitaMisura = unitaMisura;
+		this.gruppoMerceologico = gruppoMerceologico;
+		this.sottogruppoMerceologico = sottogruppoMerceologico;
 		this.codiceControparteContabile = codiceControparteContabile;
 		this.codiceIVA = codiceIVA;
 		this.indicatoreGestionePezzi = indicatoreGestionePezzi;
@@ -81,7 +81,7 @@ public class ArticoloMagazzino {
 		this.profondita = profondita;
 		this.indicatoreArticoloPadreFiglio = indicatoreArticoloPadreFiglio;
 		this.codiceArticoloAlternativo = codiceArticoloAlternativo;
-		this.codicePercipiente = codicePercipiente;
+		this.percipiente = percipiente;
 		this.numeroDecimali = numeroDecimali;
 		this.note = note;
 		this.indicatorePubblicazioneWeb = indicatorePubblicazioneWeb;
@@ -111,28 +111,43 @@ public class ArticoloMagazzino {
 		this.descrizione = descrizione;
 	}
 
+	public UnitaMisura getUnitaMisura() {
+		return unitaMisura;
+	}
+	
 	public String getCodiceUnitaMisura() {
-		return codiceUnitaMisura;
+		if (unitaMisura == null) return null;
+		return unitaMisura.getCodiceUnitaMisura();
 	}
 
-	public void setCodiceUnitaMisura(String codiceUnitaMisura) {
-		this.codiceUnitaMisura = codiceUnitaMisura;
+	public void setUnitaMisura(UnitaMisura unitaMisura) {
+		this.unitaMisura = unitaMisura;
 	}
 
+	public GruppoMerceologico getGruppoMerceologico() {
+		return gruppoMerceologico;
+	}
+
+	public void setGruppoMerceologico(GruppoMerceologico gruppoMerceologico) {
+		this.gruppoMerceologico = gruppoMerceologico;
+	}
+	
 	public String getCodiceGruppoMerceologico() {
-		return codiceGruppoMerceologico;
+		if (gruppoMerceologico == null) return null;
+		return gruppoMerceologico.getCodiceGruppoMerceologico();
 	}
 
-	public void setCodiceGruppoMerceologico(String codiceGruppoMerceologico) {
-		this.codiceGruppoMerceologico = codiceGruppoMerceologico;
+	public SottogruppoMerceologico getSottogruppoMerceologico() {
+		return sottogruppoMerceologico;
 	}
 
+	public void setSottogruppoMerceologico(SottogruppoMerceologico sottogruppoMerceologico) {
+		this.sottogruppoMerceologico = sottogruppoMerceologico;
+	}
+	
 	public String getCodiceSottogruppoMerceologico() {
-		return codiceSottogruppoMerceologico;
-	}
-
-	public void setCodiceSottogruppoMerceologico(String codiceSottogruppoMerceologico) {
-		this.codiceSottogruppoMerceologico = codiceSottogruppoMerceologico;
+		if (sottogruppoMerceologico == null) return null;
+		return sottogruppoMerceologico.getCodiceSottogruppoMerceologico();
 	}
 
 	public String getCodiceControparteContabile() {
@@ -295,12 +310,17 @@ public class ArticoloMagazzino {
 		this.codiceArticoloAlternativo = codiceArticoloAlternativo;
 	}
 
-	public String getCodicePercipiente() {
-		return codicePercipiente;
+	public Percipiente getPercipiente() {
+		return percipiente;
 	}
 
-	public void setCodicePercipiente(String codicePercipiente) {
-		this.codicePercipiente = codicePercipiente;
+	public void setPercipiente(Percipiente percipiente) {
+		this.percipiente = percipiente;
+	}
+	
+	public String getCodicePercipiente() {
+		if (percipiente == null) return null;
+		return percipiente.getCodicePercipiente();
 	}
 
 	public int getNumeroDecimali() {

@@ -64,6 +64,7 @@ public class WriteArticoloMagazzino {
 
 			} catch (Exception e) {
 			  //Utils.createAlertFailWriteDB();
+				e.getStackTrace();
 			}
 	    return res;
 		}
@@ -99,7 +100,7 @@ public class WriteArticoloMagazzino {
     			"	\"CodiceArticoloAlternativo\" varchar(25) NULL,\r\n" + 
     			"	\"CodicePercipiente\" varchar(25) NULL,\r\n" + 
     			"	\"NumeroDecimali\" INTEGER NULL,\r\n" + 
-    			"	\"Note\" varchar(25) NULL,\r\n" + 
+    			"	\"Note\" varchar(250) NULL,\r\n" + 
     			"	\"IndicatorePubblicazioneWeb\" Boolean NULL,\r\n" + 
     			"	\"IndicatoreInibizione\" Boolean NULL,\r\n" + 
     			"	\"IndicatoreScorporoIVA\" Boolean NULL,\r\n" + 

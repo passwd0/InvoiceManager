@@ -101,25 +101,26 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_causale_onAction(ActionEvent e) {
-		textfield_causale.setText(combobox_causale.getSelectionModel().getSelectedItem().getDescrizione());
+		textfield_causale.setText(combobox_causale.getValue().getDescrizione());
 	}
 	
 	@FXML
 	public void combobox_cliente_onAction(ActionEvent e) {
 		InvoiceManagerGrid.tabViewController.clean();
 
-		Cliente cliente = combobox_cliente.getSelectionModel().getSelectedItem();
+		Cliente cliente = combobox_cliente.getValue();
 		if (cliente != null) {
+	//TESTATA
 			InvoiceManagerGrid.tabViewController.label_partitaiva.setText(cliente.getPartitaIVA());
-	// "CLIENTE" e "SPEDIZIONE e CODICI"
-			InvoiceManagerGrid.tabViewController.set_label_ragionesociale(cliente.getDescrizione());
+			// "CLIENTE" e "SPEDIZIONE e CODICI"
+			InvoiceManagerGrid.tabViewController.label_ragionesociale.setText(cliente.getDescrizione());
 			List<IndirizzoGeografico> indirizziGeografici = DataManager.loadIndirizzoGeografico().stream()
 					.filter(ig -> ig.getCodiceConto().equals(cliente.getCodiceCliente()))
 					.collect(Collectors.toList());
 			if (indirizziGeografici.size() > 0) {
-		// SPEDIZIONE e CODICI
+				// SPEDIZIONE e CODICI
 				InvoiceManagerGrid.tabViewController.oIndirizzoGeograficoSpedizione.setAll(indirizziGeografici);
-		// CLIENTE
+				// CLIENTE
 				IndirizzoGeografico indirizzoGeograficoDefault = indirizziGeografici.stream()
 						.filter(ig -> ig.isIndicatoreIndirizzoDefault()).findFirst().orElse(null);
 //				if (indirizzoGeograficoDefault != null) {
@@ -136,43 +137,53 @@ public class RiepilogoTestataController implements Initializable {
 //				}
 			}
 			
-			InvoiceManagerGrid.tabViewController.set_label_partitaiva(cliente.getPartitaIVA());
-			InvoiceManagerGrid.tabViewController.set_textfield_percprovcliente(String.valueOf(cliente.getPercentualeProvvigioneAgente()));
-			InvoiceManagerGrid.tabViewController.set_textfield_scontocliente(String.valueOf(cliente.getScontoLegatoProvvigioniAgente()));
+			InvoiceManagerGrid.tabViewController.label_partitaiva.setText(cliente.getPartitaIVA());
+			InvoiceManagerGrid.tabViewController.textfield_percprovcliente.setText(String.valueOf(cliente.getPercentualeProvvigioneAgente()));
+			InvoiceManagerGrid.tabViewController.textfield_scontocliente.setText(String.valueOf(cliente.getScontoLegatoProvvigioniAgente()));
 			
-			InvoiceManagerGrid.tabViewController.set_label_pagamento(cliente.getCodicePagamento());
-			InvoiceManagerGrid.tabViewController.set_label_vettore(cliente.getCodiceVettore());
-			InvoiceManagerGrid.tabViewController.set_label_agente(cliente.getCodiceAgente());
-			InvoiceManagerGrid.tabViewController.set_label_banca(cliente.getCodiceBanca());
-			InvoiceManagerGrid.tabViewController.set_label_resa(cliente.getCodiceResaMerce());
-			InvoiceManagerGrid.tabViewController.set_label_imballo(cliente.getCodiceImballo());
-			InvoiceManagerGrid.tabViewController.set_label_divisa(cliente.getCodiceDivisa());
-			InvoiceManagerGrid.tabViewController.set_label_esiva(cliente.getCodiceIva());
-			InvoiceManagerGrid.tabViewController.set_label_lingua(cliente.getCodiceLingua());
+			InvoiceManagerGrid.tabViewController.label_pagamento.setText(cliente.getCodicePagamento());
+			InvoiceManagerGrid.tabViewController.label_vettore.setText(cliente.getCodiceVettore());
+			InvoiceManagerGrid.tabViewController.label_agente.setText(cliente.getCodiceAgente());
+			InvoiceManagerGrid.tabViewController.label_banca.setText(cliente.getCodiceBanca());
+			InvoiceManagerGrid.tabViewController.label_resa.setText(cliente.getCodiceResaMerce());
+			InvoiceManagerGrid.tabViewController.label_imballo.setText(cliente.getCodiceImballo());
+			InvoiceManagerGrid.tabViewController.label_divisa.setText(cliente.getCodiceDivisa());
+			InvoiceManagerGrid.tabViewController.label_esiva.setText(cliente.getCodiceIva());
+			InvoiceManagerGrid.tabViewController.label_lingua.setText(cliente.getCodiceLingua());
 			
 			InvoiceManagerGrid.tabViewController.checkbox_bolli.setSelected(cliente.isIndicatoreAddebitoSpeseBolli());
-			InvoiceManagerGrid.tabViewController.set_textfield_iddest(cliente.getCodiceDestinatarioXml());
+			InvoiceManagerGrid.tabViewController.textfield_iddest.setText(cliente.getCodiceDestinatarioXml());
 		}
 		
-			
-		InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(
-				DataManager.loadDdtTestata().stream()
-				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
-						d.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
-				.collect(Collectors.toList()));
-		
+		//RIFERIMENTI
 		InvoiceManagerGrid.tabViewController.oOrdineTestata.setAll(
 				DataManager.loadOrdineTestata().stream()
 				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
 						o.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
 				.collect(Collectors.toList()));
+		if (InvoiceManagerGrid.tabViewController.oOrdineTestata.size() > 0)
+			InvoiceManagerGrid.tabViewController.combobox_ordinen.setValue(InvoiceManagerGrid.tabViewController.oOrdineTestata.get(0));
+		
+		InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(
+				DataManager.loadDdtTestata().stream()
+				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
+						d.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
+				.collect(Collectors.toList()));
+		if (InvoiceManagerGrid.tabViewController.oDdtTestata.size() > 0)
+			InvoiceManagerGrid.tabViewController.combobox_bollan.setValue(InvoiceManagerGrid.tabViewController.oDdtTestata.get(0));
+		
+		InvoiceManagerGrid.tabViewController.textfield_copie.setText(String.valueOf(cliente.getNumeroCopieFattura()));
+
+	//CORPO
+		InvoiceManagerGrid.tabViewController.combobox_divisa.setValue(cliente.getCodiceDivisa());
+		InvoiceManagerGrid.tabViewController.combobox_cambio.setValue(cliente.getCodiceDivisa());
 	}
 	
 	@FXML
     void combobox_sezionale_onAction(ActionEvent event) {
 		List<FatturaTestata> listFatturaTestata = DataManager.loadFatturaTestata();
 		textfield_fattura.setText(
-        		String.valueOf(listFatturaTestata.stream().filter(f -> f.getSezionale() == combobox_sezionale.getSelectionModel().getSelectedItem())
+        		String.valueOf(listFatturaTestata.stream().filter(f -> f.getSezionale() == combobox_sezionale.getValue())
                 .collect(Collectors.toList()).size())
         		);
     }
@@ -186,7 +197,7 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	private void button_anagrafica_onAction(ActionEvent event) {
-		if (combobox_cliente.getSelectionModel().getSelectedItem() != null) {
+		if (combobox_cliente.getValue() != null) {
 			try {
 				FXMLLoader anagraficaLoader = new FXMLLoader(getClass().getClassLoader().getResource("Anagrafica.fxml"));
 				AnchorPane anagrafica = (AnchorPane) anagraficaLoader.load();

@@ -177,6 +177,9 @@ public class AnagraficaController implements Initializable {
 			combobox_url.setItems(oUrl);
 			combobox_url.setValue(oUrl.get(0));
 		}
+		
+		textfield_partitaiva.setText(cliente.getPartitaIVA());
+		textfield_codicefiscale.setText(cliente.getCodiceFiscale());
 	}
 	
     @FXML

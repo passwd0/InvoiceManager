@@ -44,7 +44,7 @@ public class WriteMagazzino {
     	String sql = "Create table public.Magazzino (\r\n" + 
     			"	\"CodiceMagazzino\" varchar(25) NOT NULL Primary Key,\r\n" + 
     			"	\"Descrizione\" varchar(25) NULL,\r\n" + 
-    			"	\"Stato\" Boolean NULL,\r\n" + 
+    			"	\"Stato\" varchar(25) NULL,\r\n" + 
     			"	\"CodiceTipoMagazzino\" varchar(25) NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
     			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
