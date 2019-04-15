@@ -93,16 +93,16 @@ public class AnagraficaController implements Initializable {
     private ComboBox<?> combobox_prefissinazionali;
 
     @FXML
-    private ComboBox<Contatto> combobox_fax;
+    private ComboBox<String> combobox_fax;
 
     @FXML
-    private ComboBox<Contatto> combobox_telefoni;
+    private ComboBox<String> combobox_telefoni;
 
     @FXML
-    private ComboBox<Contatto> combobox_email;
+    private ComboBox<String> combobox_email;
 
     @FXML
-    private ComboBox<Contatto> combobox_url;
+    private ComboBox<String> combobox_url;
 
     @FXML
     private TextField textfield_partitaiva;
@@ -119,14 +119,10 @@ public class AnagraficaController implements Initializable {
     @FXML
     private TextField textfield_cliente;
     
-    private ObservableList<Contatto> oTelefoni;
-    private ObservableList<Contatto> oEmail;
-    private ObservableList<Contatto> oFax;
-    private ObservableList<Contatto> oUrl;
-    private Contatto selectedTelefono;
-    private Contatto selectedEmail;
-    private Contatto selectedFax;
-    private Contatto selectedUrl;
+    private ObservableList<String> oTelefoni;
+    private ObservableList<String> oEmail;
+    private ObservableList<String> oFax;
+    private ObservableList<String> oUrl;
 
     	
 	@Override
@@ -156,39 +152,35 @@ public class AnagraficaController implements Initializable {
 			textfield_prov.setText(indirizzoGeograficoDefault.getProvincia());
 			textfield_cap.setText(indirizzoGeograficoDefault.getCap());
 		}
-		combobox_telefoni.setConverter(new ContattoConverter());
-		oTelefoni = FXCollections.observableArrayList(cliente.getContatti().stream().
-				filter(c -> c.getTipoDettaglio()==TipoDettaglio.TELEFONO)
+		oTelefoni = FXCollections.observableArrayList(cliente.getContatti().stream()
+				.filter(c -> c.getTipoDettaglio()==TipoDettaglio.TELEFONO)
+				.map(Contatto::getDettaglio)
 				.collect(Collectors.toList()));
 		if (oTelefoni.size() > 0) {
-			selectedTelefono = oTelefoni.get(0);
 			combobox_telefoni.setValue(oTelefoni.get(0));
 			combobox_telefoni.setItems(oTelefoni);
 		}
-		combobox_email.setConverter(new ContattoConverter());
-		oEmail = FXCollections.observableArrayList(cliente.getContatti().stream().
-				filter(c -> c.getTipoDettaglio()==TipoDettaglio.EMAIL)
+		oEmail = FXCollections.observableArrayList(cliente.getContatti().stream()
+				.filter(c -> c.getTipoDettaglio()==TipoDettaglio.EMAIL)
+				.map(Contatto::getDettaglio)
 				.collect(Collectors.toList()));
 		if (oEmail.size() > 0) {
-			selectedEmail = oEmail.get(0);
 			combobox_email.setItems(oEmail);
 			combobox_email.setValue(oEmail.get(0));
 		}
-		combobox_fax.setConverter(new ContattoConverter());
-		oFax = FXCollections.observableArrayList(cliente.getContatti().stream().
-				filter(c -> c.getTipoDettaglio()==TipoDettaglio.FAX)
+		oFax = FXCollections.observableArrayList(cliente.getContatti().stream()
+				.filter(c -> c.getTipoDettaglio()==TipoDettaglio.FAX)
+				.map(Contatto::getDettaglio)
 				.collect(Collectors.toList()));
 		if (oFax.size() > 0) {
-			selectedFax = oFax.get(0);
 			combobox_fax.setValue(oFax.get(0));
 			combobox_fax.setItems(oFax);
 		}
-		combobox_url.setConverter(new ContattoConverter());
-		oUrl = FXCollections.observableArrayList(cliente.getContatti().stream().
-				filter(c -> c.getTipoDettaglio()==TipoDettaglio.URL)
+		oUrl = FXCollections.observableArrayList(cliente.getContatti().stream()
+				.filter(c -> c.getTipoDettaglio()==TipoDettaglio.URL)
+				.map(Contatto::getDettaglio)
 				.collect(Collectors.toList()));
 		if (oUrl.size() > 0) {
-			selectedUrl = oUrl.get(0);
 			combobox_url.setItems(oUrl);
 			combobox_url.setValue(oUrl.get(0));
 		}
@@ -202,34 +194,5 @@ public class AnagraficaController implements Initializable {
     @FXML
     void radiobutton_eserciziocorr_onAction(ActionEvent event) {
     	combobox_esercizioanno.setDisable(true);
-    }
-    
-    @FXML
-    void combobox_telefoni_onAction() {
-    	if (combobox_telefoni.isFocused() || combobox_telefoni.getValue() != null) {
-    		selectedTelefono = combobox_telefoni.getValue();
-    	} else
-    		combobox_telefoni.setValue(selectedTelefono);
-    }
-    @FXML
-    void combobox_email_onAction() {
-    	if (combobox_email.isFocused() || combobox_email.getValue() != null) {
-    		selectedEmail = combobox_email.getValue();
-    	} else
-    		combobox_email.setValue(selectedEmail);
-    }
-    @FXML
-    void combobox_fax_onAction() {
-    	if (combobox_fax.isFocused() || combobox_fax.getValue() != null) {
-    		selectedFax = combobox_fax.getValue();
-    	} else
-    		combobox_fax.setValue(selectedFax);
-    }
-    @FXML
-    void combobox_url_onAction() {
-    	if (combobox_url.isFocused() || combobox_url.getValue() != null) {
-    		selectedUrl = combobox_url.getValue();
-    	} else
-    		combobox_url.setValue(selectedUrl);
     }
 }

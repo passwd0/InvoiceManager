@@ -1,27 +1,13 @@
 package test.persistence.fatturazione;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Test;
 
 import invoicemanager.model.fatturazione.Agente;
-import invoicemanager.model.fatturazione.Banca;
-import invoicemanager.model.fatturazione.CausaleMagazzino;
 import invoicemanager.model.fatturazione.Cliente;
-import invoicemanager.model.fatturazione.Contatto;
-import invoicemanager.model.fatturazione.DdtTestata;
-import invoicemanager.model.fatturazione.FatturaTestata;
-import invoicemanager.model.fatturazione.IndirizzoGeografico;
-import invoicemanager.model.fatturazione.Ordine;
-import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.model.fatturazione.Pagamento;
-import invoicemanager.model.fatturazione.StatoAvanzamento;
-import invoicemanager.model.fatturazione.TipoDettaglio;
-import invoicemanager.model.fatturazione.Utente;
 import invoicemanager.model.fatturazione.Vettore;
-import invoicemanager.persistence.fatturazione.WriteDdtTestata;
 import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestWriteSql {
@@ -74,6 +60,23 @@ public class TestWriteSql {
 //		p = new Pagamento("2222");
 //		v = new Vettore("vettore2");
 //		a = new Agente("agente2");
+//		
+//		cliente.setPagamento(p);
+//		cliente.setVettore(v);
+//		cliente.setAgente(a);
+//		
+//		DataManager.add(a);
+//		DataManager.add(v);
+//		DataManager.add(p);
+//		DataManager.add(cliente);
+//	
+//		cliente = new Cliente("b001");
+//		cliente.setCodiceDestinatarioXml("codiceDestinatarioXML3");
+//		cliente.setDataUltimaFattura(LocalDate.now());
+//		cliente.setDataInizioPlafond(LocalDate.now());
+//		p = new Pagamento("3333");
+//		v = new Vettore("vettore3");
+//		a = new Agente("agente3");
 //		
 //		cliente.setPagamento(p);
 //		cliente.setVettore(v);
