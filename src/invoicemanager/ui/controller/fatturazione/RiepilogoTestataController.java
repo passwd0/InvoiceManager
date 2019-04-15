@@ -13,7 +13,6 @@ import invoicemanager.model.fatturazione.Cliente;
 import invoicemanager.model.fatturazione.FatturaTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
-import invoicemanager.model.fatturazione.Utente;
 import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import invoicemanager.ui.fatturazione.converter.CausaleMagazzinoConverter;
 import invoicemanager.ui.fatturazione.converter.ClienteConverter;
@@ -108,7 +107,7 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_cliente_onAction(ActionEvent e) {
-//		if (combobox_cliente.isFocused() || combobox_cliente.getValue() != null) {
+		if (combobox_cliente.isFocused() || combobox_cliente.getValue() != null) {
 //			selectedCliente = combobox_cliente.getValue();
 			InvoiceManagerGrid.tabViewController.clean();
 	
@@ -170,7 +169,7 @@ public class RiepilogoTestataController implements Initializable {
 					.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
 							o.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
 					.collect(Collectors.toList()));
-//		}
+		}
 //		else {
 //			combobox_cliente.setValue(selectedCliente);
 //		}
@@ -178,7 +177,7 @@ public class RiepilogoTestataController implements Initializable {
 	}
 	
 	@FXML
-    void combobox_sezionale_pressed(ActionEvent event) {
+    void combobox_sezionale_onAction(ActionEvent event) {
 		List<FatturaTestata> listFatturaTestata = DataManager.loadFatturaTestata();
 		textfield_fattura.setText(
         		String.valueOf(listFatturaTestata.stream().filter(f -> f.getSezionale() == combobox_sezionale.getSelectionModel().getSelectedItem())
@@ -187,7 +186,7 @@ public class RiepilogoTestataController implements Initializable {
     }
 	
 	@FXML
-    private void textfield_fattura_pressed(KeyEvent event) {
+    private void textfield_fattura_onAction(KeyEvent event) {
 		if (event.getCode() == KeyCode.ENTER) {
 			//caricare tutti i campi
 		}

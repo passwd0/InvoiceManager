@@ -37,7 +37,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <children>
-            <ComboBox fx:id="combobox_sezionale" onAction="#combobox_sezionale_pressed" prefWidth="150.0" />
+            <ComboBox fx:id="combobox_sezionale" onAction="#combobox_sezionale_onAction" prefWidth="150.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.rowSpan="2">
@@ -49,11 +49,11 @@
          </children>
       </HBox>
       <Button id="button_decodifica" fx:id="button_decodifica" mnemonicParsing="false" text="Decodifica" GridPane.rowIndex="2" />
-      <ComboBox id="combobox_clienti" fx:id="combobox_cliente" editable="true" maxWidth="1.7976931348623157E308" onAction="#combobox_cliente_onAction" onShowing="#combobox_cliente_onShowing" prefHeight="26.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2">
+      <ComboBox id="combobox_clienti" fx:id="combobox_cliente" editable="false" maxWidth="1.7976931348623157E308" onAction="#combobox_cliente_onAction" onShowing="#combobox_cliente_onShowing" prefHeight="26.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets left="10.0" right="40.0" />
          </GridPane.margin></ComboBox>
-      <TextField fx:id="textfield_fattura" onKeyPressed="#textfield_fattura_pressed" prefHeight="26.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+      <TextField fx:id="textfield_fattura" onKeyPressed="#textfield_fattura_onAction" prefHeight="26.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2" />
       <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <children>
             <Label minWidth="-Infinity" text="del:">
