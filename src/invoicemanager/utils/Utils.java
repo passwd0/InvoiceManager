@@ -10,8 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import invoicemanager.model.fatturazione.IndirizzoGeografico;
-
 public class Utils {
 	public static DateTimeFormatter formatterOra = DateTimeFormatter.ofPattern("HH:mm");
 	public static DateTimeFormatter formatterData = DateTimeFormatter.ofPattern("dd/MM/yyyy");

@@ -3,12 +3,19 @@ package test.persistence.fatturazione;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Test;
 
 import invoicemanager.model.fatturazione.Agente;
+import invoicemanager.model.fatturazione.Banca;
+import invoicemanager.model.fatturazione.CausaleMagazzino;
 import invoicemanager.model.fatturazione.Cliente;
+import invoicemanager.model.fatturazione.FatturaTestata;
+import invoicemanager.model.fatturazione.IndirizzoGeografico;
+import invoicemanager.model.fatturazione.Ordine;
 import invoicemanager.model.fatturazione.Pagamento;
+import invoicemanager.model.fatturazione.Utente;
 import invoicemanager.model.fatturazione.Vettore;
 import invoicemanager.ui.controller.fatturazione.DataManager;
 
@@ -103,7 +110,7 @@ public class TestWriteSql {
 		assertTrue(res2 > 0);
 	}
 	
-<<<<<<< HEAD
+
 //	@Test
 //	void writeAgente() {
 //		Agente agente = new Agente("bbb");

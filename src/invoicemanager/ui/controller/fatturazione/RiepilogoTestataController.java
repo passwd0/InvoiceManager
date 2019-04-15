@@ -16,7 +16,6 @@ import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import invoicemanager.ui.fatturazione.converter.CausaleMagazzinoConverter;
 import invoicemanager.ui.fatturazione.converter.ClienteConverter;
-import invoicemanager.utils.AutoCompleteComboBoxListener;
 import invoicemanager.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

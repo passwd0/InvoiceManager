@@ -11,7 +11,6 @@ import invoicemanager.model.fatturazione.Magazzino;
 import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.UnitaMisura;
-import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import invoicemanager.ui.fatturazione.converter.CodiceSpedizioneConverter;
 import invoicemanager.ui.fatturazione.converter.DdtTestataConverter;
 import invoicemanager.ui.fatturazione.converter.OrdineTestataConverter;
