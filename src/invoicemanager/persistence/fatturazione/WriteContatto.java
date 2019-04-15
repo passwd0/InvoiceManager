@@ -11,28 +11,31 @@ import invoicemanager.utils.Utils;
 public class WriteContatto {
 	private Connection c;
 
-	public WriteContatto() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteContatto() {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Contatto a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Contatto a, boolean exist) {
+		int res = 0;
 	    try {
 
-		PreparedStatement ps = c.prepareStatement("INSERT INTO Contatto VALUES (default, ?, ?, ?, ?, ?)");
-		ps.setString(1, a.getCodiceConto());
-		ps.setString(2, a.getTipoDettaglio().name());
-		ps.setString(3, a.getNumero());
-		ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
+			PreparedStatement ps = c.prepareStatement("INSERT INTO Contatto VALUES (default, ?, ?, ?, ?, ?)");
+			ps.setString(1, a.getCodiceConto());
+			ps.setString(2, a.getTipoDettaglio().name());
+			ps.setString(3, a.getNumero());
+			ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
+			ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
+	
+			res = ps.executeUpdate();
+			ps.close();
+			c.commit();
 
-		ps.executeUpdate();
-				ps.close();
-				c.commit();
-
-				} catch (Exception e) {
-	   			  //Utils.createAlertFailWriteDB();
-				}
+		} catch (Exception e) {
+		  //Utils.createAlertFailWriteDB();
 		}
+	    return res;
+	}
 	
 	public void createTable() {
 		try {

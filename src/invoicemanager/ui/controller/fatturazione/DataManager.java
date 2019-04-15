@@ -768,7 +768,6 @@ public final class DataManager {
 	public static int add(ListinoArticolo listinoArticolo) {
 		return new WriteListinoArticolo().add(listinoArticolo, false);
 	}
-	
 	public static int add(ListinoPersonalizzato listinoPersonalizzato) {
 		return new WriteListinoPersonalizzato().add(listinoPersonalizzato, false);
 	}
@@ -826,23 +825,11 @@ public final class DataManager {
 	public static int add(StabileOrganizzazione stabileOrganizzazione) {
 		return new WriteStabileOrganizzazione().add(stabileOrganizzazione, false);
 	}
-
 	public static int add(StatoFattura statoFattura) {
 		return new WriteStatoFattura().add(statoFattura, false);
 	}
-	public static void add(Contatto telefono) {
-		List<Contatto> listTelefono = loadContatto();
-		if(!listTelefono.contains(telefono)) {
-			try {
-				new WriteContatto().add(telefono, false);
-			} catch (ClassNotFoundException | SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	public static int add(Telefono telefono) {
-		return new WriteTelefono().add(telefono, false);
->>>>>>> samuFaCose
+	public static int add(Contatto contatto) {
+		return new WriteContatto().add(contatto, false);
 	}
 	public static int add(TerzoIntermediario terzoIntermediario) {
 		return new WriteTerzoIntermediario().add(terzoIntermediario, false);
