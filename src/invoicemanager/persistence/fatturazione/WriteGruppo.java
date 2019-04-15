@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteGruppo {
 	private Connection c;
 
-	public WriteGruppo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteGruppo()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Gruppo a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Gruppo a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Gruppo VALUES (?, ?, ?, ?)");
@@ -24,13 +26,14 @@ public class WriteGruppo {
 		ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(4, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteListinoPersonalizzato {
 	private Connection c;
 
-	public WriteListinoPersonalizzato() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteListinoPersonalizzato()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(ListinoPersonalizzato a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(ListinoPersonalizzato a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO ListinoPersonalizzato VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -45,13 +47,14 @@ public class WriteListinoPersonalizzato {
 		ps.setTimestamp(24, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(25, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

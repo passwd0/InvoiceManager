@@ -10,6 +10,6 @@ public class InvoiceManagerPane extends BorderPane {
 	public InvoiceManagerPane(Controller controller, Stage stage) {
 		this.setTop(new InvoiceManagerMenu());
 		
-		this.setCenter(new InvoiceManagerGrid(controller));
+		this.setCenter(new ScrollContainerGrid(controller, stage));
 	}
 }

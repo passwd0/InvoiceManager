@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WritePreventivoDettaglio {
 	private Connection c;
 
-	public WritePreventivoDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WritePreventivoDettaglio()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(PreventivoDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(PreventivoDettaglio a, boolean exist) {
+	    int res = 0;
 	    try {
 
 				PreparedStatement ps = c.prepareStatement("INSERT INTO PreventivoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -42,13 +44,14 @@ public class WritePreventivoDettaglio {
 				ps.setTimestamp(21, Utils.toTimestamp(a.getDataInserimento()));
 				ps.setTimestamp(22, Utils.toTimestamp(a.getDataUltimaModifica()));
 		
-				ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 				  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

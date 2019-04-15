@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteResaMerce {
 	private Connection c;
 
-	public WriteResaMerce() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteResaMerce()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(ResaMerce a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(ResaMerce a, boolean exist) {
+	    int res = 0;
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO ResaMerce VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceResa());
@@ -28,12 +30,13 @@ public class WriteResaMerce {
 			ps.setTimestamp(8, Utils.toTimestamp(a.getDataUltimaModifica()));
 
 	
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
+	    return res;
 	}
 
 	public void set(ResaMerce a) throws ClassNotFoundException, SQLException {

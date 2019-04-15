@@ -11,11 +11,14 @@ import invoicemanager.utils.Utils;
 public class WriteOrdineTestata {
 	private Connection c;
 
-	public WriteOrdineTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteOrdineTestata()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(OrdineTestata a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(OrdineTestata a, boolean exist) {
+	    int res = 0;
+	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO OrdineTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroOrdine());
 			ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataOrdine()));
@@ -59,9 +62,13 @@ public class WriteOrdineTestata {
 			ps.setTimestamp(40, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(41, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
+	      } catch (Exception e) {
+	    	  //Utils.createAlertFailWriteDB();
+	      }
+	    return res;
 	}
 
 	public void set(OrdineTestata a) throws ClassNotFoundException, SQLException {

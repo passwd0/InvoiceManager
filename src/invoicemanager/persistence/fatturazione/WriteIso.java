@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteIso {
 	private Connection c;
 
-	public WriteIso() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteIso()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(Iso a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(Iso a, boolean exist) {
+	    int res = 0;
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO Iso VALUES (?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceIso());
@@ -30,6 +32,7 @@ public class WriteIso {
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
+	    return res;
 	}
 
 	public void set(Iso a) throws ClassNotFoundException, SQLException {

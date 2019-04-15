@@ -11,12 +11,15 @@ import invoicemanager.utils.Utils;
 public class WriteDdtDettaglio {
 	private Connection c;
 
-	public WriteDdtDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteDdtDettaglio()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(DdtDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
-	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	public int add(DdtDettaglio a, boolean exist) {
+	    int res = 0;
+	    try {
+	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroDDT());
 			ps.setTimestamp(2, Utils.toTimestamp(a.getDataDDT()));
 			ps.setInt(3, a.getNumeroRigaDDT());
@@ -47,9 +50,13 @@ public class WriteDdtDettaglio {
 			ps.setTimestamp(27, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(28, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
+	      } catch (Exception e) {
+	    	  //Utils.createAlertFailWriteDB();
+	      }
+	    return res;
 	}
 
 	public void set(DdtDettaglio a) throws ClassNotFoundException, SQLException {

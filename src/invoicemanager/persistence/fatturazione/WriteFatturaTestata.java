@@ -11,12 +11,14 @@ import invoicemanager.utils.Utils;
 public class WriteFatturaTestata {
 	private Connection c;
 
-	public WriteFatturaTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteFatturaTestata()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(FatturaTestata a, boolean exist) throws ClassNotFoundException, SQLException {
-
+	public int add(FatturaTestata a, boolean exist) {
+	    int res = 0;
+	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getId());
 	    	ps.setInt(2, a.getNumeroFatturazione());
@@ -75,10 +77,14 @@ public class WriteFatturaTestata {
 			ps.setTimestamp(49, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(50, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-	    	ps.executeUpdate();
+	    	res = ps.executeUpdate();
 			ps.close();
 			c.commit();
-
+	    } catch (SQLException e) {
+	    	e.printStackTrace();
+	    	System.err.println(e.getMessage());
+	    }
+	    return res;
 	}
 
 	public void set(FatturaTestata a) throws ClassNotFoundException, SQLException {

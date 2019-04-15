@@ -246,7 +246,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <VBox spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                  <VBox spacing="10.0">
                      <children>
                         <HBox maxWidth="1.7976931348623157E308">
                            <children>
@@ -255,12 +255,12 @@
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <ComboBox fx:id="combobox_magazzino" prefWidth="150.0">
+                              <ComboBox fx:id="combobox_magazzino" onAction="#combobox_magazzino_pressed" prefWidth="150.0">
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
                               </ComboBox>
-                              <TextField prefWidth="400.0">
+                              <TextField fx:id="textfield_magazzino" prefWidth="400.0">
                                  <HBox.margin>
                                     <Insets right="10.0" />
                                  </HBox.margin>
@@ -310,31 +310,38 @@
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Prezzo:" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Sconto art.:" GridPane.columnIndex="2" GridPane.rowIndex="4">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Sconto pag.:" GridPane.columnIndex="4" GridPane.rowIndex="4">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="\% pro.:" GridPane.columnIndex="6" GridPane.rowIndex="4">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Controparti:" GridPane.columnIndex="8" GridPane.rowIndex="4">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="IVA:" GridPane.columnIndex="8" GridPane.rowIndex="3">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="U.M.:" GridPane.columnIndex="6" GridPane.rowIndex="3">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <TextField fx:id="textfield_scontocliente" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     <TextField fx:id="textfield_quantita" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <TextField fx:id="textfield_descraggiuntiva" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="2" />
@@ -350,17 +357,20 @@
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="al giorno:" GridPane.columnIndex="6">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Cambio:" GridPane.columnIndex="8">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <ComboBox fx:id="combobox_algiorno" prefWidth="150.0" GridPane.columnIndex="7" />
                                     <ComboBox fx:id="combobox_cambio" prefWidth="150.0" GridPane.columnIndex="9" />
                                     <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Netto:" GridPane.columnIndex="8" GridPane.rowIndex="6">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin></Label>
+                                       </GridPane.margin>
+                                    </Label>
                                     <TextField fx:id="textfield_netto" GridPane.columnIndex="9" GridPane.rowIndex="6" />
                                     <TextField fx:id="textfield_scontoart" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                                  </children>
@@ -421,7 +431,8 @@
                         </TableView>
                      </children>
                   </VBox>
-               </children></AnchorPane>
+               </children>
+            </AnchorPane>
         </content>
       </Tab>
       <Tab text="Note">

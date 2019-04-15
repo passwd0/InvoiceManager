@@ -144,6 +144,9 @@ public class TabViewController implements Initializable {
 
     @FXML
     public ComboBox<Magazzino> combobox_magazzino;
+    
+    @FXML
+    private TextField textfield_magazzino;
 
     @FXML
     public ComboBox<?> combobox_divisa;
@@ -417,4 +420,10 @@ public class TabViewController implements Initializable {
 		label_vettore.setText("");
 		label_vettore.setText("");
 	}
+	
+	@FXML
+    public void combobox_magazzino_pressed(Event event) {
+		Magazzino magazzino = combobox_magazzino.getSelectionModel().getSelectedItem();
+		textfield_magazzino.setText(magazzino.getDescrizione());
+    }
 }

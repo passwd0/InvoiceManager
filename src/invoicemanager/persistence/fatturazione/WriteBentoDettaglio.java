@@ -11,14 +11,16 @@ import invoicemanager.utils.Utils;
 public class WriteBentoDettaglio {
 	private Connection c;
 
-	public WriteBentoDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteBentoDettaglio()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(BentoDettaglio a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(BentoDettaglio a, boolean exist) {
+	    int res = 0;
 	    try {
 
-				PreparedStatement ps = c.prepareStatement("INSERT INTO BentoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				PreparedStatement ps = c.prepareStatement("INSERT INTO BentoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				ps.setString(1, a.getCodiceBento());
 				ps.setInt(2, a.getNumeroRigaBento());
 				ps.setString(3, a.getCodiceTipoBento());
@@ -40,13 +42,14 @@ public class WriteBentoDettaglio {
 				ps.setTimestamp(19, Utils.toTimestamp(a.getDataInserimento()));
 				ps.setTimestamp(20, Utils.toTimestamp(a.getDataUltimaModifica()));
 		
-				ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

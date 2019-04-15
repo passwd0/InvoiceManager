@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteScadenzaPagamenti {
 	private Connection c;
 
-	public WriteScadenzaPagamenti() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteScadenzaPagamenti()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(ScadenzaPagamenti a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(ScadenzaPagamenti a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Scadenze VALUES (?, ?, ?, ?)");
@@ -26,13 +28,14 @@ public class WriteScadenzaPagamenti {
 		ps.setDate(4, Utils.convertToDatabaseColumn(a.getDataScadenza()));
 		
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

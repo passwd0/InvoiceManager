@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteAltroDatoGestionale {
 	private Connection c;
 
-	public WriteAltroDatoGestionale() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteAltroDatoGestionale()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(AltroDatoGestionale a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(AltroDatoGestionale a, boolean exist) {
+	    int res = 0;
 	    try {
 			PreparedStatement ps = c.prepareStatement("INSERT INTO AltroDatoGestionale VALUES (?, ?, ?, ?)");
 			ps.setString(1, a.getTipoDato());
@@ -23,13 +25,14 @@ public class WriteAltroDatoGestionale {
 			ps.setFloat(3, a.getRiferimentoNumero());
 			ps.setDate(4, Utils.convertToDatabaseColumn(a.getRiferimentoData()));
 	
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
 
 			} catch (Exception e) {
    			  //Utils.createAlertFailWriteDB();
 			}
+	    return res;
 		}
 	
 	public void createTable() {

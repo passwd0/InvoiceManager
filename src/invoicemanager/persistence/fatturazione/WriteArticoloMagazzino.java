@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteArticoloMagazzino {
 	private Connection c;
 
-	public WriteArticoloMagazzino() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteArticoloMagazzino()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(ArticoloMagazzino a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(ArticoloMagazzino a, boolean exist) {
+	    int res = 0;
 	    try {
 			PreparedStatement ps = c.prepareStatement("INSERT INTO ArticoloMagazzino VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, a.getCodiceArticolo());
@@ -56,13 +58,14 @@ public class WriteArticoloMagazzino {
 			ps.setTimestamp(36, Utils.toTimestamp(a.getDataInserimento()));
 			ps.setTimestamp(37, Utils.toTimestamp(a.getDataUltimaModifica()));
 	
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 			ps.close();
 			c.commit();
 
 			} catch (Exception e) {
 			  //Utils.createAlertFailWriteDB();
 			}
+	    return res;
 		}
 	
 	public void createTable() {

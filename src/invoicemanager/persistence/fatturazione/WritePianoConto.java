@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WritePianoConto {
 	private Connection c;
 
-	public WritePianoConto() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WritePianoConto()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(PianoConto a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(PianoConto a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO PianoConto VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -33,13 +35,14 @@ public class WritePianoConto {
 		ps.setTimestamp(12, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(13, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

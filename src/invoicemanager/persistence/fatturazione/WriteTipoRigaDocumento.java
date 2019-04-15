@@ -11,11 +11,13 @@ import invoicemanager.utils.Utils;
 public class WriteTipoRigaDocumento {
 	private Connection c;
 
-	public WriteTipoRigaDocumento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteTipoRigaDocumento()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(TipoRigaDocumento a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(TipoRigaDocumento a, boolean exist) {
+	    int res = 0;
 	    try {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO TipoRigaDocumento VALUES (?, ?, ?, ?)");
@@ -24,13 +26,14 @@ public class WriteTipoRigaDocumento {
 		ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));
 		ps.setTimestamp(4, Utils.toTimestamp(a.getDataUltimaModifica()));
 
-		ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 	
 	public void createTable() {

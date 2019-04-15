@@ -10,11 +10,13 @@ import invoicemanager.model.fatturazione.TerzoIntermediario;
 public class WriteTerzoIntermediario {
 	private Connection c;
 
-	public WriteTerzoIntermediario() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+	public WriteTerzoIntermediario()  {
+		try { c = DBConnect.getConnection(); }
+		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 
-	public void add(TerzoIntermediario a, boolean exist) throws ClassNotFoundException, SQLException {
+	public int add(TerzoIntermediario a, boolean exist) {
+	    int res = 0;
 	    try {
 
 				PreparedStatement ps = c.prepareStatement("INSERT INTO TerzoIntermediario VALUES (DEFAULT, ?, ?, ?, ?, ?)");
@@ -24,12 +26,13 @@ public class WriteTerzoIntermediario {
 				ps.setString(4, a.getCognome());
 				ps.setString(5, a.getCodEORI());
 
-				ps.executeUpdate();
+			res = ps.executeUpdate();
 				ps.close();
 				c.commit();
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
+	    return res;
 		}
 
 	public void createTable() {
