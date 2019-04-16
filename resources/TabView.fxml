@@ -447,7 +447,7 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <TableView fx:id="table_corpo" cache="true" fixedCellSize="200.0" prefHeight="140.0" tableMenuButtonVisible="true">
+                              <TableView fx:id="table_corpo" cache="true" prefHeight="140.0" tableMenuButtonVisible="true">
                                 <columns>
                                   <TableColumn fx:id="table_corpocodice" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="127.0" text="Codice" />
                                   <TableColumn fx:id="table_corpodescr" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="434.0" text="Descrizione" />
