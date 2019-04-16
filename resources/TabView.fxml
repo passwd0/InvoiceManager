@@ -415,7 +415,7 @@
                                           <Insets />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="button_modifica" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Modifica">
+                                    <Button fx:id="button_modifica" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#button_modifica_onAction" text="Modifica">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>

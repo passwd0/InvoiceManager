@@ -447,13 +447,23 @@ public class TabViewController implements Initializable {
 	@FXML
 	void button_modifica_onAction(ActionEvent event) {
 		System.out.println("modifica button");
-		ArticoloMagazzino articoloSelected = oArticolo.stream().filter(a -> a.getCodiceArticolo().equals(table_corpo.getSelectionModel().getSelectedItem().getCodiceArticolo())).findFirst().orElse(null);
+		TableCorpo rowSelected = table_corpo.getSelectionModel().getSelectedItem();
+		ArticoloMagazzino articoloSelected = oArticolo.stream().filter(a -> a.getCodiceArticolo().equals(rowSelected.getCodiceArticolo())).findFirst().orElse(null);
 		if (articoloSelected == null) {
 			Controller.alert("Errore", "Articolo", "L'articolo selezionato non e' piu' disponibile");
 			return;
 		}
 		combobox_articolo.setValue(articoloSelected);
-		combobox_articolo_onAction(event);
+		textarea_note.setText(articoloSelected.getNote());
+		oArticoloPrezzo.setAll(articoloSelected.getListiniArticolo());
+
+		textfield_descr.setText(rowSelected.getDescrizione());
+		textfield_descraggiuntiva.setText(rowSelected.getDescrizione());
+		textfield_artquantita.setText(String.valueOf(rowSelected.getQuantita()));
+		textfield_scontocliente.setText(String.valueOf(rowSelected.getScontoCliente()));
+		combobox_artprezzo.setValue(oArticoloPrezzo.stream().filter(x -> x.getPrezzo() == rowSelected.getPrezzo()).findFirst().orElse(null));
+		combobox_unitamisura.setValue(oUnitaMisura.stream().filter(um -> um.getCodiceUnitaMisura().equals(rowSelected.getUnitaMisura())).findFirst().orElse(null)));
+		oTableCorpo.remove(rowSelected);
 	}
 	
 	@FXML

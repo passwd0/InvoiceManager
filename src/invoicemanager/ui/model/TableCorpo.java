@@ -37,7 +37,7 @@ public class TableCorpo {
 		return prezzo.get();
 	}
 	public String getUnitaMisura() {
-		return unitaMisura.get().getCodiceUnitaMisura();
+		return unitaMisura.get() == null ? null : unitaMisura.get().getCodiceUnitaMisura();
 	}
 	public float getScontoCliente() {
 		return scontoCliente.get();
