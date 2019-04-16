@@ -33,7 +33,7 @@
                               <HBox>
                                  <children>
                                     <Label text="Stato Documento: " textFill="RED" />
-                                    <Label text="Label">
+                                    <Label fx:id="label_statodocumento" text="Label">
                                        <HBox.margin>
                                           <Insets left="20.0" />
                                        </HBox.margin>
@@ -49,7 +49,7 @@
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="149.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="265.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="14.0" prefWidth="76.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="14.0" prefWidth="80.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="260.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="130.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -71,8 +71,14 @@
                                     <Label text="Nazione:" GridPane.rowIndex="3" />
                                     <Label text="Partita IVA:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                                     <Label fx:id="label_partitaiva" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                    <Label text="\% prov. cliente:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                                    <Label text="Sconto cliente:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="\% prov. cliente:" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Sconto cliente:" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
                                     <TextField fx:id="textfield_percprovcliente" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                                     <TextField fx:id="textfield_scontocliente" GridPane.columnIndex="5" GridPane.rowIndex="3" />
                                  </children>
@@ -112,7 +118,7 @@
                                        </GridPane.margin>
                                     </Label>
                                     <TextField fx:id="textfield_provinciaspedizione" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                    <Label text="Prov:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                    <Label text="Provincia:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
                                        </GridPane.margin>
@@ -166,7 +172,7 @@
                               </Label>
                               <GridPane>
                                 <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="64.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="72.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="156.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="97.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
@@ -182,25 +188,37 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label text="Ordine N:" />
-                                    <Label text="del:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Ordine N:">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="del:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label text="Id dest.:" GridPane.rowIndex="2" />
-                                    <Label text="Bolla N:" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Id dest.:" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Bolla N:" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label text="del:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="del:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
                                        </GridPane.margin>
                                     </Label>
-                                    <Label text="Copie:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
-                                    <Label text="Listino:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Copie:" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Listino:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin></Label>
                                     <CheckBox fx:id="checkbox_bolli" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bolli" GridPane.columnIndex="6" GridPane.halignment="CENTER">
                                        <GridPane.margin>
                                           <Insets left="30.0" />
@@ -221,7 +239,7 @@
                                     <TextField fx:id="textfield_iddest" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
                                     <TextField fx:id="textfield_ordinendel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <TextField fx:id="textfield_bollandel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                    <ComboBox fx:id="combobox_ordinen" onAction="#combobox_ordinen_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="combobox_ordinen" maxWidth="1.7976931348623157E308" onAction="#combobox_ordinen_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
                                     <ComboBox fx:id="combobox_bollan" onAction="#combobox_bollan_onAction" prefWidth="150.0" GridPane.columnIndex="3" />
                                     <TextField fx:id="textfield_copie" GridPane.columnIndex="5">
                                        <GridPane.margin>
@@ -429,15 +447,18 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <TableView fx:id="table_corpo" prefHeight="140.0">
+                              <TableView fx:id="table_corpo" cache="true" fixedCellSize="200.0" prefHeight="140.0" tableMenuButtonVisible="true">
                                 <columns>
-                                  <TableColumn fx:id="table_corpocodice" prefWidth="108.0" text="Codice" />
-                                  <TableColumn fx:id="table_corpodescr" prefWidth="468.0" text="Descrizione" />
-                                    <TableColumn fx:id="table_corpoquantita" minWidth="0.0" prefWidth="134.0" text="Quantità" />
-                                    <TableColumn fx:id="table_corpoprezzo" prefWidth="90.0" text="Prezzo" />
-                                    <TableColumn fx:id="table_corpounitamisura" prefWidth="95.0" text="U.M." />
-                                    <TableColumn fx:id="table_corposcontocliente" prefWidth="104.0" text="Sc. Cli" />
+                                  <TableColumn fx:id="table_corpocodice" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="127.0" text="Codice" />
+                                  <TableColumn fx:id="table_corpodescr" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="434.0" text="Descrizione" />
+                                    <TableColumn fx:id="table_corpoquantita" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="114.0" text="Quantità" />
+                                    <TableColumn fx:id="table_corpoprezzo" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="114.0" text="Prezzo" />
+                                    <TableColumn fx:id="table_corpounitamisura" maxWidth="1.7976931348623157E308" minWidth="96.0" prefWidth="96.0" text="U.M." />
+                                    <TableColumn fx:id="table_corposcontocliente" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="113.0" text="Sc. Cli" />
                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
                               </TableView>
                            </children>
                         </VBox>

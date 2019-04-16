@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 import invoicemanager.model.fatturazione.ArticoloMagazzino;
-import invoicemanager.model.fatturazione.Cliente;
 import invoicemanager.model.fatturazione.DdtTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.model.fatturazione.ListinoArticolo;
@@ -15,7 +14,6 @@ import invoicemanager.model.fatturazione.Magazzino;
 import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.UnitaMisura;
-import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import invoicemanager.ui.fatturazione.converter.ArticoloMagazzinoConverter;
 import invoicemanager.ui.fatturazione.converter.CodiceSpedizioneConverter;
 import invoicemanager.ui.fatturazione.converter.DdtTestataConverter;
@@ -25,6 +23,9 @@ import invoicemanager.ui.fatturazione.converter.OrdineTestataConverter;
 import invoicemanager.ui.fatturazione.converter.UnitaMisuraConverter;
 import invoicemanager.ui.model.TableCorpo;
 import invoicemanager.utils.Utils;
+import javafx.beans.binding.Bindings;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -41,9 +42,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.StringConverter;
 
 public class TabViewController implements Initializable {
+	@FXML
+	public Label label_statodocumento;
+	
 	@FXML
     public Label label_ragionesociale;
 
@@ -361,12 +364,15 @@ public class TabViewController implements Initializable {
 	
 	@FXML
 	void combobox_articolo_onAction(ActionEvent event) {
+		System.out.println("combobox_articolo_onAction");
 		ArticoloMagazzino articolo = combobox_articolo.getValue();
 //		textfield_descr.setText(articolo.getDescrizione());
 //		textfield_descraggiuntiva.setText(articolo);
-		oArticoloPrezzo.setAll(articolo.getListiniArticolo());
-		textfield_scontoart.setText(String.valueOf(articolo.getSconto()));
-		textarea_note.setText(articolo.getNote());
+		if (articolo != null) {
+			oArticoloPrezzo.setAll(articolo.getListiniArticolo());
+			textfield_scontoart.setText(String.valueOf(articolo.getSconto()));
+			textarea_note.setText(articolo.getNote());
+		}
 	}
 
 	@FXML
@@ -386,55 +392,27 @@ public class TabViewController implements Initializable {
 	@FXML
 	public void combobox_ordinen_onAction(ActionEvent event) {
 		OrdineTestata ordineTestata = combobox_ordinen.getValue();
-		textfield_ordinendel.setText(
-				ordineTestata != null ? ordineTestata.getDataOrdine().format(Utils.formatterData): "");
+		if (ordineTestata != null)
+			textfield_ordinendel.setText(ordineTestata.getDataOrdine().format(Utils.formatterData));
 	}
 
 	@FXML
 	public void combobox_bollan_onAction(ActionEvent event) {
 		DdtTestata ddtTestata = combobox_bollan.getValue();
-		textfield_bollandel.setText(
-				ddtTestata != null ? ddtTestata.getDataDDT().format(Utils.formatterData) : "");
-	}
-
-	public void clean() {
-		label_ragionesociale.setText("");
-		label_indirizzo.setText("");
-		label_localita.setText("");
-		label_nazione.setText("");
-		label_partitaiva.setText("");
-		textfield_percprovcliente.setText("");
-		textfield_scontocliente.setText("");
-
-		combobox_codicespedizione.getSelectionModel().clearSelection();
-		combobox_localitaspedizione.getSelectionModel().clearSelection();
-		combobox_nazionespedizione.getSelectionModel().clearSelection();
-
-		textfield_indirizzospedizione.setText("");
-		textfield_provinciaspedizione.setText("");
-		textfield_capspedizione.setText("");
-
-		label_pagamento.setText("");
-		label_vettore.setText("");
-		label_agente.setText("");
-		label_banca.setText("");
-		label_resa.setText("");
-		label_imballo.setText("");
-		label_divisa.setText("");
-		label_esiva.setText("");
-		label_lingua.setText("");
-		label_vettore.setText("");
-		label_vettore.setText("");
+		if (ddtTestata != null)
+			textfield_bollandel.setText(ddtTestata.getDataDDT().format(Utils.formatterData));
 	}
 	
 	@FXML
     public void combobox_magazzino_onAction(Event event) {
 		Magazzino magazzino = combobox_magazzino.getValue();
-		textfield_magazzino.setText(magazzino.getDescrizione());
+		if (magazzino != null)
+			textfield_magazzino.setText(magazzino.getDescrizione());
     }
 	
 	@FXML 
 	void button_inserisci_onAction(ActionEvent event) {
+		System.out.println("inserisci button");
 		ArticoloMagazzino articoloMagazzino = combobox_articolo.getValue();
 		float artQuantita = 0;
 		float scontoCliente = 0;
@@ -458,7 +436,24 @@ public class TabViewController implements Initializable {
 			Controller.alert("Attenzione", "Prezzo Articolo", "Inserire un prezzo per l'articolo corrente");
 			return;
 		}
+		if (combobox_unitamisura == null) {
+			Controller.alert("Attenzione", "Unita di Misura", "Non e' stata inserita alcuna Unita' di Misura");
+			return;
+		}
 		oTableCorpo.add(new TableCorpo(articoloMagazzino.getCodiceArticolo(), textfield_descr.getText(), artQuantita, combobox_artprezzo.getValue().getPrezzo(), combobox_unitamisura.getValue(), scontoCliente));
+		cleanCorpoArticolo();
+	}
+	
+	@FXML
+	void button_modifica_onAction(ActionEvent event) {
+		System.out.println("modifica button");
+		ArticoloMagazzino articoloSelected = oArticolo.stream().filter(a -> a.getCodiceArticolo().equals(table_corpo.getSelectionModel().getSelectedItem().getCodiceArticolo())).findFirst().orElse(null);
+		if (articoloSelected == null) {
+			Controller.alert("Errore", "Articolo", "L'articolo selezionato non e' piu' disponibile");
+			return;
+		}
+		combobox_articolo.setValue(articoloSelected);
+		combobox_articolo_onAction(event);
 	}
 	
 	@FXML
@@ -466,5 +461,74 @@ public class TabViewController implements Initializable {
 		TableCorpo element = table_corpo.getSelectionModel().getSelectedItem();
 		if (element != null)
 			oTableCorpo.remove(element);
+	}
+
+	public void cleanTestata() {
+		label_statodocumento.setText("");
+		label_ragionesociale.setText("");
+		label_indirizzo.setText("");
+		label_localita.setText("");
+		label_nazione.setText("");
+		label_partitaiva.setText("");
+		textfield_percprovcliente.clear();
+		textfield_scontocliente.clear();
+
+		combobox_codicespedizione.getSelectionModel().clearSelection();
+		textfield_codicespedizione.clear();
+		textfield_indirizzospedizione.clear();
+		combobox_localitaspedizione.getSelectionModel().clearSelection();
+		textfield_provinciaspedizione.clear();
+		textfield_capspedizione.clear();
+		combobox_nazionespedizione.getSelectionModel().clearSelection();
+
+		label_pagamento.setText("");
+		label_vettore.setText("");
+		label_agente.setText("");
+		label_banca.setText("");
+		label_resa.setText("");
+		label_imballo.setText("");
+		label_divisa.setText("");
+		label_esiva.setText("");
+		label_lingua.setText("");
+		
+		combobox_ordinen.getSelectionModel().clearSelection();
+		textfield_bollandel.clear();
+		combobox_bollan.getSelectionModel().clearSelection();
+		textfield_bollandel.clear();
+		textfield_copie.clear();
+		textfield_listino.clear();
+		checkbox_bolli.setSelected(false);
+		checkbox_spese.setSelected(false);
+		textfield_rif.clear();
+		checkbox_lotti.setSelected(false);
+		textfield_iddest.clear();
+	}
+	
+	public void cleanCorpo() {
+		combobox_magazzino.getSelectionModel().clearSelection();
+		textfield_magazzino.clear();
+		combobox_divisa.getSelectionModel().clearSelection();
+		textfield_divisa.clear();
+		textfield_algiorno.clear();
+		combobox_cambio.getSelectionModel().clearSelection();
+		cleanCorpoArticolo();
+	}
+	
+	private void cleanCorpoArticolo() {
+		System.out.println("cleanCorpoArticolo");
+		combobox_articolo.getSelectionModel().clearSelection();
+		textfield_descr.clear();
+		textfield_descraggiuntiva.clear();
+		textfield_artquantita.clear();
+		combobox_artprezzo.getSelectionModel().clearSelection();
+		combobox_unitamisura.getSelectionModel().clearSelection();
+		//spinner_iva
+		textfield_scontocliente.clear();
+		textfield_scontoart.clear();
+		textfield_scontopag.clear();
+		textfield_percpro.clear();
+		//spinner_controparti
+		textarea_note.clear();
+		textfield_netto.clear();
 	}
 }

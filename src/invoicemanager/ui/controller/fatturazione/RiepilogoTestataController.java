@@ -17,8 +17,11 @@ import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import invoicemanager.ui.fatturazione.converter.CausaleMagazzinoConverter;
 import invoicemanager.ui.fatturazione.converter.ClienteConverter;
 import invoicemanager.utils.Utils;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -27,6 +30,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -72,7 +76,6 @@ public class RiepilogoTestataController implements Initializable {
 		oClientiId = FXCollections.observableArrayList();
 		combobox_cliente.setItems(oClientiId);
 		combobox_cliente.setConverter(new ClienteConverter());
-		//new AutoCompleteComboBoxListener<>(combobox_cliente);
 		
 		textfield_fattura_data.setText(LocalDate.now().format(Utils.formatterData));
 		
@@ -91,6 +94,8 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_cliente_onShowing(Event event) {
+		System.out.println("called SHOWING");
+
 		oClientiId.setAll(DataManager.loadCliente());
 	}
 	
@@ -106,7 +111,10 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_cliente_onAction(ActionEvent e) {
-		InvoiceManagerGrid.tabViewController.clean();
+		System.out.println("called ACTION");
+
+		InvoiceManagerGrid.tabViewController.cleanTestata();
+		InvoiceManagerGrid.tabViewController.cleanCorpo();
 
 		Cliente cliente = combobox_cliente.getValue();
 		if (cliente != null) {
@@ -184,8 +192,7 @@ public class RiepilogoTestataController implements Initializable {
 		List<FatturaTestata> listFatturaTestata = DataManager.loadFatturaTestata();
 		textfield_fattura.setText(
         		String.valueOf(listFatturaTestata.stream().filter(f -> f.getSezionale() == combobox_sezionale.getValue())
-                .collect(Collectors.toList()).size())
-        		);
+                .collect(Collectors.toList()).size()));
     }
 	
 	@FXML
@@ -215,5 +222,10 @@ public class RiepilogoTestataController implements Initializable {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	@FXML
+	private void combobox_cliente_onKeyReleased(KeyEvent event) {
+		oClientiId.setAll(oClientiId.stream().filter(c -> c.getCodiceCliente().contains(combobox_cliente.getEditor().getText())).collect(Collectors.toList()));
 	}
 }

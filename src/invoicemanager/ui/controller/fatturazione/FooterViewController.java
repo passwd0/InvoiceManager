@@ -51,7 +51,8 @@ public class FooterViewController implements Initializable {
 
     @FXML
     void button_pulisci_onAction(ActionEvent event) {
-    	InvoiceManagerGrid.tabViewController.clean();
+    	InvoiceManagerGrid.tabViewController.cleanTestata();
+    	InvoiceManagerGrid.tabViewController.cleanCorpo();
     }
 
 }
