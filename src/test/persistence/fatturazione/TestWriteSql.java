@@ -1,28 +1,12 @@
 package test.persistence.fatturazione;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
-import invoicemanager.model.fatturazione.Agente;
 import invoicemanager.model.fatturazione.ArticoloMagazzino;
-import invoicemanager.model.fatturazione.Banca;
-import invoicemanager.model.fatturazione.CausaleMagazzino;
-import invoicemanager.model.fatturazione.Cliente;
-import invoicemanager.model.fatturazione.FatturaTestata;
-import invoicemanager.model.fatturazione.IndirizzoGeografico;
 import invoicemanager.model.fatturazione.Magazzino;
-import invoicemanager.model.fatturazione.Ordine;
-import invoicemanager.model.fatturazione.Pagamento;
-import invoicemanager.model.fatturazione.Stato;
-import invoicemanager.model.fatturazione.Utente;
-import invoicemanager.model.fatturazione.Vettore;
-import invoicemanager.persistence.fatturazione.WriteArticoloMagazzino;
-import invoicemanager.persistence.fatturazione.WriteMagazzino;
 import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestWriteSql {
@@ -319,11 +303,11 @@ public class TestWriteSql {
 //	
 //	@Test
 //	void writeArticolo() {
-//		ArticoloMagazzino am = new ArticoloMagazzino("a0", "articolo1");
-//		am.setSconto(5.0F);
-//		am.setNumeroColli(10);
-//		am.setPercentualeProvvigione(12F);
-//		am.setNote("nota_articolo\nseconda linea");
+//		ArticoloMagazzino am = new ArticoloMagazzino("a2", "articolo2");
+//		am.setSconto(8.0F);
+//		am.setNumeroColli(40);
+//		am.setPercentualeProvvigione(20F);
+//		am.setNote("asd\nseconda\terza");
 //		int res = DataManager.add(am);
 //		assertTrue(res > 0);
 //	}
