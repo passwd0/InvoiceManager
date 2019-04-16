@@ -462,7 +462,7 @@ public class TabViewController implements Initializable {
 		textfield_artquantita.setText(String.valueOf(rowSelected.getQuantita()));
 		textfield_scontocliente.setText(String.valueOf(rowSelected.getScontoCliente()));
 		combobox_artprezzo.setValue(oArticoloPrezzo.stream().filter(x -> x.getPrezzo() == rowSelected.getPrezzo()).findFirst().orElse(null));
-		combobox_unitamisura.setValue(oUnitaMisura.stream().filter(um -> um.getCodiceUnitaMisura().equals(rowSelected.getUnitaMisura())).findFirst().orElse(null)));
+		combobox_unitamisura.setValue(oUnitaMisura.stream().filter(um -> um.getCodiceUnitaMisura().equals(rowSelected.getUnitaMisura())).findFirst().orElse(null));
 		oTableCorpo.remove(rowSelected);
 	}
 	
