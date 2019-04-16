@@ -2,11 +2,13 @@ package test.persistence.fatturazione;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 import invoicemanager.model.fatturazione.ArticoloMagazzino;
+import invoicemanager.model.fatturazione.ListinoArticolo;
 import invoicemanager.model.fatturazione.Magazzino;
+import invoicemanager.model.fatturazione.UnitaMisura;
+import invoicemanager.persistence.fatturazione.WriteListinoArticolo;
 import invoicemanager.ui.controller.fatturazione.DataManager;
 
 public class TestWriteSql {
@@ -310,5 +312,30 @@ public class TestWriteSql {
 //		am.setNote("asd\nseconda\terza");
 //		int res = DataManager.add(am);
 //		assertTrue(res > 0);
+//	}
+//	
+//	@Test
+//	void writeListino() {
+//		ListinoArticolo la = new ListinoArticolo("a0", 1, "EUR");
+//		la.setPrezzo(40);
+//		DataManager.add(la);
+//		
+//		la = new ListinoArticolo("a0", 2, "EUR");
+//		la.setPrezzo(60);
+//		DataManager.add(la);
+//		
+//		la = new ListinoArticolo("a1", 0, "EUR");
+//		la.setPrezzo(12);
+//		DataManager.add(la);
+//	}
+//	
+//	@Test
+//	void writeUnitaMisura() {
+//		UnitaMisura um = new UnitaMisura("litri");
+//		DataManager.add(um);
+//		um = new UnitaMisura("grammi");
+//		DataManager.add(um);
+//		um = new UnitaMisura("metro");
+//		DataManager.add(um);
 //	}
 }

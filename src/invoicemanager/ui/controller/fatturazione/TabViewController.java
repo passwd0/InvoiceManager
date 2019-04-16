@@ -10,6 +10,7 @@ import invoicemanager.model.fatturazione.ArticoloMagazzino;
 import invoicemanager.model.fatturazione.Cliente;
 import invoicemanager.model.fatturazione.DdtTestata;
 import invoicemanager.model.fatturazione.IndirizzoGeografico;
+import invoicemanager.model.fatturazione.ListinoArticolo;
 import invoicemanager.model.fatturazione.Magazzino;
 import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
@@ -18,8 +19,11 @@ import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import invoicemanager.ui.fatturazione.converter.ArticoloMagazzinoConverter;
 import invoicemanager.ui.fatturazione.converter.CodiceSpedizioneConverter;
 import invoicemanager.ui.fatturazione.converter.DdtTestataConverter;
+import invoicemanager.ui.fatturazione.converter.ListinoArticoloConverter;
 import invoicemanager.ui.fatturazione.converter.MagazzinoConverter;
 import invoicemanager.ui.fatturazione.converter.OrdineTestataConverter;
+import invoicemanager.ui.fatturazione.converter.UnitaMisuraConverter;
+import invoicemanager.ui.model.TableCorpo;
 import invoicemanager.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,8 +36,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.StringConverter;
 
 public class TabViewController implements Initializable {
@@ -158,7 +165,10 @@ public class TabViewController implements Initializable {
     public ComboBox<String> combobox_divisa;
 
     @FXML
-    public TextField textfield_quantita;
+    public TextField textfield_artquantita;
+    
+    @FXML
+    public ComboBox<ListinoArticolo> combobox_artprezzo;
 
     @FXML
     public TextField textfield_descr;
@@ -176,7 +186,7 @@ public class TabViewController implements Initializable {
     public ComboBox<ArticoloMagazzino> combobox_articolo;
 
     @FXML
-    public ComboBox<UnitaMisura> combobox_um;
+    public ComboBox<UnitaMisura> combobox_unitamisura;
 
     @FXML
     public TextField textfield_percpro;
@@ -255,7 +265,28 @@ public class TabViewController implements Initializable {
 
     @FXML
     public Label label_totalefattura;
+    
+    @FXML
+    private TableView<TableCorpo> table_corpo = new TableView<>();
+    
+    @FXML
+    private TableColumn<TableCorpo, String> table_corpocodice;
 
+    @FXML
+    private TableColumn<TableCorpo, String> table_corpodescr;
+
+    @FXML
+    private TableColumn<TableCorpo, String> table_corpoquantita;
+
+    @FXML
+    private TableColumn<TableCorpo, String> table_corpoprezzo;
+
+    @FXML
+    private TableColumn<TableCorpo, String> table_corpounitamisura;
+
+    @FXML
+    private TableColumn<TableCorpo, String> table_corposcontocliente;
+    
     //TESTATA
     public ObservableList<DdtTestata> oDdtTestata;
     public ObservableList<OrdineTestata> oOrdineTestata;
@@ -264,6 +295,9 @@ public class TabViewController implements Initializable {
     public ObservableList<Magazzino> oMagazzino;		//sono relativi all'utente che sta fatturando quindi pressoche' immodificabili
     private ObservableList<String> oDivisa;				//sono per tutti uguali quindi immodificabili
     public ObservableList<ArticoloMagazzino> oArticolo;
+    public ObservableList<ListinoArticolo> oArticoloPrezzo;
+    public ObservableList<TableCorpo> oTableCorpo;
+    public ObservableList<UnitaMisura> oUnitaMisura;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -306,6 +340,23 @@ public class TabViewController implements Initializable {
 		oArticolo = FXCollections.observableArrayList(DataManager.loadArticoloMagazzino());
 		combobox_articolo.setItems(oArticolo);
 		combobox_articolo.setConverter(new ArticoloMagazzinoConverter());
+		
+		oArticoloPrezzo = FXCollections.observableArrayList();
+		combobox_artprezzo.setItems(oArticoloPrezzo);
+		combobox_artprezzo.setConverter(new ListinoArticoloConverter());
+		
+		oUnitaMisura = FXCollections.observableArrayList(DataManager.loadUnitaMisura());
+		combobox_unitamisura.setItems(oUnitaMisura);
+		combobox_unitamisura.setConverter(new UnitaMisuraConverter());
+		
+		table_corpocodice.setCellValueFactory(new PropertyValueFactory<TableCorpo, String>("codiceArticolo"));
+		table_corpodescr.setCellValueFactory(new PropertyValueFactory<TableCorpo, String>("descrizione"));
+		table_corpoquantita.setCellValueFactory(new PropertyValueFactory<TableCorpo, String>("quantita"));
+		table_corpoprezzo.setCellValueFactory(new PropertyValueFactory<TableCorpo, String>("prezzo"));
+		table_corpounitamisura.setCellValueFactory(new PropertyValueFactory<TableCorpo, String>("unitaMisura"));
+		table_corposcontocliente.setCellValueFactory(new PropertyValueFactory<TableCorpo, String>("scontoCliente"));
+		oTableCorpo = FXCollections.observableArrayList();
+		table_corpo.setItems(oTableCorpo);
 	}
 	
 	@FXML
@@ -313,6 +364,7 @@ public class TabViewController implements Initializable {
 		ArticoloMagazzino articolo = combobox_articolo.getValue();
 //		textfield_descr.setText(articolo.getDescrizione());
 //		textfield_descraggiuntiva.setText(articolo);
+		oArticoloPrezzo.setAll(articolo.getListiniArticolo());
 		textfield_scontoart.setText(String.valueOf(articolo.getSconto()));
 		textarea_note.setText(articolo.getNote());
 	}
@@ -342,7 +394,7 @@ public class TabViewController implements Initializable {
 	public void combobox_bollan_onAction(ActionEvent event) {
 		DdtTestata ddtTestata = combobox_bollan.getValue();
 		textfield_bollandel.setText(
-				ddtTestata != null? ddtTestata.getDataDDT().format(Utils.formatterData) : "");
+				ddtTestata != null ? ddtTestata.getDataDDT().format(Utils.formatterData) : "");
 	}
 
 	public void clean() {
@@ -380,4 +432,39 @@ public class TabViewController implements Initializable {
 		Magazzino magazzino = combobox_magazzino.getValue();
 		textfield_magazzino.setText(magazzino.getDescrizione());
     }
+	
+	@FXML 
+	void button_inserisci_onAction(ActionEvent event) {
+		ArticoloMagazzino articoloMagazzino = combobox_articolo.getValue();
+		float artQuantita = 0;
+		float scontoCliente = 0;
+		if (articoloMagazzino == null) {
+			Controller.alert("Errore", "Codice Articolo", "Inserire un codice articolo per inserire un riga");
+			return;
+		}
+		try {
+			artQuantita = Float.valueOf(textfield_artquantita.getText());
+		} catch (Exception e) {
+			Controller.alert("Attenzione", "Articolo Quantita'", "Inserire un numero corretto in Articolo Quantita'");
+			return;
+		}
+		try {
+			scontoCliente = Float.valueOf(textfield_scontocliente.getText());
+		} catch (Exception e) {
+			Controller.alert("Attenzione", "Sconto Cliente'", "Inserire un numero corretto in Sconto Cliente");
+			return;
+		}
+		if (combobox_artprezzo.getValue() == null) {
+			Controller.alert("Attenzione", "Prezzo Articolo", "Inserire un prezzo per l'articolo corrente");
+			return;
+		}
+		oTableCorpo.add(new TableCorpo(articoloMagazzino.getCodiceArticolo(), textfield_descr.getText(), artQuantita, combobox_artprezzo.getValue().getPrezzo(), combobox_unitamisura.getValue(), scontoCliente));
+	}
+	
+	@FXML
+	void button_eliminariga_onAction(ActionEvent event) {
+		TableCorpo element = table_corpo.getSelectionModel().getSelectedItem();
+		if (element != null)
+			oTableCorpo.remove(element);
+	}
 }

@@ -200,7 +200,7 @@ public final class DataManager {
 	}
 	public static List<ArticoloMagazzino> loadArticoloMagazzino() {
 		try {
-			return new ReadArticoloMagazzino().read(loadUnitaMisura(), loadGruppoMerceologico(), loadSottogruppoMerceologico(), loadPercipiente());
+			return new ReadArticoloMagazzino().read(loadUnitaMisura(), loadGruppoMerceologico(), loadSottogruppoMerceologico(), loadPercipiente(), loadListinoArticolo());
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 			return new ArrayList<>();

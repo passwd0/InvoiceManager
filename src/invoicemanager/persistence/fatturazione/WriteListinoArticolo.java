@@ -45,7 +45,7 @@ public class WriteListinoArticolo {
 		try {
         Statement stmt = c.createStatement();
     	String sql = "Create table public.ListinoArticolo (\r\n" + 
-    			"	\"CodiceArticolo\" varchar(25) NOT NULL Primary Key,\r\n" + 
+    			"	\"CodiceArticolo\" varchar(25) NOT NULL,\r\n" + 
     			"	\"Progressivo\" INTEGER NULL,\r\n" + 
     			"	\"CodiceDivisa\" varchar(25) NULL,\r\n" + 
     			"	\"Prezzo\" Float NULL,\r\n" + 
@@ -53,7 +53,8 @@ public class WriteListinoArticolo {
     			"	\"DataDecorrenza\" Date NULL,\r\n" + 
     			"	\"DataValidita\" Date NULL,\r\n" + 
     			"	\"DataInserimento\" Timestamp NULL,\r\n" + 
-    			"	\"DataUltimaModifica\" Timestamp NULL \r\n" + 
+    			"	\"DataUltimaModifica\" Timestamp NULL, \r\n" + 
+    			"    Primary Key (\"CodiceArticolo\", \"Progressivo\") " +
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -19,221 +20,228 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicemanager.ui.controller.fatturazione.TabViewController">
+<TabPane tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoicemanager.ui.controller.fatturazione.TabViewController">
   <tabs>
     <Tab text="Testata">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>
-                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="1000.0">
-                     <children>
-                        <HBox>
+                  <ScrollPane fitToWidth="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <content>
+                        <VBox>
                            <children>
-                              <Label text="Stato Documento: " textFill="RED" />
-                              <Label text="Label">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
+                              <HBox>
+                                 <children>
+                                    <Label text="Stato Documento: " textFill="RED" />
+                                    <Label text="Label">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <Label text="Cliente" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
                               </Label>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="149.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="265.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="14.0" prefWidth="76.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="260.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="130.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Ragione Sociale:" />
+                                    <Label fx:id="label_ragionesociale" text="Label" GridPane.columnIndex="1" />
+                                    <Label text="Indirizzo:" GridPane.rowIndex="1" />
+                                    <Label fx:id="label_indirizzo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label text="Località:" GridPane.rowIndex="2" />
+                                    <Label fx:id="label_nazione" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label fx:id="label_localita" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label text="Nazione:" GridPane.rowIndex="3" />
+                                    <Label text="Partita IVA:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <Label fx:id="label_partitaiva" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Label text="\% prov. cliente:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                    <Label text="Sconto cliente:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                    <TextField fx:id="textfield_percprovcliente" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                    <TextField fx:id="textfield_scontocliente" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                 </children>
+                              </GridPane>
+                              <Label text="Spedizioni e Codici" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <GridPane>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="70.0" prefWidth="97.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.0" minWidth="10.0" prefWidth="139.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="190.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Cod. Spedizione:" />
+                                    <Label text="Indirizzo:" GridPane.rowIndex="1" />
+                                    <Label text="Località:" GridPane.rowIndex="2" />
+                                    <Label text="Nazione:" GridPane.rowIndex="3" />
+                                    <Button fx:id="button_nuovanazspedizione" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova naz." GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                    <Button fx:id="button_nuovalocspedizione" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova loc." GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                    <Button fx:id="button_indirizzispedizione" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Indirizzi" GridPane.columnIndex="5" />
+                                    <TextField fx:id="textfield_capspedizione" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                    <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="CAP:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="textfield_provinciaspedizione" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Label text="Prov:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <TextField fx:id="textfield_indirizzospedizione" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                                    <TextField fx:id="textfield_codicespedizione" GridPane.columnIndex="2" GridPane.columnSpan="2" />
+                                    <ComboBox fx:id="combobox_codicespedizione" onAction="#combobox_codicespedizione_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="combobox_localitaspedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="combobox_nazionespedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                                 </children>
+                              </GridPane>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="50.0" prefWidth="70.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="250.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="50.0" prefWidth="70.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="250.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="50.0" prefWidth="70.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="250.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Pagam:" />
+                                    <Label text="Vettore:" GridPane.rowIndex="1" />
+                                    <Label text="Agente:" GridPane.rowIndex="2" />
+                                    <Label text="Banca:" GridPane.columnIndex="2" />
+                                    <Label text="Resa:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Label text="Imballo:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Label text="Divisa:" GridPane.columnIndex="4" />
+                                    <Label text="Es. IVA:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                    <Label text="Lingua:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                    <Label fx:id="label_pagamento" text="Label" GridPane.columnIndex="1" />
+                                    <Label fx:id="label_banca" text="Label" GridPane.columnIndex="3" />
+                                    <Label fx:id="label_divisa" text="Label" GridPane.columnIndex="5" />
+                                    <Label fx:id="label_vettore" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Label fx:id="label_agente" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label fx:id="label_resa" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <Label fx:id="label_imballo" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Label fx:id="label_esiva" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                    <Label fx:id="label_lingua" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                              <Label text="Riferimenti" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="64.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="156.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="97.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="103.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="109.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="128.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="51.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="184.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Ordine N:" />
+                                    <Label text="del:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Id dest.:" GridPane.rowIndex="2" />
+                                    <Label text="Bolla N:" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="del:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label text="Copie:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
+                                    <Label text="Listino:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="checkbox_bolli" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bolli" GridPane.columnIndex="6" GridPane.halignment="CENTER">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="checkbox_spese" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Spese" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="30.0" />
+                                       </GridPane.margin>
+                                    </CheckBox>
+                                    <Label prefWidth="33.0" text="Rif.:" GridPane.columnIndex="7" GridPane.halignment="RIGHT">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <CheckBox fx:id="checkbox_lotti" mnemonicParsing="false" text="Lotti / serial number" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                                    <TextField fx:id="textfield_rif" prefHeight="23.0" prefWidth="88.0" GridPane.columnIndex="8" />
+                                    <TextField fx:id="textfield_iddest" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                                    <TextField fx:id="textfield_ordinendel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="textfield_bollandel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="combobox_ordinen" onAction="#combobox_ordinen_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="combobox_bollan" onAction="#combobox_bollan_onAction" prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <TextField fx:id="textfield_copie" GridPane.columnIndex="5">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <TextField fx:id="textfield_listino" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                 </children>
+                              </GridPane>
                            </children>
-                        </HBox>
-                        <Label text="Cliente" textFill="RED">
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <GridPane>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="149.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="265.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="14.0" prefWidth="76.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0" minWidth="10.0" prefWidth="260.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="130.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Ragione Sociale:" />
-                              <Label fx:id="label_ragionesociale" text="Label" GridPane.columnIndex="1" />
-                              <Label text="Indirizzo:" GridPane.rowIndex="1" />
-                              <Label fx:id="label_indirizzo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="Località:" GridPane.rowIndex="2" />
-                              <Label fx:id="label_nazione" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label fx:id="label_localita" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label text="Nazione:" GridPane.rowIndex="3" />
-                              <Label text="Partita IVA:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <Label fx:id="label_partitaiva" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                              <Label text="\% prov. cliente:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                              <Label text="Sconto cliente:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                              <TextField fx:id="textfield_percprovcliente" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                              <TextField fx:id="textfield_scontocliente" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                           </children>
-                        </GridPane>
-                        <Label text="Spedizioni e Codici" textFill="RED">
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <GridPane>
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="70.0" prefWidth="97.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.0" minWidth="10.0" prefWidth="139.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="190.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label text="Cod. Spedizione:" />
-                              <Label text="Indirizzo:" GridPane.rowIndex="1" />
-                              <Label text="Località:" GridPane.rowIndex="2" />
-                              <Label text="Nazione:" GridPane.rowIndex="3" />
-                              <Button fx:id="button_nuovanazspedizione" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova naz." GridPane.columnIndex="5" GridPane.rowIndex="3" />
-                              <Button fx:id="button_nuovalocspedizione" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Nuova loc." GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                              <Button fx:id="button_indirizzispedizione" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Indirizzi" GridPane.columnIndex="5" />
-                              <TextField fx:id="textfield_capspedizione" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                              <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="CAP:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <TextField fx:id="textfield_provinciaspedizione" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <Label text="Prov:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <TextField fx:id="textfield_indirizzospedizione" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
-                              <TextField fx:id="textfield_codicespedizione" GridPane.columnIndex="2" GridPane.columnSpan="2" />
-                              <ComboBox fx:id="combobox_codicespedizione" onAction="#combobox_codicespedizione_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
-                              <ComboBox fx:id="combobox_localitaspedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <ComboBox fx:id="combobox_nazionespedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
-                           </children>
-                        </GridPane>
-                        <GridPane>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="50.0" prefWidth="70.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="250.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="50.0" prefWidth="70.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="250.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="50.0" prefWidth="70.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="250.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Pagam:" />
-                              <Label text="Vettore:" GridPane.rowIndex="1" />
-                              <Label text="Agente:" GridPane.rowIndex="2" />
-                              <Label text="Banca:" GridPane.columnIndex="2" />
-                              <Label text="Resa:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <Label text="Imballo:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <Label text="Divisa:" GridPane.columnIndex="4" />
-                              <Label text="Es. IVA:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                              <Label text="Lingua:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                              <Label fx:id="label_pagamento" text="Label" GridPane.columnIndex="1" />
-                              <Label fx:id="label_banca" text="Label" GridPane.columnIndex="3" />
-                              <Label fx:id="label_divisa" text="Label" GridPane.columnIndex="5" />
-                              <Label fx:id="label_vettore" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label fx:id="label_agente" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label fx:id="label_resa" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <Label fx:id="label_imballo" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <Label fx:id="label_esiva" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                              <Label fx:id="label_lingua" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                           </children>
-                        </GridPane>
-                        <Label text="Riferimenti" textFill="RED">
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <GridPane>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="64.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="156.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="97.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="103.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="109.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="128.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="51.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="184.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Ordine N:" />
-                              <Label text="del:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label text="Id dest.:" GridPane.rowIndex="2" />
-                              <Label text="Bolla N:" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label text="del:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label text="Copie:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" />
-                              <Label text="Listino:" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                              <CheckBox fx:id="checkbox_bolli" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bolli" GridPane.columnIndex="6" GridPane.halignment="CENTER">
-                                 <GridPane.margin>
-                                    <Insets left="30.0" />
-                                 </GridPane.margin>
-                              </CheckBox>
-                              <CheckBox fx:id="checkbox_spese" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Spese" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="30.0" />
-                                 </GridPane.margin>
-                              </CheckBox>
-                              <Label prefWidth="33.0" text="Rif.:" GridPane.columnIndex="7" GridPane.halignment="RIGHT">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <CheckBox fx:id="checkbox_lotti" mnemonicParsing="false" text="Lotti / serial number" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-                              <TextField fx:id="textfield_rif" prefHeight="23.0" prefWidth="88.0" GridPane.columnIndex="8" />
-                              <TextField fx:id="textfield_iddest" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
-                              <TextField fx:id="textfield_ordinendel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="textfield_bollandel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <ComboBox fx:id="combobox_ordinen" onAction="#combobox_ordinen_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
-                              <ComboBox fx:id="combobox_bollan" onAction="#combobox_bollan_onAction" prefWidth="150.0" GridPane.columnIndex="3" />
-                              <TextField fx:id="textfield_copie" GridPane.columnIndex="5">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                              <TextField fx:id="textfield_listino" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets right="10.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                           </children>
-                        </GridPane>
-                     </children>
-                  </VBox>
+                        </VBox>
+                     </content>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </ScrollPane>
                </children></AnchorPane>
       </content>
     </Tab>
@@ -244,200 +252,207 @@
     </Tab>
       <Tab text="Corpo">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>
-                  <VBox spacing="10.0">
-                     <children>
-                        <HBox maxWidth="1.7976931348623157E308">
+                  <ScrollPane fitToWidth="true" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <content>
+                        <VBox spacing="10.0">
                            <children>
-                              <Label text="Magazzino:">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <ComboBox fx:id="combobox_magazzino" onAction="#combobox_magazzino_onAction" prefWidth="150.0">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </ComboBox>
-                              <TextField fx:id="textfield_magazzino" prefWidth="400.0">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </TextField>
-                              <Button mnemonicParsing="false" text="Decodifica Articolo" />
-                           </children>
-                        </HBox>
-                        <VBox>
-                           <children>
-                              <Label text="Riga Fattura" textFill="RED">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Label>
-                              <GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" vgap="5.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
+                              <HBox maxWidth="1.7976931348623157E308">
                                  <children>
-                                    <Label text="Divisa:" />
-                                    <Label text="Articolo:" GridPane.rowIndex="1" />
-                                    <Label text="Descr. agg:" GridPane.rowIndex="2" />
-                                    <Label text="Quantità:" GridPane.rowIndex="3" />
-                                    <Label text="Sconto cliente:" GridPane.rowIndex="4" />
-                                    <Label text="Note:" GridPane.rowIndex="5" />
-                                    <ComboBox fx:id="combobox_divisa" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" />
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Prezzo:" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                                       <GridPane.margin>
+                                    <Label text="Magazzino:">
+                                       <HBox.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin>
+                                       </HBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Sconto art.:" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                                       <GridPane.margin>
+                                    <ComboBox fx:id="combobox_magazzino" onAction="#combobox_magazzino_onAction" prefWidth="150.0">
+                                       <HBox.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Sconto pag.:" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                                       <GridPane.margin>
+                                       </HBox.margin>
+                                    </ComboBox>
+                                    <TextField fx:id="textfield_magazzino" prefWidth="400.0">
+                                       <HBox.margin>
                                           <Insets right="10.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="\% pro.:" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                                       <GridPane.margin>
-                                          <Insets right="10.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Controparti:" GridPane.columnIndex="8" GridPane.rowIndex="4">
-                                       <GridPane.margin>
-                                          <Insets right="10.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="IVA:" GridPane.columnIndex="8" GridPane.rowIndex="3">
-                                       <GridPane.margin>
-                                          <Insets right="10.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="U.M.:" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                                       <GridPane.margin>
-                                          <Insets right="10.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <TextField fx:id="textfield_scontocliente" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <TextField fx:id="textfield_quantita" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <TextField fx:id="textfield_descraggiuntiva" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="2" />
-                                    <TextField fx:id="textfield_scontopag" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-                                    <TextField fx:id="textfield_divisa" GridPane.columnIndex="2" GridPane.columnSpan="4" />
-                                    <ComboBox fx:id="combobox_articolo" maxWidth="1.7976931348623157E308" onAction="#combobox_articolo_onAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                                    <ComboBox fx:id="combobox_um" prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-                                    <TextField fx:id="textfield_percpro" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-                                    <Spinner fx:id="spinner_iva" GridPane.columnIndex="9" GridPane.rowIndex="3" />
-                                    <Spinner fx:id="spinner_controparti" GridPane.columnIndex="9" GridPane.rowIndex="4" />
-                                    <TextArea fx:id="textarea_note" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="5" GridPane.rowSpan="3" />
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="al giorno:" GridPane.columnIndex="6">
-                                       <GridPane.margin>
-                                          <Insets right="10.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Cambio:" GridPane.columnIndex="8">
-                                       <GridPane.margin>
-                                          <Insets right="10.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <TextField fx:id="textfield_algiorno" GridPane.columnIndex="7" />
-                                    <ComboBox fx:id="combobox_cambio" prefWidth="150.0" GridPane.columnIndex="9" />
-                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Netto:" GridPane.columnIndex="8" GridPane.rowIndex="6">
-                                       <GridPane.margin>
-                                          <Insets right="10.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <TextField fx:id="textfield_netto" GridPane.columnIndex="9" GridPane.rowIndex="6" />
-                                    <TextField fx:id="textfield_scontoart" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                    <TextField fx:id="textfield_desc" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="1" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" text="Decodifica Articolo" />
                                  </children>
-                              </GridPane>
+                              </HBox>
+                              <VBox>
+                                 <children>
+                                    <Label text="Riga Fattura" textFill="RED">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" vgap="5.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Divisa:" />
+                                          <Label text="Articolo:" GridPane.rowIndex="1" />
+                                          <Label text="Descr. agg:" GridPane.rowIndex="2" />
+                                          <Label text="Quantità:" GridPane.rowIndex="3" />
+                                          <Label text="Sconto cliente:" GridPane.rowIndex="4" />
+                                          <Label text="Note:" GridPane.rowIndex="5" />
+                                          <ComboBox fx:id="combobox_divisa" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" />
+                                          <ComboBox fx:id="combobox_artprezzo" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Prezzo:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Sconto art.:" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Sconto pag.:" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="\% pro.:" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Controparti:" GridPane.columnIndex="8" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="IVA:" GridPane.columnIndex="8" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="U.M.:" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField fx:id="textfield_scontocliente" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <TextField fx:id="textfield_artquantita" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="textfield_descraggiuntiva" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="2" />
+                                          <TextField fx:id="textfield_scontopag" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                                          <TextField fx:id="textfield_divisa" GridPane.columnIndex="2" GridPane.columnSpan="4" />
+                                          <ComboBox fx:id="combobox_articolo" maxWidth="1.7976931348623157E308" onAction="#combobox_articolo_onAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <ComboBox fx:id="combobox_unitamisura" prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                                          <TextField fx:id="textfield_percpro" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                                          <Spinner fx:id="spinner_iva" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+                                          <Spinner fx:id="spinner_controparti" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+                                          <TextArea fx:id="textarea_note" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="5" GridPane.rowSpan="3" />
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="al giorno:" GridPane.columnIndex="6">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Cambio:" GridPane.columnIndex="8">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField fx:id="textfield_algiorno" GridPane.columnIndex="7" />
+                                          <ComboBox fx:id="combobox_cambio" prefWidth="150.0" GridPane.columnIndex="9" />
+                                          <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Netto:" GridPane.columnIndex="8" GridPane.rowIndex="6">
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField fx:id="textfield_netto" GridPane.columnIndex="9" GridPane.rowIndex="6" />
+                                          <TextField fx:id="textfield_scontoart" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                          <TextField fx:id="textfield_descr" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <HBox>
+                                 <children>
+                                    <Button fx:id="button_inserisci" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#button_inserisci_onAction" text="Inserisci">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="button_modifica" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Modifica">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="button_pulisciriga" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Pulisci Riga">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="button_eliminariga" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#button_eliminariga_onAction" text="Elimina Riga">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="button_noteriga" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Note Riga">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="button_bento" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bento">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="button_colonne" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Colonne">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="table_corpo" prefHeight="140.0">
+                                <columns>
+                                  <TableColumn fx:id="table_corpocodice" prefWidth="108.0" text="Codice" />
+                                  <TableColumn fx:id="table_corpodescr" prefWidth="468.0" text="Descrizione" />
+                                    <TableColumn fx:id="table_corpoquantita" minWidth="0.0" prefWidth="134.0" text="Quantità" />
+                                    <TableColumn fx:id="table_corpoprezzo" prefWidth="90.0" text="Prezzo" />
+                                    <TableColumn fx:id="table_corpounitamisura" prefWidth="95.0" text="U.M." />
+                                    <TableColumn fx:id="table_corposcontocliente" prefWidth="104.0" text="Sc. Cli" />
+                                </columns>
+                              </TableView>
                            </children>
-                           <VBox.margin>
-                              <Insets bottom="10.0" top="10.0" />
-                           </VBox.margin>
                         </VBox>
-                        <HBox>
-                           <children>
-                              <Button fx:id="button_inserisci" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Inserisci">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Button>
-                              <Button fx:id="button_modifica" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Modifica">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button fx:id="button_pulisciriga" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Pulisci Riga">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button fx:id="button_eliminariga" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Elimina Riga">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button fx:id="button_noteriga" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Note Riga">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button fx:id="button_bento" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Bento">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button fx:id="button_colonne" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Colonne">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <TableView prefHeight="200.0" prefWidth="200.0">
-                          <columns>
-                            <TableColumn prefWidth="108.0" text="Codice" />
-                            <TableColumn prefWidth="468.0" text="Descrizione" />
-                              <TableColumn minWidth="0.0" prefWidth="134.0" text="Quantità" />
-                              <TableColumn prefWidth="90.0" text="Prezzo" />
-                              <TableColumn prefWidth="95.0" text="U.M." />
-                              <TableColumn prefWidth="104.0" text="Sc. Cli" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </VBox>
+                     </content>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </ScrollPane>
                </children>
             </AnchorPane>
         </content>
       </Tab>
       <Tab text="Note">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="200.0" />
         </content>
       </Tab>
       <Tab text="Piede">

@@ -1,6 +1,7 @@
 package invoicemanager.model.fatturazione;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ArticoloMagazzino {
 	private String codiceArticolo; //(30) NOT NULL			x
@@ -38,6 +39,7 @@ public class ArticoloMagazzino {
 	private String codiceIVAFornitore; //(4) NULL			x
 	private String codiceStampo; //(10) NULL
 	private String noteProduzione; //(1500) NULL
+	private List<ListinoArticolo> listiniArticolo;
 	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
 	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
 
@@ -55,7 +57,7 @@ public class ArticoloMagazzino {
 			boolean indicatoreArticoloPadreFiglio, String codiceArticoloAlternativo, Percipiente percipiente,
 			int numeroDecimali, String note, boolean indicatorePubblicazioneWeb, boolean indicatoreInibizione, boolean indicatoreScorporoIVA,
 			String codiceControparteContabileFornitore, String codiceIVAFornitore, String codiceStampo,
-			String noteProduzione, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			String noteProduzione, List<ListinoArticolo> listiniArticolo, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceArticolo = codiceArticolo;
 		this.descrizione = descrizione;
 		this.unitaMisura = unitaMisura;
@@ -93,6 +95,7 @@ public class ArticoloMagazzino {
 		this.codiceIVAFornitore = codiceIVAFornitore;
 		this.codiceStampo = codiceStampo;
 		this.noteProduzione = noteProduzione;
+		this.listiniArticolo = listiniArticolo;
 	}
 
 	public String getCodiceArticolo() {
@@ -409,6 +412,14 @@ public class ArticoloMagazzino {
 
 	public void setNoteProduzione(String noteProduzione) {
 		this.noteProduzione = noteProduzione;
+	}
+	
+	public List<ListinoArticolo> getListiniArticolo() {
+		return listiniArticolo;
+	}
+
+	public void setListiniArticolo(List<ListinoArticolo> listiniArticolo) {
+		this.listiniArticolo = listiniArticolo;
 	}
 
 	@Override

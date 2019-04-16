@@ -12,8 +12,7 @@ public class UnitaMisura{
 		this.codiceUnitaMisura = codiceUnitaMisura;
 	}
 
-	public UnitaMisura(String codiceUnitaMisura, String descrizione, Stato stato, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+	public UnitaMisura(String codiceUnitaMisura, String descrizione, Stato stato, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
 		this.codiceUnitaMisura = codiceUnitaMisura;
 		this.descrizione = descrizione;
 		this.stato = stato;

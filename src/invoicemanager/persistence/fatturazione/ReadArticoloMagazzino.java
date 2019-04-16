@@ -8,9 +8,11 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import invoicemanager.model.fatturazione.ArticoloMagazzino;
 import invoicemanager.model.fatturazione.GruppoMerceologico;
+import invoicemanager.model.fatturazione.ListinoArticolo;
 import invoicemanager.model.fatturazione.Percipiente;
 import invoicemanager.model.fatturazione.SottogruppoMerceologico;
 import invoicemanager.model.fatturazione.UnitaMisura;
@@ -24,7 +26,7 @@ public class ReadArticoloMagazzino {
 	}
 
 	public List<ArticoloMagazzino> read(List<UnitaMisura> unitaMisure, List<GruppoMerceologico> gruppiMerceologici, List<SottogruppoMerceologico> sottogruppiMerceologici, 
-			List<Percipiente> percipienti) {
+			List<Percipiente> percipienti, List<ListinoArticolo> listiniArticolo) {
 		List<ArticoloMagazzino> listarticoloMagazzino = new ArrayList<>();
 		Statement stmt;
 
@@ -73,6 +75,7 @@ public class ReadArticoloMagazzino {
 				String codiceIVAFornitore = rs.getString("codiceIVAFornitore");
 				String codiceStampo = rs.getString("codiceStampo");
 				String noteProduzione = rs.getString("noteProduzione");
+				List<ListinoArticolo> listini = listiniArticolo.stream().filter(la -> la.getCodiceArticolo().equals(codiceArticolo)).collect(Collectors.toList());
 				ts = rs.getTimestamp("dataInserimento");
 				LocalDateTime dataInserimento = null;
 				if (ts != null)
@@ -85,7 +88,7 @@ public class ReadArticoloMagazzino {
 						codiceIVA, indicatoreGestionePezzi, sconto, codiceTaglieColori, codiceColore, codiceTaglia, percentualeProvvigione, indicatoreSerialNumber, pesoNetto, 
 						codiceConfezione, numeroPezziConfezione, numeroColli, pesoLordo, volumeConfezione, altezza, larghezza, profondita, indicatoreArticoloPadreFiglio, 
 						codiceArticoloAlternativo, percipiente, numeroDecimali, note, indicatorePubblicazioneWeb, indicatoreInibizione, indicatoreScorporoIVA, 
-						codiceControparteContabileFornitore, codiceIVAFornitore, codiceStampo, noteProduzione, dataInserimento, dataUltimaModifica);
+						codiceControparteContabileFornitore, codiceIVAFornitore, codiceStampo, noteProduzione, listini, dataInserimento, dataUltimaModifica);
 				
 				listarticoloMagazzino.add(articoloMagazzino);
 	         }
