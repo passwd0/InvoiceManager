@@ -40,7 +40,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <children>
-            <ComboBox fx:id="combobox_sezionale" onAction="#combobox_sezionale_onAction" prefWidth="150.0" />
+            <ComboBox fx:id="combobox_sezionale" onAction="#combobox_sezionale_onAction" onShowing="#combobox_sezionale_onShowing" prefWidth="150.0" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.rowSpan="2">

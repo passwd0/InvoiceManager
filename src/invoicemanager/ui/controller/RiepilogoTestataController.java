@@ -66,24 +66,26 @@ public class RiepilogoTestataController implements Initializable {
     @FXML
     private Button button_causali;
     
-    public ObservableList<Cliente> oClientiId;
-    private ObservableList<CausaleMagazzino> oCausaliId;
+    public ObservableList<Cliente> oClienti;
+    private ObservableList<Integer> oSezionali;
+    private ObservableList<CausaleMagazzino> oCausali;
 //    private Cliente selectedCliente;
     
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		oClientiId = FXCollections.observableArrayList();
-		combobox_cliente.setItems(oClientiId);
+		oClienti = FXCollections.observableArrayList();
+		combobox_cliente.setItems(oClienti);
 		combobox_cliente.setConverter(new ClienteConverter());
 		
 		textfield_fattura_data.setText(LocalDate.now().format(Utils.formatterData));
 		
-		oCausaliId = FXCollections.observableArrayList();
-		combobox_causale.setItems(oCausaliId);
+		oCausali = FXCollections.observableArrayList();
+		combobox_causale.setItems(oCausali);
 		combobox_causale.setConverter(new CausaleMagazzinoConverter());
  
-		combobox_sezionale.setItems(FXCollections.observableArrayList(Arrays.asList(1, 2, 3, 4, 5)));
+		oSezionali = FXCollections.observableArrayList();
+		combobox_sezionale.setItems(oSezionali);
         combobox_sezionale.setValue(1);
         
         textfield_fattura.setText(
@@ -94,11 +96,15 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_cliente_onShowing(Event event) {
-		oClientiId.setAll(DataManager.loadCliente());
+		oClienti.setAll(DataManager.loadCliente());
+	}
+	@FXML
+	public void combobox_sezionale_onShowing(Event event) {
+		oSezionali.setAll(Utils.listaSezionali);
 	}
 	@FXML
 	public void combobox_causale_onShowing(Event event) {
-		oCausaliId.setAll(DataManager.loadCausaleMagazzino());
+		oCausali.setAll(DataManager.loadCausaleMagazzino());
 	}
 	
 	@FXML
@@ -108,8 +114,6 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_cliente_onAction(ActionEvent e) {
-		System.out.println("called ACTION");
-
 		InvoiceManagerGrid.tabViewController.cleanTestata();
 		InvoiceManagerGrid.tabViewController.cleanCorpo();
 
@@ -223,6 +227,6 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	private void combobox_cliente_onKeyReleased(KeyEvent event) {
-		oClientiId.setAll(oClientiId.stream().filter(c -> c.getCodiceCliente().contains(combobox_cliente.getEditor().getText())).collect(Collectors.toList()));
+		oClienti.setAll(DataManager.loadCliente().stream().filter(c -> c.getCodiceCliente().contains(combobox_cliente.getEditor().getText())).collect(Collectors.toList()));
 	}
 }

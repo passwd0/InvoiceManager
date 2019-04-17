@@ -15,7 +15,7 @@ public class ClienteConverter extends StringConverter<Cliente> {
 		List<Cliente> clienti = DataManager.loadCliente().stream()
 				.filter(c -> c.getCodiceCliente().contains(codiceCliente))
 				.collect(Collectors.toList());
-		InvoiceManagerGrid.riepilogoTestataController.oClientiId.setAll(clienti);
+		InvoiceManagerGrid.riepilogoTestataController.oClienti.setAll(clienti);
 		return clienti.size() == 0 ? null : clienti.get(0);
 		//magari se non trova niente, ne crea uno nuovo
 	}

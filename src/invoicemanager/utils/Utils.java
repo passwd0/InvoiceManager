@@ -20,6 +20,7 @@ public class Utils {
 	public static List<String> listaLocalita = new ArrayList<>(Arrays.asList("citta_a", "citta_b", "citta_c"));
 	public static List<String> listaNazioni = new ArrayList<>(Arrays.asList("nazione_a", "nazione_b", "nazione_c"));
 	public static List<String> listaDivise = new ArrayList<>(Arrays.asList("EUR", "USD", "AAA", "BBB"));
+	public static List<Integer> listaSezionali = new ArrayList<>(Arrays.asList(1,2,3,4,5));
 	
 	public Utils() {}
 	
