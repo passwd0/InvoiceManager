@@ -333,7 +333,7 @@
                                           <Label text="Quantità:" GridPane.rowIndex="3" />
                                           <Label text="Sconto cliente:" GridPane.rowIndex="4" />
                                           <Label text="Note:" GridPane.rowIndex="5" />
-                                          <ComboBox fx:id="combobox_divisa" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" />
+                                          <ComboBox fx:id="combobox_divisa" maxWidth="1.7976931348623157E308" onShowing="#combobox_divisa_onShowing" prefWidth="150.0" GridPane.columnIndex="1" />
                                           <ComboBox fx:id="combobox_artprezzo" onShowing="#combobox_artprezzo_onShowing" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                           <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Prezzo:" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                              <GridPane.margin>
@@ -376,7 +376,7 @@
                                           <TextField fx:id="textfield_scontopag" GridPane.columnIndex="5" GridPane.rowIndex="4" />
                                           <TextField fx:id="textfield_divisa" GridPane.columnIndex="2" GridPane.columnSpan="4" />
                                           <ComboBox fx:id="combobox_articolo" maxWidth="1.7976931348623157E308" onAction="#combobox_articolo_onAction" onShowing="#combobox_articolo_onShowing" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                                          <ComboBox fx:id="combobox_unitamisura" prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                                          <ComboBox fx:id="combobox_unitamisura" onShowing="#combobox_unitamisura_onShowing" prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
                                           <TextField fx:id="textfield_percpro" GridPane.columnIndex="7" GridPane.rowIndex="4" />
                                           <Spinner fx:id="spinner_iva" GridPane.columnIndex="9" GridPane.rowIndex="3" />
                                           <Spinner fx:id="spinner_controparti" GridPane.columnIndex="9" GridPane.rowIndex="4" />

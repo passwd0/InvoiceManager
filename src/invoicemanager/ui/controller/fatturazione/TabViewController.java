@@ -448,9 +448,10 @@ public class TabViewController implements Initializable {
 	@FXML
 	void combobox_articolo_onAction(ActionEvent event) {
 		ArticoloMagazzino articolo = combobox_articolo.getValue();
-		textfield_descr.setText(articolo.getDescrizione());
-//		textfield_descraggiuntiva.setText(articolo);
 		if (articolo != null) {
+			textfield_descr.setText(articolo.getDescrizione());
+//			textfield_descraggiuntiva.setText(articolo);
+			oArticoloPrezzo.setAll(articolo.getListiniArticolo());
 			textfield_scontoart.setText(String.valueOf(articolo.getSconto()));
 			textarea_note.setText(articolo.getNote());
 		}
