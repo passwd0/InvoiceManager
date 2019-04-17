@@ -34,7 +34,7 @@ public class ReadCliente {
 	private Connection c;
 
 	public ReadCliente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Cliente> read(List<TipoCliente> listaTipoCliente, List<ResaMerce> listaResaMerce, List<Imballo> listaImballo, 

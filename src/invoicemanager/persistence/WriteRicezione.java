@@ -12,7 +12,7 @@ public class WriteRicezione {
 	private Connection c;
 
 	public WriteRicezione()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

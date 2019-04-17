@@ -16,7 +16,7 @@ public class ReadTipoRigaDocumento {
 	private Connection c;
 
 	public ReadTipoRigaDocumento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<TipoRigaDocumento> read() {

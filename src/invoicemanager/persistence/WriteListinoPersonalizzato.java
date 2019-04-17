@@ -12,7 +12,7 @@ public class WriteListinoPersonalizzato {
 	private Connection c;
 
 	public WriteListinoPersonalizzato()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

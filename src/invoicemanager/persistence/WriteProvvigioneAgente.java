@@ -12,7 +12,7 @@ public class WriteProvvigioneAgente {
 	private Connection c;
 
 	public WriteProvvigioneAgente()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

@@ -17,7 +17,7 @@ public class ReadUnitaMisura {
 	private Connection c;
 
 	public ReadUnitaMisura() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<UnitaMisura> read() {

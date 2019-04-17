@@ -12,7 +12,7 @@ public class WriteDdtTestata {
 	private Connection c;
 
 	public WriteDdtTestata()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

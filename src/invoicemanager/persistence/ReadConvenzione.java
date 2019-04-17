@@ -17,7 +17,7 @@ public class ReadConvenzione {
 	private Connection c;
 
 	public ReadConvenzione() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Convenzione> read() {

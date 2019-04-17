@@ -17,7 +17,7 @@ public class ReadContratto {
 	private Connection c;
 
 	public ReadContratto() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Contratto> read() {

@@ -11,7 +11,7 @@ public class WritePrezzo {
 	private Connection c;
 
 	public WritePrezzo()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

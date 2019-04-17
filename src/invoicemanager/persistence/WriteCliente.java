@@ -12,7 +12,7 @@ public class WriteCliente {
 	private Connection c;
 	
 	public WriteCliente()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 	

@@ -16,7 +16,7 @@ public class ReadTipoIndirizzo {
 	private Connection c;
 
 	public ReadTipoIndirizzo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<TipoIndirizzo> read() {

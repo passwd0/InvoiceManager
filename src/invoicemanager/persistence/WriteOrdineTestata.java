@@ -12,7 +12,7 @@ public class WriteOrdineTestata {
 	private Connection c;
 
 	public WriteOrdineTestata()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

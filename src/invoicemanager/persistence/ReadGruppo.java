@@ -16,7 +16,7 @@ public class ReadGruppo {
 	private Connection c;
 
 	public ReadGruppo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Gruppo> read() {

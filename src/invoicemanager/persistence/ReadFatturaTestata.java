@@ -22,7 +22,7 @@ public class ReadFatturaTestata {
 	private Connection c;
 
 	public ReadFatturaTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<FatturaTestata> read(StatoAvanzamento[] listaStatoAvanzamento, List<FatturaDettaglio> listaFatturaDettaglio, List<Allegato> listaAllegato) {

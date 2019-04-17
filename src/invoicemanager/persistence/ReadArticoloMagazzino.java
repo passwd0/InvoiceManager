@@ -22,7 +22,7 @@ public class ReadArticoloMagazzino {
 	private Connection c;
 
 	public ReadArticoloMagazzino() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<ArticoloMagazzino> read(List<UnitaMisura> unitaMisure, List<GruppoMerceologico> gruppiMerceologici, List<SottogruppoMerceologico> sottogruppiMerceologici, 

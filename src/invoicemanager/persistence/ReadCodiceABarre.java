@@ -16,7 +16,7 @@ public class ReadCodiceABarre {
 	private Connection c;
 
 	public ReadCodiceABarre() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<CodiceABarre> read() {

@@ -12,7 +12,7 @@ public class WriteIso {
 	private Connection c;
 
 	public WriteIso()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

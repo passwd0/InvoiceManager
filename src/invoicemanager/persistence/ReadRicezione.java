@@ -17,7 +17,7 @@ public class ReadRicezione {
 	private Connection c;
 
 	public ReadRicezione() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Ricezione> read() {

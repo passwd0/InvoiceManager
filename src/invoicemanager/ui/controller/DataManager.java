@@ -79,7 +79,7 @@ public final class DataManager {
 	
 	public static void createDB() throws ClassNotFoundException, SQLException {
     	String sql = "Create DATABASE invoicemanager;";
-		Connection c = DBConnect.checkDB();
+		Connection c = ConnectionFactory.checkDB();
         Statement stmt = c.createStatement();
     	stmt.execute(sql);
     	stmt.close();

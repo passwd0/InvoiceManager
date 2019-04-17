@@ -12,7 +12,7 @@ public class WriteBentoTestata {
 	private Connection c;
 
 	public WriteBentoTestata()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

@@ -16,7 +16,7 @@ public class ReadAltroDatoGestionale {
 	private Connection c;
 
 	public ReadAltroDatoGestionale() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<AltroDatoGestionale> read() {

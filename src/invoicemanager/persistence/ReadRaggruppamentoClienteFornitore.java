@@ -17,7 +17,7 @@ public class ReadRaggruppamentoClienteFornitore {
 	private Connection c;
 
 	public ReadRaggruppamentoClienteFornitore() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<RaggruppamentoClienteFornitore> read() {

@@ -12,7 +12,7 @@ public class WriteArticoloMagazzinoDescrizioneMultilingua {
 	private Connection c;
 
 	public WriteArticoloMagazzinoDescrizioneMultilingua()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

@@ -16,7 +16,7 @@ public class ReadTipoBento {
 	private Connection c;
 
 	public ReadTipoBento() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<TipoBento> read() {

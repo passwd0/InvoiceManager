@@ -12,7 +12,7 @@ public class WriteSottogruppoMerceologico {
 	private Connection c;
 
 	public WriteSottogruppoMerceologico()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

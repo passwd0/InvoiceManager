@@ -12,7 +12,7 @@ public class WriteIndirizzoGeografico {
 	private Connection c;
 
 	public WriteIndirizzoGeografico()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

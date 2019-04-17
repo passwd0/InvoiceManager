@@ -18,7 +18,7 @@ public class ReadOrdineDettaglio {
 	private Connection c;
 
 	public ReadOrdineDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<OrdineDettaglio> read() {

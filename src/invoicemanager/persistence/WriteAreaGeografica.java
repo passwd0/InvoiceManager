@@ -12,7 +12,7 @@ public class WriteAreaGeografica {
 	private Connection c;
 
 	public WriteAreaGeografica()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

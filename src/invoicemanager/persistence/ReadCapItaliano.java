@@ -16,7 +16,7 @@ public class ReadCapItaliano {
 	private Connection c;
 
 	public ReadCapItaliano() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<CapItaliano> read() {

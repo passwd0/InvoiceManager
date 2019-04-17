@@ -17,7 +17,7 @@ public class ReadImballo {
 	private Connection c;
 
 	public ReadImballo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Imballo> read() {

@@ -15,7 +15,7 @@ public class ReadAllegato {
 	private Connection c;
 
 	public ReadAllegato() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Allegato> read() {

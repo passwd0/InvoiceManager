@@ -16,7 +16,7 @@ public class ReadArticoloMagazzinoDescrizioneMultilingua {
 	private Connection c;
 
 	public ReadArticoloMagazzinoDescrizioneMultilingua() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<ArticoloMagazzinoDescrizioneMultilingua> read() {

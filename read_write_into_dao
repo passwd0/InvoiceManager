@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd src/invoicemanager/persistence/
+
+for i in Write*; do
+	filename=$(echo ${i:5} | sed 's/\..*//')
+	filename_dao=${filename}Dao.java
+	cat $i > $filename_dao
+	cat Read${filename}.java >> $filename_dao
+done

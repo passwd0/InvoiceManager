@@ -23,7 +23,7 @@ public class ReadFatturaProformaDettaglio {
 	private Connection c;
 
 	public ReadFatturaProformaDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<FatturaProformaDettaglio> read(List<Ordine> listaOrdine, List<Contratto> listaContratto, List<Convenzione> listaConvenzione, 

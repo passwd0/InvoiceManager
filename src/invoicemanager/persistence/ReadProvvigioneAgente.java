@@ -16,7 +16,7 @@ public class ReadProvvigioneAgente {
 	private Connection c;
 
 	public ReadProvvigioneAgente() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<ProvvigioneAgente> read() {

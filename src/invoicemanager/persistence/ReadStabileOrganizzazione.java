@@ -15,7 +15,7 @@ public class ReadStabileOrganizzazione {
 	private Connection c;
 
 	public ReadStabileOrganizzazione() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<StabileOrganizzazione> read() {

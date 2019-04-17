@@ -15,7 +15,7 @@ public class ReadTerzoIntermediario {
 	private Connection c;
 
 	public ReadTerzoIntermediario() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<TerzoIntermediario> read() {

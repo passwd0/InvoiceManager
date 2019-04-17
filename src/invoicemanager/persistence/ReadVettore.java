@@ -17,7 +17,7 @@ public class ReadVettore {
 	private Connection c;
 
 	public ReadVettore() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Vettore> read() {

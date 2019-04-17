@@ -12,7 +12,7 @@ public class WriteVettore {
 	private Connection c;
 
 	public WriteVettore()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

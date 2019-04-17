@@ -15,7 +15,7 @@ public class ReadPrezzo {
 	private Connection c;
 
 	public ReadPrezzo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Prezzo> read() {

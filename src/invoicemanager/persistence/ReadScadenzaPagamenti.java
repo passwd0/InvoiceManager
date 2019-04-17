@@ -16,7 +16,7 @@ public class ReadScadenzaPagamenti {
 	private Connection c;
 
 	public ReadScadenzaPagamenti() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<ScadenzaPagamenti> read() {

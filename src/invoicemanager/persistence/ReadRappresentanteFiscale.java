@@ -14,7 +14,7 @@ public class ReadRappresentanteFiscale {
 	private Connection c;
 
 	public ReadRappresentanteFiscale() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<RappresentanteFiscale> read() {

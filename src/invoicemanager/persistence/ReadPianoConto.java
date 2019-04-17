@@ -16,7 +16,7 @@ public class ReadPianoConto {
 	private Connection c;
 
 	public ReadPianoConto() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<PianoConto> read() {

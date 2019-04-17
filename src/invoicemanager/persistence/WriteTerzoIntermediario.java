@@ -11,7 +11,7 @@ public class WriteTerzoIntermediario {
 	private Connection c;
 
 	public WriteTerzoIntermediario()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

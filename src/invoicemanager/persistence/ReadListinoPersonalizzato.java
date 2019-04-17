@@ -19,7 +19,7 @@ public class ReadListinoPersonalizzato {
 	private Connection c;
 
 	public ReadListinoPersonalizzato() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<ListinoPersonalizzato> read(List<GruppoMerceologico> listaGruppoMerceologico){

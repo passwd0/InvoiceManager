@@ -16,7 +16,7 @@ public class ReadIndirizzoGeografico {
 	private Connection c;
 
 	public ReadIndirizzoGeografico() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<IndirizzoGeografico> read() {

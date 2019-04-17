@@ -12,7 +12,7 @@ public class WriteAgente {
 	private Connection c;
 
 	public WriteAgente() {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

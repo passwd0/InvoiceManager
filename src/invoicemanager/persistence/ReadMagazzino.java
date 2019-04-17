@@ -17,7 +17,7 @@ public class ReadMagazzino {
 	private Connection c;
 
 	public ReadMagazzino() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Magazzino> read() {

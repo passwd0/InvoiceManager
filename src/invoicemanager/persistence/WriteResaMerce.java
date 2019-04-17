@@ -12,7 +12,7 @@ public class WriteResaMerce {
 	private Connection c;
 
 	public WriteResaMerce()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

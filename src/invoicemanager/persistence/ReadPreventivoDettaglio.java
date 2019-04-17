@@ -18,7 +18,7 @@ public class ReadPreventivoDettaglio {
 	private Connection c;
 
 	public ReadPreventivoDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<PreventivoDettaglio> read() {

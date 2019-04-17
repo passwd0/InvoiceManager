@@ -12,7 +12,7 @@ public class WritePercipiente {
 	private Connection c;
 
 	public WritePercipiente()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

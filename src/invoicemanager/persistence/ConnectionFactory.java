@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnect {
+public class ConnectionFactory {
     private static Connection conn;
     public final static String url = "jdbc:postgresql://127.0.0.1/";
 	public final static String db = "invoicemanager";

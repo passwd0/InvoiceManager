@@ -12,7 +12,7 @@ public class WriteImballo {
 	private Connection c;
 
 	public WriteImballo()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

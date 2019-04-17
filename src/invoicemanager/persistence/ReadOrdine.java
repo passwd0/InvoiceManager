@@ -17,7 +17,7 @@ public class ReadOrdine {
 	private Connection c;
 
 	public ReadOrdine() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Ordine> read() {

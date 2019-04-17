@@ -17,7 +17,7 @@ public class ReadControparte {
 	private Connection c;
 
 	public ReadControparte() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Controparte> read() {

@@ -12,7 +12,7 @@ public class WriteCapItaliano {
 	private Connection c;
 
 	public WriteCapItaliano()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

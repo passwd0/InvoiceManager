@@ -12,7 +12,7 @@ public class WriteTipoPagamento {
 	private Connection c;
 
 	public WriteTipoPagamento()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

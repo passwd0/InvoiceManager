@@ -12,7 +12,7 @@ public class WriteMagazzino {
 	private Connection c;
 
 	public WriteMagazzino()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

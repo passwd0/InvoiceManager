@@ -17,7 +17,7 @@ public class ReadFatturaProformaTestata {
 	private Connection c;
 
 	public ReadFatturaProformaTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<FatturaProformaTestata> read() {

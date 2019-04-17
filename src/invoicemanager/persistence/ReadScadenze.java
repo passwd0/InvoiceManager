@@ -18,7 +18,7 @@ public class ReadScadenze {
 	private Connection c;
 
 	public ReadScadenze() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<Scadenze> read() {

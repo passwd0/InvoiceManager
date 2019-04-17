@@ -21,7 +21,7 @@ public class ReadDdtTestata {
 	private Connection c;
 
 	public ReadDdtTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<DdtTestata> read(List<DdtDettaglio> listaDdtDettaglio) {

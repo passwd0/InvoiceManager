@@ -16,7 +16,7 @@ public class ReadBancaGlobale {
 	private Connection c;
 
 	public ReadBancaGlobale() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<BancaGlobale> read() {

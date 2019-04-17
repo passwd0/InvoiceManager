@@ -12,7 +12,7 @@ public class WriteFatturaTestata {
 	private Connection c;
 
 	public WriteFatturaTestata()  {
-		try { c = DBConnect.getConnection(); }
+		try { c = ConnectionFactory.getConnection(); }
 		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
 	}
 

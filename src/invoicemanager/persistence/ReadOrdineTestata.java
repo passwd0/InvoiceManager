@@ -21,7 +21,7 @@ public class ReadOrdineTestata {
 	private Connection c;
 
 	public ReadOrdineTestata() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<OrdineTestata> read(StatoAvanzamento[] listaStatoAvanzamento, List<OrdineDettaglio> lista) {

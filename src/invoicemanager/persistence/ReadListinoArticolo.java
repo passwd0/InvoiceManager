@@ -18,7 +18,7 @@ public class ReadListinoArticolo {
 	private Connection c;
 
 	public ReadListinoArticolo() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<ListinoArticolo> read() {

@@ -22,7 +22,7 @@ public class ReadBentoDettaglio {
 	private Connection c;
 
 	public ReadBentoDettaglio() throws ClassNotFoundException, SQLException {
-		c = DBConnect.getConnection();
+		c = ConnectionFactory.getConnection();
 	}
 
 	public List<BentoDettaglio> read(List<TipoBento> listaTipoBento, List<UnitaMisura> listaUnitaMisura, List<Iva> listaIva, List<Controparte> listaControparte, List<Magazzino> listaMagazzino, List<CausaleMagazzino> listaCausaleMagazzino)
