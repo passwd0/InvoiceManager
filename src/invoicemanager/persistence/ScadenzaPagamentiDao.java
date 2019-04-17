@@ -1,6 +1,5 @@
 package invoicemanager.persistence;
 
-				float importoScadenza = rs.getFloat("importoScadenza");
 import invoicemanager.model.ScadenzaPagamenti;
 import invoicemanager.utils.Utils;
 import java.sql.Connection;
@@ -11,7 +10,6 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-				ScadenzaPagamenti scadenzaPagamenti = new ScadenzaPagamenti(numeroFattura, dataFattura, dataScadenza, importoScadenza);
 
 public class ScadenzaPagamentiDao {
 	private Connection c;

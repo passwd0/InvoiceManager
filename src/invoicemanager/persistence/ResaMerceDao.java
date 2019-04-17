@@ -1,6 +1,5 @@
 package invoicemanager.persistence;
 
-				float importoMinimo = rs.getFloat("importoMinimo");
 import invoicemanager.model.ResaMerce;
 import invoicemanager.model.Stato;
 import invoicemanager.utils.Utils;
@@ -13,7 +12,6 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-				ResaMerce resaMerce = new ResaMerce(codiceResa, descrizione, stato, percentualeAddebito, importoMinimo, indicatoreProvvigione, dataInserimento, dataUltimaModifica);
 
 public class ResaMerceDao {
 	private Connection c;

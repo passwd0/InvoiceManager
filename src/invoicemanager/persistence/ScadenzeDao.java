@@ -1,13 +1,5 @@
 package invoicemanager.persistence;
 
-				float importoAbbuono = rs.getFloat("importoAbbuono");
-				float importoImponibileRitenutaAcconto = rs.getFloat("importoImponibileRitenutaAcconto");
-				float importoIVARitenutaAcconto = rs.getFloat("importoIVARitenutaAcconto");
-				float importoPagato = rs.getFloat("importoPagato");
-				float importoPartita = rs.getFloat("importoPartita");
-				float importoRimborsiCpap = rs.getFloat("importoRimborsiCpap");
-				float importoRimborsiRitenutaAcconto = rs.getFloat("importoRimborsiRitenutaAcconto");
-				float importoRitenutaAcconto = rs.getFloat("importoRitenutaAcconto");
 import invoicemanager.model.Scadenze;
 import invoicemanager.utils.Utils;
 import java.sql.Connection;
@@ -20,7 +12,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-				Scadenze scadenze = new Scadenze(codiceConto, codiceTipoPagamento, riferimentoPartita, dataDocumento, dataScadenza, numeroRegistrazione, codiceBanca, dataValuta, codicePagamento, numeroAssegno, importoImponibileRitenutaAcconto, importoRitenutaAcconto, importoRimborsiRitenutaAcconto, importoIVARitenutaAcconto, contriburoINPSDatoreLavoro, contriburoINPSDatorePercipiente, dataValutaAssegno, note, importoPagato, dataPagamento, numeroDocumento, codiceIVAInSospensione, importoPartita, impostaIVAInSospensione, imponibileIVAInSospensione, numeroGiornaleIVA, tipoRitenutaAcconto, dataAutorizzazionePagamento, codiceDivisa, dataRegistrazione, importoAbbuono, dataInserimento, dataUltimaModifica, descrizioneAggiuntiva, indicatoreFattureProforma, importoRimborsiCpap);
 
 public class ScadenzeDao {
 	private Connection c;

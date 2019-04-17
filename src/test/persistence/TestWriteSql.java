@@ -8,7 +8,6 @@ import invoicemanager.model.ArticoloMagazzino;
 import invoicemanager.model.ListinoArticolo;
 import invoicemanager.model.Magazzino;
 import invoicemanager.model.UnitaMisura;
-import invoicemanager.persistence.WriteListinoArticolo;
 import invoicemanager.ui.controller.DataManager;
 
 public class TestWriteSql {

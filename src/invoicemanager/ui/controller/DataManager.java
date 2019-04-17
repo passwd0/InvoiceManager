@@ -73,7 +73,71 @@ import invoicemanager.model.TipoRigaDocumento;
 import invoicemanager.model.UnitaMisura;
 import invoicemanager.model.Utente;
 import invoicemanager.model.Vettore;
-import invoicemanager.persistence.*;
+import invoicemanager.persistence.AgenteDao;
+import invoicemanager.persistence.AllegatoDao;
+import invoicemanager.persistence.AltroDatoGestionaleDao;
+import invoicemanager.persistence.AreaGeograficaDao;
+import invoicemanager.persistence.ArticoloMagazzinoDao;
+import invoicemanager.persistence.ArticoloMagazzinoDescrizioneMultilinguaDao;
+import invoicemanager.persistence.BancaDao;
+import invoicemanager.persistence.BancaGlobaleDao;
+import invoicemanager.persistence.BentoDettaglioDao;
+import invoicemanager.persistence.BentoTestataDao;
+import invoicemanager.persistence.CapItalianoDao;
+import invoicemanager.persistence.CausaleMagazzinoDao;
+import invoicemanager.persistence.ClienteDao;
+import invoicemanager.persistence.CodiceABarreDao;
+import invoicemanager.persistence.ConfezioneDao;
+import invoicemanager.persistence.ConnectionFactory;
+import invoicemanager.persistence.ContattoDao;
+import invoicemanager.persistence.ContrattoDao;
+import invoicemanager.persistence.ControparteDao;
+import invoicemanager.persistence.ConvenzioneDao;
+import invoicemanager.persistence.DdtDettaglioDao;
+import invoicemanager.persistence.DdtTestataDao;
+import invoicemanager.persistence.FatturaCollegataDao;
+import invoicemanager.persistence.FatturaDettaglioDao;
+import invoicemanager.persistence.FatturaProformaDettaglioDao;
+import invoicemanager.persistence.FatturaProformaTestataDao;
+import invoicemanager.persistence.FatturaTestataDao;
+import invoicemanager.persistence.GruppoDao;
+import invoicemanager.persistence.GruppoMerceologicoDao;
+import invoicemanager.persistence.ImballoDao;
+import invoicemanager.persistence.IndirizzoGeograficoDao;
+import invoicemanager.persistence.IsoDao;
+import invoicemanager.persistence.IvaDao;
+import invoicemanager.persistence.ListinoArticoloDao;
+import invoicemanager.persistence.ListinoPersonalizzatoDao;
+import invoicemanager.persistence.MagazzinoDao;
+import invoicemanager.persistence.OrdineDao;
+import invoicemanager.persistence.OrdineDettaglioDao;
+import invoicemanager.persistence.OrdineTestataDao;
+import invoicemanager.persistence.PagamentoDao;
+import invoicemanager.persistence.PercipienteDao;
+import invoicemanager.persistence.PianoContoDao;
+import invoicemanager.persistence.PreventivoDettaglioDao;
+import invoicemanager.persistence.PreventivoTestataDao;
+import invoicemanager.persistence.PrezzoDao;
+import invoicemanager.persistence.ProvvigioneAgenteDao;
+import invoicemanager.persistence.RaggruppamentoClienteFornitoreDao;
+import invoicemanager.persistence.RappresentanteFiscaleDao;
+import invoicemanager.persistence.ResaMerceDao;
+import invoicemanager.persistence.RicezioneDao;
+import invoicemanager.persistence.ScadenzaPagamentiDao;
+import invoicemanager.persistence.ScadenzeDao;
+import invoicemanager.persistence.SottogruppoMerceologicoDao;
+import invoicemanager.persistence.StabileOrganizzazioneDao;
+import invoicemanager.persistence.StatoFatturaDao;
+import invoicemanager.persistence.TerzoIntermediarioDao;
+import invoicemanager.persistence.TipoBentoDao;
+import invoicemanager.persistence.TipoClienteDao;
+import invoicemanager.persistence.TipoIndirizzoDao;
+import invoicemanager.persistence.TipoMagazzinoDao;
+import invoicemanager.persistence.TipoPagamentoDao;
+import invoicemanager.persistence.TipoRigaDocumentoDao;
+import invoicemanager.persistence.UnitaMisuraDao;
+import invoicemanager.persistence.UtenteDao;
+import invoicemanager.persistence.VettoreDao;
 
 public final class DataManager {
 	
@@ -86,69 +150,69 @@ public final class DataManager {
         c.close();
 	
 		new AgenteDao().createTable();
-		new WriteAllegato().createTable();
-		new WriteAltroDatoGestionale().createTable();
-		new WriteAreaGeografica().createTable();
-		new WriteArticoloMagazzinoDescrizioneMultilingua().createTable();
-		new WriteArticoloMagazzino().createTable();
-		new WriteBancaGlobale().createTable();
-		new WriteBanca().createTable();
-		new WriteBentoDettaglio().createTable();
-		new WriteBentoTestata().createTable();
-		new WriteCapItaliano().createTable();
-		new WriteCausaleMagazzino().createTable();
-		new WriteCliente().createTable();
-		new WriteCodiceABarre().createTable();
-		new WriteConfezione().createTable();
-		new WriteContratto().createTable();
-		new WriteControparte().createTable();
-		new WriteConvenzione().createTable();
-		new WriteDdtDettaglio().createTable();
-		new WriteDdtTestata().createTable();
-		new WriteFatturaCollegata().createTable();
-		new WriteFatturaDettaglio().createTable();
-		new WriteFatturaProformaDettaglio().createTable();
-		new WriteFatturaProformaTestata().createTable();
-		new WriteFatturaTestata().createTable();
-		new WriteGruppo().createTable();
-		new WriteGruppoMerceologico().createTable();
-		new WriteImballo().createTable();
-		new WriteIndirizzoGeografico().createTable();
-		new WriteIso().createTable();
-		new WriteIva().createTable();
-		new WriteListinoArticolo().createTable();
-		new WriteListinoPersonalizzato().createTable();
-		new WriteMagazzino().createTable();
-		new WriteOrdineDettaglio().createTable();
-		new WriteOrdine().createTable();
-		new WriteOrdineTestata().createTable();
-		new WritePagamento().createTable();
-		new WritePercipiente().createTable();
-		new WritePianoConto().createTable();
-		new WritePreventivoDettaglio().createTable();
-		new WritePreventivoTestata().createTable();
-		new WritePrezzo().createTable();
-		new WriteProvvigioneAgente().createTable();
-		new WriteRaggruppamentoClienteFornitore().createTable();
-		new WriteRappresentanteFiscale().createTable();
-		new WriteResaMerce().createTable();
-		new WriteRicezione().createTable();
-		new WriteScadenzaPagamenti().createTable();
-		new WriteScadenze().createTable();
-		new WriteSottogruppoMerceologico().createTable();
-		new WriteStabileOrganizzazione().createTable();
-		new WriteStatoFattura().createTable();
-		new WriteContatto().createTable();
-		new WriteTerzoIntermediario().createTable();
-		new WriteTipoBento().createTable();
-		new WriteTipoCliente().createTable();
-		new WriteTipoIndirizzo().createTable();
-		new WriteTipoMagazzino().createTable();
-		new WriteTipoPagamento().createTable();
-		new WriteTipoRigaDocumento().createTable();
-		new WriteUnitaMisura().createTable();
-		new WriteUtente().createTable();
-		new WriteVettore().createTable();
+		new AllegatoDao().createTable();
+		new AltroDatoGestionaleDao().createTable();
+		new AreaGeograficaDao().createTable();
+		new ArticoloMagazzinoDescrizioneMultilinguaDao().createTable();
+		new ArticoloMagazzinoDao().createTable();
+		new BancaGlobaleDao().createTable();
+		new BancaDao().createTable();
+		new BentoDettaglioDao().createTable();
+		new BentoTestataDao().createTable();
+		new CapItalianoDao().createTable();
+		new CausaleMagazzinoDao().createTable();
+		new ClienteDao().createTable();
+		new CodiceABarreDao().createTable();
+		new ConfezioneDao().createTable();
+		new ContrattoDao().createTable();
+		new ControparteDao().createTable();
+		new ConvenzioneDao().createTable();
+		new DdtDettaglioDao().createTable();
+		new DdtTestataDao().createTable();
+		new FatturaCollegataDao().createTable();
+		new FatturaDettaglioDao().createTable();
+		new FatturaProformaDettaglioDao().createTable();
+		new FatturaProformaTestataDao().createTable();
+		new FatturaTestataDao().createTable();
+		new GruppoDao().createTable();
+		new GruppoMerceologicoDao().createTable();
+		new ImballoDao().createTable();
+		new IndirizzoGeograficoDao().createTable();
+		new IsoDao().createTable();
+		new IvaDao().createTable();
+		new ListinoArticoloDao().createTable();
+		new ListinoPersonalizzatoDao().createTable();
+		new MagazzinoDao().createTable();
+		new OrdineDettaglioDao().createTable();
+		new OrdineDao().createTable();
+		new OrdineTestataDao().createTable();
+		new PagamentoDao().createTable();
+		new PercipienteDao().createTable();
+		new PianoContoDao().createTable();
+		new PreventivoDettaglioDao().createTable();
+		new PreventivoTestataDao().createTable();
+		new PrezzoDao().createTable();
+		new ProvvigioneAgenteDao().createTable();
+		new RaggruppamentoClienteFornitoreDao().createTable();
+		new RappresentanteFiscaleDao().createTable();
+		new ResaMerceDao().createTable();
+		new RicezioneDao().createTable();
+		new ScadenzaPagamentiDao().createTable();
+		new ScadenzeDao().createTable();
+		new SottogruppoMerceologicoDao().createTable();
+		new StabileOrganizzazioneDao().createTable();
+		new StatoFatturaDao().createTable();
+		new ContattoDao().createTable();
+		new TerzoIntermediarioDao().createTable();
+		new TipoBentoDao().createTable();
+		new TipoClienteDao().createTable();
+		new TipoIndirizzoDao().createTable();
+		new TipoMagazzinoDao().createTable();
+		new TipoPagamentoDao().createTable();
+		new TipoRigaDocumentoDao().createTable();
+		new UnitaMisuraDao().createTable();
+		new UtenteDao().createTable();
+		new VettoreDao().createTable();
 	}
 	
 	public static List<Listino> loadListino()  {
@@ -159,706 +223,385 @@ public final class DataManager {
 	}
 	
 	public static List<Agente> loadAgente() {
-		try {
-			return new ReadAgente().read(loadControparte());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new AgenteDao().read(loadControparte());
 	}
 	public static List<Allegato> loadAllegato() {
-		try {
-			return new ReadAllegato().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new AllegatoDao().read();
 	}
 	public static List<AltroDatoGestionale> loadAltroDatoGestionale() {
-		try {
-			return new ReadAltroDatoGestionale().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new AltroDatoGestionaleDao().read();
 	}
 	public static List<AreaGeografica> loadAreaGeografica() {
-		try {
-			return new ReadAreaGeografica().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new AreaGeograficaDao().read();
 	}
 	public static List<ArticoloMagazzinoDescrizioneMultilingua> loadArticoloMagazzinoDescrizioneMultilingua() {
-		try {
-			return new ReadArticoloMagazzinoDescrizioneMultilingua().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ArticoloMagazzinoDescrizioneMultilinguaDao().read();
 	}
 	public static List<ArticoloMagazzino> loadArticoloMagazzino() {
-		try {
-			return new ReadArticoloMagazzino().read(loadUnitaMisura(), loadGruppoMerceologico(), loadSottogruppoMerceologico(), loadPercipiente(), loadListinoArticolo());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ArticoloMagazzinoDao().read(loadUnitaMisura(), loadGruppoMerceologico(), loadSottogruppoMerceologico(), loadPercipiente(), loadListinoArticolo());
 	}
 	public static List<BancaGlobale> loadBancaGlobale() {
-		try {
-			return new ReadBancaGlobale().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new BancaGlobaleDao().read();
 	}
 	public static List<Banca> loadBanca() {
-		try {
-			return new ReadBanca().read(Stato.values());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new BancaDao().read(Stato.values());
 	}
 	public static List<BentoDettaglio> loadBentoDettaglio() {
-		try {
-			return new ReadBentoDettaglio().read(loadTipoBento(), loadUnitaMisura(), loadIva(), loadControparte(), loadMagazzino(), loadCausaleMagazzino());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new BentoDettaglioDao().read(loadTipoBento(), loadUnitaMisura(), loadIva(), loadControparte(), loadMagazzino(), loadCausaleMagazzino());
 	}
 	public static List<BentoTestata> loadBentoTestata() {
-		try {
-			return new ReadBentoTestata().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new BentoTestataDao().read();
 	}
 	public static List<CapItaliano> loadCapItaliano() {
-		try {
-			return new ReadCapItaliano().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new CapItalianoDao().read();
 	}
 	public static List<CausaleMagazzino> loadCausaleMagazzino() {
-		try {
-			return new ReadCausaleMagazzino().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new CausaleMagazzinoDao().read();
 	}
 	public static List<Cliente> loadCliente() {
-		try {
-			return new ReadCliente().read(loadTipoCliente(), loadResaMerce(), loadImballo(), loadRaggruppamentoClienteFornitore(), loadPagamento(), loadBanca(), loadIva(), loadAgente(), loadVettore(), loadIso(), loadStabileOrganizzazione(), loadRappresentanteFiscale(), loadTerzoIntermediario(), loadContatto());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ClienteDao().read(loadTipoCliente(), loadResaMerce(), loadImballo(), loadRaggruppamentoClienteFornitore(), loadPagamento(), loadBanca(), loadIva(), loadAgente(), loadVettore(), loadIso(), loadStabileOrganizzazione(), loadRappresentanteFiscale(), loadTerzoIntermediario(), loadContatto());
 	}
 	public static List<CodiceABarre> loadCodiceABarre() {
-		try {
-			return new ReadCodiceABarre().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new CodiceABarreDao().read();
 	}
 	public static List<Confezione> loadConfezione() {
-		try {
-			return new ReadConfezione().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ConfezioneDao().read();
 	}
 	public static List<Contratto> loadContratto() {
-		try {
-			return new ReadContratto().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ContrattoDao().read();
 	}
 	public static List<Controparte> loadControparte() {
-		try {
-			return new ReadControparte().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ControparteDao().read();
 	}
 	public static List<Convenzione> loadConvenzione() {
-		try {
-			return new ReadConvenzione().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ConvenzioneDao().read();
 	}
 	public static List<DdtDettaglio> loadDdtDettaglio() {
-		try {
-			return new ReadDdtDettaglio().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new DdtDettaglioDao().read();
 	}
 	public static List<DdtTestata> loadDdtTestata() {
-		try {
-			return new ReadDdtTestata().read(loadDdtDettaglio());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new DdtTestataDao().read(loadDdtDettaglio());
 	}
 	public static List<FatturaCollegata> loadFatturaCollegata() {
-		try {
-			return new ReadFatturaCollegata().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new FatturaCollegataDao().read();
 	}
 	public static List<FatturaDettaglio> loadFatturaDettaglio() {
-		try {
-			return new ReadFatturaDettaglio().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new FatturaDettaglioDao().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
 	}
 	public static List<FatturaProformaDettaglio> loadFatturaProformaDettaglio() {
-		try {
-			return new ReadFatturaProformaDettaglio().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new FatturaProformaDettaglioDao().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
 	}
 	public static List<FatturaProformaTestata> loadFatturaProformaTestata() {
-		try {
-			return new ReadFatturaProformaTestata().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new FatturaProformaTestataDao().read();
 	}
 	public static List<FatturaTestata> loadFatturaTestata() {
-		try {
-			return new ReadFatturaTestata().read(StatoAvanzamento.values(), loadFatturaDettaglio(), loadAllegato());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new FatturaTestataDao().read(StatoAvanzamento.values(), loadFatturaDettaglio(), loadAllegato());
 	}
 	public static List<Gruppo> loadGruppo() {
-		try {
-			return new ReadGruppo().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new GruppoDao().read();
 	}
 	public static List<GruppoMerceologico> loadGruppoMerceologico() {
-		try {
-			return new ReadGruppoMerceologico().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new GruppoMerceologicoDao().read();
 	}
 	public static List<Imballo> loadImballo() {
-		try {
-			return new ReadImballo().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ImballoDao().read();
 	}
 	public static List<IndirizzoGeografico> loadIndirizzoGeografico() {
-		try {
-			return new ReadIndirizzoGeografico().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new IndirizzoGeograficoDao().read();
 	}
 	public static List<Iso> loadIso() {
-		try {
-			return new ReadIso().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new IsoDao().read();
 	}
 	public static List<Iva> loadIva() {
-		try {
-			return new ReadIva().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new IvaDao().read();
 	}
 	public static List<ListinoArticolo> loadListinoArticolo() {
-		try {
-			return new ReadListinoArticolo().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ListinoArticoloDao().read();
 	}
 	public static List<ListinoPersonalizzato> loadListinoPersonalizzato() {
-		try {
-			return new ReadListinoPersonalizzato().read(loadGruppoMerceologico());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ListinoPersonalizzatoDao().read(loadGruppoMerceologico());
 	}
 	public static List<Magazzino> loadMagazzino() {
-		try {
-			return new ReadMagazzino().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new MagazzinoDao().read();
 	}
 	public static List<OrdineDettaglio> loadOrdineDettaglio() {
-		try {
-			return new ReadOrdineDettaglio().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new OrdineDettaglioDao().read();
 	}
 	public static List<Ordine> loadOrdine() {
-		try {
-			return new ReadOrdine().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new OrdineDao().read();
 	}
 	public static List<OrdineTestata> loadOrdineTestata() {
-		try {
-			return new ReadOrdineTestata().read(StatoAvanzamento.values(), loadOrdineDettaglio());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new OrdineTestataDao().read(StatoAvanzamento.values(), loadOrdineDettaglio());
 	}
 	public static List<Pagamento> loadPagamento() {
-		try {
-			return new ReadPagamento().read(loadTipoPagamento());
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new PagamentoDao().read(loadTipoPagamento());
 	}
 	public static List<Percipiente> loadPercipiente() {
-		try {
-			return new ReadPercipiente().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new PercipienteDao().read();
 	}
 	public static List<PianoConto> loadPianoConto() {
-		try {
-			return new ReadPianoConto().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new PianoContoDao().read();
 	}
 	public static List<PreventivoDettaglio> loadPreventivoDettaglio() {
-		try {
-			return new ReadPreventivoDettaglio().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new PreventivoDettaglioDao().read();
 	}
 	public static List<PreventivoTestata> loadPreventivoTestata() {
-		try {
-			return new ReadPreventivoTestata().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new PreventivoTestataDao().read();
 	}
 	public static List<Prezzo> loadPrezzo() {
-		try {
-			return new ReadPrezzo().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new PrezzoDao().read();
 	}
 	public static List<ProvvigioneAgente> loadProvvigioneAgente() {
-		try {
-			return new ReadProvvigioneAgente().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ProvvigioneAgenteDao().read();
 	}
 	public static List<RaggruppamentoClienteFornitore> loadRaggruppamentoClienteFornitore() {
-		try {
-			return new ReadRaggruppamentoClienteFornitore().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new RaggruppamentoClienteFornitoreDao().read();
 	}
 	public static List<RappresentanteFiscale> loadRappresentanteFiscale() {
-		try {
-			return new ReadRappresentanteFiscale().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new RappresentanteFiscaleDao().read();
 	}
 	public static List<ResaMerce> loadResaMerce() {
-		try {
-			return new ReadResaMerce().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ResaMerceDao().read();
 	}
 	public static List<Ricezione> loadRicezione() {
-		try {
-			return new ReadRicezione().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new RicezioneDao().read();
 	}
 	public static List<ScadenzaPagamenti> loadScadenzaPagamenti() {
-		try {
-			return new ReadScadenzaPagamenti().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ScadenzaPagamentiDao().read();
 	}
 	public static List<Scadenze> loadScadenze() {
-		try {
-			return new ReadScadenze().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ScadenzeDao().read();
 	}
-
 	public static List<SottogruppoMerceologico> loadSottogruppoMerceologico() {
-		try {
-			return new ReadSottogruppoMerceologico().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new SottogruppoMerceologicoDao().read();
 	}
 	public static List<StabileOrganizzazione> loadStabileOrganizzazione() {
-		try {
-			return new ReadStabileOrganizzazione().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new StabileOrganizzazioneDao().read();
 	}
 	public static List<StatoFattura> loadStatoFattura() {
-		try {
-			return new ReadStatoFattura().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new StatoFatturaDao().read();
 	}
 	public static List<Contatto> loadContatto() {
-		try {
-			return new ReadContatto().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new ContattoDao().read();
 	}
 	public static List<TerzoIntermediario> loadTerzoIntermediario() {
-		try {
-			return new ReadTerzoIntermediario().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new TerzoIntermediarioDao().read();
 	}
 	public static List<TipoBento> loadTipoBento() {
-		try {
-			return new ReadTipoBento().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new TipoBentoDao().read();
 	}
 	public static List<TipoCliente> loadTipoCliente() {
-		try {
-			return new ReadTipoCliente().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new TipoClienteDao().read();
 	}
 	public static List<TipoIndirizzo> loadTipoIndirizzo() {
-		try {
-			return new ReadTipoIndirizzo().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new TipoIndirizzoDao().read();
 	}
 	public static List<TipoMagazzino> loadTipoMagazzino() {
-		try {
-			return new ReadTipoMagazzino().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new TipoMagazzinoDao().read();
 	}
 	public static List<TipoPagamento> loadTipoPagamento() {
-		try {
-			return new ReadTipoPagamento().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new TipoPagamentoDao().read();
 	}
 	public static List<TipoRigaDocumento> loadTipoRigaDocumento() {
-		try {
-			return new ReadTipoRigaDocumento().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new TipoRigaDocumentoDao().read();
 	}
 	public static List<UnitaMisura> loadUnitaMisura() {
-		try {
-			return new ReadUnitaMisura().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new UnitaMisuraDao().read();
 	}
 	public static List<Utente> loadUtente() {
-		try {
-			return new ReadUtente().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new UtenteDao().read();
 	}
 	public static List<Vettore> loadVettore() {
-		try {
-			return new ReadVettore().read();
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-			return new ArrayList<>();
-		}
+		return new VettoreDao().read();
 	}
 	
 	public static int add(Agente agente) {
-		return new WriteAgente().add(agente);
+		return new AgenteDao().add(agente);
 	}
 	public static int add(Allegato allegato) {
-		return new WriteAllegato().add(allegato);
+		return new AllegatoDao().add(allegato);
 	}
 	public static int add(AltroDatoGestionale altroDatoGestionale) {
-		return new WriteAltroDatoGestionale().add(altroDatoGestionale, false);
+		return new AltroDatoGestionaleDao().add(altroDatoGestionale, false);
 	}
 	public static int add(AreaGeografica areaGeografica) {
-		return new WriteAreaGeografica().add(areaGeografica, false);
+		return new AreaGeograficaDao().add(areaGeografica, false);
 	}
 	public static int add(ArticoloMagazzinoDescrizioneMultilingua articoloMagazzinoDescrizioneMultilingua) {
-		return new WriteArticoloMagazzinoDescrizioneMultilingua().add(articoloMagazzinoDescrizioneMultilingua, false);
+		return new ArticoloMagazzinoDescrizioneMultilinguaDao().add(articoloMagazzinoDescrizioneMultilingua, false);
 	}
 	public static int add(ArticoloMagazzino articoloMagazzino) {
-		return new WriteArticoloMagazzino().add(articoloMagazzino, false);
+		return new ArticoloMagazzinoDao().add(articoloMagazzino, false);
 	}
 	public static int add(BancaGlobale bancaGlobale) {
-		return new WriteBancaGlobale().add(bancaGlobale, false);
+		return new BancaGlobaleDao().add(bancaGlobale, false);
 	}
 	public static int add(Banca banca) {
-		return new WriteBanca().add(banca, false);
+		return new BancaDao().add(banca, false);
 	}
 	public static int add(BentoDettaglio bentoDettaglio) {
-		return new WriteBentoDettaglio().add(bentoDettaglio, false);
+		return new BentoDettaglioDao().add(bentoDettaglio, false);
 	}
 	public static int add(BentoTestata bentoTestata) {
-		return new WriteBentoTestata().add(bentoTestata, false);
+		return new BentoTestataDao().add(bentoTestata, false);
 	}
 	public static int add(CapItaliano capItaliano) {
-		return new WriteCapItaliano().add(capItaliano, false);
+		return new CapItalianoDao().add(capItaliano, false);
 	}
 	public static int add(CausaleMagazzino causaleMagazzino) {
-		return new WriteCausaleMagazzino().add(causaleMagazzino, false);
+		return new CausaleMagazzinoDao().add(causaleMagazzino, false);
 	}
 	public static int add(Cliente cliente) {
-		return new WriteCliente().add(cliente);
+		return new ClienteDao().add(cliente);
 	}
 	public static int add(CodiceABarre codiceABarre) {
-		return new WriteCodiceABarre().add(codiceABarre, false);
+		return new CodiceABarreDao().add(codiceABarre, false);
 	}
 	public static int add(Confezione confezione) {
-		return new WriteConfezione().add(confezione, false);
+		return new ConfezioneDao().add(confezione, false);
 	}
 	public static int add(Contratto contratto) {
-		return new WriteContratto().add(contratto, false);
+		return new ContrattoDao().add(contratto, false);
 	}
 	public static int add(Controparte controparte) {
-		return new WriteControparte().add(controparte, false);
+		return new ControparteDao().add(controparte, false);
 	}
 	public static int add(Convenzione convenzione) {
-		return new WriteConvenzione().add(convenzione, false);
+		return new ConvenzioneDao().add(convenzione, false);
 	}
 	public static int add(DdtDettaglio ddtDettaglio) {
-		return new WriteDdtDettaglio().add(ddtDettaglio, false);
+		return new DdtDettaglioDao().add(ddtDettaglio, false);
 	}
 	public static int add(DdtTestata ddtTestata) {
-		return new WriteDdtTestata().add(ddtTestata, false);
+		return new DdtTestataDao().add(ddtTestata, false);
 	}
 	public static int add(FatturaCollegata fatturaCollegata) {
-		return new WriteFatturaCollegata().add(fatturaCollegata, false);
+		return new FatturaCollegataDao().add(fatturaCollegata, false);
 	}
 	public static int add(FatturaDettaglio fatturaDettaglio) {
-		return new WriteFatturaDettaglio().add(fatturaDettaglio, false);
+		return new FatturaDettaglioDao().add(fatturaDettaglio, false);
 	}
 	public static int add(FatturaProformaDettaglio fatturaProformaDettaglio) {
-		return new WriteFatturaProformaDettaglio().add(fatturaProformaDettaglio, false);
+		return new FatturaProformaDettaglioDao().add(fatturaProformaDettaglio, false);
 	}
 	public static int add(FatturaProformaTestata fatturaProformaTestata) {
-		return new WriteFatturaProformaTestata().add(fatturaProformaTestata, false);
+		return new FatturaProformaTestataDao().add(fatturaProformaTestata, false);
 	}
 	public static int add(FatturaTestata fatturaTestata) {
-		return new WriteFatturaTestata().add(fatturaTestata, false);
+		return new FatturaTestataDao().add(fatturaTestata, false);
 	}
 	public static int add(Gruppo gruppo) {
-		return new WriteGruppo().add(gruppo, false);
+		return new GruppoDao().add(gruppo, false);
 	}
 	public static int add(GruppoMerceologico gruppoMerceologico) {
-		return new WriteGruppoMerceologico().add(gruppoMerceologico, false);
+		return new GruppoMerceologicoDao().add(gruppoMerceologico, false);
 	}
 	public static int add(Imballo imballo) {
-		return new WriteImballo().add(imballo, false);
+		return new ImballoDao().add(imballo, false);
 	}
 	public static int add(IndirizzoGeografico indirizzoGeografico) {
-		return new WriteIndirizzoGeografico().add(indirizzoGeografico, false);
+		return new IndirizzoGeograficoDao().add(indirizzoGeografico, false);
 	}
 	public static int add(Iso iso) {
-		return new WriteIso().add(iso, false);
+		return new IsoDao().add(iso, false);
 	}
 	public static int add(Iva iva) {
-		return new WriteIva().add(iva, false);
+		return new IvaDao().add(iva, false);
 	}
 	public static int add(ListinoArticolo listinoArticolo) {
-		return new WriteListinoArticolo().add(listinoArticolo, false);
+		return new ListinoArticoloDao().add(listinoArticolo, false);
 	}
 	public static int add(ListinoPersonalizzato listinoPersonalizzato) {
-		return new WriteListinoPersonalizzato().add(listinoPersonalizzato, false);
+		return new ListinoPersonalizzatoDao().add(listinoPersonalizzato, false);
 	}
 	public static int add(Magazzino magazzino) {
-		return new WriteMagazzino().add(magazzino, false);
+		return new MagazzinoDao().add(magazzino, false);
 	}
 	public static int add(OrdineDettaglio ordineDettaglio) {
-		return new WriteOrdineDettaglio().add(ordineDettaglio, false);
+		return new OrdineDettaglioDao().add(ordineDettaglio, false);
 	}
 	public static int add(Ordine ordine) {
-		return new WriteOrdine().add(ordine, false);
+		return new OrdineDao().add(ordine, false);
 	}
 	public static int add(OrdineTestata ordineTestata) {
-		return new WriteOrdineTestata().add(ordineTestata, false);
+		return new OrdineTestataDao().add(ordineTestata, false);
 	}
 	public static int add(Pagamento pagamento) {
-		return new WritePagamento().add(pagamento, false);
+		return new PagamentoDao().add(pagamento, false);
 	}
 	public static int add(Percipiente percipiente) {
-		return new WritePercipiente().add(percipiente, false);
+		return new PercipienteDao().add(percipiente, false);
 	}
 	public static int add(PianoConto pianoConto) {
-		return new WritePianoConto().add(pianoConto, false);
+		return new PianoContoDao().add(pianoConto, false);
 	}
 	public static int add(PreventivoDettaglio preventivoDettaglio) {
-		return new WritePreventivoDettaglio().add(preventivoDettaglio, false);
+		return new PreventivoDettaglioDao().add(preventivoDettaglio, false);
 	}
 	public static int add(PreventivoTestata preventivoTestata) {
-		return new WritePreventivoTestata().add(preventivoTestata, false);
+		return new PreventivoTestataDao().add(preventivoTestata, false);
 	}
 	public static int add(Prezzo prezzo) {
-		return new WritePrezzo().add(prezzo, false);
+		return new PrezzoDao().add(prezzo, false);
 	}
 	public static int add(ProvvigioneAgente provvigioneAgente) {
-		return new WriteProvvigioneAgente().add(provvigioneAgente, false);
+		return new ProvvigioneAgenteDao().add(provvigioneAgente, false);
 	}
 	public static int add(RaggruppamentoClienteFornitore raggruppamentoClienteFornitore) {
-		return new WriteRaggruppamentoClienteFornitore().add(raggruppamentoClienteFornitore, false);
+		return new RaggruppamentoClienteFornitoreDao().add(raggruppamentoClienteFornitore, false);
 	}
 	public static int add(RappresentanteFiscale rappresentanteFiscale) {
-		return new WriteRappresentanteFiscale().add(rappresentanteFiscale, false);
+		return new RappresentanteFiscaleDao().add(rappresentanteFiscale, false);
 	}
 	public static int add(ResaMerce resaMerce) {
-		return new WriteResaMerce().add(resaMerce, false);
+		return new ResaMerceDao().add(resaMerce, false);
 	}
 	public static int add(Ricezione ricezione) {
-		return new WriteRicezione().add(ricezione, false);
+		return new RicezioneDao().add(ricezione, false);
 	}
 	public static int add(Scadenze scadenze) {
-		return new WriteScadenze().add(scadenze, false);
+		return new ScadenzeDao().add(scadenze, false);
 	}
 	public static int add(SottogruppoMerceologico sottogruppoMerceologico) {
-		return new WriteSottogruppoMerceologico().add(sottogruppoMerceologico, false);
+		return new SottogruppoMerceologicoDao().add(sottogruppoMerceologico, false);
 	}
 	public static int add(StabileOrganizzazione stabileOrganizzazione) {
-		return new WriteStabileOrganizzazione().add(stabileOrganizzazione, false);
+		return new StabileOrganizzazioneDao().add(stabileOrganizzazione, false);
 	}
 	public static int add(StatoFattura statoFattura) {
-		return new WriteStatoFattura().add(statoFattura, false);
+		return new StatoFatturaDao().add(statoFattura, false);
 	}
 	public static int add(Contatto contatto) {
-		return new WriteContatto().add(contatto, false);
+		return new ContattoDao().add(contatto, false);
 	}
 	public static int add(TerzoIntermediario terzoIntermediario) {
-		return new WriteTerzoIntermediario().add(terzoIntermediario, false);
+		return new TerzoIntermediarioDao().add(terzoIntermediario, false);
 	}
 	public static int add(TipoBento tipoBento) {
-		return new WriteTipoBento().add(tipoBento, false);
+		return new TipoBentoDao().add(tipoBento, false);
 	}
 	public static int add(TipoCliente tipoCliente) {
-		return new WriteTipoCliente().add(tipoCliente, false);
+		return new TipoClienteDao().add(tipoCliente, false);
 	}
 	public static int add(TipoIndirizzo tipoIndirizzo) {
-		return new WriteTipoIndirizzo().add(tipoIndirizzo, false);
+		return new TipoIndirizzoDao().add(tipoIndirizzo, false);
 	}
 	public static int add(TipoMagazzino tipoMagazzino) {
-		return new WriteTipoMagazzino().add(tipoMagazzino, false);
+		return new TipoMagazzinoDao().add(tipoMagazzino, false);
 	}
 	public static int add(TipoPagamento tipoPagamento) {
-		return new WriteTipoPagamento().add(tipoPagamento, false);
+		return new TipoPagamentoDao().add(tipoPagamento, false);
 	}
 	public static int add(TipoRigaDocumento tipoRigaDocumento) {
-		return new WriteTipoRigaDocumento().add(tipoRigaDocumento, false);
+		return new TipoRigaDocumentoDao().add(tipoRigaDocumento, false);
 	}
 	public static int add(UnitaMisura unitaMisura) {
-		return new WriteUnitaMisura().add(unitaMisura, false);
+		return new UnitaMisuraDao().add(unitaMisura, false);
 	}
 	public static int add(Utente utente) {
-		return new WriteUtente().add(utente, false);
+		return new UtenteDao().add(utente, false);
 	}
 	public static int add(Vettore vettore) {
-		return new WriteVettore().add(vettore, false);
+		return new VettoreDao().add(vettore, false);
 	}
 }

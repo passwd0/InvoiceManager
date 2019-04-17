@@ -1,9 +1,5 @@
 package invoicemanager.persistence;
 
-						codiceFiscale, pagamento, banca, numeroFattureEmesse, iva, imponibileNonEsente, imponibileEsente, importoIVA, codiceClassificazione, 
-				float importoIVA = rs.getFloat("importoIVA");
-				float importoPlafond = rs.getFloat("importoPlafond");
-				float importoUltimaFattura = rs.getFloat("importoUltimaFattura");
 import invoicemanager.model.Agente;
 import invoicemanager.model.Banca;
 import invoicemanager.model.Cliente;
@@ -32,8 +28,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-						importoPlafond, numeroUltimaFattura, dataInizioPlafond, indicatoreFattureXML, indicatoreDdtEmail, indicatorePlafond, 
-						indicatoreScorporoIVA, indicatoreIVADifferita, indicatoreEmail, inputInibito, indicatoreFatturePA, dataUltimaFattura, importoUltimaFattura, 
 
 public class ClienteDao {
 	private Connection c;
