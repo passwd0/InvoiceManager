@@ -4,7 +4,33 @@ cd src/invoicemanager/persistence/
 
 for i in Write*; do
 	filename=$(echo ${i:5} | sed 's/\..*//')
-	filename_dao=${filename}Dao.java
-	cat $i > $filename_dao
-	cat Read${filename}.java >> $filename_dao
+	dao_filename=${filename}Dao		#AgenteDao
+	write_filename=$i			#WriteAgente.java
+	read_filename=Read${filename}.java	#ReadAgente.java
+
+	#package
+	echo -e "package invoicemanager.persistence;\n" > ${dao_filename}.tmp
+
+	#imports
+	grep 'import' $write_filename > imports.tmp
+	grep 'import' $read_filename >> imports.tmp
+	cat imports.tmp | sort | uniq >> ${dao_filename}.tmp
+	rm imports.tmp
+
+	#costruttore
+	echo -e "\npublic class ${dao_filename} {" >> ${dao_filename}.tmp
+	echo -e "\tprivate Connection c;\n" >> ${dao_filename}.tmp
+	echo -e "\tpublic ${dao_filename}() {" >> ${dao_filename}.tmp
+	echo -e "\t\ttry { c = ConnectionFactory.getConnection(); }" >> ${dao_filename}.tmp
+	echo -e "\t\tcatch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }" >> ${dao_filename}.tmp
+	echo -e "\t}\n" >> ${dao_filename}.tmp
+
+	#add fino alla fine -1
+	add_index=$(grep -n 'add' $write_filename | cut -d':' -f1)
+	tail -n +${add_index} ${write_filename} | head -n -1 >> ${dao_filename}.tmp
+
+	#read
+	read_index=$(grep -n 'read(' $read_filename | cut -d':' -f1)
+	tail -n +${read_index} ${read_filename} >> ${dao_filename}.tmp
+	mv ${dao_filename}.tmp ${dao_filename}.java
 done

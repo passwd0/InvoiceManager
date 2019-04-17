@@ -85,7 +85,7 @@ public final class DataManager {
     	stmt.close();
         c.close();
 	
-		new WriteAgente().createTable();
+		new AgenteDao().createTable();
 		new WriteAllegato().createTable();
 		new WriteAltroDatoGestionale().createTable();
 		new WriteAreaGeografica().createTable();
