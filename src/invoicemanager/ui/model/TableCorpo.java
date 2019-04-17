@@ -1,6 +1,6 @@
 package invoicemanager.ui.model;
 
-import invoicemanager.model.fatturazione.UnitaMisura;
+import invoicemanager.model.UnitaMisura;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
