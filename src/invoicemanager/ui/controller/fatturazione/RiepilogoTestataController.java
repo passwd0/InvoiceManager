@@ -94,11 +94,8 @@ public class RiepilogoTestataController implements Initializable {
 	
 	@FXML
 	public void combobox_cliente_onShowing(Event event) {
-		System.out.println("called SHOWING");
-
 		oClientiId.setAll(DataManager.loadCliente());
 	}
-	
 	@FXML
 	public void combobox_causale_onShowing(Event event) {
 		oCausaliId.setAll(DataManager.loadCausaleMagazzino());
@@ -127,7 +124,7 @@ public class RiepilogoTestataController implements Initializable {
 					.collect(Collectors.toList());
 			if (indirizziGeografici.size() > 0) {
 				// SPEDIZIONE e CODICI
-				InvoiceManagerGrid.tabViewController.oIndirizzoGeograficoSpedizione.setAll(indirizziGeografici);
+				InvoiceManagerGrid.tabViewController.oCodiceSpedizione.setAll(indirizziGeografici);
 				// CLIENTE
 				IndirizzoGeografico indirizzoGeograficoDefault = indirizziGeografici.stream()
 						.filter(ig -> ig.isIndicatoreIndirizzoDefault()).findFirst().orElse(null);

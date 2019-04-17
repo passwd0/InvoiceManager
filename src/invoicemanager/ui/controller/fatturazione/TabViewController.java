@@ -14,6 +14,7 @@ import invoicemanager.model.fatturazione.Magazzino;
 import invoicemanager.model.fatturazione.OrdineTestata;
 import invoicemanager.model.fatturazione.StatoAvanzamento;
 import invoicemanager.model.fatturazione.UnitaMisura;
+import invoicemanager.ui.fatturazione.InvoiceManagerGrid;
 import invoicemanager.ui.fatturazione.converter.ArticoloMagazzinoConverter;
 import invoicemanager.ui.fatturazione.converter.CodiceSpedizioneConverter;
 import invoicemanager.ui.fatturazione.converter.DdtTestataConverter;
@@ -42,6 +43,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.WindowEvent;
 
 public class TabViewController implements Initializable {
 	@FXML
@@ -291,9 +293,11 @@ public class TabViewController implements Initializable {
     private TableColumn<TableCorpo, String> table_corposcontocliente;
     
     //TESTATA
+    public ObservableList<IndirizzoGeografico> oCodiceSpedizione;
+    public ObservableList<String> oLocalitaSpedizione;
+    public ObservableList<String> oNazioneSpedizione;
     public ObservableList<DdtTestata> oDdtTestata;
     public ObservableList<OrdineTestata> oOrdineTestata;
-    public ObservableList<IndirizzoGeografico> oIndirizzoGeograficoSpedizione;
     //CORPO
     public ObservableList<Magazzino> oMagazzino;		//sono relativi all'utente che sta fatturando quindi pressoche' immodificabili
     private ObservableList<String> oDivisa;				//sono per tutti uguali quindi immodificabili
@@ -304,43 +308,39 @@ public class TabViewController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//TESTATA
-		oIndirizzoGeograficoSpedizione = FXCollections.observableArrayList(
-				DataManager.loadIndirizzoGeografico().stream()
-				.collect(Collectors.toList()));
-		combobox_codicespedizione.setItems(oIndirizzoGeograficoSpedizione);
+
+		/* TESTATA */
+		oCodiceSpedizione = FXCollections.observableArrayList();
+		combobox_codicespedizione.setItems(oCodiceSpedizione);
 		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());
 
-		oOrdineTestata = FXCollections.observableArrayList(
-				DataManager.loadOrdineTestata().stream()
-				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
-				.collect(Collectors.toList()));
+		oLocalitaSpedizione = FXCollections.observableArrayList();
+		combobox_localitaspedizione.setItems(oLocalitaSpedizione);
+		
+		oNazioneSpedizione = FXCollections.observableArrayList();
+		combobox_nazionespedizione.setItems(oNazioneSpedizione);
+		
+		oOrdineTestata = FXCollections.observableArrayList();
 		combobox_ordinen.setItems(oOrdineTestata);
 		combobox_ordinen.setConverter(new OrdineTestataConverter());
 
-		oDdtTestata = FXCollections.observableArrayList(
-				DataManager.loadDdtTestata().stream()
-				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
-				.collect(Collectors.toList()));
+		oDdtTestata = FXCollections.observableArrayList();
 		combobox_bollan.setItems(oDdtTestata);
 		combobox_bollan.setConverter(new DdtTestataConverter());
-
-		combobox_localitaspedizione.setItems(FXCollections.observableArrayList(Utils.listaLocalita));
-		combobox_nazionespedizione.setItems(FXCollections.observableArrayList(Utils.listaNazioni));
 		
-		//CORPO
-		oMagazzino = FXCollections.observableArrayList(DataManager.loadMagazzino());
+		/* CORPO */
+		oMagazzino = FXCollections.observableArrayList();
 		combobox_magazzino.setItems(oMagazzino);
 		combobox_magazzino.setConverter(new MagazzinoConverter());
 		
-		oDivisa = FXCollections.observableArrayList(Arrays.asList("EUR", "USD", "AAA", "BBB"));
+		oDivisa = FXCollections.observableArrayList();
 		combobox_divisa.setItems(oDivisa);
 		
 		textfield_algiorno.setText(LocalDate.now().format(Utils.formatterData));
 		
 		combobox_cambio.setItems(oDivisa);
 		
-		oArticolo = FXCollections.observableArrayList(DataManager.loadArticoloMagazzino());
+		oArticolo = FXCollections.observableArrayList();
 		combobox_articolo.setItems(oArticolo);
 		combobox_articolo.setConverter(new ArticoloMagazzinoConverter());
 		
@@ -348,7 +348,7 @@ public class TabViewController implements Initializable {
 		combobox_artprezzo.setItems(oArticoloPrezzo);
 		combobox_artprezzo.setConverter(new ListinoArticoloConverter());
 		
-		oUnitaMisura = FXCollections.observableArrayList(DataManager.loadUnitaMisura());
+		oUnitaMisura = FXCollections.observableArrayList();
 		combobox_unitamisura.setItems(oUnitaMisura);
 		combobox_unitamisura.setConverter(new UnitaMisuraConverter());
 		
@@ -362,19 +362,61 @@ public class TabViewController implements Initializable {
 		table_corpo.setItems(oTableCorpo);
 	}
 	
+	/* TESTATA UPDATE */
 	@FXML
-	void combobox_articolo_onAction(ActionEvent event) {
-		System.out.println("combobox_articolo_onAction");
+	void combobox_codicespedizione_onShowing(Event event) {
+		oCodiceSpedizione.setAll(DataManager.loadIndirizzoGeografico().stream()
+				.filter(ig -> ig.getCodiceConto().equals(InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue().getCodiceCliente()))
+				.collect(Collectors.toList()));
+	}
+	@FXML
+	void combobox_localitaspedizione_onShowing(Event event) {
+		oLocalitaSpedizione.setAll(Utils.listaLocalita);
+	}
+	@FXML
+	void combobox_nazionespedizione_onShowing(Event event) {
+		oNazioneSpedizione.setAll(oNazioneSpedizione);
+	}
+	@FXML
+	void combobox_ordinen_onShowing(Event event) {
+		oOrdineTestata.setAll(DataManager.loadOrdineTestata().stream()
+				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
+				.collect(Collectors.toList()));
+	}
+	@FXML
+	void combobox_bollan_onShowing(Event event) {
+		oDdtTestata.setAll(DataManager.loadDdtTestata().stream()
+				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
+				.collect(Collectors.toList()));
+	}
+	
+	
+	/* CORPO UPDATE */
+	@FXML
+	void combobox_magazzino_onShowing(Event event) {
+		oMagazzino.setAll(DataManager.loadMagazzino());
+	}
+	@FXML
+	void combobox_divisa_onShowing(Event event) {
+		oDivisa.setAll(Utils.listaDivise);	//bisognera' mettere un enum oppure una tabella
+	}
+	@FXML
+	void combobox_articolo_onShowing(Event event) {
+		oArticolo.setAll(DataManager.loadArticoloMagazzino());
+	}
+	@FXML
+	void combobox_artprezzo_onShowing(Event event) {
 		ArticoloMagazzino articolo = combobox_articolo.getValue();
-//		textfield_descr.setText(articolo.getDescrizione());
-//		textfield_descraggiuntiva.setText(articolo);
 		if (articolo != null) {
 			oArticoloPrezzo.setAll(articolo.getListiniArticolo());
-			textfield_scontoart.setText(String.valueOf(articolo.getSconto()));
-			textarea_note.setText(articolo.getNote());
 		}
 	}
-
+	@FXML 
+	void combobox_unitamisura_onShowing(Event event){
+		oUnitaMisura.setAll(DataManager.loadUnitaMisura());
+	}
+	
+	/* TESTATA */
 	@FXML
 	public void combobox_codicespedizione_onAction(Event e) {
 //		IndirizzoGeografico indirizzoGeografico = combobox_codicespedizione.getValue();
@@ -388,7 +430,6 @@ public class TabViewController implements Initializable {
 //			textfield_capspedizione.setText(indirizzoGeografico.getCap());
 //		}
 	}
-
 	@FXML
 	public void combobox_ordinen_onAction(ActionEvent event) {
 		OrdineTestata ordineTestata = combobox_ordinen.getValue();
@@ -403,8 +444,19 @@ public class TabViewController implements Initializable {
 			textfield_bollandel.setText(ddtTestata.getDataDDT().format(Utils.formatterData));
 	}
 	
+	/* CORPO */
 	@FXML
-    public void combobox_magazzino_onAction(Event event) {
+	void combobox_articolo_onAction(ActionEvent event) {
+		ArticoloMagazzino articolo = combobox_articolo.getValue();
+		textfield_descr.setText(articolo.getDescrizione());
+//		textfield_descraggiuntiva.setText(articolo);
+		if (articolo != null) {
+			textfield_scontoart.setText(String.valueOf(articolo.getSconto()));
+			textarea_note.setText(articolo.getNote());
+		}
+	}
+	@FXML
+    public void combobox_magazzino_onAction(ActionEvent event) {
 		Magazzino magazzino = combobox_magazzino.getValue();
 		if (magazzino != null)
 			textfield_magazzino.setText(magazzino.getDescrizione());
@@ -412,7 +464,6 @@ public class TabViewController implements Initializable {
 	
 	@FXML 
 	void button_inserisci_onAction(ActionEvent event) {
-		System.out.println("inserisci button");
 		ArticoloMagazzino articoloMagazzino = combobox_articolo.getValue();
 		float artQuantita = 0;
 		float scontoCliente = 0;
@@ -443,10 +494,8 @@ public class TabViewController implements Initializable {
 		oTableCorpo.add(new TableCorpo(articoloMagazzino.getCodiceArticolo(), textfield_descr.getText(), artQuantita, combobox_artprezzo.getValue().getPrezzo(), combobox_unitamisura.getValue(), scontoCliente));
 		cleanCorpoArticolo();
 	}
-	
 	@FXML
 	void button_modifica_onAction(ActionEvent event) {
-		System.out.println("modifica button");
 		TableCorpo rowSelected = table_corpo.getSelectionModel().getSelectedItem();
 		ArticoloMagazzino articoloSelected = oArticolo.stream().filter(a -> a.getCodiceArticolo().equals(rowSelected.getCodiceArticolo())).findFirst().orElse(null);
 		if (articoloSelected == null) {
@@ -465,7 +514,6 @@ public class TabViewController implements Initializable {
 		combobox_unitamisura.setValue(oUnitaMisura.stream().filter(um -> um.getCodiceUnitaMisura().equals(rowSelected.getUnitaMisura())).findFirst().orElse(null));
 		oTableCorpo.remove(rowSelected);
 	}
-	
 	@FXML
 	void button_eliminariga_onAction(ActionEvent event) {
 		TableCorpo element = table_corpo.getSelectionModel().getSelectedItem();
@@ -473,6 +521,7 @@ public class TabViewController implements Initializable {
 			oTableCorpo.remove(element);
 	}
 
+	/* CLEANER */
 	public void cleanTestata() {
 		label_statodocumento.setText("");
 		label_ragionesociale.setText("");
@@ -513,7 +562,6 @@ public class TabViewController implements Initializable {
 		checkbox_lotti.setSelected(false);
 		textfield_iddest.clear();
 	}
-	
 	public void cleanCorpo() {
 		combobox_magazzino.getSelectionModel().clearSelection();
 		textfield_magazzino.clear();
@@ -523,9 +571,7 @@ public class TabViewController implements Initializable {
 		combobox_cambio.getSelectionModel().clearSelection();
 		cleanCorpoArticolo();
 	}
-	
 	private void cleanCorpoArticolo() {
-		System.out.println("cleanCorpoArticolo");
 		combobox_articolo.getSelectionModel().clearSelection();
 		textfield_descr.clear();
 		textfield_descraggiuntiva.clear();

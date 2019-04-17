@@ -239,8 +239,8 @@
                                     <TextField fx:id="textfield_iddest" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
                                     <TextField fx:id="textfield_ordinendel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <TextField fx:id="textfield_bollandel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                    <ComboBox fx:id="combobox_ordinen" maxWidth="1.7976931348623157E308" onAction="#combobox_ordinen_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
-                                    <ComboBox fx:id="combobox_bollan" onAction="#combobox_bollan_onAction" prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <ComboBox fx:id="combobox_ordinen" maxWidth="1.7976931348623157E308" onAction="#combobox_ordinen_onAction" onShowing="#combobox_ordinen_onShowing" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <ComboBox fx:id="combobox_bollan" onAction="#combobox_bollan_onAction" onShowing="#combobox_bollan_onShowing" prefWidth="150.0" GridPane.columnIndex="3" />
                                     <TextField fx:id="textfield_copie" GridPane.columnIndex="5">
                                        <GridPane.margin>
                                           <Insets right="10.0" />
@@ -283,7 +283,7 @@
                                           <Insets right="10.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <ComboBox fx:id="combobox_magazzino" onAction="#combobox_magazzino_onAction" prefWidth="150.0">
+                                    <ComboBox fx:id="combobox_magazzino" onAction="#combobox_magazzino_onAction" onShowing="#combobox_magazzino_onShowing" prefWidth="150.0">
                                        <HBox.margin>
                                           <Insets right="10.0" />
                                        </HBox.margin>
@@ -334,7 +334,7 @@
                                           <Label text="Sconto cliente:" GridPane.rowIndex="4" />
                                           <Label text="Note:" GridPane.rowIndex="5" />
                                           <ComboBox fx:id="combobox_divisa" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" />
-                                          <ComboBox fx:id="combobox_artprezzo" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <ComboBox fx:id="combobox_artprezzo" onShowing="#combobox_artprezzo_onShowing" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                           <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Prezzo:" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                              <GridPane.margin>
                                                 <Insets right="10.0" />
@@ -375,7 +375,7 @@
                                           <TextField fx:id="textfield_descraggiuntiva" GridPane.columnIndex="3" GridPane.columnSpan="5" GridPane.rowIndex="2" />
                                           <TextField fx:id="textfield_scontopag" GridPane.columnIndex="5" GridPane.rowIndex="4" />
                                           <TextField fx:id="textfield_divisa" GridPane.columnIndex="2" GridPane.columnSpan="4" />
-                                          <ComboBox fx:id="combobox_articolo" maxWidth="1.7976931348623157E308" onAction="#combobox_articolo_onAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <ComboBox fx:id="combobox_articolo" maxWidth="1.7976931348623157E308" onAction="#combobox_articolo_onAction" onShowing="#combobox_articolo_onShowing" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                                           <ComboBox fx:id="combobox_unitamisura" prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="3" />
                                           <TextField fx:id="textfield_percpro" GridPane.columnIndex="7" GridPane.rowIndex="4" />
                                           <Spinner fx:id="spinner_iva" GridPane.columnIndex="9" GridPane.rowIndex="3" />

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Utils {
 	public static DateTimeFormatter formatterOra = DateTimeFormatter.ofPattern("HH:mm");
@@ -18,6 +19,7 @@ public class Utils {
 	public static DateTimeFormatter formatterCompleteDB = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 	public static List<String> listaLocalita = new ArrayList<>(Arrays.asList("citta_a", "citta_b", "citta_c"));
 	public static List<String> listaNazioni = new ArrayList<>(Arrays.asList("nazione_a", "nazione_b", "nazione_c"));
+	public static List<String> listaDivise = new ArrayList<>(Arrays.asList("EUR", "USD", "AAA", "BBB"));
 	
 	public Utils() {}
 	
