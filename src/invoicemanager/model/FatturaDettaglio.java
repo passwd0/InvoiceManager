@@ -2,14 +2,14 @@ package invoicemanager.model;
 
 import java.math.RoundingMode;
 import java.text.NumberFormat;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Locale;
 
 public class FatturaDettaglio {
 	private int numeroFattura;
-	private LocalDate dataFattura;
+	private Date dataFattura;
 	private int numeroRigaFattura;
 	private int sezionale = 1;
 	private String codiceTipoRigaDocumento;
@@ -17,7 +17,7 @@ public class FatturaDettaglio {
 	private float costo;
 	private int numeroOrdine;
 	private int numeroRigaOrdine;
-	private LocalDate dataOrdine;
+	private Date dataOrdine;
 	private float quantitaDaConsegnare;
 	private boolean indicatoreEvasione;
 	private String descrizione;
@@ -50,16 +50,16 @@ public class FatturaDettaglio {
 	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis());
 	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis());
 
-	public FatturaDettaglio(int numeroFattura, LocalDate dataFattura, int numeroRigaFattura) {
+	public FatturaDettaglio(int numeroFattura, Date dataFattura, int numeroRigaFattura) {
 		super();
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
 	}
 
-	public FatturaDettaglio(int numeroFattura, LocalDate dataFattura, int numeroRigaFattura, int sezionale,
+	public FatturaDettaglio(int numeroFattura, Date dataFattura, int numeroRigaFattura, int sezionale,
 			String codiceTipoRigaDocumento, String codiceArticolo, float costo, int numeroOrdine, int numeroRigaOrdine,
-			LocalDate dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
+			Date dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
 			float quantita, float prezzo, String codiceIva, String codiceContropartitaContabile,
 			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
 			float percentualeScontoPagamento, String codiceUnitaMisura, String serialNumber,
@@ -135,11 +135,11 @@ public class FatturaDettaglio {
 		this.numeroFattura = numeroFattura;
 	}
 
-	public LocalDate getDataFattura() {
+	public Date getDataFattura() {
 		return dataFattura;
 	}
 
-	public void setDataFattura(LocalDate dataFattura) {
+	public void setDataFattura(Date dataFattura) {
 		this.dataFattura = dataFattura;
 	}
 
@@ -191,11 +191,11 @@ public class FatturaDettaglio {
 		this.numeroRigaOrdine = numeroRigaOrdine;
 	}
 
-	public LocalDate getDataOrdine() {
+	public Date getDataOrdine() {
 		return dataOrdine;
 	}
 
-	public void setDataOrdine(LocalDate dataOrdine) {
+	public void setDataOrdine(Date dataOrdine) {
 		this.dataOrdine = dataOrdine;
 	}
 

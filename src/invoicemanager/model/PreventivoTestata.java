@@ -1,13 +1,13 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class PreventivoTestata {
 	private int numeroPreventivo; //  NOT NULL
-	private LocalDate dataPreventivo; //  NOT NULL
+	private Date dataPreventivo; //  NOT NULL
 	private boolean indicatoreStatoAvanzamento; // NULL
-	private LocalDate dataConsegna; //  NULL
-	private LocalDate dataValidita; //  NULL
+	private Date dataConsegna; //  NULL
+	private Date dataValidita; //  NULL
 	private String periodoValidita; //(100) NULL
 	private boolean indicatoreUtilizzoDataValidita; // NULL
 	private String codiceCliente; //(30) NULL
@@ -43,13 +43,13 @@ public class PreventivoTestata {
 	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
 	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
-	public PreventivoTestata(int numeroPreventivo, LocalDate dataPreventivo){
+	public PreventivoTestata(int numeroPreventivo, Date dataPreventivo){
 		this.numeroPreventivo = numeroPreventivo;
 		this.dataPreventivo = dataPreventivo;
 	}
 
-	public PreventivoTestata(int numeroPreventivo, LocalDate dataPreventivo, boolean indicatoreStatoAvanzamento,
-			LocalDate dataConsegna, LocalDate dataValidita, String periodoValidita,
+	public PreventivoTestata(int numeroPreventivo, Date dataPreventivo, boolean indicatoreStatoAvanzamento,
+			Date dataConsegna, Date dataValidita, String periodoValidita,
 			boolean indicatoreUtilizzoDataValidita, String codiceCliente, String attenzione, String oggetto,
 			String riferimentoInterno, String numeroInterno, String codiceIVA, String codiceAgente, String codiceResa,
 			String codiceVettore, String codicePagamento, String codiceBanca, String codiceCausale,
@@ -108,11 +108,11 @@ public class PreventivoTestata {
 		this.numeroPreventivo = numeroPreventivo;
 	}
 
-	public LocalDate getDataPreventivo() {
+	public Date getDataPreventivo() {
 		return dataPreventivo;
 	}
 
-	public void setDataPreventivo(LocalDate dataPreventivo) {
+	public void setDataPreventivo(Date dataPreventivo) {
 		this.dataPreventivo = dataPreventivo;
 	}
 
@@ -124,19 +124,19 @@ public class PreventivoTestata {
 		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
 	}
 
-	public LocalDate getDataConsegna() {
+	public Date getDataConsegna() {
 		return dataConsegna;
 	}
 
-	public void setDataConsegna(LocalDate dataConsegna) {
+	public void setDataConsegna(Date dataConsegna) {
 		this.dataConsegna = dataConsegna;
 	}
 
-	public LocalDate getDataValidita() {
+	public Date getDataValidita() {
 		return dataValidita;
 	}
 
-	public void setDataValidita(LocalDate dataValidita) {
+	public void setDataValidita(Date dataValidita) {
 		this.dataValidita = dataValidita;
 	}
 

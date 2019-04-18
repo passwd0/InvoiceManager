@@ -96,7 +96,6 @@ public class RaggruppamentoClienteFornitoreDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM RaggruppamentoClienteFornitore");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceRaggruppamento = rs.getString("codiceRaggruppamento");

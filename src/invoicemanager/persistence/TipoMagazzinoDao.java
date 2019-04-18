@@ -66,7 +66,6 @@ public class TipoMagazzinoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TipoMagazzino");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				boolean codiceTipoMagazzino = rs.getBoolean("codiceTipoMagazzino");

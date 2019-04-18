@@ -66,7 +66,6 @@ public class TipoBentoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TipoBento");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceTipoBento = rs.getString("codiceTipoBento");

@@ -103,7 +103,6 @@ public class ResaMerceDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM ResaMerce");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceResa = rs.getString("codiceResa");

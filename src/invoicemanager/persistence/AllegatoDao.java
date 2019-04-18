@@ -60,7 +60,6 @@ public class AllegatoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Allegato");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String nomeAllegato = rs.getString("nomeAllegato");

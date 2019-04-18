@@ -1,16 +1,16 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class FatturaCollegata{ //List
 	private int numeroFtCollegate; //  NULL,
 	private int numeroRigaFtCollegate; //  NULL,
 	private int sezionale = 1;
-	private LocalDate dataFtCollegate; //  NULL,
+	private Date dataFtCollegate; //  NULL,
 	private String ftcCodiceCommessaFtCollegate; // (100),
 	private String ftcCodiceCUP; // (15),
 	private String ftcCodiceCIG; // (15),
 	
-	public FatturaCollegata(int numeroFtCollegate, int numeroRigaFtCollegate, int sezionale, LocalDate dataFtCollegate,
+	public FatturaCollegata(int numeroFtCollegate, int numeroRigaFtCollegate, int sezionale, Date dataFtCollegate,
 			String ftcCodiceCommessaFtCollegate, String ftcCodiceCUP, String ftcCodiceCIG) {
 		this.numeroFtCollegate = numeroFtCollegate;
 		this.numeroRigaFtCollegate = numeroRigaFtCollegate;
@@ -41,10 +41,10 @@ public class FatturaCollegata{ //List
 	public void setNumeroRigaFtCollegate(int numeroRigaFtCollegate) {
 		this.numeroRigaFtCollegate = numeroRigaFtCollegate;
 	}
-	public LocalDate getDataFtCollegate() {
+	public Date getDataFtCollegate() {
 		return dataFtCollegate;
 	}
-	public void setDataFtCollegate(LocalDate dataFtCollegate) {
+	public void setDataFtCollegate(Date dataFtCollegate) {
 		this.dataFtCollegate = dataFtCollegate;
 	}
 	public String getFtcCodiceCommessaFtCollegate() {

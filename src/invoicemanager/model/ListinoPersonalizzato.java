@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class ListinoPersonalizzato implements Listino {
@@ -18,8 +18,8 @@ public class ListinoPersonalizzato implements Listino {
 	private float scontoPagamento; //  NULL
 	private String codiceDivisa; //(4) NOT NULL
 	private GruppoMerceologico gruppoMerceologico; //(4) NULL
-	private LocalDate dataInizioValidita; //  NULL
-	private LocalDate dataFineValidita; //  NULL
+	private Date dataInizioValidita; //  NULL
+	private Date dataFineValidita; //  NULL
 	private boolean opzioneGruppi; //  NULL
 	private boolean opzioneScontoClienti; //  NULL
 	private boolean opzioneScontoArticolo; //  NULL
@@ -40,7 +40,7 @@ public class ListinoPersonalizzato implements Listino {
 			String variante, float prezzo, float provvigione, String noteEsterne, String noteInterne,
 			int numeroDecimali, float scontoCliente, Timestamp dataAggiornamento, float scontoArticolo,
 			float scontoPagamento, String codiceDivisa, GruppoMerceologico gruppoMerceologico,
-			LocalDate dataInizioValidita, LocalDate dataFineValidita, boolean opzioneGruppi,
+			Date dataInizioValidita, Date dataFineValidita, boolean opzioneGruppi,
 			boolean opzioneScontoClienti, boolean opzioneScontoArticolo, boolean opzioneScontoPagamento,
 			boolean opzionePercentualeProvvigione, boolean opzioneNoteEsterne, boolean opzioneNoteInterne,
 			Timestamp dataInserimento, Timestamp dataUltimaModifica) {
@@ -214,19 +214,19 @@ public class ListinoPersonalizzato implements Listino {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
-	public LocalDate getDataInizioValidita() {
+	public Date getDataInizioValidita() {
 		return dataInizioValidita;
 	}
 
-	public void setDataInizioValidita(LocalDate dataInizioValidita) {
+	public void setDataInizioValidita(Date dataInizioValidita) {
 		this.dataInizioValidita = dataInizioValidita;
 	}
 
-	public LocalDate getDataFineValidita() {
+	public Date getDataFineValidita() {
 		return dataFineValidita;
 	}
 
-	public void setDataFineValidita(LocalDate dataFineValidita) {
+	public void setDataFineValidita(Date dataFineValidita) {
 		this.dataFineValidita = dataFineValidita;
 	}
 

@@ -1,13 +1,15 @@
 package invoicemanager.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class FatturaTestata {
 	private int id;			//uniq serial autoinc
 	private int numeroFatturazione;
-	private LocalDate dataFattura;
+	private Date dataFattura;
 	private StatoAvanzamento statoAvanzamento = StatoAvanzamento.DAINVIARE;
 	private int sezionale = 1;
 	private String codiceClienteFatturazione;
@@ -52,13 +54,13 @@ public class FatturaTestata {
 	private float speseBolli;
 	private float omaggi;
 	private float totalePagato;
-	private LocalDate dataScadenza;
+	private Date dataScadenza;
 	private float importoScadenza;
 	private List<Allegato> allegati;		//ci sara' una lista di allegati collegati tramite un id
 	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis());
 	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis());
 
-	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura, StatoAvanzamento statoAvanzamento,
+	public FatturaTestata(int numeroFatturazione, Date dataFattura, StatoAvanzamento statoAvanzamento,
 			int sezionale, String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
 			String codiceCausalePrelievi, float percentualeSconto, float percentualeScontoPagamento,
 			float percentualeProvvigione, String descrizione, boolean indicatoreAddebitoBolli,
@@ -70,7 +72,7 @@ public class FatturaTestata {
 			String codiceNazioneSpedizione, String note, boolean indicatoreFatturazioneDifferita,
 			boolean indicatoreEmail, boolean indicatorePa, List<FatturaDettaglio> fatturadettaglio,
 			float speseTrasporto, float speseImballo, float speseIncasso, float speseBolli, float omaggi,
-			float totalePagato, LocalDate dataScadenza, float importoScadenza, List<Allegato> allegati) {
+			float totalePagato, Date dataScadenza, float importoScadenza, List<Allegato> allegati) {
 		this.numeroFatturazione = numeroFatturazione;
 		this.dataFattura = dataFattura;
 		this.statoAvanzamento = statoAvanzamento;
@@ -122,7 +124,7 @@ public class FatturaTestata {
 		this.allegati = allegati;
 	}
 	
-	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura, int sezionale, String codiceClienteFatturazione) {
+	public FatturaTestata(int numeroFatturazione, Date dataFattura, int sezionale, String codiceClienteFatturazione) {
 		this.numeroFatturazione = numeroFatturazione;
 		this.dataFattura = dataFattura;
 		this.codiceClienteFatturazione = codiceClienteFatturazione;
@@ -145,11 +147,11 @@ public class FatturaTestata {
 		this.sezionale = sezionale;
 	}
 
-	public LocalDate getDataScadenza() {
+	public Date getDataScadenza() {
 		return dataScadenza;
 	}
 
-	public void setDataScadenza(LocalDate dataScadenza) {
+	public void setDataScadenza(Date dataScadenza) {
 		this.dataScadenza = dataScadenza;
 	}
 
@@ -225,11 +227,11 @@ public class FatturaTestata {
 		this.numeroFatturazione = numeroFatturazione;
 	}
 
-	public LocalDate getDataFattura() {
+	public Date getDataFattura() {
 		return dataFattura;
 	}
 
-	public void setDataFattura(LocalDate dataFattura) {
+	public void setDataFattura(Date dataFattura) {
 		this.dataFattura = dataFattura;
 	}
 
@@ -571,8 +573,11 @@ public class FatturaTestata {
 			if (other.dataFattura != null)
 				return false;
 		} else {
-		    int y1 = dataFattura.getYear();
-		    int y2 = other.dataFattura.getYear();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(this.dataFattura);
+			int y1 = calendar.get(Calendar.YEAR);
+			calendar.setTime(other.dataFattura);
+			int y2 = calendar.get(Calendar.YEAR);
 			if (y1 != y2)
 				return false;
 		}

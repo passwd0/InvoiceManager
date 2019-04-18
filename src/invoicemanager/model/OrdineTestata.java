@@ -1,12 +1,12 @@
 package invoicemanager.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
 public class OrdineTestata{
 	private int numeroOrdine; //  NOT NULL
-	private LocalDate dataOrdine; //  NOT NULL
+	private Date dataOrdine; //  NOT NULL
 	private StatoAvanzamento statoAvanzamento = StatoAvanzamento.DAINVIARE; // NULL
 	private String codiceClienteFatturazione; //(30) NULL			//codiceCliente
 	private String descrizione; //(200) NULL
@@ -24,7 +24,7 @@ public class OrdineTestata{
 	private String codiceCausale; //(4) NULL
 	private String codicePagamento; //(4) NULL
 	private String codiceBanca; //(4) NULL
-	private LocalDate dataConsegna; //  NULL
+	private Date dataConsegna; //  NULL
 	private String causaleTrasporto; //(50) NULL
 	private String codiceDivisa; //(4) NULL
 	private boolean indicatoreConsegnaParziale; // NULL
@@ -48,17 +48,17 @@ public class OrdineTestata{
 	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
 	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 	
-	public OrdineTestata(int numeroOrdine, LocalDate dataOrdine) {
+	public OrdineTestata(int numeroOrdine, Date dataOrdine) {
 		this.numeroOrdine = numeroOrdine;
 		this.dataOrdine = dataOrdine;
 	}
 
-	public OrdineTestata(int numeroOrdine, LocalDate dataOrdine, StatoAvanzamento statoAvanzamento,
+	public OrdineTestata(int numeroOrdine, Date dataOrdine, StatoAvanzamento statoAvanzamento,
 			String codiceClienteFatturazione, String descrizione, String codiceEsenzioneIva, String codiceAgente,
 			float percentualeProvvigione, float percentualeSconto, float percentualeScontoPagamento,
 			int numeroCopieFattura, boolean indicatoreAddebitoBolli, boolean indicatoreAddebitoSpeseIncasso,
 			int codiceListino, String codiceResa, String codiceVettore, String codiceCausale,
-			String codicePagamento, String codiceBanca, LocalDate dataConsegna, String causaleTrasporto,
+			String codicePagamento, String codiceBanca, Date dataConsegna, String causaleTrasporto,
 			String codiceDivisa, boolean indicatoreConsegnaParziale, boolean indicatoreRaggruppamentoConsegne,
 			String codiceAgenteVecchio, String codiceClienteSpedizione, String nomeSpedizione,
 			String indirizzoSpedizione, String capSpedizione, String cittaSpedizione, String provinciaSpedizione,
@@ -125,11 +125,11 @@ public class OrdineTestata{
 		this.numeroOrdine = numeroOrdine;
 	}
 
-	public LocalDate getDataOrdine() {
+	public Date getDataOrdine() {
 		return dataOrdine;
 	}
 
-	public void setDataOrdine(LocalDate dataOrdine) {
+	public void setDataOrdine(Date dataOrdine) {
 		this.dataOrdine = dataOrdine;
 	}
 
@@ -269,11 +269,11 @@ public class OrdineTestata{
 		this.codiceBanca = codiceBanca;
 	}
 
-	public LocalDate getDataConsegna() {
+	public Date getDataConsegna() {
 		return dataConsegna;
 	}
 
-	public void setDataConsegna(LocalDate dataConsegna) {
+	public void setDataConsegna(Date dataConsegna) {
 		this.dataConsegna = dataConsegna;
 	}
 

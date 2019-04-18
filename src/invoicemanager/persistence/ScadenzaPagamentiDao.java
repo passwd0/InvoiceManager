@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +28,8 @@ public class ScadenzaPagamentiDao {
 		
 		ps.setInt(1, a.getNumeroFattura());
 		ps.setFloat(2, a.getImportoScadenza());
-		ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataFattura()));
-		ps.setDate(4, Utils.convertToDatabaseColumn(a.getDataScadenza()));
+		ps.setDate(3, a.getDataFattura());
+		ps.setDate(4, a.getDataScadenza());
 		
 
 			res = ps.executeUpdate();
@@ -71,8 +71,8 @@ public class ScadenzaPagamentiDao {
 
 				int numeroFattura = rs.getInt("numeroFattura");
 				float importoScadenza = rs.getFloat("importoScadenza");
-				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
-				LocalDate dataScadenza = Utils.convertToEntityAttribute(rs.getDate("dataScadenza"));
+				Date dataFattura = rs.getDate("dataFattura");
+				Date dataScadenza = rs.getDate("dataScadenza");
 				
 				ScadenzaPagamenti scadenzaPagamenti = new ScadenzaPagamenti(numeroFattura, dataFattura, dataScadenza, importoScadenza);
 

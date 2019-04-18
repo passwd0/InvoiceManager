@@ -74,7 +74,6 @@ public class BentoTestataDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM BentoTestata");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceBento = rs.getString("codiceBento");

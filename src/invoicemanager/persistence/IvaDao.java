@@ -151,7 +151,6 @@ public class IvaDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Iva");
-			Timestamp ts;
 	         while ( rs.next() ) {
 				
 				String codiceIva = rs.getString("codiceIva");

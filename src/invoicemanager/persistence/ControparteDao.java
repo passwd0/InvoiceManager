@@ -96,7 +96,6 @@ public class ControparteDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Controparte");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceControparte = rs.getString("codiceControparte");

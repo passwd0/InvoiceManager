@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class FatturaProformaTestataDao {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaProformaTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroFattura());
-		ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataFattura()));
+		ps.setDate(2, a.getDataFattura());
 		ps.setBoolean(3, a.isIndicatoreStatoAvanzamento());
 		ps.setInt(4, a.getSezionale());
 		ps.setString(5, a.getCodiceClienteFatturazione());
@@ -50,7 +50,7 @@ public class FatturaProformaTestataDao {
 		ps.setString(22, a.getCodicePagamento());
 		ps.setString(23, a.getCodiceBanca());
 		ps.setInt(24, a.getNumeroDDT());
-		ps.setDate(25, Utils.convertToDatabaseColumn(a.getDataDDT()));
+		ps.setDate(25, a.getDataDDT());
 		ps.setString(26, a.getCodiceImballo());
 		ps.setFloat(27, a.getPesoColli());
 		ps.setFloat(28, a.getNumeroColli());
@@ -64,8 +64,8 @@ public class FatturaProformaTestataDao {
 		ps.setString(36, a.getCittaSpedizione());
 		ps.setString(37, a.getProvinciaSpedizione());
 		ps.setString(38, a.getCodiceNazioneSpedizione());
-		ps.setDate(39, Utils.convertToDatabaseColumn(a.getDataInserimento()));
-		ps.setDate(40, Utils.convertToDatabaseColumn(a.getDataUltimaModifica()));
+		ps.setDate(39, a.getDataInserimento());
+		ps.setDate(40, a.getDataUltimaModifica());
 		ps.setString(41, a.getNote());
 		ps.setString(42, a.getCodiceLingua());
 		ps.setBoolean(43, a.isIndicatoreFatturazioneDifferita());
@@ -159,11 +159,10 @@ public class FatturaProformaTestataDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM FatturaProformaTestata");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroFattura = rs.getInt("numeroFattura");
-				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
+				Date dataFattura = rs.getDate("dataFattura");
 				boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
 				int sezionale = rs.getInt("sezionale");
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
@@ -186,7 +185,7 @@ public class FatturaProformaTestataDao {
 				String codicePagamento = rs.getString("codicePagamento");
 				String codiceBanca = rs.getString("codiceBanca");
 				int numeroDDT = rs.getInt("numeroDDT");
-				LocalDate dataDDT = Utils.convertToEntityAttribute(rs.getDate("dataDDT"));
+				Date dataDDT = rs.getDate("dataDDT");
 				String codiceImballo = rs.getString("codiceImballo");
 				float pesoColli = rs.getFloat("pesoColli");
 				float numeroColli = rs.getFloat("numeroColli");
@@ -200,8 +199,8 @@ public class FatturaProformaTestataDao {
 				String cittaSpedizione = rs.getString("cittaSpedizione");
 				String provinciaSpedizione = rs.getString("provinciaSpedizione");
 				String codiceNazioneSpedizione = rs.getString("codiceNazioneSpedizione");
-				LocalDate dataInserimento = Utils.convertToEntityAttribute(rs.getDate("dataInserimento"));
-				LocalDate dataUltimaModifica = Utils.convertToEntityAttribute(rs.getDate("dataUltimaModifica"));
+				Date dataInserimento = rs.getDate("dataInserimento");
+				Date dataUltimaModifica = rs.getDate("dataUltimaModifica");
 				String note = rs.getString("note");
 				String codiceLingua = rs.getString("codiceLingua");
 				boolean indicatoreFatturazioneDifferita = rs.getBoolean("indicatoreFatturazioneDifferita");

@@ -67,7 +67,6 @@ public class TerzoIntermediarioDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TerzoIntermediario");
-			Timestamp ts;
 	         while ( rs.next() ) {
 	        	int codice = rs.getInt("codice");
 				String identificaticoFiscale = rs.getString("identificaticoFiscale");

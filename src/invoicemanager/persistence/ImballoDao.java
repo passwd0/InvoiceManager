@@ -96,7 +96,6 @@ public class ImballoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Imballo");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceImballo = rs.getString("codiceImballo");

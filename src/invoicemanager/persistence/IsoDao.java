@@ -96,7 +96,6 @@ public class IsoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Iso");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceISO = rs.getString("codiceISO");

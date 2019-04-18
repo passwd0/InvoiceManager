@@ -75,7 +75,6 @@ public class ProvvigioneAgenteDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM ProvvigioneAgente");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceProvvigione = rs.getString("codiceProvvigione");

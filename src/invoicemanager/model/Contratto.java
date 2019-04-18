@@ -1,15 +1,15 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Contratto{ //List
 	private int numeroContratto; //  NULL,
 	private int numeroRigaContratto; //  NULL,
-	private LocalDate dataContratto; //  NULL,
+	private Date dataContratto; //  NULL,
 	private String cntCodiceCommessaConvenzione; // (100),
 	private String cntCodiceCUP; // (15),
 	private String cntCodiceCIG; // (15),
 	
-	public Contratto(int numeroContratto, int numeroRigaContratto, LocalDate dataContratto,
+	public Contratto(int numeroContratto, int numeroRigaContratto, Date dataContratto,
 			String cntCodiceCommessaConvenzione, String cntCodiceCUP, String cntCodiceCIG) {
 		this.numeroContratto = numeroContratto;
 		this.numeroRigaContratto = numeroRigaContratto;
@@ -31,10 +31,10 @@ public class Contratto{ //List
 	public void setNumeroRigaContratto(int numeroRigaContratto) {
 		this.numeroRigaContratto = numeroRigaContratto;
 	}
-	public LocalDate getDataContratto() {
+	public Date getDataContratto() {
 		return dataContratto;
 	}
-	public void setDataContratto(LocalDate dataContratto) {
+	public void setDataContratto(Date dataContratto) {
 		this.dataContratto = dataContratto;
 	}
 	public String getCntCodiceCommessaConvenzione() {

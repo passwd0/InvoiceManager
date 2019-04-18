@@ -77,7 +77,6 @@ public class PercipienteDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Percipiente");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codicePercipiente = rs.getString("codicePercipiente");

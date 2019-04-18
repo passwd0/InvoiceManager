@@ -1,11 +1,11 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.List;
 
 public class FatturaProformaDettaglio{
 	private int numeroFattura; //  NOT NULL,
 	private int numeroRigaFattura; //  NOT NULL,
-	private LocalDate dataFattura; //  NOT NULL,
+	private Date dataFattura; //  NOT NULL,
 	private int sezionale = 1;
 	private String codiceTipoRigaDocumento; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceArticolo; //(30) COLLATE Latin1_General_CI_AS NULL,
@@ -33,13 +33,13 @@ public class FatturaProformaDettaglio{
 	private List<FatturaCollegata> fattureCollegate;
 	private List<AltroDatoGestionale> altriDatiGestionali;
 
-	public FatturaProformaDettaglio(int numeroFattura, int numeroRigaFattura, LocalDate dataFattura){
+	public FatturaProformaDettaglio(int numeroFattura, int numeroRigaFattura, Date dataFattura){
 		this.numeroFattura = numeroFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
 		this.dataFattura = dataFattura;
 	}
 
-	public FatturaProformaDettaglio(int numeroFattura, int numeroRigaFattura, LocalDate dataFattura, int sezionale,
+	public FatturaProformaDettaglio(int numeroFattura, int numeroRigaFattura, Date dataFattura, int sezionale,
 			String codiceTipoRigaDocumento, String codiceArticolo, float costo, float quantitaDaConsegnare,
 			boolean indicatoreEvasione, String descrizione, float quantita, float prezzo, String codiceIva,
 			String codiceContropartitaContabile, float percentualeProvvigione, float percentualeScontoCliente,
@@ -102,11 +102,11 @@ public class FatturaProformaDettaglio{
 		this.numeroRigaFattura = numeroRigaFattura;
 	}
 
-	public LocalDate getDataFattura() {
+	public Date getDataFattura() {
 		return dataFattura;
 	}
 
-	public void setDataFattura(LocalDate dataFattura) {
+	public void setDataFattura(Date dataFattura) {
 		this.dataFattura = dataFattura;
 	}
 

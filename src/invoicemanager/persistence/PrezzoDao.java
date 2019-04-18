@@ -64,7 +64,6 @@ public class PrezzoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Prezzo");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int id = rs.getInt("id");

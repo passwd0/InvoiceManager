@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,11 +29,11 @@ public class ScadenzeDao {
 		ps.setString(1, a.getCodiceConto());
 		ps.setString(2, a.getCodiceTipoPagamento());
 		ps.setString(3, a.getRiferimentoPartita());
-		ps.setDate(4, Utils.convertToDatabaseColumn(a.getDataDocumento()));
-		ps.setDate(5, Utils.convertToDatabaseColumn(a.getDataScadenza()));
+		ps.setDate(4, a.getDataDocumento());
+		ps.setDate(5, a.getDataScadenza());
 		ps.setInt(6, a.getNumeroRegistrazione());
 		ps.setString(7, a.getCodiceBanca());
-		ps.setDate(8, Utils.convertToDatabaseColumn(a.getDataValuta()));
+		ps.setDate(8, a.getDataValuta());
 		ps.setString(9, a.getCodicePagamento());
 		ps.setString(10, a.getNumeroAssegno());
 		ps.setFloat(11, a.getImportoImponibileRitenutaAcconto());
@@ -42,10 +42,10 @@ public class ScadenzeDao {
 		ps.setFloat(14, a.getImportoIVARitenutaAcconto());
 		ps.setFloat(15, a.getContriburoINPSDatoreLavoro());
 		ps.setFloat(16, a.getContriburoINPSDatorePercipiente());
-		ps.setDate(17, Utils.convertToDatabaseColumn(a.getDataValutaAssegno()));
+		ps.setDate(17, a.getDataValutaAssegno());
 		ps.setString(18, a.getNote());
 		ps.setFloat(19, a.getImportoPagato());
-		ps.setDate(20, Utils.convertToDatabaseColumn(a.getDataPagamento()));
+		ps.setDate(20, a.getDataPagamento());
 		ps.setString(21, a.getNumeroDocumento());
 		ps.setString(22, a.getCodiceIVAInSospensione());
 		ps.setFloat(23, a.getImportoPartita());
@@ -53,9 +53,9 @@ public class ScadenzeDao {
 		ps.setFloat(25, a.getImponibileIVAInSospensione());
 		ps.setInt(26, a.getNumeroGiornaleIVA());
 		ps.setString(27, a.getTipoRitenutaAcconto());
-		ps.setDate(28, Utils.convertToDatabaseColumn(a.getDataAutorizzazionePagamento()));
+		ps.setDate(28, a.getDataAutorizzazionePagamento());
 		ps.setString(29, a.getCodiceDivisa());
-		ps.setDate(30, Utils.convertToDatabaseColumn(a.getDataRegistrazione()));
+		ps.setDate(30, a.getDataRegistrazione());
 		ps.setFloat(31, a.getImportoAbbuono());
 		ps.setTimestamp(32, a.getDataInserimento());
 		ps.setTimestamp(33, a.getDataUltimaModifica());
@@ -133,17 +133,16 @@ public class ScadenzeDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Scadenze");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceConto = rs.getString("codiceConto");
 				String codiceTipoPagamento = rs.getString("codiceTipoPagamento");
 				String riferimentoPartita = rs.getString("riferimentoPartita");
-				LocalDate dataDocumento = Utils.convertToEntityAttribute(rs.getDate("dataDocumento"));
-				LocalDate dataScadenza = Utils.convertToEntityAttribute(rs.getDate("dataScadenza"));
+				Date dataDocumento = rs.getDate("dataDocumento");
+				Date dataScadenza = rs.getDate("dataScadenza");
 				int numeroRegistrazione = rs.getInt("numeroRegistrazione");
 				String codiceBanca = rs.getString("codiceBanca");
-				LocalDate dataValuta = Utils.convertToEntityAttribute(rs.getDate("dataValuta"));
+				Date dataValuta = rs.getDate("dataValuta");
 				String codicePagamento = rs.getString("codicePagamento");
 				String numeroAssegno = rs.getString("numeroAssegno");
 				float importoImponibileRitenutaAcconto = rs.getFloat("importoImponibileRitenutaAcconto");
@@ -152,10 +151,10 @@ public class ScadenzeDao {
 				float importoIVARitenutaAcconto = rs.getFloat("importoIVARitenutaAcconto");
 				float contriburoINPSDatoreLavoro = rs.getFloat("contriburoINPSDatoreLavoro");
 				float contriburoINPSDatorePercipiente = rs.getFloat("contriburoINPSDatorePercipiente");
-				LocalDate dataValutaAssegno = Utils.convertToEntityAttribute(rs.getDate("dataValutaAssegno"));
+				Date dataValutaAssegno = rs.getDate("dataValutaAssegno");
 				String note = rs.getString("note");
 				float importoPagato = rs.getFloat("importoPagato");
-				LocalDate dataPagamento = Utils.convertToEntityAttribute(rs.getDate("dataPagamento"));
+				Date dataPagamento = rs.getDate("dataPagamento");
 				String numeroDocumento = rs.getString("numeroDocumento");
 				String codiceIVAInSospensione = rs.getString("codiceIVAInSospensione");
 				float importoPartita = rs.getFloat("importoPartita");
@@ -163,9 +162,9 @@ public class ScadenzeDao {
 				float imponibileIVAInSospensione = rs.getFloat("imponibileIVAInSospensione");
 				int numeroGiornaleIVA = rs.getInt("numeroGiornaleIVA");
 				String tipoRitenutaAcconto = rs.getString("tipoRitenutaAcconto");
-				LocalDate dataAutorizzazionePagamento = Utils.convertToEntityAttribute(rs.getDate("dataAutorizzazionePagamento"));
+				Date dataAutorizzazionePagamento = rs.getDate("dataAutorizzazionePagamento");
 				String codiceDivisa = rs.getString("codiceDivisa");
-				LocalDate dataRegistrazione = Utils.convertToEntityAttribute(rs.getDate("dataRegistrazione"));
+				Date dataRegistrazione = rs.getDate("dataRegistrazione");
 				float importoAbbuono = rs.getFloat("importoAbbuono");
 				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
 				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");

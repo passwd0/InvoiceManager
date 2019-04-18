@@ -1,9 +1,9 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class FatturaProformaTestata{
 	private int numeroFattura; //  NOT NULL,
-	private LocalDate dataFattura; //  NOT NULL,
+	private Date dataFattura; //  NOT NULL,
 	private boolean indicatoreStatoAvanzamento; // COLLATE Latin1_General_CI_AS NULL,
 	private int sezionale = 1;
 	private String codiceClienteFatturazione; //(30) COLLATE Latin1_General_CI_AS NULL,
@@ -26,7 +26,7 @@ public class FatturaProformaTestata{
 	private String codicePagamento; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceBanca; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private int numeroDDT; //  NULL,
-	private LocalDate dataDDT; //  NULL,
+	private Date dataDDT; //  NULL,
 	private String codiceImballo; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private float pesoColli; //  NULL,
 	private float numeroColli; //  NULL,
@@ -40,8 +40,8 @@ public class FatturaProformaTestata{
 	private String cittaSpedizione; //(50) COLLATE Latin1_General_CI_AS NULL,
 	private String provinciaSpedizione; //(30) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceNazioneSpedizione; //(10) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDate dataInserimento; //  NULL,
-	private LocalDate dataUltimaModifica; //  NULL,
+	private Date dataInserimento; //  NULL,
+	private Date dataUltimaModifica; //  NULL,
 	private String note; //(500) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceLingua; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatoreFatturazioneDifferita; // COLLATE Latin1_General_CI_AS NULL,
@@ -52,22 +52,22 @@ public class FatturaProformaTestata{
 	private boolean indicatoreXML; // COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatorePlafond; // COLLATE Latin1_General_CI_AS
 
-	public FatturaProformaTestata(int numeroFattura, LocalDate dataFattura){
+	public FatturaProformaTestata(int numeroFattura, Date dataFattura){
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 	}
 
-	public FatturaProformaTestata(int numeroFattura, LocalDate dataFattura, boolean indicatoreStatoAvanzamento, int sezionale,
+	public FatturaProformaTestata(int numeroFattura, Date dataFattura, boolean indicatoreStatoAvanzamento, int sezionale,
 			String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
 			String codiceCausalePrelievi, float percentualeSconto, float percentualeScontoPagamento,
 			float percentualeProvvigione, String descrizione, int numeroCopieFattura, boolean indicatoreAddebitoBolli,
 			boolean indicatoreAddebitoSpeseIncasso, boolean indicatoreScaricoMagazzino, int codiceListino,
 			String codiceResa, String codiceVettore, boolean indicatoreFatturaAccompagnatoria, String codicePagamento,
-			String codiceBanca, int numeroDDT, LocalDate dataDDT, String codiceImballo, float pesoColli,
+			String codiceBanca, int numeroDDT, Date dataDDT, String codiceImballo, float pesoColli,
 			float numeroColli, float acconto, String codiceDivisa, float cambio, String codiceClienteSpedizione,
 			String nomeSpedizione, String indirizzoSpedizione, String capSpedizione, String cittaSpedizione,
-			String provinciaSpedizione, String codiceNazioneSpedizione, LocalDate dataInserimento,
-			LocalDate dataUltimaModifica, String note, String codiceLingua, boolean indicatoreFatturazioneDifferita,
+			String provinciaSpedizione, String codiceNazioneSpedizione, Date dataInserimento,
+			Date dataUltimaModifica, String note, String codiceLingua, boolean indicatoreFatturazioneDifferita,
 			boolean indicatoreEdi, String codiceFilialeEdi, boolean indicatoreEmail, boolean indicatorePA,
 			boolean indicatoreXML, boolean indicatorePlafond) {
 		this.numeroFattura = numeroFattura;
@@ -137,11 +137,11 @@ public class FatturaProformaTestata{
 		this.numeroFattura = numeroFattura;
 	}
 
-	public LocalDate getDataFattura() {
+	public Date getDataFattura() {
 		return dataFattura;
 	}
 
-	public void setDataFattura(LocalDate dataFattura) {
+	public void setDataFattura(Date dataFattura) {
 		this.dataFattura = dataFattura;
 	}
 
@@ -313,11 +313,11 @@ public class FatturaProformaTestata{
 		this.numeroDDT = numeroDDT;
 	}
 
-	public LocalDate getDataDDT() {
+	public Date getDataDDT() {
 		return dataDDT;
 	}
 
-	public void setDataDDT(LocalDate dataDDT) {
+	public void setDataDDT(Date dataDDT) {
 		this.dataDDT = dataDDT;
 	}
 
@@ -425,19 +425,19 @@ public class FatturaProformaTestata{
 		this.codiceNazioneSpedizione = codiceNazioneSpedizione;
 	}
 
-	public LocalDate getDataInserimento() {
+	public Date getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDate dataInserimento) {
+	public void setDataInserimento(Date dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDate getDataUltimaModifica() {
+	public Date getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDate dataUltimaModifica) {
+	public void setDataUltimaModifica(Date dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

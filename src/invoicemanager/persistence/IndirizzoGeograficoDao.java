@@ -85,7 +85,6 @@ public class IndirizzoGeograficoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM IndirizzoGeografico");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceIndirizzo = rs.getString("codiceIndirizzo");

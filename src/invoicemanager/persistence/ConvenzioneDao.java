@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class ConvenzioneDao {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Convenzione VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroConvenzione());
 		ps.setInt(2, a.getNumeroRigaConvenzione());
-		ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataConvenzione()));
+		ps.setDate(3, a.getDataConvenzione());
 		ps.setString(4, a.getCnvCodiceCommessaConvenzione());
 		ps.setString(5, a.getCnvCodiceCUP());
 		ps.setString(6, a.getCnvCodiceCIG());
@@ -72,12 +72,11 @@ public class ConvenzioneDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Convenzione");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroConvenzione = rs.getInt("numeroConvenzione");
 				int numeroRigaConvenzione = rs.getInt("numeroRigaConvenzione");
-				LocalDate dataConvenzione = Utils.convertToEntityAttribute(rs.getDate("dataConvenzione"));
+				Date dataConvenzione = rs.getDate("dataConvenzione");
 				String cnvCodiceCommessaConvenzione = rs.getString("cnvCodiceCommessaConvenzione");
 				String cnvCodiceCUP = rs.getString("cnvCodiceCUP");
 				String cnvCodiceCIG = rs.getString("cnvCodiceCIG");

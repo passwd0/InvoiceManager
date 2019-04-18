@@ -69,7 +69,6 @@ public class ArticoloMagazzinoDescrizioneMultilinguaDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM ArticoloMagazzinoDescrizioneMultilingua");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceArticolo = rs.getString("codiceArticolo");

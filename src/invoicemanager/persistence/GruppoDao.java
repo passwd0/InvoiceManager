@@ -66,7 +66,6 @@ public class GruppoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Gruppo");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceGruppo = rs.getString("codiceGruppo");

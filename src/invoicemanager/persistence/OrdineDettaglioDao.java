@@ -6,12 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import invoicemanager.model.OrdineDettaglio;
-import invoicemanager.utils.Utils;
 
 public class OrdineDettaglioDao {
 	private Connection c;
@@ -26,7 +25,7 @@ public class OrdineDettaglioDao {
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO OrdineDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroOrdine());
-			ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataOrdine()));
+			ps.setDate(2, a.getDataOrdine());
 			ps.setInt(3, a.getNumeroRigaOrdine());
 			ps.setString(4, a.getCodiceTipoRigaDocumento());
 			ps.setString(5, a.getCodiceMagazzino());
@@ -34,7 +33,7 @@ public class OrdineDettaglioDao {
 			ps.setFloat(7, a.getQuantitaConsegnata());
 			ps.setBoolean(8, a.isIndicatoreEvasione());
 			ps.setString(9, a.getDescrizione());
-			ps.setDate(10, Utils.convertToDatabaseColumn(a.getDataConsegna()));
+			ps.setDate(10, a.getDataConsegna());
 			ps.setFloat(11, a.getQuantita());
 			ps.setString(12, a.getCodiceUnitaMisura());
 			ps.setFloat(13, a.getPrezzo());
@@ -50,16 +49,16 @@ public class OrdineDettaglioDao {
 			ps.setFloat(23, a.getQuantitaVariata());
 			ps.setInt(24, a.getNumeroPreventivo());
 			ps.setInt(25, a.getNumeroRigaPreventivo());
-			ps.setDate(26, Utils.convertToDatabaseColumn(a.getDataPreventivo()));
+			ps.setDate(26, a.getDataPreventivo());
 			ps.setFloat(27, a.getQuantitaEvasa());
 			ps.setBoolean(28, a.isIndicatoreEvasionePreventivi());
 			ps.setBoolean(29, a.isIndicatoreEvasioneRigheNote());
 			ps.setBoolean(30, a.isIndicatoreNoConferma());
-			ps.setDate(31, Utils.convertToDatabaseColumn(a.getDataConsegnaSchedulatore()));
-			ps.setDate(32, Utils.convertToDatabaseColumn(a.getDataConsegnaProposta()));
+			ps.setDate(31, a.getDataConsegnaSchedulatore());
+			ps.setDate(32, a.getDataConsegnaProposta());
 			ps.setBoolean(33, a.isIndicatoreBloccato());
 			ps.setBoolean(34, a.isIndicatoreOrdineTrading());
-			ps.setDate(35, Utils.convertToDatabaseColumn(a.getDataInizioSchedulatore()));
+			ps.setDate(35, a.getDataInizioSchedulatore());
 			ps.setString(36, a.getCodiceArticoloBis());
 			ps.setTimestamp(37, a.getDataInserimento());
 			ps.setTimestamp(38, a.getDataUltimaModifica());
@@ -165,11 +164,10 @@ public class OrdineDettaglioDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM OrdineDettaglio");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroOrdine = rs.getInt("numeroOrdine");
-				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
+				Date dataOrdine = rs.getDate("dataOrdine");
 				int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
 				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 				String codiceMagazzino = rs.getString("codiceMagazzino");
@@ -177,7 +175,7 @@ public class OrdineDettaglioDao {
 				float quantitaConsegnata = rs.getFloat("quantitaConsegnata");
 				boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
 				String descrizione = rs.getString("descrizione");
-				LocalDate dataConsegna = Utils.convertToEntityAttribute(rs.getDate("dataConsegna"));
+				Date dataConsegna = rs.getDate("dataConsegna");
 				float quantita = rs.getFloat("quantita");
 				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 				float prezzo = rs.getFloat("prezzo");
@@ -193,16 +191,16 @@ public class OrdineDettaglioDao {
 				float quantitaVariata = rs.getFloat("quantitaVariata");
 				int numeroPreventivo = rs.getInt("numeroPreventivo");
 				int numeroRigaPreventivo = rs.getInt("numeroRigaPreventivo");
-				LocalDate dataPreventivo = Utils.convertToEntityAttribute(rs.getDate("dataPreventivo"));
+				Date dataPreventivo = rs.getDate("dataPreventivo");
 				float quantitaEvasa = rs.getFloat("quantitaEvasa");
 				boolean indicatoreEvasionePreventivi = rs.getBoolean("indicatoreEvasionePreventivi");
 				boolean indicatoreEvasioneRigheNote = rs.getBoolean("indicatoreEvasioneRigheNote");
 				boolean indicatoreNoConferma = rs.getBoolean("indicatoreNoConferma");
-				LocalDate dataConsegnaSchedulatore = Utils.convertToEntityAttribute(rs.getDate("dataConsegnaSchedulatore"));
-				LocalDate dataConsegnaProposta = Utils.convertToEntityAttribute(rs.getDate("dataConsegnaProposta"));
+				Date dataConsegnaSchedulatore = rs.getDate("dataConsegnaSchedulatore");
+				Date dataConsegnaProposta = rs.getDate("dataConsegnaProposta");
 				boolean indicatoreBloccato = rs.getBoolean("indicatoreBloccato");
 				boolean indicatoreOrdineTrading = rs.getBoolean("indicatoreOrdineTrading");
-				LocalDate dataInizioSchedulatore = Utils.convertToEntityAttribute(rs.getDate("dataInizioSchedulatore"));
+				Date dataInizioSchedulatore = rs.getDate("dataInizioSchedulatore");
 				String codiceArticoloBis = rs.getString("codiceArticoloBis");
 				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
 				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");

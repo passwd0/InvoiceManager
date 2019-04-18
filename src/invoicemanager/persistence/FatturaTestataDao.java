@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +31,7 @@ public class FatturaTestataDao {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getId());
 	    	ps.setInt(2, a.getNumeroFatturazione());
-			ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataFattura()));
+			ps.setDate(3, a.getDataFattura());
 			ps.setString(4, a.getStatoAvanzamento().name());
 			ps.setInt(5, a.getSezionale());
 			ps.setString(6, a.getCodiceClienteFatturazione());
@@ -77,7 +77,7 @@ public class FatturaTestataDao {
 			ps.setFloat(46, a.getTotalePagato());
 
 			if (a.getDataScadenza() != null)
-				ps.setDate(47, Utils.convertToDatabaseColumn(a.getDataScadenza()));
+				ps.setDate(47, a.getDataScadenza());
 			else
 				ps.setDate(47, null);
 
@@ -199,11 +199,10 @@ public class FatturaTestataDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM FatturaTestata");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroFatturazione = rs.getInt("numeroFatturazione");
-				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
+				Date dataFattura = rs.getDate("dataFattura");
 				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("StatoAvanzamento"));
 				int sezionale = rs.getInt("sezionale");
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
@@ -248,7 +247,7 @@ public class FatturaTestataDao {
 				float speseBolli = rs.getFloat("speseBolli");
 				float omaggi = rs.getFloat("omaggi");
 				float totalePagato = rs.getFloat("totalePagato");
-				LocalDate dataScadenza = Utils.convertToEntityAttribute(rs.getDate("dataScadenza"));
+				Date dataScadenza = rs.getDate("dataScadenza");
 				float importoScadenza = rs.getFloat("importoScadenza");
 				int idFatturaTestata = rs.getInt("IdFatturaTestata");
 				List<Allegato> allegati = listaAllegato.stream().filter(x->x.getIdFatturaTestata()== idFatturaTestata).collect(Collectors.toList());

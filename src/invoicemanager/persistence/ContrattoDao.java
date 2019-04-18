@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class ContrattoDao {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Contratto VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroContratto());
 		ps.setInt(2, a.getNumeroRigaContratto());
-		ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataContratto()));
+		ps.setDate(3, a.getDataContratto());
 		ps.setString(4, a.getCntCodiceCommessaConvenzione());
 		ps.setString(5, a.getCntCodiceCUP());
 		ps.setString(6, a.getCntCodiceCIG());
@@ -72,13 +72,12 @@ public class ContrattoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Contratto");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroContratto = rs.getInt("numeroContratto");
 				int numeroRigaContratto = rs.getInt("numeroRigaContratto");
 				String codice = rs.getString("dataContratto");
-				LocalDate riferimentoData = Utils.convertToEntityAttribute(rs.getDate("dataContratto"));
+				Date riferimentoData = rs.getDate("dataContratto");
 				String cntCodiceCommessaConvenzione = rs.getString("cntCodiceCommessaConvenzione");
 				String cntCodiceCUP = rs.getString("cntCodiceCUP");
 				String cntCodiceCIG = rs.getString("cntCodiceCIG");

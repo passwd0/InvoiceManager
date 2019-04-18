@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +29,7 @@ public class OrdineTestataDao {
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO OrdineTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroOrdine());
-			ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataOrdine()));
+			ps.setDate(2, a.getDataOrdine());
 			ps.setString(3, a.getStatoAvanzamento().name());
 			ps.setString(4, a.getCodiceClienteFatturazione());
 			ps.setString(5, a.getDescrizione());
@@ -47,7 +47,7 @@ public class OrdineTestataDao {
 			ps.setString(17, a.getCodiceCausale());
 			ps.setString(18, a.getCodicePagamento());
 			ps.setString(19, a.getCodiceBanca());
-			ps.setDate(20, Utils.convertToDatabaseColumn(a.getDataConsegna()));
+			ps.setDate(20, a.getDataConsegna());
 			ps.setString(21, a.getCausaleTrasporto());
 			ps.setString(22, a.getCodiceDivisa());
 			ps.setBoolean(23, a.isIndicatoreConsegnaParziale());
@@ -173,11 +173,10 @@ public class OrdineTestataDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM OrdineTestata");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroOrdine = rs.getInt("numeroOrdine");
-				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
+				Date dataOrdine = rs.getDate("dataOrdine");
 				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("statoAvanzamento")); 
 				String codiceClienteFatturazione = rs.getString("codiceClienteFatturazione");
 				String descrizione = rs.getString("descrizione");
@@ -195,7 +194,7 @@ public class OrdineTestataDao {
 				String codiceCausale = rs.getString("codiceCausale");
 				String codicePagamento = rs.getString("codicePagamento");
 				String codiceBanca = rs.getString("codiceBanca");
-				LocalDate dataConsegna = Utils.convertToEntityAttribute(rs.getDate("dataConsegna"));
+				Date dataConsegna = rs.getDate("dataConsegna");
 				String causaleTrasporto = rs.getString("causaleTrasporto");
 				String codiceDivisa = rs.getString("codiceDivisa");
 				boolean indicatoreConsegnaParziale = rs.getBoolean("indicatoreConsegnaParziale");

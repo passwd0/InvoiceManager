@@ -76,7 +76,6 @@ public class CapItalianoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM CapItaliano");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int id = rs.getInt("id");

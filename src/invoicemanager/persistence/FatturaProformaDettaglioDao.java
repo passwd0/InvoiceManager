@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,7 +34,7 @@ public class FatturaProformaDettaglioDao {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaProformaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroFattura());
 		ps.setInt(2, a.getNumeroRigaFattura());
-		ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataFattura()));
+		ps.setDate(3, a.getDataFattura());
 		ps.setInt(4,  a.getSezionale());
 		ps.setString(5, a.getCodiceTipoRigaDocumento());
 		ps.setString(6, a.getCodiceArticolo());
@@ -130,7 +130,7 @@ public class FatturaProformaDettaglioDao {
 
 					int numeroFattura = rs.getInt("numeroFattura");
 					int numeroRigaFattura = rs.getInt("numeroRigaFattura");
-					LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
+					Date dataFattura = rs.getDate("dataFattura");
 					int sezionale = rs.getInt("sezionale");
 					String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 					String codiceArticolo = rs.getString("codiceArticolo");

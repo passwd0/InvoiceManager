@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class PreventivoDettaglioDao {
 				PreparedStatement ps = c.prepareStatement("INSERT INTO PreventivoDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				ps.setInt(1, a.getNumeroPreventivo());
 				ps.setInt(2, a.getNumeroRigaPreventivo());
-				ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataPreventivo()));
+				ps.setDate(3, a.getDataPreventivo());
 				ps.setString(4, a.getCodiceTipoRigaDocumento());
 				ps.setString(5, a.getCodiceArticolo());
 				ps.setFloat(6, a.getQuantitaArticolo());
@@ -36,7 +36,7 @@ public class PreventivoDettaglioDao {
 				ps.setFloat(8, a.getQuantitaDaConsegnare());
 				ps.setString(9, a.getDescrizione());
 				ps.setString(10, a.getDescrizioneAggiuntiva());
-				ps.setDate(11, Utils.convertToDatabaseColumn(a.getDataConsegna()));
+				ps.setDate(11, a.getDataConsegna());
 				ps.setString(12, a.getCodiceUnitaMisura());
 				ps.setFloat(13, a.getPrezzo());
 				ps.setString(14, a.getCodiceIVA());
@@ -105,12 +105,11 @@ public class PreventivoDettaglioDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM PreventivoDettaglio");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroPreventivo = rs.getInt("numeroPreventivo");
 				int numeroRigaPreventivo = rs.getInt("numeroRigaPreventivo");
-				LocalDate dataPreventivo = Utils.convertToEntityAttribute(rs.getDate("dataPreventivo"));
+				Date dataPreventivo = rs.getDate("dataPreventivo");
 				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 				String codiceArticolo = rs.getString("codiceArticolo");
 				float quantitaArticolo = rs.getFloat("quantitaArticolo");
@@ -118,7 +117,7 @@ public class PreventivoDettaglioDao {
 				float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 				String descrizione = rs.getString("descrizione");
 				String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
-				LocalDate dataConsegna = Utils.convertToEntityAttribute(rs.getDate("dataConsegna"));
+				Date dataConsegna = rs.getDate("dataConsegna");
 				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 				float prezzo = rs.getFloat("prezzo");
 				String codiceIVA = rs.getString("codiceIVA");

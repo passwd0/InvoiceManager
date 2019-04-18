@@ -71,7 +71,6 @@ public class MagazzinoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Magazzino");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceMagazzino = rs.getString("codiceMagazzino");

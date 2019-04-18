@@ -81,7 +81,6 @@ public class ConfezioneDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Confezione");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceConfezione = rs.getString("codiceConfezione");

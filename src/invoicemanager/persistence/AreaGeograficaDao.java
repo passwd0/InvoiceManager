@@ -73,7 +73,6 @@ public class AreaGeograficaDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM AreaGeografica");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int codiceArea = rs.getInt("codiceArea");

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,8 +41,8 @@ public class ListinoPersonalizzatoDao {
 		ps.setFloat(12, a.getScontoPagamento());
 		ps.setString(13, a.getCodiceDivisa());
 		ps.setString(14, a.getCodiceGruppoMerceologico());
-		ps.setDate(15, Utils.convertToDatabaseColumn(a.getDataInizioValidita()));
-		ps.setDate(16, Utils.convertToDatabaseColumn(a.getDataFineValidita()));
+		ps.setDate(15, a.getDataInizioValidita());
+		ps.setDate(16, a.getDataFineValidita());
 		ps.setBoolean(17, a.isOpzioneGruppi());
 		ps.setBoolean(18, a.isOpzioneScontoClienti());
 		ps.setBoolean(19, a.isOpzioneScontoArticolo());
@@ -112,7 +112,6 @@ public class ListinoPersonalizzatoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM ListinoPersonalizzato");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceListinoPersonalizzato = rs.getString("codiceListinoPersonalizzato");
@@ -131,8 +130,8 @@ public class ListinoPersonalizzatoDao {
 				String codiceDivisa = rs.getString("codiceDivisa");
 				String codice = rs.getString("gruppoMerceologico");
 				GruppoMerceologico gruppoMerceologico = listaGruppoMerceologico.stream().filter(x->x.getCodiceGruppoMerceologico().equals(codice)).findFirst().orElse(null);
-				LocalDate dataInizioValidita = Utils.convertToEntityAttribute(rs.getDate("dataInizioValidita"));
-				LocalDate dataFineValidita = Utils.convertToEntityAttribute(rs.getDate("dataFineValidita"));
+				Date dataInizioValidita = rs.getDate("dataInizioValidita");
+				Date dataFineValidita = rs.getDate("dataFineValidita");
 				boolean opzioneGruppi = rs.getBoolean("opzioneGruppi");
 				boolean opzioneScontoClienti = rs.getBoolean("opzioneScontoClienti");
 				boolean opzioneScontoArticolo = rs.getBoolean("opzioneScontoArticolo");

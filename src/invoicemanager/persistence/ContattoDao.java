@@ -70,7 +70,6 @@ public class ContattoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Contatto");
-			Timestamp ts;
 	         while ( rs.next() ) {
 	        	int id = rs.getInt("id");
 				String codiceConto = rs.getString("codiceConto");

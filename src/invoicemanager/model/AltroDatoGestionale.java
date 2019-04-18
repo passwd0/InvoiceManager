@@ -1,16 +1,16 @@
 package invoicemanager.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class AltroDatoGestionale {
 	private int codiceAltroDatoGestionale;
 	private String tipoDato; //(10)
 	private String riferimentoTesto; //(60)
 	private float riferimentoNumero;
-	private LocalDate riferimentoData;
+	private Date riferimentoData;
 	
 	public AltroDatoGestionale(int codiceAltroDatoGestionale, String tipoDato, String riferimentoTesto, 
-			float riferimentoNumero, LocalDate riferimentoData) {
+			float riferimentoNumero, Date riferimentoData) {
 		this.tipoDato = tipoDato;
 		this.riferimentoTesto = riferimentoTesto;
 		this.riferimentoNumero = riferimentoNumero;
@@ -49,11 +49,11 @@ public class AltroDatoGestionale {
 		this.riferimentoNumero = riferimentoNumero;
 	}
 
-	public LocalDate getRiferimentoData() {
+	public Date getRiferimentoData() {
 		return riferimentoData;
 	}
 
-	public void setRiferimentoData(LocalDate riferimentoData) {
+	public void setRiferimentoData(Date riferimentoData) {
 		this.riferimentoData = riferimentoData;
 	}
 }

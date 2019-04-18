@@ -434,7 +434,7 @@ public class TabViewController implements Initializable {
 	public void combobox_ordinen_onAction(ActionEvent event) {
 		OrdineTestata ordineTestata = combobox_ordinen.getValue();
 		if (ordineTestata != null)
-			textfield_ordinendel.setText(ordineTestata.getDataOrdine().format(Utils.formatterData));
+			textfield_ordinendel.setText(Utils.toString(ordineTestata.getDataOrdine()));
 	}
 
 	@FXML

@@ -1,16 +1,16 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Scadenze{
 	private String codiceConto; //(30) COLLATE Latin1_General_CI_AS NOT NULL,
 	private String codiceTipoPagamento; //(2) COLLATE Latin1_General_CI_AS NOT NULL,
 	private String riferimentoPartita; //(10) COLLATE Latin1_General_CI_AS NOT NULL,
-	private LocalDate dataDocumento; //  NOT NULL,
-	private LocalDate dataScadenza; //  NOT NULL,
+	private Date dataDocumento; //  NOT NULL,
+	private Date dataScadenza; //  NOT NULL,
 	private int numeroRegistrazione; //  NOT NULL,
 	private String codiceBanca; //(10) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDate dataValuta; //  NULL,
+	private Date dataValuta; //  NULL,
 	private String codicePagamento; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private String numeroAssegno; //(15) COLLATE Latin1_General_CI_AS NULL,
 	private float importoImponibileRitenutaAcconto; //  NULL,
@@ -19,10 +19,10 @@ public class Scadenze{
 	private float importoIVARitenutaAcconto; //  NULL,
 	private float contriburoINPSDatoreLavoro; //  NULL,
 	private float contriburoINPSDatorePercipiente; //  NULL,
-	private LocalDate dataValutaAssegno; //  NULL,
+	private Date dataValutaAssegno; //  NULL,
 	private String note; //(200) COLLATE Latin1_General_CI_AS NULL,
 	private float importoPagato; //  NULL,
-	private LocalDate dataPagamento; //  NULL,
+	private Date dataPagamento; //  NULL,
 	private String numeroDocumento; //(10) COLLATE Latin1_General_CI_AS NULL,
 	private String codiceIVAInSospensione; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private float importoPartita; //  NULL,
@@ -30,9 +30,9 @@ public class Scadenze{
 	private float imponibileIVAInSospensione; //  NULL,
 	private int numeroGiornaleIVA; //  NULL,
 	private String tipoRitenutaAcconto; //(3) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDate dataAutorizzazionePagamento; //  NULL,
+	private Date dataAutorizzazionePagamento; //  NULL,
 	private String codiceDivisa; //(4) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDate dataRegistrazione; //  NULL,
+	private Date dataRegistrazione; //  NULL,
 	private float importoAbbuono; //  NULL,
 	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL,
 	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL,
@@ -40,7 +40,7 @@ public class Scadenze{
 	private boolean indicatoreFattureProforma; // COLLATE Latin1_General_CI_AS NULL,
 	private float importoRimborsiCpap; // 
 
-	public Scadenze(String codiceConto, String codiceTipoPagamento, String riferimentoPartita, LocalDate dataDocumento, LocalDate dataScadenza, int numeroRegistrazione){
+	public Scadenze(String codiceConto, String codiceTipoPagamento, String riferimentoPartita, Date dataDocumento, Date dataScadenza, int numeroRegistrazione){
 		this.codiceConto = codiceConto;
 		this.codiceTipoPagamento = codiceTipoPagamento;
 		this.riferimentoPartita = riferimentoPartita;
@@ -49,15 +49,15 @@ public class Scadenze{
 		this.numeroRegistrazione = numeroRegistrazione;
 	}
 
-	public Scadenze(String codiceConto, String codiceTipoPagamento, String riferimentoPartita, LocalDate dataDocumento,
-			LocalDate dataScadenza, int numeroRegistrazione, String codiceBanca, LocalDate dataValuta,
+	public Scadenze(String codiceConto, String codiceTipoPagamento, String riferimentoPartita, Date dataDocumento,
+			Date dataScadenza, int numeroRegistrazione, String codiceBanca, Date dataValuta,
 			String codicePagamento, String numeroAssegno, float importoImponibileRitenutaAcconto,
 			float importoRitenutaAcconto, float importoRimborsiRitenutaAcconto, float importoIVARitenutaAcconto,
-			float contriburoINPSDatoreLavoro, float contriburoINPSDatorePercipiente, LocalDate dataValutaAssegno,
-			String note, float importoPagato, LocalDate dataPagamento, String numeroDocumento,
+			float contriburoINPSDatoreLavoro, float contriburoINPSDatorePercipiente, Date dataValutaAssegno,
+			String note, float importoPagato, Date dataPagamento, String numeroDocumento,
 			String codiceIVAInSospensione, float importoPartita, float impostaIVAInSospensione,
 			float imponibileIVAInSospensione, int numeroGiornaleIVA, String tipoRitenutaAcconto,
-			LocalDate dataAutorizzazionePagamento, String codiceDivisa, LocalDate dataRegistrazione,
+			Date dataAutorizzazionePagamento, String codiceDivisa, Date dataRegistrazione,
 			float importoAbbuono, Timestamp dataInserimento, Timestamp dataUltimaModifica,
 			String descrizioneAggiuntiva, boolean indicatoreFattureProforma, float importoRimborsiCpap) {
 		this.codiceConto = codiceConto;
@@ -122,19 +122,19 @@ public class Scadenze{
 		this.riferimentoPartita = riferimentoPartita;
 	}
 
-	public LocalDate getDataDocumento() {
+	public Date getDataDocumento() {
 		return dataDocumento;
 	}
 
-	public void setDataDocumento(LocalDate dataDocumento) {
+	public void setDataDocumento(Date dataDocumento) {
 		this.dataDocumento = dataDocumento;
 	}
 
-	public LocalDate getDataScadenza() {
+	public Date getDataScadenza() {
 		return dataScadenza;
 	}
 
-	public void setDataScadenza(LocalDate dataScadenza) {
+	public void setDataScadenza(Date dataScadenza) {
 		this.dataScadenza = dataScadenza;
 	}
 
@@ -154,11 +154,11 @@ public class Scadenze{
 		this.codiceBanca = codiceBanca;
 	}
 
-	public LocalDate getDataValuta() {
+	public Date getDataValuta() {
 		return dataValuta;
 	}
 
-	public void setDataValuta(LocalDate dataValuta) {
+	public void setDataValuta(Date dataValuta) {
 		this.dataValuta = dataValuta;
 	}
 
@@ -226,11 +226,11 @@ public class Scadenze{
 		this.contriburoINPSDatorePercipiente = contriburoINPSDatorePercipiente;
 	}
 
-	public LocalDate getDataValutaAssegno() {
+	public Date getDataValutaAssegno() {
 		return dataValutaAssegno;
 	}
 
-	public void setDataValutaAssegno(LocalDate dataValutaAssegno) {
+	public void setDataValutaAssegno(Date dataValutaAssegno) {
 		this.dataValutaAssegno = dataValutaAssegno;
 	}
 
@@ -250,11 +250,11 @@ public class Scadenze{
 		this.importoPagato = importoPagato;
 	}
 
-	public LocalDate getDataPagamento() {
+	public Date getDataPagamento() {
 		return dataPagamento;
 	}
 
-	public void setDataPagamento(LocalDate dataPagamento) {
+	public void setDataPagamento(Date dataPagamento) {
 		this.dataPagamento = dataPagamento;
 	}
 
@@ -314,11 +314,11 @@ public class Scadenze{
 		this.tipoRitenutaAcconto = tipoRitenutaAcconto;
 	}
 
-	public LocalDate getDataAutorizzazionePagamento() {
+	public Date getDataAutorizzazionePagamento() {
 		return dataAutorizzazionePagamento;
 	}
 
-	public void setDataAutorizzazionePagamento(LocalDate dataAutorizzazionePagamento) {
+	public void setDataAutorizzazionePagamento(Date dataAutorizzazionePagamento) {
 		this.dataAutorizzazionePagamento = dataAutorizzazionePagamento;
 	}
 
@@ -330,11 +330,11 @@ public class Scadenze{
 		this.codiceDivisa = codiceDivisa;
 	}
 
-	public LocalDate getDataRegistrazione() {
+	public Date getDataRegistrazione() {
 		return dataRegistrazione;
 	}
 
-	public void setDataRegistrazione(LocalDate dataRegistrazione) {
+	public void setDataRegistrazione(Date dataRegistrazione) {
 		this.dataRegistrazione = dataRegistrazione;
 	}
 

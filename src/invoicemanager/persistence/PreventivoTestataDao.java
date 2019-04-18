@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +27,10 @@ public class PreventivoTestataDao {
 
 		PreparedStatement ps = c.prepareStatement("INSERT INTO PreventivoTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroPreventivo());
-		ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataPreventivo()));
+		ps.setDate(2, a.getDataPreventivo());
 		ps.setBoolean(3, a.isIndicatoreStatoAvanzamento());
-		ps.setDate(4, Utils.convertToDatabaseColumn(a.getDataConsegna()));
-		ps.setDate(5, Utils.convertToDatabaseColumn(a.getDataValidita()));
+		ps.setDate(4, a.getDataConsegna());
+		ps.setDate(5, a.getDataValidita());
 		ps.setString(6, a.getPeriodoValidita());
 		ps.setBoolean(7, a.isIndicatoreUtilizzoDataValidita());
 		ps.setString(8, a.getCodiceCliente());
@@ -139,14 +139,13 @@ public class PreventivoTestataDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM PreventivoTestata");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 			int numeroPreventivo = rs.getInt("numeroPreventivo");
-			LocalDate dataPreventivo = Utils.convertToEntityAttribute(rs.getDate("dataPreventivo"));
+			Date dataPreventivo = rs.getDate("dataPreventivo");
 			boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");
-			LocalDate dataConsegna = Utils.convertToEntityAttribute(rs.getDate("dataConsegna"));
-			LocalDate dataValidita = Utils.convertToEntityAttribute(rs.getDate("dataValidita"));
+			Date dataConsegna = rs.getDate("dataConsegna");
+			Date dataValidita = rs.getDate("dataValidita");
 			String periodoValidita = rs.getString("periodoValidita");
 			boolean indicatoreUtilizzoDataValidita = rs.getBoolean("indicatoreUtilizzoDataValidita");
 			String codiceCliente = rs.getString("codiceCliente");

@@ -92,7 +92,6 @@ public class BancaGlobaleDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM BancaGlobale");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceBanca = rs.getString("codiceBanca");

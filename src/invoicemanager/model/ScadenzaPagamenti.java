@@ -1,14 +1,14 @@
 package invoicemanager.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class ScadenzaPagamenti {
 	private int numeroFattura;
-	private LocalDate dataFattura;
-	private LocalDate dataScadenza;
+	private Date dataFattura;
+	private Date dataScadenza;
 	private float importoScadenza;
 	
-	public ScadenzaPagamenti(int numeroFattura, LocalDate dataFattura, LocalDate dataScadenza, float importoScadenza) {
+	public ScadenzaPagamenti(int numeroFattura, Date dataFattura, Date dataScadenza, float importoScadenza) {
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 		this.dataScadenza = dataScadenza;
@@ -23,19 +23,19 @@ public class ScadenzaPagamenti {
 		this.numeroFattura = numeroFattura;
 	}
 
-	public LocalDate getDataFattura() {
+	public Date getDataFattura() {
 		return dataFattura;
 	}
 
-	public void setDataFattura(LocalDate dataFattura) {
+	public void setDataFattura(Date dataFattura) {
 		this.dataFattura = dataFattura;
 	}
 
-	public LocalDate getDataScadenza() {
+	public Date getDataScadenza() {
 		return dataScadenza;
 	}
 
-	public void setDataScadenza(LocalDate dataScadenza) {
+	public void setDataScadenza(Date dataScadenza) {
 		this.dataScadenza = dataScadenza;
 	}
 

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,8 +31,8 @@ public class ListinoArticoloDao {
 		ps.setString(3, a.getCodiceDivisa());
 		ps.setFloat(4, a.getPrezzo());
 		ps.setInt(5, a.getNumeroDecimali());
-		ps.setDate(6, Utils.convertToDatabaseColumn(a.getDataDecorrenza()));
-		ps.setDate(7, Utils.convertToDatabaseColumn(a.getDataValidita()));
+		ps.setDate(6, a.getDataDecorrenza());
+		ps.setDate(7, a.getDataValidita());
 		ps.setTimestamp(8, a.getDataInserimento());
 		ps.setTimestamp(9, a.getDataUltimaModifica());
 
@@ -79,7 +79,6 @@ public class ListinoArticoloDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM ListinoArticolo");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceArticolo = rs.getString("codiceArticolo");
@@ -87,8 +86,8 @@ public class ListinoArticoloDao {
 				String codiceDivisa = rs.getString("codiceDivisa");
 				float prezzo = rs.getFloat("prezzo");
 				int numeroDecimali = rs.getInt("numeroDecimali");
-				LocalDate dataDecorrenza = Utils.convertToEntityAttribute(rs.getDate("dataDecorrenza"));
-				LocalDate dataValidita = Utils.convertToEntityAttribute(rs.getDate("dataValidita"));
+				Date dataDecorrenza = rs.getDate("dataDecorrenza");
+				Date dataValidita = rs.getDate("dataValidita");
 				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
 				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				

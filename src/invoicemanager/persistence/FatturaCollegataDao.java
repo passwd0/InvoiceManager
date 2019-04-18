@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class FatturaCollegataDao {
 		ps.setInt(1, a.getNumeroFtCollegate());
 		ps.setInt(2, a.getNumeroRigaFtCollegate());
 		ps.setInt(3, a.getSezionale());
-		ps.setDate(4, Utils.convertToDatabaseColumn(a.getDataFtCollegate()));
+		ps.setDate(4, a.getDataFtCollegate());
 		ps.setString(5, a.getFtcCodiceCommessaFtCollegate());
 		ps.setString(6, a.getFtcCodiceCUP());
 		ps.setString(7, a.getFtcCodiceCIG());
@@ -74,13 +74,12 @@ public class FatturaCollegataDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM FatturaCollegata");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroFtCollegate = rs.getInt("numeroFtCollegate");
 				int numeroRigaFtCollegate = rs.getInt("numeroRigaFtCollegate");
 				int sezionale = rs.getInt("sezionale");
-				LocalDate dataFtCollegate = Utils.convertToEntityAttribute(rs.getDate("dataFtCollegate"));
+				Date dataFtCollegate = rs.getDate("dataFtCollegate");
 				String ftcCodiceCommessaFtCollegate = rs.getString("ftcCodiceCommessaFtCollegate");
 				String ftcCodiceCUP = rs.getString("ftcCodiceCUP");
 				String ftcCodiceCIG = rs.getString("ftcCodiceCIG");

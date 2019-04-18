@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class DdtDettaglioDao {
 			ps.setFloat(7, a.getCosto());
 			ps.setInt(8, a.getNumeroOrdine());
 			ps.setInt(9, a.getNumeroRigaOrdine());
-			ps.setDate(10, Utils.convertToDatabaseColumn(a.getDataOrdine()));
+			ps.setDate(10, a.getDataOrdine());
 			ps.setFloat(11, a.getQuantitaDaConsegnare());
 			ps.setBoolean(12, a.isIndicatoreEvasione());
 			ps.setString(13, a.getDescrizione());
@@ -140,7 +140,6 @@ public class DdtDettaglioDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM DdtDettaglio");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroDDT = rs.getInt("numeroDDT");
@@ -152,7 +151,7 @@ public class DdtDettaglioDao {
 				float costo = rs.getFloat("costo");
 				int numeroOrdine = rs.getInt("numeroOrdine");
 				int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
-				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
+				Date dataOrdine = rs.getDate("dataOrdine");
 				float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 				boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
 				String descrizione = rs.getString("descrizione");

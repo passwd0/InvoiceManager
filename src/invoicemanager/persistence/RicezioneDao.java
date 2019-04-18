@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class RicezioneDao {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Ricezione VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroRicezione());
 		ps.setInt(2, a.getNumeroRigaRicezione());
-		ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataRicezione()));
+		ps.setDate(3, a.getDataRicezione());
 		ps.setString(4, a.getRczCodiceCommessaRicezione());
 		ps.setString(5, a.getRczCodiceCUP());
 		ps.setString(6, a.getRczCodiceCIG());
@@ -73,12 +73,11 @@ public class RicezioneDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Ricezione");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroRicezione = rs.getInt("numeroRicezione");
 				int numeroRigaRicezione = rs.getInt("numeroRigaRicezione");
-				LocalDate dataRicezione = Utils.convertToEntityAttribute(rs.getDate("dataRicezione"));
+				Date dataRicezione = rs.getDate("dataRicezione");
 				String rczCodiceCommessaRicezione = rs.getString("rczCodiceCommessaRicezione");
 				String rczCodiceCUP = rs.getString("rczCodiceCUP");
 				String rczCodiceCIG = rs.getString("rczCodiceCIG");

@@ -107,7 +107,6 @@ public class VettoreDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Vettore");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceVettore = rs.getString("codiceVettore");

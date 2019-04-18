@@ -1,15 +1,15 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Ricezione{ //List
 	private int numeroRicezione; //  NULL,
 	private int numeroRigaRicezione; //  NULL,
-	private LocalDate dataRicezione; //  NULL,
+	private Date dataRicezione; //  NULL,
 	private String rczCodiceCommessaRicezione; // (100),
 	private String rczCodiceCUP; // (15),
 	private String rczCodiceCIG; // (15),
 	
-	public Ricezione(int numeroRicezione, int numeroRigaRicezione, LocalDate dataRicezione,
+	public Ricezione(int numeroRicezione, int numeroRigaRicezione, Date dataRicezione,
 			String rczCodiceCommessaRicezione, String rczCodiceCUP, String rczCodiceCIG) {
 		this.numeroRicezione = numeroRicezione;
 		this.numeroRigaRicezione = numeroRigaRicezione;
@@ -30,10 +30,10 @@ public class Ricezione{ //List
 	public void setNumeroRigaRicezione(int numeroRigaRicezione) {
 		this.numeroRigaRicezione = numeroRigaRicezione;
 	}
-	public LocalDate getDataRicezione() {
+	public Date getDataRicezione() {
 		return dataRicezione;
 	}
-	public void setDataRicezione(LocalDate dataRicezione) {
+	public void setDataRicezione(Date dataRicezione) {
 		this.dataRicezione = dataRicezione;
 	}
 	public String getRczCodiceCommessaRicezione() {

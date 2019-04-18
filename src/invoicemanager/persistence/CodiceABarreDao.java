@@ -69,7 +69,6 @@ public class CodiceABarreDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM CodiceABarre");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceArticolo = rs.getString("codiceArticolo");

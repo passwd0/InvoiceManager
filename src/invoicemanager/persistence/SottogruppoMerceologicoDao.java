@@ -75,7 +75,6 @@ public class SottogruppoMerceologicoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM SottogruppoMerceologico");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceSottogruppoMerceologico = rs.getString("codiceSottogruppoMerceologico");

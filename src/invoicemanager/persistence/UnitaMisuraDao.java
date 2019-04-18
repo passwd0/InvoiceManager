@@ -69,7 +69,6 @@ public class UnitaMisuraDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM UnitaMisura");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");

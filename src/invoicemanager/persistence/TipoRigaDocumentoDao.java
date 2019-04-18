@@ -66,7 +66,6 @@ public class TipoRigaDocumentoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TipoRigaDocumento");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");

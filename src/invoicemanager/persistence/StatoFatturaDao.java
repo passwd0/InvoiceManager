@@ -68,7 +68,6 @@ public class StatoFatturaDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM StatoFattura");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				boolean indicatoreStatoAvanzamento = rs.getBoolean("indicatoreStatoAvanzamento");

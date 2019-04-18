@@ -1,10 +1,10 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class OrdineDettaglio{
 	private int numeroOrdine; //  NOT NULL		sottoclasse di ordineTestata
-	private LocalDate dataOrdine; //  NOT NULL
+	private Date dataOrdine; //  NOT NULL
 	private int numeroRigaOrdine; //  NOT NULL
 	private String codiceTipoRigaDocumento; //(4) NULL
 	private String codiceMagazzino; //(4) NULL
@@ -12,7 +12,7 @@ public class OrdineDettaglio{
 	private float quantitaConsegnata; //  NULL
 	private boolean indicatoreEvasione; // NULL
 	private String descrizione; //(2000) NULL
-	private LocalDate dataConsegna; //  NULL
+	private Date dataConsegna; //  NULL
 	private float quantita; //  NULL
 	private String codiceUnitaMisura; //(4) NULL
 	private float prezzo; // (19, 5) NULL
@@ -28,37 +28,37 @@ public class OrdineDettaglio{
 	private float quantitaVariata; //  NULL
 	private int numeroPreventivo; //  NULL
 	private int numeroRigaPreventivo; //  NULL
-	private LocalDate dataPreventivo; //  NULL
+	private Date dataPreventivo; //  NULL
 	private float quantitaEvasa; //  NULL
 	private boolean indicatoreEvasionePreventivi; // NULL
 	private boolean indicatoreEvasioneRigheNote; // NULL
 	private boolean indicatoreNoConferma; // NULL
-	private LocalDate dataConsegnaSchedulatore; //  NULL
-	private LocalDate dataConsegnaProposta; //  NULL
+	private Date dataConsegnaSchedulatore; //  NULL
+	private Date dataConsegnaProposta; //  NULL
 	private boolean indicatoreBloccato; // NULL
 	private boolean indicatoreOrdineTrading; // NULL
-	private LocalDate dataInizioSchedulatore; //  NULL
+	private Date dataInizioSchedulatore; //  NULL
 	private String codiceArticoloBis; //(30) NULL
 	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
 	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 	
-	public OrdineDettaglio(int numeroOrdine, LocalDate dataOrdine, int numeroRigaOrdine) {
+	public OrdineDettaglio(int numeroOrdine, Date dataOrdine, int numeroRigaOrdine) {
 		this.numeroOrdine = numeroOrdine;
 		this.dataOrdine = dataOrdine;
 		this.numeroRigaOrdine = numeroRigaOrdine;
 	}
 
-	public OrdineDettaglio(int numeroOrdine, LocalDate dataOrdine, int numeroRigaOrdine,
+	public OrdineDettaglio(int numeroOrdine, Date dataOrdine, int numeroRigaOrdine,
 			String codiceTipoRigaDocumento, String codiceMagazzino, String codiceArticolo, float quantitaConsegnata,
-			boolean indicatoreEvasione, String descrizione, LocalDate dataConsegna, float quantita,
+			boolean indicatoreEvasione, String descrizione, Date dataConsegna, float quantita,
 			String codiceUnitaMisura, float prezzo, String codiceIva, String codiceContropartitaContabile,
 			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
 			float percentualeScontoPagamento, String descrizioneAggiuntiva, boolean indicatoreCoordinamento,
 			boolean indicatoreOrdineDaFatturare, float quantitaVariata, int numeroPreventivo,
-			int numeroRigaPreventivo, LocalDate dataPreventivo, float quantitaEvasa,
+			int numeroRigaPreventivo, Date dataPreventivo, float quantitaEvasa,
 			boolean indicatoreEvasionePreventivi, boolean indicatoreEvasioneRigheNote, boolean indicatoreNoConferma,
-			LocalDate dataConsegnaSchedulatore, LocalDate dataConsegnaProposta, boolean indicatoreBloccato,
-			boolean indicatoreOrdineTrading, LocalDate dataInizioSchedulatore, String codiceArticoloBis,
+			Date dataConsegnaSchedulatore, Date dataConsegnaProposta, boolean indicatoreBloccato,
+			boolean indicatoreOrdineTrading, Date dataInizioSchedulatore, String codiceArticoloBis,
 			Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.numeroOrdine = numeroOrdine;
 		this.dataOrdine = dataOrdine;
@@ -356,51 +356,51 @@ public class OrdineDettaglio{
 		this.codiceArticoloBis = codiceArticoloBis;
 	}
 
-	public LocalDate getDataOrdine() {
+	public Date getDataOrdine() {
 		return dataOrdine;
 	}
 
-	public void setDataOrdine(LocalDate dataOrdine) {
+	public void setDataOrdine(Date dataOrdine) {
 		this.dataOrdine = dataOrdine;
 	}
 
-	public LocalDate getDataConsegna() {
+	public Date getDataConsegna() {
 		return dataConsegna;
 	}
 
-	public void setDataConsegna(LocalDate dataConsegna) {
+	public void setDataConsegna(Date dataConsegna) {
 		this.dataConsegna = dataConsegna;
 	}
 
-	public LocalDate getDataPreventivo() {
+	public Date getDataPreventivo() {
 		return dataPreventivo;
 	}
 
-	public void setDataPreventivo(LocalDate dataPreventivo) {
+	public void setDataPreventivo(Date dataPreventivo) {
 		this.dataPreventivo = dataPreventivo;
 	}
 
-	public LocalDate getDataConsegnaSchedulatore() {
+	public Date getDataConsegnaSchedulatore() {
 		return dataConsegnaSchedulatore;
 	}
 
-	public void setDataConsegnaSchedulatore(LocalDate dataConsegnaSchedulatore) {
+	public void setDataConsegnaSchedulatore(Date dataConsegnaSchedulatore) {
 		this.dataConsegnaSchedulatore = dataConsegnaSchedulatore;
 	}
 
-	public LocalDate getDataConsegnaProposta() {
+	public Date getDataConsegnaProposta() {
 		return dataConsegnaProposta;
 	}
 
-	public void setDataConsegnaProposta(LocalDate dataConsegnaProposta) {
+	public void setDataConsegnaProposta(Date dataConsegnaProposta) {
 		this.dataConsegnaProposta = dataConsegnaProposta;
 	}
 
-	public LocalDate getDataInizioSchedulatore() {
+	public Date getDataInizioSchedulatore() {
 		return dataInizioSchedulatore;
 	}
 
-	public void setDataInizioSchedulatore(LocalDate dataInizioSchedulatore) {
+	public void setDataInizioSchedulatore(Date dataInizioSchedulatore) {
 		this.dataInizioSchedulatore = dataInizioSchedulatore;
 	}
 }

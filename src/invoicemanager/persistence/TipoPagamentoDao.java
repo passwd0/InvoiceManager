@@ -93,7 +93,6 @@ public class TipoPagamentoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TipoPagamento");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceTipoPagamento = rs.getString("codiceTipoPagamento");

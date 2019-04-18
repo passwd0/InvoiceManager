@@ -68,7 +68,6 @@ public class StabileOrganizzazioneDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM StabileOrganizzazione");
-			Timestamp ts;
 	         while ( rs.next() ) {
 	        	int soCodice = rs.getInt("Codice");
 				String soIndirizzo = rs.getString("Indirizzo");

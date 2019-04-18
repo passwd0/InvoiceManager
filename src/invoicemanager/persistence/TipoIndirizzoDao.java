@@ -66,7 +66,6 @@ public class TipoIndirizzoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TipoIndirizzo");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceTipoIndirizzo = rs.getString("codiceTipoIndirizzo");

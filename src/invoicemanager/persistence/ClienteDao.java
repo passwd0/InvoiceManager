@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -83,11 +83,11 @@ public class ClienteDao {
 			ps.setBoolean(40, a.isIndicatoreEmail());
 			ps.setBoolean(41, a.isInputInibito());
 			ps.setBoolean(42, a.isIndicatoreFatturePA());
-			ps.setDate(43, Utils.convertToDatabaseColumn(a.getDataUltimaFattura()));
+			ps.setDate(43, a.getDataUltimaFattura());
 			ps.setFloat(44, a.getImportoUltimaFattura());
 			ps.setFloat(45, a.getImportoPlafond());
 			ps.setString(46, a.getNumeroUltimaFattura());
-			ps.setDate(47, Utils.convertToDatabaseColumn(a.getDataInizioPlafond()));
+			ps.setDate(47, a.getDataInizioPlafond());
 			ps.setBoolean(48, a.isIndicatoreFattureXML());
 			ps.setBoolean(49, a.isIndicatoreDdtEmail());
 			ps.setBoolean(50, a.isIndicatorePlafond());
@@ -219,7 +219,6 @@ public class ClienteDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Cliente");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceCliente = rs.getString("codiceCliente");
@@ -275,11 +274,11 @@ public class ClienteDao {
 				boolean indicatoreEmail = rs.getBoolean("indicatoreEmail");
 				boolean inputInibito = rs.getBoolean("inputInibito");
 				boolean indicatoreFatturePA = rs.getBoolean("indicatoreFatturePA");
-				LocalDate dataUltimaFattura = Utils.convertToEntityAttribute(rs.getDate("dataUltimaFattura"));
+				Date dataUltimaFattura = rs.getDate("dataUltimaFattura");
 				float importoUltimaFattura = rs.getFloat("importoUltimaFattura");
 				float importoPlafond = rs.getFloat("importoPlafond");
 				String numeroUltimaFattura = rs.getString("numeroUltimaFattura");
-				LocalDate dataInizioPlafond = Utils.convertToEntityAttribute(rs.getDate("dataInizioPlafond"));
+				Date dataInizioPlafond = rs.getDate("dataInizioPlafond");
 				boolean indicatoreFattureXML = rs.getBoolean("indicatoreFattureXML");
 				boolean indicatoreDdtEmail = rs.getBoolean("indicatoreDdtEmail");
 				boolean indicatorePlafond = rs.getBoolean("indicatorePlafond");

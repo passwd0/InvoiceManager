@@ -126,7 +126,6 @@ public class CausaleMagazzinoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM CausaleMagazzino");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceCausaleMagazzino = rs.getString("codiceCausaleMagazzino");

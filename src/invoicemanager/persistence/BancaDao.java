@@ -136,7 +136,6 @@ public class BancaDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Banca");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceBanca = rs.getString("codiceBanca");

@@ -1,15 +1,15 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Ordine{ //List
 	private int numeroOrdine; //  NULL,
 	private int numeroRigaOrdine; //  NULL,
-	private LocalDate dataOrdine; //  NULL,
+	private Date dataOrdine; //  NULL,
 	private String ordCodiceCommessaConvenzione; // (100),
 	private String ordCodiceCUP; // (15),
 	private String ordCodiceCIG; // (15),
 	
-	public Ordine(int numeroOrdine, int numeroRigaOrdine, LocalDate dataOrdine, String ordCodiceCommessaConvenzione,
+	public Ordine(int numeroOrdine, int numeroRigaOrdine, Date dataOrdine, String ordCodiceCommessaConvenzione,
 			String ordCodiceCUP, String ordCodiceCIG) {
 		this.numeroOrdine = numeroOrdine;
 		this.numeroRigaOrdine = numeroRigaOrdine;
@@ -35,11 +35,11 @@ public class Ordine{ //List
 		this.numeroRigaOrdine = numeroRigaOrdine;
 	}
 
-	public LocalDate getDataOrdine() {
+	public Date getDataOrdine() {
 		return dataOrdine;
 	}
 
-	public void setDataOrdine(LocalDate dataOrdine) {
+	public void setDataOrdine(Date dataOrdine) {
 		this.dataOrdine = dataOrdine;
 	}
 

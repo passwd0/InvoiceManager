@@ -138,7 +138,6 @@ public class ArticoloMagazzinoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM ArticoloMagazzino");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceArticolo = rs.getString("codiceArticolo");

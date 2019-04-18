@@ -1,6 +1,6 @@
 package invoicemanager.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -48,11 +48,11 @@ public class Cliente implements Comparable<Cliente> {
 	private boolean indicatoreEmail;
 	private boolean inputInibito;
 	private boolean indicatoreFatturePA; // NULL
-	private LocalDate dataUltimaFattura; //  NULL
+	private Date dataUltimaFattura; //  NULL
 	private float importoUltimaFattura; //  NULL
 	private float importoPlafond; //  NULL
 	private String numeroUltimaFattura; //(50) NULL
-	private LocalDate dataInizioPlafond; //  NULL
+	private Date dataInizioPlafond; //  NULL
 	private boolean indicatoreFattureXML; // NULL
 	private boolean indicatoreDdtEmail; // NULL
 	private boolean indicatorePlafond; // NULL
@@ -78,8 +78,8 @@ public class Cliente implements Comparable<Cliente> {
 			String codiceDivisa, int dataScadenzaSpostataAgosto, int dataScadenzaSpostataDicembre, String codiceLingua,
 			String note, Stato stato, List<Contatto> contatti, boolean indicatoreInviataInformativaPrivacy,
 			boolean indicatoreRicevutaInformativaPrivacy, boolean indicatoreScorporoIVA, boolean indicatoreIVADifferita,
-			boolean indicatoreEmail, boolean inputInibito, boolean indicatoreFatturePA, LocalDate dataUltimaFattura,
-			float importoUltimaFattura, float importoPlafond, String numeroUltimaFattura, LocalDate dataInizioPlafond,
+			boolean indicatoreEmail, boolean inputInibito, boolean indicatoreFatturePA, Date dataUltimaFattura,
+			float importoUltimaFattura, float importoPlafond, String numeroUltimaFattura, Date dataInizioPlafond,
 			boolean indicatoreFattureXML, boolean indicatoreDdtEmail, boolean indicatorePlafond,
 			String codiceDestinatarioXml, String codiceEORI, StabileOrganizzazione stabileOrganizzazione,
 			RappresentanteFiscale rappresentanteFiscale, TerzoIntermediario terzoIntermediario,
@@ -603,11 +603,11 @@ public class Cliente implements Comparable<Cliente> {
 		this.indicatoreFatturePA = indicatoreFatturePA;
 	}
 
-	public LocalDate getDataUltimaFattura() {
+	public Date getDataUltimaFattura() {
 		return dataUltimaFattura;
 	}
 
-	public void setDataUltimaFattura(LocalDate dataUltimaFattura) {
+	public void setDataUltimaFattura(Date dataUltimaFattura) {
 		this.dataUltimaFattura = dataUltimaFattura;
 	}
 
@@ -635,11 +635,11 @@ public class Cliente implements Comparable<Cliente> {
 		this.numeroUltimaFattura = numeroUltimaFattura;
 	}
 
-	public LocalDate getDataInizioPlafond() {
+	public Date getDataInizioPlafond() {
 		return dataInizioPlafond;
 	}
 
-	public void setDataInizioPlafond(LocalDate dataInizioPlafond) {
+	public void setDataInizioPlafond(Date dataInizioPlafond) {
 		this.dataInizioPlafond = dataInizioPlafond;
 	}
 

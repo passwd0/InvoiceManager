@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,7 +33,7 @@ public class FatturaDettaglioDao {
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO FatturaDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroFattura());
-			ps.setDate(2, Utils.convertToDatabaseColumn(a.getDataFattura()));
+			ps.setDate(2, a.getDataFattura());
 			ps.setInt(3, a.getNumeroRigaFattura());
 			ps.setInt(4, a.getSezionale());
 			ps.setString(4, a.getCodiceTipoRigaDocumento());
@@ -41,7 +41,7 @@ public class FatturaDettaglioDao {
 			ps.setFloat(6, a.getCosto());
 			ps.setInt(7, a.getNumeroOrdine());
 			ps.setInt(8, a.getNumeroRigaOrdine());
-			ps.setDate(9, Utils.convertToDatabaseColumn(a.getDataOrdine()));
+			ps.setDate(9, a.getDataOrdine());
 			ps.setFloat(10, a.getQuantitaDaConsegnare());
 			ps.setBoolean(11, a.isIndicatoreEvasione());
 			ps.setString(12, a.getDescrizione());
@@ -178,11 +178,10 @@ public class FatturaDettaglioDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM FatturaDettaglio");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroFattura = rs.getInt("numeroFattura");
-				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
+				Date dataFattura = rs.getDate("dataFattura");
 				int numeroRigaFattura = rs.getInt("numeroRigaFattura");
 				int sezionale = rs.getInt("sezionale");
 				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
@@ -190,7 +189,7 @@ public class FatturaDettaglioDao {
 				float costo = rs.getFloat("costo");
 				int numeroOrdine = rs.getInt("numeroOrdine");
 				int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
-				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
+				Date dataOrdine = rs.getDate("dataOrdine");
 				float quantitaDaConsegnare = rs.getFloat("quantitaDaConsegnare");
 				boolean indicatoreEvasione = rs.getBoolean("indicatoreEvasione");
 				String descrizione = rs.getString("descrizione");

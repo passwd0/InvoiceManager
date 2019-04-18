@@ -29,6 +29,10 @@ public class Utils {
 		return new SimpleDateFormat("dd/MM/yyyy").format(timestamp);
 	}
 	
+	public static String toString(Date date) {
+		return new SimpleDateFormat("dd/MM/yyyy").format(date);
+	}
+	
 	public static Timestamp toTimestamp(LocalDateTime datetime) {
 		if (datetime == null)
 			return null;

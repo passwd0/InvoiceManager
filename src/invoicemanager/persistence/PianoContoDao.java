@@ -84,7 +84,6 @@ public class PianoContoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM PianoConto");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceConto = rs.getString("codiceConto");

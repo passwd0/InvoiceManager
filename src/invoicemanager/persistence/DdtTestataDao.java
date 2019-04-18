@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -48,7 +48,7 @@ public class DdtTestataDao {
 			ps.setString(18, a.getCodicePagamento());
 			ps.setString(19, a.getCodiceBanca());
 			ps.setInt(20, a.getNumeroFattura());
-			ps.setDate(21, Utils.convertToDatabaseColumn(a.getDataFattura()));
+			ps.setDate(21, a.getDataFattura());
 			ps.setString(22, a.getCodiceDivisa());
 			ps.setString(23, a.getCausaleTrasporto());
 			ps.setFloat(24, a.getPesoColli());
@@ -174,7 +174,6 @@ public class DdtTestataDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM DdtTestata");
-			Timestamp ts;
 	         while ( rs.next() ) {
 	        	 int id = rs.getInt("id");
 				int numeroDDT = rs.getInt("numeroDDT");
@@ -197,7 +196,7 @@ public class DdtTestataDao {
 				String codicePagamento = rs.getString("codicePagamento");
 				String codiceBanca = rs.getString("codiceBanca");
 				int numeroFattura = rs.getInt("numeroFattura");
-				LocalDate dataFattura = Utils.convertToEntityAttribute(rs.getDate("dataFattura"));
+				Date dataFattura = rs.getDate("dataFattura");
 				String codiceDivisa = rs.getString("codiceDivisa");
 				String causaleTrasporto = rs.getString("causaleTrasporto");
 				float pesoColli = rs.getFloat("pesoColli");

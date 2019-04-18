@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class AltroDatoGestionaleDao {
 			ps.setString(1, a.getTipoDato());
 			ps.setString(2, a.getRiferimentoTesto());
 			ps.setFloat(3, a.getRiferimentoNumero());
-			ps.setDate(4, Utils.convertToDatabaseColumn(a.getRiferimentoData()));
+			ps.setDate(4, a.getRiferimentoData());
 	
 			res = ps.executeUpdate();
 			ps.close();
@@ -75,7 +75,7 @@ public class AltroDatoGestionaleDao {
 				String tipoDato = rs.getString("tipoDato");
 				String riferimentoTesto = rs.getString("riferimentoTesto");
 				float riferimentoNumero = rs.getFloat("riferimentoNumero");
-				LocalDate riferimentoData = Utils.convertToEntityAttribute(rs.getDate("riferimentoData"));
+				Date riferimentoData = rs.getDate("riferimentoData");
 				AltroDatoGestionale altroDatoGestionale = new AltroDatoGestionale(codiceAltroDatoGestionale, tipoDato, riferimentoTesto, riferimentoNumero, riferimentoData);
 
 				listAltroDatoGestionale.add(altroDatoGestionale);

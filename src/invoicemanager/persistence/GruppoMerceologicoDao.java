@@ -75,7 +75,6 @@ public class GruppoMerceologicoDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM GruppoMerceologico");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				String codiceGruppoMerceologico = rs.getString("codiceGruppoMerceologico");

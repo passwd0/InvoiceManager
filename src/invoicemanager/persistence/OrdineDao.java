@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class OrdineDao {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Ordine VALUES (?, ?, ?, ?, ?, ?)");
 		ps.setInt(1, a.getNumeroOrdine());
 		ps.setInt(2, a.getNumeroRigaOrdine());
-		ps.setDate(3, Utils.convertToDatabaseColumn(a.getDataOrdine()));
+		ps.setDate(3, a.getDataOrdine());
 		ps.setString(4, a.getOrdCodiceCommessaConvenzione());
 		ps.setString(5, a.getOrdCodiceCUP());
 		ps.setString(6, a.getOrdCodiceCIG());
@@ -73,12 +73,11 @@ public class OrdineDao {
 		try {
 			stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Ordine");
-			Timestamp ts;
 	         while ( rs.next() ) {
 
 				int numeroOrdine = rs.getInt("numeroOrdine");
 				int numeroRigaOrdine = rs.getInt("numeroRigaOrdine");
-				LocalDate dataOrdine = Utils.convertToEntityAttribute(rs.getDate("dataOrdine"));
+				Date dataOrdine = rs.getDate("dataOrdine");
 				String ordCodiceCommessaConvenzione = rs.getString("ordCodiceCommessaConvenzione");
 				String ordCodiceCUP = rs.getString("ordCodiceCUP");
 				String ordCodiceCIG = rs.getString("ordCodiceCIG");

@@ -1,15 +1,15 @@
 package invoicemanager.model;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Convenzione{ //List
 	private int numeroConvenzione; //  NULL,
 	private int numeroRigaConvenzione; //  NULL,
-	private LocalDate dataConvenzione; //  NULL,
+	private Date dataConvenzione; //  NULL,
 	private String cnvCodiceCommessaConvenzione; // (100),
 	private String cnvCodiceCUP; // (15),
 	private String cnvCodiceCIG; // (15),
 	
-	public Convenzione(int numeroConvenzione, int numeroRigaConvenzione, LocalDate dataConvenzione,
+	public Convenzione(int numeroConvenzione, int numeroRigaConvenzione, Date dataConvenzione,
 			String cnvCodiceCommessaConvenzione, String cnvCodiceCUP, String cnvCodiceCIG) {
 		this.numeroConvenzione = numeroConvenzione;
 		this.numeroRigaConvenzione = numeroRigaConvenzione;
@@ -35,11 +35,11 @@ public class Convenzione{ //List
 		this.numeroRigaConvenzione = numeroRigaConvenzione;
 	}
 
-	public LocalDate getDataConvenzione() {
+	public Date getDataConvenzione() {
 		return dataConvenzione;
 	}
 
-	public void setDataConvenzione(LocalDate dataConvenzione) {
+	public void setDataConvenzione(Date dataConvenzione) {
 		this.dataConvenzione = dataConvenzione;
 	}
 

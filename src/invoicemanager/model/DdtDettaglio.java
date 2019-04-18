@@ -1,6 +1,6 @@
 package invoicemanager.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class DdtDettaglio {
@@ -13,7 +13,7 @@ public class DdtDettaglio {
 	private float costo; //NULL												x
 	private int numeroOrdine; //NULL										----
 	private int numeroRigaOrdine; //NULL									----
-	private LocalDate dataOrdine; //NULL									----
+	private Date dataOrdine; //NULL									----
 	private float quantitaDaConsegnare; //NULL								x
 	private boolean indicatoreEvasione;
 	private String descrizione; //											x
@@ -36,7 +36,7 @@ public class DdtDettaglio {
 	
 	public DdtDettaglio(int numeroDDT, Timestamp dataDDT, int numeroRigaDDT, String codiceTipoRigaDocumento,
 			String codiceArticolo, String codiceMagazzino, float costo, int numeroOrdine, int numeroRigaOrdine,
-			LocalDate dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
+			Date dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
 			float quantita, float prezzo, String codiceIva, String codiceContropartitaContabile,
 			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
 			float percentualeScontoPagamento, String descrizioneAggiuntiva, String codiceUnitaMisura,
@@ -135,10 +135,10 @@ public class DdtDettaglio {
 	public void setNumeroRigaOrdine(int numeroRigaOrdine) {
 		this.numeroRigaOrdine = numeroRigaOrdine;
 	}
-	public LocalDate getDataOrdine() {
+	public Date getDataOrdine() {
 		return dataOrdine;
 	}
-	public void setDataOrdine(LocalDate dataOrdine) {
+	public void setDataOrdine(Date dataOrdine) {
 		this.dataOrdine = dataOrdine;
 	}
 	public float getQuantitaDaConsegnare() {
