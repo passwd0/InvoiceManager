@@ -4,6 +4,8 @@ import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -509,8 +511,15 @@ public class FatturaDettaglio {
 		if (dataFattura == null) {
 			if (other.dataFattura != null)
 				return false;
-		} else if (!(dataFattura.getYear()==other.dataFattura.getYear()))
-			return false;
+		} else {
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(this.dataFattura);
+			int y1 = calendar.get(Calendar.YEAR);
+			calendar.setTime(other.dataFattura);
+			int y2 = calendar.get(Calendar.YEAR);
+			if (y1 != y2)
+				return false;
+		}
 		if (numeroFattura != other.numeroFattura)
 			return false;
 		if (numeroRigaFattura != other.numeroRigaFattura)
