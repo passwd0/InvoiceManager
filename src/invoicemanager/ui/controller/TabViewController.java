@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 import invoicemanager.model.ArticoloMagazzino;
+import invoicemanager.model.Cliente;
 import invoicemanager.model.DdtTestata;
 import invoicemanager.model.IndirizzoGeografico;
 import invoicemanager.model.ListinoArticolo;
@@ -19,7 +20,9 @@ import invoicemanager.ui.converter.ArticoloMagazzinoConverter;
 import invoicemanager.ui.converter.CodiceSpedizioneConverter;
 import invoicemanager.ui.converter.DdtTestataConverter;
 import invoicemanager.ui.converter.ListinoArticoloConverter;
+import invoicemanager.ui.converter.LocalitaSpedizioneConverter;
 import invoicemanager.ui.converter.MagazzinoConverter;
+import invoicemanager.ui.converter.NazioneSpedizioneConverter;
 import invoicemanager.ui.converter.OrdineTestataConverter;
 import invoicemanager.ui.converter.UnitaMisuraConverter;
 import invoicemanager.ui.model.TableCorpo;
@@ -95,10 +98,10 @@ public class TabViewController implements Initializable {
     public ComboBox<IndirizzoGeografico> combobox_codicespedizione;
 
     @FXML
-    public ComboBox<String> combobox_localitaspedizione;
+    public TextField textfield_localitaspedizione;
 
     @FXML
-    public ComboBox<String> combobox_nazionespedizione;
+    public TextField textfield_nazionespedizione;
 
     @FXML
     public Label label_pagamento;
@@ -294,8 +297,6 @@ public class TabViewController implements Initializable {
     
     //TESTATA
     public ObservableList<IndirizzoGeografico> oCodiceSpedizione;
-    public ObservableList<String> oLocalitaSpedizione;
-    public ObservableList<String> oNazioneSpedizione;
     public ObservableList<DdtTestata> oDdtTestata;
     public ObservableList<OrdineTestata> oOrdineTestata;
     //CORPO
@@ -313,12 +314,6 @@ public class TabViewController implements Initializable {
 		oCodiceSpedizione = FXCollections.observableArrayList();
 		combobox_codicespedizione.setItems(oCodiceSpedizione);
 		combobox_codicespedizione.setConverter(new CodiceSpedizioneConverter());
-
-		oLocalitaSpedizione = FXCollections.observableArrayList();
-		combobox_localitaspedizione.setItems(oLocalitaSpedizione);
-		
-		oNazioneSpedizione = FXCollections.observableArrayList();
-		combobox_nazionespedizione.setItems(oNazioneSpedizione);
 		
 		oOrdineTestata = FXCollections.observableArrayList();
 		combobox_ordinen.setItems(oOrdineTestata);
@@ -365,40 +360,39 @@ public class TabViewController implements Initializable {
 	/* TESTATA UPDATE */
 	@FXML
 	void combobox_codicespedizione_onShowing(Event event) {
+		Cliente cliente = InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue();
+		if (cliente == null) {
+			Controller.alert("Attenzione", "Codice Spedizione", "Inserire un cliente esistente per procedere");
+			return;
+		}
 		oCodiceSpedizione.setAll(DataManager.loadIndirizzoGeografico().stream()
-				.filter(ig -> ig.getCodiceConto().equals(InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue().getCodiceCliente()))
+				.filter(ig -> ig.getCodiceConto().equals(cliente.getCodiceCliente()))
 				.collect(Collectors.toList()));
 	}
 	@FXML
-	void combobox_localitaspedizione_onShowing(Event event) {
-		if (combobox_codicespedizione.getValue() == null) {
-			Controller.alert("Attenzione", "Localita'", "E' necessario inserire un codice di spedizione prima di scegliere la localita'");
-			return;
-		}
-		oLocalitaSpedizione.setAll(Utils.listaLocalita);
-	}
-	@FXML
-	void combobox_nazionespedizione_onShowing(Event event) {
-		if (combobox_codicespedizione.getValue() == null) {
-			Controller.alert("Attenzione", "Localita'", "E' necessario inserire un codice di spedizione prima di scegliere la localita'");
-			return;
-		}
-		oNazioneSpedizione.setAll(Utils.listaNazioni);
-	}
-	@FXML
 	void combobox_ordinen_onShowing(Event event) {
+		Cliente cliente = InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue();
+		if (cliente == null) {
+			Controller.alert("Attenzione", "Ordine", "Inserire un cliente esistente per procedere");
+			return;
+		}
 		oOrdineTestata.setAll(
 				DataManager.loadOrdineTestata().stream()
 				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
-						o.getCodiceClienteFatturazione().equals(InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue().getCodiceCliente()))
+						o.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
 				.collect(Collectors.toList()));
 	}
 	@FXML
 	void combobox_bollan_onShowing(Event event) {
+		Cliente cliente = InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue();
+		if (cliente == null) {
+			Controller.alert("Attenzione", "Bolla", "Inserire un cliente esistente per procedere");
+			return;
+		}
 		oDdtTestata.setAll(
 				DataManager.loadDdtTestata().stream()
 				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
-						d.getCodiceClienteFatturazione().equals(InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue().getCodiceCliente()))
+						d.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
 				.collect(Collectors.toList()));
 	}
 	
@@ -419,9 +413,11 @@ public class TabViewController implements Initializable {
 	@FXML
 	void combobox_artprezzo_onShowing(Event event) {
 		ArticoloMagazzino articolo = combobox_articolo.getValue();
-		if (articolo != null) {
-			oArticoloPrezzo.setAll(articolo.getListiniArticolo());
+		if (articolo == null) {
+			Controller.alert("Attenzione", "Articolo Prezzo", "Inserire un articolo esistente per procedere");
+			return;
 		}
+		oArticoloPrezzo.setAll(articolo.getListiniArticolo());
 	}
 	@FXML 
 	void combobox_unitamisura_onShowing(Event event){
@@ -551,7 +547,7 @@ public class TabViewController implements Initializable {
 		textfield_percprovcliente.clear();
 		textfield_scontocliente.clear();
 		
-		cleanSpedizione();
+		cleanTestataSpedizione();
 
 		label_pagamento.setText("");
 		label_vettore.setText("");
@@ -575,14 +571,14 @@ public class TabViewController implements Initializable {
 		checkbox_lotti.setSelected(false);
 		textfield_iddest.clear();
 	}
-	public void cleanSpedizione() {
+	public void cleanTestataSpedizione() {
 		oCodiceSpedizione.clear();
 		textfield_codicespedizione.clear();
 		textfield_indirizzospedizione.clear();
-		oLocalitaSpedizione.clear();
+		textfield_localitaspedizione.clear();
 		textfield_provinciaspedizione.clear();
 		textfield_capspedizione.clear();
-		oNazioneSpedizione.clear();
+		textfield_nazionespedizione.clear();
 	}
 	public void cleanCorpo() {
 		oMagazzino.clear();
