@@ -500,6 +500,10 @@ public class TabViewController implements Initializable {
 	@FXML
 	void button_modifica_onAction(ActionEvent event) {
 		TableCorpo rowSelected = table_corpo.getSelectionModel().getSelectedItem();
+		if (rowSelected == null) {
+			Controller.alert("Errore", "Fattura Dettaglio", "Non e' stata selzionata alcuna riga");
+			return;
+		}
 		ArticoloMagazzino articoloSelected = oArticolo.stream().filter(a -> a.getCodiceArticolo().equals(rowSelected.getCodiceArticolo())).findFirst().orElse(null);
 		if (articoloSelected == null) {
 			Controller.alert("Errore", "Articolo", "L'articolo selezionato non e' piu' disponibile");
