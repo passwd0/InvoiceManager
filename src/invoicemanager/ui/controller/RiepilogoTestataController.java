@@ -118,51 +118,53 @@ public class RiepilogoTestataController implements Initializable {
 		InvoiceManagerGrid.tabViewController.cleanCorpo();
 
 		Cliente cliente = combobox_cliente.getValue();
-		if (cliente != null) {
-	//TESTATA
-			InvoiceManagerGrid.tabViewController.label_partitaiva.setText(cliente.getPartitaIVA());
-			// "CLIENTE" e "SPEDIZIONE e CODICI"
-			InvoiceManagerGrid.tabViewController.label_ragionesociale.setText(cliente.getDescrizione());
-			List<IndirizzoGeografico> indirizziGeografici = DataManager.loadIndirizzoGeografico().stream()
-					.filter(ig -> ig.getCodiceConto().equals(cliente.getCodiceCliente()))
-					.collect(Collectors.toList());
-			if (indirizziGeografici.size() > 0) {
-				// SPEDIZIONE e CODICI
-				InvoiceManagerGrid.tabViewController.oCodiceSpedizione.setAll(indirizziGeografici);
-				// CLIENTE
-				IndirizzoGeografico indirizzoGeograficoDefault = indirizziGeografici.stream()
-						.filter(ig -> ig.isIndicatoreIndirizzoDefault()).findFirst().orElse(null);
-//				if (indirizzoGeograficoDefault != null) {
-					InvoiceManagerGrid.tabViewController.label_indirizzo.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
-					InvoiceManagerGrid.tabViewController.label_localita.setText(indirizzoGeograficoDefault.getCitta());
-					InvoiceManagerGrid.tabViewController.label_nazione.setText(indirizzoGeograficoDefault.getCodiceNazione());
-					
-					InvoiceManagerGrid.tabViewController.textfield_indirizzospedizione.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
-					InvoiceManagerGrid.tabViewController.combobox_codicespedizione.setValue(indirizzoGeograficoDefault);
-					InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.setValue(indirizzoGeograficoDefault.getCitta());
-					InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.setValue(indirizzoGeograficoDefault.getCodiceNazione());
-					InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText(indirizzoGeograficoDefault.getProvincia());
-					InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText(indirizzoGeograficoDefault.getCap());
-//				}
-			}
-			
-			InvoiceManagerGrid.tabViewController.label_partitaiva.setText(cliente.getPartitaIVA());
-			InvoiceManagerGrid.tabViewController.textfield_percprovcliente.setText(String.valueOf(cliente.getPercentualeProvvigioneAgente()));
-			InvoiceManagerGrid.tabViewController.textfield_scontocliente.setText(String.valueOf(cliente.getScontoLegatoProvvigioniAgente()));
-			
-			InvoiceManagerGrid.tabViewController.label_pagamento.setText(cliente.getCodicePagamento());
-			InvoiceManagerGrid.tabViewController.label_vettore.setText(cliente.getCodiceVettore());
-			InvoiceManagerGrid.tabViewController.label_agente.setText(cliente.getCodiceAgente());
-			InvoiceManagerGrid.tabViewController.label_banca.setText(cliente.getCodiceBanca());
-			InvoiceManagerGrid.tabViewController.label_resa.setText(cliente.getCodiceResaMerce());
-			InvoiceManagerGrid.tabViewController.label_imballo.setText(cliente.getCodiceImballo());
-			InvoiceManagerGrid.tabViewController.label_divisa.setText(cliente.getCodiceDivisa());
-			InvoiceManagerGrid.tabViewController.label_esiva.setText(cliente.getCodiceIva());
-			InvoiceManagerGrid.tabViewController.label_lingua.setText(cliente.getCodiceLingua());
-			
-			InvoiceManagerGrid.tabViewController.checkbox_bolli.setSelected(cliente.isIndicatoreAddebitoSpeseBolli());
-			InvoiceManagerGrid.tabViewController.textfield_iddest.setText(cliente.getCodiceDestinatarioXml());
+		if (cliente == null) {
+			Controller.alert("Attenzione", "Cliente", "Il cliente selezionato non esiste");
+			return;
 		}
+	//TESTATA
+		InvoiceManagerGrid.tabViewController.label_partitaiva.setText(cliente.getPartitaIVA());
+		// "CLIENTE" e "SPEDIZIONE e CODICI"
+		InvoiceManagerGrid.tabViewController.label_ragionesociale.setText(cliente.getDescrizione());
+		List<IndirizzoGeografico> indirizziGeografici = DataManager.loadIndirizzoGeografico().stream()
+				.filter(ig -> ig.getCodiceConto().equals(cliente.getCodiceCliente()))
+				.collect(Collectors.toList());
+		if (indirizziGeografici.size() > 0) {
+			// SPEDIZIONE e CODICI
+			InvoiceManagerGrid.tabViewController.oCodiceSpedizione.setAll(indirizziGeografici);
+			// CLIENTE
+			IndirizzoGeografico indirizzoGeograficoDefault = indirizziGeografici.stream()
+					.filter(ig -> ig.isIndicatoreIndirizzoDefault()).findFirst().orElse(null);
+//				if (indirizzoGeograficoDefault != null) {
+				InvoiceManagerGrid.tabViewController.label_indirizzo.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
+				InvoiceManagerGrid.tabViewController.label_localita.setText(indirizzoGeograficoDefault.getCitta());
+				InvoiceManagerGrid.tabViewController.label_nazione.setText(indirizzoGeograficoDefault.getCodiceNazione());
+				
+				InvoiceManagerGrid.tabViewController.textfield_indirizzospedizione.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
+				InvoiceManagerGrid.tabViewController.combobox_codicespedizione.setValue(indirizzoGeograficoDefault);
+				InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.setValue(indirizzoGeograficoDefault.getCitta());
+				InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.setValue(indirizzoGeograficoDefault.getCodiceNazione());
+				InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText(indirizzoGeograficoDefault.getProvincia());
+				InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText(indirizzoGeograficoDefault.getCap());
+//				}
+		}
+			
+		InvoiceManagerGrid.tabViewController.label_partitaiva.setText(cliente.getPartitaIVA());
+		InvoiceManagerGrid.tabViewController.textfield_percprovcliente.setText(String.valueOf(cliente.getPercentualeProvvigioneAgente()));
+		InvoiceManagerGrid.tabViewController.textfield_scontocliente.setText(String.valueOf(cliente.getScontoLegatoProvvigioniAgente()));
+		
+		InvoiceManagerGrid.tabViewController.label_pagamento.setText(cliente.getCodicePagamento());
+		InvoiceManagerGrid.tabViewController.label_vettore.setText(cliente.getCodiceVettore());
+		InvoiceManagerGrid.tabViewController.label_agente.setText(cliente.getCodiceAgente());
+		InvoiceManagerGrid.tabViewController.label_banca.setText(cliente.getCodiceBanca());
+		InvoiceManagerGrid.tabViewController.label_resa.setText(cliente.getCodiceResaMerce());
+		InvoiceManagerGrid.tabViewController.label_imballo.setText(cliente.getCodiceImballo());
+		InvoiceManagerGrid.tabViewController.label_divisa.setText(cliente.getCodiceDivisa());
+		InvoiceManagerGrid.tabViewController.label_esiva.setText(cliente.getCodiceIva());
+		InvoiceManagerGrid.tabViewController.label_lingua.setText(cliente.getCodiceLingua());
+		
+		InvoiceManagerGrid.tabViewController.checkbox_bolli.setSelected(cliente.isIndicatoreAddebitoSpeseBolli());
+		InvoiceManagerGrid.tabViewController.textfield_iddest.setText(cliente.getCodiceDestinatarioXml());
 		
 		//RIFERIMENTI
 		InvoiceManagerGrid.tabViewController.oOrdineTestata.setAll(

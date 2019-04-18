@@ -18,7 +18,7 @@ public class Utils {
 	public static DateTimeFormatter formatterComplete = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 	public static DateTimeFormatter formatterDataDB = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	public static DateTimeFormatter formatterCompleteDB = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	public static List<String> listaLocalita = new ArrayList<>(Arrays.asList("citta_a", "citta_b", "citta_c"));
+	public static List<String> listaLocalita = new ArrayList<>(Arrays.asList("localita_a", "localita_b", "localita_c"));
 	public static List<String> listaNazioni = new ArrayList<>(Arrays.asList("nazione_a", "nazione_b", "nazione_c"));
 	public static List<String> listaDivise = new ArrayList<>(Arrays.asList("EUR", "USD", "AAA", "BBB"));
 	public static List<Integer> listaSezionali = new ArrayList<>(Arrays.asList(1,2,3,4,5));

@@ -126,8 +126,8 @@
                                     <TextField fx:id="textfield_indirizzospedizione" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
                                     <TextField fx:id="textfield_codicespedizione" GridPane.columnIndex="2" GridPane.columnSpan="2" />
                                     <ComboBox fx:id="combobox_codicespedizione" onAction="#combobox_codicespedizione_onAction" prefWidth="150.0" GridPane.columnIndex="1" />
-                                    <ComboBox fx:id="combobox_localitaspedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <ComboBox fx:id="combobox_nazionespedizione" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+                                    <ComboBox fx:id="combobox_localitaspedizione" onShowing="#combobox_localitaspedizione_onShowing" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="combobox_nazionespedizione" onShowing="#combobox_nazionespedizione_onShowing" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                               <GridPane>
