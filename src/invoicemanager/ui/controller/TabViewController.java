@@ -371,22 +371,34 @@ public class TabViewController implements Initializable {
 	}
 	@FXML
 	void combobox_localitaspedizione_onShowing(Event event) {
+		if (combobox_codicespedizione.getValue() == null) {
+			Controller.alert("Attenzione", "Localita'", "E' necessario inserire un codice di spedizione prima di scegliere la localita'");
+			return;
+		}
 		oLocalitaSpedizione.setAll(Utils.listaLocalita);
 	}
 	@FXML
 	void combobox_nazionespedizione_onShowing(Event event) {
-		oNazioneSpedizione.setAll(oNazioneSpedizione);
+		if (combobox_codicespedizione.getValue() == null) {
+			Controller.alert("Attenzione", "Localita'", "E' necessario inserire un codice di spedizione prima di scegliere la localita'");
+			return;
+		}
+		oNazioneSpedizione.setAll(Utils.listaNazioni);
 	}
 	@FXML
 	void combobox_ordinen_onShowing(Event event) {
-		oOrdineTestata.setAll(DataManager.loadOrdineTestata().stream()
-				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
+		oOrdineTestata.setAll(
+				DataManager.loadOrdineTestata().stream()
+				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
+						o.getCodiceClienteFatturazione().equals(InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue().getCodiceCliente()))
 				.collect(Collectors.toList()));
 	}
 	@FXML
 	void combobox_bollan_onShowing(Event event) {
-		oDdtTestata.setAll(DataManager.loadDdtTestata().stream()
-				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE)
+		oDdtTestata.setAll(
+				DataManager.loadDdtTestata().stream()
+				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
+						d.getCodiceClienteFatturazione().equals(InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue().getCodiceCliente()))
 				.collect(Collectors.toList()));
 	}
 	
@@ -504,7 +516,7 @@ public class TabViewController implements Initializable {
 			Controller.alert("Errore", "Fattura Dettaglio", "Non e' stata selzionata alcuna riga");
 			return;
 		}
-		ArticoloMagazzino articoloSelected = oArticolo.stream().filter(a -> a.getCodiceArticolo().equals(rowSelected.getCodiceArticolo())).findFirst().orElse(null);
+		ArticoloMagazzino articoloSelected = DataManager.loadArticoloMagazzino().stream().filter(a -> a.getCodiceArticolo().equals(rowSelected.getCodiceArticolo())).findFirst().orElse(null);
 		if (articoloSelected == null) {
 			Controller.alert("Errore", "Articolo", "L'articolo selezionato non e' piu' disponibile");
 			return;
@@ -538,14 +550,8 @@ public class TabViewController implements Initializable {
 		label_partitaiva.setText("");
 		textfield_percprovcliente.clear();
 		textfield_scontocliente.clear();
-
-		combobox_codicespedizione.getSelectionModel().clearSelection();
-		textfield_codicespedizione.clear();
-		textfield_indirizzospedizione.clear();
-		combobox_localitaspedizione.getSelectionModel().clearSelection();
-		textfield_provinciaspedizione.clear();
-		textfield_capspedizione.clear();
-		combobox_nazionespedizione.getSelectionModel().clearSelection();
+		
+		cleanSpedizione();
 
 		label_pagamento.setText("");
 		label_vettore.setText("");
@@ -557,9 +563,9 @@ public class TabViewController implements Initializable {
 		label_esiva.setText("");
 		label_lingua.setText("");
 		
-		combobox_ordinen.getSelectionModel().clearSelection();
-		textfield_bollandel.clear();
-		combobox_bollan.getSelectionModel().clearSelection();
+		oOrdineTestata.clear();
+		textfield_ordinendel.clear();
+		oDdtTestata.clear();
 		textfield_bollandel.clear();
 		textfield_copie.clear();
 		textfield_listino.clear();
@@ -569,22 +575,30 @@ public class TabViewController implements Initializable {
 		checkbox_lotti.setSelected(false);
 		textfield_iddest.clear();
 	}
+	public void cleanSpedizione() {
+		oCodiceSpedizione.clear();
+		textfield_codicespedizione.clear();
+		textfield_indirizzospedizione.clear();
+		oLocalitaSpedizione.clear();
+		textfield_provinciaspedizione.clear();
+		textfield_capspedizione.clear();
+		oNazioneSpedizione.clear();
+	}
 	public void cleanCorpo() {
-		combobox_magazzino.getSelectionModel().clearSelection();
+		oMagazzino.clear();
 		textfield_magazzino.clear();
-		combobox_divisa.getSelectionModel().clearSelection();
+		oDivisa.clear();
 		textfield_divisa.clear();
 		textfield_algiorno.clear();
-		combobox_cambio.getSelectionModel().clearSelection();
 		cleanCorpoArticolo();
 	}
 	private void cleanCorpoArticolo() {
-		combobox_articolo.getSelectionModel().clearSelection();
+		oArticolo.clear();
 		textfield_descr.clear();
 		textfield_descraggiuntiva.clear();
 		textfield_artquantita.clear();
-		combobox_artprezzo.getSelectionModel().clearSelection();
-		combobox_unitamisura.getSelectionModel().clearSelection();
+		oArticoloPrezzo.clear();
+		oUnitaMisura.clear();
 		//spinner_iva
 		textfield_scontocliente.clear();
 		textfield_scontoart.clear();

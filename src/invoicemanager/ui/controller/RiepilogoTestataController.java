@@ -131,22 +131,32 @@ public class RiepilogoTestataController implements Initializable {
 				.collect(Collectors.toList());
 		if (indirizziGeografici.size() > 0) {
 			// SPEDIZIONE e CODICI
-			InvoiceManagerGrid.tabViewController.oCodiceSpedizione.setAll(indirizziGeografici);
+			//InvoiceManagerGrid.tabViewController.oCodiceSpedizione.setAll(indirizziGeografici);		//forse non serve caricare le cose nell'onAction ma solo usare setValue
+			
 			// CLIENTE
 			IndirizzoGeografico indirizzoGeograficoDefault = indirizziGeografici.stream()
 					.filter(ig -> ig.isIndicatoreIndirizzoDefault()).findFirst().orElse(null);
-//				if (indirizzoGeograficoDefault != null) {
-				InvoiceManagerGrid.tabViewController.label_indirizzo.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
-				InvoiceManagerGrid.tabViewController.label_localita.setText(indirizzoGeograficoDefault.getCitta());
-				InvoiceManagerGrid.tabViewController.label_nazione.setText(indirizzoGeograficoDefault.getCodiceNazione());
-				
-				InvoiceManagerGrid.tabViewController.textfield_indirizzospedizione.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
-				InvoiceManagerGrid.tabViewController.combobox_codicespedizione.setValue(indirizzoGeograficoDefault);
-				InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.setValue(indirizzoGeograficoDefault.getCitta());
-				InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.setValue(indirizzoGeograficoDefault.getCodiceNazione());
-				InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText(indirizzoGeograficoDefault.getProvincia());
-				InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText(indirizzoGeograficoDefault.getCap());
-//				}
+				if (indirizzoGeograficoDefault != null) {
+					InvoiceManagerGrid.tabViewController.label_indirizzo.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
+					InvoiceManagerGrid.tabViewController.label_localita.setText(indirizzoGeograficoDefault.getCitta());
+					InvoiceManagerGrid.tabViewController.label_nazione.setText(indirizzoGeograficoDefault.getCodiceNazione());
+					
+					InvoiceManagerGrid.tabViewController.textfield_indirizzospedizione.setText(indirizzoGeograficoDefault.getCodiceIndirizzo());
+					InvoiceManagerGrid.tabViewController.combobox_codicespedizione.setValue(indirizzoGeograficoDefault);
+					InvoiceManagerGrid.tabViewController.combobox_localitaspedizione.setValue(indirizzoGeograficoDefault.getCitta());
+					InvoiceManagerGrid.tabViewController.combobox_nazionespedizione.setValue(indirizzoGeograficoDefault.getCodiceNazione());
+					InvoiceManagerGrid.tabViewController.textfield_provinciaspedizione.setText(indirizzoGeograficoDefault.getProvincia());
+					InvoiceManagerGrid.tabViewController.textfield_capspedizione.setText(indirizzoGeograficoDefault.getCap());
+				}
+				else {
+					InvoiceManagerGrid.tabViewController.cleanSpedizione();
+				}
+		}
+		else {
+			InvoiceManagerGrid.tabViewController.label_indirizzo.setText("");
+			InvoiceManagerGrid.tabViewController.label_localita.setText("");
+			InvoiceManagerGrid.tabViewController.label_nazione.setText("");
+			InvoiceManagerGrid.tabViewController.cleanSpedizione();
 		}
 			
 		InvoiceManagerGrid.tabViewController.label_partitaiva.setText(cliente.getPartitaIVA());
@@ -167,19 +177,10 @@ public class RiepilogoTestataController implements Initializable {
 		InvoiceManagerGrid.tabViewController.textfield_iddest.setText(cliente.getCodiceDestinatarioXml());
 		
 		//RIFERIMENTI
-		InvoiceManagerGrid.tabViewController.oOrdineTestata.setAll(
-				DataManager.loadOrdineTestata().stream()
-				.filter(o -> o.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
-						o.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
-				.collect(Collectors.toList()));
 		if (InvoiceManagerGrid.tabViewController.oOrdineTestata.size() > 0)
 			InvoiceManagerGrid.tabViewController.combobox_ordinen.setValue(InvoiceManagerGrid.tabViewController.oOrdineTestata.get(0));
 		
-		InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(
-				DataManager.loadDdtTestata().stream()
-				.filter(d -> d.getStatoAvanzamento() == StatoAvanzamento.DAINVIARE && 
-						d.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
-				.collect(Collectors.toList()));
+
 		if (InvoiceManagerGrid.tabViewController.oDdtTestata.size() > 0)
 			InvoiceManagerGrid.tabViewController.combobox_bollan.setValue(InvoiceManagerGrid.tabViewController.oDdtTestata.get(0));
 		

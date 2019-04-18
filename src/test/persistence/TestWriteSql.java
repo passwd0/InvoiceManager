@@ -132,6 +132,7 @@ public class TestWriteSql {
 	void writeIndirizzoGeografico(){
 		IndirizzoGeografico ig = new IndirizzoGeografico("a000_indirizzo", "a001");
 		ig.setCodiceNazione("nazione_b");
+		ig.setCitta("localita_a");
 		ig.setCodiceTipoIndirizzo("c0_tipoindirizzo");
 		DataManager.add(ig);
 		ig = new IndirizzoGeografico("a003_indirizzo", "a003");
@@ -226,7 +227,7 @@ public class TestWriteSql {
 	
 	@Test
 	void writeArticolo() {
-		ArticoloMagazzino am = new ArticoloMagazzino("a2", "articolo2");
+		ArticoloMagazzino am = new ArticoloMagazzino("a0", "articolo0");
 		am.setSconto(8.0F);
 		am.setNumeroColli(40);
 		am.setPercentualeProvvigione(20F);
