@@ -31,7 +31,6 @@ public class RappresentanteFiscaleDao {
 
 			res = ps.executeUpdate();
 				ps.close();
-				c.commit();
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
 				}
@@ -51,7 +50,6 @@ public class RappresentanteFiscaleDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();
 	}

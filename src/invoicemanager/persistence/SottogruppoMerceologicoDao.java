@@ -36,7 +36,6 @@ public class SottogruppoMerceologicoDao {
 
 			res = ps.executeUpdate();
 				ps.close();
-				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
@@ -59,7 +58,6 @@ public class SottogruppoMerceologicoDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

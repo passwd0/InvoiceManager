@@ -39,7 +39,6 @@ public class ConfezioneDao {
 
 			res = ps.executeUpdate();
 				ps.close();
-				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
@@ -65,7 +64,6 @@ public class ConfezioneDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

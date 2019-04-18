@@ -36,7 +36,6 @@ public class ResaMerceDao {
 	
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -54,7 +53,6 @@ public class ResaMerceDao {
 			stmt.executeUpdate(sql);
 
 			stmt.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -66,7 +64,6 @@ public class ResaMerceDao {
 	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceResa() + ";";
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
-	        c.commit();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}
@@ -87,7 +84,6 @@ public class ResaMerceDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

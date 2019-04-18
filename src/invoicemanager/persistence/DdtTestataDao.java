@@ -76,7 +76,6 @@ public class DdtTestataDao {
 
 	    	res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -87,7 +86,6 @@ public class DdtTestataDao {
 		try {
 //			stmt.executeUpdate();
 //			stmt.close();
-//			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -98,7 +96,6 @@ public class DdtTestataDao {
 //	        Statement stmt = c.createStatement();
 //	    	stmt.executeUpdate();
 //	    	stmt.close();
-//	        c.commit();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}
@@ -158,7 +155,6 @@ public class DdtTestataDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

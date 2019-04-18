@@ -61,7 +61,6 @@ public class CausaleMagazzinoDao {
 
 		res = ps.executeUpdate();
 		ps.close();
-		c.commit();
 
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
@@ -110,7 +109,6 @@ public class CausaleMagazzinoDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

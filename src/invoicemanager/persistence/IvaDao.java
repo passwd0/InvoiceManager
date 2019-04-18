@@ -59,7 +59,6 @@ public class IvaDao {
 
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 
 			} catch (Exception e) {
    			  //Utils.createAlertFailWriteDB();
@@ -78,7 +77,6 @@ public class IvaDao {
 //			stmt.executeUpdate(sql);
 //
 //			stmt.close();
-//			c.commit();
 //	      } catch (Exception e) {
 //	    	  //Utils.createAlertFailWriteDB();
 //	      }
@@ -90,7 +88,6 @@ public class IvaDao {
 //	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceIva() + ";";
 //	    	stmt.executeUpdate(sql);
 //	    	stmt.close();
-//	        c.commit();
 //		} catch (Exception e) {
 //			//Utils.createAlertFailWriteDB();
 //		}
@@ -135,7 +132,6 @@ public class IvaDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

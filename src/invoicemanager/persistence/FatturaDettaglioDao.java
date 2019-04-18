@@ -76,7 +76,6 @@ public class FatturaDettaglioDao {
 
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -94,7 +93,6 @@ public class FatturaDettaglioDao {
 //			stmt.executeUpdate(sql);
 //
 //			stmt.close();
-//			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -106,7 +104,6 @@ public class FatturaDettaglioDao {
 //	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceFatturaDettaglio() + ";";
 //	    	stmt.executeUpdate(sql);
 //	    	stmt.close();
-//	        c.commit();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}
@@ -161,7 +158,6 @@ public class FatturaDettaglioDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		e.getStackTrace();

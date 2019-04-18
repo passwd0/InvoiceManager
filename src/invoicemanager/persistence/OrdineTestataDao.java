@@ -72,7 +72,6 @@ public class OrdineTestataDao {
 
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -90,7 +89,6 @@ public class OrdineTestataDao {
 //			stmt.executeUpdate(sql);
 //
 //			stmt.close();
-//			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -102,7 +100,6 @@ public class OrdineTestataDao {
 //	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceOrdineTestata() + ";";
 //	    	stmt.executeUpdate(sql);
 //	    	stmt.close();
-//	        c.commit();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}
@@ -157,7 +154,6 @@ public class OrdineTestataDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

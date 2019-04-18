@@ -36,7 +36,6 @@ public class AgenteDao {
 	
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 
 		} catch (Exception e) {
 		  //Utils.createAlertFailWriteDB();
@@ -58,7 +57,6 @@ public class AgenteDao {
 			
 			ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -70,7 +68,6 @@ public class AgenteDao {
 //	    	String sql = "UPDATE auto SET stato=\'Eliminato\' WHERE id = " + a.getCodiceAgente() + ";";		//AGGIUNGERE STATO
 //	    	stmt.executeUpdate(sql);
 //	    	stmt.close();
-//	        c.commit();
 
 //		} catch (Exception e) {
 //			//Utils.createAlertFailWriteDB();
@@ -93,7 +90,6 @@ public class AgenteDao {
     			"); ";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

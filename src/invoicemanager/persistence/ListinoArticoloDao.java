@@ -18,7 +18,8 @@ public class ListinoArticoloDao {
 
 	public ListinoArticoloDao() {
 		try { c = ConnectionFactory.getConnection(); }
-		catch (ClassNotFoundException | SQLException e) { e.printStackTrace(); }
+		catch (ClassNotFoundException | SQLException e) 
+		{ e.printStackTrace(); }
 	}
 
 	public int add(ListinoArticolo a, boolean exist) {
@@ -38,9 +39,9 @@ public class ListinoArticoloDao {
 
 			res = ps.executeUpdate();
 				ps.close();
-				c.commit();
 
 				} catch (Exception e) {
+					e.getStackTrace();
 	   			  //Utils.createAlertFailWriteDB();
 				}
 	    return res;
@@ -63,7 +64,6 @@ public class ListinoArticoloDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

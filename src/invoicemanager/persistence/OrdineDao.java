@@ -35,7 +35,6 @@ public class OrdineDao {
 
 			res = ps.executeUpdate();
 				ps.close();
-				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
@@ -57,7 +56,6 @@ public class OrdineDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

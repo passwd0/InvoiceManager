@@ -32,7 +32,6 @@ public class ImballoDao {
 	    	
 	    	ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -50,7 +49,6 @@ public class ImballoDao {
 			stmt.executeUpdate(sql);
 
 			stmt.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -62,7 +60,6 @@ public class ImballoDao {
 	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceImballo() + ";";
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
-	        c.commit();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}
@@ -80,7 +77,6 @@ public class ImballoDao {
     			"); ";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

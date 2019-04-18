@@ -32,7 +32,6 @@ public class ArticoloMagazzinoDescrizioneMultilinguaDao {
 		
 			res = ps.executeUpdate();
 				ps.close();
-				c.commit();
 
 		} catch (Exception e) {
 		  //Utils.createAlertFailWriteDB();
@@ -53,7 +52,6 @@ public class ArticoloMagazzinoDescrizioneMultilinguaDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

@@ -40,7 +40,6 @@ public class PagamentoDao {
 
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -58,7 +57,6 @@ public class PagamentoDao {
 			stmt.executeUpdate(sql);
 
 			stmt.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -70,7 +68,6 @@ public class PagamentoDao {
 	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodicePagamento() + ";";
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
-	        c.commit();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}
@@ -95,7 +92,6 @@ public class PagamentoDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

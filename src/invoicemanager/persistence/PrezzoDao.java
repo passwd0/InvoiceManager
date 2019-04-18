@@ -30,7 +30,6 @@ public class PrezzoDao {
 
 			res = ps.executeUpdate();
 				ps.close();
-				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
@@ -48,7 +47,6 @@ public class PrezzoDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

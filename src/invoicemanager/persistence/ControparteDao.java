@@ -33,7 +33,6 @@ public class ControparteDao {
 
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -53,7 +52,6 @@ public class ControparteDao {
     			");";
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();
@@ -72,7 +70,6 @@ public class ControparteDao {
 //			stmt.executeUpdate(sql);
 //
 //			stmt.close();
-//			c.commit();
 //	      } catch (Exception e) {
 //	    	  //Utils.createAlertFailWriteDB();
 //	      }
@@ -84,7 +81,6 @@ public class ControparteDao {
 //	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceControparte() + ";";
 //	    	stmt.executeUpdate(sql);
 //	    	stmt.close();
-//	        c.commit();
 //		} catch (Exception e) {
 //			//Utils.createAlertFailWriteDB();
 //		}

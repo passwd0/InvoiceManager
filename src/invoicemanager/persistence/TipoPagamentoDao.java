@@ -30,7 +30,6 @@ public class TipoPagamentoDao {
 
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -48,7 +47,6 @@ public class TipoPagamentoDao {
 //			stmt.executeUpdate(sql);
 //
 //			stmt.close();
-//			c.commit();
 //	      } catch (Exception e) {
 //	    	  //Utils.createAlertFailWriteDB();
 //	      }
@@ -60,7 +58,6 @@ public class TipoPagamentoDao {
 //	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceTipoPagamento() + ";";
 //	    	stmt.executeUpdate(sql);
 //	    	stmt.close();
-//	        c.commit();
 //		} catch (Exception e) {
 //			//Utils.createAlertFailWriteDB();
 //		}
@@ -77,7 +74,6 @@ public class TipoPagamentoDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

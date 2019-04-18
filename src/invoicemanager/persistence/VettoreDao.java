@@ -37,7 +37,6 @@ public class VettoreDao {
 
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 
 			} catch (Exception e) {
    			  //Utils.createAlertFailWriteDB();
@@ -56,7 +55,6 @@ public class VettoreDao {
 //			stmt.executeUpdate(sql);
 //
 //			stmt.close();
-//			c.commit();
 //	      } catch (Exception e) {
 //	    	  //Utils.createAlertFailWriteDB();
 //	      }
@@ -68,7 +66,6 @@ public class VettoreDao {
 //	    	String sql = "UPDATE auto SET stato = \'Eliminato\' WHERE id = " + a.getCodiceVettore() + ";";
 //	    	stmt.executeUpdate(sql);
 //	    	stmt.close();
-//	        c.commit();
 //		} catch (Exception e) {
 //			//Utils.createAlertFailWriteDB();
 //		}
@@ -91,7 +88,6 @@ public class VettoreDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

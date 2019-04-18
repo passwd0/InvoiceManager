@@ -40,7 +40,6 @@ public class PianoContoDao {
 
 			res = ps.executeUpdate();
 				ps.close();
-				c.commit();
 
 				} catch (Exception e) {
 	   			  //Utils.createAlertFailWriteDB();
@@ -68,7 +67,6 @@ public class PianoContoDao {
     			");";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

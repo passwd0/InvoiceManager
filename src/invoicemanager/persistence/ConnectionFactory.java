@@ -20,7 +20,7 @@ public class ConnectionFactory {
 		}
 
 		conn = DriverManager.getConnection(url+db, user, pass);
-        conn.setAutoCommit(false);
+        conn.setAutoCommit(true);
 		
         return conn;
     }

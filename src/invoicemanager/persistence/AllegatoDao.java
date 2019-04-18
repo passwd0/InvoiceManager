@@ -28,7 +28,6 @@ public class AllegatoDao {
 
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 
 		} catch (Exception e) {
 		  //Utils.createAlertFailWriteDB();
@@ -46,7 +45,6 @@ public class AllegatoDao {
     			"); ";		//AGGIUNGERE STATO
     	stmt.executeUpdate(sql);
     	stmt.close();
-        c.commit();
 
 	} catch (Exception e) {
 		//Utils.createAlertFailWriteDB();

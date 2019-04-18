@@ -101,7 +101,6 @@ public class ClienteDao {
 
 			res = ps.executeUpdate();
 			ps.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  e.getStackTrace();
 	    	  //Utils.createAlertFailWriteDB();
@@ -120,7 +119,6 @@ public class ClienteDao {
 			stmt.executeUpdate(sql);
 			
 			stmt.close();
-			c.commit();
 	      } catch (Exception e) {
 	    	  //Utils.createAlertFailWriteDB();
 	      }
@@ -132,7 +130,6 @@ public class ClienteDao {
 	    	String sql = "UPDATE auto SET stato = 'Eliminato' WHERE id = " + a.getCodiceCliente() + ";";
 	    	stmt.executeUpdate(sql);
 	    	stmt.close();
-	        c.commit();
 		} catch (Exception e) {
 			//Utils.createAlertFailWriteDB();
 		}
@@ -202,7 +199,6 @@ public class ClienteDao {
 					");";
 			stmt.executeUpdate(sql);
 	    	stmt.close();
-	        c.commit();
 		}
 		catch (Exception e) {
 			e.getStackTrace();
