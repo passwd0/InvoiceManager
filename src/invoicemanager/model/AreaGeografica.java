@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class AreaGeografica{
 	private int codiceArea; //  NOT NULL
@@ -7,8 +7,8 @@ public class AreaGeografica{
 	private String area; //(50) NULL
 	private String regione; //(50) NULL
 	private String provincia; //(2) NOT NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now();
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis());
 
 	public AreaGeografica(int codiceArea, String provincia){
 		this.codiceArea = codiceArea;
@@ -16,7 +16,7 @@ public class AreaGeografica{
 	}
 
 	public AreaGeografica(int codiceArea, String nazione, String area, String regione, String provincia,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.codiceArea = codiceArea;
 		this.nazione = nazione;
 		this.area = area;
@@ -66,19 +66,19 @@ public class AreaGeografica{
 		this.provincia = provincia;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

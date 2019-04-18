@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Stato;
-import invoicemanager.model.Vettore;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Stato;
+import invoicemanager.model.Vettore;
 
 public class VettoreDao {
 	private Connection c;
@@ -33,8 +32,8 @@ public class VettoreDao {
 			ps.setString(6, a.getPartitaIva());
 			ps.setString(7, a.getIscrizione());
 			ps.setString(8, a.getTelefono());
-			ps.setTimestamp(9, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(10, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(9, a.getDataInserimento());
+			ps.setTimestamp(10, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 			ps.close();
@@ -119,14 +118,8 @@ public class VettoreDao {
 				String partitaIva = rs.getString("partitaIva");
 				String iscrizione = rs.getString("iscrizione");
 				String telefono = rs.getString("telefono");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				Vettore vettore = new Vettore(codiceVettore, descrizione, stato, via, citta, partitaIva, iscrizione, telefono, dataInserimento, dataUltimaModifica);
 

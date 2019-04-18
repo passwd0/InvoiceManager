@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.SottogruppoMerceologico;
-import invoicemanager.model.Stato;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.SottogruppoMerceologico;
+import invoicemanager.model.Stato;
 
 public class SottogruppoMerceologicoDao {
 	private Connection c;
@@ -31,8 +30,8 @@ public class SottogruppoMerceologicoDao {
 		ps.setString(3, a.getStato().name());
 		ps.setFloat(4, a.getSconto());
 		ps.setFloat(5, a.getPercentualeProvvigione());
-		ps.setTimestamp(6, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(7, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(6, a.getDataInserimento());
+		ps.setTimestamp(7, a.getDataUltimaModifica());
 		ps.setString(8, a.getLoginInserimento());
 
 			res = ps.executeUpdate();
@@ -84,14 +83,8 @@ public class SottogruppoMerceologicoDao {
 				Stato stato = Stato.valueOf(rs.getString("stato"));
 				float sconto = rs.getFloat("sconto");
 				float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				String loginInserimento = rs.getString("loginInserimento");
 
 				SottogruppoMerceologico sottogruppoMerceologico = new SottogruppoMerceologico(codiceSottogruppoMerceologico, descrizione, stato, sconto, percentualeProvvigione, dataInserimento, dataUltimaModifica, loginInserimento);

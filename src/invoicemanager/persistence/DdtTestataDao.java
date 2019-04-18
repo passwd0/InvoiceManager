@@ -1,9 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.DdtDettaglio;
-import invoicemanager.model.DdtTestata;
-import invoicemanager.model.StatoAvanzamento;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,10 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import invoicemanager.model.DdtDettaglio;
+import invoicemanager.model.DdtTestata;
+import invoicemanager.model.StatoAvanzamento;
+import invoicemanager.utils.Utils;
 
 public class DdtTestataDao {
 	private Connection c;
@@ -29,7 +29,7 @@ public class DdtTestataDao {
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtTestata VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroDDT());
-			ps.setTimestamp(2, Utils.toTimestamp(a.getDataDDT()));
+			ps.setTimestamp(2, a.getDataDDT());
 			ps.setString(3, a.getStatoAvanzamento().name());
 			ps.setString(4, a.getCodiceCausale());
 			ps.setString(5, a.getCodiceCausalePrelievi());
@@ -69,10 +69,10 @@ public class DdtTestataDao {
 			ps.setString(39, a.getCodiceDeposito());
 			ps.setString(40, a.getNoteCaricamento());
 			ps.setString(41, a.getCodiceFilialeEdi());
-			ps.setTimestamp(42, Utils.toTimestamp(a.getDataCaricamento()));
+			ps.setTimestamp(42, a.getDataCaricamento());
 			ps.setString(43, a.getUnitaMisuraPesoColli());
-			ps.setTimestamp(44, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(45, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(44, a.getDataInserimento());
+			ps.setTimestamp(45, a.getDataUltimaModifica());
 
 	    	res = ps.executeUpdate();
 			ps.close();
@@ -178,10 +178,7 @@ public class DdtTestataDao {
 	         while ( rs.next() ) {
 	        	 int id = rs.getInt("id");
 				int numeroDDT = rs.getInt("numeroDDT");
-				ts = rs.getTimestamp("dataDDT");
-				LocalDateTime dataDDT = null;
-				if (ts != null)
-				dataDDT = ts.toLocalDateTime();
+				Timestamp dataDDT = rs.getTimestamp("dataDDT");
 				StatoAvanzamento statoAvanzamento = StatoAvanzamento.valueOf(rs.getString("StatoAvanzamento"));
 				String codiceCausale = rs.getString("codiceCausale");
 				String codiceCausalePrelievi = rs.getString("codiceCausalePrelievi");
@@ -215,24 +212,15 @@ public class DdtTestataDao {
 				String cittaSpedizione = rs.getString("cittaSpedizione");
 				String provinciaSpedizione = rs.getString("provinciaSpedizione");
 				String codiceNazioneSpedizione = rs.getString("codiceNazioneSpedizione");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-					dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-					dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				String note = rs.getString("note");
 				String codiceLingua = rs.getString("codiceLingua");
 				int numeroDdtDeposito = rs.getInt("numeroDdtDeposito");
 					String codiceDeposito = rs.getString("codiceDeposito");
 				String noteCaricamento = rs.getString("noteCaricamento");
 				String codiceFilialeEdi = rs.getString("codiceFilialeEdi");
-				ts = rs.getTimestamp("dataCaricamento");
-				LocalDateTime dataCaricamento = null;
-				if (ts != null)
-					dataCaricamento = ts.toLocalDateTime();
+				Timestamp dataCaricamento = rs.getTimestamp("dataCaricamento");
 				String unitaMisuraPesoColli = rs.getString("unitaMisuraPesoColli");
 				
 				List<DdtDettaglio> ddtDettagli = listaDdtDettaglio.stream().filter(x->x.getIdDdtTestata() == id).collect(Collectors.toList());

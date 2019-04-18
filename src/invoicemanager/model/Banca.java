@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Banca {
 	private String codiceBanca; //(4) NOT NULL
@@ -13,8 +13,8 @@ public class Banca {
 	private String codiceCIN; //(6) NULL
 	private String codiceCINEur; //(6) NULL
 	private String paese; //(6) NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 	private String iban; //(50) NULL
 	private String swift; //(50) NULL
 	private String codiceConto; //(30) NULL
@@ -23,7 +23,7 @@ public class Banca {
 
 	public Banca(String codiceBanca, String descrizione, Stato stato, String codiceABI, String codiceCAB,
 				String localita, String provincia, String numeroContoCorrente, String codiceCIN, String codiceCINEur,
-				String paese, String iban, String swift, String codiceConto, String indirizzo, String cap, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+				String paese, String iban, String swift, String codiceConto, String indirizzo, String cap, Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.codiceBanca = codiceBanca;
 		this.descrizione = descrizione;
 		this.stato = stato;
@@ -137,19 +137,19 @@ public class Banca {
 		this.paese = paese;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 	

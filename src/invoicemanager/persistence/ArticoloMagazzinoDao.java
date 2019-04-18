@@ -1,22 +1,21 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.ArticoloMagazzino;
-import invoicemanager.model.GruppoMerceologico;
-import invoicemanager.model.ListinoArticolo;
-import invoicemanager.model.Percipiente;
-import invoicemanager.model.SottogruppoMerceologico;
-import invoicemanager.model.UnitaMisura;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import invoicemanager.model.ArticoloMagazzino;
+import invoicemanager.model.GruppoMerceologico;
+import invoicemanager.model.ListinoArticolo;
+import invoicemanager.model.Percipiente;
+import invoicemanager.model.SottogruppoMerceologico;
+import invoicemanager.model.UnitaMisura;
 
 public class ArticoloMagazzinoDao {
 	private Connection c;
@@ -65,8 +64,8 @@ public class ArticoloMagazzinoDao {
 			ps.setString(33, a.getCodiceIVAFornitore());
 			ps.setString(34, a.getCodiceStampo());
 			ps.setString(35, a.getNoteProduzione());
-			ps.setTimestamp(36, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(37, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(36, a.getDataInserimento());
+			ps.setTimestamp(37, a.getDataUltimaModifica());
 	
 			res = ps.executeUpdate();
 			ps.close();
@@ -182,14 +181,8 @@ public class ArticoloMagazzinoDao {
 				String codiceStampo = rs.getString("codiceStampo");
 				String noteProduzione = rs.getString("noteProduzione");
 				List<ListinoArticolo> listini = listiniArticolo.stream().filter(la -> la.getCodiceArticolo().equals(codiceArticolo)).collect(Collectors.toList());
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-					dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-					dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				ArticoloMagazzino articoloMagazzino = new ArticoloMagazzino(codiceArticolo, descrizione, unitaMisura, gruppoMerceologico, sottogruppoMerceologico, codiceControparteContabile, 
 						codiceIVA, indicatoreGestionePezzi, sconto, codiceTaglieColori, codiceColore, codiceTaglia, percentualeProvvigione, indicatoreSerialNumber, pesoNetto, 
 						codiceConfezione, numeroPezziConfezione, numeroColli, pesoLordo, volumeConfezione, altezza, larghezza, profondita, indicatoreArticoloPadreFiglio, 

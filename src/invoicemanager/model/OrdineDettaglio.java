@@ -1,6 +1,6 @@
 package invoicemanager.model;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class OrdineDettaglio{
 	private int numeroOrdine; //  NOT NULL		sottoclasse di ordineTestata
@@ -39,8 +39,8 @@ public class OrdineDettaglio{
 	private boolean indicatoreOrdineTrading; // NULL
 	private LocalDate dataInizioSchedulatore; //  NULL
 	private String codiceArticoloBis; //(30) NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 	
 	public OrdineDettaglio(int numeroOrdine, LocalDate dataOrdine, int numeroRigaOrdine) {
 		this.numeroOrdine = numeroOrdine;
@@ -59,7 +59,7 @@ public class OrdineDettaglio{
 			boolean indicatoreEvasionePreventivi, boolean indicatoreEvasioneRigheNote, boolean indicatoreNoConferma,
 			LocalDate dataConsegnaSchedulatore, LocalDate dataConsegnaProposta, boolean indicatoreBloccato,
 			boolean indicatoreOrdineTrading, LocalDate dataInizioSchedulatore, String codiceArticoloBis,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.numeroOrdine = numeroOrdine;
 		this.dataOrdine = dataOrdine;
 		this.numeroRigaOrdine = numeroRigaOrdine;
@@ -316,19 +316,19 @@ public class OrdineDettaglio{
 		this.indicatoreNoConferma = indicatoreNoConferma;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

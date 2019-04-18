@@ -1,7 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.DdtDettaglio;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.DdtDettaglio;
+import invoicemanager.utils.Utils;
 
 public class DdtDettaglioDao {
 	private Connection c;
@@ -26,7 +26,7 @@ public class DdtDettaglioDao {
 	    try {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO DdtDettaglio VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, a.getNumeroDDT());
-			ps.setTimestamp(2, Utils.toTimestamp(a.getDataDDT()));
+			ps.setTimestamp(2, a.getDataDDT());
 			ps.setInt(3, a.getNumeroRigaDDT());
 			ps.setString(4, a.getCodiceTipoRigaDocumento());
 			ps.setString(5, a.getCodiceArticolo());
@@ -52,8 +52,8 @@ public class DdtDettaglioDao {
 			ps.setBoolean(25, a.isIndicatorePrelevatoVendita());
 			ps.setString(26, a.getPesoLordo());
 			ps.setInt(27, a.getIdDdtTestata());
-			ps.setTimestamp(27, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(28, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(27, a.getDataInserimento());
+			ps.setTimestamp(28, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 			ps.close();
@@ -144,10 +144,7 @@ public class DdtDettaglioDao {
 	         while ( rs.next() ) {
 
 				int numeroDDT = rs.getInt("numeroDDT");
-				ts = rs.getTimestamp("dataDDT");
-				LocalDateTime dataDDT = null;
-				if (ts != null)
-				dataDDT = ts.toLocalDateTime();
+				Timestamp dataDDT = rs.getTimestamp("dataDDT");
 				int numeroRigaDDT = rs.getInt("numeroRigaDDT");
 				String codiceTipoRigaDocumento = rs.getString("codiceTipoRigaDocumento");
 				String codiceArticolo = rs.getString("codiceArticolo");
@@ -173,14 +170,8 @@ public class DdtDettaglioDao {
 				boolean indicatorePrelevatoVendita = rs.getBoolean("indicatorePrelevatoVendita");
 				String pesoLordo = rs.getString("pesoLordo");
 				int idDdtTestata = rs.getInt("idDdtTestata");
-				ts = rs.getTimestamp("DataInserimento");
-				LocalDateTime DataInserimento = null;
-				if (ts != null)
-				DataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("DataUltimaModifica");
-				LocalDateTime DataUltimaModifica = null;
-				if (ts != null)
-				DataUltimaModifica = ts.toLocalDateTime();
+				Timestamp DataInserimento = rs.getTimestamp("DataInserimento");
+				Timestamp DataUltimaModifica = rs.getTimestamp("DataUltimaModifica");
 				
 				DdtDettaglio ddtDettaglio = new DdtDettaglio(numeroDDT, dataDDT, numeroRigaDDT, codiceTipoRigaDocumento, codiceArticolo, codiceMagazzino, 
 						costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, 

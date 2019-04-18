@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Banca;
-import invoicemanager.model.Stato;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Banca;
+import invoicemanager.model.Stato;
 
 public class BancaDao {
 	private Connection c;
@@ -41,8 +40,8 @@ public class BancaDao {
 	    	ps.setString(14, a.getCodiceConto());
 	    	ps.setString(15, a.getIndirizzo());
 	    	ps.setString(16, a.getCap());
-	    	ps.setTimestamp(17, Utils.toTimestamp(a.getDataInserimento()));
-	    	ps.setTimestamp(18, Utils.toTimestamp(a.getDataUltimaModifica()));
+	    	ps.setTimestamp(17, a.getDataInserimento());
+	    	ps.setTimestamp(18, a.getDataUltimaModifica());
 
 	    	res = ps.executeUpdate();
 			ps.close();
@@ -73,8 +72,8 @@ public class BancaDao {
 	    	ps.setString(11, a.getSwift());
 	    	ps.setString(12, a.getCodiceConto());
 	    	ps.setString(13, a.getIndirizzo());
-	    	ps.setTimestamp(14, Utils.toTimestamp(a.getDataInserimento()));
-	    	ps.setTimestamp(15, Utils.toTimestamp(a.getDataUltimaModifica()));
+	    	ps.setTimestamp(14, a.getDataInserimento());
+	    	ps.setTimestamp(15, a.getDataUltimaModifica());
 			
 			ps.executeUpdate();
 			ps.close();
@@ -151,14 +150,8 @@ public class BancaDao {
 				String codiceCIN = rs.getString("codiceCIN");
 				String codiceCINEur = rs.getString("codiceCINEur");
 				String paese = rs.getString("paese");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				String iban = rs.getString("iban");
 				String swift = rs.getString("swift");
 				String codiceConto = rs.getString("codiceConto");

@@ -1,10 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Allegato;
-import invoicemanager.model.FatturaDettaglio;
-import invoicemanager.model.FatturaTestata;
-import invoicemanager.model.StatoAvanzamento;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,10 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import invoicemanager.model.Allegato;
+import invoicemanager.model.FatturaDettaglio;
+import invoicemanager.model.FatturaTestata;
+import invoicemanager.model.StatoAvanzamento;
+import invoicemanager.utils.Utils;
 
 public class FatturaTestataDao {
 	private Connection c;
@@ -83,8 +83,8 @@ public class FatturaTestataDao {
 
 
 			ps.setFloat(48, a.getImportoScadenza());
-			ps.setTimestamp(49, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(50, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(49, a.getDataInserimento());
+			ps.setTimestamp(50, a.getDataUltimaModifica());
 
 	    	res = ps.executeUpdate();
 			ps.close();
@@ -252,14 +252,8 @@ public class FatturaTestataDao {
 				float importoScadenza = rs.getFloat("importoScadenza");
 				int idFatturaTestata = rs.getInt("IdFatturaTestata");
 				List<Allegato> allegati = listaAllegato.stream().filter(x->x.getIdFatturaTestata()== idFatturaTestata).collect(Collectors.toList());
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-					dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-					dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, statoAvanzamento, sezionale, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, fatturadettaglio, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza, allegati);
 
 				listfatturaTestata.add(fatturaTestata);

@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Stato;
-import invoicemanager.model.UnitaMisura;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Stato;
+import invoicemanager.model.UnitaMisura;
 
 public class UnitaMisuraDao {
 	private Connection c;
@@ -29,8 +28,8 @@ public class UnitaMisuraDao {
 		ps.setString(1, a.getCodiceUnitaMisura());
 		ps.setString(2, a.getDescrizione());
 		ps.setString(3, a.getStato().name());
-		ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(4, a.getDataInserimento());
+		ps.setTimestamp(5, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 		ps.close();
@@ -76,14 +75,8 @@ public class UnitaMisuraDao {
 				String codiceUnitaMisura = rs.getString("codiceUnitaMisura");
 				String descrizione = rs.getString("descrizione");
 				Stato stato = Stato.valueOf(rs.getString("stato"));
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-					dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-					dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				UnitaMisura unitaMisura = new UnitaMisura(codiceUnitaMisura, descrizione, stato, dataInserimento, dataUltimaModifica);
 

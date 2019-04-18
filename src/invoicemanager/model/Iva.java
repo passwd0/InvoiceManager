@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Iva{
 	private String codiceIva; //(4) NOT NULL											x
@@ -32,8 +32,8 @@ public class Iva{
 	private String colonnaClientiFornitori; //(50) NULL									----
 	private String colonnaNoteClientiFornitori; //(50) NULL								----
 	private String splitPayment;	//													----
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 		
 	public Iva(String codiceIva, String descrizione, Stato stato, int rigaIVAAcquisti, float addizionaleIVA,
 				float aliquotaIVA, float imponibileAcquisti, float imponibileAcquistiNonDetraibile,
@@ -42,7 +42,7 @@ public class Iva{
 				float valoreArrotondamento, boolean indicatoreTroncaAcquisti, boolean indicatoreSommaAcquisti,
 				boolean indicatoreArrotondaAcquisti, boolean indicatoreSottraeAcquisti, boolean indicatoreTroncaVendite,
 				boolean indicatoreSommaVendite, boolean indicatoreArrotondaVendite, boolean indicatoreSottraeVendite,
-				LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica, String loginInserimento,
+				Timestamp dataInserimento, Timestamp dataUltimaModifica, String loginInserimento,
 				String loginModifica, boolean elencoClientiFornitori, String colonnaClientiFornitori,
 				String colonnaNoteClientiFornitori, String splitPayment) {
 		this.codiceIva = codiceIva;
@@ -275,19 +275,19 @@ public class Iva{
 		this.indicatoreSottraeVendite = indicatoreSottraeVendite;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

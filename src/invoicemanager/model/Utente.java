@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Utente {
 	private String codiceUtente; //(15) NULL
@@ -9,7 +9,7 @@ public class Utente {
 	private boolean tipoUtente; // NULL
 	private String cognome; //(50) NULL
 	private String nome; //(50) NULL
-	private LocalDateTime dataNascita; //  NULL
+	private Timestamp dataNascita; //  NULL
 	private boolean sesso; // NULL
 	private String comuneNascita; //(50) NULL
 	private String provinciaNascita; //(2) NULL
@@ -32,21 +32,21 @@ public class Utente {
 	private boolean indicatoreConversione; // NULL
 	private String password; //(20) NULL
 	private String cap; //(50) NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public Utente(String codiceUtente) {
 		this.codiceUtente = codiceUtente;
 	}
 	
 	public Utente(String codiceUtente, String path, String pathSalvataggi, String subUtente, boolean tipoUtente,
-			String cognome, String nome, LocalDateTime dataNascita, boolean sesso, String comuneNascita,
+			String cognome, String nome, Timestamp dataNascita, boolean sesso, String comuneNascita,
 			String provinciaNascita, String domicilioFiscale, String comune, String provincia, String partitaIVA,
 			String attivita, String codicePersonaFisica, String codiceFiscale, String ragioneSociale,
 			String naturaGiuridica, String domicilioAzienda, String comuneAzienda, String provinciaAzienda,
 			String partitaIVAAzienda, String attivitaAzienda, String codiceAzienda, String codiceFiscaleAzienda,
-			boolean indicatoreConversione, String password, String cap, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+			boolean indicatoreConversione, String password, String cap, Timestamp dataInserimento,
+			Timestamp dataUltimaModifica) {
 		this.codiceUtente = codiceUtente;
 		this.path = path;
 		this.pathSalvataggi = pathSalvataggi;
@@ -137,11 +137,11 @@ public class Utente {
 		this.nome = nome;
 	}
 
-	public LocalDateTime getDataNascita() {
+	public Timestamp getDataNascita() {
 		return dataNascita;
 	}
 
-	public void setDataNascita(LocalDateTime dataNascita) {
+	public void setDataNascita(Timestamp dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 
@@ -321,19 +321,19 @@ public class Utente {
 		this.cap = cap;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 	

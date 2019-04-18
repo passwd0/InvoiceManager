@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.GruppoMerceologico;
-import invoicemanager.model.Stato;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.GruppoMerceologico;
+import invoicemanager.model.Stato;
 
 public class GruppoMerceologicoDao {
 	private Connection c;
@@ -32,8 +31,8 @@ public class GruppoMerceologicoDao {
 		ps.setFloat(4, a.getSconto());
 		ps.setFloat(5, a.getPercentualeProvvigione());
 		ps.setInt(6, a.getNumeroPezziConfezione());
-		ps.setTimestamp(7, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(8, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(7, a.getDataInserimento());
+		ps.setTimestamp(8, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -85,14 +84,8 @@ public class GruppoMerceologicoDao {
 				float sconto = rs.getFloat("sconto");
 				float percentualeProvvigione = rs.getFloat("percentualeProvvigione");
 				int numeroPezziConfezione = rs.getInt("numeroPezziConfezione");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				GruppoMerceologico gruppoMerceologico = new GruppoMerceologico(codiceGruppoMerceologico, descrizione, stato, sconto, percentualeProvvigione, numeroPezziConfezione, dataInserimento, dataUltimaModifica);
 

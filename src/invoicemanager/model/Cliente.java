@@ -1,7 +1,7 @@
 package invoicemanager.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class Cliente implements Comparable<Cliente> {
@@ -61,8 +61,8 @@ public class Cliente implements Comparable<Cliente> {
 	private StabileOrganizzazione stabileOrganizzazione; //						----
 	private RappresentanteFiscale rappresentanteFiscale; //						----
 	private TerzoIntermediario terzoIntermediario;
-	private LocalDateTime dataInserimento = LocalDateTime.now();
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); // NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis());
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); // NULL
 	
 	public Cliente(String codiceCliente){
 		this.codiceCliente = codiceCliente;
@@ -83,7 +83,7 @@ public class Cliente implements Comparable<Cliente> {
 			boolean indicatoreFattureXML, boolean indicatoreDdtEmail, boolean indicatorePlafond,
 			String codiceDestinatarioXml, String codiceEORI, StabileOrganizzazione stabileOrganizzazione,
 			RappresentanteFiscale rappresentanteFiscale, TerzoIntermediario terzoIntermediario,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.codiceCliente = codiceCliente;
 		this.descrizione = descrizione;
 		this.tipoCliente = tipoCliente;
@@ -172,11 +172,11 @@ public class Cliente implements Comparable<Cliente> {
 		this.terzoIntermediario = terzoIntermediario;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 
@@ -270,11 +270,11 @@ public class Cliente implements Comparable<Cliente> {
 		this.descrizione = descrizione;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 

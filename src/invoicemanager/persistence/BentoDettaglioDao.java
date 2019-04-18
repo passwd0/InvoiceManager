@@ -1,5 +1,14 @@
 package invoicemanager.persistence;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
 import invoicemanager.model.BentoDettaglio;
 import invoicemanager.model.CausaleMagazzino;
 import invoicemanager.model.Controparte;
@@ -7,16 +16,6 @@ import invoicemanager.model.Iva;
 import invoicemanager.model.Magazzino;
 import invoicemanager.model.TipoBento;
 import invoicemanager.model.UnitaMisura;
-import invoicemanager.utils.Utils;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BentoDettaglioDao {
 	private Connection c;
@@ -49,8 +48,8 @@ public class BentoDettaglioDao {
 				ps.setString(16, a.getCodiceMagazzino());
 				ps.setString(17, a.getCodiceCausaleMagazzino());
 				ps.setString(18, a.getDescrizioneAggiuntiva());
-				ps.setTimestamp(19, Utils.toTimestamp(a.getDataInserimento()));
-				ps.setTimestamp(20, Utils.toTimestamp(a.getDataUltimaModifica()));
+				ps.setTimestamp(19, a.getDataInserimento());
+				ps.setTimestamp(20, a.getDataUltimaModifica());
 		
 			res = ps.executeUpdate();
 				ps.close();
@@ -134,14 +133,8 @@ public class BentoDettaglioDao {
 				String codiceCausaleMagazzino = rs.getString("causale");
 				CausaleMagazzino causale = listaCausaleMagazzino.stream().filter(x->x.getCodiceCausaleMagazzino().equals(codiceCausaleMagazzino)).findFirst().orElse(null);
 				String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				BentoDettaglio bentoDettaglio = new BentoDettaglio(codiceBento, numeroRigaBento, tipoBento, codiceRigaBento, codiceArticolo, descrizione, quantita, unitaMisura, prezzo, iva, controparte, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, magazzino, causale, descrizioneAggiuntiva, dataInserimento, dataUltimaModifica);
 
 				listbentoDettaglio.add(bentoDettaglio);

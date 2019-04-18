@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Iva;
-import invoicemanager.model.Stato;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Iva;
+import invoicemanager.model.Stato;
 
 public class IvaDao {
 	private Connection c;
@@ -55,8 +54,8 @@ public class IvaDao {
 			ps.setString(28, a.getColonnaClientiFornitori());
 			ps.setString(29, a.getColonnaNoteClientiFornitori());
 			ps.setString(30, a.getSplitPayment());
-			ps.setTimestamp(31, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(32, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(31, a.getDataInserimento());
+			ps.setTimestamp(32, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 			ps.close();
@@ -179,14 +178,8 @@ public class IvaDao {
 				boolean indicatoreSommaVendite = rs.getBoolean("indicatoreSommaVendite");
 				boolean indicatoreArrotondaVendite = rs.getBoolean("indicatoreArrotondaVendite");
 				boolean indicatoreSottraeVendite = rs.getBoolean("indicatoreSottraeVendite");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				String loginInserimento = rs.getString("loginInserimento");
 				String loginModifica = rs.getString("loginModifica");
 				boolean elencoClientiFornitori = rs.getBoolean("elencoClientiFornitori");

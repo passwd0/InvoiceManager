@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.TipoCliente;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.TipoCliente;
 
 public class TipoClienteDao {
 	private Connection c;
@@ -26,8 +25,8 @@ public class TipoClienteDao {
 	    	PreparedStatement ps = c.prepareStatement("INSERT INTO TipiCliente VALUES (?, ?, ?, ?)");
 	    	ps.setString(1, a.getCodiceTipoCliente());
 	    	ps.setString(2, a.getDescrizione());
-	    	ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(4, Utils.toTimestamp(a.getDataUltimaModifica()));
+	    	ps.setTimestamp(3, a.getDataInserimento());
+			ps.setTimestamp(4, a.getDataUltimaModifica());
 	    	
 			res = ps.executeUpdate();
 			ps.close();
@@ -99,14 +98,8 @@ public class TipoClienteDao {
 
 				String codiceTipoCliente = rs.getString("codiceTipoCliente");
 				String descrizione = rs.getString("descrizione");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				TipoCliente tipoCliente = new TipoCliente(codiceTipoCliente, descrizione, dataInserimento, dataUltimaModifica);
 

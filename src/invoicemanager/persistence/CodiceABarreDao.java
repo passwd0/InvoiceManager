@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.CodiceABarre;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.CodiceABarre;
 
 public class CodiceABarreDao {
 	private Connection c;
@@ -28,8 +27,8 @@ public class CodiceABarreDao {
 			ps.setString(1, a.getCodiceArticolo());
 			ps.setString(2, a.getCodiceABarre());
 			ps.setString(3, a.getTipo());
-			ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(4, a.getDataInserimento());
+			ps.setTimestamp(5, a.getDataUltimaModifica());
 	
 			res = ps.executeUpdate();
 			ps.close();
@@ -76,14 +75,8 @@ public class CodiceABarreDao {
 				String codiceArticolo = rs.getString("codiceArticolo");
 				String codABarre = rs.getString("codiceABarre");
 				String tipo = rs.getString("tipo");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				CodiceABarre codiceABarre = new CodiceABarre(codiceArticolo, codABarre, tipo, dataInserimento, dataUltimaModifica);
 

@@ -441,7 +441,7 @@ public class TabViewController implements Initializable {
 	public void combobox_bollan_onAction(ActionEvent event) {
 		DdtTestata ddtTestata = combobox_bollan.getValue();
 		if (ddtTestata != null)
-			textfield_bollandel.setText(ddtTestata.getDataDDT().format(Utils.formatterData));
+			textfield_bollandel.setText(Utils.toString(ddtTestata.getDataDDT()));
 	}
 	
 	/* CORPO */

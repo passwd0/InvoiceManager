@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.ProvvigioneAgente;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.ProvvigioneAgente;
 
 public class ProvvigioneAgenteDao {
 	private Connection c;
@@ -31,8 +30,8 @@ public class ProvvigioneAgenteDao {
 		ps.setFloat(4, a.getProvvigioneLegataSconto());
 		ps.setInt(5, a.getProgressivo());
 		ps.setString(6, a.getCodiceGruppoMerceologico());
-		ps.setTimestamp(7, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(8, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(7, a.getDataInserimento());
+		ps.setTimestamp(8, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -85,14 +84,8 @@ public class ProvvigioneAgenteDao {
 				float provvigioneLegataSconto = rs.getFloat("provvigioneLegataSconto");
 				int progressivo = rs.getInt("progressivo");
 				String codiceGruppoMerceologico = rs.getString("codiceGruppoMerceologico");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				ProvvigioneAgente provvigioneAgente = new ProvvigioneAgente(codiceProvvigione, codiceAgente, scontoLegatoProvvigione, provvigioneLegataSconto, progressivo, codiceGruppoMerceologico, dataInserimento, dataUltimaModifica);
 

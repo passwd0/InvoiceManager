@@ -1,18 +1,17 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Pagamento;
-import invoicemanager.model.Stato;
-import invoicemanager.model.TipoPagamento;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Pagamento;
+import invoicemanager.model.Stato;
+import invoicemanager.model.TipoPagamento;
 
 public class PagamentoDao {
 	private Connection c;
@@ -36,8 +35,8 @@ public class PagamentoDao {
 			ps.setInt(8, a.getNumeroScadenze());
 			ps.setFloat(9, a.getSconto());
 			ps.setBoolean(10, a.isScadenzaIVAPrimaRata());
-			ps.setTimestamp(11, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(12, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(11, a.getDataInserimento());
+			ps.setTimestamp(12, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 			ps.close();
@@ -126,14 +125,8 @@ public class PagamentoDao {
 				int numeroScadenze = rs.getInt("numeroScadenze");
 				float sconto = rs.getFloat("sconto");
 				boolean scadenzaIVAPrimaRata = rs.getBoolean("scadenzaIVAPrimaRata");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				Pagamento pagamento = new Pagamento(codicePagamento, descrizione, stato, tipoPagamento, indicatoreScadenzaAVista, giornoMese, numeroGiorni, numeroScadenze, sconto, scadenzaIVAPrimaRata, dataInserimento, dataUltimaModifica);
 
 				listpagamento.add(pagamento);

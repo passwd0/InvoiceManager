@@ -1,7 +1,7 @@
 package invoicemanager.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class FatturaTestata {
@@ -55,8 +55,8 @@ public class FatturaTestata {
 	private LocalDate dataScadenza;
 	private float importoScadenza;
 	private List<Allegato> allegati;		//ci sara' una lista di allegati collegati tramite un id
-	private LocalDateTime dataInserimento = LocalDateTime.now();
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now();
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis());
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis());
 
 	public FatturaTestata(int numeroFatturazione, LocalDate dataFattura, StatoAvanzamento statoAvanzamento,
 			int sezionale, String codiceClienteFatturazione, String codiceEsenzioneIva, String codiceAgente, String codiceCausale,
@@ -489,19 +489,19 @@ public class FatturaTestata {
 		this.codiceNazioneSpedizione = codiceNazioneSpedizione;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

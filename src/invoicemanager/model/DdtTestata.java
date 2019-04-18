@@ -1,13 +1,13 @@
 package invoicemanager.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class DdtTestata {
 	private int id;											// 					x
 	private int numeroDDT; //NOT NULL											x
-	private LocalDateTime dataDDT; //NOT NULL									x
+	private Timestamp dataDDT; //NOT NULL									x
 	private StatoAvanzamento statoAvanzamento = StatoAvanzamento.DAINVIARE; //] [varchar](1) ,	x
 	private String codiceCausale; //] [varchar](4) ,							x
 	private String codiceCausalePrelievi; //] [varchar](4) ,					
@@ -47,14 +47,14 @@ public class DdtTestata {
 	private String codiceDeposito; //] [varchar](4) ,							x
 	private String noteCaricamento; //] [varchar](2000) ,						----
 	private String codiceFilialeEdi;//] [varchar](50) ,							----
-	private LocalDateTime dataCaricamento; //NULL
+	private Timestamp dataCaricamento; //NULL
 	private String unitaMisuraPesoColli; //[UnitaMisuraPesoColli] [varchar](3) 
 	private List<DdtDettaglio> ddtDettagli;	//									x
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //NULL
 	
 
-	public DdtTestata(int id, int numeroDDT, LocalDateTime dataDDT, StatoAvanzamento statoAvanzamento, String codiceCausale,
+	public DdtTestata(int id, int numeroDDT, Timestamp dataDDT, StatoAvanzamento statoAvanzamento, String codiceCausale,
 			String codiceCausalePrelievi, String codiceClienteFatturazione, String codiceEsenzioneIva,
 			String codiceAgente, float percentualeProvvigione, float percentualeSconto, int numeroCopieFattura,
 			boolean indicatoreAddebitoBolli, boolean indicatoreAddebitoSpeseIncasso, int codiceListino,
@@ -65,8 +65,8 @@ public class DdtTestata {
 			String cittaSpedizione, String provinciaSpedizione, String codiceNazioneSpedizione,
 			String note, String codiceLingua,
 			int numeroDdtDeposito, String codiceDeposito, String noteCaricamento, String codiceFilialeEdi,
-			LocalDateTime dataCaricamento, String unitaMisuraPesoColli, List<DdtDettaglio> ddtDettagli,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			Timestamp dataCaricamento, String unitaMisuraPesoColli, List<DdtDettaglio> ddtDettagli,
+			Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.id = id;
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;
@@ -116,7 +116,7 @@ public class DdtTestata {
 		this.ddtDettagli = ddtDettagli;
 	}
 
-	public DdtTestata(int numeroDDT, LocalDateTime dataDDT) {
+	public DdtTestata(int numeroDDT, Timestamp dataDDT) {
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;
 	}
@@ -139,10 +139,10 @@ public class DdtTestata {
 	public void setNumeroDDT(int numeroDDT) {
 		this.numeroDDT = numeroDDT;
 	}
-	public LocalDateTime getDataDDT() {
+	public Timestamp getDataDDT() {
 		return dataDDT;
 	}
-	public void setDataDDT(LocalDateTime dataDDT) {
+	public void setDataDDT(Timestamp dataDDT) {
 		this.dataDDT = dataDDT;
 	}
 	public StatoAvanzamento getStatoAvanzamento() {
@@ -343,16 +343,16 @@ public class DdtTestata {
 	public void setCodiceNazioneSpedizione(String codiceNazioneSpedizione) {
 		this.codiceNazioneSpedizione = codiceNazioneSpedizione;
 	}
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 	public String getNote() {
@@ -392,10 +392,10 @@ public class DdtTestata {
 	public void setCodiceFilialeEdi(String codiceFilialeEdi) {
 		this.codiceFilialeEdi = codiceFilialeEdi;
 	}
-	public LocalDateTime getDataCaricamento() {
+	public Timestamp getDataCaricamento() {
 		return dataCaricamento;
 	}
-	public void setDataCaricamento(LocalDateTime dataCaricamento) {
+	public void setDataCaricamento(Timestamp dataCaricamento) {
 		this.dataCaricamento = dataCaricamento;
 	}
 	public String getUnitaMisuraPesoColli() {

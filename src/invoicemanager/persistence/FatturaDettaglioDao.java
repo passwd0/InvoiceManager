@@ -1,5 +1,16 @@
 package invoicemanager.persistence;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import invoicemanager.model.AltroDatoGestionale;
 import invoicemanager.model.Contratto;
 import invoicemanager.model.Convenzione;
@@ -8,17 +19,6 @@ import invoicemanager.model.FatturaDettaglio;
 import invoicemanager.model.Ordine;
 import invoicemanager.model.Ricezione;
 import invoicemanager.utils.Utils;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class FatturaDettaglioDao {
 	private Connection c;
@@ -58,7 +58,7 @@ public class FatturaDettaglioDao {
 			ps.setBoolean(23, a.isIndicatoreNoConferma());
 			ps.setString(24, a.getCodiceMagazzino());
 			ps.setInt(25, a.getNumeroDdt());
-			ps.setTimestamp(26, Utils.toTimestamp(a.getDataDdt()));
+			ps.setTimestamp(26, a.getDataDdt());
 			ps.setInt(27, a.getNumeroRigaDdt());
 			ps.setString(28, a.getCodicePercipiente());
 			ps.setString(29, a.getCodiceCassaPrevidenziale());
@@ -71,8 +71,8 @@ public class FatturaDettaglioDao {
 			ps.setInt(36, a.getCodiceRicezione());
 			ps.setInt(37, a.getCodiceFatturaCollegata());
 			ps.setInt(38, a.getCodiceAltriDatiGestionali());
-			ps.setTimestamp(39, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(40, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(39, a.getDataInserimento());
+			ps.setTimestamp(40, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 			ps.close();
@@ -207,10 +207,7 @@ public class FatturaDettaglioDao {
 				boolean indicatoreNoConferma = rs.getBoolean("indicatoreNoConferma");
 				String codiceMagazzino = rs.getString("codiceMagazzino");
 				int numeroDdt = rs.getInt("numeroDdt");
-				ts = rs.getTimestamp("dataDdt");
-				LocalDateTime dataDdt = null;
-				if (ts != null)
-				dataDdt = ts.toLocalDateTime();
+				Timestamp dataDdt = rs.getTimestamp("dataDdt");
 				int numeroRigaDdt = rs.getInt("numeroRigaDdt");
 				String codicePercipiente = rs.getString("codicePercipiente");
 				String codiceCassaPrevidenziale = rs.getString("codiceCassaPrevidenziale");
@@ -230,14 +227,8 @@ public class FatturaDettaglioDao {
 				int codiceAltroDatoGestionale = rs.getInt("altriDatiGestionali");
 				List<AltroDatoGestionale> altriDatiGestionali = listaAltroDatoGestionale.stream().filter(x->x.getCodiceAltroDatoGestionale() == codiceAltroDatoGestionale).collect(Collectors.toList());
 				
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				FatturaDettaglio fatturaDettaglio = new FatturaDettaglio(numeroFattura, dataFattura, numeroRigaFattura, sezionale, codiceTipoRigaDocumento, codiceArticolo, costo, numeroOrdine, numeroRigaOrdine, dataOrdine, quantitaDaConsegnare, indicatoreEvasione, descrizione, quantita, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, codiceUnitaMisura, serialNumber, indicatoreNoConferma, codiceMagazzino, numeroDdt, dataDdt, numeroRigaDdt, codicePercipiente, codiceCassaPrevidenziale, codiceCdc, contoRicavoUsato, ricavoUsato, ordini, contratti, convenzioni, ricezioni, fattureCollegate, altriDatiGestionali, dataInserimento, dataUltimaModifica);
 
 				listfatturaDettaglio.add(fatturaDettaglio);

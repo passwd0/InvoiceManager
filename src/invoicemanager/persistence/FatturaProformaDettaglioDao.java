@@ -1,13 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.AltroDatoGestionale;
-import invoicemanager.model.Contratto;
-import invoicemanager.model.Convenzione;
-import invoicemanager.model.FatturaCollegata;
-import invoicemanager.model.FatturaProformaDettaglio;
-import invoicemanager.model.Ordine;
-import invoicemanager.model.Ricezione;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +9,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import invoicemanager.model.AltroDatoGestionale;
+import invoicemanager.model.Contratto;
+import invoicemanager.model.Convenzione;
+import invoicemanager.model.FatturaCollegata;
+import invoicemanager.model.FatturaProformaDettaglio;
+import invoicemanager.model.Ordine;
+import invoicemanager.model.Ricezione;
+import invoicemanager.utils.Utils;
 
 public class FatturaProformaDettaglioDao {
 	private Connection c;

@@ -1,18 +1,18 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class TipoPagamento{
 	private String codiceTipoPagamento; //(10) NOT NULL
 	private String descrizione; //(100) NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public TipoPagamento(String codiceTipoPagamento){
 		this.codiceTipoPagamento = codiceTipoPagamento;
 	}
 
-	public TipoPagamento(String codiceTipoPagamento, String descrizione, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+	public TipoPagamento(String codiceTipoPagamento, String descrizione, Timestamp dataInserimento,
+			Timestamp dataUltimaModifica) {
 		this.codiceTipoPagamento = codiceTipoPagamento;
 		this.descrizione = descrizione;
 		this.dataInserimento = dataInserimento;
@@ -35,19 +35,19 @@ public class TipoPagamento{
 		this.descrizione = descrizione;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

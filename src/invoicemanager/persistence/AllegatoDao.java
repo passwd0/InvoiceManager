@@ -1,6 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Allegato;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +8,8 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Allegato;
 
 public class AllegatoDao {
 	private Connection c;

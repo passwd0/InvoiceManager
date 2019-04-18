@@ -1,7 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Ricezione;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +9,9 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Ricezione;
+import invoicemanager.utils.Utils;
 
 public class RicezioneDao {
 	private Connection c;

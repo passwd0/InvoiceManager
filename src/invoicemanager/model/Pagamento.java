@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Pagamento {
 		private String codicePagamento; //(4) NOT NULL
@@ -12,8 +12,8 @@ public class Pagamento {
 		private int numeroScadenze; //  NULL
 		private float sconto; //  NULL
 		private boolean scadenzaIVAPrimaRata; // NULL
-		private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-		private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+		private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+		private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public Pagamento(String codicePagamento){
 		this.codicePagamento = codicePagamento;
@@ -21,7 +21,7 @@ public class Pagamento {
 
 	public Pagamento(String codicePagamento, String descrizione, Stato stato, TipoPagamento tipoPagamento,
 			boolean indicatoreScadenzaAVista, String giornoMese, int numeroGiorni, int numeroScadenze, float sconto,
-			boolean scadenzaIVAPrimaRata, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			boolean scadenzaIVAPrimaRata, Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.codicePagamento = codicePagamento;
 		this.descrizione = descrizione;
 		this.stato = stato;
@@ -122,19 +122,19 @@ public class Pagamento {
 		this.scadenzaIVAPrimaRata = scadenzaIVAPrimaRata;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

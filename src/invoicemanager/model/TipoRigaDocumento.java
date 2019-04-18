@@ -1,18 +1,18 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class TipoRigaDocumento{
 	private String codiceTipoRigaDocumento; //(4) COLLATE Latin1_General_CI_AS NOT NULL,
 	private String descrizione; //(50) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL,
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL,
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL,
 
 	public TipoRigaDocumento(String codiceTipoRigaDocumento){
 		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
 	}
 
-	public TipoRigaDocumento(String codiceTipoRigaDocumento, String descrizione, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+	public TipoRigaDocumento(String codiceTipoRigaDocumento, String descrizione, Timestamp dataInserimento,
+			Timestamp dataUltimaModifica) {
 		this.codiceTipoRigaDocumento = codiceTipoRigaDocumento;
 		this.descrizione = descrizione;
 		this.dataInserimento = dataInserimento;
@@ -35,19 +35,19 @@ public class TipoRigaDocumento{
 		this.descrizione = descrizione;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 }

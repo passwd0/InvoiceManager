@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.BancaGlobale;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.BancaGlobale;
 
 public class BancaGlobaleDao {
 	private Connection c;
@@ -40,8 +39,8 @@ public class BancaGlobaleDao {
 		ps.setString(13, a.getCodiceConto());
 		ps.setString(14, a.getIndirizzo());
 		ps.setString(15, a.getCap());
-		ps.setTimestamp(16, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(17, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(16, a.getDataInserimento());
+		ps.setTimestamp(17, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -106,14 +105,8 @@ public class BancaGlobaleDao {
 				String codiceCIN = rs.getString("codiceCIN");
 				String codiceCINEur = rs.getString("codiceCINEur");
 				String paese = rs.getString("paese");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				String iban = rs.getString("iban");
 				String swift = rs.getString("swift");
 				String codiceConto = rs.getString("codiceConto");

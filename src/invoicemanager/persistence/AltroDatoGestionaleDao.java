@@ -1,7 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.AltroDatoGestionale;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +8,9 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.AltroDatoGestionale;
+import invoicemanager.utils.Utils;
 
 public class AltroDatoGestionaleDao {
 	private Connection c;

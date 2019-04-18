@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class IndirizzoGeografico {
 	private String codiceIndirizzo; //(50) NOT NULL		//serial
@@ -13,8 +13,8 @@ public class IndirizzoGeografico {
 	private String descrizione; //(100) NULL
 	private boolean indicatoreIndirizzoDefault = true; // NULL		//cliente
 	private String codiceMinistero; //(50) NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 	
 
 	public IndirizzoGeografico(String codiceIndirizzo, String codiceConto){
@@ -24,8 +24,8 @@ public class IndirizzoGeografico {
 
 	public IndirizzoGeografico(String codiceIndirizzo, String codiceConto, String via, String provincia, String cap,
 			String citta, String codiceNazione, String codiceTipoIndirizzo, String descrizione,
-			boolean indicatoreIndirizzoDefault, String codiceMinistero, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+			boolean indicatoreIndirizzoDefault, String codiceMinistero, Timestamp dataInserimento,
+			Timestamp dataUltimaModifica) {
 		this.codiceIndirizzo = codiceIndirizzo;
 		this.codiceConto = codiceConto;
 		this.via = via;
@@ -105,19 +105,19 @@ public class IndirizzoGeografico {
 		this.codiceTipoIndirizzo = codiceTipoIndirizzo;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

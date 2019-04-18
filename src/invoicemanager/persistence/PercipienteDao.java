@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Percipiente;
-import invoicemanager.model.Stato;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Percipiente;
+import invoicemanager.model.Stato;
 
 public class PercipienteDao {
 	private Connection c;
@@ -33,8 +32,8 @@ public class PercipienteDao {
 		ps.setFloat(5, a.getPercentualeImponibileRitenutaAcconto());
 		ps.setString(6, a.getCodiceTributo());
 		ps.setBoolean(7, a.isAssoggettamentoINPS());
-		ps.setTimestamp(8, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(9, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(8, a.getDataInserimento());
+		ps.setTimestamp(9, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -88,14 +87,8 @@ public class PercipienteDao {
 				float percentualeImponibileRitenutaAcconto = rs.getFloat("percentualeImponibileRitenutaAcconto");
 				String codiceTributo = rs.getString("codiceTributo");
 				boolean assoggettamentoINPS = rs.getBoolean("assoggettamentoINPS");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				Percipiente percipiente = new Percipiente(codicePercipiente, descrizione, stato, aliquotaRitenutaAcconto, percentualeImponibileRitenutaAcconto, codiceTributo, assoggettamentoINPS, dataInserimento, dataUltimaModifica);
 

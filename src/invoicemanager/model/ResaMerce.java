@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class ResaMerce{
 	private String codiceResa; //(4) NOT NULL
@@ -8,16 +8,16 @@ public class ResaMerce{
 	private float percentualeAddebito; //  NULL
 	private float importoMinimo; // (19, 5) NULL
 	private boolean indicatoreProvvigione; // NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public ResaMerce(String CodiceResa){
 		this.codiceResa = CodiceResa;
 	}
 
 	public ResaMerce(String codiceResa, String descrizione, Stato stato, float percentualeAddebito,
-		float importoMinimo, boolean indicatoreProvvigione, LocalDateTime dataInserimento,
-		LocalDateTime dataUltimaModifica) {
+		float importoMinimo, boolean indicatoreProvvigione, Timestamp dataInserimento,
+		Timestamp dataUltimaModifica) {
 	this.codiceResa = codiceResa;
 	this.descrizione = descrizione;
 	this.stato = stato;
@@ -76,19 +76,19 @@ public class ResaMerce{
 		this.indicatoreProvvigione = indicatoreProvvigione;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

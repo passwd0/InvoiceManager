@@ -1,7 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.OrdineDettaglio;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.OrdineDettaglio;
+import invoicemanager.utils.Utils;
 
 public class OrdineDettaglioDao {
 	private Connection c;
@@ -61,8 +61,8 @@ public class OrdineDettaglioDao {
 			ps.setBoolean(34, a.isIndicatoreOrdineTrading());
 			ps.setDate(35, Utils.convertToDatabaseColumn(a.getDataInizioSchedulatore()));
 			ps.setString(36, a.getCodiceArticoloBis());
-			ps.setTimestamp(37, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(38, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(37, a.getDataInserimento());
+			ps.setTimestamp(38, a.getDataUltimaModifica());
 
 
 			res = ps.executeUpdate();
@@ -204,14 +204,8 @@ public class OrdineDettaglioDao {
 				boolean indicatoreOrdineTrading = rs.getBoolean("indicatoreOrdineTrading");
 				LocalDate dataInizioSchedulatore = Utils.convertToEntityAttribute(rs.getDate("dataInizioSchedulatore"));
 				String codiceArticoloBis = rs.getString("codiceArticoloBis");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				OrdineDettaglio ordineDettaglio = new OrdineDettaglio(numeroOrdine, dataOrdine, numeroRigaOrdine, codiceTipoRigaDocumento, codiceMagazzino, codiceArticolo, quantitaConsegnata, indicatoreEvasione, descrizione, dataConsegna, quantita, codiceUnitaMisura, prezzo, codiceIva, codiceContropartitaContabile, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, descrizioneAggiuntiva, indicatoreCoordinamento, indicatoreOrdineDaFatturare, quantitaVariata, numeroPreventivo, numeroRigaPreventivo, dataPreventivo, quantitaEvasa, indicatoreEvasionePreventivi, indicatoreEvasioneRigheNote, indicatoreNoConferma, dataConsegnaSchedulatore, dataConsegnaProposta, indicatoreBloccato, indicatoreOrdineTrading, dataInizioSchedulatore, codiceArticoloBis, dataInserimento, dataUltimaModifica);
 	

@@ -1,18 +1,18 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class TipoBento{
 	private String codiceTipoBento; //(2) NOT NULL
 	private String descrizione; //(50) NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public TipoBento(String codiceTipoBento){
 		this.codiceTipoBento = codiceTipoBento;
 	}
 
-	public TipoBento(String codiceTipoBento, String descrizione, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+	public TipoBento(String codiceTipoBento, String descrizione, Timestamp dataInserimento,
+			Timestamp dataUltimaModifica) {
 		this.codiceTipoBento = codiceTipoBento;
 		this.descrizione = descrizione;
 		this.dataInserimento = dataInserimento;
@@ -35,19 +35,19 @@ public class TipoBento{
 		this.descrizione = descrizione;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 }

@@ -1,6 +1,6 @@
 package invoicemanager.model;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class ListinoPersonalizzato implements Listino {
 	private String codiceListinoPersonalizzato;
@@ -13,7 +13,7 @@ public class ListinoPersonalizzato implements Listino {
 	private String noteInterne; //(200) NULL
 	private int numeroDecimali; //  NULL
 	private float scontoCliente; //  NULL
-	private LocalDateTime dataAggiornamento; //  NULL
+	private Timestamp dataAggiornamento; //  NULL
 	private float scontoArticolo; //  NULL
 	private float scontoPagamento; //  NULL
 	private String codiceDivisa; //(4) NOT NULL
@@ -27,8 +27,8 @@ public class ListinoPersonalizzato implements Listino {
 	private boolean opzionePercentualeProvvigione; //  NULL
 	private boolean opzioneNoteEsterne; //  NULL
 	private boolean opzioneNoteInterne; //  NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public ListinoPersonalizzato(String codiceCliente, String codiceArticolo, String codiceDivisa){
 		this.codiceCliente = codiceCliente;
@@ -38,12 +38,12 @@ public class ListinoPersonalizzato implements Listino {
 	
 	public ListinoPersonalizzato(String codiceListinoPersonalizzato, String codiceCliente, String codiceArticolo,
 			String variante, float prezzo, float provvigione, String noteEsterne, String noteInterne,
-			int numeroDecimali, float scontoCliente, LocalDateTime dataAggiornamento, float scontoArticolo,
+			int numeroDecimali, float scontoCliente, Timestamp dataAggiornamento, float scontoArticolo,
 			float scontoPagamento, String codiceDivisa, GruppoMerceologico gruppoMerceologico,
 			LocalDate dataInizioValidita, LocalDate dataFineValidita, boolean opzioneGruppi,
 			boolean opzioneScontoClienti, boolean opzioneScontoArticolo, boolean opzioneScontoPagamento,
 			boolean opzionePercentualeProvvigione, boolean opzioneNoteEsterne, boolean opzioneNoteInterne,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.codiceListinoPersonalizzato = codiceListinoPersonalizzato;
 		this.codiceCliente = codiceCliente;
 		this.codiceArticolo = codiceArticolo;
@@ -158,11 +158,11 @@ public class ListinoPersonalizzato implements Listino {
 		this.scontoCliente = scontoCliente;
 	}
 
-	public LocalDateTime getDataAggiornamento() {
+	public Timestamp getDataAggiornamento() {
 		return dataAggiornamento;
 	}
 
-	public void setDataAggiornamento(LocalDateTime dataAggiornamento) {
+	public void setDataAggiornamento(Timestamp dataAggiornamento) {
 		this.dataAggiornamento = dataAggiornamento;
 	}
 
@@ -198,19 +198,19 @@ public class ListinoPersonalizzato implements Listino {
 		this.gruppoMerceologico = gruppoMerceologico;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

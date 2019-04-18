@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class GruppoMerceologico{
 	private String codiceGruppoMerceologico; //(4) NOT NULL
@@ -8,16 +8,16 @@ public class GruppoMerceologico{
 	private float sconto; //  NULL
 	private float percentualeProvvigione; //  NULL
 	private int numeroPezziConfezione; //  NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public GruppoMerceologico(String codiceGruppoMerceologico){
 		this.codiceGruppoMerceologico = codiceGruppoMerceologico;
 	}
 
 	public GruppoMerceologico(String codiceGruppoMerceologico, String descrizione, Stato stato, float sconto,
-			float percentualeProvvigione, int numeroPezziConfezione, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+			float percentualeProvvigione, int numeroPezziConfezione, Timestamp dataInserimento,
+			Timestamp dataUltimaModifica) {
 		this.codiceGruppoMerceologico = codiceGruppoMerceologico;
 		this.descrizione = descrizione;
 		this.stato = stato;
@@ -76,19 +76,19 @@ public class GruppoMerceologico{
 		this.numeroPezziConfezione = numeroPezziConfezione;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 }

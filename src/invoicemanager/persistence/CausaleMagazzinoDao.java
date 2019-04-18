@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.CausaleMagazzino;
-import invoicemanager.model.Stato;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.CausaleMagazzino;
+import invoicemanager.model.Stato;
 
 public class CausaleMagazzinoDao {
 	private Connection c;
@@ -57,8 +56,8 @@ public class CausaleMagazzinoDao {
 		ps.setBoolean(29, a.isIndicatoreDistinta());
 		ps.setString(30, a.getNote());
 		ps.setBoolean(31, a.isIndicatoreLotti());
-		ps.setTimestamp(32, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(33, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(32, a.getDataInserimento());
+		ps.setTimestamp(33, a.getDataUltimaModifica());
 
 		res = ps.executeUpdate();
 		ps.close();
@@ -160,14 +159,8 @@ public class CausaleMagazzinoDao {
 				boolean indicatoreOrdineFornitore = rs.getBoolean("indicatoreOrdineFornitore");
 				boolean indicatoreDistinta = rs.getBoolean("indicatoreDistinta");
 				String note = rs.getString("note");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				boolean indicatoreLotti = rs.getBoolean("indicatoreLotti");
 				
 				CausaleMagazzino causaleMagazzino = new CausaleMagazzino(codiceCausaleMagazzino, descrizione, 

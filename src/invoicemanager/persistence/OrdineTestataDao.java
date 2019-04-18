@@ -1,9 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.OrdineDettaglio;
-import invoicemanager.model.OrdineTestata;
-import invoicemanager.model.StatoAvanzamento;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,10 +7,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import invoicemanager.model.OrdineDettaglio;
+import invoicemanager.model.OrdineTestata;
+import invoicemanager.model.StatoAvanzamento;
+import invoicemanager.utils.Utils;
 
 public class OrdineTestataDao {
 	private Connection c;
@@ -67,8 +67,8 @@ public class OrdineTestataDao {
 			ps.setString(37, a.getRevisione());
 			ps.setString(38, a.getAttenzione());
 			ps.setBoolean(39, a.isIndicatoreOrdineTrading());
-			ps.setTimestamp(40, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(41, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(40, a.getDataInserimento());
+			ps.setTimestamp(41, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 			ps.close();
@@ -216,14 +216,8 @@ public class OrdineTestataDao {
 				String attenzione = rs.getString("attenzione");
 				boolean indicatoreOrdineTrading = rs.getBoolean("indicatoreOrdineTrading");
 				List<OrdineDettaglio> ordineDettagli = lista.stream().filter(x->x.getNumeroOrdine()==numeroOrdine).collect(Collectors.toList());
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-					dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-					dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				OrdineTestata ordineTestata = new OrdineTestata(numeroOrdine, dataOrdine, statoAvanzamento, codiceClienteFatturazione, descrizione, codiceEsenzioneIva, codiceAgente, percentualeProvvigione, percentualeSconto, percentualeScontoPagamento, numeroCopieFattura, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, codiceListino, codiceResa, codiceVettore, codiceCausale, codicePagamento, codiceBanca, dataConsegna, causaleTrasporto, codiceDivisa, indicatoreConsegnaParziale, indicatoreRaggruppamentoConsegne, codiceAgenteVecchio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, loginInserimento, loginModifica, codiceLingua, revisione, attenzione, indicatoreOrdineTrading, ordineDettagli, dataInserimento, dataUltimaModifica);
 

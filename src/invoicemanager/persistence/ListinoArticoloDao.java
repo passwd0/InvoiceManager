@@ -1,7 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.ListinoArticolo;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.ListinoArticolo;
+import invoicemanager.utils.Utils;
 
 public class ListinoArticoloDao {
 	private Connection c;
@@ -33,8 +33,8 @@ public class ListinoArticoloDao {
 		ps.setInt(5, a.getNumeroDecimali());
 		ps.setDate(6, Utils.convertToDatabaseColumn(a.getDataDecorrenza()));
 		ps.setDate(7, Utils.convertToDatabaseColumn(a.getDataValidita()));
-		ps.setTimestamp(8, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(9, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(8, a.getDataInserimento());
+		ps.setTimestamp(9, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -89,14 +89,8 @@ public class ListinoArticoloDao {
 				int numeroDecimali = rs.getInt("numeroDecimali");
 				LocalDate dataDecorrenza = Utils.convertToEntityAttribute(rs.getDate("dataDecorrenza"));
 				LocalDate dataValidita = Utils.convertToEntityAttribute(rs.getDate("dataValidita"));
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				ListinoArticolo listinoArticolo = new ListinoArticolo(codiceArticolo, progressivo, codiceDivisa, prezzo, numeroDecimali, dataDecorrenza, dataValidita, dataInserimento, dataUltimaModifica);
 

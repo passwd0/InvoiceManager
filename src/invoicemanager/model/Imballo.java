@@ -1,15 +1,15 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Imballo{
 	private String codiceImballo; //(4) NOT NULL
 	private String descrizione; //(100) NULL
 	private Stato stato = Stato.DISPONIBILE; // (1) COLLATE Latin1_General_CI_AS NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 		
-	public Imballo(String codiceImballo, String descrizione, Stato stato, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+	public Imballo(String codiceImballo, String descrizione, Stato stato, Timestamp dataInserimento,
+			Timestamp dataUltimaModifica) {
 		this.codiceImballo = codiceImballo;
 		this.descrizione = descrizione;
 		this.stato = stato;
@@ -45,19 +45,19 @@ public class Imballo{
 		this.stato = stato;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

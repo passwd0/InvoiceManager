@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.AreaGeografica;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.AreaGeografica;
 
 public class AreaGeograficaDao {
 	private Connection c;
@@ -29,8 +28,8 @@ public class AreaGeograficaDao {
 			ps.setString(3, a.getArea());
 			ps.setString(4, a.getRegione());
 			ps.setString(5, a.getProvincia());
-			ps.setTimestamp(6, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(7, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(6, a.getDataInserimento());
+			ps.setTimestamp(7, a.getDataUltimaModifica());
 	
 			res = ps.executeUpdate();
 			ps.close();
@@ -82,14 +81,8 @@ public class AreaGeograficaDao {
 				String area = rs.getString("area");
 				String regione = rs.getString("regione");
 				String provincia = rs.getString("provincia");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				AreaGeografica areaGeografica = new AreaGeografica(codiceArea, nazione, area, regione, provincia, dataInserimento, dataUltimaModifica);
 
 				listareaGeografica.add(areaGeografica);

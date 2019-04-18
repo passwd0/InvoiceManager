@@ -1,6 +1,6 @@
 package invoicemanager.model;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Scadenze{
 	private String codiceConto; //(30) COLLATE Latin1_General_CI_AS NOT NULL,
@@ -34,8 +34,8 @@ public class Scadenze{
 	private String codiceDivisa; //(4) COLLATE Latin1_General_CI_AS NULL,
 	private LocalDate dataRegistrazione; //  NULL,
 	private float importoAbbuono; //  NULL,
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL,
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL,
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL,
 	private String descrizioneAggiuntiva; //(100) COLLATE Latin1_General_CI_AS NULL,
 	private boolean indicatoreFattureProforma; // COLLATE Latin1_General_CI_AS NULL,
 	private float importoRimborsiCpap; // 
@@ -58,7 +58,7 @@ public class Scadenze{
 			String codiceIVAInSospensione, float importoPartita, float impostaIVAInSospensione,
 			float imponibileIVAInSospensione, int numeroGiornaleIVA, String tipoRitenutaAcconto,
 			LocalDate dataAutorizzazionePagamento, String codiceDivisa, LocalDate dataRegistrazione,
-			float importoAbbuono, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
+			float importoAbbuono, Timestamp dataInserimento, Timestamp dataUltimaModifica,
 			String descrizioneAggiuntiva, boolean indicatoreFattureProforma, float importoRimborsiCpap) {
 		this.codiceConto = codiceConto;
 		this.codiceTipoPagamento = codiceTipoPagamento;
@@ -346,19 +346,19 @@ public class Scadenze{
 		this.importoAbbuono = importoAbbuono;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

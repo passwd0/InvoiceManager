@@ -1,19 +1,19 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class StatoFattura{
 	private boolean indicatoreStatoAvanzamento; // COLLATE Latin1_General_CI_AS NOT NULL,
 	private boolean tipoDocumento; // 
 	private String descrizione; //(50) COLLATE Latin1_General_CI_AS NULL,
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL,
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL,
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL,
 
 	public StatoFattura(boolean indicatoreStatoAvanzamento){
 		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
 	}
 
 	public StatoFattura(boolean indicatoreStatoAvanzamento, boolean tipoDocumento, String descrizione,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
 		this.tipoDocumento = tipoDocumento;
 		this.descrizione = descrizione;
@@ -45,19 +45,19 @@ public class StatoFattura{
 		this.descrizione = descrizione;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 }

@@ -3,7 +3,7 @@ package invoicemanager.model;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,7 +34,7 @@ public class FatturaDettaglio {
 	private boolean indicatoreNoConferma;
 	private String codiceMagazzino;
 	private int numeroDdt;
-	private LocalDateTime dataDdt;
+	private Timestamp dataDdt;
 	private int numeroRigaDdt;
 	private String codicePercipiente;
 	private String codiceCassaPrevidenziale;
@@ -47,8 +47,8 @@ public class FatturaDettaglio {
 	private List<Ricezione> ricezioni;
 	private List<FatturaCollegata> fattureCollegate;
 	private List<AltroDatoGestionale> altriDatiGestionali;
-	private LocalDateTime dataInserimento = LocalDateTime.now();
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now();
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis());
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis());
 
 	public FatturaDettaglio(int numeroFattura, LocalDate dataFattura, int numeroRigaFattura) {
 		super();
@@ -63,11 +63,11 @@ public class FatturaDettaglio {
 			float quantita, float prezzo, String codiceIva, String codiceContropartitaContabile,
 			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
 			float percentualeScontoPagamento, String codiceUnitaMisura, String serialNumber,
-			boolean indicatoreNoConferma, String codiceMagazzino, int numeroDdt, LocalDateTime dataDdt,
+			boolean indicatoreNoConferma, String codiceMagazzino, int numeroDdt, Timestamp dataDdt,
 			int numeroRigaDdt, String codicePercipiente, String codiceCassaPrevidenziale, String codiceCdc,
 			String contoRicavoUsato, String ricavoUsato, List<Ordine> ordini, List<Contratto> contratti,
 			List<Convenzione> convenzioni, List<Ricezione> ricezioni, List<FatturaCollegata> fattureCollegate,
-			List<AltroDatoGestionale> altriDatiGestionali, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			List<AltroDatoGestionale> altriDatiGestionali, Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
@@ -339,11 +339,11 @@ public class FatturaDettaglio {
 		this.numeroDdt = numeroDdt;
 	}
 
-	public LocalDateTime getDataDdt() {
+	public Timestamp getDataDdt() {
 		return dataDdt;
 	}
 
-	public void setDataDdt(LocalDateTime dataDdt) {
+	public void setDataDdt(Timestamp dataDdt) {
 		this.dataDdt = dataDdt;
 	}
 
@@ -395,19 +395,19 @@ public class FatturaDettaglio {
 		this.ricavoUsato = ricavoUsato;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

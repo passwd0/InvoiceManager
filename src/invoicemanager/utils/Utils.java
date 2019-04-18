@@ -2,6 +2,7 @@ package invoicemanager.utils;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -23,6 +24,10 @@ public class Utils {
 	public static List<Integer> listaSezionali = new ArrayList<>(Arrays.asList(1,2,3,4,5));
 	
 	public Utils() {}
+	
+	public static String toString(Timestamp timestamp) {
+		return new SimpleDateFormat("dd/MM/yyyy").format(timestamp);
+	}
 	
 	public static Timestamp toTimestamp(LocalDateTime datetime) {
 		if (datetime == null)

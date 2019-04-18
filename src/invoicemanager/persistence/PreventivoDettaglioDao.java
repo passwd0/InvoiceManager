@@ -1,7 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.PreventivoDettaglio;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.PreventivoDettaglio;
+import invoicemanager.utils.Utils;
 
 public class PreventivoDettaglioDao {
 	private Connection c;
@@ -46,8 +46,8 @@ public class PreventivoDettaglioDao {
 				ps.setFloat(18, a.getPercentualeScontoArticolo());
 				ps.setFloat(19, a.getPercentualeScontoPagamento());
 				ps.setString(20, a.getCodiceMagazzino());
-				ps.setTimestamp(21, Utils.toTimestamp(a.getDataInserimento()));
-				ps.setTimestamp(22, Utils.toTimestamp(a.getDataUltimaModifica()));
+				ps.setTimestamp(21, a.getDataInserimento());
+				ps.setTimestamp(22, a.getDataUltimaModifica());
 		
 			res = ps.executeUpdate();
 				ps.close();
@@ -128,14 +128,8 @@ public class PreventivoDettaglioDao {
 				float percentualeScontoArticolo = rs.getFloat("percentualeScontoArticolo");
 				float percentualeScontoPagamento = rs.getFloat("percentualeScontoPagamento");
 				String codiceMagazzino = rs.getString("codiceMagazzino");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-					dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-					dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				PreventivoDettaglio preventivoDettaglio = new PreventivoDettaglio(numeroPreventivo, numeroRigaPreventivo, dataPreventivo, codiceTipoRigaDocumento, codiceArticolo, quantitaArticolo, quantitaConsegnata, quantitaDaConsegnare, descrizione, descrizioneAggiuntiva, dataConsegna, codiceUnitaMisura, prezzo, codiceIVA, codiceControparte, percentualeProvvigione, percentualeScontoCliente, percentualeScontoArticolo, percentualeScontoPagamento, codiceMagazzino, dataInserimento, dataUltimaModifica);
 

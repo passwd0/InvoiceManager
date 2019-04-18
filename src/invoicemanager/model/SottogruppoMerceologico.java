@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class SottogruppoMerceologico{
 	private String codiceSottogruppoMerceologico; //(4) NOT NULL
@@ -7,8 +7,8 @@ public class SottogruppoMerceologico{
 	private Stato stato = Stato.DISPONIBILE; // NULL
 	private float sconto; //  NULL
 	private float percentualeProvvigione; //  NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 	private String loginInserimento; //(30) NULL
 
 	public SottogruppoMerceologico(String codiceSottogruppoMerceologico){
@@ -16,7 +16,7 @@ public class SottogruppoMerceologico{
 	}
 
 	public SottogruppoMerceologico(String codiceSottogruppoMerceologico, String descrizione, Stato stato,
-			float sconto, float percentualeProvvigione, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica,
+			float sconto, float percentualeProvvigione, Timestamp dataInserimento, Timestamp dataUltimaModifica,
 			String loginInserimento) {
 		this.codiceSottogruppoMerceologico = codiceSottogruppoMerceologico;
 		this.descrizione = descrizione;
@@ -68,19 +68,19 @@ public class SottogruppoMerceologico{
 		this.percentualeProvvigione = percentualeProvvigione;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.PianoConto;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.PianoConto;
 
 public class PianoContoDao {
 	private Connection c;
@@ -36,8 +35,8 @@ public class PianoContoDao {
 		ps.setString(9, a.getCodiceDivisa());
 		ps.setString(10, a.getCodiceBancaBonifico());
 		ps.setBoolean(11, a.isContoBanca());
-		ps.setTimestamp(12, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(13, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(12, a.getDataInserimento());
+		ps.setTimestamp(13, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -99,14 +98,8 @@ public class PianoContoDao {
 				String codiceDivisa = rs.getString("codiceDivisa");
 				String codiceBancaBonifico = rs.getString("codiceBancaBonifico");
 				boolean contoBanca = rs.getBoolean("contoBanca");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				PianoConto pianoConto = new PianoConto(codiceConto, descrizione, tipo, codiceClassificazione, darePeriodo, averePeriodo, dareProgressivo, avereProgressivo, codiceDivisa, codiceBancaBonifico, contoBanca, dataInserimento, dataUltimaModifica);
 

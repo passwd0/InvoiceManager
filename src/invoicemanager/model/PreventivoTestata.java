@@ -1,6 +1,6 @@
 package invoicemanager.model;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class PreventivoTestata {
 	private int numeroPreventivo; //  NOT NULL
@@ -40,8 +40,8 @@ public class PreventivoTestata {
 	private String provinciaSpedizione; //(30) NULL
 	private String codiceNazioneSpedizione; //(10) NULL
 	private String loginInserimento; //(30) NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public PreventivoTestata(int numeroPreventivo, LocalDate dataPreventivo){
 		this.numeroPreventivo = numeroPreventivo;
@@ -57,8 +57,8 @@ public class PreventivoTestata {
 			float cambio, String numeroFax, String venditore, boolean indicatoreAddebitoBolli,
 			boolean indicatoreAddebitoSpeseIncasso, String note, String codiceClienteSpedizione, String nomeSpedizione,
 			String indirizzoSpedizione, String capSpedizione, String cittaSpedizione, String provinciaSpedizione,
-			String codiceNazioneSpedizione, String loginInserimento, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+			String codiceNazioneSpedizione, String loginInserimento, Timestamp dataInserimento,
+			Timestamp dataUltimaModifica) {
 		this.numeroPreventivo = numeroPreventivo;
 		this.dataPreventivo = dataPreventivo;
 		this.indicatoreStatoAvanzamento = indicatoreStatoAvanzamento;
@@ -324,19 +324,19 @@ public class PreventivoTestata {
 		this.indicatoreAddebitoSpeseIncasso = indicatoreAddebitoSpeseIncasso;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

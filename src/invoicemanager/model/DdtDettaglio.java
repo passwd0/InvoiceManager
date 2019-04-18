@@ -1,11 +1,11 @@
 package invoicemanager.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class DdtDettaglio {
 	private int numeroDDT; //												x
-	private LocalDateTime dataDDT; //										x
+	private Timestamp dataDDT; //										x
 	private int numeroRigaDDT; //NOT NULL									x
 	private String codiceTipoRigaDocumento;	//								----
 	private String codiceArticolo;	//										x
@@ -31,17 +31,17 @@ public class DdtDettaglio {
 	private boolean indicatorePrelevatoVendita; //] [varchar](1) COLLATE Latin1_General_CI_AS NULL,
 	private String pesoLordo; //[PesoLordo] [varchar](50) COLLATE Latin1_General_CI_AS NULL
 	private int idDdtTestata; //																	x
-	private LocalDateTime DataInserimento; //NULL
-	private LocalDateTime DataUltimaModifica; //NULL
+	private Timestamp DataInserimento; //NULL
+	private Timestamp DataUltimaModifica; //NULL
 	
-	public DdtDettaglio(int numeroDDT, LocalDateTime dataDDT, int numeroRigaDDT, String codiceTipoRigaDocumento,
+	public DdtDettaglio(int numeroDDT, Timestamp dataDDT, int numeroRigaDDT, String codiceTipoRigaDocumento,
 			String codiceArticolo, String codiceMagazzino, float costo, int numeroOrdine, int numeroRigaOrdine,
 			LocalDate dataOrdine, float quantitaDaConsegnare, boolean indicatoreEvasione, String descrizione,
 			float quantita, float prezzo, String codiceIva, String codiceContropartitaContabile,
 			float percentualeProvvigione, float percentualeScontoCliente, float percentualeScontoArticolo,
 			float percentualeScontoPagamento, String descrizioneAggiuntiva, String codiceUnitaMisura,
 			String serialNumber, boolean indicatorePrelevatoVendita, String pesoLordo, 
-			int idDdtTestata, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			int idDdtTestata, Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.numeroDDT = numeroDDT;
 		this.dataDDT = dataDDT;
 		this.numeroRigaDDT = numeroRigaDDT;
@@ -73,11 +73,11 @@ public class DdtDettaglio {
 		this.idDdtTestata = idDdtTestata;
 	}
 
-	public LocalDateTime getDataDDT() {
+	public Timestamp getDataDDT() {
 		return dataDDT;
 	}
 
-	public void setDataDDT(LocalDateTime dataDDT) {
+	public void setDataDDT(Timestamp dataDDT) {
 		this.dataDDT = dataDDT;
 	}
 
@@ -89,7 +89,7 @@ public class DdtDettaglio {
 		this.numeroDDT = numeroDDT;
 	}
 
-	public DdtDettaglio(int numeroDDT, int numeroRigaDDT, LocalDateTime dataDDT) {
+	public DdtDettaglio(int numeroDDT, int numeroRigaDDT, Timestamp dataDDT) {
 		this.numeroRigaDDT = numeroRigaDDT;
 	}
 	
@@ -225,16 +225,16 @@ public class DdtDettaglio {
 	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
 	}
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return DataInserimento;
 	}
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		DataInserimento = dataInserimento;
 	}
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return DataUltimaModifica;
 	}
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		DataUltimaModifica = dataUltimaModifica;
 	}
 	

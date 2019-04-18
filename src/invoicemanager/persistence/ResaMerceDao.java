@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.ResaMerce;
-import invoicemanager.model.Stato;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.ResaMerce;
+import invoicemanager.model.Stato;
 
 public class ResaMerceDao {
 	private Connection c;
@@ -31,8 +30,8 @@ public class ResaMerceDao {
 			ps.setFloat(4, a.getPercentualeAddebito());
 			ps.setFloat(5, a.getImportoMinimo());
 			ps.setBoolean(6, a.isIndicatoreProvvigione());
-			ps.setTimestamp(7, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(8, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(7, a.getDataInserimento());
+			ps.setTimestamp(8, a.getDataUltimaModifica());
 
 	
 			res = ps.executeUpdate();
@@ -113,14 +112,8 @@ public class ResaMerceDao {
 				float percentualeAddebito = rs.getFloat("percentualeAddebito");
 				float importoMinimo = rs.getFloat("importoMinimo");
 				boolean indicatoreProvvigione = rs.getBoolean("indicatoreProvvigione");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				ResaMerce resaMerce = new ResaMerce(codiceResa, descrizione, stato, percentualeAddebito, importoMinimo, indicatoreProvvigione, dataInserimento, dataUltimaModifica);
 

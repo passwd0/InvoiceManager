@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class BancaGlobale {
 	private String codiceBanca; //(4) COLLATE Latin1_General_CI_AS NOT NULL,
@@ -17,8 +17,8 @@ public class BancaGlobale {
 	private String codiceConto; //(30) COLLATE Latin1_General_CI_AS NULL,
 	private String indirizzo; //(2000) COLLATE Latin1_General_CI_AS NULL,
 	private String cap; //(2000) COLLATE Latin1_General_CI_AS
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL,
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL,
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL,
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL,
 
 
 
@@ -33,7 +33,7 @@ public class BancaGlobale {
 	public BancaGlobale(String codiceBanca, String descrizione, String codiceABI,
 			String codiceCAB, String localita, String provincia, String numeroContoCorrente, String codiceCIN,
 			String codiceCINEur, String paese, String iban,
-			String swift, String codiceConto, String indirizzo, String cap, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			String swift, String codiceConto, String indirizzo, String cap, Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.codiceBanca = codiceBanca;
 		this.descrizione = descrizione;
 		this.codiceABI = codiceABI;
@@ -153,22 +153,22 @@ public class BancaGlobale {
 	}
 
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

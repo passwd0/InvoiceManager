@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.CapItaliano;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.CapItaliano;
 
 public class CapItalianoDao {
 	private Connection c;
@@ -32,8 +31,8 @@ public class CapItalianoDao {
 		ps.setString(5, a.getNazione());
 		ps.setString(6, a.getCodiceISTAT());
 		ps.setString(7, a.getCodiceCAB());
-		ps.setTimestamp(8, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(9, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(8, a.getDataInserimento());
+		ps.setTimestamp(9, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -87,14 +86,8 @@ public class CapItalianoDao {
 				String nazione = rs.getString("nazione");
 				String codiceISTAT = rs.getString("codiceISTAT");
 				String codiceCAB = rs.getString("codiceCAB");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				CapItaliano capItaliano = new CapItaliano(id, cap, comune, provincia, nazione, codiceISTAT, codiceCAB, dataInserimento, dataUltimaModifica);
 
 				listcapItaliano.add(capItaliano);

@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class PianoConto {
 	private String codiceConto; //(30) NOT NULL
@@ -13,8 +13,8 @@ public class PianoConto {
 	private String codiceDivisa; //(4) NULL
 	private String codiceBancaBonifico; //(4) NULL
 	private boolean contoBanca; 
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 	
 	public PianoConto(String codiceConto){
 		this.codiceConto = codiceConto;
@@ -22,8 +22,8 @@ public class PianoConto {
 
 	public PianoConto(String codiceConto, String descrizione, boolean tipo, String codiceClassificazione,
 			float darePeriodo, float averePeriodo, float dareProgressivo, float avereProgressivo, String codiceDivisa,
-			String codiceBancaBonifico, boolean contoBanca, LocalDateTime dataInserimento,
-			LocalDateTime dataUltimaModifica) {
+			String codiceBancaBonifico, boolean contoBanca, Timestamp dataInserimento,
+			Timestamp dataUltimaModifica) {
 		this.codiceConto = codiceConto;
 		this.descrizione = descrizione;
 		this.tipo = tipo;
@@ -119,19 +119,19 @@ public class PianoConto {
 		this.codiceBancaBonifico = codiceBancaBonifico;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 

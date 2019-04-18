@@ -1,5 +1,16 @@
 package invoicemanager.persistence;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import invoicemanager.model.Agente;
 import invoicemanager.model.Banca;
 import invoicemanager.model.Cliente;
@@ -17,17 +28,6 @@ import invoicemanager.model.TerzoIntermediario;
 import invoicemanager.model.TipoCliente;
 import invoicemanager.model.Vettore;
 import invoicemanager.utils.Utils;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class ClienteDao {
 	private Connection c;
@@ -96,8 +96,8 @@ public class ClienteDao {
 			ps.setInt(53, a.getCodiceStabileOrganizzazione());
 			ps.setInt(54, a.getCodiceRappresentanteFiscale());
 			ps.setInt(55, a.getCodiceTerzoIntermediario());
-			ps.setTimestamp(56, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(57, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(56, a.getDataInserimento());
+			ps.setTimestamp(57, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 			ps.close();
@@ -291,14 +291,8 @@ public class ClienteDao {
 				RappresentanteFiscale rappresentanteFiscale = listaRappresentanteFiscale.stream().filter(x->x.getCodice()==codiceRappresentanteFiscale).findFirst().orElse(null);
 				int codiceTerzoIntermediario = rs.getInt("codiceTerzoIntermediario");
 				TerzoIntermediario terzoIntermediario = listaTerzoIntermediario.stream().filter(x->x.getCodice()==codiceTerzoIntermediario).findFirst().orElse(null);
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-					dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-					dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				Cliente cliente = new Cliente(codiceCliente, descrizione, tipoCliente, resaMerce, imballo, raggruppamento, fatturato, fido, partitaIVA, 
 						codiceFiscale, pagamento, banca, numeroFattureEmesse, iva, imponibileNonEsente, imponibileEsente, importoIVA, codiceClassificazione, 
 						agente, percentualeProvvigioneAgente, scontoLegatoProvvigioniAgente, numeroCopieFattura, indicatoreAddebitoSpeseIncasso, 

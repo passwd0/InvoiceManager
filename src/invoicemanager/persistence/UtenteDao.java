@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Utente;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Utente;
 
 public class UtenteDao {
 	private Connection c;
@@ -31,7 +30,7 @@ public class UtenteDao {
 	    	ps.setBoolean(5, a.isTipoUtente());
 	    	ps.setString(6, a.getCognome());
 	    	ps.setString(7, a.getNome());
-	    	ps.setTimestamp(8, Utils.toTimestamp(a.getDataNascita()));
+	    	ps.setTimestamp(8, a.getDataNascita());
 	    	ps.setBoolean(9, a.isSesso());
 	    	ps.setString(10, a.getComuneNascita());
 	    	ps.setString(11, a.getProvinciaNascita());
@@ -54,8 +53,8 @@ public class UtenteDao {
 	    	ps.setBoolean(28, a.isIndicatoreConversione());
 	    	ps.setString(29, a.getPassword());
 	    	ps.setString(30, a.getCap());
-	    	ps.setTimestamp(31, Utils.toTimestamp(a.getDataInserimento()));
-	    	ps.setTimestamp(32, Utils.toTimestamp(a.getDataUltimaModifica()));
+	    	ps.setTimestamp(31, a.getDataInserimento());
+	    	ps.setTimestamp(32, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 			ps.close();
@@ -160,10 +159,7 @@ String subUtente = rs.getString("subUtente");
 boolean tipoUtente = rs.getBoolean("tipoUtente");
 String cognome = rs.getString("cognome");
 String nome = rs.getString("nome");
-ts = rs.getTimestamp("dataNascita");
-LocalDateTime dataNascita = null;
-if (ts != null)
-dataNascita = ts.toLocalDateTime();
+Timestamp dataNascita = rs.getTimestamp("dataNascita");
 boolean sesso = rs.getBoolean("sesso");
 String comuneNascita = rs.getString("comuneNascita");
 String provinciaNascita = rs.getString("provinciaNascita");
@@ -186,14 +182,8 @@ String codiceFiscaleAzienda = rs.getString("codiceFiscaleAzienda");
 boolean indicatoreConversione = rs.getBoolean("indicatoreConversione");
 String password = rs.getString("password");
 String cap = rs.getString("cap");
-ts = rs.getTimestamp("dataInserimento");
-LocalDateTime dataInserimento = null;
-if (ts != null)
-dataInserimento = ts.toLocalDateTime();
-ts = rs.getTimestamp("dataUltimaModifica");
-LocalDateTime dataUltimaModifica = null;
-if (ts != null)
-dataUltimaModifica = ts.toLocalDateTime();
+Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 Utente utente = new Utente(codiceUtente, path, pathSalvataggi, subUtente, tipoUtente, cognome, nome, dataNascita, sesso, comuneNascita, 
 		provinciaNascita, domicilioFiscale, comune, provincia, partitaIVA, attivita, codicePersonaFisica, codiceFiscale, ragioneSociale, 
 		naturaGiuridica, domicilioAzienda, comuneAzienda, provinciaAzienda, partitaIVAAzienda, attivitaAzienda, codiceAzienda, codiceFiscaleAzienda, 

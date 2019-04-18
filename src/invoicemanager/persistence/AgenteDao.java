@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Agente;
-import invoicemanager.model.Controparte;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Agente;
+import invoicemanager.model.Controparte;
 
 public class AgenteDao {
 	private Connection c;
@@ -32,8 +31,8 @@ public class AgenteDao {
 			ps.setBoolean(5, a.isTipoMandato());
 			ps.setString(6, a.getCodiceContabile());
 			ps.setString(7, a.getCodiceControparte());
-			ps.setTimestamp(8, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(9, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(8, a.getDataInserimento());
+			ps.setTimestamp(9, a.getDataUltimaModifica());
 	
 			res = ps.executeUpdate();
 			ps.close();
@@ -54,8 +53,8 @@ public class AgenteDao {
 			ps.setFloat(2, a.getPercentualeProvvigione());
 			ps.setBoolean(3, a.isTipoProvvigione());
 			ps.setBoolean(4, a.isTipoMandato());
-			ps.setTimestamp(5, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(6, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(5, a.getDataInserimento());
+			ps.setTimestamp(6, a.getDataUltimaModifica());
 			
 			ps.executeUpdate();
 			ps.close();
@@ -132,14 +131,8 @@ public class AgenteDao {
 					}
 				}
 
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-					dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-					dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				Agente agente = new Agente(codiceAgente, nome, percentualeProvvigione, tipoProvvigione, tipoMandato, codiceContabile, controparte, dataInserimento, dataUltimaModifica);
 				listAgente.add(agente);
 	         }

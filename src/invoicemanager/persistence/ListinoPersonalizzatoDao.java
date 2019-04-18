@@ -1,8 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.GruppoMerceologico;
-import invoicemanager.model.ListinoPersonalizzato;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,9 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.GruppoMerceologico;
+import invoicemanager.model.ListinoPersonalizzato;
+import invoicemanager.utils.Utils;
 
 public class ListinoPersonalizzatoDao {
 	private Connection c;
@@ -36,7 +36,7 @@ public class ListinoPersonalizzatoDao {
 		ps.setString(7, a.getNoteInterne());
 		ps.setInt(8, a.getNumeroDecimali());
 		ps.setFloat(9, a.getScontoCliente());
-		ps.setTimestamp(10, Utils.toTimestamp(a.getDataAggiornamento()));
+		ps.setTimestamp(10, a.getDataAggiornamento());
 		ps.setFloat(11, a.getScontoArticolo());
 		ps.setFloat(12, a.getScontoPagamento());
 		ps.setString(13, a.getCodiceDivisa());
@@ -50,8 +50,8 @@ public class ListinoPersonalizzatoDao {
 		ps.setBoolean(21, a.isOpzionePercentualeProvvigione());
 		ps.setBoolean(22, a.isOpzioneNoteEsterne());
 		ps.setBoolean(23, a.isOpzioneNoteInterne());
-		ps.setTimestamp(24, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(25, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(24, a.getDataInserimento());
+		ps.setTimestamp(25, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -125,10 +125,7 @@ public class ListinoPersonalizzatoDao {
 				String noteInterne = rs.getString("noteInterne");
 				int numeroDecimali = rs.getInt("numeroDecimali");
 				float scontoCliente = rs.getFloat("scontoCliente");
-				ts = rs.getTimestamp("dataAggiornamento");
-				LocalDateTime dataAggiornamento = null;
-				if (ts != null)
-				dataAggiornamento = ts.toLocalDateTime();
+				Timestamp dataAggiornamento = rs.getTimestamp("dataAggiornamento");
 				float scontoArticolo = rs.getFloat("scontoArticolo");
 				float scontoPagamento = rs.getFloat("scontoPagamento");
 				String codiceDivisa = rs.getString("codiceDivisa");
@@ -143,14 +140,8 @@ public class ListinoPersonalizzatoDao {
 				boolean opzionePercentualeProvvigione = rs.getBoolean("opzionePercentualeProvvigione");
 				boolean opzioneNoteEsterne = rs.getBoolean("opzioneNoteEsterne");
 				boolean opzioneNoteInterne = rs.getBoolean("opzioneNoteInterne");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				ListinoPersonalizzato listinoPersonalizzato = new ListinoPersonalizzato(codiceListinoPersonalizzato, codiceCliente, codiceArticolo, variante, prezzo, provvigione, noteEsterne, noteInterne, numeroDecimali, scontoCliente, dataAggiornamento, scontoArticolo, scontoPagamento, codiceDivisa, gruppoMerceologico, dataInizioValidita, dataFineValidita, opzioneGruppi, opzioneScontoClienti, opzioneScontoArticolo, opzioneScontoPagamento, opzionePercentualeProvvigione, opzioneNoteEsterne, opzioneNoteInterne, dataInserimento, dataUltimaModifica);
 
 				listlistinoPersonalizzato.add(listinoPersonalizzato);

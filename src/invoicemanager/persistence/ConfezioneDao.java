@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Confezione;
-import invoicemanager.model.Stato;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Confezione;
+import invoicemanager.model.Stato;
 
 public class ConfezioneDao {
 	private Connection c;
@@ -35,8 +34,8 @@ public class ConfezioneDao {
 		ps.setFloat(7, a.getVolume());
 		ps.setFloat(8, a.getPesoLordo());
 		ps.setFloat(9, a.getPesoTara());
-		ps.setTimestamp(10, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(11, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(10, a.getDataInserimento());
+		ps.setTimestamp(11, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -94,14 +93,8 @@ public class ConfezioneDao {
 				float volume = rs.getFloat("volume");
 				float pesoLordo = rs.getFloat("pesoLordo");
 				float pesoTara = rs.getFloat("pesoTara");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				Confezione confezione = new Confezione(codiceConfezione, descrizione, stato, larghezza, lunghezza, altezza, volume, pesoLordo, pesoTara, dataInserimento, dataUltimaModifica);
 	

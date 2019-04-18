@@ -1,7 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.PreventivoTestata;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.PreventivoTestata;
+import invoicemanager.utils.Utils;
 
 public class PreventivoTestataDao {
 	private Connection c;
@@ -63,8 +63,8 @@ public class PreventivoTestataDao {
 		ps.setString(35, a.getProvinciaSpedizione());
 		ps.setString(36, a.getCodiceNazioneSpedizione());
 		ps.setString(37, a.getLoginInserimento());
-		ps.setTimestamp(38, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(39, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(38, a.getDataInserimento());
+		ps.setTimestamp(39, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -179,14 +179,8 @@ public class PreventivoTestataDao {
 			String provinciaSpedizione = rs.getString("provinciaSpedizione");
 			String codiceNazioneSpedizione = rs.getString("codiceNazioneSpedizione");
 			String loginInserimento = rs.getString("loginInserimento");
-			ts = rs.getTimestamp("dataInserimento");
-			LocalDateTime dataInserimento = null;
-			if (ts != null)
-			dataInserimento = ts.toLocalDateTime();
-			ts = rs.getTimestamp("dataUltimaModifica");
-			LocalDateTime dataUltimaModifica = null;
-			if (ts != null)
-			dataUltimaModifica = ts.toLocalDateTime();
+			Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+			Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 			
 			PreventivoTestata preventivoTestata = new PreventivoTestata(numeroPreventivo, dataPreventivo, indicatoreStatoAvanzamento, dataConsegna, dataValidita, periodoValidita, indicatoreUtilizzoDataValidita, codiceCliente, attenzione, oggetto, riferimentoInterno, numeroInterno, codiceIVA, codiceAgente, codiceResa, codiceVettore, codicePagamento, codiceBanca, codiceCausale, codiceCausalePrelievo, codiceListino, descrizioneOrdine, codiceDivisa, cambio, numeroFax, venditore, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, note, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, loginInserimento, dataInserimento, dataUltimaModifica);
 

@@ -1,7 +1,5 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Scadenze;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Scadenze;
+import invoicemanager.utils.Utils;
 
 public class ScadenzeDao {
 	private Connection c;
@@ -57,8 +57,8 @@ public class ScadenzeDao {
 		ps.setString(29, a.getCodiceDivisa());
 		ps.setDate(30, Utils.convertToDatabaseColumn(a.getDataRegistrazione()));
 		ps.setFloat(31, a.getImportoAbbuono());
-		ps.setTimestamp(32, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(33, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(32, a.getDataInserimento());
+		ps.setTimestamp(33, a.getDataUltimaModifica());
 		ps.setString(34, a.getDescrizioneAggiuntiva());
 		ps.setBoolean(35, a.isIndicatoreFattureProforma());
 		ps.setFloat(36, a.getImportoRimborsiCpap());
@@ -167,14 +167,8 @@ public class ScadenzeDao {
 				String codiceDivisa = rs.getString("codiceDivisa");
 				LocalDate dataRegistrazione = Utils.convertToEntityAttribute(rs.getDate("dataRegistrazione"));
 				float importoAbbuono = rs.getFloat("importoAbbuono");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				String descrizioneAggiuntiva = rs.getString("descrizioneAggiuntiva");
 				boolean indicatoreFattureProforma = rs.getBoolean("indicatoreFattureProforma");
 				float importoRimborsiCpap = rs.getFloat("importoRimborsiCpap");

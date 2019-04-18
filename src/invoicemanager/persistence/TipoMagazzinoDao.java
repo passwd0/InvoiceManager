@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.TipoMagazzino;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.TipoMagazzino;
 
 public class TipoMagazzinoDao {
 	private Connection c;
@@ -27,8 +26,8 @@ public class TipoMagazzinoDao {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO TipoMagazzino VALUES (?, ?, ?, ?)");
 		ps.setBoolean(1, a.isCodiceTipoMagazzino());
 		ps.setString(2, a.getDescrizione());
-		ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(4, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(3, a.getDataInserimento());
+		ps.setTimestamp(4, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -72,14 +71,8 @@ public class TipoMagazzinoDao {
 
 				boolean codiceTipoMagazzino = rs.getBoolean("codiceTipoMagazzino");
 				String descrizione = rs.getString("descrizione");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				TipoMagazzino tipoMagazzino = new TipoMagazzino(codiceTipoMagazzino, descrizione, dataInserimento, dataUltimaModifica);
 				listtipoMagazzino.add(tipoMagazzino);

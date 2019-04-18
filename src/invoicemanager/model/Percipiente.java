@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class Percipiente {
 	private String codicePercipiente; //(4) NOT NULL
@@ -9,8 +9,8 @@ public class Percipiente {
 	private float percentualeImponibileRitenutaAcconto; //  NULL
 	private String codiceTributo; //(10) NULL
 	private boolean assoggettamentoINPS; // NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public Percipiente(String codicePercipiente){
 		this.codicePercipiente = codicePercipiente;
@@ -18,7 +18,7 @@ public class Percipiente {
 
 	public Percipiente(String codicePercipiente, String descrizione, Stato codiceStato, float aliquotaRitenutaAcconto,
 			float percentualeImponibileRitenutaAcconto, String codiceTributo, boolean assoggettamentoINPS,
-			LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.codicePercipiente = codicePercipiente;
 		this.descrizione = descrizione;
 		this.codiceStato = codiceStato;
@@ -86,19 +86,19 @@ public class Percipiente {
 		this.assoggettamentoINPS = assoggettamentoINPS;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 }

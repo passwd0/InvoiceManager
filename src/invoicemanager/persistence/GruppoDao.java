@@ -1,16 +1,15 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Gruppo;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Gruppo;
 
 public class GruppoDao {
 	private Connection c;
@@ -27,8 +26,8 @@ public class GruppoDao {
 		PreparedStatement ps = c.prepareStatement("INSERT INTO Gruppo VALUES (?, ?, ?, ?)");
 		ps.setString(1, a.getCodiceGruppo());
 		ps.setString(2, a.getDescrizione());
-		ps.setTimestamp(3, Utils.toTimestamp(a.getDataInserimento()));
-		ps.setTimestamp(4, Utils.toTimestamp(a.getDataUltimaModifica()));
+		ps.setTimestamp(3, a.getDataInserimento());
+		ps.setTimestamp(4, a.getDataUltimaModifica());
 
 			res = ps.executeUpdate();
 				ps.close();
@@ -72,14 +71,8 @@ public class GruppoDao {
 
 				String codiceGruppo = rs.getString("codiceGruppo");
 				String descrizione = rs.getString("descrizione");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-				dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-				dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				Gruppo gruppo = new Gruppo(codiceGruppo, descrizione, dataInserimento, dataUltimaModifica);
 

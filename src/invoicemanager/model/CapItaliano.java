@@ -1,5 +1,5 @@
 package invoicemanager.model;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class CapItaliano{
 	private int id; //  NOT NULL
@@ -9,15 +9,15 @@ public class CapItaliano{
 	private String nazione; //(30) NULL
 	private String codiceISTAT; //(20) NULL
 	private String codiceCAB; //(20) NULL
-	private LocalDateTime dataInserimento = LocalDateTime.now(); //  NULL
-	private LocalDateTime dataUltimaModifica = LocalDateTime.now(); //  NULL
+	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis()); //  NULL
+	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis()); //  NULL
 
 	public CapItaliano(int id){
 		this.id = id;
 	}
 
 	public CapItaliano(int id, String cap, String comune, String provincia, String nazione, String codiceISTAT,
-			String codiceCAB, LocalDateTime dataInserimento, LocalDateTime dataUltimaModifica) {
+			String codiceCAB, Timestamp dataInserimento, Timestamp dataUltimaModifica) {
 		this.id = id;
 		this.cap = cap;
 		this.comune = comune;
@@ -85,19 +85,19 @@ public class CapItaliano{
 		this.codiceCAB = codiceCAB;
 	}
 
-	public LocalDateTime getDataInserimento() {
+	public Timestamp getDataInserimento() {
 		return dataInserimento;
 	}
 
-	public void setDataInserimento(LocalDateTime dataInserimento) {
+	public void setDataInserimento(Timestamp dataInserimento) {
 		this.dataInserimento = dataInserimento;
 	}
 
-	public LocalDateTime getDataUltimaModifica() {
+	public Timestamp getDataUltimaModifica() {
 		return dataUltimaModifica;
 	}
 
-	public void setDataUltimaModifica(LocalDateTime dataUltimaModifica) {
+	public void setDataUltimaModifica(Timestamp dataUltimaModifica) {
 		this.dataUltimaModifica = dataUltimaModifica;
 	}
 }

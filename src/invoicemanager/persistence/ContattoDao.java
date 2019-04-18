@@ -1,17 +1,16 @@
 package invoicemanager.persistence;
 
-import invoicemanager.model.Contatto;
-import invoicemanager.model.TipoDettaglio;
-import invoicemanager.utils.Utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import invoicemanager.model.Contatto;
+import invoicemanager.model.TipoDettaglio;
 
 public class ContattoDao {
 	private Connection c;
@@ -29,8 +28,8 @@ public class ContattoDao {
 			ps.setString(1, a.getCodiceConto());
 			ps.setString(2, a.getTipoDettaglio().name());
 			ps.setString(3, a.getNumero());
-			ps.setTimestamp(4, Utils.toTimestamp(a.getDataInserimento()));
-			ps.setTimestamp(5, Utils.toTimestamp(a.getDataUltimaModifica()));
+			ps.setTimestamp(4, a.getDataInserimento());
+			ps.setTimestamp(5, a.getDataUltimaModifica());
 	
 			res = ps.executeUpdate();
 			ps.close();
@@ -77,14 +76,8 @@ public class ContattoDao {
 				String codiceConto = rs.getString("codiceConto");
 				TipoDettaglio tipoDettaglio = TipoDettaglio.valueOf(rs.getString("tipoDettaglio"));
 				String dettaglio = rs.getString("dettaglio");
-				ts = rs.getTimestamp("dataInserimento");
-				LocalDateTime dataInserimento = null;
-				if (ts != null)
-					dataInserimento = ts.toLocalDateTime();
-				ts = rs.getTimestamp("dataUltimaModifica");
-				LocalDateTime dataUltimaModifica = null;
-				if (ts != null)
-					dataUltimaModifica = ts.toLocalDateTime();
+				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
+				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
 				
 				Contatto telefono = new Contatto(id, codiceConto, tipoDettaglio, dettaglio, dataInserimento, dataUltimaModifica);
 				
