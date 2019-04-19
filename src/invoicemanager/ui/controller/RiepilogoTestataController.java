@@ -121,7 +121,7 @@ public class RiepilogoTestataController implements Initializable {
 
 		Cliente cliente = combobox_cliente.getValue();
 		if (cliente == null) {
-			Controller.alert("Attenzione", "Cliente", "Il cliente selezionato non esiste");
+			Controller.warning("Attenzione", "Cliente", "Il cliente selezionato non esiste");
 			return;
 		}
 	

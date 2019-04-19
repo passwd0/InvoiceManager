@@ -304,8 +304,8 @@ public class TabViewController implements Initializable {
     private ObservableList<String> oDivisa;				//sono per tutti uguali quindi immodificabili
     public ObservableList<ArticoloMagazzino> oArticolo;
     public ObservableList<ListinoArticolo> oArticoloPrezzo;
-    public ObservableList<TableCorpo> oTableCorpo;
     public ObservableList<UnitaMisura> oUnitaMisura;
+    public ObservableList<TableCorpo> oTableCorpo;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

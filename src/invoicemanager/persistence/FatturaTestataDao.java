@@ -236,7 +236,6 @@ public class FatturaTestataDao {
 				boolean indicatoreFatturazioneDifferita = rs.getBoolean("indicatoreFatturazioneDifferita");
 				boolean indicatoreEmail = rs.getBoolean("indicatoreEmail");
 				boolean indicatorePa = rs.getBoolean("indicatorePa");
-				List<FatturaDettaglio> fatturadettaglio = listaFatturaDettaglio.stream().filter(x->x.getNumeroFattura()==numeroFatturazione).collect(Collectors.toList());
 				float speseTrasporto = rs.getFloat("speseTrasporto");
 				float speseImballo = rs.getFloat("speseImballo");
 				float speseIncasso = rs.getFloat("speseIncasso");
@@ -249,7 +248,7 @@ public class FatturaTestataDao {
 				List<Allegato> allegati = listaAllegato.stream().filter(x->x.getIdFatturaTestata()== idFatturaTestata).collect(Collectors.toList());
 				Timestamp dataInserimento = rs.getTimestamp("dataInserimento");
 				Timestamp dataUltimaModifica = rs.getTimestamp("dataUltimaModifica");
-				FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, statoAvanzamento, sezionale, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, fatturadettaglio, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza, allegati);
+				FatturaTestata fatturaTestata = new FatturaTestata(numeroFatturazione, dataFattura, statoAvanzamento, sezionale, codiceClienteFatturazione, codiceEsenzioneIva, codiceAgente, codiceCausale, codiceCausalePrelievi, percentualeSconto, percentualeScontoPagamento, percentualeProvvigione, descrizione, indicatoreAddebitoBolli, indicatoreAddebitoSpeseIncasso, indicatoreScaricoMagazzino, codiceListino, codiceResa, codiceVettore, indicatoreFatturaAccompagnatoria, codicePagamento, codiceBanca, codiceImballo, pesoColli, numeroColli, acconto, codiceDivisa, cambio, codiceClienteSpedizione, nomeSpedizione, indirizzoSpedizione, capSpedizione, cittaSpedizione, provinciaSpedizione, codiceNazioneSpedizione, note, indicatoreFatturazioneDifferita, indicatoreEmail, indicatorePa, speseTrasporto, speseImballo, speseIncasso, speseBolli, omaggi, totalePagato, dataScadenza, importoScadenza, allegati);
 
 				listfatturaTestata.add(fatturaTestata);
 	         }

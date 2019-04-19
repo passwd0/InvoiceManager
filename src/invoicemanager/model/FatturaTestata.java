@@ -47,7 +47,7 @@ public class FatturaTestata {
 	private boolean indicatoreFatturazioneDifferita;
 	private boolean indicatoreEmail;
 	private boolean indicatorePa;
-	private List<FatturaDettaglio> fatturadettaglio;
+//	private List<FatturaDettaglio> fatturadettaglio;
 	private float speseTrasporto;
 	private float speseImballo;
 	private float speseIncasso;
@@ -70,8 +70,7 @@ public class FatturaTestata {
 			String codiceDivisa, float cambio, String codiceClienteSpedizione, String nomeSpedizione,
 			String indirizzoSpedizione, String capSpedizione, String cittaSpedizione, String provinciaSpedizione,
 			String codiceNazioneSpedizione, String note, boolean indicatoreFatturazioneDifferita,
-			boolean indicatoreEmail, boolean indicatorePa, List<FatturaDettaglio> fatturadettaglio,
-			float speseTrasporto, float speseImballo, float speseIncasso, float speseBolli, float omaggi,
+			boolean indicatoreEmail, boolean indicatorePa, float speseTrasporto, float speseImballo, float speseIncasso, float speseBolli, float omaggi,
 			float totalePagato, Date dataScadenza, float importoScadenza, List<Allegato> allegati) {
 		this.numeroFatturazione = numeroFatturazione;
 		this.dataFattura = dataFattura;
@@ -112,7 +111,6 @@ public class FatturaTestata {
 		this.indicatoreFatturazioneDifferita = indicatoreFatturazioneDifferita;
 		this.indicatoreEmail = indicatoreEmail;
 		this.indicatorePa = indicatorePa;
-		this.fatturadettaglio = fatturadettaglio;
 		this.speseTrasporto = speseTrasporto;
 		this.speseImballo = speseImballo;
 		this.speseIncasso = speseIncasso;
@@ -209,14 +207,6 @@ public class FatturaTestata {
 
 	public void setTotalePagato(float totalePagato) {
 		this.totalePagato = totalePagato;
-	}
-
-	public List<FatturaDettaglio> getFatturadettaglio() {
-		return fatturadettaglio;
-	}
-
-	public void setFatturadettaglio(List<FatturaDettaglio> fatturadettaglio) {
-		this.fatturadettaglio = fatturadettaglio;
 	}
 
 	public int getNumeroFatturazione() {

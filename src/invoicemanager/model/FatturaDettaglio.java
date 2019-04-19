@@ -52,11 +52,15 @@ public class FatturaDettaglio {
 	private Timestamp dataInserimento = new Timestamp(System.currentTimeMillis());
 	private Timestamp dataUltimaModifica = new Timestamp(System.currentTimeMillis());
 
-	public FatturaDettaglio(int numeroFattura, Date dataFattura, int numeroRigaFattura) {
+	public FatturaDettaglio(int numeroFattura, Date dataFattura, int numeroRigaFattura, 
+			String codiceArticolo, float quantita, float prezzo) {
 		super();
 		this.numeroFattura = numeroFattura;
 		this.dataFattura = dataFattura;
 		this.numeroRigaFattura = numeroRigaFattura;
+		this.codiceArticolo = codiceArticolo;
+		this.quantita = quantita;
+		this.prezzo = prezzo;
 	}
 
 	public FatturaDettaglio(int numeroFattura, Date dataFattura, int numeroRigaFattura, int sezionale,

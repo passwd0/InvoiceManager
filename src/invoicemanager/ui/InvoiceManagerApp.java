@@ -13,7 +13,7 @@ public class InvoiceManagerApp extends Application {
 	public void start(Stage stage) throws Exception {
 		controller = new Controller(); // arg: loadAll()
 		if (controller == null) {
-			Controller.alert("Errore", "Errore nella creazione del controller", "Uscendo");
+			Controller.error("Errore", "Controller", "Errore nella creazione del controller");
 			System.exit(1);
 		}
 		stage.setTitle("Fatturazione");
