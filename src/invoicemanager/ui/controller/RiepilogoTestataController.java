@@ -2,8 +2,12 @@ package invoicemanager.ui.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -196,9 +200,40 @@ public class RiepilogoTestataController implements Initializable {
     }
 	
 	@FXML
-    private void textfield_fattura_onAction(KeyEvent event) {
+    private void textfield_fattura_onKeyPressed(KeyEvent event) {
 		if (event.getCode() == KeyCode.ENTER) {
-			//caricare tutti i campi
+			int numeroFatturazione = -1;
+			try {
+				numeroFatturazione = Integer.parseInt(textfield_fattura.getText());
+			} catch (NumberFormatException e) {
+				Controller.error("Errore", "Fattura Testata", "Inserire un numero di fatturazione");
+				return;
+			}
+			Calendar calendar = new GregorianCalendar();
+			int y2;
+			try {
+				Date ld = Utils.fromString(InvoiceManagerGrid.footerViewController.textfield_anno.getText());
+				calendar.setTime(ld);
+				y2 = calendar.get(Calendar.YEAR);
+			} catch (ParseException e) {
+				Controller.error("Errore", "Fattura Testata", "Inserire un anno di riferimento");
+				return;
+			}
+			
+			FatturaTestata fatturaTestata = null;
+			for (FatturaTestata ft : DataManager.loadFatturaTestata()) {
+				calendar.setTime(ft.getDataFattura());
+				int y1 = calendar.get(Calendar.YEAR);
+				if (ft.getCodiceClienteFatturazione().equals(textfield_fattura.getText()) && y1 == y2)
+					fatturaTestata = ft;
+			}
+			if (fatturaTestata == null) {
+				Controller.error("Errore", "Fattura Testata", "Non e' stata trovata questa fattura");
+				return;
+			}
+			
+			//settare tutti i parametri della fattura selezionata
+					
 		}
     }
 	

@@ -3,12 +3,9 @@ package invoicemanager.ui.controller;
 import java.net.URL;
 import java.sql.Date;
 import java.text.ParseException;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-import invoicemanager.model.Allegato;
-import invoicemanager.model.ArticoloMagazzino;
 import invoicemanager.model.CausaleMagazzino;
 import invoicemanager.model.Cliente;
 import invoicemanager.model.FatturaDettaglio;
@@ -32,7 +29,7 @@ public class FooterViewController implements Initializable {
     private Button button_prelievodaordinare;
 
     @FXML
-    private TextField textfield_anno;
+    public TextField textfield_anno;
 
     @FXML
     private TextField textfield_n;

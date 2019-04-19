@@ -540,7 +540,7 @@ public class FatturaTestata {
 	public void setStatoAvanzamento(StatoAvanzamento statoAvanzamento) {
 		this.statoAvanzamento = statoAvanzamento;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
