@@ -10,8 +10,24 @@ public class Controller {
 		dm = new DataManager();
 	}
 	
-	public static void alert(String title, String headerMessage, String contentMessage) {
+	public static void error(String title, String headerMessage, String contentMessage) {
 		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle(title);
+		alert.setHeaderText(headerMessage);
+		alert.setContentText(contentMessage);
+		alert.show();
+	}
+	
+	public static void warning(String title, String headerMessage, String contentMessage) {
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setTitle(title);
+		alert.setHeaderText(headerMessage);
+		alert.setContentText(contentMessage);
+		alert.show();
+	}
+	
+	public static void info(String title, String headerMessage, String contentMessage) {
+		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle(title);
 		alert.setHeaderText(headerMessage);
 		alert.setContentText(contentMessage);

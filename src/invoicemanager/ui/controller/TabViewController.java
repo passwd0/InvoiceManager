@@ -362,7 +362,7 @@ public class TabViewController implements Initializable {
 	void combobox_codicespedizione_onShowing(Event event) {
 		Cliente cliente = InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue();
 		if (cliente == null) {
-			Controller.alert("Attenzione", "Codice Spedizione", "Inserire un cliente esistente per procedere");
+			Controller.warning("Attenzione", "Codice Spedizione", "Inserire un cliente esistente per procedere");
 			return;
 		}
 		oCodiceSpedizione.setAll(DataManager.loadIndirizzoGeografico().stream()
@@ -373,7 +373,7 @@ public class TabViewController implements Initializable {
 	void combobox_ordinen_onShowing(Event event) {
 		Cliente cliente = InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue();
 		if (cliente == null) {
-			Controller.alert("Attenzione", "Ordine", "Inserire un cliente esistente per procedere");
+			Controller.warning("Attenzione", "Ordine", "Inserire un cliente esistente per procedere");
 			return;
 		}
 		oOrdineTestata.setAll(
@@ -386,7 +386,7 @@ public class TabViewController implements Initializable {
 	void combobox_bollan_onShowing(Event event) {
 		Cliente cliente = InvoiceManagerGrid.riepilogoTestataController.combobox_cliente.getValue();
 		if (cliente == null) {
-			Controller.alert("Attenzione", "Bolla", "Inserire un cliente esistente per procedere");
+			Controller.warning("Attenzione", "Bolla", "Inserire un cliente esistente per procedere");
 			return;
 		}
 		oDdtTestata.setAll(
@@ -414,7 +414,7 @@ public class TabViewController implements Initializable {
 	void combobox_artprezzo_onShowing(Event event) {
 		ArticoloMagazzino articolo = combobox_articolo.getValue();
 		if (articolo == null) {
-			Controller.alert("Attenzione", "Articolo Prezzo", "Inserire un articolo esistente per procedere");
+			Controller.warning("Attenzione", "Articolo Prezzo", "Inserire un articolo esistente per procedere");
 			return;
 		}
 		oArticoloPrezzo.setAll(articolo.getListiniArticolo());
@@ -479,27 +479,27 @@ public class TabViewController implements Initializable {
 		float artQuantita = 0;
 		float scontoCliente = 0;
 		if (articoloMagazzino == null) {
-			Controller.alert("Errore", "Codice Articolo", "Inserire un codice articolo per inserire un riga");
+			Controller.error("Errore", "Codice Articolo", "Inserire un codice articolo per inserire un riga");
 			return;
 		}
 		try {
 			artQuantita = Float.valueOf(textfield_artquantita.getText());
 		} catch (Exception e) {
-			Controller.alert("Attenzione", "Articolo Quantita'", "Inserire un numero corretto in Articolo Quantita'");
+			Controller.warning("Attenzione", "Articolo Quantita'", "Inserire un numero corretto in Articolo Quantita'");
 			return;
 		}
 		try {
 			scontoCliente = Float.valueOf(textfield_scontocliente.getText());
 		} catch (Exception e) {
-			Controller.alert("Attenzione", "Sconto Cliente'", "Inserire un numero corretto in Sconto Cliente");
+			Controller.warning("Attenzione", "Sconto Cliente'", "Inserire un numero corretto in Sconto Cliente");
 			return;
 		}
 		if (combobox_artprezzo.getValue() == null) {
-			Controller.alert("Attenzione", "Prezzo Articolo", "Inserire un prezzo per l'articolo corrente");
+			Controller.warning("Attenzione", "Prezzo Articolo", "Inserire un prezzo per l'articolo corrente");
 			return;
 		}
 		if (combobox_unitamisura == null) {
-			Controller.alert("Attenzione", "Unita di Misura", "Non e' stata inserita alcuna Unita' di Misura");
+			Controller.warning("Attenzione", "Unita di Misura", "Non e' stata inserita alcuna Unita' di Misura");
 			return;
 		}
 		oTableCorpo.add(new TableCorpo(articoloMagazzino.getCodiceArticolo(), textfield_descr.getText(), artQuantita, combobox_artprezzo.getValue().getPrezzo(), combobox_unitamisura.getValue(), scontoCliente));
@@ -509,12 +509,12 @@ public class TabViewController implements Initializable {
 	void button_modifica_onAction(ActionEvent event) {
 		TableCorpo rowSelected = table_corpo.getSelectionModel().getSelectedItem();
 		if (rowSelected == null) {
-			Controller.alert("Errore", "Fattura Dettaglio", "Non e' stata selzionata alcuna riga");
+			Controller.warning("Attenzione", "Fattura Dettaglio", "Non e' stata selzionata alcuna riga");
 			return;
 		}
 		ArticoloMagazzino articoloSelected = DataManager.loadArticoloMagazzino().stream().filter(a -> a.getCodiceArticolo().equals(rowSelected.getCodiceArticolo())).findFirst().orElse(null);
 		if (articoloSelected == null) {
-			Controller.alert("Errore", "Articolo", "L'articolo selezionato non e' piu' disponibile");
+			Controller.warning("Attenzione", "Articolo", "L'articolo selezionato non e' piu' disponibile");
 			return;
 		}
 		combobox_articolo.setValue(articoloSelected);

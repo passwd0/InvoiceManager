@@ -45,10 +45,10 @@ public class RiepilogoTestataController implements Initializable {
     private Button button_anagrafica;
 
     @FXML
-    private ComboBox<Integer> combobox_sezionale;
+    public ComboBox<Integer> combobox_sezionale;
 
     @FXML
-    private ComboBox<CausaleMagazzino> combobox_causale;
+    public ComboBox<CausaleMagazzino> combobox_causale;
 
     @FXML
     private Button button_decodifica;
@@ -57,13 +57,13 @@ public class RiepilogoTestataController implements Initializable {
     public ComboBox<Cliente> combobox_cliente;
 
     @FXML
-    private TextField textfield_fattura;
+    public TextField textfield_fattura;
 
     @FXML
-    private TextField textfield_fattura_data;
+    public TextField textfield_fattura_data;
 
     @FXML
-    private TextField textfield_causale;
+    public TextField textfield_causale;
 
     @FXML
     private Button button_causali;

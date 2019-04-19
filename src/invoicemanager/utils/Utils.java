@@ -2,6 +2,7 @@ package invoicemanager.utils;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -22,15 +23,21 @@ public class Utils {
 	public static List<String> listaNazioni = new ArrayList<>(Arrays.asList("nazione_a", "nazione_b", "nazione_c"));
 	public static List<String> listaDivise = new ArrayList<>(Arrays.asList("EUR", "USD", "AAA", "BBB"));
 	public static List<Integer> listaSezionali = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
 	public Utils() {}
 	
 	public static String toString(Timestamp timestamp) {
-		return new SimpleDateFormat("dd/MM/yyyy").format(timestamp);
+		return sdf.format(timestamp);
 	}
 	
 	public static String toString(Date date) {
-		return new SimpleDateFormat("dd/MM/yyyy").format(date);
+		return sdf.format(date);
+	}
+	
+	public static Date fromString(String date) throws ParseException {
+		java.util.Date d = sdf.parse(date);
+		return new Date(d.getTime());		
 	}
 	
 	public static Timestamp toTimestamp(LocalDateTime datetime) {
