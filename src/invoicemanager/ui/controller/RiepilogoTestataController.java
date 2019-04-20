@@ -22,6 +22,7 @@ import invoicemanager.model.StatoAvanzamento;
 import invoicemanager.ui.InvoiceManagerGrid;
 import invoicemanager.ui.converter.CausaleMagazzinoConverter;
 import invoicemanager.ui.converter.ClienteConverter;
+import invoicemanager.ui.model.TableCorpo;
 import invoicemanager.utils.Utils;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -202,7 +203,7 @@ public class RiepilogoTestataController implements Initializable {
 	@FXML
     private void textfield_fattura_onKeyPressed(KeyEvent event) {
 		if (event.getCode() == KeyCode.ENTER) {
-			int numeroFatturazione = -1;
+			int numeroFatturazione;
 			try {
 				numeroFatturazione = Integer.parseInt(textfield_fattura.getText());
 			} catch (NumberFormatException e) {
@@ -210,30 +211,40 @@ public class RiepilogoTestataController implements Initializable {
 				return;
 			}
 			Calendar calendar = new GregorianCalendar();
-			int y2;
+			int annoRiferimento;
 			try {
-				Date ld = Utils.fromString(InvoiceManagerGrid.footerViewController.textfield_anno.getText());
-				calendar.setTime(ld);
-				y2 = calendar.get(Calendar.YEAR);
-			} catch (ParseException e) {
+				annoRiferimento = Integer.parseInt(InvoiceManagerGrid.footerViewController.textfield_anno.getText());
+			} catch (NumberFormatException e) {
 				Controller.error("Errore", "Fattura Testata", "Inserire un anno di riferimento");
 				return;
 			}
+			int sezionale = combobox_sezionale.getValue();
 			
-			FatturaTestata fatturaTestata = null;
-			for (FatturaTestata ft : DataManager.loadFatturaTestata()) {
-				calendar.setTime(ft.getDataFattura());
-				int y1 = calendar.get(Calendar.YEAR);
-				if (ft.getCodiceClienteFatturazione().equals(textfield_fattura.getText()) && y1 == y2)
-					fatturaTestata = ft;
-			}
+			FatturaTestata fatturaTestata = DataManager.loadFatturaTestata().stream()
+					.filter(ft -> ft.getAnno() == annoRiferimento &&
+							ft.getNumeroFatturazione() == numeroFatturazione && 
+							ft.getSezionale() == sezionale)
+					.findFirst().orElse(null);
+					
 			if (fatturaTestata == null) {
 				Controller.error("Errore", "Fattura Testata", "Non e' stata trovata questa fattura");
 				return;
 			}
 			
-			//settare tutti i parametri della fattura selezionata
-					
+			/* TESTATA */
+			Cliente cliente = DataManager.loadCliente().stream()
+					.filter(c -> c.getCodiceCliente().equals(fatturaTestata.getCodiceClienteFatturazione()))
+					.findFirst().orElse(null);
+			if (cliente == null) {
+				Controller.error("Errore", "Fattura Testata", "Cliente non trovato");
+				return;
+			}
+			oClienti.setAll(cliente);
+			combobox_cliente.setValue(oClienti.get(0));
+			
+			/* CORPO */
+			
+//			InvoiceManagerGrid.tabViewController.oTableCorpo.addAll(c)
 		}
     }
 	
