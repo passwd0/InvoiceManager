@@ -180,14 +180,10 @@ public class RiepilogoTestataController implements Initializable {
 		InvoiceManagerGrid.tabViewController.oOrdineTestata.setAll(DataManager.loadOrdineTestata().stream()
 				.filter(ot -> ot.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
 				.collect(Collectors.toList()));
-		if (InvoiceManagerGrid.tabViewController.oOrdineTestata.size() > 0)
-			InvoiceManagerGrid.tabViewController.combobox_ordinen.setValue(InvoiceManagerGrid.tabViewController.oOrdineTestata.get(0));
 
 		InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(DataManager.loadDdtTestata().stream()
 				.filter(dt -> dt.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
 				.collect(Collectors.toList()));
-		if (InvoiceManagerGrid.tabViewController.oDdtTestata.size() > 0)
-			InvoiceManagerGrid.tabViewController.combobox_bollan.setValue(InvoiceManagerGrid.tabViewController.oDdtTestata.get(0));
 		
 		InvoiceManagerGrid.tabViewController.textfield_copie.setText(String.valueOf(cliente.getNumeroCopieFattura()));
 
@@ -227,7 +223,7 @@ public class RiepilogoTestataController implements Initializable {
 			int sezionale = combobox_sezionale.getValue();
 			
 			FatturaTestata fatturaTestata = DataManager.loadFatturaTestata().stream()
-					.filter(ft -> ft.getAnno() == annoCorrente &&
+					.filter(ft -> Utils.getYear(ft.getDataFattura()) == annoCorrente &&
 							ft.getNumeroFatturazione() == numeroFatturazione && 
 							ft.getSezionale() == sezionale)
 					.findFirst().orElse(null);
@@ -260,6 +256,20 @@ public class RiepilogoTestataController implements Initializable {
 					.filter(cm -> cm.getCodiceCausaleMagazzino().equals(fatturaTestata.getCodiceCausale())).findFirst().orElse(null);
 			oCausali.setAll(causaleMagazzino);
 			combobox_causale.setValue(oCausali.get(0));
+			
+			// gli ordini sono legati dal dettaglio e non dalla testata -> il combobox non permette di selezionarne piu' di uno... nel caso ci fossero piu' righe dettaglio come si fa?
+//			InvoiceManagerGrid.tabViewController.oOrdineTestata.setAll(DataManager.loadOrdineTestata().stream()
+//					.filter(ot -> ot.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
+//					.collect(Collectors.toList()));
+//			if (InvoiceManagerGrid.tabViewController.oOrdineTestata.size() > 0)
+//				InvoiceManagerGrid.tabViewController.combobox_ordinen.setValue(InvoiceManagerGrid.tabViewController.oOrdineTestata.get(0));
+//
+//			InvoiceManagerGrid.tabViewController.oDdtTestata.setAll(DataManager.loadDdtTestata().stream()
+//					.filter(dt -> dt.getCodiceClienteFatturazione().equals(cliente.getCodiceCliente()))
+//					.collect(Collectors.toList()));
+//			if (InvoiceManagerGrid.tabViewController.oDdtTestata.size() > 0)
+//				InvoiceManagerGrid.tabViewController.combobox_bollan.setValue(InvoiceManagerGrid.tabViewController.oDdtTestata.get(0));
+			
 			
 			/* CORPO */
 			List<TableCorpo> listaTableCorpo = new ArrayList<TableCorpo>();

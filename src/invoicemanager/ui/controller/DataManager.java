@@ -297,6 +297,9 @@ public final class DataManager {
 	public static List<FatturaProformaTestata> loadFatturaProformaTestata() {
 		return new FatturaProformaTestataDao().read();
 	}
+	public static List<FatturaTestata> loadFatturaTestataByNumeroFatturazione(int numeroFatturazione){
+		return new FatturaTestataDao().readByNumeroFatturazione(numeroFatturazione, StatoAvanzamento.values(), loadFatturaDettaglio(), loadAllegato());
+	}
 	public static List<FatturaTestata> loadFatturaTestata() {
 		return new FatturaTestataDao().read(StatoAvanzamento.values(), loadFatturaDettaglio(), loadAllegato());
 	}

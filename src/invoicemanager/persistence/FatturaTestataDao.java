@@ -186,15 +186,24 @@ public class FatturaTestataDao {
 	}
 
 	}
-
-
+	
 	public List<FatturaTestata> read(StatoAvanzamento[] listaStatoAvanzamento, List<FatturaDettaglio> listaFatturaDettaglio, List<Allegato> listaAllegato) {
+		String WHERE = "";
+		return read(WHERE, StatoAvanzamento.values(), listaFatturaDettaglio, listaAllegato);
+	}
+
+	public List<FatturaTestata> readByNumeroFatturazione(int numeroFatturazione, StatoAvanzamento[] listaStatoAvanzamento, List<FatturaDettaglio> listaFatturaDettaglio, List<Allegato> listaAllegato) {
+		String WHERE = "WHERE \"NumeroFatturazione\" = " + numeroFatturazione;
+		return read(WHERE, StatoAvanzamento.values(), listaFatturaDettaglio, listaAllegato);
+	}
+	
+	private List<FatturaTestata> read(String WHERE, StatoAvanzamento[] listaStatoAvanzamento, List<FatturaDettaglio> listaFatturaDettaglio, List<Allegato> listaAllegato) {
 		List<FatturaTestata> listfatturaTestata = new ArrayList<>();
 		Statement stmt;
 
 		try {
 			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM FatturaTestata");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM FatturaTestata " + WHERE);
 	         while ( rs.next() ) {
 
 				int numeroFatturazione = rs.getInt("numeroFatturazione");

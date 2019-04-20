@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -25,7 +27,7 @@ public class Utils {
 	public static List<Integer> listaSezionali = new ArrayList<>(Arrays.asList(1,2,3,4,5));
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	private static SimpleDateFormat sdfDB = new SimpleDateFormat("yyyy-MM-dd");
-
+	private static Calendar calendar = new GregorianCalendar();
 	
 	public Utils() {}
 	
@@ -62,5 +64,10 @@ public class Utils {
     
     public static String toStringDB(Date date) {
     	return sdfDB.format(date);
+    }
+    
+    public static int getYear(Date date) {
+		calendar.setTime(date);
+		return calendar.get(Calendar.YEAR);
     }
 }

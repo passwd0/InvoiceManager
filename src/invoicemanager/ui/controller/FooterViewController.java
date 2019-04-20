@@ -73,6 +73,14 @@ public class FooterViewController implements Initializable {
                 Controller.warning("Attenzione", "Fattura Testata", "Inserire una data di fatturazione");
                 return;
         }
+
+        if (DataManager.loadFatturaTestataByNumeroFatturazione(numeroFatturazione).stream()
+        		.filter(ft -> Utils.getYear(ft.getDataFattura()) == Utils.getYear(dataFattura))
+        		.count() > 0) {
+        	Controller.error("Errore", "Salvataggio Fattura", "Questa fattura e' gia' stata inserita");
+        	return;
+        }
+        
         
         ObservableList<TableCorpo> oTableCorpo = InvoiceManagerGrid.tabViewController.oTableCorpo;
         if (oTableCorpo == null || oTableCorpo.isEmpty()) {
