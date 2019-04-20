@@ -24,6 +24,8 @@ public class Utils {
 	public static List<String> listaDivise = new ArrayList<>(Arrays.asList("EUR", "USD", "AAA", "BBB"));
 	public static List<Integer> listaSezionali = new ArrayList<>(Arrays.asList(1,2,3,4,5));
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private static SimpleDateFormat sdfDB = new SimpleDateFormat("yyyy-MM-dd");
+
 	
 	public Utils() {}
 	
@@ -56,5 +58,9 @@ public class Utils {
         return Optional.ofNullable(date)
           .map(Date::toLocalDate)
           .orElse(null);
+    }
+    
+    public static String toStringDB(Date date) {
+    	return sdfDB.format(date);
     }
 }

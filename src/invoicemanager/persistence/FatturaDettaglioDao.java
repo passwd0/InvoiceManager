@@ -167,14 +167,21 @@ public class FatturaDettaglioDao {
 
 	}
 	
+	public List<FatturaDettaglio> getAllFattureDettaglio(List<Ordine> listaOrdine, List<Contratto> listaContratto, List<Convenzione> listaConvenzione, List<Ricezione> listaRicezione, List<FatturaCollegata> listaFatturaCollegata, List<AltroDatoGestionale> listaAltroDatoGestionale){
+		return read("", listaOrdine, listaContratto, listaConvenzione, listaRicezione, listaFatturaCollegata, listaAltroDatoGestionale);
+	}
+	public List<FatturaDettaglio> getFattureDettaglioByFatturaTestata(int numeroFattura, Date dataFattura, List<Ordine> listaOrdine, List<Contratto> listaContratto, List<Convenzione> listaConvenzione, List<Ricezione> listaRicezione, List<FatturaCollegata> listaFatturaCollegata, List<AltroDatoGestionale> listaAltroDatoGestionale){
+		return read("WHERE \"NumeroFattura\" = "+ numeroFattura + "and \"DataFattura\" = '"+Utils.toStringDB(dataFattura)+"'", listaOrdine, listaContratto, listaConvenzione, listaRicezione, listaFatturaCollegata, listaAltroDatoGestionale);
+	}
 	
-	public List<FatturaDettaglio> read(List<Ordine> listaOrdine, List<Contratto> listaContratto, List<Convenzione> listaConvenzione, List<Ricezione> listaRicezione, List<FatturaCollegata> listaFatturaCollegata, List<AltroDatoGestionale> listaAltroDatoGestionale) {
+	
+	private List<FatturaDettaglio> read(String WHERE, List<Ordine> listaOrdine, List<Contratto> listaContratto, List<Convenzione> listaConvenzione, List<Ricezione> listaRicezione, List<FatturaCollegata> listaFatturaCollegata, List<AltroDatoGestionale> listaAltroDatoGestionale) {
 		List<FatturaDettaglio> listfatturaDettaglio = new ArrayList<>();
 		Statement stmt;
 
 		try {
 			stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM FatturaDettaglio");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM FatturaDettaglio " + WHERE);
 	         while ( rs.next() ) {
 
 				int numeroFattura = rs.getInt("numeroFattura");

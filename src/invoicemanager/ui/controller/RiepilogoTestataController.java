@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 import invoicemanager.model.CausaleMagazzino;
 import invoicemanager.model.Cliente;
 import invoicemanager.model.DdtTestata;
+import invoicemanager.model.FatturaDettaglio;
 import invoicemanager.model.FatturaTestata;
 import invoicemanager.model.IndirizzoGeografico;
 import invoicemanager.model.OrdineTestata;
@@ -36,6 +38,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
@@ -170,6 +173,8 @@ public class RiepilogoTestataController implements Initializable {
 		InvoiceManagerGrid.tabViewController.label_lingua.setText(cliente.getCodiceLingua());
 		
 		InvoiceManagerGrid.tabViewController.checkbox_bolli.setSelected(cliente.isIndicatoreAddebitoSpeseBolli());
+		InvoiceManagerGrid.tabViewController.checkbox_spese.setSelected(cliente.isIndicatoreAddebitoSpeseIncasso());
+
 		InvoiceManagerGrid.tabViewController.textfield_iddest.setText(cliente.getCodiceDestinatarioXml());
 		
 		InvoiceManagerGrid.tabViewController.oOrdineTestata.setAll(DataManager.loadOrdineTestata().stream()
@@ -210,18 +215,19 @@ public class RiepilogoTestataController implements Initializable {
 				Controller.error("Errore", "Fattura Testata", "Inserire un numero di fatturazione");
 				return;
 			}
-			Calendar calendar = new GregorianCalendar();
-			int annoRiferimento;
+			int annoCorrente; 
 			try {
-				annoRiferimento = Integer.parseInt(InvoiceManagerGrid.footerViewController.textfield_anno.getText());
-			} catch (NumberFormatException e) {
-				Controller.error("Errore", "Fattura Testata", "Inserire un anno di riferimento");
+				Calendar calendar = new GregorianCalendar();
+				calendar.setTime(Utils.fromString(textfield_fattura_data.getText()));
+				annoCorrente = calendar.get(Calendar.YEAR);
+			} catch (ParseException e) {
+				Controller.error("Errore", "Fattura Testata", "Inserire un anno");
 				return;
 			}
 			int sezionale = combobox_sezionale.getValue();
 			
 			FatturaTestata fatturaTestata = DataManager.loadFatturaTestata().stream()
-					.filter(ft -> ft.getAnno() == annoRiferimento &&
+					.filter(ft -> ft.getAnno() == annoCorrente &&
 							ft.getNumeroFatturazione() == numeroFatturazione && 
 							ft.getSezionale() == sezionale)
 					.findFirst().orElse(null);
@@ -242,9 +248,27 @@ public class RiepilogoTestataController implements Initializable {
 			oClienti.setAll(cliente);
 			combobox_cliente.setValue(oClienti.get(0));
 			
-			/* CORPO */
+			InvoiceManagerGrid.tabViewController.textfield_percprovcliente.setText(String.valueOf(fatturaTestata.getPercentualeProvvigione()));
+			InvoiceManagerGrid.tabViewController.textfield_scontocliente.setText(String.valueOf(fatturaTestata.getPercentualeSconto()));	//getPercentualeScontoPagamento forse??!?!??
+
+			InvoiceManagerGrid.tabViewController.textfield_listino.setText(String.valueOf(fatturaTestata.getCodiceListino()));
 			
-//			InvoiceManagerGrid.tabViewController.oTableCorpo.addAll(c)
+			InvoiceManagerGrid.tabViewController.checkbox_bolli.setSelected(fatturaTestata.isIndicatoreAddebitoBolli());
+			InvoiceManagerGrid.tabViewController.checkbox_spese.setSelected(fatturaTestata.isIndicatoreAddebitoSpeseIncasso());
+
+			CausaleMagazzino causaleMagazzino = DataManager.loadCausaleMagazzino().stream()
+					.filter(cm -> cm.getCodiceCausaleMagazzino().equals(fatturaTestata.getCodiceCausale())).findFirst().orElse(null);
+			oCausali.setAll(causaleMagazzino);
+			combobox_causale.setValue(oCausali.get(0));
+			
+			/* CORPO */
+			List<TableCorpo> listaTableCorpo = new ArrayList<TableCorpo>();
+			List<FatturaDettaglio> fattureDettaglio = DataManager.loadFatturaDettaglioByFatturaTestata(fatturaTestata);
+			for (FatturaDettaglio fd : fattureDettaglio) {
+				TableCorpo tc = new TableCorpo(fd.getCodiceArticolo(), fd.getDescrizione(), fd.getQuantita(), fd.getPrezzo(), fd.getCodiceUnitaMisura(), fd.getPercentualeScontoCliente());
+				listaTableCorpo.add(tc);
+			}
+			InvoiceManagerGrid.tabViewController.oTableCorpo.setAll(listaTableCorpo);
 		}
     }
 	

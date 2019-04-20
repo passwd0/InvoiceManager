@@ -541,6 +541,12 @@ public class FatturaTestata {
 		this.statoAvanzamento = statoAvanzamento;
 	}
 	
+	public int getAnno() {
+		Calendar calendar = new GregorianCalendar();
+		calendar.setTime(dataFattura);
+		return calendar.get(Calendar.YEAR);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

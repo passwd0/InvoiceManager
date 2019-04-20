@@ -194,7 +194,7 @@ public class TabViewController implements Initializable {
     public ComboBox<ArticoloMagazzino> combobox_articolo;
 
     @FXML
-    public ComboBox<UnitaMisura> combobox_unitamisura;
+    public ComboBox<String> combobox_unitamisura;
 
     @FXML
     public TextField textfield_percpro;
@@ -304,7 +304,7 @@ public class TabViewController implements Initializable {
     private ObservableList<String> oDivisa;				//sono per tutti uguali quindi immodificabili
     public ObservableList<ArticoloMagazzino> oArticolo;
     public ObservableList<ListinoArticolo> oArticoloPrezzo;
-    public ObservableList<UnitaMisura> oUnitaMisura;
+    public ObservableList<String> oUnitaMisura;
     public ObservableList<TableCorpo> oTableCorpo;
 
 	@Override
@@ -345,7 +345,7 @@ public class TabViewController implements Initializable {
 		
 		oUnitaMisura = FXCollections.observableArrayList();
 		combobox_unitamisura.setItems(oUnitaMisura);
-		combobox_unitamisura.setConverter(new UnitaMisuraConverter());
+//		combobox_unitamisura.setConverter(new UnitaMisuraConverter());
 		
 		table_corpocodice.setCellValueFactory(new PropertyValueFactory<TableCorpo, String>("codiceArticolo"));
 		table_corpodescr.setCellValueFactory(new PropertyValueFactory<TableCorpo, String>("descrizione"));
@@ -421,7 +421,7 @@ public class TabViewController implements Initializable {
 	}
 	@FXML 
 	void combobox_unitamisura_onShowing(Event event){
-		oUnitaMisura.setAll(DataManager.loadUnitaMisura());
+		oUnitaMisura.setAll(DataManager.loadUnitaMisura().stream().map(UnitaMisura::getCodiceUnitaMisura).collect(Collectors.toList()));
 	}
 	
 	/* TESTATA */
@@ -526,7 +526,7 @@ public class TabViewController implements Initializable {
 		textfield_artquantita.setText(String.valueOf(rowSelected.getQuantita()));
 		textfield_scontocliente.setText(String.valueOf(rowSelected.getScontoCliente()));
 		combobox_artprezzo.setValue(oArticoloPrezzo.stream().filter(x -> x.getPrezzo() == rowSelected.getPrezzo()).findFirst().orElse(null));
-		combobox_unitamisura.setValue(oUnitaMisura.stream().filter(um -> um.getCodiceUnitaMisura().equals(rowSelected.getUnitaMisura())).findFirst().orElse(null));
+		combobox_unitamisura.setValue(oUnitaMisura.stream().filter(um -> um.equals(rowSelected.getUnitaMisura())).findFirst().orElse(null));
 		oTableCorpo.remove(rowSelected);
 	}
 	@FXML

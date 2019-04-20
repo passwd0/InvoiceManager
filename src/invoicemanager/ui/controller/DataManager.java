@@ -286,7 +286,10 @@ public final class DataManager {
 		return new FatturaCollegataDao().read();
 	}
 	public static List<FatturaDettaglio> loadFatturaDettaglio() {
-		return new FatturaDettaglioDao().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
+		return new FatturaDettaglioDao().getAllFattureDettaglio(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
+	}
+	public static List<FatturaDettaglio> loadFatturaDettaglioByFatturaTestata(FatturaTestata fatturaTestata) {
+		return new FatturaDettaglioDao().getFattureDettaglioByFatturaTestata(fatturaTestata.getNumeroFatturazione(), fatturaTestata.getDataFattura(), loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
 	}
 	public static List<FatturaProformaDettaglio> loadFatturaProformaDettaglio() {
 		return new FatturaProformaDettaglioDao().read(loadOrdine(), loadContratto(), loadConvenzione(), loadRicezione(), loadFatturaCollegata(), loadAltroDatoGestionale());
